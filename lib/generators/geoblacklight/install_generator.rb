@@ -21,5 +21,11 @@ module Geoblacklight
       FileUtils.mkdir_p "spec/fixtures/geoblacklight_schema"
       copy_file "../../../../spec/fixtures/geoblacklight_schema/transformed.json", "spec/fixtures/geoblacklight_schema/transformed.json"
     end
+
+    def add_unique_key
+      inject_into_file 'app/models/solr_document.rb', after: "# self.unique_key = 'id'" do
+        "\n  self.unique_key = 'layer_slug_s'"
+      end
+    end
   end
 end
