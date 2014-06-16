@@ -15,12 +15,12 @@ RSpec::Core::RakeTask.new(:spec)
 desc "Load fixtures"
 task :fixtures => ['engine_cart:generate'] do
   EngineCart.within_test_app do
-    system "rake blacklight_maps:solr:seed RAILS_ENV=test"
+    system "rake geoblacklight:solr:seed RAILS_ENV=test"
   end
 end
 
 desc "Execute Continuous Integration build"
-task :ci => ['engine_cart:generate', 'jetty:clean', 'blacklight_maps:configure_jetty'] do
+task :ci => ['engine_cart:generate', 'jetty:clean', 'geoblacklight:configure_jetty'] do
 
   require 'jettywrapper'
   jetty_params = Jettywrapper.load_config('test')
