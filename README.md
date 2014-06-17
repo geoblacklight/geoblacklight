@@ -2,6 +2,21 @@
 
 TODO: Write a gem description
 
+## Development
+
+Clone the repository
+
+    git clone git@github.com:mejackreed/geoblacklight.git
+
+Download and configure jetty
+
+    rake jetty:download
+    rake geoblacklight:configure_jetty
+
+Create a test app (created at `/spec/internal`)
+
+    rake engine_cart:generate
+
 ## Installation
 
 Add this line to your application's Gemfile:
