@@ -1,3 +1,5 @@
-[submodule "solr_conf/geoblacklight-schema"]
+[submodule "geoblacklight-schema"]
 	path = schema
 	url = https://github.com/sul-dlss/geoblacklight-schema.git
+	branch = master
+
