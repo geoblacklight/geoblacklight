@@ -1,6 +1,7 @@
 require "bundler/gem_tasks"
 
-ZIP_URL = "https://github.com/projectblacklight/blacklight-jetty/archive/v4.6.0.zip"
+BLACKLIGHT_JETTY_VERSION = '4.6.0'
+ZIP_URL = "https://github.com/projectblacklight/blacklight-jetty/archive/v#{BLACKLIGHT_JETTY_VERSION}.zip"
 APP_ROOT = File.dirname(__FILE__)
 
 require 'rspec/core/rake_task'
@@ -36,7 +37,7 @@ end
 namespace :geoblacklight do
   desc "Copies the default SOLR config for the bundled Testing Server"
   task :configure_jetty do
-    FileList['solr_conf/conf/*'].each do |f|
+    FileList['schema/conf/*'].each do |f|
       cp("#{f}", 'jetty/solr/blacklight-core/conf/', :verbose => true)
     end
   end
