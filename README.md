@@ -47,12 +47,22 @@ Clone the repository
 
 Download and configure jetty
 
-    rake jetty:download
+    rake jetty:download jetty:unzip
     rake geoblacklight:configure_jetty
 
 Create a test app (created at `/spec/internal`)
 
     rake engine_cart:generate
+    
+Boot jetty
+
+    rake jetty:start
+    
+Boot GeoBlacklight test app
+
+    cd spec/internal
+    rake geoblacklight:solr:seed
+    rails server
 
 ## Installation
 
