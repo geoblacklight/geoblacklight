@@ -1,12 +1,49 @@
 # Geoblacklight
 
-TODO: Write a gem description
+GeoBlacklight started at Stanford and its goal is to provide a
+world-class discovery platform for geospatial (GIS) holdings. It
+is an open collaborative project aiming to build off of the successes
+of the Blacklight Solr-powered discovery interface and the
+multi-institutional OpenGeoportal federated metadata sharing
+communities. We are currently in a collaborative design phase and
+we're actively looking for community input and development partners.
+More coming soon!
+
+## Features
+
+* Text search with scoring formula
+* Facet by institution, year, publisher, data type, access, format
+* Facet by place, subject
+* Sort by relevance, year, publisher, title, collection
+* Results list map view of bounding boxes
+* Results list view icons and snippets
+* Detail map view for WMS features
+* Detail map view feature inspection
+* Slugs
+* Blacklight bookmarks and history
+* WMS/WFS/WCS links
+
+## TODO
+
+* Spatial search
+* Spatial relevancy
+* MODS display
+* Download KML
+* Download Shapefile / GeoTIFF
+* Clip to map view for download
+* Download Metadata (for non-Stanford, MODS for Stanford)
+* Facet by language, projection, collection
+* Citation and share buttons
+* Login for persistent bookmarks and history
+* Featured datasets and articles
+* FGDC-based conversion of external OGP records
+* MODS-based conversion for Stanford records
 
 ## Development
 
 Clone the repository
 
-    git clone git@github.com:mejackreed/geoblacklight.git
+    git clone --recurse git@github.com:sul-dlss/geoblacklight.git
 
 Download and configure jetty
 
@@ -19,7 +56,7 @@ Create a test app (created at `/spec/internal`)
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this line to your application's `Gemfile`:
 
     gem 'geoblacklight'
 
