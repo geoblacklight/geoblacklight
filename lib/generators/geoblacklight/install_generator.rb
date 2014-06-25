@@ -19,7 +19,7 @@ module Geoblacklight
 
     def fixtures
       FileUtils.mkdir_p "spec/fixtures/geoblacklight_schema"
-      copy_file "../../../../spec/fixtures/geoblacklight_schema/transformed.json", "spec/fixtures/geoblacklight_schema/transformed.json"
+      copy_file "../../../../schema/examples/selected.json", "spec/fixtures/geoblacklight_schema/selected.json"
     end
 
     def add_unique_key
