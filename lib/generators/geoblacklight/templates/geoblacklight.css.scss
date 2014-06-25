@@ -1,0 +1,79 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require leaflet
+ *  require font-awesome XXX broken
+ */
+
+.docView{
+
+}
+
+.text-span{
+  width:100%;
+}
+
+.hide-overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display:block
+}
+
+#map.mapview-map {
+  height: 440px;
+  cursor: crosshair; 
+}
+
+#map.listview-map {
+  height: 485px;
+}
+
+#table-container{
+  overflow:scroll;
+  max-height: 450px;
+}
+
+#control {
+  text-align: center;
+  background: #FFF;
+  position: absolute;
+  left: 24px;
+  top: 120px;
+  height: 200px;
+  width: 28px;
+  border: 1px solid #BBB;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  z-index: 999;
+}
+
+#handle {
+  background: #000;
+  position: absolute;
+  left: -1px;
+  top: 20px;
+  width: 28px;
+  height: 10px;
+}
+
+#bottom {
+  position: absolute;
+  bottom:0px;
+  left: 8px;
+  text-align: center;
+}
+
+#handle:hover {
+  cursor: pointer;
+  background: #444;
+  cursor: ns-resize;
+}
