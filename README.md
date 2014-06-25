@@ -43,7 +43,7 @@ More coming soon!
 
 Clone the repository
 
-    git clone git@github.com:mejackreed/geoblacklight.git
+    git clone --recurse git@github.com:sul-dlss/geoblacklight.git
 
 Download and configure jetty
 
