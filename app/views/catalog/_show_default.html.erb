@@ -1,0 +1,45 @@
+<div class="">
+<small><%= layer_type_image(document['layer_geom_type_s']) %>
+<%= layer_institution_image(document['dct_provenance_s']) %>
+<%= layer_access_image(document['dc_rights_s']) %>
+</small>
+
+  <dl class="dl-horizontal">
+    <% unless document['dc_creator_sm'].nil? %>
+      <dt>Author</dt>
+      <dd><%= document['dc_creator_sm'].join(', ') %>&nbsp;</dd>
+	<% end %>
+    <% unless document['dc_publisher_s'].nil? %>
+      <dt>Publisher</dt>
+      <dd><%= document['dc_publisher_s'] %>&nbsp;</dd>
+	<% end %>
+    <dt>Year</dt>
+    <dd><%= document['solr_year_i'] %>&nbsp;</dd>
+    <dt>Abstract</dt>
+    <dd id=""><%= abstract_truncator(document['dc_description_s']) %>&nbsp;</dd>
+    <% unless document['dct_isPartOf_sm'].nil? %>
+      <dt>Collection</dt>
+      <dd><%= document['dct_isPartOf_sm'].sort.join(', ') %>&nbsp;</dd>
+    <% end %>
+    <% # XXX: parse out of dct_references_s %>
+    <% if document['dct_provenance_s'] == 'Stanford' and not document['dc_identifier_s'].nil? %>
+      <dt>Citation</dt>
+      <dd>
+        <%= link_to document['dc_identifier_s'], document['dc_identifier_s'] %>
+        &nbsp;</dd>
+    <% end %>
+    <% unless document['dct_spatial_sm'].nil? %>
+      <dt>Places</dt>
+      <dd><%= document['dct_spatial_sm'].sort.join(', ') %>&nbsp;</dd>
+    <% end %>
+    <% unless document['dc_subject_sm'].nil? %>
+      <dt>Subjects</dt>
+      <dd><%= document['dc_subject_sm'].sort.join(', ') %>&nbsp;</dd>
+    <% end %>
+    <% unless document['dct_temporal_sm'].nil? %>
+      <dt>Years</dt>
+      <dd><%= document['dct_temporal_sm'].sort.join(', ') %>&nbsp;</dd>
+    <% end %>
+    
+  </dl>
+</div>
