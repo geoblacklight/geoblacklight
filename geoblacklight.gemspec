@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'rails', '~> 4.1.0'
+  spec.add_dependency 'rails', '~> 4.0.0' # Rails 4.1.x has Spring on by default
   spec.add_dependency 'blacklight', '~> 5.4.0'
   spec.add_dependency 'bootstrap-sass', '~> 3.0'
   spec.add_dependency 'leaflet-rails', '~> 0.7.3'
