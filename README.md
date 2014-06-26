@@ -14,30 +14,36 @@ More coming soon!
 * Text search with scoring formula
 * Facet by institution, year, publisher, data type, access, format
 * Facet by place, subject
-* Sort by relevance, year, publisher, title, collection
-* Results list map view of bounding boxes
+* Sort by relevance, year, publisher, title
 * Results list view icons and snippets
 * Detail map view for WMS features
 * Detail map view feature inspection
 * Slugs
+* MODS display
+* Download Shapefile
+* Download KML
+
+## Features to port from alpha
+
+* Results list map view of bounding boxes
 * Blacklight bookmarks and history
 * WMS/WFS/WCS links
 
 ## TODO
 
+* Refactoring
 * Spatial search
 * Spatial relevancy
-* MODS display
-* Download KML
-* Download Shapefile / GeoTIFF
+* Download GeoTIFF
 * Clip to map view for download
 * Download Metadata (for non-Stanford, MODS for Stanford)
 * Facet by language, projection, collection
 * Citation and share buttons
 * Login for persistent bookmarks and history
 * Featured datasets and articles
-* FGDC-based conversion of external OGP records
-* MODS-based conversion for Stanford records
+* geoblacklight-schema
+    * FGDC-based conversion of external OGP records
+    * MODS-based conversion for Stanford records
 
 ## Development
 
@@ -80,7 +86,8 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+1. Populate Solr index with geoblacklight-schema documents
+2. ...
 
 ## Contributing
 
