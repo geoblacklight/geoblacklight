@@ -1,7 +1,7 @@
 require "bundler/gem_tasks"
 
-BLACKLIGHT_JETTY_VERSION = '4.6.0'
-ZIP_URL = "https://github.com/projectblacklight/blacklight-jetty/archive/v#{BLACKLIGHT_JETTY_VERSION}.zip"
+BLACKLIGHT_JETTY_VERSION = '4.7.2'
+ZIP_URL = "https://github.com/drh-stanford/blacklight-jetty/archive/v#{BLACKLIGHT_JETTY_VERSION}.zip"
 APP_ROOT = File.dirname(__FILE__)
 
 require 'rspec/core/rake_task'
