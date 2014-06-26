@@ -1,4 +1,4 @@
-<div class="">
+<div class="geoblacklight-view-panel">
 <small><%= layer_type_image(document['layer_geom_type_s']) %>
 <%= layer_institution_image(document['dct_provenance_s']) %>
 <%= layer_access_image(document['dc_rights_s']) %>
@@ -43,3 +43,25 @@
     
   </dl>
 </div>
+
+<div class='row'>
+  <div class="col-md-8">
+    <div id='map' class='mapview-map'></div>
+    <div id='control'>
+      <div id='handle'></div>
+      <div id='bottom'></div>
+    </div>
+  </div>
+  <div id='table-container' class='col-md-4'><div id='attribute-table' ></div></div>
+</div>
+<br>
+<br>
+<hr/>
+<p align="right"><small>
+<% if @document['dct_provenance_s'] == 'Stanford' %>
+  <a href="<%= @document['dc_identifier_s'] %>.mods">
+  <% else %>
+  <a href="#">
+  <% end %>
+Librarian View</a></small></p>
+<%= javascript_tag "var doc = #{@document.to_json};" %>
