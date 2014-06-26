@@ -1,3 +1,5 @@
+console.log('DEBUG: Inside geoblacklight/mapView.js')
+
 "use strict";
 
 var map, wmsLayer, spinner, mapBbox, alert, layerBbox;
