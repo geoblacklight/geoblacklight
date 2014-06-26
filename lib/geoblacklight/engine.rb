@@ -1,5 +1,6 @@
 require 'blacklight'
 require 'leaflet-rails'
+require 'httparty'
 
 module Geoblacklight
   class Engine < ::Rails::Engine

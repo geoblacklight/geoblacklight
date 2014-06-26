@@ -17,6 +17,12 @@ module Geoblacklight
       copy_file "catalog_controller.rb", "app/controllers/catalog_controller.rb"
     end
 
+    def create_controllers
+      %w{download wms}.each do |k|
+        copy_file "#{k}_controller.rb", "app/controllers/#{k}_controller.rb"
+      end
+    end 
+
     def fixtures
       FileUtils.mkdir_p "spec/fixtures/geoblacklight_schema"
       copy_file "../../../../schema/examples/selected.json", "spec/fixtures/geoblacklight_schema/selected.json"
@@ -27,5 +33,20 @@ module Geoblacklight
         "\n  self.unique_key = 'layer_slug_s'"
       end
     end
+    
+    def inject_routes
+      # route 'devise_for :users'
+      # route 'constraints(:id => /[0-9A-Za-z\-\.\:\_\/]+/) do
+      #          blacklight_for :catalog
+      #          resources :bookmarks
+      #        end'
+      # route 'get \'/catalog/facet/:id\' => \'catalog#facet\''
+      # route 'root :to => "catalog#index"'
+      route 'post "wms/handle"'
+      route 'post "download/kml"'
+      route 'post "download/shapefile"'
+      route 'get "download/file"'
+    end 
+    
   end
 end
