@@ -1,6 +1,7 @@
 require 'blacklight'
 require 'leaflet-rails'
 require 'httparty'
+require 'font-awesome-rails'
 
 module Geoblacklight
   class Engine < ::Rails::Engine

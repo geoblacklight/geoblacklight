@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'bootstrap-sass', '~> 3.0'
   spec.add_dependency 'leaflet-rails', '~> 0.7.3'
   spec.add_dependency 'blacklight_range_limit', '~> 5.0.1'
-  spec.add_dependency 'font-awesome-sass', '~> 4.1.0'
+  spec.add_dependency 'font-awesome-rails', '~> 4.1.0.0'
   spec.add_dependency 'httparty', '~> 0.13.1'
 
   spec.add_development_dependency 'bundler', '~> 1.5'
