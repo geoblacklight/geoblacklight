@@ -3,7 +3,7 @@
 console.log('DEBUG: Inside geoblacklight/modules/map-view.js');
 
 Blacklight.onLoad(function () {
-  $('#geoblacklight-map').geoBlacklight_setupMapView();
+  $('#geoblacklight-map').geoBlacklight_setupMap();
   $('#geoblacklight-tools').geoBlacklight_setupTools();
 });
 
@@ -28,7 +28,7 @@ Blacklight.onLoad(function () {
             [solrDoc.solr_sw_pt_0_d, solrDoc.solr_ne_pt_1_d]];
   }
   
-  $.fn.geoBlacklight_setupMapView = function (options){
+  $.fn.geoBlacklight_setupMap = function (options){
     map = L.map(this);
     console.log(solrDoc)
     // var layerBbox;
