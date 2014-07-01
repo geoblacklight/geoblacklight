@@ -1,31 +1,30 @@
 "use strict";
 
 console.log('DEBUG: Inside geoblacklight/modules/map-view.js');
-
 Blacklight.onLoad(function () {
-  $('#geoblacklight-map').geoBlacklight_setupMap();
-  $('#geoblacklight-tools').geoBlacklight_setupTools();
+  $('#map').geoBlacklight_setupMap();
+  $('#tools').geoBlacklight_setupTools();
 });
 
 /* Requires leaflet */
-(function( $, document, solrDoc ) {
+(function( $, document ) {
   var map, wmsLayer, spinner, mapBbox, alert, layerBbox;
 
   function WktBboxToJson(solrDoc){
-    return [[solrDoc.solr_sw_pt_0_d, solrDoc.solr_sw_pt_1_d], 
-            [solrDoc.solr_ne_pt_0_d, solrDoc.solr_sw_pt_1_d], 
-            [solrDoc.solr_ne_pt_0_d, solrDoc.solr_ne_pt_1_d], 
+    return [[solrDoc.solr_sw_pt_0_d, solrDoc.solr_sw_pt_1_d],
+            [solrDoc.solr_ne_pt_0_d, solrDoc.solr_sw_pt_1_d],
+            [solrDoc.solr_ne_pt_0_d, solrDoc.solr_ne_pt_1_d],
             [solrDoc.solr_sw_pt_0_d, solrDoc.solr_ne_pt_1_d]];
   }
-  
+
   $.fn.geoBlacklight_setupMap = function (options){
-    map = L.map(this);
+    map = L.map('map');
     console.log(solrDoc)
     // var layerBbox;
     // var location = JSON.parse(doc.Location);
     if (solrDoc.solr_bbox){
       layerBbox = WktBboxToJson(solrDoc);
-      map.fitBounds([[solrDoc.solr_sw_pt_0_d, solrDoc.solr_sw_pt_1_d], 
+      map.fitBounds([[solrDoc.solr_sw_pt_0_d, solrDoc.solr_sw_pt_1_d],
                      [solrDoc.solr_ne_pt_0_d, solrDoc.solr_ne_pt_1_d]]);
     }
 
@@ -34,7 +33,7 @@ Blacklight.onLoad(function () {
       attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
       maxZoom: 18
     }).addTo(map);
-  
+
     map.on('click', function(e){
       spinner = "<span id='attribute-table' class=''><i class='fa fa-spinner fa-spin fa-3x fa-align-center'></i></span>"
       $("#attribute-table").replaceWith(spinner);
@@ -49,8 +48,8 @@ Blacklight.onLoad(function () {
         "STYLES": "",
         "SRS": "EPSG:4326", /* XXX: is this the correct projection? */
         "BBOX": mapBbox._southWest.lng + "," + mapBbox._southWest.lat + "," + mapBbox._northEast.lng + "," + mapBbox._northEast.lat,
-        "WIDTH": $("#geoblacklight-map").width(),
-        "HEIGHT": $("#geoblacklight-map").height(),
+        "WIDTH": $("#map").width(),
+        "HEIGHT": $("#map").height(),
         "QUERY_LAYERS": solrDoc.layer_id_s,
         "X": Math.round(e.containerPoint.x),
         "Y": Math.round(e.containerPoint.y),
@@ -80,8 +79,8 @@ Blacklight.onLoad(function () {
         }
       });
     });
-  
-    if (solrDoc.solr_wms_url && solrDoc.layer_id_s && 
+
+    if (solrDoc.solr_wms_url && solrDoc.layer_id_s &&
         (solrDoc.dc_rights_s == 'Public' || solrDoc.dct_provenance_s == 'Stanford')){
       wmsLayer = L.tileLayer.wms(solrDoc.solr_wms_url, {
         layers: solrDoc.layer_id_s,
@@ -95,14 +94,14 @@ Blacklight.onLoad(function () {
       L.polygon(layerBbox).addTo(map);
       $("#control").hide();
     }
-    
+
     initHandle(wmsLayer);
   }
-  
-  
+
+
   function initHandle(wmsLayer) {
     //MapBox Opacity Control
-    var handle = document.getElementById('geoblacklight-handle'),
+    var handle = document.getElementById('handle'),
       start = false,
       startTop;
 
@@ -121,18 +120,18 @@ Blacklight.onLoad(function () {
         startTop = handle.offsetTop - 5;
         return false;
       };
-  
+
     }
 
     document.onmouseup = function(e) {
       start = null;
     };
-    
+
   }
 
-})( jQuery, document, doc );
+})( jQuery, document );
 
-(function ( $, document, solrDoc ) {
+(function ( $, document ) {
   $.fn.geoBlacklight_setupTools = function() {
     $(document).ready(function(){
       //See full abstract
@@ -200,4 +199,4 @@ Blacklight.onLoad(function () {
       });
     });
   }
-})( jQuery, document, doc );
+})( jQuery, document );
