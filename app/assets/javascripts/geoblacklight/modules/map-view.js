@@ -2,15 +2,15 @@
 
 console.log('DEBUG: Inside geoblacklight/modules/map-view.js');
 
-Blacklight.onLoad(function() {
-  $('#geoblacklight-map').geoBlacklight_setupMapView()
-  $('#geoblacklight-tools').geoBlacklight_setupTools()
+Blacklight.onLoad(function () {
+  $('#geoblacklight-map').geoBlacklight_setupMapView();
+  $('#geoblacklight-tools').geoBlacklight_setupTools();
 });
 
 /* Requires leaflet */
-function( $, document, solrDoc ) {
-  var map, wmsLayer, spinner, mapBbox, alert, layerBbox;
-  var serialiseObject = function (obj) {
+(function( $, document, solrDoc ) {
+  var map, wmsLayer, spinner, mapBbox, alert, layerBbox,
+      serialiseObject = function (obj) {
       var pairs = [];
       for (var prop in obj) {
           if (!obj.hasOwnProperty(prop)) {
@@ -28,7 +28,7 @@ function( $, document, solrDoc ) {
             [solrDoc.solr_sw_pt_0_d, solrDoc.solr_ne_pt_1_d]];
   }
   
-  $.fn.geoBlacklight_setupMapView = function(options){
+  $.fn.geoBlacklight_setupMapView = function (options){
     map = L.map(this);
     console.log(solrDoc)
     // var layerBbox;
@@ -140,9 +140,9 @@ function( $, document, solrDoc ) {
     
   }
 
-}( jQuery, document, doc );
+})( jQuery, document, doc );
 
-function( $, document, solrDoc ) {
+(function ( $, document, solrDoc ) {
   $.fn.geoBlacklight_setupTools = function() {
     $(document).ready(function(){
       //See full abstract
@@ -210,4 +210,4 @@ function( $, document, solrDoc ) {
       });
     });
   }
-}( jQuery, document, doc );
+})( jQuery, document, doc );
