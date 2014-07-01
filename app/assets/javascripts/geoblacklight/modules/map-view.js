@@ -9,17 +9,7 @@ Blacklight.onLoad(function () {
 
 /* Requires leaflet */
 (function( $, document, solrDoc ) {
-  var map, wmsLayer, spinner, mapBbox, alert, layerBbox,
-      serialiseObject = function (obj) {
-      var pairs = [];
-      for (var prop in obj) {
-          if (!obj.hasOwnProperty(prop)) {
-              continue;
-          }
-          pairs.push(prop + '=' + obj[prop]);
-      }
-      return pairs.join('&');
-  };
+  var map, wmsLayer, spinner, mapBbox, alert, layerBbox;
 
   function WktBboxToJson(solrDoc){
     return [[solrDoc.solr_sw_pt_0_d, solrDoc.solr_sw_pt_1_d], 
