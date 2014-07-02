@@ -28,6 +28,7 @@ More coming soon!
 
 * Blacklight bookmarks and history
 * Download KML
+* Facet pagination (more>> link)
 
 ## TODO
 
