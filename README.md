@@ -35,6 +35,7 @@ More coming soon!
 ## TODO
 
 * Refactoring to `lib/`
+* Test suites
 * Spatial search
 * Spatial relevancy
 * Download GeoTIFF
