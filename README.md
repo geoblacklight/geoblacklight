@@ -23,11 +23,11 @@ More coming soon!
 * Results list map view of bounding boxes
 * WMS/WFS/WCS links
 * Download Shapefile
+* Download KML
 
 ## Features to port from alpha
 
 * Blacklight bookmarks and history
-* Download KML
 * Facet pagination (more>> link)
 
 ## TODO

@@ -8,7 +8,7 @@ Blacklight.onLoad(function () {
 
 /* Requires leaflet */
 (function( $, document ) {
-  var map, wmsLayer, spinner, mapBbox, alert, layerBbox;
+  var map, wmsLayer, spinner, mapBbox, alertMsg, layerBbox;
 
   function WktBboxToJson(solrDoc){
     return [[solrDoc.solr_sw_pt_0_d, solrDoc.solr_sw_pt_1_d],
@@ -155,21 +155,21 @@ Blacklight.onLoad(function () {
             url: '/download/shapefile',
             data: solrDoc,
           }).done(function(data){
-            var alert;
+            var alertMsg;
               $('#download-shapefile').removeClass('disabled');
               $('#icon-shapefile').removeClass('fa-spinner fa-spin');
               $('#icon-shapefile').addClass('fa-download');
               console.log(data);
               if ('error' in data){
                 console.log('something bad');
-                alert = "<div class='alert alert-danger fade in'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><strong>Holy guacamole!</strong> Something went wrong with the download :(</div>";
+                alertMsg = "<div class='alert alert-danger fade in'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><strong>Holy guacamole!</strong> Something went wrong with the download :(</div>";
               }else{
-                alert = "<div class='alert alert-success fade in'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><strong>Good to go!</strong> Your file is <a href='/download/file?q=" + data.data + "'>ready to download.</a></div>";
+                alertMsg = "<div class='alert alert-success fade in'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><strong>Good to go!</strong> Your file is <a href='/download/file?q=" + data.data + "'>ready to download.</a></div>";
               }
-              $("#main-flashes").append(alert);
+              $("#main-flashes").append(alertMsg);
           }).fail(function(data){
-            alert = "<div class='alert alert-danger fade in'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><strong>Holy guacamole!</strong> Something went wrong with the download :(</div>";
-            $("#main-flashes").append(alert);
+            var alertMsg = "<div class='alert alert-danger fade in'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><strong>Holy guacamole!</strong> Something went wrong with the download :(</div>";
+            $("#main-flashes").append(alertMsg);
             $('#icon-shapefile').removeClass('fa-spinner fa-spin');
             $('#icon-shapefile').addClass('fa-download');
 
@@ -185,20 +185,21 @@ Blacklight.onLoad(function () {
             url: '/download/kml',
             data: solrDoc,
           }).done(function(data){
+            var alertMsg;
               $('#download-kml').removeClass('disabled');
               $('#icon-kml').removeClass('fa-spinner fa-spin');
               $('#icon-kml').addClass('fa-download');
               console.log(data);
               if ('error' in data){
                 console.log('something bad');
-                alert = "<div class='alert alert-danger fade in'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><strong>Holy guacamole!</strong> Something went wrong with the download :(</div>";
+                alertMsg = "<div class='alert alert-danger fade in'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><strong>Holy guacamole!</strong> Something went wrong with the download :(</div>";
               }else{
-                alert = "<div class='alert alert-success fade in'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><strong>Good to go!</strong> Your file is <a href='/download/file?q=" + data.data + "'>ready to download.</a></div>";
+                alertMsg = "<div class='alert alert-success fade in'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><strong>Good to go!</strong> Your file is <a href='/download/file?q=" + data.data + "'>ready to download.</a></div>";
               }
-              $("#main-flashes").append(alert);
+              $("#main-flashes").append(alertMsg);
           }).fail(function(data){
-            alert = "<div class='alert alert-danger fade in'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><strong>Holy guacamole!</strong> Something went wrong with the download :(</div>";
-            $("#main-flashes").append(alert);
+            var alertMsg = "<div class='alert alert-danger fade in'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><strong>Holy guacamole!</strong> Something went wrong with the download :(</div>";
+            $("#main-flashes").append(alertMsg);
             $('#icon-kml').removeClass('fa-spinner fa-spin');
             $('#icon-kml').addClass('fa-download');
           });
