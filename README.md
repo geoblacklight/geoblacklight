@@ -24,11 +24,13 @@ More coming soon!
 * WMS/WFS/WCS links
 * Download Shapefile
 * Download KML
+* Download Metadata (for Stanford)
 
 ## Features to port from alpha
 
 * Blacklight bookmarks and history
 * Facet pagination (more>> link)
+* Login for persistent bookmarks and history
 
 ## TODO
 
@@ -37,16 +39,17 @@ More coming soon!
 * Spatial relevancy
 * Download GeoTIFF
 * Clip to map view for download(?)
-* Download Metadata (for non-Stanford, MODS for Stanford)
-* Facet by language, projection, collection
+* Download Metadata (for non-Stanford)
+* Facet by language, projection, collection (dummy data)
 * Citation and share buttons
-* Login for persistent bookmarks and history
 * Featured datasets and articles
 * geoblacklight-schema
     * FGDC-based conversion of external OGP records
     * MODS-based conversion for Stanford records
 
 ## Development
+
+To install a development instance of Geoblacklight follow these instructions.
 
 Clone the repository (using `--recurse`)
 
@@ -92,7 +95,7 @@ Or install it yourself as:
 
 ## Contributing
 
-1. Fork it ( http://github.com/<my-github-username>/geoblacklight/fork )
+1. Fork it ( http://github.com/`my-github-username`/geoblacklight/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
