@@ -35,7 +35,7 @@ More coming soon!
 * Spatial search
 * Spatial relevancy
 * Download GeoTIFF
-* Clip to map view for download
+* Clip to map view for download(?)
 * Download Metadata (for non-Stanford, MODS for Stanford)
 * Facet by language, projection, collection
 * Citation and share buttons
@@ -47,11 +47,11 @@ More coming soon!
 
 ## Development
 
-Clone the repository
+Clone the repository (using `--recurse`)
 
     git clone --recurse git@github.com:sul-dlss/geoblacklight.git
 
-Download and configure jetty
+Download and configure `jetty`
 
     rake jetty:download jetty:unzip
     rake geoblacklight:configure_jetty
@@ -60,14 +60,14 @@ Create a test app (created at `/spec/internal`)
 
     rake engine_cart:generate
     
-Boot jetty
+Boot `jetty`
 
     rake jetty:start
     
 Boot GeoBlacklight test app
 
     cd spec/internal
-    rake geoblacklight:solr:seed
+    rake geoblacklight:solr:seed # to load sample documents into jetty Solr instance
     rails server
 
 ## Installation
