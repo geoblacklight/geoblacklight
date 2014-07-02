@@ -34,15 +34,26 @@
           </small>
         </div>
         <br>
-
       </div>
     </div>
   </div>
 </div>
-<script>$.fn.geoBlacklight_computeBbox(<%= document_counter %>);
-$("*[data-layer=\"<%= document['uuid']%>\"]").click(function(){
-  $("*[data-layer=\"<%= document['uuid']%>-collapse\"]").collapse("toggle")
-})
+<script>
+  $.fn.geoBlacklight_computeBbox(<%= document_counter %>);
+  $("*[data-layer=\"<%= document['uuid']%>\"]").click(function(){
+    $("*[data-layer=\"<%= document['uuid']%>-collapse\"]").collapse("toggle")
+  });
+  
+  $("*[data-layer=\"<%= document['uuid']%>\"]").mouseover(function(){
+    if (bBoxs[<%= document_counter %>]){
+      // console.log(bBoxs[<%= document_counter %>]);
+      $.fn.geoBlacklight_addBbox(bBoxs[<%= document_counter %>]);
+    }
+  });
+  
+  $("*[data-layer=\"<%= document['uuid']%>\"]").mouseout(function(){
+    $.fn.geoBlacklight_removeBbox(bBoxs[<%= document_counter %>]);
+  });
 </script>
 </div>
 

@@ -7,20 +7,37 @@ Blacklight.onLoad(function () {
 
 /* Requires leaflet */
 (function( $ ) {
-
+  var map;
   $.fn.geoBlacklight_setupMapResults = function () {
-    console.log(this)
+    // console.log(this)
       return this.each(function () {
-      var map = L.map('map');
+      map = L.map('map');
       var basemap = L.tileLayer('http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png">',
         maxZoom: 18
       }).addTo(map);
       map.setView([0,0],1);
-      console.log(mapBbox);
+      // console.log(mapBbox);
       map.fitBounds(mapBbox);      
     })
   };
+  
+  $.fn.geoBlacklight_addBbox = function (i) {
+    i.addTo(map);
+  };
+  
+  $.fn.geoBlacklight_removeBbox = function (j) {
+    for(var i in map._layers) {
+          if(map._layers[i]._path !== undefined && i !== 0) {
+              try {
+                  map.removeLayer(map._layers[i]);
+              }
+              catch(e) {
+                  console.log("problem with " + e + map._layers[i]);
+              }
+          }
+      }
+    };
   
   $.fn.geoBlacklight_computeBbox = function (i) {
     var doc = solrDocs[i];
