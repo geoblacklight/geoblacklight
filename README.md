@@ -20,18 +20,18 @@ More coming soon!
 * Detail map view feature inspection
 * Slugs
 * MODS display
+* Results list map view of bounding boxes
+* WMS/WFS/WCS links
 * Download Shapefile
-* Download KML
 
 ## Features to port from alpha
 
-* Results list map view of bounding boxes
 * Blacklight bookmarks and history
-* WMS/WFS/WCS links
+* Download KML
 
 ## TODO
 
-* Refactoring
+* Refactoring to `lib/`
 * Spatial search
 * Spatial relevancy
 * Download GeoTIFF
