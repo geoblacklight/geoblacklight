@@ -20,6 +20,29 @@
 <% # bookmark functions for items/docs -%>
 <!-- <%= render_index_doc_actions document, :wrapping_class => "index-document-functions col-sm-3 col-lg-2" %> -->
 
-<script>$.fn.geoBlacklight_computeBbox(<%= document_counter %>);</script>
+<div class="row" data-layer="<%= document['uuid'] %>">
+  <div class="col-md-12">
+    <div class="" data-layer="<%= document['uuid'] %>-accordion">
+      <div data-layer="<%= document['uuid'] %>-collapse" class="panel-collapse collapse">
+        <div class="">
+          <small>
+            <ul class="list-unstyled">
+              <li>
+                <%= document['solr_year_i'] %>. <i><%= document['dc_creator_sm'].nil?? '' : document['dc_creator_sm'].join(', ') %></i>. <%= snippit(document['dc_description_s']) %>. <%= document['dc_publisher_s'] %>.
+              </li>
+            </ul>
+          </small>
+        </div>
+        <br>
+
+      </div>
+    </div>
+  </div>
+</div>
+<script>$.fn.geoBlacklight_computeBbox(<%= document_counter %>);
+$("*[data-layer=\"<%= document['uuid']%>\"]").click(function(){
+  $("*[data-layer=\"<%= document['uuid']%>-collapse\"]").collapse("toggle")
+})
+</script>
 </div>
 
