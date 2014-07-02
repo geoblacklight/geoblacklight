@@ -17,12 +17,6 @@ module Geoblacklight
       copy_file "catalog_controller.rb", "app/controllers/catalog_controller.rb"
     end
 
-    def create_controllers
-      %w{download wms}.each do |k|
-        copy_file "#{k}_controller.rb", "app/controllers/#{k}_controller.rb"
-      end
-    end 
-
     def fixtures
       FileUtils.mkdir_p "spec/fixtures/geoblacklight_schema"
       copy_file "../../../../schema/examples/selected.json", "spec/fixtures/geoblacklight_schema/selected.json"
