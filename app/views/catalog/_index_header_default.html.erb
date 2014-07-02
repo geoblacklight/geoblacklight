@@ -28,7 +28,7 @@
           <small>
             <ul class="list-unstyled">
               <li>
-                <%= document['solr_year_i'] %>. <i><%= document['dc_creator_sm'].nil?? '' : document['dc_creator_sm'].join(', ') %></i>. <%= snippit(document['dc_description_s']) %>. <%= document['dc_publisher_s'] %>.
+                <%= document['solr_year_i'] %>. <i><%= document['dc_creator_sm'].nil?? '' : document['dc_creator_sm'].join(', ') %></i>. <%= snippit(document['dc_description_s']) %>. <%= document['dc_publisher_s'] %>. Score: <%= document['score'] %>
               </li>
             </ul>
           </small>
