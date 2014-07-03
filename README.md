@@ -46,6 +46,7 @@ More coming soon!
 * Citation and share buttons
 * Featured datasets and articles
 * Sitemap export
+* GeoMonitor integration
 * geoblacklight-schema
     * FGDC-based conversion of external OGP records
     * MODS-based conversion for Stanford records
