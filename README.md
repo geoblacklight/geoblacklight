@@ -25,6 +25,7 @@ More coming soon!
 * Download Shapefile
 * Download KML
 * Download Metadata (for Stanford)
+* Built-in sample Solr 4.7 index
 
 ## Features to port from alpha
 
