@@ -26,12 +26,13 @@ More coming soon!
 * Download KML
 * Download Metadata (for Stanford)
 * Built-in sample Solr 4.7 index
+* Search history
 
 ## Features to port from alpha
 
-* Blacklight bookmarks and history
+* Blacklight bookmarks
 * Facet pagination (more>> link)
-* Login for persistent bookmarks and history
+* Login for persistent bookmarks
 
 ## TODO
 
