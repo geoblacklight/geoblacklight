@@ -44,6 +44,7 @@ More coming soon!
 * Facet by language, projection, collection (dummy data)
 * Citation and share buttons
 * Featured datasets and articles
+* Sitemap export
 * geoblacklight-schema
     * FGDC-based conversion of external OGP records
     * MODS-based conversion for Stanford records
