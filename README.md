@@ -74,6 +74,9 @@ Boot GeoBlacklight test app
     cd spec/internal
     rake geoblacklight:solr:seed # to load sample documents into jetty Solr instance
     rails server
+    
+Note that if you're using Rails with Spring enabled, we've found the the `rails generate` commands
+will stall. The workaround is to kill the spring daemon process.
 
 ## Installation
 
@@ -91,12 +94,15 @@ Or install it yourself as:
 
 ## Usage
 
-1. Populate Solr index with geoblacklight-schema documents
-2. ...
+For a non-development instance:
+
+1. Populate a Solr 4.7 index with geoblacklight-schema documents
+2. Configure your GeoBlacklight application's `config/solr.yml` to point to the Solr index
+3. `rails s` to run GeoBlacklight
 
 ## Contributing
 
-1. Fork it ( http://github.com/`my-github-username`/geoblacklight/fork )
+1. Fork it ( http://github.com/my-github-username/geoblacklight/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
