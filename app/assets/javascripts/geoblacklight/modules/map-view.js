@@ -30,10 +30,10 @@ Blacklight.onLoad(function () {
                        [solrDoc.solr_ne_pt_0_d, solrDoc.solr_ne_pt_1_d]]);
       }
 
-      /* XXX: externalize configuration for Mapbox application key */
-      var basemap = L.tileLayer('http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
+      var basemap = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png">',
-        maxZoom: 18
+        maxZoom: 18,
+        subdomains: '1234' // see http://developer.mapquest.com/web/products/open/map
       }).addTo(map);
 
       map.on('click', function(e){
