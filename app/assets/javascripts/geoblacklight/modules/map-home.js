@@ -19,7 +19,7 @@ Blacklight.onLoad(function () {
         maxZoom: 18,
         subdomains: '1234' // see http://developer.mapquest.com/web/products/open/map
       }).addTo(map);
-      map.setZoom(1);
+      map.setZoom(2);
       map.setView([0,0]);
     })
   };
