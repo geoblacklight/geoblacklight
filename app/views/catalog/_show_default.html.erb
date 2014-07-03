@@ -1,9 +1,4 @@
 <div class="geoblacklight-view-panel">
-<small>
-  <%= layer_type_image(document['layer_geom_type_s']) %>
-  <%= layer_institution_image(document['dct_provenance_s']) %>
-  <%= layer_access_image(document['dc_rights_s']) %>
-</small>
 
   <dl class="dl-horizontal">
     <% unless document['dc_creator_sm'].nil? %>
