@@ -5,15 +5,15 @@ module GeoblacklightHelper
   end
 
   def sms_helper()
-    content_tag(:i, '', :class => 'fa fa-mobile') + ' ' + t('blacklight.tools.sms')
+    content_tag(:i, '', :class => 'fa fa-mobile fa-fw') + ' ' + t('blacklight.tools.sms')
   end
 
   def email_helper
-    content_tag(:i, '', :class => 'fa fa-envelope') + ' ' + t('blacklight.tools.email')
+    content_tag(:i, '', :class => 'fa fa-envelope fa-fw') + ' ' + t('blacklight.tools.email')
   end
 
   def metadata_helper
-    content_tag(:i, '', :class => 'fa fa-download') + ' ' + t('Metadata')
+    content_tag(:i, '', :class => 'fa fa-download fa-fw') + ' ' + t('Metadata')
   end
 
   def abstract_truncator(abstract)

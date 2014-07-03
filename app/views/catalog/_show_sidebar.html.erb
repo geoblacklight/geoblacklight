@@ -25,7 +25,7 @@
         <%= link_to sms_helper, sms_catalog_path(:id => @document), {:id => 'smsLink', :data => {:ajax_modal => "trigger"}, :class => 'list-group-item'} %>
       <%- end -%>
       <a href="#" data-no-turbolink class="list-group-item">
-        <i class="fa fa-bookmark"></i>&nbsp;Cite This
+        <i class="fa fa-bookmark fa-fw"></i>&nbsp;Cite This
       </a>    
     </ul>
     <ul class="list-group">
@@ -36,19 +36,19 @@
       href="#" 
       <% end %>
       >
-      <i class="fa fa-download" id="icon-metadata"></i>&nbsp;Metadata
+      <i class="fa fa-download fa-fw" id="icon-metadata"></i>&nbsp;Metadata
     </a>
     <% if @document['dc_rights_s'] == 'Restricted' and @document['dct_provenance_s'] != 'Stanford' %>
       <a href="#" data-no-turbolink class="list-group-item">
-        <i class="fa fa-download" id="icon-request"></i>&nbsp;Request This
+        <i class="fa fa-download fa-fw" id="icon-request"></i>&nbsp;Request This
       </a><br/>
     <% else %>
       <a href="#" id="download-kml" data-no-turbolink class="list-group-item">
-        <i class="fa fa-download" id="icon-kml"></i>&nbsp;KML
+        <i class="fa fa-download fa-fw" id="icon-kml"></i>&nbsp;KML
       </a>
       <% if @document['dc_format_s'] == 'Shapefile' %>
         <a href="#" id="download-shapefile" data-no-turbolink class="list-group-item">
-          <i class="fa fa-download" id="icon-shapefile"></i>&nbsp;Shapefile
+          <i class="fa fa-download fa-fw" id="icon-shapefile"></i>&nbsp;Shapefile
         </a>
       <% end %>
     <% end %>
@@ -58,15 +58,15 @@
   
     <ul class="list-group">
       <a href="<%= @document['solr_wms_url'] %>?request=GetCapabilities" data-no-turbolink class="list-group-item">
-        <i class="fa fa-link"></i>&nbsp;WMS Link
+        <i class="fa fa-link fa-fw"></i>&nbsp;WMS Link
       </a>
       <% if @document['layer_geom_type_s'] == 'Raster' %>
         <a href="<%= @document['solr_wcs_url'] %>?request=GetCapabilities" data-no-turbolink class="list-group-item">
-          <i class="fa fa-link"></i>&nbsp;WCS Link
+          <i class="fa fa-link fa-fw"></i>&nbsp;WCS Link
         </a>
         <% else %>
       <a href="<%= @document['solr_wfs_url'] %>?request=GetCapabilities" data-no-turbolink class="list-group-item">
-        <i class="fa fa-link"></i>&nbsp;WFS Link
+        <i class="fa fa-link fa-fw"></i>&nbsp;WFS Link
       </a>
       <% end %>
     </ul>
