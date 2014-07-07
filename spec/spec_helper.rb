@@ -25,7 +25,7 @@ if ENV["COVERAGE"] or ENV["CI"]
 end
 
 
-require 'Geoblacklight'
+require 'geoblacklight'
 
 require 'rspec/rails'
 require 'capybara/rspec'

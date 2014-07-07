@@ -1,5 +1,7 @@
 # Geoblacklight
 
+[![Build Status](https://travis-ci.org/sul-dlss/geoblacklight.png?branch=master)](https://travis-ci.org/sul-dlss/geoblacklight) | [![Coverage Status](https://coveralls.io/repos/sul-dlss/geoblacklight/badge.png)](https://coveralls.io/r/sul-dlss/geoblacklight)
+
 GeoBlacklight started at Stanford and its goal is to provide a
 world-class discovery platform for geospatial (GIS) holdings. It
 is an open collaborative project aiming to build off of the successes
@@ -78,7 +80,7 @@ Boot GeoBlacklight test app
     cd spec/internal
     rake geoblacklight:solr:seed # to load sample documents into jetty Solr instance
     rails server
-    
+
 Note that if you're using Rails with Spring enabled, we've found the the `rails generate` commands
 will stall. The workaround is to kill the spring daemon process. You will will probably not need to run this generator regularly.
 
