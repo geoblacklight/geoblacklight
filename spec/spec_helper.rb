@@ -28,7 +28,6 @@ end
 require 'Geoblacklight'
 
 require 'rspec/rails'
-require 'rspec/autorun'
 require 'capybara/rspec'
 
 

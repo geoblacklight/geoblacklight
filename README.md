@@ -68,11 +68,11 @@ Download and configure `jetty`
 Create a test app (created at `/spec/internal`)
 
     rake engine_cart:generate
-    
+
 Boot `jetty`
 
     rake jetty:start
-    
+
 Boot GeoBlacklight test app
 
     cd spec/internal
@@ -80,7 +80,11 @@ Boot GeoBlacklight test app
     rails server
     
 Note that if you're using Rails with Spring enabled, we've found the the `rails generate` commands
-will stall. The workaround is to kill the spring daemon process.
+will stall. The workaround is to kill the spring daemon process. You will will probably not need to run this generator regularly.
+
+Run tests
+
+    rake ci
 
 ## Installation
 
