@@ -6,7 +6,6 @@ APP_ROOT = File.dirname(__FILE__)
 
 require 'rspec/core/rake_task'
 require 'engine_cart/rake_task'
-
 require 'jettywrapper'
 
 task default: :ci
@@ -22,15 +21,16 @@ end
 
 desc "Execute Continuous Integration build"
 task :ci => ['engine_cart:generate', 'jetty:clean', 'geoblacklight:configure_jetty'] do
+  ENV['environment'] = "test"
+  jetty_params = Jettywrapper.load_config
+  jetty_params[:startup_wait]= 60
 
-  require 'jettywrapper'
-  jetty_params = Jettywrapper.load_config('test')
+  Jettywrapper.wrap(jetty_params) do
+    Rake::Task["fixtures"].invoke
 
-  error = Jettywrapper.wrap(jetty_params) do
-    Rake::Task['fixtures'].invoke
-    Rake::Task['spec'].invoke
+    # run the tests
+    Rake::Task["spec"].invoke
   end
-  raise "test failures: #{error}" if error
 end
 
 
