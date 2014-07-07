@@ -30,12 +30,6 @@ More coming soon!
 * Built-in sample Solr 4.7 index
 * Search history
 
-## Features to port from alpha
-
-* Blacklight bookmarks
-* Facet pagination (more>> link)
-* Login for persistent bookmarks
-
 ## TODO
 
 * See https://github.com/sul-dlss/geoblacklight/issues
