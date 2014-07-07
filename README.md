@@ -38,18 +38,9 @@ More coming soon!
 
 ## TODO
 
-* Refactoring to `lib/`
-* Test suites
-* Spatial search
-* Spatial relevancy
-* Download GeoTIFF
 * Clip to map view for download(?)
-* Download Metadata (for non-Stanford)
 * Facet by language, projection, collection (dummy data)
 * Citation and share buttons
-* Featured datasets and articles
-* Sitemap export
-* GeoMonitor integration
 * geoblacklight-schema
     * FGDC-based conversion of external OGP records
     * MODS-based conversion for Stanford records
