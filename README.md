@@ -39,12 +39,7 @@ More coming soon!
 ## TODO
 
 * See https://github.com/sul-dlss/geoblacklight/issues
-* Clip to map view for download(?)
-* Facet by language, projection, collection (dummy data)
-* Citation and share buttons
-* geoblacklight-schema
-    * FGDC-based conversion of external OGP records
-    * MODS-based conversion for Stanford records
+* See https://github.com/sul-dlss/geoblacklight-schema/issues
 
 ## Development
 
