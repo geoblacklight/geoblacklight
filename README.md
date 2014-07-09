@@ -43,7 +43,7 @@ Clone the repository (using `--recurse`)
 
     git clone --recurse git@github.com:sul-dlss/geoblacklight.git
 
-Download and configure `jetty`
+Download and configure `jetty` to run Solr
 
     rake jetty:download jetty:unzip
     rake geoblacklight:configure_jetty
