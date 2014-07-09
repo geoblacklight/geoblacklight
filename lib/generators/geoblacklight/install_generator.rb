@@ -40,7 +40,11 @@ module Geoblacklight
       route 'post "download/kml"'
       route 'post "download/shapefile"'
       route 'get "download/file"'
-    end 
+    end
+    
+    def inject_gems
+      gem "bootswatch-rails"
+    end
     
   end
 end
