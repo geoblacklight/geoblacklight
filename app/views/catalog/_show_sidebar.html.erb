@@ -14,7 +14,7 @@
     </div>
     <div class="panel-body">
     <ul class="list-group">
-      <div class="list-group-item"><%= render_show_doc_actions @document %></div>
+      <%= render_show_doc_actions @document, wrapping_class: 'list-group-item' %>
       <% if @document.respond_to?( :to_email_text ) %>
         <%= link_to email_helper, email_catalog_path(:id => @document), {:id => 'emailLink', :data => {:ajax_modal => "trigger"}, :class => 'list-group-item'} %>
       <%- end -%>
