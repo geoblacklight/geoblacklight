@@ -14,10 +14,7 @@
     </div>
     <div class="panel-body">
     <ul class="list-group">
-    <%= render_show_doc_actions @document %>
-      <a href="#" data-no-turbolink class="list-group-item">
-        <i class="fa fa-star-o fa-fw"></i>&nbsp;Bookmark
-      </a>
+      <div class="list-group-item"><%= render_show_doc_actions @document %></div>
       <% if @document.respond_to?( :to_email_text ) %>
         <%= link_to email_helper, email_catalog_path(:id => @document), {:id => 'emailLink', :data => {:ajax_modal => "trigger"}, :class => 'list-group-item'} %>
       <%- end -%>
