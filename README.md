@@ -100,4 +100,4 @@ For a non-development instance:
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
-Also, if you wish to ask questions or participate further, email the GeoBlacklight Working Group at geoblacklight-working-group@googlegroups.com.
+Also, if you wish to ask questions or participate further, email the [GeoBlacklight Working Group](https://groups.google.com/forum/#!forum/geoblacklight-working-group) at geoblacklight-working-group@googlegroups.com.
