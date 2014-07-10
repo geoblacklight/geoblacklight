@@ -99,3 +99,5 @@ For a non-development instance:
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+Also, if you wish to ask questions or participate further, email the GeoBlacklight Working Group at geoblacklight-working-group@googlegroups.com.
