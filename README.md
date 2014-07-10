@@ -89,7 +89,8 @@ For a non-development instance:
 
 1. Populate a Solr 4.7 index with geoblacklight-schema documents
 2. Configure your GeoBlacklight application's `config/solr.yml` to point to the Solr index
-3. `rails s` to run GeoBlacklight
+3. Configure your `config/environments` and `app/controllers/catalog_controller.rb`
+4. `rails server` to run GeoBlacklight
 
 ## Contributing
 
