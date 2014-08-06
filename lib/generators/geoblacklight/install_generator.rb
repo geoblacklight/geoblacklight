@@ -42,6 +42,18 @@ module Geoblacklight
       route 'get "download/file"'
     end
 
+    # Necessary for bootstrap-sass 3.2
+    def inject_sprockets
+      blacklight_css = Dir["app/assets/stylesheets/blacklight.css.scss"].first
+      if blacklight_css
+        insert_into_file blacklight_css, before: "@import 'bootstrap';" do
+          "@import 'bootstrap-sprockets';\n"
+        end
+      else
+        say_status "warning", "Can not find blacklight.css.scss, did not insert our require", :red
+      end
+    end
+
     def bundle_install
       Bundler.with_clean_env do
         run "bundle install"
