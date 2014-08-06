@@ -1,0 +1,5 @@
+en:
+  blacklight:
+    search:
+      view:
+        layer: "Layers"
