@@ -27,7 +27,7 @@ module Geoblacklight
         "\n  self.unique_key = 'layer_slug_s'"
       end
     end
-    
+
     def inject_routes
       # route 'devise_for :users'
       # route 'constraints(:id => /[0-9A-Za-z\-\.\:\_\/]+/) do
@@ -41,11 +41,7 @@ module Geoblacklight
       route 'post "download/shapefile"'
       route 'get "download/file"'
     end
-    
-    def inject_gems
-      gem "bootswatch-rails"
-    end
-    
+
     def bundle_install
       Bundler.with_clean_env do
         run "bundle install"
