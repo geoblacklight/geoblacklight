@@ -6,8 +6,11 @@ require 'font-awesome-rails'
 module Geoblacklight
   class Engine < ::Rails::Engine
 
+    Blacklight::Configuration.default_values[:view].split.partials = ['index']
+    Blacklight::Configuration.default_values[:view].delete_field('list')
+
     # GeoblacklightHelper is needed by all helpers, so we inject it
-    # into action view base here. 
+    # into action view base here.
     initializer 'geoblacklight.helpers' do |app|
       ActionView::Base.send :include, GeoblacklightHelper
     end
