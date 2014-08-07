@@ -1,5 +1,5 @@
 [submodule "geoblacklight-schema"]
 	path = schema
-	url = https://github.com/sul-dlss/geoblacklight-schema.git
+	url = https://github.com/geoblacklight/geoblacklight-schema.git
 	branch = master
 
