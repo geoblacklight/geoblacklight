@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['drh@stanford.edu', 'pjreed@stanford.edu']
   spec.summary       = 'A discovery platform for geospatial holdings'
   spec.description   = 'GeoBlacklight started at Stanford and its goal is to provide a world-class discovery platform for geospatial (GIS) holdings. It is an open collaborative project aiming to build off of the successes of the Blacklight Solr-powered discovery interface and the multi-institutional OpenGeoportal federated metadata sharing communities.'
-  spec.homepage      = 'http://github.com/sul-dlss/geoblacklight'
+  spec.homepage      = 'http://github.com/geoblacklight/geoblacklight'
   spec.license       = 'Apache 2.0'
 
   spec.files         = `git ls-files -z`.split(%Q{\x0})
