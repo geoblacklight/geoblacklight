@@ -32,8 +32,8 @@ More coming soon!
 
 ## TODO
 
-* See https://github.com/sul-dlss/geoblacklight/issues
-* See https://github.com/sul-dlss/geoblacklight-schema/issues
+* See https://github.com/geoblacklight/geoblacklight/issues
+* See https://github.com/geoblacklight/geoblacklight-schema/issues
 
 ## Development
 
@@ -41,7 +41,7 @@ To install a development instance of Geoblacklight follow these instructions.
 
 Clone the repository (using `--recurse`)
 
-    git clone --recurse git@github.com:sul-dlss/geoblacklight.git
+    git clone --recurse git@github.com:geoblacklight/geoblacklight.git
 
 Download and configure `jetty` to run Solr
 
