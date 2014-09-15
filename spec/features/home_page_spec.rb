@@ -24,9 +24,15 @@ feature 'Home page', js: true do # use js: true for tests which require js, but 
     expect(page).to have_css('a.facet_select', text: 'Stanford', visible: true)
   end
   scenario 'map should be visible' do
-    within '#geoblacklight-map-home' do
+    within '#content' do
       expect(page).to have_css('#map')
       expect(page).to have_css('img.leaflet-tile', count: 8)
+    end
+  end
+  scenario 'moving map should add bbox parameters to url' do
+    within '#map' do
+      find('a.leaflet-control-zoom-in').click
+      expect(page.current_url).to match /bbox=/
     end
   end
 
