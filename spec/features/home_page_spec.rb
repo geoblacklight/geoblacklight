@@ -29,11 +29,12 @@ feature 'Home page', js: true do # use js: true for tests which require js, but 
       expect(page).to have_css('img.leaflet-tile', count: 8)
     end
   end
-  scenario 'moving map should add bbox parameters to url' do
+  scenario 'clicking map search should create a spatial search' do
     within '#map' do
       find('a.search-control').click
       expect(page.current_url).to match /bbox=/
     end
+    expect(page).to have_css '#documents'
   end
 
 end

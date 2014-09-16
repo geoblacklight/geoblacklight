@@ -2,9 +2,6 @@ require 'spec_helper'
 
 describe Geoblacklight::ControllerOverride do
   class GeoblacklightControllerTestClass
-    def params
-      {}
-    end
   end
   
   before(:each) do
