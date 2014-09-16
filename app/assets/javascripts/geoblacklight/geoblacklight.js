@@ -18,6 +18,8 @@ GeoBlacklight.prototype = {
     self.bounds = self.bboxToBounds(element.dataset.mapBbox);
     self.map = L.map('map');
     self.basemap.addTo(self.map);
+    self.searchControl = L.searchButton(self.searchFromBounds, self.map);
+    
     if (self.bounds){
       self.map.fitBounds(self.bounds);
     }else{
@@ -26,7 +28,8 @@ GeoBlacklight.prototype = {
     }
     return {
       map: self.map, 
-      basemap: self.basemap
+      basemap: self.basemap,
+      searchControl: self.searchControl
     };
   },
   bboxToBounds: function(string){
@@ -39,9 +42,12 @@ GeoBlacklight.prototype = {
   },
   boundsToBbox: function(bounds){
     return [L.forNum(bounds._southWest.lng, 6), L.forNum(bounds._northEast.lng, 6), L.forNum(bounds._northEast.lat, 6), L.forNum(bounds._southWest.lat, 6)].join(',');
+  },
+  searchFromBounds: function() {
+    var self = this;
+    var bounds = GeoBlacklight.boundsToBbox(self._map.getBounds());
+    location = self._map.options.catalogPath + '?bbox=' + bounds;
   }
 };
 
 GeoBlacklight = new GeoBlacklight();
-
-L.forNum = L.Util.formatNum;

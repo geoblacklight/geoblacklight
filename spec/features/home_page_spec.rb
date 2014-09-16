@@ -31,7 +31,7 @@ feature 'Home page', js: true do # use js: true for tests which require js, but 
   end
   scenario 'moving map should add bbox parameters to url' do
     within '#map' do
-      find('a.leaflet-control-zoom-in').click
+      find('a.search-control').click
       expect(page.current_url).to match /bbox=/
     end
   end
