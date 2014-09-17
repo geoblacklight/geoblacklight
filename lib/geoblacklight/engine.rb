@@ -14,5 +14,9 @@ module Geoblacklight
     initializer 'geoblacklight.helpers' do |app|
       ActionView::Base.send :include, GeoblacklightHelper
     end
-  end
+    
+    config.to_prepare do
+      Geoblacklight.inject!
+    end
+  end  
 end
