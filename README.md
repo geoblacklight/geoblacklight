@@ -1,6 +1,6 @@
 # Geoblacklight
 
-[![Build Status](https://travis-ci.org/geoblacklight/geoblacklight.png?branch=master)](https://travis-ci.org/sul-dlss/geoblacklight) | [![Coverage Status](https://coveralls.io/repos/sul-dlss/geoblacklight/badge.png)](https://coveralls.io/r/sul-dlss/geoblacklight)
+[![Build Status](https://travis-ci.org/geoblacklight/geoblacklight.svg?branch=master)](https://travis-ci.org/geoblacklight/geoblacklight) | [![Coverage Status](https://img.shields.io/coveralls/geoblacklight/geoblacklight.svg)](https://coveralls.io/r/geoblacklight/geoblacklight?branch=coveralls)
 
 GeoBlacklight started at Stanford and its goal is to provide a
 world-class discovery platform for geospatial (GIS) holdings. It
