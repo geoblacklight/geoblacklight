@@ -2,17 +2,6 @@
   height: 400px;
 }
 
-.text-span{
-  width:100%;
-}
-
-.hide-overflow {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display:block
-}
-
 #map.mapview-map {
   height: 440px;
   cursor: crosshair;

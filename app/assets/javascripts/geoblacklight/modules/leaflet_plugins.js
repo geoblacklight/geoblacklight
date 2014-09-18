@@ -9,14 +9,15 @@ L.Control.searchControl = L.Control.extend({
   },
   onAdd: function(map) {
     var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
-    this.link = L.DomUtil.create('a', 'leaflet-bar-part search-control', container);
+    this.link = L.DomUtil.create('a', 'leaflet-bar-part search-control',
+      container);
     this.link.href = '#';
     this.icon = L.DomUtil.create('i', 'glyphicon glyphicon-search', this.link);
     L.DomEvent.on(this.link, 'click', this._click, this);
     return container;
   },
   intendedFunction: function() {
-    console.log('def');
+    console.log('default, this should be changed');
   },
   _click: function(e) {
     L.DomEvent.stopPropagation(e);
@@ -25,9 +26,10 @@ L.Control.searchControl = L.Control.extend({
   }
 });
 
-L.searchButton = function(btnFunction, btnMap) {
+L.searchButton = function(self) {
   var newControl = new L.Control.searchControl();
-  newControl.intendedFunction = btnFunction;
-  btnMap.addControl(newControl);
+  newControl.intendedFunction = self.searchFromBounds;
+  self.map.addControl(newControl);
+  newControl.params = self.params;
   return newControl;
 };
