@@ -9,5 +9,14 @@ namespace :geoblacklight do
       Blacklight.solr.add docs
       Blacklight.solr.commit
     end
+    
+    desc "Ingests a GeoHydra transformed.json"
+    task :ingest_all => :environment do
+      docs = JSON::parse(File.read("#{Rails.root}/tmp/transformed.json"))
+      docs.each do |doc|
+        Blacklight.solr.add doc
+        Blacklight.solr.commit
+      end
+    end
   end
 end
