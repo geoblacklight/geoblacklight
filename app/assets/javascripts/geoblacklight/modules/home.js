@@ -1,6 +1,6 @@
 Blacklight.onLoad(function () {
   $('[data-map="home"]').each(function(i, element){
-    home = new GeoBlacklight.Home(element);
+    var homeMap = new GeoBlacklight.Home(element);
   });
 });
 

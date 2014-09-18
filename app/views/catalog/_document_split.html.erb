@@ -1,12 +1,4 @@
-<%- # container for all documents in index view -%>
-<%= javascript_tag "var solrDocs = #{documents.to_json};" %>
-<%= javascript_tag "var bBoxs = new L.LayerGroup([]);" %>
-<%= javascript_tag "var mapBbox = [];" %>
-
 <div id="documents" class="docView col-md-6">
   <%= render documents, :as => :document %>
 </div>
-<div id="geoblacklight-map-results">
-  <div id="map" class="listview-map col-md-6">
-  </div>
-</div>
+<%= content_tag :div, '', id: 'map', data: { map: 'index', 'catalog-path'=> catalog_index_path , 'map-bbox' => params[:bbox]} %>

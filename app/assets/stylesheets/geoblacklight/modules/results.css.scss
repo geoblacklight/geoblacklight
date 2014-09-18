@@ -1,0 +1,25 @@
+.more-info-area {
+  max-height: 100px;
+}
+
+.text-span{
+  width:80%;
+  float:left;
+}
+
+.hide-overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display:block
+}
+
+.status-icons {
+  float: right;
+  margin-right: 10px;
+}
+
+.index_title {
+  @extend .text-span;
+  @extend .hide-overflow;
+}

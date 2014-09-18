@@ -10,15 +10,16 @@ GeoBlacklight = function(){
     worldCopyJump: true,
     subdomains: '1234' // see http://developer.mapquest.com/web/products/open/map
   });
+  self.params = self.getParams();
 };
-var c;
+
 GeoBlacklight.prototype = {
   setupMap: function(element){
     var self = this;
     self.bounds = self.bboxToBounds(element.dataset.mapBbox);
     self.map = L.map('map');
     self.basemap.addTo(self.map);
-    self.searchControl = L.searchButton(self.searchFromBounds, self.map);
+    self.searchControl = L.searchButton(self);
     
     if (self.bounds){
       self.map.fitBounds(self.bounds);
@@ -29,10 +30,26 @@ GeoBlacklight.prototype = {
     return {
       map: self.map, 
       basemap: self.basemap,
-      searchControl: self.searchControl
+      searchControl: self.searchControl,
+      params: self.params
     };
   },
-  bboxToBounds: function(string){
+  searchFromBounds: function() {
+    var self = this;
+    self.params.bbox = GeoBlacklight.boundsToBbox(self._map.getBounds()).join(' ');
+    location = self._map.options.catalogPath + L.Util.getParamString(self.params);
+  },
+  getParams: function() {
+    var queryDict = {};
+    location.search.substr(1).split('&').forEach(function(item) {
+      if (item.length > 0){
+        queryDict[item.split('=')[0]] = item.split('=')[1];
+      }
+    });
+    return queryDict;
+  },
+  // Conversion methods for envelope / bounds / bbox
+  envelopeToBounds: function(string){
     var values = string.split(',');
     if (values.length === 4){
       return L.latLngBounds([[values[3], values[0]], [values[2], values[1]]]);
@@ -40,13 +57,19 @@ GeoBlacklight.prototype = {
       return null;
     }
   },
-  boundsToBbox: function(bounds){
-    return [L.forNum(bounds._southWest.lng, 6), L.forNum(bounds._northEast.lng, 6), L.forNum(bounds._northEast.lat, 6), L.forNum(bounds._southWest.lat, 6)].join(',');
+  bboxToBounds: function(bbox) {
+    bbox = bbox.split(' ');
+    if (bbox.length === 4){
+      return L.latLngBounds([[bbox[1], bbox[0]], [bbox[3], bbox[2]]]);
+    }else{
+      return null;
+    }
   },
-  searchFromBounds: function() {
-    var self = this;
-    var bounds = GeoBlacklight.boundsToBbox(self._map.getBounds());
-    location = self._map.options.catalogPath + '?bbox=' + bounds;
+  boundsToBbox: function(bounds) {
+    return [L.forNum(bounds._southWest.lng, 6), L.forNum(bounds._southWest.lat, 6), L.forNum(bounds._northEast.lng, 6), L.forNum(bounds._northEast.lat, 6)];
+  },
+  boundsToEnvelope: function(bounds){
+    return [L.forNum(bounds._southWest.lng, 6), L.forNum(bounds._northEast.lng, 6), L.forNum(bounds._northEast.lat, 6), L.forNum(bounds._southWest.lat, 6)].join(',');
   }
 };
 

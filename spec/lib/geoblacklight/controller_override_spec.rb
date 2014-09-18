@@ -24,5 +24,5 @@ describe Geoblacklight::ControllerOverride do
 end
 
 def has_spatial_query(solr_params, req_params)
-  /Intersects\(ENVELOPE/ =~ @fake_controller.add_spatial_params(solr_params, req_params).fq.first
+  /Intersects/ =~ @fake_controller.add_spatial_params(solr_params, req_params).fq.first
 end
