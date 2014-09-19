@@ -1,6 +1,6 @@
 require "bundler/gem_tasks"
 
-BLACKLIGHT_JETTY_VERSION = '4.9.0'
+BLACKLIGHT_JETTY_VERSION = '4.10.0'
 ZIP_URL = "https://github.com/projectblacklight/blacklight-jetty/archive/v#{BLACKLIGHT_JETTY_VERSION}.zip"
 APP_ROOT = File.dirname(__FILE__)
 
