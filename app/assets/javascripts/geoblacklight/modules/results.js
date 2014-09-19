@@ -1,4 +1,4 @@
-Blacklight.onLoad( function() {
+Blacklight.onLoad( function() 
   $('[data-map="index"]').each(function(i, element) {
     var resultsMap = new GeoBlacklight.Results(element);
   });
