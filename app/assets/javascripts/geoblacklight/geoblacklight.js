@@ -20,7 +20,7 @@ GeoBlacklight.prototype = {
     self.map = L.map('map');
     self.basemap.addTo(self.map);
     self.searchControl = L.searchButton(self);
-    
+
     if (self.bounds){
       self.map.fitBounds(self.bounds);
     }else{
@@ -28,7 +28,7 @@ GeoBlacklight.prototype = {
       self.map.setView([0,0]);
     }
     return {
-      map: self.map, 
+      map: self.map,
       basemap: self.basemap,
       searchControl: self.searchControl,
       params: self.params
@@ -66,10 +66,25 @@ GeoBlacklight.prototype = {
     }
   },
   boundsToBbox: function(bounds) {
-    return [L.forNum(bounds._southWest.lng, 6), L.forNum(bounds._southWest.lat, 6), L.forNum(bounds._northEast.lng, 6), L.forNum(bounds._northEast.lat, 6)];
+    var minx = L.forNum(bounds._southWest.lng, 6),
+        maxx = L.forNum(bounds._northEast.lng, 6);
+    minx = GeoBlacklight.wrapLng(minx);
+    maxx = GeoBlacklight.wrapLng(maxx);
+
+    return [minx, L.forNum(bounds._southWest.lat, 6), maxx, L.forNum(bounds._northEast.lat, 6)];
   },
   boundsToEnvelope: function(bounds){
     return [L.forNum(bounds._southWest.lng, 6), L.forNum(bounds._northEast.lng, 6), L.forNum(bounds._northEast.lat, 6), L.forNum(bounds._southWest.lat, 6)].join(',');
+  },
+
+  wrapLng: function(lng) {
+    while (lng < -180) {
+      lng += 360;
+    }
+    while (lng > 180) {
+      lng -= 360;
+    }
+    return lng;
   }
 };
 
