@@ -1,4 +1,4 @@
-Blacklight.onLoad( function() 
+Blacklight.onLoad( function() {
   $('[data-map="index"]').each(function(i, element) {
     var resultsMap = new GeoBlacklight.Results(element);
   });
@@ -7,8 +7,7 @@ Blacklight.onLoad( function()
 GeoBlacklight.Results = function(element) {
   var self = this;
   L.extend(self, GeoBlacklight.setupMap(element));
-
-  self.map.options.catalogPath = L.DomUtil.get('map').dataset.catalogPath;
+  self.map.options.catalogPath = self.dataAttributes.catalogPath;
   self.bboxLayers = new L.layerGroup()
     .addTo(self.map);
   self.setHoverListeners();

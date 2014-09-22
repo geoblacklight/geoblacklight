@@ -16,7 +16,10 @@ GeoBlacklight = function(){
 GeoBlacklight.prototype = {
   setupMap: function(element){
     var self = this;
-    self.bounds = self.bboxToBounds(element.dataset.mapBbox);
+    self.dataAttributes = $(element).data();
+    if (self.dataAttributes.mapBbox) {
+      self.bounds = self.bboxToBounds(self.dataAttributes.mapBbox);
+    }
     self.map = L.map('map');
     self.basemap.addTo(self.map);
     self.searchControl = L.searchButton(self);
@@ -33,7 +36,8 @@ GeoBlacklight.prototype = {
       map: self.map,
       basemap: self.basemap,
       searchControl: self.searchControl,
-      params: self.params
+      params: self.params,
+      dataAttributes: self.dataAttributes
     };
   },
   refreshBasemap: function() {
@@ -87,9 +91,9 @@ GeoBlacklight.prototype = {
   },
   bboxToBounds: function(bbox) {
     bbox = bbox.split(' ');
-    if (bbox.length === 4){
+    if (bbox.length === 4) {
       return L.latLngBounds([[bbox[1], bbox[0]], [bbox[3], bbox[2]]]);
-    }else{
+    }else {
       return null;
     }
   },
