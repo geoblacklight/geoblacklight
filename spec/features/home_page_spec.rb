@@ -37,4 +37,14 @@ feature 'Home page', js: true do # use js: true for tests which require js, but 
     expect(page).to have_css '#documents'
   end
 
+  scenario 'clicking map search should retain current search parameters' do
+    visit '/?f[dc_subject_sm][]=polygon&f[dc_subject_sm][]=boundaries'
+    within '#map' do
+      find('a.search-control').click
+    end
+    within '#appliedParams' do
+      expect(page).to have_content('Subject polygon')
+      expect(page).to have_content('Subject boundaries')
+    end
+  end
 end
