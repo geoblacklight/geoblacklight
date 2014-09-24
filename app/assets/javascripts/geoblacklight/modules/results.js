@@ -1,10 +1,10 @@
-Blacklight.onLoad(function() {
+Blacklight.onLoad( function() {
   $('[data-map="index"]').each(function(i, element) {
-    var indexMap = new GeoBlacklight.Index(element);
+    var resultsMap = new GeoBlacklight.Results(element);
   });
 });
 
-GeoBlacklight.Index = function(element) {
+GeoBlacklight.Results = function(element) {
   var self = this;
   L.extend(self, GeoBlacklight.setupMap(element));
 
@@ -14,7 +14,7 @@ GeoBlacklight.Index = function(element) {
   self.setHoverListeners();
 };
 
-GeoBlacklight.Index.prototype = {
+GeoBlacklight.Results.prototype = {
   setHoverListeners: function() {
     var self = this;
     $('[data-layer-id]').on('mouseover', function(e){
@@ -29,6 +29,5 @@ GeoBlacklight.Index.prototype = {
     $('[data-layer-id]').on('mouseout', function(){
       self.bboxLayers.clearLayers();
     });
-    
   }
 };

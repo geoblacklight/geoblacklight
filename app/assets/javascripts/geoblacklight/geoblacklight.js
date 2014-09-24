@@ -27,12 +27,21 @@ GeoBlacklight.prototype = {
       self.map.setZoom(2);
       self.map.setView([0,0]);
     }
+    // Needed to accomodate basemap not reloading with turbolinks enabled
+    self.refreshBasemap();
     return {
       map: self.map,
       basemap: self.basemap,
       searchControl: self.searchControl,
       params: self.params
     };
+  },
+  refreshBasemap: function() {
+    var self = this;
+    self.map.eachLayer(function(layer){
+      self.map.removeLayer(layer);
+    });
+    self.basemap.addTo(self.map);
   },
   searchFromBounds: function() {
     var self = this;
