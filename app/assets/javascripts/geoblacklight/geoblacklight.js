@@ -37,17 +37,36 @@ GeoBlacklight.prototype = {
   searchFromBounds: function() {
     var self = this;
     self.params.bbox = GeoBlacklight.boundsToBbox(self._map.getBounds()).join(' ');
-    location = self._map.options.catalogPath + L.Util.getParamString(self.params);
+    window.location = self._map.options.catalogPath + '?' +
+      $.param(self.params, false);
   },
+
   getParams: function() {
-    var queryDict = {};
-    location.search.substr(1).split('&').forEach(function(item) {
-      if (item.length > 0){
-        queryDict[item.split('=')[0]] = item.split('=')[1];
+    var queryDict = {},
+        search = window.location.search.substr(1);
+
+    $.each(search.split('&'), function(index, item) {
+      var param = item.split("="),
+          key = param[0],
+          value = param[1];
+
+      if (!key && !value) {
+        return;
+      }
+
+      key = decodeURIComponent(key).replace(/\[\]$/, '');
+      value = decodeURIComponent(value);
+
+      if (queryDict[key] !== undefined) {
+        queryDict[key].push(value);
+      } else {
+        queryDict[key] = [value];
       }
     });
+
     return queryDict;
   },
+
   // Conversion methods for envelope / bounds / bbox
   envelopeToBounds: function(string){
     var values = string.split(',');
