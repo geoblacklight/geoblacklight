@@ -1,9 +1,9 @@
 "use strict";
 
-console.log('DEBUG: Inside geoblacklight/modules/map-view.js');
+// console.log('DEBUG: Inside geoblacklight/modules/map-view.js');
 Blacklight.onLoad(function () {
-  $('#geoblacklight-map-view').geoBlacklight_setupMapView();
-  $('#geoblacklight-tools').geoBlacklight_setupTools();
+  // $('#geoblacklight-map-view').geoBlacklight_setupMapView();
+  // $('#geoblacklight-tools').geoBlacklight_setupTools();
 });
 
 /* Requires leaflet */
