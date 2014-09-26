@@ -5,7 +5,7 @@ Blacklight.onLoad(function() {
 });
 
 GeoBlacklight.Item = function(element) {
-  _this = this;
+  var _this = this;
   _this.element = element;
   L.extend(_this, GeoBlacklight.setupMap(element));
   _this.map.options.catalogPath = _this.dataAttributes.catalogPath;
@@ -20,7 +20,7 @@ GeoBlacklight.Item = function(element) {
 
 GeoBlacklight.Item.prototype = {
   addPreviewLayer: function() {
-    _this = this;
+    var _this = this;
     _this.wmsLayer = L.tileLayer.wms(_this.dataAttributes.wmsUrl, {
       layers: _this.dataAttributes.layerId,
       format: 'image/png',
@@ -32,7 +32,7 @@ GeoBlacklight.Item.prototype = {
     _this.layer.addLayer(_this.wmsLayer);
   },
   addBboxLayer: function() {
-    _this = this;
+    var _this = this;
     _this.bounds = GeoBlacklight.bboxToBounds(
       _this.element.dataset.mapBbox
     );
