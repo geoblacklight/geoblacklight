@@ -1,50 +1,15 @@
-<div class="geoblacklight-view-panel">
+<% document ||= @document %>
 
-  <dl class="dl-horizontal">
-    <% unless document['dc_creator_sm'].nil? %>
-      <dt>Author</dt>
-      <dd><%= document['dc_creator_sm'].join(', ') %>&nbsp;</dd>
-	<% end %>
-    <% unless document['dc_publisher_s'].nil? %>
-      <dt>Publisher</dt>
-      <dd><%= document['dc_publisher_s'] %>&nbsp;</dd>
-	<% end %>
-    <dt>Year</dt>
-    <dd><%= document['solr_year_i'] %>&nbsp;</dd>
-    <dt>Abstract</dt>
-    <dd id=""><%= abstract_truncator(document['dc_description_s']) %>&nbsp;</dd>
-    <% unless document['dct_isPartOf_sm'].nil? %>
-      <dt>Collection</dt>
-      <dd><%= document['dct_isPartOf_sm'].sort.join(', ') %>&nbsp;</dd>
-    <% end %>
-    <% if document['dct_provenance_s'] == 'Stanford' and not document['dc_identifier_s'].nil? %>
-      <dt>Citation</dt>
-      <dd><%= link_to document['dc_identifier_s'], document['dc_identifier_s'] %>&nbsp;</dd>
-    <% end %>
-    <% unless document['dct_spatial_sm'].nil? %>
-      <dt>Places</dt>
-      <dd><%= document['dct_spatial_sm'].sort.join(', ') %>&nbsp;</dd>
-    <% end %>
-    <% unless document['dc_subject_sm'].nil? %>
-      <dt>Subjects</dt>
-      <dd><%= document['dc_subject_sm'].sort.join(', ') %>&nbsp;</dd>
-    <% end %>
-    <% unless document['dct_temporal_sm'].nil? %>
-      <dt>Years</dt>
-      <dd><%= document['dct_temporal_sm'].sort.join(', ') %>&nbsp;</dd>
-    <% end %>
-  </dl>
-</div>
+<%= render 'upper_metadata', locals: { document: document} %>
 
 <div class='row'>
   <div class="col-md-8">
-    <div id='geoblacklight-map-view'>
-      <div id='map' class='mapview-map'></div>
+    <%= content_tag :div, id: 'map', data: { map: 'item', 'catalog-path'=> catalog_index_path , 'map-bbox' => document[:solr_bbox], 'layer-id' => document[:layer_id_s], 'wms-url' => document[:solr_wms_url], available: document.available? } do %>
       <div id='control'>
         <div id='handle'></div>
         <div id='bottom'></div>
       </div>
-    </div>
+    <% end %>
   </div>
   <div id='table-container' class='col-md-4'><div id='attribute-table' ></div></div>
 </div>
