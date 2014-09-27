@@ -1,1 +1,9 @@
 INSTITUTION: 'Stanford'
+WMS_PARAMS:
+  :SERVICE: 'WMS'
+  :VERSION: '1.1.1'
+  :REQUEST: 'GetFeatureInfo'
+  :STYLES: ''
+  :SRS: 'EPSG:4326'
+  :EXCEPTIONS: 'application/json'
+  :INFO_FORMAT: 'text/html'
