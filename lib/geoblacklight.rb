@@ -5,6 +5,7 @@ module Geoblacklight
   require 'geoblacklight/controller_override'
   require 'geoblacklight/view_helper_override'
   require 'geoblacklight/solr_document'
+  require 'geoblacklight/wms_layer'
   def self.inject!
     CatalogController.send(:include, Geoblacklight::ControllerOverride)
     CatalogController.send(:include, Geoblacklight::ViewHelperOverride)

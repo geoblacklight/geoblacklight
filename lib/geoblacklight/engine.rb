@@ -1,8 +1,10 @@
 require 'blacklight'
 require 'leaflet-rails'
+# move towards removing httparty, replaced by faraday
 require 'httparty'
 require 'font-awesome-rails'
 require 'rails_config'
+require 'faraday'
 
 module Geoblacklight
   class Engine < ::Rails::Engine
@@ -19,5 +21,5 @@ module Geoblacklight
     config.to_prepare do
       Geoblacklight.inject!
     end
-  end  
+  end
 end
