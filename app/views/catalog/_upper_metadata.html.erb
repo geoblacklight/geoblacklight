@@ -34,13 +34,5 @@
       <dt>Years</dt>
       <dd itemprop="temporal"><%= document['dct_temporal_sm'].sort.join(', ') %>&nbsp;</dd>
     <% end %>
-    <% unless document['solr_bbox'].nil? %>
-      <dt>Bounding Box</dt>
-      <dd itemprop="spatial" itemscope itemtype="http://schema.org/Place">
-        <span itemprop="geo" itemscope itemtype="http://schema.org/GeoShape">
-          <span itemprop="box"><%= document['solr_bbox'] %></span>
-        </span>
-      </dd>
-    <% end %>
   </dl>
 </div>
