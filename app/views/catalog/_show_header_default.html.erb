@@ -1,5 +1,5 @@
 <h2>
-  <%= document_heading(document) %>
+  <span itemprop="name"><%= document_heading(document) %></span>
   <small>
     <%= layer_type_image(document['layer_geom_type_s']) %>
     <%= layer_institution_image(document['dct_provenance_s']) %>
