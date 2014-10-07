@@ -21,7 +21,7 @@ Blacklight.onLoad(function () {
     return this.each(function () {
       console.log(this)
       map = L.map('map');
-      console.log(solrDoc)
+      // console.log(solrDoc)
       // var layerBbox;
       // var location = JSON.parse(doc.Location);
       if (solrDoc.solr_bbox){

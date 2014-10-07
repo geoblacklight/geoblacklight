@@ -39,17 +39,15 @@ module Geoblacklight
     end
 
     def inject_routes
-      # route 'devise_for :users'
-      # route 'constraints(:id => /[0-9A-Za-z\-\.\:\_\/]+/) do
-      #          blacklight_for :catalog
-      #          resources :bookmarks
-      #        end'
-      # route 'get \'/catalog/facet/:id\' => \'catalog#facet\''
-      # route 'root :to => "catalog#index"'
       route 'post "wms/handle"'
-      route 'post "download/kml"'
-      route 'post "download/shapefile"'
-      route 'get "download/file"'
+      route 'resources :download, only: [:show, :file]'
+      route "get 'download/file/:id' => 'download#file', as: :download_file"
+    end
+
+    def create_downloads_directory
+      if !Dir.exists?('tmp/downloads')
+        Dir.mkdir('tmp/downloads')
+      end
     end
 
     # Necessary for bootstrap-sass 3.2
