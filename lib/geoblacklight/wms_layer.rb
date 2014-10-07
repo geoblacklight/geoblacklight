@@ -1,7 +1,6 @@
 require 'nokogiri'
 require 'geoblacklight/wms_layer/feature_info_response'
 class WmsLayer
-  include HTTParty
 
   def initialize(params)
     @params = params.merge(Settings.WMS_PARAMS)

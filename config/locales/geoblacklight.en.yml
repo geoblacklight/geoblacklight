@@ -1,0 +1,5 @@
+en:
+  geoblacklight:
+    download:
+      success: 'Your file %{title} is ready for download'
+      error: 'Sorry, the requested file could not be downloaded'

@@ -13,16 +13,3 @@
   </div>
   <div id='table-container' class='col-md-4'><div id='attribute-table' ></div></div>
 </div>
-<% if @document['dct_provenance_s'] == 'Stanford' %>
-<div class='geoblacklight-view-panel-footer'>
-  <br>
-  <br>
-  <hr/>
-  <p align="right">
-    <small>
-      <a href="<%= @document['dc_identifier_s'] %>.mods">Librarian View</a>
-    </small>
-  </p>
-</div>
-<% end %>
-<%= javascript_tag "var solrDoc = #{@document.to_json};" %>
