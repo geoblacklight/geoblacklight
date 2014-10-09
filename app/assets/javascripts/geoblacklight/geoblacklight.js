@@ -4,24 +4,27 @@ var GeoBlacklight = {
 
 GeoBlacklight = function(){
   var self = this;
-  self.basemap = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png">',
-    maxZoom: 18,
-    worldCopyJump: true,
-    subdomains: '1234' // see http://developer.mapquest.com/web/products/open/map
-  });
   self.params = self.getParams();
 };
 
 GeoBlacklight.prototype = {
   setupMap: function(element){
-    var self = this;
+    var self = this,
+        basemap;
+
+    basemap = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png">',
+      maxZoom: 18,
+      worldCopyJump: true,
+      subdomains: '1234' // see http://developer.mapquest.com/web/products/open/map
+    });
+
     self.dataAttributes = $(element).data();
     if (self.dataAttributes.mapBbox) {
       self.bounds = self.bboxToBounds(self.dataAttributes.mapBbox);
     }
     self.map = L.map('map');
-    self.basemap.addTo(self.map);
+    basemap.addTo(self.map);
     self.searchControl = L.searchButton(self);
 
     if (self.bounds){
@@ -30,23 +33,15 @@ GeoBlacklight.prototype = {
       self.map.setZoom(2);
       self.map.setView([0,0]);
     }
-    // Needed to accomodate basemap not reloading with turbolinks enabled
-    self.refreshBasemap();
+
     return {
       map: self.map,
-      basemap: self.basemap,
       searchControl: self.searchControl,
       params: self.params,
       dataAttributes: self.dataAttributes
     };
   },
-  refreshBasemap: function() {
-    var self = this;
-    self.map.eachLayer(function(layer){
-      self.map.removeLayer(layer);
-    });
-    self.basemap.addTo(self.map);
-  },
+
   searchFromBounds: function() {
     var self = this;
     self.params.bbox = GeoBlacklight.boundsToBbox(self._map.getBounds()).join(' ');
