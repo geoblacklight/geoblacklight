@@ -2,8 +2,7 @@
 
 [![Build Status](https://travis-ci.org/geoblacklight/geoblacklight.svg?branch=master)](https://travis-ci.org/geoblacklight/geoblacklight) | [![Coverage Status](https://img.shields.io/coveralls/geoblacklight/geoblacklight.svg)](https://coveralls.io/r/geoblacklight/geoblacklight?branch=coveralls)
 
-GeoBlacklight started at Stanford and its goal is to provide a
-world-class discovery platform for geospatial (GIS) holdings. It
+GeoBlacklight is a world-class discovery platform for geospatial (GIS) holdings. It
 is an open collaborative project aiming to build off of the successes
 of the Blacklight Solr-powered discovery interface and the
 multi-institutional OpenGeoportal federated metadata sharing
@@ -13,7 +12,7 @@ More coming soon!
 
 ## Features
 
-* Text search with scoring formula
+* Text and spatial search with scoring formula
 * Facet by institution, year, publisher, data type, access, format
 * Facet by place, subject
 * Sort by relevance, year, publisher, title
@@ -21,13 +20,12 @@ More coming soon!
 * Detail map view for WMS features
 * Detail map view feature inspection
 * Slugs
-* MODS display
 * Results list map view of bounding boxes
 * WMS/WFS/WCS links
 * Download Shapefile
 * Download KML
 * Download Metadata (for Stanford)
-* Built-in sample Solr 4.7 index
+* Built-in sample Solr 4.10 index
 * Search history
 
 ## TODO
@@ -37,7 +35,7 @@ More coming soon!
 
 ## Development
 
-To install a development instance of Geoblacklight follow these instructions.
+To install a development instance of GeoBlacklight follow these instructions.
 
 Clone the repository (using `--recurse`)
 
@@ -71,17 +69,17 @@ Run tests
 
 ## Installation
 
-Add this line to your application's `Gemfile`:
+To bootstrap a new GeoBlacklight Rails application
 
-    gem 'geoblacklight'
+    $ rails new app-name -m https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/template.rb
+    
+To install Solr (with jetty)
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install geoblacklight
+    $ cd app-name
+    $ rake jetty:download
+    $ rake jetty:unzip
+    $ rake geoblacklight:configure_jetty
+    
 
 ## Usage
 
