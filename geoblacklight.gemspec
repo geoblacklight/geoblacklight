@@ -25,6 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'httparty', '~> 0.13.1'
   spec.add_dependency 'rails_config'
   spec.add_dependency 'faraday'
+  spec.add_dependency 'underscore-rails'
 
   spec.add_development_dependency 'bundler', '~> 1.5'
   spec.add_development_dependency 'rake', '~> 10.3.2'
