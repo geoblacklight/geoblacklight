@@ -1,16 +1,12 @@
 Blacklight.onLoad(function () {
-  $('[data-map="home"]').each(function(i, element){
-    var homeMap = new GeoBlacklight.Home(element);
+  $('[data-map="home"]').each(function(i, element) {
+    GeoBlacklight.initialize(element).setHoverListeners();
   });
 });
 
-GeoBlacklight.Home = function(element){
-  var self = this;
-  L.extend(self, GeoBlacklight.setupMap(element));
-  self.map.options.catalogPath = element.dataset.catalogPath;
-
-};
-
-GeoBlacklight.Home.prototype = {
-
-};
+// Blacklight.onLoad doesn't trigger on Turbolinks page:restore event
+$(document).on("page:restore", function() {
+  $('[data-map="home"]').each(function(i, el) {
+    GeoBlacklight.initialize(el).setHoverListeners();
+  });
+});

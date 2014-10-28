@@ -1,32 +1,23 @@
-Blacklight.onLoad( function() {
-  $('[data-map="index"]').each(function(i, element) {
-    var resultsMap = new GeoBlacklight.Results(element);
+Blacklight.onLoad(function() {
+  $('[data-map="index"]').each(function(i, el) {
+    GeoBlacklight.initialize(el).setHoverListeners();
   });
 });
 
-GeoBlacklight.Results = function(element) {
-  var self = this;
-  L.extend(self, GeoBlacklight.setupMap(element));
-  self.map.options.catalogPath = self.dataAttributes.catalogPath;
-  self.bboxLayers = new L.layerGroup()
-    .addTo(self.map);
-  self.setHoverListeners();
-};
+// Blacklight.onLoad doesn't trigger on Turbolinks page:restore event
+$(document).on("page:restore", function() {
+  $('[data-map="index"]').each(function(i, el) {
+    GeoBlacklight.initialize(el).setHoverListeners();
+  });
+});
 
-GeoBlacklight.Results.prototype = {
-  setHoverListeners: function() {
-    var self = this;
-    $('[data-layer-id]').on('mouseover', function(e){
-      var bounds = GeoBlacklight.bboxToBounds(
-        $(e.currentTarget).data('bbox')
-      );
-      
-      var bboxLayer = L.polygon([bounds.getSouthWest(), bounds.getSouthEast(), bounds.getNorthEast(), bounds.getNorthWest()]);
-      self.bboxLayers.addLayer(bboxLayer);
+GeoBlacklight.setHoverListeners = function() {
+  $("#documents")
+    .on("mouseenter", "[data-layer-id]", function(el) {
+      var bounds = GeoBlacklight.bboxToBounds($(this).data('bbox'));
+      GeoBlacklight.addBoundsOverlay(bounds);
+    })
+    .on("mouseleave", "[data-layer-id]", function(el) {
+      GeoBlacklight.removeBoundsOverlay();
     });
-    
-    $('[data-layer-id]').on('mouseout', function(){
-      self.bboxLayers.clearLayers();
-    });
-  }
 };
