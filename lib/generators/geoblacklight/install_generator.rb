@@ -16,11 +16,11 @@ module Geoblacklight
       remove_file "app/controllers/catalog_controller.rb"
       copy_file "catalog_controller.rb", "app/controllers/catalog_controller.rb"
     end
-    
+
     def rails_config
       copy_file 'settings.yml', 'config/settings.yml'
     end
-    
+
     def include_geoblacklight_solrdocument
       inject_into_file 'app/models/solr_document.rb', after: 'include Blacklight::Solr::Document' do
         "\n include Geoblacklight::SolrDocument"
@@ -28,8 +28,8 @@ module Geoblacklight
     end
 
     def fixtures
-      FileUtils.mkdir_p "spec/fixtures/geoblacklight_schema"
-      copy_file "../../../../schema/examples/selected.json", "spec/fixtures/geoblacklight_schema/selected.json"
+      FileUtils.mkdir_p 'spec/fixtures/geoblacklight_schema'
+      system 'curl -L https://raw.githubusercontent.com/geoblacklight/geoblacklight-schema/master/examples/selected.json -o spec/fixtures/geoblacklight_schema/selected.json'
     end
 
     def add_unique_key
@@ -60,6 +60,10 @@ module Geoblacklight
       else
         say_status "warning", "Can not find blacklight.css.scss, did not insert our require", :red
       end
+    end
+
+    def disable_turbolinks
+      gsub_file('app/assets/javascripts/application.js', /\/\/= require turbolinks/, '')
     end
 
     def bundle_install
