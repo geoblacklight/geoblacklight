@@ -1,6 +1,5 @@
 require 'blacklight'
 require 'leaflet-rails'
-require 'underscore-rails'
 # move towards removing httparty, replaced by faraday
 require 'httparty'
 require 'font-awesome-rails'

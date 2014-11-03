@@ -1,23 +1,49 @@
 Blacklight.onLoad(function() {
-  $('[data-map="index"]').each(function(i, el) {
-    GeoBlacklight.initialize(el).setHoverListeners();
-  });
-});
 
-// Blacklight.onLoad doesn't trigger on Turbolinks page:restore event
-$(document).on("page:restore", function() {
-  $('[data-map="index"]').each(function(i, el) {
-    GeoBlacklight.initialize(el).setHoverListeners();
+  History.Adapter.bind(window, 'statechange', function() {
+    var state = History.getState();
+    updatePage(state.url);
   });
-});
 
-GeoBlacklight.setHoverListeners = function() {
-  $("#documents")
-    .on("mouseenter", "[data-layer-id]", function(el) {
-      var bounds = GeoBlacklight.bboxToBounds($(this).data('bbox'));
-      GeoBlacklight.addBoundsOverlay(bounds);
-    })
-    .on("mouseleave", "[data-layer-id]", function(el) {
-      GeoBlacklight.removeBoundsOverlay();
+  $('[data-map="index"]').each(function() {
+    var geoblacklight = new GeoBlacklight(this).setHoverListeners(),
+        search = new L.Control.GeoSearch(dynamicSearcher);
+    geoblacklight.map.addControl(search);
+  });
+
+  function updatePage(url) {
+    $.get(url).done(function(data) {
+      var resp = $.parseHTML(data);
+          $doc = $(resp);
+      $("#documents").replaceWith($doc.find("#documents"));
+      $("#sidebar").replaceWith($doc.find("#sidebar"));
+      $("#sortAndPerPage").replaceWith($doc.find("#sortAndPerPage"));
+      if ($("#map").next().length) {
+        $("#map").next().replaceWith($doc.find("#map").next());
+      } else {
+        $("#map").after($doc.find("#map").next());
+      }
     });
+  }
+
+  function dynamicSearcher(querystring) {
+    History.pushState(null, null, "/catalog?" + querystring);
+  }
+
+});
+
+GeoBlacklight.prototype.setHoverListeners = function() {
+  var _this = this;
+
+  $("#content")
+    .on("mouseenter", "#documents [data-layer-id]", function() {
+      var bounds = L.bboxToBounds($(this).data('bbox'));
+      _this.addBoundsOverlay(bounds);
+    })
+    .on("mouseleave", "#documents [data-layer-id]", function() {
+      _this.removeBoundsOverlay();
+    });
+
+  return this;
+
 };
