@@ -4,21 +4,19 @@ Blacklight.onLoad(function() {
   });
 });
 
-GeoBlacklight.Item = function(element) {
-  var _this = this;
-  _this.element = element;
-  L.extend(_this, GeoBlacklight.setupMap(element));
-  _this.map.options.catalogPath = _this.dataAttributes.catalogPath;
-  _this.layer = new L.layerGroup()
-    .addTo(_this.map);
-  if (_this.dataAttributes.available) {
-    _this.addPreviewLayer();
-  } else {
-    _this.addBboxLayer();
-  }
-};
+GeoBlacklight.Item = GeoBlacklight.extend({
 
-GeoBlacklight.Item.prototype = {
+  initialize: function(element) {
+    GeoBlacklight.prototype.initialize.call(this, element);
+    this.dataAttributes = $(element).data();
+    this.layer = new L.layerGroup().addTo(this.map);
+    if (this.dataAttributes.available) {
+      this.addPreviewLayer();
+    } else {
+      this.addBoundsOverlay(L.bboxToBounds(this.dataAttributes.mapBbox));
+    }
+  },
+
   addPreviewLayer: function() {
     var _this = this;
     _this.wmsLayer = L.tileLayer.wms(_this.dataAttributes.wmsUrl, {
@@ -32,14 +30,7 @@ GeoBlacklight.Item.prototype = {
     _this.layer.addLayer(_this.wmsLayer);
     _this.setupInspection();
   },
-  addBboxLayer: function() {
-    var _this = this;
-    _this.bounds = GeoBlacklight.bboxToBounds(
-      _this.element.dataset.mapBbox
-    );
-    _this.bboxLayer = L.polygon([_this.bounds.getSouthWest(), _this.bounds.getSouthEast(), _this.bounds.getNorthEast(), _this.bounds.getNorthWest()]);
-    _this.layer.addLayer(_this.bboxLayer);
-  },
+
   setupInspection: function() {
     var _this = this;
     _this.map.on('click', function(e) {
@@ -77,4 +68,5 @@ GeoBlacklight.Item.prototype = {
       });
     });
   }
-};
+
+});
