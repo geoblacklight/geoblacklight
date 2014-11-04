@@ -12,7 +12,7 @@ gem 'sprockets', '2.11.0'
 # Gemfile.lock but since sass-rails gets generated (rails new) into the test app
 # it'll want sass 3.2.0 and we'll have a conflict
 gem 'sass', '~> 3.2.0'
-gem 'bootstrap-sass', ">= 3.1.1.1"
+gem 'bootstrap-sass', ">= 3.2"
 
 group :test do
   # Peg simplecov to < 0.8 until this is resolved:
