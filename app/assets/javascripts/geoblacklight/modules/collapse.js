@@ -1,8 +1,8 @@
-Blacklight.onLoad(function(){
-  $('.document').each(function(index, value){
+Blacklight.onLoad(function() {
+  $('.document').each(function(index, value) {
     value = $(value);
-    value.find('[data-layer-id]').on('click', function(){
-      value.find('.collapse').toggle();
+    value.find('[data-layer-id]').on('click', function() {
+      value.find('.collapse').collapse('toggle');
     });
   });
 });
