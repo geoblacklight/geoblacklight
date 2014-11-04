@@ -1,16 +1,10 @@
 Blacklight.onLoad(function () {
-  $('[data-map="home"]').each(function(i, element){
-    var homeMap = new GeoBlacklight.Home(element);
+  $('[data-map="home"]').each(function(i, element) {
+    var geoblacklight = new GeoBlacklight(this),
+        search;
+    search = new L.Control.GeoSearch(function(querystring) {
+      this.link.href = "/catalog?" + querystring;
+    }, { button: true });
+    geoblacklight.map.addControl(search);
   });
 });
-
-GeoBlacklight.Home = function(element){
-  var self = this;
-  L.extend(self, GeoBlacklight.setupMap(element));
-  self.map.options.catalogPath = element.dataset.catalogPath;
-
-};
-
-GeoBlacklight.Home.prototype = {
-
-};

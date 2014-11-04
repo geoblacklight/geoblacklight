@@ -1,32 +1,49 @@
-Blacklight.onLoad( function() {
-  $('[data-map="index"]').each(function(i, element) {
-    var resultsMap = new GeoBlacklight.Results(element);
+Blacklight.onLoad(function() {
+
+  History.Adapter.bind(window, 'statechange', function() {
+    var state = History.getState();
+    updatePage(state.url);
   });
-});
 
-GeoBlacklight.Results = function(element) {
-  var self = this;
-  L.extend(self, GeoBlacklight.setupMap(element));
-  self.map.options.catalogPath = self.dataAttributes.catalogPath;
-  self.bboxLayers = new L.layerGroup()
-    .addTo(self.map);
-  self.setHoverListeners();
-};
+  $('[data-map="index"]').each(function() {
+    var geoblacklight = new GeoBlacklight(this).setHoverListeners(),
+        search = new L.Control.GeoSearch(dynamicSearcher);
+    geoblacklight.map.addControl(search);
+  });
 
-GeoBlacklight.Results.prototype = {
-  setHoverListeners: function() {
-    var self = this;
-    $('[data-layer-id]').on('mouseover', function(e){
-      var bounds = GeoBlacklight.bboxToBounds(
-        $(e.currentTarget).data('bbox')
-      );
-      
-      var bboxLayer = L.polygon([bounds.getSouthWest(), bounds.getSouthEast(), bounds.getNorthEast(), bounds.getNorthWest()]);
-      self.bboxLayers.addLayer(bboxLayer);
-    });
-    
-    $('[data-layer-id]').on('mouseout', function(){
-      self.bboxLayers.clearLayers();
+  function updatePage(url) {
+    $.get(url).done(function(data) {
+      var resp = $.parseHTML(data);
+          $doc = $(resp);
+      $("#documents").replaceWith($doc.find("#documents"));
+      $("#sidebar").replaceWith($doc.find("#sidebar"));
+      $("#sortAndPerPage").replaceWith($doc.find("#sortAndPerPage"));
+      if ($("#map").next().length) {
+        $("#map").next().replaceWith($doc.find("#map").next());
+      } else {
+        $("#map").after($doc.find("#map").next());
+      }
     });
   }
+
+  function dynamicSearcher(querystring) {
+    History.pushState(null, null, "/catalog?" + querystring);
+  }
+
+});
+
+GeoBlacklight.prototype.setHoverListeners = function() {
+  var _this = this;
+
+  $("#content")
+    .on("mouseenter", "#documents [data-layer-id]", function() {
+      var bounds = L.bboxToBounds($(this).data('bbox'));
+      _this.addBoundsOverlay(bounds);
+    })
+    .on("mouseleave", "#documents [data-layer-id]", function() {
+      _this.removeBoundsOverlay();
+    });
+
+  return this;
+
 };
