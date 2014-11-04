@@ -18,7 +18,18 @@
   var GeoBlacklight = L.Class.extend({
 
     statics: {
-      __version__: '0.0.1'
+      __version__: '0.0.1',
+
+      debounce: function(fn, delay) {
+        var timeout = null;
+        return function() {
+          var args = arguments, _this = this;
+          clearTimeout(timeout);
+          timeout = setTimeout(function() {
+            fn.apply(_this, args);
+          }, delay);
+        };
+      }
     },
 
     initialize: function(el) {

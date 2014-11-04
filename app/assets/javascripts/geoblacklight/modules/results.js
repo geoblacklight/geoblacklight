@@ -1,4 +1,9 @@
 Blacklight.onLoad(function() {
+  var dynamicSearcher;
+
+  dynamicSearcher = GeoBlacklight.debounce(function(querystring) {
+    History.pushState(null, null, "/catalog?" + querystring);
+  }, 800);
 
   History.Adapter.bind(window, 'statechange', function() {
     var state = History.getState();
@@ -24,10 +29,6 @@ Blacklight.onLoad(function() {
         $("#map").after($doc.find("#map").next());
       }
     });
-  }
-
-  function dynamicSearcher(querystring) {
-    History.pushState(null, null, "/catalog?" + querystring);
   }
 
 });

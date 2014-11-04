@@ -42,12 +42,7 @@
           this.link);
       }
 
-      map.on("moveend", function() {
-        var _this = this;
-        window.setTimeout(function() {
-          _this._search();
-        }, 800);
-      }, this);
+      map.on("moveend", this._search, this);
 
       return container;
     },
