@@ -42,7 +42,13 @@
           this.link);
       }
 
-      map.on("moveend", this._search, this);
+      map.on("moveend", function() {
+        var _this = this;
+        window.setTimeout(function() {
+          _this._search();
+        }, 800);
+      }, this);
+
       return container;
     },
 
