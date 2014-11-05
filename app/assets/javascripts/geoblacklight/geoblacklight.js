@@ -33,8 +33,8 @@
     },
 
     initialize: function(el) {
-      var data = $(el).data() || {},
-          center, zoom, basemap, map;
+      var data = $(el).data(),
+          basemap, map;
 
       basemap = L.tileLayer(
         'http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
@@ -52,12 +52,8 @@
       map.addLayer(basemap);
       map.addLayer(this.overlay);
 
-      if (typeof data.mapCenter === "string" && typeof data.mapZoom === "number") {
-        center = $.map(data.mapCenter.split(" "), function(num) {
-          return parseFloat(num);
-        });
-        zoom = parseInt(data.mapZoom, 10);
-        map.setView(center, zoom);
+      if (typeof data['mapBbox'] === "string") {
+        map.fitBounds(L.bboxToBounds(data.mapBbox));
       } else {
         map.setView([0,0], 2);
       }

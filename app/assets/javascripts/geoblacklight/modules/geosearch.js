@@ -48,14 +48,10 @@
     },
 
     _search: function() {
-      var params = this.filterParams(['bbox', 'center', 'zoom']),
-          bounds = L.boundsToBbox(this._map.getBounds()),
-          center = this._map.getCenter(),
-          zoom = this._map.getZoom();
+      var params = this.filterParams(['bbox']),
+          bounds = L.boundsToBbox(this._map.getBounds());
 
       params.push('bbox=' + encodeURIComponent(bounds.join(' ')));
-      params.push('center=' + encodeURIComponent(center.lat + ' ' + center.lng));
-      params.push('zoom=' + zoom);
 
       this._searcher(params.join('&'));
     },
