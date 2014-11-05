@@ -30,6 +30,7 @@ feature 'Home page', js: true do # use js: true for tests which require js, but 
     end
   end
   scenario 'clicking map search should create a spatial search' do
+    find('#map').double_click
     within '#map' do
       find('a.search-control').click
       expect(page.current_url).to match /bbox=/
@@ -39,9 +40,7 @@ feature 'Home page', js: true do # use js: true for tests which require js, but 
 
   scenario 'clicking map search should retain current search parameters' do
     visit '/?f[dc_subject_sm][]=polygon&f[dc_subject_sm][]=boundaries'
-    within '#map' do
-      find('a.search-control').click
-    end
+    find('#map').double_click
     within '#appliedParams' do
       expect(page).to have_content('Subject polygon')
       expect(page).to have_content('Subject boundaries')
