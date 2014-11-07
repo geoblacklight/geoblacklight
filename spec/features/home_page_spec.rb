@@ -26,7 +26,7 @@ feature 'Home page', js: true do # use js: true for tests which require js, but 
   scenario 'map should be visible' do
     within '#content' do
       expect(page).to have_css('#map')
-      expect(page).to have_css('img.leaflet-tile', count: 8)
+      expect(page).to have_css('img.leaflet-tile', count: 16)
     end
   end
   scenario 'clicking map search should create a spatial search' do
