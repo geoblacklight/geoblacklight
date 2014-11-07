@@ -26,4 +26,10 @@ feature 'Index view', js: true do
     end
   end
 
+  scenario 'spatial search should reset to page one' do
+    visit '/?f%5Bdc_format_s%5D%5B%5D=Shapefile&page=2'
+    find("#map").double_click
+    expect(find('.page_entries')).to have_content('1 - 10')
+  end
+
 end

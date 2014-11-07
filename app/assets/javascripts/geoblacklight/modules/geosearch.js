@@ -48,7 +48,7 @@
     },
 
     _search: function() {
-      var params = this.filterParams(['bbox']),
+      var params = this.filterParams(['bbox', 'page']),
           bounds = L.boundsToBbox(this._map.getBounds());
 
       params.push('bbox=' + encodeURIComponent(bounds.join(' ')));
