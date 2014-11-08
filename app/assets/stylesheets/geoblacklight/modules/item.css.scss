@@ -1,4 +1,7 @@
+[data-map="item"] {  
+  height: 440px;
+}
+
 [data-map="item"][data-available="true"] {
   cursor: crosshair;
-  height: 440px;
 }
