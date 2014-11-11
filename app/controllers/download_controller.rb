@@ -12,7 +12,7 @@ class DownloadController < ApplicationController
   end
 
   def file
-    send_file "tmp/downloads/#{params[:id]}.#{params[:format]}", type: 'application/zip', x_sendfile: true
+    send_file "tmp/cache/downloads/#{params[:id]}.#{params[:format]}", type: 'application/zip', x_sendfile: true
   end
 
   def check_type
