@@ -20,7 +20,7 @@ describe Download do
   end
   describe '#file_path' do
     it 'should return the path with name and extension' do
-      expect(download.file_path).to eq "#{Rails.root}/tmp/downloads/#{download.file_name}"
+      expect(download.file_path).to eq "#{Rails.root}/tmp/cache/downloads/#{download.file_name}"
     end
   end
   describe '#download_exists?' do
