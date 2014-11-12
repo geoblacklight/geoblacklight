@@ -45,9 +45,7 @@ module Geoblacklight
     end
 
     def create_downloads_directory
-      if !Dir.exists?('tmp/downloads')
-        Dir.mkdir('tmp/downloads')
-      end
+      FileUtils.mkdir_p("tmp/cache/downloads") unless File.directory?("tmp/cache/downloads")
     end
 
     # Necessary for bootstrap-sass 3.2

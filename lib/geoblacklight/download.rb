@@ -13,7 +13,7 @@ class Download
   end
 
   def file_path
-    "#{Rails.root}/tmp/downloads/#{file_name}"
+    "#{Rails.root}/tmp/cache/downloads/#{file_name}"
   end
 
   def download_exists?

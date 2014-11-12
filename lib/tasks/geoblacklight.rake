@@ -22,7 +22,7 @@ namespace :geoblacklight do
   namespace :downloads do
     desc 'Delete all cached downloads'
     task delete: :environment do
-      FileUtils.rm_rf Dir.glob("#{Rails.root}/tmp/downloads/*")
+      FileUtils.rm_rf Dir.glob("#{Rails.root}/tmp/cache/downloads/*")
     end
   end
 end

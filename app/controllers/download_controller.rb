@@ -16,7 +16,7 @@ class DownloadController < ApplicationController
     # Grab the solr document to check if it should be public or not
     @response, @document = get_solr_response_for_doc_id(file_name_to_id(params[:id]))
     restricted_should_authenticate
-    send_file "tmp/downloads/#{params[:id]}.#{params[:format]}", type: 'application/zip', x_sendfile: true
+    send_file "tmp/cache/downloads/#{params[:id]}.#{params[:format]}", type: 'application/zip', x_sendfile: true
   end
 
   private
