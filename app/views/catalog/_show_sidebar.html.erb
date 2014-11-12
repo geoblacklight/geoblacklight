@@ -18,7 +18,7 @@
         <i class="fa fa-bookmark fa-fw"></i>&nbsp;Cite This
       </a>    
     </ul>
-    <% if document.downloadable? %>
+    <% if document_downloadable? %>
       <div class='btn-group'>
         <%= button_tag(type: 'button', class: 'btn btn-default dropdown-toggle', data: { toggle: 'dropdown' }) do %>
           Download <span class='caret'></span>

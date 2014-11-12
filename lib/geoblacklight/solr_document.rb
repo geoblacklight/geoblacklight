@@ -20,7 +20,7 @@ module Geoblacklight
     end
 
     def same_institution?
-      get(:dct_provenance_s) == Settings.Institution
+      get(:dct_provenance_s) == Settings.INSTITUTION
     end
 
     def itemtype
