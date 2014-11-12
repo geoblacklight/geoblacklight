@@ -16,6 +16,14 @@ module GeoblacklightHelper
     content_tag(:i, '', :class => 'fa fa-download fa-fw') + ' ' + t('Metadata')
   end
 
+  def document_available?
+    @document.public? || (@document.same_institution? && current_user)
+  end
+
+  def document_downloadable?
+    document_available? && @document.downloadable?
+  end
+
   def abstract_truncator(abstract)
     if (abstract)
       if (abstract.length > 150)
