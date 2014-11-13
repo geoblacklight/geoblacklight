@@ -21,13 +21,13 @@ describe Geoblacklight::SolrDocument do
   end
   describe '#public?' do
     describe 'a public document' do
-      let(:document_attributes) { { dc_rights_s: 'Public' } }
+      let(:document_attributes) { { dc_rights_s: 'PUBLIC' } }
       it 'should be public' do
         expect(document.public?).to be_truthy
       end
     end
     describe 'a restricted resource' do
-      let(:document_attributes) { { dc_rights_s: 'Restricted' } }
+      let(:document_attributes) { { dc_rights_s: 'RESTRICTED' } }
       it 'should not be public' do
         expect(document.public?).to be_falsey
       end
@@ -35,7 +35,7 @@ describe Geoblacklight::SolrDocument do
   end
   describe '#same_institution?' do
     describe 'within the same institution' do
-      let(:document_attributes) { { dct_provenance_s: 'Stanford' } }
+      let(:document_attributes) { { dct_provenance_s: 'STANFORD' } }
       it 'should be true' do
         allow(Settings).to receive('Institution').and_return('Stanford')
         expect(document.same_institution?).to be_truthy

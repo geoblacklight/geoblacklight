@@ -8,11 +8,11 @@ module Geoblacklight
     end
 
     def public?
-      get(:dc_rights_s) == 'Public'
+      get(:dc_rights_s).downcase == 'public'
     end
 
     def restricted?
-      get(:dc_rights_s) == 'Restricted'
+      get(:dc_rights_s).downcase == 'restricted'
     end
 
     def downloadable?

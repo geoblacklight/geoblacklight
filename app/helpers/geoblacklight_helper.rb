@@ -56,10 +56,10 @@ module GeoblacklightHelper
   end
 
   def layer_access_image(access)
-    case access
-    when 'Restricted'
+    case access.downcase
+    when 'restricted'
       content_tag(:i, '', class: 'fa fa-lock fa-lg text-muted  tooltip-icon', 'data-toggle' => 'tooltip', title: 'Restricted', style: 'width: 17px;')
-    when 'Public'
+    when 'public'
       content_tag(:i, '', class: 'fa fa-unlock fa-lg text-muted tooltip-icon',  'data-toggle' => 'tooltip', title: 'Public')
     else
       ""
