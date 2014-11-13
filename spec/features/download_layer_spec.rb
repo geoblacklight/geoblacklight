@@ -17,11 +17,13 @@ feature 'Download layer' do
   end
   scenario 'restricted layer should not have download available to non logged in user' do
     visit catalog_path('stanford-jf841ys4828')
+    expect(page).to have_css 'a', text: 'Login to view and download'
     expect(page).to_not have_css 'button', text: 'Download'
   end
   scenario 'restricted layer should have download available to logged in user' do
     sign_in
     visit catalog_path('stanford-jf841ys4828')
+    expect(page).to_not have_css 'a', text: 'Login to view and download'
     expect(page).to have_css 'button', text: 'Download'
   end
 end
