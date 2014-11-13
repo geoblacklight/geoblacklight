@@ -11,6 +11,10 @@ module Geoblacklight
       get(:dc_rights_s) == 'Public'
     end
 
+    def restricted?
+      get(:dc_rights_s) == 'Restricted'
+    end
+
     def downloadable?
       get(:solr_wfs_url) && get(:solr_wms_url) && available?
     end
