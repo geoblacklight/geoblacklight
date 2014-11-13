@@ -40,6 +40,10 @@ describe Geoblacklight::SolrDocument do
         allow(Settings).to receive('Institution').and_return('Stanford')
         expect(document.same_institution?).to be_truthy
       end
+      it 'should match case inconsistencies' do
+        allow(Settings).to receive('Institution').and_return('StAnFord')
+        expect(document.same_institution).to be_truthy
+      end
     end
     describe 'within a different institution' do
       let(:document_attributes) { { dct_provenance_s: 'MIT' } }
