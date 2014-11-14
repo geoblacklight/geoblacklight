@@ -33,6 +33,7 @@
 .geoblacklight-paper-map:before,
 .geoblacklight-point:before,
 .geoblacklight-polygon:before,
+.geoblacklight-princeton:before,
 .geoblacklight-raster:before,
 .geoblacklight-stanford:before,
 .geoblacklight-tufts:before {
@@ -59,6 +60,7 @@
 .geoblacklight-paper-map:before { content: "\f110"; }
 .geoblacklight-point:before { content: "\f109"; }
 .geoblacklight-polygon:before { content: "\f107"; }
+.geoblacklight-princeton:before { content: "\f111"; }
 .geoblacklight-raster:before { content: "\f10d"; }
 .geoblacklight-stanford:before { content: "\f102"; }
 .geoblacklight-tufts:before { content: "\f105"; }
@@ -72,6 +74,7 @@ $font-geoblacklight-mit: "\f104";
 $font-geoblacklight-paper-map: "\f110";
 $font-geoblacklight-point: "\f109";
 $font-geoblacklight-polygon: "\f107";
+$font-geoblacklight-princeton: "\f111";
 $font-geoblacklight-raster: "\f10d";
 $font-geoblacklight-stanford: "\f102";
 $font-geoblacklight-tufts: "\f105";
