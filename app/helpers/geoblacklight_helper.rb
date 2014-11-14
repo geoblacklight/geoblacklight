@@ -17,7 +17,7 @@ module GeoblacklightHelper
   end
 
   def document_available?
-    @document.public? || (@document.same_institution? && current_user)
+    @document.public? || (@document.same_institution? && user_signed_in?)
   end
 
   def document_downloadable?

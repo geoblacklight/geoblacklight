@@ -12,6 +12,7 @@ GeoBlacklight.Item = GeoBlacklight.extend({
     this.layer = new L.layerGroup().addTo(this.map);
     if (this.dataAttributes.available) {
       this.addPreviewLayer();
+      this.addOpacityControl();
     } else {
       this.addBoundsOverlay(L.bboxToBounds(this.dataAttributes.mapBbox));
     }
@@ -29,6 +30,11 @@ GeoBlacklight.Item = GeoBlacklight.extend({
     });
     _this.layer.addLayer(_this.wmsLayer);
     _this.setupInspection();
+  },
+
+  addOpacityControl: function() {
+    var _this = this;
+    _this.map.addControl(new L.Control.LayerOpacity(_this.layer));
   },
 
   setupInspection: function() {
