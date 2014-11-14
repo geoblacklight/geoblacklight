@@ -35,7 +35,8 @@
 .geoblacklight-polygon:before,
 .geoblacklight-raster:before,
 .geoblacklight-stanford:before,
-.geoblacklight-tufts:before {
+.geoblacklight-tufts:before,
+.geoblacklight-princeton:before {
   display: inline-block;
   font-family: "geoblacklight";
   font-style: normal;
@@ -62,6 +63,7 @@
 .geoblacklight-raster:before { content: "\f10d"; }
 .geoblacklight-stanford:before { content: "\f102"; }
 .geoblacklight-tufts:before { content: "\f105"; }
+.geoblacklight-princeton:before { content: "\f10E"; }
 
 $font-geoblacklight-berkeley: "\f101";
 $font-geoblacklight-harvard: "\f103";
@@ -75,3 +77,4 @@ $font-geoblacklight-polygon: "\f107";
 $font-geoblacklight-raster: "\f10d";
 $font-geoblacklight-stanford: "\f102";
 $font-geoblacklight-tufts: "\f105";
+$font-geoblacklight-princeton: "\f10E";
