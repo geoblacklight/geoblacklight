@@ -1,34 +1,58 @@
 .leaflet-control.opacity-control {
-  background: #fff;
-  border: 1px solid #bbb;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+  background-color: #a9acb1;
+  border-radius: 15px;
+  display: block;
   height: 200px;
-  position: absolute;
-  text-align: center;
-  top: 120px;
-  width: 28px;
-  z-index: 999;
+  left: 10px;
+  position: relative;
+  top: 15px;
+  width: 5px;
   
   .opacity-handle {
-    background: #000;
-    height: 10px;
-    left: -1px;
+    background-color: #fff;
+    border-radius: 100%;
+    cursor: ns-resize;
+    font-size: 10px;
+    height: 24px;
+    left: -10px;
+    line-height: 24px;
     position: absolute;
-    top: 20px;
-    width: 28px;
-    
-    &:hover {
-      background: #444;
-      cursor: pointer;
-      cursor: ns-resize;
-    }
+    text-align: center;
+    top: 0;
+    width: 24px;
+
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
   }
 
   .opacity-bottom {
-    bottom: 0;
-    left: 8px;
-    position: absolute;
-    text-align: center;
+    background-color: #017afd;
+    border-radius: 15px;
+    display: block;
+    height: 138px;
+    left: 0px;
+    position: relative;
+    top: 62px;
+    width: 5px;    
   }
+  
+  // Area underneath slider to prevent unintentioned map clicks
+  .opacity-area {
+    padding: 14px;
+    cursor: default;
+    height: 200px;
+    left: -12px;
+    position: absolute;
+    top: 0px;
+    width: 20px;
+  }
+}
+
+.opacity-control.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
