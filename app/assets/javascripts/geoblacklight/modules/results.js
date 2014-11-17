@@ -1,9 +1,4 @@
 Blacklight.onLoad(function() {
-  var dynamicSearcher;
-
-  dynamicSearcher = GeoBlacklight.debounce(function(querystring) {
-    History.pushState(null, null, "/catalog?" + querystring);
-  }, 800);
 
   History.Adapter.bind(window, 'statechange', function() {
     var state = History.getState();
@@ -11,8 +6,14 @@ Blacklight.onLoad(function() {
   });
 
   $('[data-map="index"]').each(function() {
-    var geoblacklight = new GeoBlacklight(this).setHoverListeners(),
-        search = new L.Control.GeoSearch(dynamicSearcher);
+    var data = $(this).data(),
+        dynamicSearcher, geoblacklight, search;
+
+    dynamicSearcher = GeoBlacklight.debounce(function(querystring) {
+      History.pushState(null, null, data.catalogPath + '?' + querystring);
+    }, 800);
+    geoblacklight = new GeoBlacklight(this).setHoverListeners();
+    search = new L.Control.GeoSearch(dynamicSearcher);
     geoblacklight.map.addControl(search);
   });
 
