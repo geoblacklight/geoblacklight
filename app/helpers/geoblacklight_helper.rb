@@ -47,6 +47,10 @@ module GeoblacklightHelper
     end
   end
 
+  def render_facet_tags(facet)
+    render_facet_limit(facets_from_request(facet).first, partial: 'facet_tag_item', layout: 'facet_tag_layout')
+  end
+
   def layer_type_image(type)
     content_tag :span, '', class: "geoblacklight-icon geoblacklight-#{type.downcase}"
   end
