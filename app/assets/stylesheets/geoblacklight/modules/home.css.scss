@@ -1,3 +1,22 @@
 [data-map="home"] {
-  height: 600px;
+  height: 400px;
+}
+
+.home-search-area {
+  text-align: center;
+}
+
+.home-facet-label {
+  background: $gray-light;
+  border-radius: .25em;
+  color: #fff;
+  font-size: 1.4em;
+  line-height: 2em;
+  padding: .2em .6em .3em;
+  text-align: center;
+  
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
 }

@@ -4,29 +4,24 @@ feature 'Home page', js: true do # use js: true for tests which require js, but 
   before do
     visit root_path
   end
-  scenario 'should have facets listed correctly' do
-    within '#facet-panel-collapse' do
-      expect(page).to have_css('div.panel.facet_limit', text: 'Institution')
-      expect(page).to have_css('div.panel.facet_limit', text: 'Publisher')
-      expect(page).to have_css('div.panel.facet_limit', text: 'Subject')
-      expect(page).to have_css('div.panel.facet_limit', text: 'Place')
-      expect(page).to have_css('div.panel.facet_limit', text: 'Year')
-      expect(page).to have_css('div.panel.facet_limit', text: 'Access')
-      expect(page).to have_css('div.panel.facet_limit', text: 'Data type')
-      expect(page).to have_css('div.panel.facet_limit', text: 'Format')
-      expect(page).to have_css('div.panel.facet_limit', text: 'Language')
+  scenario 'search bar' do
+    expect(page).to_not have_css '#search-navbar'
+    within '.jumbotron' do
+      expect(page).to have_css 'h2', text: 'Explore and discover...'
+      expect(page).to have_css 'h3', text: 'Find the maps and data you need'
+      expect(page).to have_css 'form.search-query-form'
     end
-    click_link 'Institution'
-    expect(page).to have_css('a.facet_select', text: 'Harvard', visible: true)
-    expect(page).to have_css('a.facet_select', text: 'Tufts', visible: true)
-    expect(page).to have_css('a.facet_select', text: 'MIT', visible: true)
-    expect(page).to have_css('a.facet_select', text: 'MassGIS', visible: true)
-    expect(page).to have_css('a.facet_select', text: 'Stanford', visible: true)
+  end
+  scenario 'find by category' do
+    expect(page).to have_css '.home-facet-label', count: 7
+    click_link 'Census'
+    expect(page).to have_css '.filterName', text: 'Subject'
+    expect(page).to have_css '.filterValue', text: 'Census'
   end
   scenario 'map should be visible' do
-    within '#content' do
+    within '#main-container' do
       expect(page).to have_css('#map')
-      expect(page).to have_css('img.leaflet-tile', count: 16)
+      expect(page).to have_css('img.leaflet-tile', count: 4)
     end
   end
   scenario 'clicking map search should create a spatial search' do
@@ -36,14 +31,5 @@ feature 'Home page', js: true do # use js: true for tests which require js, but 
       expect(page.current_url).to match /bbox=/
     end
     expect(page).to have_css '#documents'
-  end
-
-  scenario 'clicking map search should retain current search parameters' do
-    visit '/?f[dc_subject_sm][]=polygon&f[dc_subject_sm][]=boundaries'
-    find('#map').double_click
-    within '#appliedParams' do
-      expect(page).to have_content('Subject polygon')
-      expect(page).to have_content('Subject boundaries')
-    end
   end
 end

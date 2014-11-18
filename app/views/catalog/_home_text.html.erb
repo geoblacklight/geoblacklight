@@ -1,3 +1,18 @@
-<div id='row'>
-  <%= content_tag :div, '', id: 'map', data: { map: 'home', 'catalog-path'=> catalog_index_path , 'map-bbox' => params[:bbox]} %>
+<div class='jumbotron'>
+  <div class='home-search-area'>
+    <%= content_tag :h2, t('geoblacklight.home.headline') %>
+    <%= content_tag :h3, t('geoblacklight.home.search_heading') %>
+    <%= render_search_bar %>
+  </div>
+</div>
+
+<div class='row'>
+  <div class='col-md-6 text-center'>
+    <%= content_tag :h4, t('geoblacklight.home.category_heading') %>
+    <%= render_facet_tags [:dc_subject_sm] %>
+  </div>
+  <div class='col-md-6 text-center'>
+    <%= content_tag :h4, t('geoblacklight.home.map_heading') %>
+    <%= content_tag :div, '', id: 'map', data: { map: 'home', 'catalog-path'=> catalog_index_path , 'map-bbox' => params[:bbox]} %>
+  </div>
 </div>

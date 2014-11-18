@@ -3,5 +3,10 @@ en:
     download:
       success: 'Your file %{title} is ready for download'
       error: 'Sorry, the requested file could not be downloaded'
+    home:
+      headline: 'Explore and discover...'
+      search_heading: 'Find the maps and data you need'
+      category_heading: 'Find by category'
+      map_heading: 'Find by location'
     tools:
       login_to_view: 'Login to view and download'

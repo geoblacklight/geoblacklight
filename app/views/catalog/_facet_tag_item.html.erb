@@ -1,0 +1,3 @@
+<% display_facet.items.each do |item| %>
+  <%= link_to item.value, catalog_index_path({f: {"#{facet_field.field}" => [item.value]}}), class: 'home-facet-label' %>
+<% end %>
