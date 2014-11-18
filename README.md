@@ -60,9 +60,6 @@ Boot GeoBlacklight test app
     rake geoblacklight:solr:seed # to load sample documents into jetty Solr instance
     rails server
 
-Note that if you're using Rails with Spring enabled, we've found the the `rails generate` commands
-will stall. The workaround is to kill the spring daemon process. You will will probably not need to run this generator regularly.
-
 Run tests
 
     rake ci
