@@ -1,0 +1,38 @@
+{
+  "uuid": "urn:hul.harvard.edu:HARVARD.SDE2.USGS_NU_ESTELI_RDL",
+  "dc_description_s": "Roads for the Esteli region, Nicaragua. This layer was vectorized from original hard copy 1:50,000 topographic maps produced by the Instituto Geogra?fico Nacional, Nicaragua.\n\nHurricane Mitch devastated Central America during the months of October-November of 1998. From 1998 to 2001 the US Geological Survey was involved along with other federal agencies in the reconstruction effort. The source CD consists of a compilation of GIS data layers and computer applications focused on hazard prevention and useful in municipal planning. Each dataset includes layers for a base area around the urban center of each municipality in the Hurricane Mitch project.",
+  "dc_format_s": "Shapefile",
+  "dc_identifier_s": "urn:hul.harvard.edu:HARVARD.SDE2.USGS_NU_ESTELI_RDL",
+  "dc_language_s": "English",
+  "dc_publisher_s": "US Geological Survey, Hurricane Mitch Program",
+  "dc_rights_s": "Public",
+  "dc_subject_sm": [
+    "Transportation Roads transportation"
+  ],
+  "dc_title_s": "Roads, Esteli Region, Nicaragua, 2001",
+  "dc_type_s": "Dataset",
+  "dct_references_s": "{\"http://www.w3.org/1999/xhtml\":\"http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.USGS_NU_ESTELI_RDL/metadata.html\"}",
+  "dct_spatial_sm": [
+    "Nicaragua Esteli",
+    "Departamento de Esteli"
+  ],
+  "dct_temporal_sm": [
+    "2001"
+  ],
+  "dct_issued_s": "2000",
+  "dct_provenance_s": "Harvard",
+  "georss_box_s": "13.028337 -86.420715 13.154937 -86.291663",
+  "georss_polygon_s": "13.154937 -86.420715 13.154937 -86.291663 13.028337 -86.291663 13.028337 -86.420715 13.154937 -86.420715",
+  "layer_slug_s": "harvard-usgs-nu-esteli-rdl",
+  "layer_id_s": "sde:SDE2.USGS_NU_ESTELI_RDL",
+  "layer_geom_type_s": "Line",
+  "layer_modified_dt": "2014-05-27T18:09:37Z",
+  "solr_bbox": "-86.420715 13.028337 -86.291663 13.154937",
+  "solr_ne_pt": "13.154937,-86.291663",
+  "solr_sw_pt": "13.028337,-86.420715",
+  "solr_geom": "ENVELOPE(-86.420715, -86.291663, 13.154937, 13.028337)",
+  "solr_year_i": 2001,
+  "solr_issued_dt": "2000-01-01T00:00:00Z",
+  "solr_wms_url": "http://hgl.harvard.edu:8080/geoserver/wms",
+  "solr_wfs_url": "http://hgl.harvard.edu:8080/geoserver/wfs"
+}

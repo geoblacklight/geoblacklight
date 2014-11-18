@@ -1,0 +1,41 @@
+{
+  "uuid": "urn:hul.harvard.edu:HARVARD.SDE.TG95VATAZPY",
+  "dc_description_s": "This datalayer displays the Traffic Analysis Zones (TAZ) for the state. A traffic analysis zone (TAZ) is a statistical entity delineated by state or local transportation officials for tabulating traffic-related census data-especially journey-to-work and place-of-work statistics. A TAZ usually consists of one or more census blocks, block groups, or census tracts. For the 1990 census, TAZs were defined as part of the Census Transportation Planning Package (CTPP). The U.S. Census Bureau first provided data for TAZs in conjunction with the 1980 census, when it identified them as ''traffic zones.'' Each TAZ is identified by a six-character alphanumeric code that is unique within county or statistically equivalent entity. For the 1990 census, TAZ codes were unique within CTPP area, which generally conformed to a metropolitan area.",
+  "dc_format_s": "Shapefile",
+  "dc_identifier_s": "urn:hul.harvard.edu:HARVARD.SDE.TG95VATAZPY",
+  "dc_language_s": "English",
+  "dc_publisher_s": "U.S. Department of Commerce, Bureau of the Census",
+  "dc_rights_s": "Public",
+  "dc_subject_sm": [
+    "transportation",
+    "Census",
+    "Transportation",
+    "Traffic",
+    "surveys"
+  ],
+  "dc_title_s": "Census Traffic Analysis Zones, 1995 - Virginia",
+  "dc_type_s": "Dataset",
+  "dct_references_s": "{\"http://www.opengis.net/cat/csw/csdgm\":\"http://example.com/urn:hul.harvard.edu:HARVARD.SDE.TG95VATAZPY/fgdc.xml\",\"http://library.stanford.edu/iiif/image-api/1.1/context.json\":\"http://example.com/iiif\"}",
+  "dct_spatial_sm": [
+    "Virginia"
+  ],
+  "dct_temporal_sm": [
+    "1995"
+  ],
+  "dct_issued_s": "2000",
+  "dct_provenance_s": "Harvard",
+  "georss_box_s": "36.540738 -80.262078 39.466012 -75.867044",
+  "georss_polygon_s": "39.466012 -80.262078 39.466012 -75.867044 36.540738 -75.867044 36.540738 -80.262078 39.466012 -80.262078",
+  "layer_slug_s": "harvard-tg95vatazpy",
+  "layer_id_s": "sde:SDE.TG95VATAZPY",
+  "layer_geom_type_s": "Polygon",
+  "layer_modified_dt": "2014-05-27T18:09:36Z",
+  "solr_bbox": "-80.262078 36.540738 -75.867044 39.466012",
+  "solr_ne_pt": "39.466012,-75.867044",
+  "solr_sw_pt": "36.540738,-80.262078",
+  "solr_geom": "ENVELOPE(-80.262078, -75.867044, 39.466012, 36.540738)",
+  "solr_year_i": 1995,
+  "solr_issued_dt": "2000-01-01T00:00:00Z",
+  "solr_wms_url": "http://hgl.harvard.edu:8080/geoserver/wms",
+  "solr_wfs_url": "http://hgl.harvard.edu:8080/geoserver/wfs"
+}
