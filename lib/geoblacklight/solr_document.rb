@@ -20,7 +20,19 @@ module Geoblacklight
     end
 
     def download_types
-      [{ label: 'Shapefile', type: 'shapefile' }, { label: 'KMZ', type: 'kmz' }]
+      references.download_types
+    end
+
+    def references
+      References.new(self)
+    end
+
+    def direct_download
+      return references.direct_download.to_hash unless references.direct_download.blank?
+    end
+
+    def view_action
+      references.view_action.to_hash
     end
 
     def same_institution?

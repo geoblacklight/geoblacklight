@@ -3,9 +3,13 @@
 <%= render 'upper_metadata', locals: { document: document} %>
 
 <div class='row'>
-  <div class="col-md-8">
-    <%= content_tag :div, id: 'map', data: { map: 'item', 'catalog-path'=> catalog_index_path , 'map-bbox' => document[:solr_bbox], 'layer-id' => document[:layer_id_s], 'wms-url' => document[:solr_wms_url], available: document_available? } do %>
-    <% end %>
-  </div>
-  <div id='table-container' class='col-md-4'><div id='attribute-table' ></div></div>
+
+	 <% if document.view_action.has_key?(:iiif) %>
+	 	<%= render 'lower_iiif', locals: { document: document} %>
+	 <% elsif document.view_action.has_key?(:wms) %>
+	 	<%= render 'lower_wms', locals: { document: document} %>
+	 <% else %>
+	 	<!-- thumbnail display and/ or map with bbox outline? -->
+	 <% end %>
+
 </div>
