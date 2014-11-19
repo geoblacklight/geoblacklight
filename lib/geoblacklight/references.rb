@@ -18,15 +18,15 @@ module Geoblacklight
     end
 
     def direct_download
-      references.find { |reference| reference.type == 'download' }
+      references.find { |reference| reference.type == :download }
     end
 
     def wms
-      references.find { |reference| reference.type == 'wms' }
+      references.find { |reference| reference.type == :wms }
     end
 
     def wfs
-      references.find { |reference| reference.type == 'wfs' }
+      references.find { |reference| reference.type == :wfs }
     end
 
     def preferred_download

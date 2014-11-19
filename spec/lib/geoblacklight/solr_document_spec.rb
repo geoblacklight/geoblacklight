@@ -72,7 +72,7 @@ describe Geoblacklight::SolrDocument do
       let(:document_attributes) {
         {
           dct_references_s: {
-            'http://schema.org/DownloadAction' => 'http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip'
+            'http://schema.org/downloadUrl' => 'http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip'
           }.to_json
         }
       }

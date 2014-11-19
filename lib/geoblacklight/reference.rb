@@ -15,7 +15,7 @@ module Geoblacklight
     end
 
     def to_hash
-      { type.to_sym => endpoint }
+      { type => endpoint }
     end
   end
 end
