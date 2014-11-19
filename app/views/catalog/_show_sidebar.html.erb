@@ -19,14 +19,19 @@
       </a>    
     </ul>
     <% if document_downloadable? %>
-      <div class='btn-group'>
+      <% unless document.direct_download.blank? %>
+        <div class='download-element'>
+          <%= link_to('Download file', document.direct_download[:download], class: 'btn btn-primary') %>
+        </div>
+      <% end %>
+      <div class='btn-group download-element'>
         <%= button_tag(type: 'button', class: 'btn btn-default dropdown-toggle', data: { toggle: 'dropdown' }) do %>
-          Download <span class='caret'></span>
+          Download as <span class='caret'></span>
         <% end %>
         <ul class="dropdown-menu" role="menu">
           <% document.download_types.each do |type| %>
             <%= content_tag(:li) do %>
-              <%= link_to(type[:label], '', data: { download_path: "#{download_path(document[:layer_slug_s], type: type[:type])}" }) %>
+              <% link_to(type[0], '', data: { download_path: "#{download_path(document[:layer_slug_s], type: type[0])}" }) %>
             <% end %>
           <% end %>
         </ul>

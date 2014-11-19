@@ -12,7 +12,7 @@ describe Geoblacklight::SolrDocument do
       end
     end
     describe 'a restricted document' do
-      describe 'should only be available if from same institution' do
+      it 'should only be available if from same institution' do
         allow(document).to receive('same_institution?').and_return(true)
         allow(document).to receive('public?').and_return(false)
         expect(document.available?).to be_truthy
@@ -42,7 +42,7 @@ describe Geoblacklight::SolrDocument do
       end
       it 'should match case inconsistencies' do
         allow(Settings).to receive('Institution').and_return('StAnFord')
-        expect(document.same_institution).to be_truthy
+        expect(document.same_institution?).to be_truthy
       end
     end
     describe 'within a different institution' do
@@ -51,6 +51,40 @@ describe Geoblacklight::SolrDocument do
         allow(Settings).to receive('Institution').and_return('Stanford')
         expect(document.same_institution?).to be_falsey
       end
+    end
+  end
+  describe 'references' do
+    let(:document_attributes) { {} }
+    it 'should generate a new references object' do
+      expect(document.references).to be_an Geoblacklight::References
+    end
+  end
+  describe 'download_types' do
+    let(:document_attributes) { {} }
+    it 'should call download_types' do
+      expect_any_instance_of(Geoblacklight::References).to receive(:download_types)
+      document.download_types
+    end
+  end
+  describe 'direct_download' do
+    let(:document_attributes) { {} }
+    describe 'with a direct download' do
+      let(:document_attributes) {
+        {
+          dct_references_s: {
+            'http://schema.org/DownloadAction' => 'http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip'
+          }.to_json
+        }
+      }
+      it 'should return a direct download hash' do
+        expect_any_instance_of(Geoblacklight::Reference).to receive(:to_hash)
+        document.direct_download
+      end
+    end
+    it 'should return nil if no direct download' do
+      expect_any_instance_of(Geoblacklight::References).to receive(:direct_download)
+      expect_any_instance_of(Geoblacklight::Reference).to_not receive(:to_hash)
+      expect(document.direct_download).to be_nil
     end
   end
 end
