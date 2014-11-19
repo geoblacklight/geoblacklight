@@ -29,6 +29,10 @@ module Geoblacklight
       references.find { |reference| reference.type == 'wfs' }
     end
 
+    def iiif
+      references.find { |reference| reference.type == 'iiif' }
+    end
+
     def preferred_download
       return file_download unless direct_download.blank?
     end
@@ -49,5 +53,16 @@ module Geoblacklight
     def download_types
       downloads_by_format
     end
+
+    def view_action
+      if !wms.blank?
+        wms
+      elsif !iiif.blank?
+        iiif
+      else
+        # thumbnail display?
+      end
+    end
+
   end
 end

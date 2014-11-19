@@ -10,7 +10,8 @@ module Geoblacklight
       'url' => 'http://schema.org/url',
       'wcs' => 'http://www.opengis.net/def/serviceType/ogc/wcs',
       'wfs' => 'http://www.opengis.net/def/serviceType/ogc/wfs',
-      'wms' => 'http://www.opengis.net/def/serviceType/ogc/wms'
+      'wms' => 'http://www.opengis.net/def/serviceType/ogc/wms',
+      'iiif' => 'http://library.stanford.edu/iiif/image-api/1.1/context.json'
     }
   end
 end

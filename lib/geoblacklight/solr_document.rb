@@ -31,6 +31,10 @@ module Geoblacklight
       return references.direct_download.to_hash unless references.direct_download.blank?
     end
 
+    def view_action
+      references.view_action.to_hash
+    end
+
     def same_institution?
       get(:dct_provenance_s).downcase == Settings.INSTITUTION.downcase
     end
