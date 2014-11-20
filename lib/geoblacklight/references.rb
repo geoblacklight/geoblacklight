@@ -8,7 +8,11 @@ module Geoblacklight
     end
 
     def method_missing(m, *args, &b)
-      references m
+      if Geoblacklight::Constants::URI.key?(m)
+        references m
+      else
+        super
+      end
     end
 
     def format
