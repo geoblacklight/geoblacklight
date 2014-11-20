@@ -82,7 +82,7 @@ describe Geoblacklight::SolrDocument do
       end
     end
     it 'should return nil if no direct download' do
-      expect_any_instance_of(Geoblacklight::References).to receive(:direct_download)
+      expect_any_instance_of(Geoblacklight::References).to receive(:references)
       expect_any_instance_of(Geoblacklight::Reference).to_not receive(:to_hash)
       expect(document.direct_download).to be_nil
     end

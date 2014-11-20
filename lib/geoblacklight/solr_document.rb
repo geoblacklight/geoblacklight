@@ -28,7 +28,7 @@ module Geoblacklight
     end
 
     def direct_download
-      return references.direct_download.to_hash unless references.direct_download.blank?
+      return references.download.to_hash unless references.download.blank?
     end
 
     def same_institution?
