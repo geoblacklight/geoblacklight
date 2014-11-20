@@ -1,40 +1,38 @@
 module Geoblacklight
   # References is a geoblacklight-schema dct:references parser
   class References
+    attr_reader :refs
     def initialize(document)
       @document = document
+      @refs = parse_references.map { |ref| Reference.new(ref) }
+    end
+
+    def method_missing(m, *args, &b)
+      references m
     end
 
     def format
       @document[:dc_format_s]
     end
 
-    def references
-      parse_references.map { |ref| Reference.new(ref) }
+    def references(ref_type)
+      @refs.find { |reference| reference.type == ref_type }
     end
 
     def parse_references
-      JSON.parse(@document[:dct_references_s])
-    end
-
-    def direct_download
-      references.find { |reference| reference.type == :download }
-    end
-
-    def wms
-      references.find { |reference| reference.type == :wms }
-    end
-
-    def wfs
-      references.find { |reference| reference.type == :wfs }
+      if @document[:dct_references_s].nil?
+        Hash.new
+      else
+        JSON.parse(@document[:dct_references_s])
+      end
     end
 
     def preferred_download
-      return file_download unless direct_download.blank?
+      return file_download unless download.blank?
     end
 
     def file_download
-      { file_download: direct_download.to_hash }
+      { file_download: download.to_hash }
     end
 
     def downloads_by_format

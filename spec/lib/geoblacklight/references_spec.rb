@@ -43,19 +43,21 @@ describe Geoblacklight::References do
       expect(complex_shapefile.format).to eq 'Shapefile'
     end
   end
-  describe 'references' do
-    it 'should generate enumberable references' do
-      complex_shapefile.references.each do |reference|
+  describe 'refs' do
+    it 'should be enumberable references' do
+      complex_shapefile.refs.each do |reference|
         expect(reference).to be_an Geoblacklight::Reference
       end
     end
   end
   describe 'direct_download' do
     it 'should return the direct download link' do
-      expect(complex_shapefile.direct_download).to be_an Geoblacklight::Reference
+      download = complex_shapefile.download
+      expect(download).to be_an Geoblacklight::Reference
+      expect(download.endpoint).to eq('http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip')
     end
     it 'should not return if download not available' do
-      expect(typical_ogp_shapefile.direct_download).to be_nil
+      expect(typical_ogp_shapefile.download).to be_nil
     end
   end
   describe 'preferred_download' do
