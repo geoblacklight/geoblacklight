@@ -37,6 +37,10 @@ module Geoblacklight
       get(:dct_provenance_s).downcase == Settings.INSTITUTION.downcase
     end
 
+    def viewer_protocol
+      references.viewer_protocol
+    end
+
     def itemtype
       "http://schema.org/Dataset"
     end

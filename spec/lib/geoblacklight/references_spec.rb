@@ -54,6 +54,17 @@ describe Geoblacklight::References do
       }.to_json
     )
   }
+  let(:simple_iiif_image) {
+    Geoblacklight::References.new(
+      SolrDocument.new(
+        dc_format_s: 'Raster',
+        dct_references_s: {
+          'http://schema.org/url' => 'http://arks.princeton.edu/ark:/88435/02870w62c',
+          'http://iiif.io/api/image' => 'http://libimages.princeton.edu/loris2/pudl0076%2Fmap_pownall%2F00000001.jp2/info.json'
+        }.to_json
+      )
+    )
+  }
   describe 'format' do
     it 'should return format' do
       expect(complex_shapefile.format).to eq 'Shapefile'
@@ -116,6 +127,14 @@ describe Geoblacklight::References do
     end
     it 'does not return GeoTIFF if wms is not present' do
       expect(direct_download_only.downloads_by_format).to be_nil
+    end
+  end
+  describe 'viewer_protocol' do
+    it 'should return iiif hash if iiif ref type is present' do
+      expect(simple_iiif_image.viewer_protocol[:iiif]).to eq 'http://libimages.princeton.edu/loris2/pudl0076%2Fmap_pownall%2F00000001.jp2/info.json'
+    end
+    it 'should return wms hash if wms ref type is present' do
+      expect(typical_ogp_shapefile.viewer_protocol[:wms]).to eq 'http://hgl.harvard.edu:8080/geoserver/wms'
     end
   end
 end
