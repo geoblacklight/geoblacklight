@@ -10,7 +10,7 @@ module Geoblacklight
       super || has_spatial_parameters?
     end
     
-    def query_has_contraints(params = params)
+    def query_has_contraints?(params = params)
       super || has_search_parameters?
     end
   end

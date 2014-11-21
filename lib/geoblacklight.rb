@@ -15,6 +15,8 @@ module Geoblacklight
   def self.inject!
     CatalogController.send(:include, Geoblacklight::ControllerOverride)
     CatalogController.send(:include, Geoblacklight::ViewHelperOverride)
+    CatalogController.send(:helper, Geoblacklight::ViewHelperOverride) unless
+      CatalogController.helpers.is_a?(Geoblacklight::ViewHelperOverride)
     SearchHistoryController.send(:helper, Geoblacklight::ViewHelperOverride) unless
       SearchHistoryController.helpers.is_a?(Geoblacklight::ViewHelperOverride)
   end
