@@ -69,5 +69,4 @@ module GeoblacklightHelper
       ""
     end
   end
-
 end

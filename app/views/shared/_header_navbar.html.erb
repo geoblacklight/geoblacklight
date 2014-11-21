@@ -16,7 +16,7 @@
   </div>
 </div>
 
-<% unless current_page?(root_url) %>
+<% if controller_name == 'catalog' && has_search_parameters? %>
   <div id="search-navbar" class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container">
       <%= render_search_bar  %>
