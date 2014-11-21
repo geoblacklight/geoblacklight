@@ -1,0 +1,41 @@
+{
+  "uuid": "urn:hul.harvard.edu:HARVARD.SDE.AMS7810_S250_U54_NG47_11",
+  "dc_description_s": "This layer is a geo-referenced raster image of the Army Map Service 1:250,000 scale China series topographic map of the Ta-Li region. This map (NG47-1) was compiled in 1954 from China Proper SW, 1:250,000, Army Map Service Sheets G47-P, G47-Q, 1946 and was first printed in this series in May 1956.\n\nA digital raster graphic (DRG) is a scanned image of a standard series topographic map, including all map collar information. The image inside the map neatline is geo-referenced to the surface of the earth and fit to the Universal Transverse Mercator projection. The horizontal positional accuracy and datum of the DRG matches closely with the accuracy and datum of the source map.\n\nThis map series of China (Series L500) was created and printed by the US Army Corps of Engineers Army Map Service (AMS) during the 1950s. The AMS was later known as the Defense Mapping Agency, which is now subsumed under NIMA. \nThese maps are a contoured topographic map series based largely on the Survey of India. These color maps have contour intervals of 100 meters. Map sources used to create these maps include British Survey of India maps, Japanese civil survey and military maps; United States Air Force (USAF) and United States Hydrographic Office (USHO) charts and a variety of other source maps simply described as the \"... best available large scale and medium scale maps of China.\"\nThese maps are in English, with modified Wade-Giles romanized Chinese place and feature names, many names also appear as Chinese ideographs.  These are typical topographic maps with all of the normal topographic information: contours, transportation, culture, etc. Please pay close attention to map collar information on projections, spheroid and keys to grid numbering and other numbers which appear inside the neatline.",
+  "dc_format_s": "GeoTIFF",
+  "dc_identifier_s": "urn:hul.harvard.edu:HARVARD.SDE.AMS7810_S250_U54_NG47_11",
+  "dc_language_s": "English",
+  "dc_rights_s": "Public",
+  "dc_subject_sm": [
+    "imageryBaseMapsEarthCover Maps",
+    "Topographic Land Use Infrastructure Human settlements Bodies of water Landforms"
+  ],
+  "dc_title_s": "AMS China Ta-Li Region",
+  "dc_type_s": "Dataset",
+  "dct_references_s": "{\"http://www.opengis.net/cat/csw/csdgm\":\"http://example.com/urn:hul.harvard.edu:HARVARD.SDE.AMS7810_S250_U54_NG47_11/fgdc.xml\",\"http://schema.org/url\":\"http://example.com/urn:hul.harvard.edu:HARVARD.SDE.AMS7810_S250_U54_NG47_11/homepage\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"http://hgl.harvard.edu:8080/geoserver/wms\"}",
+  "dct_spatial_sm": [
+    "China",
+    "Ta-Li",
+    "Dali",
+    "Yunnan",
+    "province"
+  ],
+  "dct_temporal_sm": [
+    "2005"
+  ],
+  "dct_issued_s": "2000",
+  "dct_provenance_s": "Harvard",
+  "georss_box_s": "24.774628 98.881922 26.090835 100.788377",
+  "georss_polygon_s": "26.090835 98.881922 26.090835 100.788377 24.774628 100.788377 24.774628 98.881922 26.090835 98.881922",
+  "layer_slug_s": "harvard-ams7810-s250-u54-ng47-11",
+  "layer_id_s": "cite:SDE.AMS7810_S250_U54_NG47_11",
+  "layer_geom_type_s": "Raster",
+  "layer_modified_dt": "2014-05-27T18:09:35Z",
+  "solr_bbox": "98.881922 24.774628 100.788377 26.090835",
+  "solr_ne_pt": "26.090835,100.788377",
+  "solr_sw_pt": "24.774628,98.881922",
+  "solr_geom": "ENVELOPE(98.881922, 100.788377, 26.090835, 24.774628)",
+  "solr_year_i": 2005,
+  "solr_issued_dt": "2000-01-01T00:00:00Z",
+  "solr_wms_url": "http://hgl.harvard.edu:8080/geoserver/wms",
+  "solr_wcs_url": "http://hgl.harvard.edu:8080/geoserver/wcs"
+}
