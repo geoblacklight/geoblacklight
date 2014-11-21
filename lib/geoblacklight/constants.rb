@@ -4,6 +4,7 @@ module Geoblacklight
     URI = {
       download: 'http://schema.org/downloadUrl',
       fgdc: 'http://www.opengis.net/cat/csw/csdgm',
+      geojson: 'http://geojson.org/geojson-spec.html',
       html: 'http://www.w3.org/1999/xhtml',
       iiif: 'http://iiif.io/api/image',
       iso19139: 'http://www.isotc211.org/schemas/2005/gmd/',
