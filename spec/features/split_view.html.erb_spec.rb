@@ -22,7 +22,6 @@ feature 'Index view', js: true do
       expect(page).to have_css('div.panel.facet_limit', text: 'Access')
       expect(page).to have_css('div.panel.facet_limit', text: 'Data type')
       expect(page).to have_css('div.panel.facet_limit', text: 'Format')
-      expect(page).to have_css('div.panel.facet_limit', text: 'Language')
     end
     click_link 'Institution'
     expect(page).to have_css('a.facet_select', text: 'Harvard', visible: true)
