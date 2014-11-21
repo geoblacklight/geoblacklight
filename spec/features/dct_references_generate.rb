@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require 'json'
+require 'geoblacklight'
 
 def do_write n, doc
   unless File.size?("spec/fixtures/test-dct-references#{n}.json")
@@ -8,19 +9,7 @@ def do_write n, doc
   end
 end
 
-URIs = {
-  :download => 'http://schema.org/downloadUrl',
-  :shapefile => 'http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf',
-  :wms => 'http://www.opengis.net/def/serviceType/ogc/wms',
-  :wfs => 'http://www.opengis.net/def/serviceType/ogc/wfs',
-  :wcs => 'http://www.opengis.net/def/serviceType/ogc/wcs',
-  :fgdc => 'http://www.opengis.net/cat/csw/csdgm',
-  :mods => 'http://www.loc.gov/mods/v3',
-  :iso19139 => 'http://www.isotc211.org/schemas/2005/gmd/',
-  :iiif => 'http://library.stanford.edu/iiif/image-api/1.1/context.json',
-  :html => 'http://www.w3.org/1999/xhtml',
-  :url => 'http://schema.org/url'
-}
+URIs = Geoblacklight::Constants::URI
 selected = JSON.parse(File.open('schema/examples/selected.json').read)
 
 # scenario 'Case 1: Minimal case of HTML metadata only' do
