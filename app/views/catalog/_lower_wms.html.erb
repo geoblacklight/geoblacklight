@@ -1,7 +1,7 @@
 <% document ||= @document %>
 
 <div class="col-md-8">
-<%= content_tag :div, id: 'map', data: { map: 'item', 'viewer' => 'wms', 'catalog-path'=> catalog_index_path, 'map-bbox' => document[:solr_bbox], 'layer-id' => document[:layer_id_s], 'wms-url' => document[:solr_wms_url], available: document_available? } do %>
-<% end %>
+  <%= content_tag :div, id: 'map', data: { map: 'item', 'viewer' => 'wms', 'catalog-path'=> catalog_index_path, 'map-bbox' => document[:solr_bbox], 'layer-id' => document[:layer_id_s], 'wms-url' => document[:solr_wms_url], available: document_available? } do %>
+  <% end %>
 </div>
 <div id='table-container' class='col-md-4'><div id='attribute-table' ></div></div>
