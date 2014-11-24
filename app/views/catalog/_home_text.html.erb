@@ -7,9 +7,34 @@
 </div>
 
 <div class='row'>
-  <div class='col-md-6 text-center'>
-    <%= content_tag :h4, t('geoblacklight.home.category_heading') %>
-    <%= render_facet_tags [:dc_subject_sm] %>
+  <div class='col-md-6'>
+    <%= content_tag :h4, t('geoblacklight.home.category_heading'), class: 'text-center' %>
+    <div class='row'>
+      <div class='category-block'>
+        <div class='category-icon'>
+          <span class='glyphicon glyphicon-home'></span>
+        </div>
+        <%= render_facet_tags [:dct_provenance_s] %>
+      </div>
+      <div class='category-block'>
+        <div class='category-icon'>
+          <span class='glyphicon glyphicon-download'></span>
+        </div>
+        <%= render_facet_tags [:layer_geom_type_s] %>
+      </div>
+      <div class='category-block'>
+        <div class='category-icon'>
+          <span class='glyphicon glyphicon-globe'></span>
+        </div>
+        <%= render_facet_tags [:dct_spatial_sm] %>
+      </div>
+      <div class='category-block'>
+        <div class='category-icon'>
+          <span class='glyphicon glyphicon-tags'></span>
+        </div>
+        <%= render_facet_tags [:dc_subject_sm] %>
+      </div>
+    </div>
   </div>
   <div class='col-md-6 text-center'>
     <%= content_tag :h4, t('geoblacklight.home.map_heading') %>

@@ -68,12 +68,12 @@ class CatalogController < ApplicationController
     #    :years_25 => { :label => 'within 25 Years', :fq => "pub_date:[#{Time.now.year - 25 } TO *]" }
     # }
 
-    config.add_facet_field 'dct_provenance_s', :label => 'Institution', :limit => 7
-    config.add_facet_field 'dc_creator_sm', :label => 'Author', :limit => 6
-    config.add_facet_field 'dc_publisher_s', :label => 'Publisher', :limit => 6
-    config.add_facet_field 'dc_subject_sm', :label => 'Subject', :limit => 6
-    config.add_facet_field 'dct_spatial_sm', :label => 'Place', :limit => 6
-    config.add_facet_field 'dct_isPartOf_sm', :label => 'Collection', :limit => 6
+    config.add_facet_field 'dct_provenance_s', :label => 'Institution', :limit => 8
+    config.add_facet_field 'dc_creator_sm', :label => 'Author', :limit => 8
+    config.add_facet_field 'dc_publisher_s', :label => 'Publisher', :limit => 8
+    config.add_facet_field 'dc_subject_sm', :label => 'Subject', :limit => 8
+    config.add_facet_field 'dct_spatial_sm', :label => 'Place', :limit => 8
+    config.add_facet_field 'dct_isPartOf_sm', :label => 'Collection', :limit => 8
 
     config.add_facet_field 'solr_year_i', :label => 'Year', :limit => 10, :range => {
       # :num_segments => 6,
@@ -81,9 +81,9 @@ class CatalogController < ApplicationController
       # :segments => true
     }
 
-    config.add_facet_field 'dc_rights_s', :label => 'Access', :limit => 3
-    config.add_facet_field 'layer_geom_type_s', :label => 'Data type', :limit => 5
-    config.add_facet_field 'dc_format_s', :label => 'Format', :limit => 3
+    config.add_facet_field 'dc_rights_s', :label => 'Access', :limit => 8
+    config.add_facet_field 'layer_geom_type_s', :label => 'Data type', :limit => 8
+    config.add_facet_field 'dc_format_s', :label => 'Format', :limit => 8
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
