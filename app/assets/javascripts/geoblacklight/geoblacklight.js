@@ -32,9 +32,19 @@
       }
     },
 
-    initialize: function(el) {
+    options: {
+      /**
+       * Initial bounds of map
+       * @type {L.LatLngBounds}
+       */
+      bbox: [[-85, -180], [85, 180]]
+    },
+
+    initialize: function(el, options) {
       var data = $(el).data(),
           basemap, map;
+
+      L.Util.setOptions(this, options);
 
       basemap = L.tileLayer(
         'https://otile{s}-s.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
@@ -52,11 +62,8 @@
       map.addLayer(basemap);
       map.addLayer(this.overlay);
 
-      if (typeof data['mapBbox'] === "string") {
-        map.fitBounds(L.bboxToBounds(data.mapBbox));
-      } else {
-        map.setView([0,0], 2);
-      }
+      map.fitBounds(this.options.bbox);
+
     },
 
     /**
