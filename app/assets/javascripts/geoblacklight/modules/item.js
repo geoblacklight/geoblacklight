@@ -1,13 +1,14 @@
 Blacklight.onLoad(function() {
   $('[data-map="item"]').each(function(i, element) {
-    var layerMap = new GeoBlacklight.Item(element);
+    var bbox = L.bboxToBounds($(this).data().mapBbox);
+    new GeoBlacklight.Item(element, { bbox: bbox });
   });
 });
 
 GeoBlacklight.Item = GeoBlacklight.extend({
 
-  initialize: function(element) {
-    GeoBlacklight.prototype.initialize.call(this, element);
+  initialize: function(element, options) {
+    GeoBlacklight.prototype.initialize.call(this, element, options);
     this.dataAttributes = $(element).data();
     this.layer = new L.layerGroup().addTo(this.map);
     if (this.dataAttributes.available) {

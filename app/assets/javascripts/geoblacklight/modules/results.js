@@ -7,12 +7,24 @@ Blacklight.onLoad(function() {
 
   $('[data-map="index"]').each(function() {
     var data = $(this).data(),
-        dynamicSearcher, geoblacklight, search;
+        dynamicSearcher, geoblacklight, search, bbox;
+
+    if (typeof data.mapBbox === "string") {
+      bbox = L.bboxToBounds(data.mapBbox);
+    } else {
+      $('.document [data-bbox]').each(function() {
+        if (typeof bbox === "undefined") {
+          bbox = L.bboxToBounds($(this).data().bbox);
+        } else {
+          bbox.extend(L.bboxToBounds($(this).data().bbox));
+        }
+      });
+    }
 
     dynamicSearcher = GeoBlacklight.debounce(function(querystring) {
       History.pushState(null, null, data.catalogPath + '?' + querystring);
     }, 800);
-    geoblacklight = new GeoBlacklight(this).setHoverListeners();
+    geoblacklight = new GeoBlacklight(this, { bbox: bbox }).setHoverListeners();
     search = new L.Control.GeoSearch(dynamicSearcher);
     geoblacklight.map.addControl(search);
   });
