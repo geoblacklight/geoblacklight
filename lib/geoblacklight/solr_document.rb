@@ -16,7 +16,7 @@ module Geoblacklight
     end
 
     def downloadable?
-      get(:solr_wfs_url) && get(:solr_wms_url) && available?
+      download_types.present? && available?
     end
 
     def download_types

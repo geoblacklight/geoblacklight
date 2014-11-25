@@ -38,9 +38,18 @@ describe Geoblacklight::References do
       )
     )
   }
+  let(:direct_download_only) {
+    Geoblacklight::References.new(
+      dc_format_s: 'GeoTIFF',
+      dct_references_s: {
+        'http://schema.org/downloadUrl' => 'http://example.com/layer-id-geotiff.tiff'
+      }.to_json
+    )
+  }
   describe 'format' do
     it 'should return format' do
       expect(complex_shapefile.format).to eq 'Shapefile'
+      expect(direct_download_only.format).to eq 'GeoTIFF'
     end
   end
   describe 'refs' do
@@ -55,6 +64,7 @@ describe Geoblacklight::References do
       download = complex_shapefile.download
       expect(download).to be_an Geoblacklight::Reference
       expect(download.endpoint).to eq('http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip')
+      expect(direct_download_only.download.endpoint).to eq 'http://example.com/layer-id-geotiff.tiff'
     end
     it 'should not return if download not available' do
       expect(typical_ogp_shapefile.download).to be_nil
@@ -63,6 +73,7 @@ describe Geoblacklight::References do
   describe 'preferred_download' do
     it 'should return the direct download if available' do
       expect(complex_shapefile.preferred_download[:file_download][:download]).to eq 'http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip'
+      expect(direct_download_only.preferred_download[:file_download][:download]).to eq 'http://example.com/layer-id-geotiff.tiff'
     end
     it 'should return nil if there is no direct download' do
       expect(typical_ogp_shapefile.preferred_download).to be_nil
@@ -76,6 +87,7 @@ describe Geoblacklight::References do
       types = complex_shapefile.download_types
       expect(types.first[1]).to eq wfs: 'http://hgl.harvard.edu:8080/geoserver/wfs'
       expect(types.count).to eq 2
+      expect(direct_download_only.download_types).to be_nil
     end
     it 'should only return available downloads if no direct is present' do
       types = typical_ogp_shapefile.download_types

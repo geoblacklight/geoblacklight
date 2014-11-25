@@ -43,8 +43,6 @@ module Geoblacklight
       case format
       when 'Shapefile'
         { shapefile: wfs.to_hash, kmz: wms.to_hash }
-      when 'GeoTIFF'
-        { geotiff: wms.to_hash }
       end
     end
 
