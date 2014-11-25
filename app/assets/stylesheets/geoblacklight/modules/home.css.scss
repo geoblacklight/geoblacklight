@@ -6,17 +6,16 @@
   text-align: center;
 }
 
-.home-facet-label {
-  background: $gray-light;
-  border-radius: .25em;
-  color: #fff;
-  font-size: 1.4em;
-  line-height: 2em;
-  padding: .2em .6em .3em;
-  text-align: center;
+.home-facet-link {
   
-  &:hover {
-    color: #fff;
-    text-decoration: none;
+}
+
+.category-block {
+  @extend .col-md-6;
+  @extend .text-center;
+  min-height: 200px;
+  
+  .category-icon {
+    font-size: 6em;
   }
 }
