@@ -5,6 +5,7 @@ require 'httparty'
 require 'font-awesome-rails'
 require 'rails_config'
 require 'faraday'
+require 'blacklight_range_limit'
 
 module Geoblacklight
   class Engine < ::Rails::Engine
