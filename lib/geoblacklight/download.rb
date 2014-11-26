@@ -45,7 +45,7 @@ class Download
   end
 
   def initiate_download
-    conn = Faraday.new(url: @document[@options[:service_type]])
+    conn = Faraday.new(url: @document.references.send(@options[:service_type]).endpoint)
     conn.get do |request|
       request.params = @options[:request_params]
       request.options = {

@@ -8,7 +8,7 @@ class KmzDownload < Download
       extension: 'kmz',
       request_params: request_params,
       content_type: 'application/vnd.google-earth.kmz',
-      service_type: :solr_wms_url
+      service_type: 'wms'
     })
   end
 end

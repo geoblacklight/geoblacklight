@@ -8,7 +8,7 @@ class ShapefileDownload < Download
       extension: 'zip',
       request_params: request_params,
       content_type: 'application/zip',
-      service_type: :solr_wfs_url
+      service_type: 'wfs'
     })
   end
 end
