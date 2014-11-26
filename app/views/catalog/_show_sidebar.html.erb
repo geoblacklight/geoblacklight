@@ -19,9 +19,9 @@
       </a>    
     </ul>
     <% if document_downloadable? %>
-      <div class='btn-group'>
+      <div class='btn-group' itemprop='distribution' itemscope='itemscope' itemtype='http://schema.org/DataDownload'>
         <% unless document.direct_download.blank? %>
-          <%= link_to("Download #{@document[:dc_format_s]}", document.direct_download[:download], class: 'btn btn-default') %>
+          <%= link_to("Download #{@document[:dc_format_s]}", document.direct_download[:download], class: 'btn btn-default', 'contentUrl' => document.direct_download[:download]) %>
         <% else %>
           <%= link_to("Download #{document.download_types.first[0].capitalize}", '', data: { download_path: "#{download_path(document[:layer_slug_s], type: document.download_types.first[0])}"}, class: 'btn btn-default') %>
         <% end %>
@@ -33,7 +33,7 @@
           <% unless document.direct_download.blank? %>
             <li role="presentation" class="dropdown-header">Original</li>
             <li>
-              <%= link_to("Download #{@document[:dc_format_s]}", document.direct_download[:download]) %>
+              <%= link_to("Download #{@document[:dc_format_s]}", document.direct_download[:download], 'contentUrl' => document.direct_download[:download]) %>
             </li>
           <% end %>
           <li role="presentation" class="dropdown-header">Projected</li>
