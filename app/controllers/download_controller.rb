@@ -29,6 +29,8 @@ class DownloadController < ApplicationController
       response = KmzDownload.new(@document).get
     when 'geojson'
       response = GeojsonDownload.new(@document).get
+    when 'geotiff'
+      response = GeotiffDownload.new(@document).get
     end
     response
   end

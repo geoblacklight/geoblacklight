@@ -34,30 +34,33 @@ class Download
       if download.headers['content-type'] == @options[:content_type]
         file.write download.body
       else
-        fail 'Wrong type of download'
+        fail Geoblacklight::Exceptions::WrongDownloadFormat
       end
     end
     File.rename("#{file_path}.tmp", file_path)
     file_name
-  rescue
+  rescue Geoblacklight::Exceptions::WrongDownloadFormat => error
+    Geoblacklight.logger.error "#{error} expected #{@options[:content_type]} received #{download.headers['content-type']}"
     File.delete("#{file_path}.tmp")
     nil
   end
 
   def initiate_download
-    conn = Faraday.new(url: @document.references.send(@options[:service_type]).endpoint)
+    url = @document.references.send(@options[:service_type]).endpoint
+    url += '/reflect' if @options[:reflect]
+    conn = Faraday.new(url: url)
     conn.get do |request|
       request.params = @options[:request_params]
       request.options = {
-        timeout: 10,
-        open_timeout: 10
+        timeout: 16,
+        open_timeout: 16
       }
     end
   rescue Faraday::Error::ConnectionFailed => error
-    puts error
+    Geoblacklight.logger.error error
     nil
   rescue Faraday::Error::TimeoutError => error
-    puts error
+    Geoblacklight.logger.error error
     nil
   end
 end

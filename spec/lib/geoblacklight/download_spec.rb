@@ -42,14 +42,14 @@ describe Download do
       expect(download).to receive(:download_exists?).and_return(false)
       expect(download).to receive(:initiate_download).and_return('')
       expect(File).to receive(:open).with("#{download.file_path}.tmp", 'wb').and_return('')
-      expect(File).to receive(:delete).with("#{download.file_path}.tmp").and_return(nil)
-      expect(download.get).to eq nil
+      expect(File).to receive(:rename)
+      expect(download.get).to eq 'test-shapefile.zip'
     end
   end
   describe '#create_download_file' do
     it 'should create the file in fs and delete it if the content headers are not correct' do
-      expect(download).to receive(:initiate_download).and_return('')
-      expect(File).to receive(:open).with("#{download.file_path}.tmp", 'wb').and_return('')
+      bad_file = OpenStruct.new(headers: { 'content-type' => 'bad/file' })
+      expect(download).to receive(:initiate_download).and_return(bad_file)
       expect(File).to receive(:delete).with("#{download.file_path}.tmp").and_return(nil)
       expect(download.create_download_file).to eq nil
     end
