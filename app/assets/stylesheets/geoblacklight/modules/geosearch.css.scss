@@ -1,0 +1,29 @@
+.search-control {
+  background-color: #FFF;
+  border-radius: 4px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+}
+
+.search-control a {
+  color: #FFF
+}
+
+.search-control label {
+  margin: 6px 12px;
+  font-size: 14px;
+  display: block;
+  padding-left: 15px;
+  text-indent: -15px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.search-control input[type="checkbox"] {
+  width: 13px;
+  height: 13px;
+  padding: 0;
+  margin: 0;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}

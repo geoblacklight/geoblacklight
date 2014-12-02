@@ -22,38 +22,71 @@
   L.Control.GeoSearch = L.Control.extend({
 
     options: {
-      button: false
+      dynamic: true,
+      baseUrl: '',
+      searcher: function() {
+        History.pushState(null, document.title, this.getSearchUrl());
+      },
+      delay: 800,
+      staticButton: '<a class="btn btn-primary">Redo Search Here <span class="glyphicon glyphicon-repeat"></span></a>',
+      dynamicButton: '<label><input type="checkbox" checked> Search When I Move the Map</label>'
     },
 
-    initialize: function(searcher, options) {
+    initialize: function(options) {
       L.Util.setOptions(this, options);
-      this._searcher = L.Util.bind(searcher, this);
+      this.$staticButton = $(this.options.staticButton);
+      this.$dynamicButton = $(this.options.dynamicButton);
     },
 
     onAdd: function(map) {
-      var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+      var $container = $('<div class="leaflet-control search-control"></div>'),
+          staticSearcher, dynamicSearcher;
       this._map = map;
 
-      if (this.options.button === true) {
-        this.link = L.DomUtil.create('a', 'leaflet-bar-part search-control',
-          container);
-        this.link.href = '';
-        this.icon = L.DomUtil.create('i', 'glyphicon glyphicon-search',
-          this.link);
+      staticSearcher = L.Util.bind(function() {
+        this.$staticButton.hide();
+        this.$dynamicButton.show();
+        this.options.searcher.apply(this);
+      }, this);
+
+      dynamicSearcher = GeoBlacklight.debounce(function() {
+        if (this.options.dynamic) {
+          this.options.searcher.apply(this);
+        }
+      }, this.options.delay);
+
+      this.$staticButton.on('click', staticSearcher);
+
+      $container.on("change", "input[type=checkbox]",
+        L.Util.bind(function() {
+          this.options.dynamic = !this.options.dynamic;
+        }, this)
+      );
+
+      if (this.options.dynamic) {
+        this.$staticButton.hide();
+      } else {
+        this.$dynamicButton.hide();
       }
 
-      map.on("moveend", this._search, this);
+      map.on("moveend", dynamicSearcher, this);
+      map.on("movestart", function() {
+        if (!this.options.dynamic) {
+          this.$dynamicButton.hide();
+          this.$staticButton.show();
+        }
+      }, this);
 
-      return container;
+      $container.append(this.$staticButton, this.$dynamicButton);
+      return $container.get(0);
     },
 
-    _search: function() {
+    getSearchUrl: function() {
       var params = this.filterParams(['bbox', 'page']),
           bounds = L.boundsToBbox(this._map.getBounds());
 
       params.push('bbox=' + encodeURIComponent(bounds.join(' ')));
-
-      this._searcher(params.join('&'));
+      return this.options.baseUrl + '?' + params.join('&');
     },
 
     filterParams: function(filterList) {
@@ -73,5 +106,9 @@
     }
 
   });
+
+  L.control.geosearch = function(options) {
+    return new L.Control.GeoSearch(options);
+  };
 
 }(this);

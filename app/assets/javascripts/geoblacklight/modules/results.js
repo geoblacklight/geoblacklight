@@ -1,13 +1,17 @@
 Blacklight.onLoad(function() {
+  var historySupported = !!(window.history && window.history.pushState);
 
-  History.Adapter.bind(window, 'statechange', function() {
-    var state = History.getState();
-    updatePage(state.url);
-  });
+  if (historySupported) {
+    History.Adapter.bind(window, 'statechange', function() {
+      var state = History.getState();
+      updatePage(state.url);
+    });
+  }
 
   $('[data-map="index"]').each(function() {
     var data = $(this).data(),
-        dynamicSearcher, geoblacklight, search, bbox;
+        opts = { baseUrl: data.catalogPath },
+        geoblacklight, bbox;
 
     if (typeof data.mapBbox === "string") {
       bbox = L.bboxToBounds(data.mapBbox);
@@ -21,12 +25,17 @@ Blacklight.onLoad(function() {
       });
     }
 
-    dynamicSearcher = GeoBlacklight.debounce(function(querystring) {
-      History.pushState(null, null, data.catalogPath + '?' + querystring);
-    }, 800);
+    if (!historySupported) {
+      $.extend(opts, {
+        dynamic: false,
+        searcher: function() {
+          window.location.href = this.getSearchUrl();
+        }
+      });
+    }
+
     geoblacklight = new GeoBlacklight(this, { bbox: bbox }).setHoverListeners();
-    search = new L.Control.GeoSearch(dynamicSearcher);
-    geoblacklight.map.addControl(search);
+    geoblacklight.map.addControl(L.control.geosearch(opts));
   });
 
   function updatePage(url) {
