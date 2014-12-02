@@ -1,11 +1,14 @@
 Blacklight.onLoad(function () {
   $('[data-map="home"]').each(function(i, element) {
     var geoblacklight = new GeoBlacklight(this),
-        data = $(this).data(),
-        search;
-    search = new L.Control.GeoSearch(function(querystring) {
-      this.link.href = data.catalogPath + '?' + querystring;
-    }, { button: true });
-    geoblacklight.map.addControl(search);
+        data = $(this).data();
+    geoblacklight.map.addControl(L.control.geosearch({
+      baseUrl: data.catalogPath,
+      dynamic: false,
+      searcher: function() {
+        window.location.href = this.getSearchUrl();
+      },
+      staticButton: '<a class="btn btn-primary">Search Here</a>'
+    }));
   });
 });

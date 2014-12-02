@@ -26,9 +26,8 @@ feature 'Home page', js: true do # use js: true for tests which require js, but 
     end
   end
   scenario 'clicking map search should create a spatial search' do
-    find('#map').double_click
     within '#map' do
-      find('a.search-control').click
+      find('.search-control a').click
       expect(page.current_url).to match /bbox=/
     end
     expect(page).to have_css '#documents'
