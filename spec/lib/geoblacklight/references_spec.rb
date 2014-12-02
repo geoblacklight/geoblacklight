@@ -86,13 +86,13 @@ describe Geoblacklight::References do
     it 'should return available downloads by format' do
       types = complex_shapefile.download_types
       expect(types.first[1]).to eq wfs: 'http://hgl.harvard.edu:8080/geoserver/wfs'
-      expect(types.count).to eq 2
+      expect(types.count).to eq 3
       expect(direct_download_only.download_types).to be_nil
     end
     it 'should only return available downloads if no direct is present' do
       types = typical_ogp_shapefile.download_types
       expect(types.first[1]).to eq wfs: "http://hgl.harvard.edu:8080/geoserver/wfs"
-      expect(types.count).to eq 2
+      expect(types.count).to eq 3
     end
   end
 end

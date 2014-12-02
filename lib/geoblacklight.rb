@@ -9,6 +9,7 @@ module Geoblacklight
   require 'geoblacklight/wms_layer'
   require 'geoblacklight/download'
   require 'geoblacklight/download/shapefile_download'
+  require 'geoblacklight/download/geojson_download'
   require 'geoblacklight/download/kmz_download'
   require 'geoblacklight/reference'
   require 'geoblacklight/references'
