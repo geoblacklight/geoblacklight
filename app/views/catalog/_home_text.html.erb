@@ -6,10 +6,10 @@
   </div>
 </div>
 
-<div class='row'>
-  <div class='col-md-6'>
-    <%= content_tag :h4, t('geoblacklight.home.category_heading'), class: 'text-center' %>
-    <div class='row'>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-6'>
+      <%= content_tag :h4, t('geoblacklight.home.category_heading'), class: 'text-center' %>
       <div class='category-block'>
         <div class='category-icon'>
           <span class='glyphicon glyphicon-home'></span>
@@ -39,9 +39,9 @@
         <%= render_facet_tags [:dc_subject_sm] %>
       </div>
     </div>
-  </div>
-  <div class='col-md-6 text-center'>
-    <%= content_tag :h4, t('geoblacklight.home.map_heading') %>
-    <%= content_tag :div, '', id: 'map', data: { map: 'home', 'catalog-path'=> catalog_index_path , 'map-bbox' => params[:bbox]} %>
+    <div class='col-md-6 text-center'>
+      <%= content_tag :h4, t('geoblacklight.home.map_heading') %>
+      <%= content_tag :div, '', id: 'map', data: { map: 'home', 'catalog-path'=> catalog_index_path , 'map-bbox' => params[:bbox]} %>
+    </div>
   </div>
 </div>
