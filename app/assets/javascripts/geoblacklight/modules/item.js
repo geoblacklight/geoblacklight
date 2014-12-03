@@ -11,7 +11,7 @@ GeoBlacklight.Item = GeoBlacklight.extend({
     GeoBlacklight.prototype.initialize.call(this, element, options);
     this.dataAttributes = $(element).data();
     this.layer = new L.layerGroup().addTo(this.map);
-    if (this.dataAttributes.available) {
+    if (this.dataAttributes.available && this.dataAttributes.wmsUrl !== null) {
       this.addPreviewLayer();
       this.addOpacityControl();
     } else {

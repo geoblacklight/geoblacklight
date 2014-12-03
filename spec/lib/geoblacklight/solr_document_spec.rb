@@ -86,4 +86,26 @@ describe Geoblacklight::SolrDocument do
       expect(document.direct_download).to be_nil
     end
   end
+  describe 'checked_endpoint' do
+    let(:document_attributes) { {} }
+    let(:reference) { Geoblacklight::Reference.new(['http://www.opengis.net/def/serviceType/ogc/wms', 'http://www.example.com/wms']) }
+    it 'returns endpoint if available' do
+      expect_any_instance_of(Geoblacklight::References).to receive(:wms).and_return(reference)
+      expect(document.checked_endpoint('wms')).to eq 'http://www.example.com/wms'
+    end
+    it 'return nil if not available' do
+      expect_any_instance_of(Geoblacklight::References).to receive(:wms).and_return(nil)
+      expect(document.checked_endpoint('wms')).to be_nil
+    end
+  end
+  describe 'method_missing' do
+    let(:document_attributes) { {} }
+    it 'calls checked_endpoint with parsed method name if matches' do
+      expect(document).to receive(:checked_endpoint).with('wms').and_return(nil)
+      expect(document.wms_url).to be_nil
+    end
+    it 'raises no method error' do
+      expect { document.wms_urlz }.to raise_error NoMethodError
+    end
+  end
 end
