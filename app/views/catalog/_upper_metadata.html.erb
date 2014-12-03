@@ -24,11 +24,11 @@
     <% end %>
     <% unless document['dct_spatial_sm'].nil? %>
       <dt>Places</dt>
-      <dd itemprop="spatial"><%= document['dct_spatial_sm'].sort.uniq.join(', ') %>&nbsp;</dd>
+      <dd itemprop="spatial"><%= render_facet_links('dct_spatial_sm', document['dct_spatial_sm']) %>&nbsp;</dd>
     <% end %>
     <% unless document['dc_subject_sm'].nil? %>
       <dt>Subjects</dt>
-      <dd itemprop="keywords"><%= document['dc_subject_sm'].sort.uniq.join(', ') %>&nbsp;</dd>
+      <dd itemprop="keywords"><%= render_facet_links('dc_subject_sm', document['dc_subject_sm']) %>&nbsp;</dd>
     <% end %>
     <% unless document['dct_temporal_sm'].nil? %>
       <dt>Years</dt>

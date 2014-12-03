@@ -6,7 +6,7 @@ en:
     home:
       headline: 'Explore and discover...'
       search_heading: 'Find the maps and data you need'
-      category_heading: 'Find by category'
+      category_heading: 'Find by...'
       map_heading: 'Find by location'
     tools:
       login_to_view: 'Login to view and download'

@@ -69,4 +69,12 @@ module GeoblacklightHelper
       ""
     end
   end
+
+  ##
+  # Renders an unique array of search links based off of terms
+  # passed in using the facet parameter
+  #
+  def render_facet_links(facet, items)
+    items.uniq.map { |item| link_to item, catalog_index_path(f: { "#{facet}" => [item] }) }.join(', ').html_safe
+  end
 end

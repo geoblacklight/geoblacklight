@@ -14,24 +14,28 @@
         <div class='category-icon'>
           <span class='glyphicon glyphicon-home'></span>
         </div>
+        <h3>Institution</h3>
         <%= render_facet_tags [:dct_provenance_s] %>
       </div>
       <div class='category-block'>
         <div class='category-icon'>
           <span class='glyphicon glyphicon-download'></span>
         </div>
+        <h3>Data type</h3>
         <%= render_facet_tags [:layer_geom_type_s] %>
       </div>
       <div class='category-block'>
         <div class='category-icon'>
           <span class='glyphicon glyphicon-globe'></span>
         </div>
+        <h3>Placename</h3>
         <%= render_facet_tags [:dct_spatial_sm] %>
       </div>
       <div class='category-block'>
         <div class='category-icon'>
           <span class='glyphicon glyphicon-tags'></span>
         </div>
+        <h3>Subject</h3>
         <%= render_facet_tags [:dc_subject_sm] %>
       </div>
     </div>
