@@ -24,5 +24,9 @@ namespace :geoblacklight do
     task delete: :environment do
       FileUtils.rm_rf Dir.glob("#{Rails.root}/tmp/cache/downloads/*")
     end
+    desc 'Create download directory'
+    task mkdir: :environment do
+      FileUtils.mkdir_p Dir.glob("#{Rails.root}/tmp/cache/downloads")
+    end
   end
 end
