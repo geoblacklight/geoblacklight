@@ -42,7 +42,9 @@ module Geoblacklight
     def downloads_by_format
       case format
       when 'Shapefile'
-        { shapefile: wfs.to_hash, kmz: wms.to_hash, geojson: wfs.to_hash }
+        if wfs && wms
+          { shapefile: wfs.to_hash, kmz: wms.to_hash, geojson: wfs.to_hash } if wms.present? && wfs.present?
+        end
       when 'GeoTIFF'
         { geotiff: wms.to_hash } if wms.present?
       end
