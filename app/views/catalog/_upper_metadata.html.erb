@@ -18,10 +18,6 @@
       <dt>Collection</dt>
       <dd itemprop="isPartOf"><%= document['dct_isPartOf_sm'].sort.uniq.join(', ') %>&nbsp;</dd>
     <% end %>
-    <% if document['dct_provenance_s'] == 'Stanford' and not document['dc_identifier_s'].nil? %>
-      <dt>Citation</dt>
-      <dd itemprop="url"><%= link_to document['dc_identifier_s'], document['dc_identifier_s'] %>&nbsp;</dd>
-    <% end %>
     <% unless document['dct_spatial_sm'].nil? %>
       <dt>Places</dt>
       <dd itemprop="spatial"><%= render_facet_links('dct_spatial_sm', document['dct_spatial_sm']) %>&nbsp;</dd>
@@ -33,6 +29,11 @@
     <% unless document['dct_temporal_sm'].nil? %>
       <dt>Years</dt>
       <dd itemprop="temporal"><%= document['dct_temporal_sm'].sort.uniq.join(', ') %>&nbsp;</dd>
+    <% end %>
+    <% if !@document.references.nil? && !@document.references.url.nil? %>
+    <%   _url = @document.references.url.endpoint %>
+         <dt>More details at</dt>
+         <dd itemprop="url"><a href="<%= _url %>"><%= _url %></a>&nbsp;</dd>
     <% end %>
   </dl>
 </div>
