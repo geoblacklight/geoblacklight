@@ -60,7 +60,7 @@ module Geoblacklight
       elsif !iiif.blank?
         iiif.to_hash
       else
-        Hash.new
+        {:leaflet => ''}
       end
     end
   end

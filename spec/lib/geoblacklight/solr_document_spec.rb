@@ -86,6 +86,24 @@ describe Geoblacklight::SolrDocument do
       expect(document.direct_download).to be_nil
     end
   end
+  describe 'viewer' do
+    let(:document_attributes) { {} }
+    describe 'with a wms reference' do
+      let(:document_attributes) {
+        {
+          dct_references_s: {
+            'http://www.opengis.net/def/serviceType/ogc/wms' => 'http://www.example.com/wms'
+          }.to_json
+        }
+      }
+      it 'returns wms viewer endpoint' do
+        expect(document.viewer[:endpoint]).to eq 'http://www.example.com/wms'
+      end
+    end
+    it 'returns leaflet as default if no viewer' do
+      expect(document.viewer[:protocol]).to eq 'leaflet'
+    end
+  end
   describe 'checked_endpoint' do
     let(:document_attributes) { {} }
     let(:reference) { Geoblacklight::Reference.new(['http://www.opengis.net/def/serviceType/ogc/wms', 'http://www.example.com/wms']) }

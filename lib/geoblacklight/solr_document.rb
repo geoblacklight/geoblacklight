@@ -37,8 +37,8 @@ module Geoblacklight
       get(:dct_provenance_s).downcase == Settings.INSTITUTION.downcase
     end
 
-    def viewer_protocol
-      references.viewer_protocol
+    def viewer
+      { protocol: references.viewer_protocol.keys.first.to_s, endpoint: references.viewer_protocol.values.first }   
     end
 
     def itemtype
