@@ -2,18 +2,19 @@
 <div class="geoblacklight-view-panel">
 
   <dl class="dl-horizontal">
+    <% unless document['dct_provenance_s'].nil? %>
+      <dt>Institution</dt>
+      <dd><%= document['dct_provenance_s'] %></dd>
+    <% end %>      
     <% unless document['dc_creator_sm'].nil? %>
       <dt>Author</dt>
       <dd itemprop="author"><%= document['dc_creator_sm'].join(', ') %>&nbsp;</dd>
-  <% end %>
+    <% end %>
     <% unless document['dc_publisher_s'].nil? %>
       <dt>Publisher</dt>
       <dd itemprop="publisher"><%= document['dc_publisher_s'] %>&nbsp;</dd>
-  <% end %>
-    <dt>Year</dt>
-    <dd itemprop="dateCreated"><%= document['solr_year_i'] %>&nbsp;</dd>
-    <dt>Abstract</dt>
-    <dd id="" itemprop="description"><%= abstract_truncator(document['dc_description_s']) %>&nbsp;</dd>
+    <% end %>
+    <%= render 'abstract_metadata' %>
     <% unless document['dct_isPartOf_sm'].nil? %>
       <dt>Collection</dt>
       <dd itemprop="isPartOf"><%= document['dct_isPartOf_sm'].sort.uniq.join(', ') %>&nbsp;</dd>
@@ -31,9 +32,8 @@
       <dd itemprop="temporal"><%= document['dct_temporal_sm'].sort.uniq.join(', ') %>&nbsp;</dd>
     <% end %>
     <% if !@document.references.nil? && !@document.references.url.nil? %>
-    <%   _url = @document.references.url.endpoint %>
-         <dt>More details at</dt>
-         <dd itemprop="url"><a href="<%= _url %>"><%= _url %></a>&nbsp;</dd>
+       <dt>More details at</dt>
+       <dd itemprop="url"><%= link_to @document.references.url.endpoint %></dd>
     <% end %>
   </dl>
 </div>
