@@ -24,17 +24,6 @@ module GeoblacklightHelper
     document_available? && @document.downloadable?
   end
 
-  def abstract_truncator(abstract)
-    if (abstract)
-      if (abstract.length > 150)
-        html = abstract.slice(0,150) + content_tag(:span, ("..." + link_to("more", "#", :id =>"more-abstract", :data => {no_turbolink: true})).html_safe, :id => "abstract-trunc") + content_tag(:span, abstract.slice(150,abstract.length), :id => "abstract-full", :class => "hidden")
-      else
-        html = abstract
-      end
-      content_tag(:span, html.html_safe)
-    end
-  end
-
   def snippit(text)
     if (text)
       if (text.length > 150)

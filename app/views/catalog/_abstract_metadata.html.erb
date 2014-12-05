@@ -1,0 +1,8 @@
+<% if @document['dc_description_s'].present? %>
+  <dt>Abstract</dt>
+  <dd itemprop="description">
+    <div class='truncate-abstract'>
+      <%= @document['dc_description_s'] %>
+    </div>
+  </dd>
+<% end %>

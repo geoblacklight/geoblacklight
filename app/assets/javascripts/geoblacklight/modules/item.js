@@ -3,6 +3,9 @@ Blacklight.onLoad(function() {
     var bbox = L.bboxToBounds($(this).data().mapBbox);
     new GeoBlacklight.Item(element, { bbox: bbox });
   });
+  $('.truncate-abstract').readmore({
+    maxHeight: 60
+  });
 });
 
 GeoBlacklight.Item = GeoBlacklight.extend({
