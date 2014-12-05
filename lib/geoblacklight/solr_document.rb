@@ -3,6 +3,8 @@ module Geoblacklight
   module SolrDocument
     extend Blacklight::Solr::Document
 
+    delegate :download_types, to: :references
+
     def available?
       public? || same_institution?
     end

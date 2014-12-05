@@ -12,6 +12,14 @@ describe Geoblacklight::References do
       )
     )
   }
+  let(:no_service_shapefile) {
+    Geoblacklight::References.new(
+      SolrDocument.new(
+        dc_format_s: 'Shapefile',
+        dct_references_s: {}.to_json
+      )
+    )
+  }
   let(:typical_ogp_geotiff) {
     Geoblacklight::References.new(
       SolrDocument.new(
@@ -93,6 +101,21 @@ describe Geoblacklight::References do
       types = typical_ogp_shapefile.download_types
       expect(types.first[1]).to eq wfs: "http://hgl.harvard.edu:8080/geoserver/wfs"
       expect(types.count).to eq 3
+    end
+  end
+  describe 'downloads_by_format' do
+    it 'returns shapefile' do
+      expect(typical_ogp_shapefile.downloads_by_format.count).to eq 3
+    end
+    it 'returns geotiff' do
+      expect(typical_ogp_geotiff.downloads_by_format.count).to eq 1
+      expect(typical_ogp_geotiff.downloads_by_format[:geotiff][:wms]).to eq 'http://hgl.harvard.edu:8080/geoserver/wms'
+    end
+    it 'does not return shapefile if wms and wfs are not present' do
+      expect(no_service_shapefile.downloads_by_format).to be_nil
+    end
+    it 'does not return GeoTIFF if wms is not present' do
+      expect(direct_download_only.downloads_by_format).to be_nil
     end
   end
 end
