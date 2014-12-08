@@ -13,4 +13,8 @@ Blacklight.onLoad(function() {
       console.info('Error loading viewer');
     };
   });
+
+  $('.truncate-abstract').readmore({
+   maxHeight: 60
+  });
 });

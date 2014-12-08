@@ -1,12 +1,22 @@
-// WMS leaflet viewer
-modulejs.define('viewer/wms', ['viewer/leaflet'], function(Leaflet) {
-  function WMSViewer(el) {
-    Leaflet.apply(this, arguments);
-  }; 	
+//= require geoblacklight/viewers/leaflet.js
 
-  WMSViewer.prototype = Object.create(Leaflet.prototype);
+GeoBlacklight.Viewer.Wms = GeoBlacklight.Viewer.Leaflet.extend({
 
-  WMSViewer.prototype.addPreviewLayer = function() {
+  load: function() {
+    this.options.bbox = L.bboxToBounds(this.data.mapBbox);
+    this.map = L.map(this.element).fitBounds(this.options.bbox);
+    this.map.addLayer(this.basemap);
+    this.map.addLayer(this.overlay);
+
+    if (this.data.available) {
+      this.addPreviewLayer();
+      this.addOpacityControl();
+    } else { 
+      this.addBoundsOverlay(this.options.bbox);
+    };
+  },
+
+  addPreviewLayer: function() {
     var wmsLayer = L.tileLayer.wms(this.data.url, {
       layers: this.data.layerId,
       format: 'image/png',
@@ -17,13 +27,13 @@ modulejs.define('viewer/wms', ['viewer/leaflet'], function(Leaflet) {
     });
     this.overlay.addLayer(wmsLayer);
     this.setupInspection();
-  };
+  },
 
-  WMSViewer.prototype.addOpacityControl =function() {
+  addOpacityControl: function() {
     this.map.addControl(new L.Control.LayerOpacity(this.overlay));
-  };
+  },
 
-  WMSViewer.prototype.setupInspection = function() {
+  setupInspection: function() {
     var _this = this;
     this.map.on('click', function(e) {
       spinner = '<span id="attribute-table"><i class="fa fa-spinner fa-spin fa-3x fa-align-center"></i></span>';
@@ -59,21 +69,5 @@ modulejs.define('viewer/wms', ['viewer/leaflet'], function(Leaflet) {
         }
       });
     });
-};
-
-WMSViewer.prototype.load = function() {
-  this.options.bbox = L.bboxToBounds(this.data.mapBbox);
-  this.map = L.map(this.element).fitBounds(this.options.bbox);
-  this.map.addLayer(this.basemap);
-  this.map.addLayer(this.overlay);
-
-  if (this.data.available) {
-    this.addPreviewLayer();
-    this.addOpacityControl();
-  } else {	
-    this.addBoundsOverlay(this.options.bbox);
-  };
-};
-
-return WMSViewer;
+  }
 });
