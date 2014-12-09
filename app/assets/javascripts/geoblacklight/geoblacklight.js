@@ -1,4 +1,5 @@
 //= require leaflet
+//= require leaflet-iiif
 //= require native.history
 //= require readmore.min
 

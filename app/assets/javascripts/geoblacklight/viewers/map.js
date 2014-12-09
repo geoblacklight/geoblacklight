@@ -1,6 +1,6 @@
-//= require geoblacklight/viewers/viewer.js
+//= require geoblacklight/viewers/viewer
 
-GeoBlacklight.Viewer.Leaflet = GeoBlacklight.Viewer.extend({
+GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
 
   options: {
     /**
