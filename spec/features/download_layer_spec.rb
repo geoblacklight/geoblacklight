@@ -38,7 +38,7 @@ feature 'Download layer' do
     expect(page).to have_css 'a', text: 'Download Shapefile'
     find('button.download-dropdown-toggle').click
     expect(page).to have_css 'li.dropdown-header', text: 'Original'
-    expect(page).to have_css 'li.dropdown-header', text: 'Projected'
+    expect(page).to have_css 'li.dropdown-header', text: 'Generated'
     expect(page).to have_css 'li a', text: 'Download Shapefile'
     expect(page).to have_css 'li a', text: 'Download Kmz'
   end

@@ -36,12 +36,14 @@
               <%= link_to("Download #{@document[:dc_format_s]}", document.direct_download[:download], 'contentUrl' => document.direct_download[:download]) %>
             </li>
           <% end %>
-          <li role="presentation" class="dropdown-header">Projected</li>
-          <% document.download_types.each do |type| %>
-            <%= content_tag(:li) do %>
-              <% link_to("Download #{type[0].capitalize}", '', data: { download_path: "#{download_path(document[:layer_slug_s], type: type[0])}" }) %>
-            <% end %>
-          <% end %>    
+          <% if document.download_types.present? %>
+            <li role="presentation" class="dropdown-header">Generated</li>
+            <% document.download_types.each do |type| %>
+              <%= content_tag(:li) do %>
+                <% link_to("Download #{type[0].capitalize}", '', data: { download_path: "#{download_path(document[:layer_slug_s], type: type[0])}" }) %>
+              <% end %>
+            <% end %> 
+          <% end %>   
         </ul>
       </div>
     <% elsif document.restricted? && document.same_institution? %>

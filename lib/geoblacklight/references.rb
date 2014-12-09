@@ -47,6 +47,8 @@ module Geoblacklight
         end
       when 'GeoTIFF'
         { geotiff: wms.to_hash } if wms.present?
+      when 'ArcGRID'
+        { arcgrid: wms.to_hash } if wms.present?
       end
     end
 
