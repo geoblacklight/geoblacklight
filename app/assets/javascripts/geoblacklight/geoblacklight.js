@@ -10,7 +10,7 @@
    * @param {String} bbox Space-separated string of sw-lng sw-lat ne-lng ne-lat
    * @return {L.LatLngBounds} Converted Leaflet LatLngBounds object
    */
-   L.bboxToBounds = function(bbox) {
+  L.bboxToBounds = function(bbox) {
     bbox = bbox.split(' ');
     if (bbox.length === 4) {
       return L.latLngBounds([[bbox[1], bbox[0]], [bbox[3], bbox[2]]]);

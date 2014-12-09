@@ -53,15 +53,5 @@ module Geoblacklight
     def download_types
       downloads_by_format
     end
-
-    def viewer_protocol
-      if !wms.blank?
-        wms.to_hash
-      elsif !iiif.blank?
-        iiif.to_hash
-      else
-        {:leaflet => ''}
-      end
-    end
   end
 end

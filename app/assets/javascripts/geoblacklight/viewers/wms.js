@@ -11,9 +11,9 @@ GeoBlacklight.Viewer.Wms = GeoBlacklight.Viewer.Leaflet.extend({
     if (this.data.available) {
       this.addPreviewLayer();
       this.addOpacityControl();
-    } else { 
+    } else {
       this.addBoundsOverlay(this.options.bbox);
-    };
+    }
   },
 
   addPreviewLayer: function() {

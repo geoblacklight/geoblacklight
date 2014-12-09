@@ -1,5 +1,5 @@
- // base viewer
- GeoBlacklight.Viewer = L.Class.extend({
+// base viewer
+GeoBlacklight.Viewer = L.Class.extend({
   options: {},
 
   initialize: function(el, options) {
