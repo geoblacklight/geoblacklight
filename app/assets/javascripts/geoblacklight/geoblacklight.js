@@ -1,3 +1,8 @@
+//= require leaflet
+//= require leaflet-iiif
+//= require native.history
+//= require readmore.min
+
 !function(global) {
   'use strict';
 
@@ -16,7 +21,6 @@
   };
 
   var GeoBlacklight = L.Class.extend({
-
     statics: {
       __version__: '0.0.1',
 
@@ -30,64 +34,7 @@
           }, delay);
         };
       }
-    },
-
-    options: {
-      /**
-       * Initial bounds of map
-       * @type {L.LatLngBounds}
-       */
-      bbox: [[-85, -180], [85, 180]]
-    },
-
-    initialize: function(el, options) {
-      var data = $(el).data(),
-          basemap, map;
-
-      L.Util.setOptions(this, options);
-
-      basemap = L.tileLayer(
-        'https://otile{s}-s.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
-          attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="//developer.mapquest.com/content/osm/mq_logo.png">',
-          maxZoom: 18,
-          worldCopyJump: true,
-          subdomains: '1234' // see http://developer.mapquest.com/web/products/open/map
-        }
-      );
-
-      this.overlay = L.layerGroup();
-
-      map = L.map(el);
-      this.map = map;
-      map.addLayer(basemap);
-      map.addLayer(this.overlay);
-
-      map.fitBounds(this.options.bbox);
-
-    },
-
-    /**
-     * Add a bounding box overlay to map.
-     * @param {L.LatLngBounds} bounds Leaflet LatLngBounds
-     */
-    addBoundsOverlay: function(bounds) {
-      if (bounds instanceof L.LatLngBounds) {
-        this.overlay.addLayer(L.polygon([
-          bounds.getSouthWest(),
-          bounds.getSouthEast(),
-          bounds.getNorthEast(),
-          bounds.getNorthWest()
-        ]));
-      }
-    },
-
-    /**
-     * Remove bounding box overlay from map.
-     */
-    removeBoundsOverlay: function() {
-      this.overlay.clearLayers();
     }
-
   });
 
   global.GeoBlacklight = GeoBlacklight;

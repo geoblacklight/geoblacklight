@@ -54,6 +54,17 @@ describe Geoblacklight::References do
       }.to_json
     )
   }
+  let(:simple_iiif_image) {
+    Geoblacklight::References.new(
+      SolrDocument.new(
+        dc_format_s: 'Raster',
+        dct_references_s: {
+          'http://schema.org/url' => 'http://arks.princeton.edu/ark:/88435/02870w62c',
+          'http://iiif.io/api/image' => 'http://libimages.princeton.edu/loris2/pudl0076%2Fmap_pownall%2F00000001.jp2/info.json'
+        }.to_json
+      )
+    )
+  }
   describe 'format' do
     it 'should return format' do
       expect(complex_shapefile.format).to eq 'Shapefile'

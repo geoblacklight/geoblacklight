@@ -3,8 +3,8 @@
 <%= render 'upper_metadata', locals: { document: document} %>
 
 <div class='row'>
-  <div class="col-md-8">
-    <%= content_tag :div, id: 'map', data: { map: 'item', 'catalog-path'=> catalog_index_path , 'map-bbox' => document[:solr_bbox], 'layer-id' => document[:layer_id_s], 'wms-url' => document.wms_url, available: document_available? } do %>
+  <div id='viewer-container' class="col-md-8">
+    <%= content_tag :div, id: 'map', data: { map: 'item', protocol: document.viewer_protocol, url: document.viewer_endpoint, 'layer-id' => document[:layer_id_s], 'map-bbox' => document[:solr_bbox], 'catalog-path'=> catalog_index_path, available: document_available? } do %>
     <% end %>
   </div>
   <div id='table-container' class='col-md-4'><div id='attribute-table' ></div></div>
