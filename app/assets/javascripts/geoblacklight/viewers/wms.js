@@ -1,6 +1,6 @@
-//= require geoblacklight/viewers/leaflet.js
+//= require geoblacklight/viewers/map
 
-GeoBlacklight.Viewer.Wms = GeoBlacklight.Viewer.Leaflet.extend({
+GeoBlacklight.Viewer.Wms = GeoBlacklight.Viewer.Map.extend({
 
   load: function() {
     this.options.bbox = L.bboxToBounds(this.data.mapBbox);
@@ -59,7 +59,7 @@ GeoBlacklight.Viewer.Wms = GeoBlacklight.Viewer.Leaflet.extend({
             return;
           }
           var t = $('<table id="attribute-table" class="table table-hover table-condensed table-responsive table-striped table-bordered"><thead><tr><th>Attribute</th><th>Value</th></tr></thead><tbody>');
-          $.each(data.values, function(i,val) {
+          $.each(data.values, function(i, val) {
             t.append('<tr><td>' + val[0] + '</td><td>' + val[1] + '</tr>');
           });
           $('#attribute-table').replaceWith(t);

@@ -35,7 +35,7 @@ Blacklight.onLoad(function() {
     }
 
     // instantiate new map
-    geoblacklight = new GeoBlacklight.Viewer.Leaflet(this, { bbox: bbox });
+    geoblacklight = new GeoBlacklight.Viewer.Map(this, { bbox: bbox });
 
     // set hover listeners on map
     $('#content')

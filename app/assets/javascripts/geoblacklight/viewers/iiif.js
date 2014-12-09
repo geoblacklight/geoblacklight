@@ -1,20 +1,17 @@
-//= require geoblacklight/viewers/viewer.js
-//= require openseadragon
+//= require geoblacklight/viewers/viewer
 
 GeoBlacklight.Viewer.Iiif = GeoBlacklight.Viewer.extend({
   load: function() {
-    this.osdConfig = {
-      id: this.element.id,
-      prefixUrl: '/assets/osd/',
-      preserveViewport: true,
-      showNavigator:  false,
-      visibilityRatio: 1,
-      minZoomLevel: 1,
-      tileSources: [this.data.url]
-    };
-
     this.adjustLayout();
-    OpenSeadragon(this.osdConfig);
+
+    this.map = L.map(this.element, {
+      center: [0, 0],
+      crs: L.CRS.Simple,
+      zoom: 0
+    });
+
+    this.iiifLayer = L.tileLayer.iiif(this.data.url)
+      .addTo(this.map);
   },
 
   adjustLayout: function() {
