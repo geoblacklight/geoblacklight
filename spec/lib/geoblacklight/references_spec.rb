@@ -129,12 +129,4 @@ describe Geoblacklight::References do
       expect(direct_download_only.downloads_by_format).to be_nil
     end
   end
-  describe 'viewer_protocol' do
-    # it 'should return iiif hash if iiif ref type is present' do
-    #   expect(simple_iiif_image.viewer_protocol[:iiif]).to eq 'http://libimages.princeton.edu/loris2/pudl0076%2Fmap_pownall%2F00000001.jp2/info.json'
-    # end
-    # it 'should return wms hash if wms ref type is present' do
-    #   expect(typical_ogp_shapefile.viewer_protocol[:wms]).to eq 'http://hgl.harvard.edu:8080/geoserver/wms'
-    # end
-  end
 end
