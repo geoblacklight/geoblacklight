@@ -4,6 +4,8 @@ module Geoblacklight
     extend Blacklight::Solr::Document
 
     delegate :download_types, to: :references
+    delegate :viewer_protocol, to: :item_viewer
+    delegate :viewer_endpoint, to: :item_viewer
 
     def available?
       public? || same_institution?
@@ -37,8 +39,8 @@ module Geoblacklight
       get(:dct_provenance_s).downcase == Settings.INSTITUTION.downcase
     end
 
-    def viewer
-      { protocol: references.viewer_protocol.keys.first.to_s, endpoint: references.viewer_protocol.values.first }   
+    def item_viewer
+      ItemViewer.new(references)
     end
 
     def itemtype

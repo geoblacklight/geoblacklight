@@ -6,6 +6,7 @@ module Geoblacklight
   require 'geoblacklight/controller_override'
   require 'geoblacklight/exceptions'
   require 'geoblacklight/view_helper_override'
+  require 'geoblacklight/item_viewer'
   require 'geoblacklight/solr_document'
   require 'geoblacklight/wms_layer'
   require 'geoblacklight/download'

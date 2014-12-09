@@ -5,16 +5,15 @@ Blacklight.onLoad(function() {
     var viewerName = $(element).data().protocol;
     viewerName = viewerName.charAt(0).toUpperCase() + viewerName.substring(1);
 
-    // get new viewer instance from modulejs and pass in element
+    // get new viewer instance and pass in element
     try {
-      var viewer = new window["GeoBlacklight"]["Viewer"][viewerName](element); 
-      // viewer.load();
-    } catch(err) {
+      var viewer = new window['GeoBlacklight']['Viewer'][viewerName](element);
+    } catch (err) {
       console.info('Error loading viewer');
-    };
+    }
   });
 
   $('.truncate-abstract').readmore({
-   maxHeight: 60
+    maxHeight: 60
   });
 });
