@@ -20,7 +20,7 @@ module Geoblacklight
     end
 
     def downloadable?
-      download_types.present? && available?
+      (direct_download || download_types.present?) && available?
     end
 
     def download_types

@@ -31,6 +31,17 @@ describe Geoblacklight::References do
       )
     )
   }
+  let(:typical_arcgrid) {
+    Geoblacklight::References.new(
+      SolrDocument.new(
+        dc_format_s: 'ArcGRID',
+        dct_references_s: {
+          'http://www.opengis.net/def/serviceType/ogc/wms' => 'http://hgl.harvard.edu:8080/geoserver/wms',
+          'http://www.opengis.net/def/serviceType/ogc/wfs' => 'http://hgl.harvard.edu:8080/geoserver/wfs'
+        }.to_json
+      )
+    )
+  }
   let(:complex_shapefile) {
     Geoblacklight::References.new(
       SolrDocument.new(
@@ -121,6 +132,10 @@ describe Geoblacklight::References do
     it 'returns geotiff' do
       expect(typical_ogp_geotiff.downloads_by_format.count).to eq 1
       expect(typical_ogp_geotiff.downloads_by_format[:geotiff][:wms]).to eq 'http://hgl.harvard.edu:8080/geoserver/wms'
+    end
+    it 'returns arcgrid' do
+      expect(typical_arcgrid.downloads_by_format.count).to eq 1
+      expect(typical_arcgrid.downloads_by_format[:arcgrid][:wms]).to eq 'http://hgl.harvard.edu:8080/geoserver/wms'
     end
     it 'does not return shapefile if wms and wfs are not present' do
       expect(no_service_shapefile.downloads_by_format).to be_nil

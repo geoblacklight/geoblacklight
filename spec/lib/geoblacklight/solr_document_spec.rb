@@ -33,6 +33,21 @@ describe Geoblacklight::SolrDocument do
       end
     end
   end
+  describe '#downloadable?' do
+    describe 'available direct download' do
+      let(:document_attributes) {
+        {
+          dc_rights_s: 'Public',
+          dct_references_s: {
+            'http://schema.org/downloadUrl' => 'http://example.com/direct/data.zip'
+          }.to_json
+        }
+      }
+      it 'will be downloadable' do
+        expect(document.downloadable?).to be_truthy
+      end
+    end
+  end
   describe '#same_institution?' do
     describe 'within the same institution' do
       let(:document_attributes) { { dct_provenance_s: 'STANFORD' } }
