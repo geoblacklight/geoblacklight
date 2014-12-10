@@ -22,6 +22,9 @@ GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
   overlay: L.layerGroup(),
 
   load: function() {
+    if (this.data.mapBbox) {
+      this.options.bbox = L.bboxToBounds(this.data.mapBbox);
+    }
     this.map = L.map(this.element).fitBounds(this.options.bbox);
     this.map.addLayer(this.basemap);
     this.map.addLayer(this.overlay);
