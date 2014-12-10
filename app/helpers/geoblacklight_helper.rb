@@ -41,7 +41,7 @@ module GeoblacklightHelper
   end
 
   def layer_type_image(type)
-    content_tag :span, '', class: "geoblacklight-icon geoblacklight-#{type.downcase}"
+    content_tag :span, '', class: "geoblacklight-icon geoblacklight-#{type.downcase.gsub(' ', '-')}"
   end
 
   def layer_institution_image(institution)
