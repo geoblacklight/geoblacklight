@@ -122,7 +122,7 @@ describe Geoblacklight::SolrDocument do
     end
     let(:document_attributes) { {} }
     it 'returns leaflet protocol' do
-      expect(document.viewer_protocol).to eq 'leaflet'
+      expect(document.viewer_protocol).to eq 'map'
     end
   end
   describe 'viewer_endpoint' do

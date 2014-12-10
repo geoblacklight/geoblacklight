@@ -5,7 +5,7 @@ module Geoblacklight
     end
 
     def viewer_protocol
-      return 'leaflet' if viewer_preference.nil?
+      return 'map' if viewer_preference.nil?
       viewer_preference.keys.first.to_s
     end
 
