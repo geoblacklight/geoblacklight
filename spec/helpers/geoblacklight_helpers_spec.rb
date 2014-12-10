@@ -13,4 +13,10 @@ describe GeoblacklightHelper do
       expect(html).to have_css 'a', text: 'Science', count: 1
     end
   end
+  describe '#layer_type_image' do
+    it 'lowercases and subs spaces for hyphens' do
+      html = Capybara.string(layer_type_image('TEst 123'))
+      expect(html).to have_css '.geoblacklight-test-123'
+    end
+  end
 end
