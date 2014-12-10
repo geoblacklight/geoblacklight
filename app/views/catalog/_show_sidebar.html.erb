@@ -21,9 +21,9 @@
     <% if document_downloadable? %>
       <div class='btn-group' itemprop='distribution' itemscope='itemscope' itemtype='http://schema.org/DataDownload'>
         <% unless document.direct_download.blank? %>
-          <%= link_to("Download #{@document[:dc_format_s]}", document.direct_download[:download], class: 'btn btn-default', 'contentUrl' => document.direct_download[:download]) %>
+          <%= link_to(download_text(@document[:dc_format_s]), document.direct_download[:download], class: 'btn btn-default', 'contentUrl' => document.direct_download[:download]) %>
         <% else %>
-          <%= link_to("Download #{document.download_types.first[0].capitalize}", '', data: { download_path: "#{download_path(document[:layer_slug_s], type: document.download_types.first[0])}"}, class: 'btn btn-default') %>
+          <%= link_to(download_text(document.download_types.first[0]), '', data: { download_path: "#{download_path(document[:layer_slug_s], type: document.download_types.first[0])}"}, class: 'btn btn-default') %>
         <% end %>
         <button type='button' class='btn btn-default dropdown-toggle download-dropdown-toggle' data-toggle='dropdown' aria-expanded='false'>
           <span class='caret'></span>
@@ -33,14 +33,14 @@
           <% unless document.direct_download.blank? %>
             <li role="presentation" class="dropdown-header">Original</li>
             <li>
-              <%= link_to("Download #{@document[:dc_format_s]}", document.direct_download[:download], 'contentUrl' => document.direct_download[:download]) %>
+              <%= link_to(download_text(@document[:dc_format_s]), document.direct_download[:download], 'contentUrl' => document.direct_download[:download]) %>
             </li>
           <% end %>
           <% if document.download_types.present? %>
             <li role="presentation" class="dropdown-header">Generated</li>
             <% document.download_types.each do |type| %>
               <%= content_tag(:li) do %>
-                <% link_to("Download #{type[0].capitalize}", '', data: { download_path: "#{download_path(document[:layer_slug_s], type: type[0])}" }) %>
+                <% link_to(download_text(type[0]), '', data: { download_path: "#{download_path(document[:layer_slug_s], type: type[0])}" }) %>
               <% end %>
             <% end %> 
           <% end %>   

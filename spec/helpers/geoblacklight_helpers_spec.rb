@@ -13,10 +13,23 @@ describe GeoblacklightHelper do
       expect(html).to have_css 'a', text: 'Science', count: 1
     end
   end
+
   describe '#layer_type_image' do
     it 'lowercases and subs spaces for hyphens' do
       html = Capybara.string(layer_type_image('TEst 123'))
       expect(html).to have_css '.geoblacklight-test-123'
+    end
+  end
+
+  describe '#proper_case_format' do
+    it 'returns a properly cased format' do
+      expect(proper_case_format('GEOJSON')).to eq 'GeoJSON'
+    end
+  end
+
+  describe '#download_text' do
+    it 'returns download text concatenated with proper case format' do
+      expect(download_text('GEOJSON')).to eq 'Download GeoJSON'
     end
   end
 end

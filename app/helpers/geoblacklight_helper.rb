@@ -66,4 +66,18 @@ module GeoblacklightHelper
   def render_facet_links(facet, items)
     items.uniq.map { |item| link_to item, catalog_index_path(f: { "#{facet}" => [item] }) }.join(', ').html_safe
   end
+
+  ##
+  # Looks up properly formatted names for formats
+  #
+  def proper_case_format(format)
+    I18n.t "geoblacklight.formats.#{format.downcase}"
+  end
+
+  ##
+  # Wraps download text with proper_case_format
+  #
+  def download_text(format)
+    "#{I18n.t 'geoblacklight.download.download'} #{proper_case_format(format)}".html_safe
+  end
 end
