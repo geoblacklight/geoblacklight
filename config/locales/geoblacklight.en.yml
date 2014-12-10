@@ -1,6 +1,7 @@
 en:
   geoblacklight:
     download:
+      download: 'Download'
       success: 'Your file %{title} is ready for download'
       error: 'Sorry, the requested file could not be downloaded'
     home:
@@ -10,3 +11,9 @@ en:
       map_heading: 'Find by location'
     tools:
       login_to_view: 'Login to view and download'
+    formats:
+      arcgrid: 'ArcGRID'
+      geojson: 'GeoJSON'
+      geotiff: 'GeoTIFF'
+      kmz: 'KMZ'
+      shapefile: 'Shapefile'

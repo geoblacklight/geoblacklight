@@ -11,14 +11,14 @@ feature 'Download layer' do
     expect_any_instance_of(KmzDownload).to receive(:get).and_return('mit-us-ma-e25zcta5dct-2000-kmz.kmz')
     visit catalog_path('mit-us-ma-e25zcta5dct-2000')
     find('button.download-dropdown-toggle').click
-    find('a', text: 'Download Kmz').click
+    find('a', text: 'Download KMZ').click
     expect(page).to have_css('a', text: 'Your file mit-us-ma-e25zcta5dct-2000-kmz.kmz is ready for download')
   end
   scenario 'options should be available under toggle' do
     visit catalog_path('mit-us-ma-e25zcta5dct-2000')
     find('button.download-dropdown-toggle').click
     expect(page).to have_css('li a', text: 'Download Shapefile')
-    expect(page).to have_css('li a', text: 'Download Kmz')
+    expect(page).to have_css('li a', text: 'Download KMZ')
   end
   scenario 'restricted layer should not have download available to non logged in user' do
     visit catalog_path('stanford-jf841ys4828')
@@ -40,6 +40,6 @@ feature 'Download layer' do
     expect(page).to have_css 'li.dropdown-header', text: 'Original'
     expect(page).to have_css 'li.dropdown-header', text: 'Generated'
     expect(page).to have_css 'li a', text: 'Download Shapefile'
-    expect(page).to have_css 'li a', text: 'Download Kmz'
+    expect(page).to have_css 'li a', text: 'Download KMZ'
   end
 end
