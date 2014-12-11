@@ -3,6 +3,7 @@ require 'spec_helper'
 describe GeoblacklightHelper do
   include GeoblacklightHelper
   include ActionView::Helpers::UrlHelper
+  include ActionView::Helpers::TranslationHelper
   describe '#render_facet_links' do
     it 'should contain unique links' do
       expect(self).to receive(:catalog_index_path).exactly(3).times.and_return("http://example.com/catalog?f[dc_subject_sm][]=category")

@@ -71,13 +71,17 @@ module GeoblacklightHelper
   # Looks up properly formatted names for formats
   #
   def proper_case_format(format)
-    I18n.t "geoblacklight.formats.#{format.downcase}"
+    t "geoblacklight.formats.#{format.downcase}"
   end
 
   ##
   # Wraps download text with proper_case_format
   #
   def download_text(format)
-    "#{I18n.t 'geoblacklight.download.download'} #{proper_case_format(format)}".html_safe
+    "#{t 'geoblacklight.download.download'} #{proper_case_format(format)}".html_safe
+  end
+
+  def show_attribute_table?
+    return true if document_available? && @document.viewer_protocol == 'wms'
   end
 end
