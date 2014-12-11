@@ -133,9 +133,9 @@ describe Geoblacklight::References do
       expect(typical_ogp_geotiff.downloads_by_format.count).to eq 1
       expect(typical_ogp_geotiff.downloads_by_format[:geotiff][:wms]).to eq 'http://hgl.harvard.edu:8080/geoserver/wms'
     end
-    it 'returns arcgrid' do
+    it 'returns arcgrid as geotiff' do
       expect(typical_arcgrid.downloads_by_format.count).to eq 1
-      expect(typical_arcgrid.downloads_by_format[:arcgrid][:wms]).to eq 'http://hgl.harvard.edu:8080/geoserver/wms'
+      expect(typical_arcgrid.downloads_by_format[:geotiff][:wms]).to eq 'http://hgl.harvard.edu:8080/geoserver/wms'
     end
     it 'does not return shapefile if wms and wfs are not present' do
       expect(no_service_shapefile.downloads_by_format).to be_nil
