@@ -12,7 +12,13 @@
     <% end %>
     <% unless document['dc_publisher_s'].nil? %>
       <dt>Publisher</dt>
-      <dd itemprop="publisher"><%= document['dc_publisher_s'] %>&nbsp;</dd>
+      <dd itemprop="publisher"><%= document['dc_publisher_s'] %>&nbsp;
+          <% if document['dct_issued_s'].present? %>
+            <div itemprop="datePublished">
+                (<%= document['dct_issued_s'] %>)
+            </div>
+          <% end %>       
+      </dd>
     <% end %>
     <%= render 'abstract_metadata' %>
     <% unless document['dct_isPartOf_sm'].nil? %>
