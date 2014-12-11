@@ -2,41 +2,41 @@
 <div class="geoblacklight-view-panel">
 
   <dl class="dl-horizontal">
-    <% unless document['dct_provenance_s'].nil? %>
-      <dt>Institution</dt>
-      <dd><%= document['dct_provenance_s'] %></dd>
-    <% end %>      
-    <% unless document['dc_creator_sm'].nil? %>
-      <dt>Author</dt>
+    <% if document['dc_creator_sm'].present? %>
+      <dt>Authors</dt>
       <dd itemprop="author"><%= document['dc_creator_sm'].join(', ') %>&nbsp;</dd>
     <% end %>
-    <% unless document['dc_publisher_s'].nil? %>
-      <dt>Publisher</dt>
+    <%= render 'abstract_metadata' %>
+    <% if document['dc_publisher_s'].present? %>
+      <dt>Publishers</dt>
       <dd itemprop="publisher"><%= document['dc_publisher_s'] %>&nbsp;
           <% if document['dct_issued_s'].present? %>
-            <div itemprop="datePublished">
+            <span itemprop="datePublished">
                 (<%= document['dct_issued_s'] %>)
-            </div>
+            </span>
           <% end %>       
       </dd>
     <% end %>
-    <%= render 'abstract_metadata' %>
-    <% unless document['dct_isPartOf_sm'].nil? %>
-      <dt>Collection</dt>
+    <% if document['dct_isPartOf_sm'].present? %>
+      <dt>Collections</dt>
       <dd itemprop="isPartOf"><%= document['dct_isPartOf_sm'].sort.uniq.join(', ') %>&nbsp;</dd>
     <% end %>
-    <% unless document['dct_spatial_sm'].nil? %>
+    <% if document['dct_spatial_sm'].present? %>
       <dt>Places</dt>
       <dd itemprop="spatial"><%= render_facet_links('dct_spatial_sm', document['dct_spatial_sm']) %>&nbsp;</dd>
     <% end %>
-    <% unless document['dc_subject_sm'].nil? %>
+    <% if document['dc_subject_sm'].present? %>
       <dt>Subjects</dt>
       <dd itemprop="keywords"><%= render_facet_links('dc_subject_sm', document['dc_subject_sm']) %>&nbsp;</dd>
     <% end %>
-    <% unless document['dct_temporal_sm'].nil? %>
+    <% if document['dct_temporal_sm'].present? %>
       <dt>Years</dt>
       <dd itemprop="temporal"><%= document['dct_temporal_sm'].sort.uniq.join(', ') %>&nbsp;</dd>
     <% end %>
+    <% if document['dct_provenance_s'].present? %>
+      <dt>Held by</dt>
+      <dd><%= document['dct_provenance_s'] %></dd>
+    <% end %>      
     <% if !@document.references.nil? && !@document.references.url.nil? %>
        <dt>More details at</dt>
        <dd itemprop="url"><%= link_to @document.references.url.endpoint, @document.references.url.endpoint %></dd>
