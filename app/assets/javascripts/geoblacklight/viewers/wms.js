@@ -36,8 +36,8 @@ GeoBlacklight.Viewer.Wms = GeoBlacklight.Viewer.Map.extend({
   setupInspection: function() {
     var _this = this;
     this.map.on('click', function(e) {
-      spinner = '<span id="attribute-table"><i class="fa fa-spinner fa-spin fa-3x fa-align-center"></i></span>';
-      $('#attribute-table').replaceWith(spinner);
+      spinner = '<tbody class="attribute-table-body"><tr><td colspan="2"><span id="attribute-table"><i class="fa fa-spinner fa-spin fa-align-center"></i></span></td></tr></tbody>';
+      $('.attribute-table-body').replaceWith(spinner);
       var wmsoptions = {
         URL: _this.data.url,
         LAYERS: _this.data.layerId,
@@ -55,14 +55,14 @@ GeoBlacklight.Viewer.Wms = GeoBlacklight.Viewer.Map.extend({
         data: wmsoptions,
         success: function(data) {
           if (data.hasOwnProperty('error')) {
-            $('#attribute-table').html('Could not find that feature');
+            $('.attribute-table-body').html('<tbody class="attribute-table-body"><tr><td colspan="2">Could not find that feature</td></tr></tbody>');
             return;
           }
-          var t = $('<table id="attribute-table" class="table table-hover table-condensed table-responsive table-striped table-bordered"><thead><tr><th>Attribute</th><th>Value</th></tr></thead><tbody>');
+          var html = $('<tbody class="attribute-table-body"></tbody>');
           $.each(data.values, function(i, val) {
-            t.append('<tr><td>' + val[0] + '</td><td>' + val[1] + '</tr>');
+            html.append('<tr><td>' + val[0] + '</td><td>' + val[1] + '</tr>');
           });
-          $('#attribute-table').replaceWith(t);
+          $('.attribute-table-body').replaceWith(html);
         },
         fail: function(error) {
           console.log(error);
