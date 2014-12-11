@@ -34,9 +34,12 @@
 .geoblacklight-massgis:before,
 .geoblacklight-minnesota:before,
 .geoblacklight-mit:before,
+.geoblacklight-mixed:before,
+.geoblacklight-multipoint:before,
 .geoblacklight-paper-map:before,
 .geoblacklight-point:before,
 .geoblacklight-polygon:before,
+.geoblacklight-polyline:before,
 .geoblacklight-princeton:before,
 .geoblacklight-raster:before,
 .geoblacklight-stanford:before,
@@ -66,9 +69,12 @@
 .geoblacklight-massgis:before { content: "\f106"; }
 .geoblacklight-minnesota:before { content: "\f116"; }
 .geoblacklight-mit:before { content: "\f104"; }
+.geoblacklight-mixed:before { content: "\f11a"; }
+.geoblacklight-multipoint:before { content: "\f119"; }
 .geoblacklight-paper-map:before { content: "\f110"; }
 .geoblacklight-point:before { content: "\f109"; }
 .geoblacklight-polygon:before { content: "\f107"; }
+.geoblacklight-polyline:before { content: "\f118"; }
 .geoblacklight-princeton:before { content: "\f111"; }
 .geoblacklight-raster:before { content: "\f10d"; }
 .geoblacklight-stanford:before { content: "\f102"; }
@@ -85,9 +91,12 @@ $font-geoblacklight-line: "\f108";
 $font-geoblacklight-massgis: "\f106";
 $font-geoblacklight-minnesota: "\f116";
 $font-geoblacklight-mit: "\f104";
+$font-geoblacklight-mixed: "\f11a";
+$font-geoblacklight-multipoint: "\f119";
 $font-geoblacklight-paper-map: "\f110";
 $font-geoblacklight-point: "\f109";
 $font-geoblacklight-polygon: "\f107";
+$font-geoblacklight-polyline: "\f118";
 $font-geoblacklight-princeton: "\f111";
 $font-geoblacklight-raster: "\f10d";
 $font-geoblacklight-stanford: "\f102";
