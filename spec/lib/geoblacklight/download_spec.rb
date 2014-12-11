@@ -40,7 +40,7 @@ describe Download do
     end
     it 'should call create_download_file if it does not exist' do
       expect(download).to receive(:download_exists?).and_return(false)
-      expect(download).to receive(:initiate_download).and_return('')
+      expect(download).to receive(:initiate_download).and_return(object: 'file')
       expect(File).to receive(:open).with("#{download.file_path}.tmp", 'wb').and_return('')
       expect(File).to receive(:rename)
       expect(download.get).to eq 'test-shapefile.zip'

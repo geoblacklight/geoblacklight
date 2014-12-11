@@ -25,14 +25,16 @@ class WmsLayer
       conn.get do |request|
         request.params = search_params
         request.options = {
-          timeout: 2,
-          open_timeout: 2
+          timeout: Settings.TIMEOUT_WMS,
+          open_timeout: Settings.TIMEOUT_WMS
         }
       end
     rescue Faraday::Error::ConnectionFailed => error
-      { error: error }
+      Geoblacklight.logger.error error.inspect
+      { error: error.inspect }
     rescue Faraday::Error::TimeoutError => error
-      { error: error }
+      Geoblacklight.logger.error error.inspect
+      { error: error.inspect }
     end
   end
 end
