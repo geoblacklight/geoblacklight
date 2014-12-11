@@ -33,7 +33,7 @@
     <% end %>
     <% if !@document.references.nil? && !@document.references.url.nil? %>
        <dt>More details at</dt>
-       <dd itemprop="url"><%= link_to @document.references.url.endpoint %></dd>
+       <dd itemprop="url"><%= link_to @document.references.url.endpoint, @document.references.url.endpoint %></dd>
     <% end %>
   </dl>
 </div>
