@@ -54,7 +54,7 @@ GeoBlacklight.Viewer.Wms = GeoBlacklight.Viewer.Map.extend({
         url: '/wms/handle',
         data: wmsoptions,
         success: function(data) {
-          if (data.hasOwnProperty('error')) {
+          if (data.hasOwnProperty('error') || data.values.length === 0) {
             $('.attribute-table-body').html('<tbody class="attribute-table-body"><tr><td colspan="2">Could not find that feature</td></tr></tbody>');
             return;
           }

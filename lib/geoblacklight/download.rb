@@ -30,6 +30,9 @@ class Download
 
   def create_download_file
     download = initiate_download
+    unless download.present?
+      raise Geoblacklight::Exceptions::ExternalDownloadFailed
+    end
     File.open("#{file_path}.tmp", 'wb')  do |file|
       if download.headers['content-type'] == @options[:content_type]
         file.write download.body
@@ -39,6 +42,9 @@ class Download
     end
     File.rename("#{file_path}.tmp", file_path)
     file_name
+  rescue Geoblacklight::Exceptions::ExternalDownloadFailed
+    Geoblacklight.logger.error 'Download from external server failed'
+    nil
   rescue Geoblacklight::Exceptions::WrongDownloadFormat => error
     Geoblacklight.logger.error "#{error} expected #{@options[:content_type]} received #{download.headers['content-type']}"
     File.delete("#{file_path}.tmp")
@@ -52,15 +58,15 @@ class Download
     conn.get do |request|
       request.params = @options[:request_params]
       request.options = {
-        timeout: 16,
-        open_timeout: 16
+        timeout: Settings.TIMEOUT_DOWNLOAD,
+        open_timeout: Settings.TIMEOUT_DOWNLOAD
       }
     end
   rescue Faraday::Error::ConnectionFailed => error
-    Geoblacklight.logger.error error
+    Geoblacklight.logger.error error.inspect
     nil
   rescue Faraday::Error::TimeoutError => error
-    Geoblacklight.logger.error error
+    Geoblacklight.logger.error error.inspect
     nil
   end
 end
