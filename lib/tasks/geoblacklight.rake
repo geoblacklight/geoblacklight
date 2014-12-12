@@ -5,7 +5,8 @@ namespace :geoblacklight do
   namespace :solr do
     desc "Put sample data into solr"
     task :seed => :environment do
-      docs = JSON::parse(File.read("#{Rails.root}/spec/fixtures/geoblacklight_schema/selected.json"))
+      # docs = JSON::parse(File.read("#{Rails.root}/spec/fixtures/geoblacklight_schema/selected.json"))
+      docs = Dir['spec/fixtures/solr_documents/*.json'].map { |f| JSON.parse File.read(f) }.flatten
       Blacklight.solr.add docs
       Blacklight.solr.commit
     end
