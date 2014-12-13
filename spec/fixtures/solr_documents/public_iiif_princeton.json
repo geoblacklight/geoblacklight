@@ -1,0 +1,44 @@
+{
+  "uuid": "http://arks.princeton.edu/ark:/88435/02870w62c",
+  "dc_description_s": "Partly colored. Relief shown pictorially. Shows administrative divisions. From Thomas Jefferys's The American atlas, or, A geographical description of the whole continent of America (London : Printed by R. Sayer and Bennett, 1778). Insets: A chart of the mouth of Hudson's River, from Sandy Hook to New York. A plan of the city of New York. Plan of Amboy, with its environs, from an actual survey.",
+  "dc_format_s": "Raster",
+  "dc_identifier_s": "http://arks.princeton.edu/ark:/88435/02870w62c",
+  "dc_language_s": "English",
+  "dc_publisher_s":"London, Robt. Sayer & John Bennett",
+  "dc_rights_s": "Public",
+  "dc_subject_sm": [
+    "New York (State)‒Maps",
+    "New Jersey‒Maps"
+  ],
+  "dc_title_s": "The provinces of New York and New Jersey, with part of Pensilvania, and the Province of Quebec : drawn by Major Holland, Surveyor General, of the Northern District in America. Corrected and improved, from the original materials, by Governr. Pownall, Member of Parliament, 1776",
+  "dc_type_s": "Dataset",
+  "dc_creator_sm": [
+    "Rogers, Henry Darwin",
+    "Pownall, Thomas"
+  ],
+  "dct_references_s": "{\"http://schema.org/url\":\"http://arks.princeton.edu/ark:/88435/02870w62c\",\"http://schema.org/thumbnailUrl\":\"http://libimages.princeton.edu/loris2/pudl0076%2Fmap_pownall%2F00000001.jp2/full/50,/0/default.jpg\",\"http://iiif.io/api/image\":\"http://libimages.princeton.edu/loris2/pudl0076%2Fmap_pownall%2F00000001.jp2/info.json\"}",
+  "dct_spatial_sm": [
+    "New York (State)",
+    "New Jersey",
+    "Pennsylvania"
+  ],
+  "dct_temporal_sm": [
+    "1778"
+  ],
+  "dct_issued_s": "1778",
+  "dct_provenance_s": "Princeton",
+  "georss_box_s": "38.6693 76.3394 46.5798 72.1916",
+  "georss_polygon_s": "38.6693 76.3394 46.5798 76.3394 46.5798 72.1916 38.6693 72.1916 38.6693 76.3394",
+  "layer_slug_s": "princeton-02870w62c",
+  "layer_id_s": "02870w62c",
+  "layer_geom_type_s": "Raster",
+  "layer_modified_dt": "2014-10-09T18:00:18Z",
+  "solr_bbox": "76.3394 38.6693 72.1916 46.5798",
+  "solr_ne_pt": "46.5798,72.1916",
+  "solr_sw_pt": "38.6693,76.3394",
+  "solr_geom": "ENVELOPE(76.3394, 38.6693, 72.1916, 46.5798)",
+  "solr_year_i": 1778,
+  "solr_issued_dt": "1778-01-01T00:00:00Z",
+  "solr_wms_url": "",
+  "solr_wfs_url": ""
+}
