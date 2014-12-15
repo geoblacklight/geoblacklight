@@ -4,7 +4,7 @@ describe Geoblacklight::DownloadController, type: :controller do
   describe '#file' do
     describe 'restricted file' do
       it 'should redirect to login for authentication' do
-        get :file, id: 'stanford-jf841ys4828-shapefile', format: 'zip'
+        get :file, id: 'stanford-cg357zz0321-shapefile', format: 'zip'
         expect(response.status).to eq 401
       end
     end
@@ -20,7 +20,7 @@ describe Geoblacklight::DownloadController, type: :controller do
   describe '#show' do
     describe 'restricted file' do
       it 'should redirect to login for authentication' do
-        get 'show', id: 'stanford-jf841ys4828', format: 'json'
+        get 'show', id: 'stanford-cg357zz0321', format: 'json'
         expect(response.status).to eq 401
       end
     end

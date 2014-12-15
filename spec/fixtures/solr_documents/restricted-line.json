@@ -1,0 +1,43 @@
+{
+        "uuid": "http://purl.stanford.edu/cg357zz0321",
+        "dc_identifier_s": "http://purl.stanford.edu/cg357zz0321",
+        "dc_title_s": "10 Meter Countours: Russian River Basin, California",
+        "dc_description_s": "This line shapefile contains contours that were derived from a mosiac of 10 meter digital elevation models for the extent of the Russian River basin, located in Sonoma and Mendocino Counties, California.This layer can be used for watershed analysis and planning in the Russian River region of California.",
+        "dc_rights_s": "Restricted",
+        "dct_provenance_s": "Stanford",
+        "dct_references_s": "{\"http://schema.org/url\":\"http://purl.stanford.edu/cg357zz0321\",\"http://schema.org/downloadUrl\":\"http://stacks.stanford.edu/file/druid:cg357zz0321/data.zip\",\"http://www.loc.gov/mods/v3\":\"http://purl.stanford.edu/cg357zz0321.mods\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"http://opengeometadata.stanford.edu/metadata/edu.stanford.purl/druid:cg357zz0321/iso19139.xml\",\"http://www.w3.org/1999/xhtml\":\"http://opengeometadata.stanford.edu/metadata/edu.stanford.purl/druid:cg357zz0321/default.html\",\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"http://geowebservices-restricted.stanford.edu/geoserver/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"http://geowebservices-restricted.stanford.edu/geoserver/wms\"}",
+        "layer_id_s": "druid:cg357zz0321",
+        "layer_slug_s": "stanford-cg357zz0321",
+        "layer_geom_type_s": "Line",
+        "layer_modified_dt": "2014-12-03T01:20:46Z",
+        "dc_format_s": "Shapefile",
+        "dc_language_s": "English",
+        "dc_type_s": "Dataset",
+        "dc_publisher_s": "Circuit Rider Productions",
+        "dc_creator_sm": [
+          "United States. National Oceanic and Atmospheric Administration",
+          "Circuit Rider Productions"
+        ],
+        "dc_subject_sm": [
+          "Contours (Cartography)",
+          "Elevation",
+          "Inland Waters"
+        ],
+        "dct_issued_s": "2003",
+        "dct_temporal_sm": [
+          "2002"
+        ],
+        "dct_spatial_sm": [
+          "Sonoma County (Calif.)",
+          "Mendocino County (Calif.)"
+        ],
+        "dc_relation_sm": [
+          "http://sws.geonames.org/5397100/about.rdf",
+          "http://sws.geonames.org/5372163/about.rdf"
+        ],
+        "georss_box_s": "38.302994 -123.387366 39.398403 -122.52958",
+        "georss_polygon_s": "38.302994 -123.387366 39.398403 -123.387366 39.398403 -122.52958 38.302994 -122.52958 38.302994 -123.387366",
+        "solr_geom": "ENVELOPE(-123.387366, -122.52958, 39.398403, 38.302994)",
+        "solr_bbox": "-123.387366 38.302994 -122.52958 39.398403",
+        "solr_year_i": 2002
+      }

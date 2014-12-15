@@ -28,8 +28,8 @@ module Geoblacklight
     end
 
     def fixtures
-      FileUtils.mkdir_p 'spec/fixtures/geoblacklight_schema'
-      system 'curl -L https://raw.githubusercontent.com/geoblacklight/geoblacklight-schema/master/examples/selected.json -o spec/fixtures/geoblacklight_schema/selected.json'
+      FileUtils.mkdir_p 'spec/fixtures/solr_documents'
+      directory 'solr_documents', 'spec/fixtures/solr_documents'
     end
 
     def add_unique_key

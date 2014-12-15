@@ -1,0 +1,26 @@
+{
+  "uuid": "urn:geodata.tufts.edu:Tufts.CambridgeGrid100_04",
+  "dc_description_s": "This polygon dataset is a 100 foot grid overlay for Cambridge, MA.",
+  "dc_format_s": "Shapefile",
+  "dc_identifier_s": "urn:geodata.tufts.edu:Tufts.CambridgeGrid100_04",
+  "dc_language_s": "English",
+  "dc_publisher_s": "Cambridge (Mass.) Geographic Information Systems",
+  "dc_rights_s": "Public",
+  "dc_title_s": "100 Foot Grid Cambridge MA 2004",
+  "dc_type_s": "Dataset",
+  "dct_references_s": "{\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"http://geoserver01.uit.tufts.edu/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"http://geoserver01.uit.tufts.edu/wms\",\"http://www.opengis.net/cat/csw/csdgm\":\"http://opengeometadata.stanford.edu/metadata/org.opengeoportal/sde:GISPORTAL.GISOWNER01.CAMBRIDGEGRID100_04/fgdc.xml\",\"http://www.w3.org/1999/xhtml\":\"http://opengeometadata.stanford.edu/metadata/org.opengeoportal/sde:GISPORTAL.GISOWNER01.CAMBRIDGEGRID100_04/fgdc.html\"}",
+  "dct_temporal_sm": [
+    "2004"
+  ],
+  "dct_issued_s": "2005",
+  "dct_provenance_s": "Tufts",
+  "georss_box_s": "42.34757 -71.163984 42.408316 -71.052581",
+  "georss_polygon_s": "42.408316 -71.163984 42.408316 -71.052581 42.34757 -71.052581 42.34757 -71.163984 42.408316 -71.163984",
+  "layer_slug_s": "tufts-cambridgegrid100-04",
+  "layer_id_s": "sde:GISPORTAL.GISOWNER01.CAMBRIDGEGRID100_04",
+  "layer_geom_type_s": "Polygon",
+  "layer_modified_dt": "2014-12-04T21:33:07Z",
+  "solr_bbox": "-71.163984 42.34757 -71.052581 42.408316",
+  "solr_geom": "ENVELOPE(-71.163984, -71.052581, 42.408316, 42.34757)",
+  "solr_year_i": 2004
+}

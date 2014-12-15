@@ -16,9 +16,9 @@ feature 'Home page', js: true do # use js: true for tests which require js, but 
     expect(page).to have_css '.category-block', count: 4
     expect(page).to have_css '.home-facet-link', count: 28
     expect(page).to have_css 'a.more_facets_link', count: 4
-    click_link 'Census'
+    click_link 'Elevation'
     expect(page).to have_css '.filterName', text: 'Subject'
-    expect(page).to have_css '.filterValue', text: 'Census'
+    expect(page).to have_css '.filterValue', text: 'Elevation'
   end
   scenario 'map should be visible' do
     within '#main-container' do

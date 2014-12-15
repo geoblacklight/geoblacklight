@@ -1,0 +1,26 @@
+{
+        "uuid": "urn:arrowsmith.mit.edu:MIT.001145244",
+        "dc_description_s": "Panel title. Depths shown by isolines. \"Geological map [copyright] NERC 1996.\" Also available on flat sheet. \"Sheet 1\"--on panel. Includes text, notes, organizations' logos, and ancillary map of \"Orogenic terranes of Britain, Ireland and surrounding seas.\"",
+        "dc_format_s": "Paper",
+        "dc_identifier_s": "urn:arrowsmith.mit.edu:MIT.001145244",
+        "dc_language_s": "English",
+        "dc_publisher_s": "British Geological Survey",
+        "dc_rights_s": "Public",
+        "dc_title_s": "1:1 500 000 series [cartographic material] : tectonic map of Britain, Ireland and adjacent areas / British Geological Survey ; Geological Survey of Ireland ; Geological Survey of Northern Ireland.",
+        "dc_type_s": "Dataset",
+        "dct_references_s": "{\"http://schema.org/url\":\"http://library.mit.edu/item/001145244\",\"http://www.opengis.net/cat/csw/csdgm\":\"http://opengeometadata.stanford.edu/metadata/org.opengeoportal/MIT:001145244/fgdc.xml\",\"http://www.w3.org/1999/xhtml\":\"http://opengeometadata.stanford.edu/metadata/org.opengeoportal/MIT:001145244/fgdc.html\"}",
+        "dct_temporal_sm": [
+          "1996"
+        ],
+        "dct_issued_s": "2000",
+        "dct_provenance_s": "MIT",
+        "georss_box_s": "49.0 -13.0 62.0 4.0",
+        "georss_polygon_s": "62.0 -13.0 62.0 4.0 49.0 4.0 49.0 -13.0 62.0 -13.0",
+        "layer_slug_s": "mit-001145244",
+        "layer_id_s": "MIT:001145244",
+        "layer_geom_type_s": "Paper Map",
+        "layer_modified_dt": "2014-12-04T21:32:59Z",
+        "solr_bbox": "-13.0 49.0 4.0 62.0",
+        "solr_geom": "ENVELOPE(-13.0, 4.0, 62.0, 49.0)",
+        "solr_year_i": 1996
+      }
