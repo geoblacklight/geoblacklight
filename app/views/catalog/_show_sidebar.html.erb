@@ -14,9 +14,6 @@
         <%- if @document.respond_to?( :to_sms_text ) -%>
           <%= link_to sms_helper, sms_catalog_path(:id => @document), {:id => 'smsLink', :data => {:ajax_modal => "trigger"}, :class => 'list-group-item'} %>
         <%- end -%>
-        <a href="#" data-no-turbolink class="list-group-item">
-          <i class="fa fa-bookmark fa-fw"></i>&nbsp;Cite This
-        </a>
       </ul>
       <% if document_downloadable? %>
         <div class='btn-group' itemprop='distribution' itemscope='itemscope' itemtype='http://schema.org/DataDownload'>
