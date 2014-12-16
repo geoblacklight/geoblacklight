@@ -13,7 +13,8 @@ module Geoblacklight
       url: 'http://schema.org/url',
       wcs: 'http://www.opengis.net/def/serviceType/ogc/wcs',
       wfs: 'http://www.opengis.net/def/serviceType/ogc/wfs',
-      wms: 'http://www.opengis.net/def/serviceType/ogc/wms'
+      wms: 'http://www.opengis.net/def/serviceType/ogc/wms',
+      hgl: 'http://schema.org/DownloadAction'
     }
   end
 end

@@ -2,32 +2,46 @@
 
 <div id='geoblacklight-tools'>
   <div class="panel panel-default show-tools">
-    <div class="panel-heading"> 
+    <div class="panel-heading">
       Tools
     </div>
     <div class="panel-body">
-      <ul class="list-group">
-        <%= render_show_doc_actions @document, wrapping_class: 'list-group-item' %>
-        <% if @document.respond_to?( :to_email_text ) %>
-          <%= link_to email_helper, email_catalog_path(:id => @document), {:id => 'emailLink', :data => {:ajax_modal => "trigger"}, :class => 'list-group-item'} %>
-        <%- end -%>
-        <%- if @document.respond_to?( :to_sms_text ) -%>
-          <%= link_to sms_helper, sms_catalog_path(:id => @document), {:id => 'smsLink', :data => {:ajax_modal => "trigger"}, :class => 'list-group-item'} %>
-        <%- end -%> 
-      </ul>
-      <% if document_downloadable? %>
-        <div class='btn-group' itemprop='distribution' itemscope='itemscope' itemtype='http://schema.org/DataDownload'>
-          <% unless document.direct_download.blank? %>
-            <%= link_to(download_text(@document[:dc_format_s]), document.direct_download[:download], class: 'btn btn-default', 'contentUrl' => document.direct_download[:download]) %>
+    <ul class="list-group">
+      <%= render_show_doc_actions @document, wrapping_class: 'list-group-item' %>
+      <% if @document.respond_to?( :to_email_text ) %>
+        <%= link_to email_helper, email_catalog_path(:id => @document), {:id => 'emailLink', :data => {:ajax_modal => "trigger"}, :class => 'list-group-item'} %>
+      <%- end -%>
+      <%- if @document.respond_to?( :to_sms_text ) -%>
+        <%= link_to sms_helper, sms_catalog_path(:id => @document), {:id => 'smsLink', :data => {:ajax_modal => "trigger"}, :class => 'list-group-item'} %>
+      <%- end -%>
+      <a href="#" data-no-turbolink class="list-group-item">
+        <i class="fa fa-bookmark fa-fw"></i>&nbsp;Cite This
+      </a>
+    </ul>
+    <% if document_downloadable? %>
+      <div class='btn-group' itemprop='distribution' itemscope='itemscope' itemtype='http://schema.org/DataDownload'>
+        <% if document.direct_download.present? %>
+          <%= link_to(download_text(@document[:dc_format_s]), document.direct_download[:download], class: 'btn btn-default', 'contentUrl' => document.direct_download[:download]) %>
+        <% elsif document.hgl_download.present? %>
+          <%= link_to(download_text(document.download_types.first[0]),
+              download_hgl_path(id: document), data: {ajax_modal: 'trigger'},
+              class: 'btn btn-default') %>
+        <% else %>
+          <%= link_to(download_text(document.download_types.first[0]), '', data: { download_path: "#{download_path(document[:layer_slug_s], type: document.download_types.first[0])}"}, class: 'btn btn-default') %>
+        <% end %>
+        <button type='button' class='btn btn-default dropdown-toggle download-dropdown-toggle' data-toggle='dropdown' aria-expanded='false'>
+          <span class='caret'></span>
+          <span class='sr-only'>Toggle Download Dropdown</span>
+        </button>
+        <ul class='dropdown-menu' role='menu'>
+          <% if document.hgl_download.present? %>
+            <li role="presentation" class="dropdown-header">Original</li>
+            <li>
+              <%= link_to(download_text(document.download_types.first[0]),
+              download_hgl_path(id: document), data: {ajax_modal: 'trigger'}) %>
+            </li>
           <% else %>
-            <%= link_to(download_text(document.download_types.first[0]), '', data: { download_path: "#{download_path(document[:layer_slug_s], type: document.download_types.first[0])}"}, class: 'btn btn-default') %>
-          <% end %>
-          <button type='button' class='btn btn-default dropdown-toggle download-dropdown-toggle' data-toggle='dropdown' aria-expanded='false'>
-            <span class='caret'></span>
-            <span class='sr-only'>Toggle Download Dropdown</span>
-          </button>
-          <ul class='dropdown-menu' role='menu'>
-            <% unless document.direct_download.blank? %>
+            <% if document.direct_download.present? %>
               <li role="presentation" class="dropdown-header">Original</li>
               <li>
                 <%= link_to(download_text(@document[:dc_format_s]), document.direct_download[:download], 'contentUrl' => document.direct_download[:download]) %>
@@ -39,13 +53,13 @@
                 <%= content_tag(:li) do %>
                   <% link_to(download_text(type[0]), '', data: { download_path: "#{download_path(document[:layer_slug_s], type: type[0])}" }) %>
                 <% end %>
-              <% end %> 
-            <% end %>   
-          </ul>
-        </div>
-      <% elsif document.restricted? && document.same_institution? %>
-        <%= link_to t('geoblacklight.tools.login_to_view'), new_user_session_path(referrer: request.original_url) %>
-      <% end %>
-    </div>
+              <% end %>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    <% elsif document.restricted? && document.same_institution? %>
+      <%= link_to t('geoblacklight.tools.login_to_view'), new_user_session_path(referrer: request.original_url) %>
+    <% end %>
   </div>
 </div>

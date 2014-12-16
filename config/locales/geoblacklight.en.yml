@@ -3,6 +3,7 @@ en:
     download:
       download: 'Download'
       success: 'Your file %{title} is ready for download'
+      hgl_success: 'You should receive an email when your download is ready'
       error: 'Sorry, the requested file could not be downloaded'
     home:
       headline: 'Explore and discover...'
