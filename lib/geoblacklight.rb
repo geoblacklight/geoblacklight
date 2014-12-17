@@ -9,6 +9,7 @@ module Geoblacklight
   require 'geoblacklight/item_viewer'
   require 'geoblacklight/solr_document'
   require 'geoblacklight/wms_layer'
+  require 'geoblacklight/wms_layer/feature_info_response'
   require 'geoblacklight/download'
   require 'geoblacklight/download/geojson_download'
   require 'geoblacklight/download/geotiff_download'
