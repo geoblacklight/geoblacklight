@@ -43,8 +43,7 @@ end
 namespace :geoblacklight do
   desc "Copies the default SOLR config for the bundled Testing Server"
   task :configure_jetty do
-    FileList['schema/conf/*'].each do |f|
-      cp("#{f}", 'jetty/solr/blacklight-core/conf/', :verbose => true)
-    end
+    system 'curl -o jetty/solr/blacklight-core/conf/schema.xml https://raw.githubusercontent.com/geoblacklight/geoblacklight-schema/master/conf/schema.xml'
+    system 'curl -o jetty/solr/blacklight-core/conf/solrconfig.xml https://raw.githubusercontent.com/geoblacklight/geoblacklight-schema/master/conf/solrconfig.xml'
   end
 end
