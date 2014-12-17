@@ -9,7 +9,7 @@ Blacklight.onLoad(function() {
       searcher: function() {
         window.location.href = this.getSearchUrl();
       },
-      staticButton: '<a class="btn btn-primary">Search Here</a>'
+      staticButton: '<a class="btn btn-primary">Search here</a>'
     }));
   });
 });

@@ -28,8 +28,8 @@
         History.pushState(null, document.title, this.getSearchUrl());
       },
       delay: 800,
-      staticButton: '<a class="btn btn-primary">Redo Search Here <span class="glyphicon glyphicon-repeat"></span></a>',
-      dynamicButton: '<label><input type="checkbox" checked> Search When I Move the Map</label>'
+      staticButton: '<a class="btn btn-primary">Redo search here <span class="glyphicon glyphicon-repeat"></span></a>',
+      dynamicButton: '<label><input type="checkbox" checked> Search when I move the map</label>'
     },
 
     initialize: function(options) {
