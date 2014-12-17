@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe WmsLayer do
+describe Geoblacklight::WmsLayer do
   let(:params) { { 'URL' => 'http://www.example.com/', 'X' => '277' } }
-  let(:wms_layer) { WmsLayer.new(params) }
+  let(:wms_layer) { Geoblacklight::WmsLayer.new(params) }
   describe '#initialize' do
     it 'should initialize as a WmsLayer object' do
-      expect(wms_layer).to be_an WmsLayer
+      expect(wms_layer).to be_an Geoblacklight::WmsLayer
     end
   end
 
@@ -27,7 +27,7 @@ describe WmsLayer do
       faraday = double('faraday')
       allow(faraday).to receive(:get)
       expect(Faraday).to receive(:new).and_return(faraday)
-      WmsLayer.new(params)
+      Geoblacklight::WmsLayer.new(params)
     end
   end
 end
