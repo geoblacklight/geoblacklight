@@ -19,6 +19,24 @@ class DownloadController < ApplicationController
     send_file "tmp/cache/downloads/#{params[:id]}.#{params[:format]}", type: 'application/zip', x_sendfile: true
   end
 
+  def hgl
+    @response, @document = get_solr_response_for_doc_id
+    if params[:email]
+      response = HglDownload.new(@document, params[:email]).get
+      if response.nil?
+        flash[:danger] = t 'geoblacklight.download.error'
+      else
+        flash[:success] = t 'geoblacklight.download.hgl_success'
+      end
+      respond_to do |format|
+        format.json { render json: flash, response: response }
+        format.html { render json: flash, response: response }
+      end
+    else
+      render layout: false
+    end
+  end
+
   private
 
   def check_type
@@ -49,7 +67,7 @@ class DownloadController < ApplicationController
       authenticate_user!
     end
   end
-  
+
   def file_name_to_id(file_name)
     file_name.split('-')[0..-2].join('-')
   end

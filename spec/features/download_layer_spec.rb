@@ -42,4 +42,19 @@ feature 'Download layer' do
     expect(page).to have_css 'li a', text: 'Download Shapefile'
     expect(page).to have_css 'li a', text: 'Download KMZ'
   end
+  scenario 'clicking GeoTIFF button for Harvard layer should show email form', js: true do
+    visit catalog_path('harvard-g7064-s2-1834-k3')
+    find('a', text: 'Download GeoTIFF').click
+    expect(page).to have_css('#hglRequest')
+  end
+  scenario 'submitting email form should trigger HGL request', js: true do
+    expect_any_instance_of(HglDownload).to receive(:get).and_return('success')
+    visit catalog_path('harvard-g7064-s2-1834-k3')
+    find('a', text: 'Download GeoTIFF').click
+    within '#hglRequest' do
+      fill_in('Email', with: 'foo@example.com')
+      click_button('Request')
+    end
+    expect(page).to have_content('You should receive an email when your download is ready')
+  end
 end

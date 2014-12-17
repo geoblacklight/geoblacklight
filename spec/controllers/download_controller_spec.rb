@@ -31,4 +31,15 @@ describe Geoblacklight::DownloadController, type: :controller do
       end
     end
   end
+  describe '#hgl' do
+    it 'should request file' do
+      expect_any_instance_of(HglDownload).to receive(:get).and_return('success')
+      get :hgl, id: 'harvard-g7064-s2-1834-k3', email: 'foo@example.com'
+      expect(response.status).to eq 200
+    end
+    it 'should render form' do
+      get :hgl, id: 'harvard-g7064-s2-1834-k3'
+      expect(response).to render_template('hgl')
+    end
+  end
 end

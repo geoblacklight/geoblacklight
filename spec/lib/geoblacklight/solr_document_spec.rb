@@ -101,6 +101,26 @@ describe Geoblacklight::SolrDocument do
       expect(document.direct_download).to be_nil
     end
   end
+  describe 'hgl_download' do
+    describe 'with an hgl download' do
+      let(:document_attributes) {
+        {
+          dct_references_s: {
+            'http://schema.org/DownloadAction' => 'http://example.com/harvard'
+          }.to_json
+        }
+      }
+      it 'should return an hgl download hash' do
+        expect(document.hgl_download[:hgl]).to eq('http://example.com/harvard')
+      end
+    end
+    describe 'without an hgl download' do
+      let(:document_attributes) {{}}
+      it 'should return nil' do
+        expect(document.direct_download).to be_nil
+      end
+    end
+  end
   describe 'item_viewer' do
     let(:document_attributes) { {} }
     it 'is a ItemViewer' do
