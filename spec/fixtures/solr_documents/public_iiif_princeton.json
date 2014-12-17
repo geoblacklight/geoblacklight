@@ -4,7 +4,7 @@
   "dc_format_s": "Raster",
   "dc_identifier_s": "http://arks.princeton.edu/ark:/88435/02870w62c",
   "dc_language_s": "English",
-  "dc_publisher_s":"London, Robt. Sayer & John Bennett",
+  "dc_publisher_s": "London, Robt. Sayer & John Bennett",
   "dc_rights_s": "Public",
   "dc_subject_sm": [
     "New York (State)‒Maps",
@@ -27,18 +27,12 @@
   ],
   "dct_issued_s": "1778",
   "dct_provenance_s": "Princeton",
-  "georss_box_s": "38.6693 76.3394 46.5798 72.1916",
-  "georss_polygon_s": "38.6693 76.3394 46.5798 76.3394 46.5798 72.1916 38.6693 72.1916 38.6693 76.3394",
+  "georss_box_s": "38.6693 -76.3394 46.5798 -72.1916",
   "layer_slug_s": "princeton-02870w62c",
   "layer_id_s": "02870w62c",
   "layer_geom_type_s": "Raster",
   "layer_modified_dt": "2014-10-09T18:00:18Z",
-  "solr_bbox": "76.3394 38.6693 72.1916 46.5798",
-  "solr_ne_pt": "46.5798,72.1916",
-  "solr_sw_pt": "38.6693,76.3394",
-  "solr_geom": "ENVELOPE(76.3394, 38.6693, 72.1916, 46.5798)",
-  "solr_year_i": 1778,
-  "solr_issued_dt": "1778-01-01T00:00:00Z",
-  "solr_wms_url": "",
-  "solr_wfs_url": ""
+  "solr_bbox": "-76.3394 38.6693 -72.1916 46.5798",
+  "solr_geom": "ENVELOPE(-76.3394, -72.1916, 46.5798, 38.6693)",
+  "solr_year_i": 1778
 }
