@@ -7,9 +7,9 @@
   font-family: "geoblacklight";
   src: font-url("geoblacklight.eot");
   src: font-url("geoblacklight.eot?#iefix") format("embedded-opentype"),
-  font-url("geoblacklight.woff") format("woff"),
-  font-url("geoblacklight.ttf") format("truetype"),
-  font-url("geoblacklight.svg#geoblacklight") format("svg");
+    font-url("geoblacklight.woff") format("woff"),
+    font-url("geoblacklight.ttf") format("truetype"),
+    font-url("geoblacklight.svg#geoblacklight") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -17,7 +17,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: "geoblacklight";
-    src: font-url("geoblacklight.svg#geoblacklight") format("svg");
+    src: url("geoblacklight.svg#geoblacklight") format("svg");
   }
 }
 
@@ -44,7 +44,8 @@
 .geoblacklight-raster:before,
 .geoblacklight-stanford:before,
 .geoblacklight-tufts:before,
-.geoblacklight-ucla:before {
+.geoblacklight-ucla:before,
+.geoblacklight-uva:before {
   display: inline-block;
   font-family: "geoblacklight";
   font-style: normal;
@@ -80,6 +81,7 @@
 .geoblacklight-stanford:before { content: "\f102"; }
 .geoblacklight-tufts:before { content: "\f105"; }
 .geoblacklight-ucla:before { content: "\f117"; }
+.geoblacklight-uva:before { content: "\f11b"; }
 
 $font-geoblacklight-berkeley: "\f101";
 $font-geoblacklight-cd-rom: "\f112";
@@ -102,3 +104,4 @@ $font-geoblacklight-raster: "\f10d";
 $font-geoblacklight-stanford: "\f102";
 $font-geoblacklight-tufts: "\f105";
 $font-geoblacklight-ucla: "\f117";
+$font-geoblacklight-uva: "\f11b";
