@@ -55,7 +55,7 @@ class DownloadController < ApplicationController
 
   def validate(response)
     if response.nil?
-      flash[:danger] = t 'geoblacklight.download.error'
+      flash[:danger] = view_context.content_tag(:span, t('geoblacklight.download.error'), data: { download: 'error', download_id: params[:id], download_type: "generated-#{params[:type]}"})
     else
       flash[:success] = view_context.link_to(t('geoblacklight.download.success', title: response), download_file_path(response), data: { download: 'trigger', download_id: params[:id], download_type: "generated-#{params[:type]}"})
     end
