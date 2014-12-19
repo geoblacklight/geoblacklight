@@ -1,19 +1,11 @@
 module GeoblacklightHelper
 
-  def date_to_year(date)
-    Date.parse(date).to_formatted_s(:number).slice(0,4)
-  end
-
   def sms_helper()
     content_tag(:i, '', :class => 'fa fa-mobile fa-fw') + ' ' + t('blacklight.tools.sms')
   end
 
   def email_helper
     content_tag(:i, '', :class => 'fa fa-envelope fa-fw') + ' ' + t('blacklight.tools.email')
-  end
-
-  def metadata_helper
-    content_tag(:i, '', :class => 'fa fa-download fa-fw') + ' ' + t('Metadata')
   end
 
   def document_available?
