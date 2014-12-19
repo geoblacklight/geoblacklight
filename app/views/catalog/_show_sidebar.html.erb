@@ -18,13 +18,13 @@
       <% if document_downloadable? %>
         <div class='btn-group' itemprop='distribution' itemscope='itemscope' itemtype='http://schema.org/DataDownload'>
           <% if document.direct_download.present? %>
-            <%= link_to(download_text(@document[:dc_format_s]), document.direct_download[:download], class: 'btn btn-default', 'contentUrl' => document.direct_download[:download]) %>
+            <%= link_to(download_text(@document[:dc_format_s]), document.direct_download[:download], class: 'btn btn-default', 'contentUrl' => document.direct_download[:download], data: { download: 'trigger', download_type: 'direct', download_id: document[:layer_slug_s] }) %>
           <% elsif document.hgl_download.present? %>
             <%= link_to(download_text(document.download_types.first[0]),
-                download_hgl_path(id: document), data: {ajax_modal: 'trigger'},
+                download_hgl_path(id: document), data: {ajax_modal: 'trigger', download: 'trigger', download_type: 'harvard-hgl', download_id: document[:layer_slug_s] },
                 class: 'btn btn-default') %>
           <% else %>
-            <%= link_to(download_text(document.download_types.first[0]), '', data: { download_path: "#{download_path(document[:layer_slug_s], type: document.download_types.first[0])}"}, class: 'btn btn-default') %>
+            <%= link_to(download_text(document.download_types.first[0]), '', data: { download_path: "#{download_path(document[:layer_slug_s], type: document.download_types.first[0])}", download: 'trigger', download_type: document.download_types.first[0], download_id: document[:layer_slug_s] }, class: 'btn btn-default') %>
           <% end %>
           <button type='button' class='btn btn-default dropdown-toggle download-dropdown-toggle' data-toggle='dropdown' aria-expanded='false'>
             <span class='caret'></span>
@@ -35,20 +35,20 @@
               <li role="presentation" class="dropdown-header">Original</li>
               <li>
                 <%= link_to(download_text(document.download_types.first[0]),
-                download_hgl_path(id: document), data: {ajax_modal: 'trigger'}) %>
+                download_hgl_path(id: document), data: {ajax_modal: 'trigger', download: 'trigger', download_type: 'harvard-hgl', download_id: document[:layer_slug_s] }) %>
               </li>
             <% else %>
               <% if document.direct_download.present? %>
                 <li role="presentation" class="dropdown-header">Original</li>
                 <li>
-                  <%= link_to(download_text(@document[:dc_format_s]), document.direct_download[:download], 'contentUrl' => document.direct_download[:download]) %>
+                  <%= link_to(download_text(@document[:dc_format_s]), document.direct_download[:download], 'contentUrl' => document.direct_download[:download], data: { download: 'trigger', download_type: 'direct', download_id: document[:layer_slug_s] }) %>
                 </li>
               <% end %>
               <% if document.download_types.present? %>
                 <li role="presentation" class="dropdown-header">Generated</li>
                 <% document.download_types.each do |type| %>
                   <%= content_tag(:li) do %>
-                    <% link_to(download_text(type[0]), '', data: { download_path: "#{download_path(document[:layer_slug_s], type: type[0])}" }) %>
+                    <% link_to(download_text(type[0]), '', data: { download_path: "#{download_path(document[:layer_slug_s], type: type[0])}", download: 'trigger', download_type: type[0], download_id: document[:layer_slug_s] }) %>
                   <% end %>
                 <% end %>
               <% end %>

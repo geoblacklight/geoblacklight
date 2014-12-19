@@ -57,7 +57,7 @@ class DownloadController < ApplicationController
     if response.nil?
       flash[:danger] = t 'geoblacklight.download.error'
     else
-      flash[:success] = view_context.link_to(t('geoblacklight.download.success', title: response), download_file_path(response))
+      flash[:success] = view_context.link_to(t('geoblacklight.download.success', title: response), download_file_path(response), data: { download: 'trigger', download_id: params[:id], download_type: "generated-#{params[:type]}"})
     end
   end
 
