@@ -8,3 +8,12 @@
 .geoblacklight-stanford {
   color: #8c1515;
 }
+
+.geoblacklight-public {
+  @extend .fa, .fa-unlock, .text-muted;
+}
+
+.geoblacklight-restricted {
+  @extend .fa, .fa-lock, .text-muted;
+  width: 17px;
+}

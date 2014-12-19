@@ -1,9 +1,9 @@
 <% # header bar for doc items in index view -%>
 <%= content_tag :div, class: 'documentHeader row', data: { layer_id: document[:uuid], bbox: document[:solr_bbox], geom: document[:solr_geom] } do %>
   <div class='status-icons'>
-    <%= layer_type_image(document['layer_geom_type_s']) %>
-    <%= layer_institution_image(document['dct_provenance_s']) %>
-    <%= layer_access_image(document['dc_rights_s']) %>
+    <%= geoblacklight_icon(document['layer_geom_type_s']) %>
+    <%= geoblacklight_icon(document['dct_provenance_s']) %>
+    <%= geoblacklight_icon(document['dc_rights_s']) %>
   </div>
   <h5 class="index_title col-sm-9s cosl-lg-10 text-span">
     <% counter = document_counter_with_offset(document_counter) %>

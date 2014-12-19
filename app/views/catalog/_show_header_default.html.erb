@@ -1,8 +1,8 @@
 <h2>
   <span itemprop="name"><%= document_heading(document) %></span>
   <small>
-    <%= layer_type_image(document['layer_geom_type_s']) %>
-    <%= layer_institution_image(document['dct_provenance_s']) %>
-    <%= layer_access_image(document['dc_rights_s']) %>
+    <%= geoblacklight_icon(document['layer_geom_type_s']) %>
+    <%= geoblacklight_icon(document['dct_provenance_s']) %>
+    <%= geoblacklight_icon(document['dc_rights_s']) %>
   </small>
 </h2>
