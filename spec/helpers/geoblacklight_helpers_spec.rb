@@ -15,9 +15,9 @@ describe GeoblacklightHelper do
     end
   end
 
-  describe '#layer_type_image' do
+  describe '#geoblacklight_icon' do
     it 'lowercases and subs spaces for hyphens' do
-      html = Capybara.string(layer_type_image('TEst 123'))
+      html = Capybara.string(geoblacklight_icon('TEst 123'))
       expect(html).to have_css '.geoblacklight-test-123'
     end
   end

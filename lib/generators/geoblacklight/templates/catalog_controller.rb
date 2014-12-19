@@ -68,7 +68,7 @@ class CatalogController < ApplicationController
     #    :years_25 => { :label => 'within 25 Years', :fq => "pub_date:[#{Time.now.year - 25 } TO *]" }
     # }
 
-    config.add_facet_field 'dct_provenance_s', :label => 'Institution', :limit => 8
+    config.add_facet_field 'dct_provenance_s', label: 'Institution', limit: 8, partial: "icon_facet"
     config.add_facet_field 'dc_creator_sm', :label => 'Author', :limit => 8
     config.add_facet_field 'dc_publisher_s', :label => 'Publisher', :limit => 8
     config.add_facet_field 'dc_subject_sm', :label => 'Subject', :limit => 8
@@ -81,8 +81,8 @@ class CatalogController < ApplicationController
       # :segments => true
     }
 
-    config.add_facet_field 'dc_rights_s', :label => 'Access', :limit => 8
-    config.add_facet_field 'layer_geom_type_s', :label => 'Data type', :limit => 8
+    config.add_facet_field 'dc_rights_s', label: 'Access', limit: 8, partial: "icon_facet"
+    config.add_facet_field 'layer_geom_type_s', label: 'Data type', limit: 8, partial: "icon_facet"
     config.add_facet_field 'dc_format_s', :label => 'Format', :limit => 8
 
     # Have BL send all facet field names to Solr, which has been the default
