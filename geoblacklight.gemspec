@@ -22,9 +22,10 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'leaflet-rails', '~> 0.7.3'
   spec.add_dependency 'blacklight_range_limit', '~> 5.0.1'
   spec.add_dependency 'font-awesome-rails', '~> 4.1.0.0'
-  spec.add_dependency 'httparty', '~> 0.13.1'
   spec.add_dependency 'rails_config'
   spec.add_dependency 'faraday'
+  spec.add_dependency 'rails-assets-leaflet-iiif', '~> 0.0.3'
+  spec.add_dependency 'rails-assets-readmore'
 
   spec.add_development_dependency 'bundler', '~> 1.5'
   spec.add_development_dependency 'rake', '~> 10.3.2'

@@ -1,7 +1,7 @@
 require 'blacklight'
 require 'leaflet-rails'
-# move towards removing httparty, replaced by faraday
-require 'httparty'
+require 'rails-assets-leaflet-iiif'
+require 'rails-assets-readmore'
 require 'font-awesome-rails'
 require 'rails_config'
 require 'faraday'
