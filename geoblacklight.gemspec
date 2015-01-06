@@ -29,7 +29,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bundler', '~> 1.5'
   spec.add_development_dependency 'rake', '~> 10.3.2'
   spec.add_development_dependency 'rspec-rails', '~> 3.0.1'
-  spec.add_development_dependency 'jettywrapper', '~> 1.7.0'
+  spec.add_development_dependency 'jettywrapper', '~> 1.8.3'
   spec.add_development_dependency 'engine_cart', '~> 0.4.0'
   spec.add_development_dependency 'capybara', '~> 2.3.0'
   spec.add_development_dependency 'poltergeist', '~> 1.5.0'
