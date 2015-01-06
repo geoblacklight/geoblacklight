@@ -2,7 +2,7 @@ class DownloadController < ApplicationController
   include Blacklight::SolrHelper
 
   def show
-    @response, @document = get_solr_response_for_doc_id
+    @response, @document = get_solr_response_for_doc_id params[:id]
     restricted_should_authenticate
     response = check_type
     validate response
@@ -20,7 +20,7 @@ class DownloadController < ApplicationController
   end
 
   def hgl
-    @response, @document = get_solr_response_for_doc_id
+    @response, @document = get_solr_response_for_doc_id params[:id]
     if params[:email]
       response = HglDownload.new(@document, params[:email]).get
       if response.nil?
