@@ -36,6 +36,10 @@ module GeoblacklightHelper
     content_tag :span, '', class: "geoblacklight-icon geoblacklight-#{name.downcase.gsub(' ', '-')}", title: name
   end
 
+  def render_search_form_no_navbar
+    render partial: 'catalog/search_form_no_navbar'
+  end
+
   ##
   # Renders an unique array of search links based off of terms
   # passed in using the facet parameter

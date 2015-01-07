@@ -3,7 +3,15 @@
 }
 
 .home-search-area {
-  text-align: center;
+  
+  h2,
+  h3 {
+    text-align: center;
+  }
+  
+  .input-group.search-input-group {
+    width: 100%;
+  }
 }
 
 .home-facet-link {
