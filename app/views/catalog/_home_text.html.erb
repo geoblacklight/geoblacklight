@@ -2,7 +2,9 @@
   <div class='home-search-area'>
     <%= content_tag :h2, t('geoblacklight.home.headline') %>
     <%= content_tag :h3, t('geoblacklight.home.search_heading') %>
-    <%= render_search_bar %>
+    <div class='col-md-6 col-md-offset-3'>
+      <%= render_search_form_no_navbar %>
+    </div>
   </div>
 </div>
 
