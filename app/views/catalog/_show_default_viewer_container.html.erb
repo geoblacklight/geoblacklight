@@ -1,0 +1,5 @@
+<% document ||= @document %>
+<div id='viewer-container' class="col-md-8">
+  <%= content_tag :div, id: 'map', data: { map: 'item', protocol: document.viewer_protocol, url: document.viewer_endpoint, 'layer-id' => document[:layer_id_s], 'map-bbox' => document[:solr_bbox], 'catalog-path'=> catalog_index_path, available: document_available? } do %>
+  <% end %>
+</div>

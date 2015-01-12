@@ -3,25 +3,6 @@
 <%= render 'upper_metadata', locals: { document: document} %>
 
 <div class='row'>
-  <div id='viewer-container' class="col-md-8">
-    <%= content_tag :div, id: 'map', data: { map: 'item', protocol: document.viewer_protocol, url: document.viewer_endpoint, 'layer-id' => document[:layer_id_s], 'map-bbox' => document[:solr_bbox], 'catalog-path'=> catalog_index_path, available: document_available? } do %>
-    <% end %>
-  </div>
-  <% if show_attribute_table? %>
-    <div id='table-container' class='col-md-4'>
-      <table id="attribute-table" class="table table-hover table-condensed table-responsive table-striped table-bordered">
-        <thead>
-          <tr>
-            <th>Attribute</th>
-            <th>Value</th>
-          </tr>
-        </thead>
-        <tbody class='attribute-table-body'>
-          <tr>
-            <td class='default-text' colspan='2'><em>Click on map to inspect values</em></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  <% end %>
+  <%= render 'show_default_viewer_container' %>
+  <%= render 'show_default_attribute_table' %>
 </div>
