@@ -65,4 +65,15 @@ module GeoblacklightHelper
   def show_attribute_table?
     return true if document_available? && @document.viewer_protocol == 'wms'
   end
+
+  ##
+  # Render value for a document's field as a truncate abstract
+  # div. Arguments come from Blacklight::DocumentPresenter's
+  # get_field_values method
+  # @param [Hash] args from get_field_values
+  def render_value_as_truncate_abstract(args)
+    content_tag :div, class: 'truncate-abstract' do
+      args[:value]
+    end
+  end
 end

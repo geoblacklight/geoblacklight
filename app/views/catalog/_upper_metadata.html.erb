@@ -1,45 +1,19 @@
 <% document ||= @document %>
 <div class="geoblacklight-view-panel">
-
+  
+  <%# From https://github.com/projectblacklight/blacklight/blob/master/app/views/catalog/_show_default.html.erb %>
+  <%# default partial to display solr document fields in catalog show view -%>
   <dl class="dl-horizontal">
-    <% if document['dc_creator_sm'].present? %>
-      <dt>Authors</dt>
-      <dd itemprop="author"><%= document['dc_creator_sm'].join(', ') %>&nbsp;</dd>
+    <%# render 'abstract_metadata' %>
+    <% document_show_fields(document).each do |solr_fname, field| %>
+      <% if should_render_show_field? document, field %>
+        <dt class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_label document, field: solr_fname %></dt>
+        <dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_value document, field: solr_fname %></dd>
+      <% end %>
     <% end %>
-    <%= render 'abstract_metadata' %>
-    <% if document['dc_publisher_s'].present? %>
-      <dt>Publishers</dt>
-      <dd itemprop="publisher"><%= document['dc_publisher_s'] %>&nbsp;
-          <% if document['dct_issued_s'].present? %>
-            <span itemprop="datePublished">
-                (<%= document['dct_issued_s'] %>)
-            </span>
-          <% end %>       
-      </dd>
-    <% end %>
-    <% if document['dct_isPartOf_sm'].present? %>
-      <dt>Collections</dt>
-      <dd itemprop="isPartOf"><%= document['dct_isPartOf_sm'].sort.uniq.join(', ') %>&nbsp;</dd>
-    <% end %>
-    <% if document['dct_spatial_sm'].present? %>
-      <dt>Places</dt>
-      <dd itemprop="spatial"><%= render_facet_links('dct_spatial_sm', document['dct_spatial_sm']) %>&nbsp;</dd>
-    <% end %>
-    <% if document['dc_subject_sm'].present? %>
-      <dt>Subjects</dt>
-      <dd itemprop="keywords"><%= render_facet_links('dc_subject_sm', document['dc_subject_sm']) %>&nbsp;</dd>
-    <% end %>
-    <% if document['dct_temporal_sm'].present? %>
-      <dt>Years</dt>
-      <dd itemprop="temporal"><%= document['dct_temporal_sm'].sort.uniq.join(', ') %>&nbsp;</dd>
-    <% end %>
-    <% if document['dct_provenance_s'].present? %>
-      <dt>Held by</dt>
-      <dd><%= document['dct_provenance_s'] %></dd>
-    <% end %>      
     <% if !@document.references.nil? && !@document.references.url.nil? %>
-       <dt>More details at</dt>
-       <dd itemprop="url"><%= link_to @document.references.url.endpoint, @document.references.url.endpoint %></dd>
+      <dt>More details at</dt>
+      <dd itemprop="url"><%= link_to @document.references.url.endpoint, @document.references.url.endpoint %></dd>
     <% end %>
   </dl>
 </div>
