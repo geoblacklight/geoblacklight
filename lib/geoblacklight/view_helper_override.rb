@@ -1,15 +1,17 @@
 module Geoblacklight
   module ViewHelperOverride
-    def has_spatial_parameters?
+    include CatalogHelperOverride
+
+    def spatial_parameters?
       params[:bbox]
     end
 
     # Overrides BL method to enable results for spatial only params
     def has_search_parameters?
-      has_spatial_parameters? || super
+      spatial_parameters? || super
     end
 
-    def query_has_contraints?(params = params)
+    def query_has_constraints?(params = params)
       has_search_parameters? || super
     end
 
@@ -20,6 +22,18 @@ module Geoblacklight
     def render_search_to_s_bbox(params)
       return ''.html_safe if params['bbox'].blank?
       render_search_to_s_element('Bounding box', render_filter_value(params['bbox']) )
+    end
+
+    def render_constraints_filters(params = params)
+      content = super(params)
+
+      if params[:bbox]
+        content << render_constraint_element('Bounding Box',
+          params[:bbox],
+          remove: catalog_index_path(remove_spatial_filter_group(:bbox, params)))
+      end
+
+      return content
     end
   end
 end
