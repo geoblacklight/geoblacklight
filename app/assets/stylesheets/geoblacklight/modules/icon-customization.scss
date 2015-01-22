@@ -17,3 +17,15 @@
   @extend .fa, .fa-lock, .text-muted;
   width: 17px;
 }
+
+.geoblacklight-citation {
+  @extend .fa, .fa-bookmark;
+}
+
+.geoblacklight-sms {
+  @extend .fa, .fa-mobile;
+}
+
+.geoblacklight-email {
+  @extend .fa, .fa-envelope;
+}
