@@ -5,7 +5,18 @@ module Geoblacklight
 
     source_root File.expand_path('../templates', __FILE__)
 
+    class_option :jettywrapper, type: :boolean, default: false, desc: 'Use jettywrapper to download and control Jetty'
+
     desc "Install Geoblacklight"
+
+    def install_jettywrapper
+      return unless options[:jettywrapper]
+      copy_file 'config/jetty.yml'
+
+      append_to_file 'Rakefile',
+        "\nZIP_URL = \"https://github.com/projectblacklight/blacklight-jetty/archive/v4.10.2.zip\"\n" +
+        "require 'jettywrapper'\n"
+    end
 
     def assets
       copy_file "geoblacklight.css.scss", "app/assets/stylesheets/geoblacklight.css.scss"
