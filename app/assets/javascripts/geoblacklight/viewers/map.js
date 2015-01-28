@@ -12,7 +12,7 @@ GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
 
   basemap: L.tileLayer(
     'https://otile{s}-s.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="//developer.mapquest.com/content/osm/mq_logo.png">',
+      attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="//developer.mapquest.com/content/osm/mq_logo.png" alt="">',
       maxZoom: 18,
       worldCopyJump: true,
       subdomains: '1234' // see http://developer.mapquest.com/web/products/open/map
