@@ -1,7 +1,7 @@
 require 'rails/generators'
 
 class TestAppGenerator < Rails::Generators::Base
-  source_root "./spec/test_app_templates"
+  source_root '../../spec/test_app_templates'
 
   def add_gems
     gem 'blacklight', "~> 5.8.2"
@@ -20,4 +20,8 @@ class TestAppGenerator < Rails::Generators::Base
     generate 'geoblacklight:install'
   end
 
+  def fixtures
+    FileUtils.mkdir_p 'spec/fixtures/solr_documents'
+    directory 'solr_documents', 'spec/fixtures/solr_documents'
+  end
 end
