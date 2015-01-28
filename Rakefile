@@ -5,7 +5,7 @@ rescue LoadError
   puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
 end
 
-BLACKLIGHT_JETTY_VERSION = '4.10.0'
+BLACKLIGHT_JETTY_VERSION = '4.10.2'
 ZIP_URL = "https://github.com/projectblacklight/blacklight-jetty/archive/v#{BLACKLIGHT_JETTY_VERSION}.zip"
 APP_ROOT = File.dirname(__FILE__)
 
