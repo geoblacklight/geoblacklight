@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'blacklight', '~> 5.8.2'
   spec.add_dependency 'leaflet-rails', '~> 0.7.3'
-  spec.add_dependency 'blacklight_range_limit', '~> 5.0.2'
+  spec.add_dependency 'blacklight_range_limit', '~> 5.0.3'
   spec.add_dependency 'font-awesome-rails', '~> 4.1.0.0'
   spec.add_dependency 'rails_config'
   spec.add_dependency 'faraday'
