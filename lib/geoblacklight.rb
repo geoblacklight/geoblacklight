@@ -1,6 +1,7 @@
 require "geoblacklight/engine"
 
 module Geoblacklight
+  require 'geoblacklight/catalog_helper_override'
   require 'geoblacklight/config'
   require 'geoblacklight/constants'
   require 'geoblacklight/controller_override'
@@ -20,6 +21,7 @@ module Geoblacklight
   require 'geoblacklight/references'
   def self.inject!
     CatalogController.send(:include, Geoblacklight::ControllerOverride)
+    CatalogController.send(:include, Geoblacklight::CatalogHelperOverride)
     CatalogController.send(:include, Geoblacklight::ViewHelperOverride)
     CatalogController.send(:helper, Geoblacklight::ViewHelperOverride) unless
       CatalogController.helpers.is_a?(Geoblacklight::ViewHelperOverride)

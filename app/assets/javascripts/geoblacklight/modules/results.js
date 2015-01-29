@@ -58,6 +58,7 @@ Blacklight.onLoad(function() {
       $('#documents').replaceWith($doc.find('#documents'));
       $('#sidebar').replaceWith($doc.find('#sidebar'));
       $('#sortAndPerPage').replaceWith($doc.find('#sortAndPerPage'));
+      $('#appliedParams').replaceWith($doc.find('#appliedParams'));
       if ($('#map').next().length) {
         $('#map').next().replaceWith($doc.find('#map').next());
       } else {
