@@ -9,8 +9,15 @@
    * @return {Array} Array of values as [sw.x, sw.y, ne.x, ne.y]
    */
   L.boundsToBbox = function(bounds) {
-    var sw = bounds.getSouthWest().wrap(),
-        ne = bounds.getNorthEast().wrap();
+    var sw = bounds.getSouthWest(),
+        ne = bounds.getNorthEast();
+
+    if ((ne.lng - sw.lng) >= 360) {
+      sw.lng = -180;
+      ne.lng = 180;
+    }
+    sw = sw.wrap();
+    ne = ne.wrap();
     return [
       L.Util.formatNum(sw.lng, 6),
       L.Util.formatNum(sw.lat, 6),
