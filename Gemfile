@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
-source 'https://rails-assets.org'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-leaflet-iiif', '~> 0.0.3'
+  gem 'rails-assets-readmore'
+end
 
 # Specify your gem's dependencies in geoblacklight.gemspec
 gemspec
