@@ -1,7 +1,5 @@
 require 'blacklight'
 require 'leaflet-rails'
-require 'rails-assets-leaflet-iiif'
-require 'rails-assets-readmore'
 require 'font-awesome-rails'
 require 'rails_config'
 require 'faraday'

@@ -9,6 +9,11 @@ module Geoblacklight
 
     desc "Install Geoblacklight"
 
+    def install_rails_assets_gems
+      gem 'rails-assets-leaflet-iiif', '~> 0.0.3', source: 'https://rails-assets.org'
+      gem 'rails-assets-readmore', source: 'https://rails-assets.org'
+    end
+
     def install_jettywrapper
       return unless options[:jettywrapper]
       copy_file 'config/jetty.yml'
