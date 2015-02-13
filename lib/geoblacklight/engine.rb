@@ -11,7 +11,6 @@ module Geoblacklight
 
     Blacklight::Configuration.default_values[:view].split.partials = ['index']
     Blacklight::Configuration.default_values[:view].delete_field('list')
-
     # GeoblacklightHelper is needed by all helpers, so we inject it
     # into action view base here.
     initializer 'geoblacklight.helpers' do |app|

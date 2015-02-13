@@ -1,5 +1,5 @@
 <% # header bar for doc items in index view -%>
-<%= content_tag :div, class: 'documentHeader row', data: { layer_id: document[:uuid], bbox: document[:solr_bbox], geom: document[:solr_geom] } do %>
+<%= content_tag :div, class: 'documentHeader row', data: { layer_id: document[:uuid], bbox: document.bounding_box_as_wsen } do %>
   <div class='status-icons'>
     <%= geoblacklight_icon(document['layer_geom_type_s']) %>
     <%= geoblacklight_icon(document['dct_provenance_s']) %>

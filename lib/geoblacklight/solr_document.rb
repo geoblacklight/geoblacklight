@@ -51,6 +51,9 @@ module Geoblacklight
       "http://schema.org/Dataset"
     end
 
+    def bounding_box_as_wsen
+      get(Settings.GEOMETRY_FIELD.to_sym)
+    end
     ##
     # Provides a convenience method to access a SolrDocument's References
     # endpoint url without having to check and see if it is available

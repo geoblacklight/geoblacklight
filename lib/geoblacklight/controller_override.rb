@@ -8,9 +8,9 @@ module Geoblacklight
     def add_spatial_params(solr_params, req_params)
       if req_params[:bbox]
         solr_params[:bq] ||= []
-        solr_params[:bq] = ["solr_bbox:\"IsWithin(#{req_params[:bbox]})\"^10"]
+        solr_params[:bq] = ["#{Settings.GEOMETRY_FIELD}:\"IsWithin(#{req_params[:bbox]})\"^10"]
         solr_params[:fq] ||= []
-        solr_params[:fq] << "solr_bbox:\"Intersects(#{req_params[:bbox]})\""
+        solr_params[:fq] << "#{Settings.GEOMETRY_FIELD}:\"Intersects(#{req_params[:bbox]})\""
       end
       solr_params
     end
