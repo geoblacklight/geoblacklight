@@ -205,6 +205,9 @@ class CatalogController < ApplicationController
     # If there are more than this many search results, no spelling ("did you
     # mean") suggestion is offered.
     config.spell_max = 5
+
+    # Custom tools for GeoBlacklight
+    config.add_show_tools_partial :web_services, if: proc { |_context, _config, options| (Settings.WEBSERVICES_SHOWN & options[:document].references.refs.map(&:type).map(&:to_s)).any? }
   end
 
 
