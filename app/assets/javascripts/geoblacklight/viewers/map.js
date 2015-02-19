@@ -7,7 +7,7 @@ GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
     * Initial bounds of map
     * @type {L.LatLngBounds}
     */
-    bbox: [[-85, -180], [85, 180]]
+    bbox: [[-80, -195], [80, 185]]
   },
 
   basemap: L.tileLayer(
