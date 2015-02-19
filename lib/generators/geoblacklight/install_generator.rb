@@ -44,13 +44,6 @@ module Geoblacklight
       end
     end
 
-    def inject_routes
-      route 'post "wms/handle"'
-      route 'resources :download, only: [:show, :file]'
-      route "get 'download/file/:id' => 'download#file', as: :download_file"
-      route "get 'download/hgl/:id' => 'download#hgl', as: :download_hgl"
-    end
-
     def create_downloads_directory
       FileUtils.mkdir_p("tmp/cache/downloads") unless File.directory?("tmp/cache/downloads")
     end
