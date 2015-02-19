@@ -56,6 +56,14 @@ module GeoblacklightHelper
   end
 
   ##
+  # Looks up formatted names for references
+  # @param (String, Symbol) reference
+  # @return (String)
+  def formatted_name_reference(reference)
+    t "geoblacklight.references.#{reference}"
+  end
+
+  ##
   # Wraps download text with proper_case_format
   #
   def download_text(format)

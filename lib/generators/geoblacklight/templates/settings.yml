@@ -10,6 +10,11 @@ TIMEOUT_DOWNLOAD: 16
 # (For WMS inspection) timeout and open_timeout parameters for Faraday
 TIMEOUT_WMS: 4
 
+# Web services shown in tool panel
+WEBSERVICES_SHOWN:
+  - 'wms'
+  - 'wfs'
+
 # WMS Parameters
 WMS_PARAMS:
   :SERVICE: 'WMS'

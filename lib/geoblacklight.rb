@@ -19,6 +19,8 @@ module Geoblacklight
   require 'geoblacklight/download/hgl_download'
   require 'geoblacklight/reference'
   require 'geoblacklight/references'
+  require 'geoblacklight/routes'
+  
   def self.inject!
     CatalogController.send(:include, Geoblacklight::ControllerOverride)
     CatalogController.send(:include, Geoblacklight::CatalogHelperOverride)
@@ -29,6 +31,7 @@ module Geoblacklight
       SearchHistoryController.helpers.is_a?(Geoblacklight::ViewHelperOverride)
     SavedSearchesController.send(:helper, Geoblacklight::ViewHelperOverride) unless
       SavedSearchesController.helpers.is_a?(Geoblacklight::ViewHelperOverride)
+    Blacklight::Routes.send(:include, Geoblacklight::Routes)
   end
 
   def self.logger
