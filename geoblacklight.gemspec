@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'blacklight', '~> 5.8.2'
+  spec.add_dependency 'blacklight', '~> 5.9'
   spec.add_dependency 'leaflet-rails', '~> 0.7.3'
   spec.add_dependency 'blacklight_range_limit', '~> 5.0.3'
   spec.add_dependency 'font-awesome-rails', '~> 4.1.0.0'
@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bundler', '~> 1.5'
   spec.add_development_dependency 'rake', '~> 10.3.2'
   spec.add_development_dependency 'rspec-rails', '~> 3.0.1'
-  spec.add_development_dependency 'jettywrapper', '~> 1.8.3'
+  spec.add_development_dependency 'jettywrapper', '>= 2.0'
   spec.add_development_dependency 'engine_cart', '~> 0.4.0'
   spec.add_development_dependency 'capybara', '~> 2.3.0'
   spec.add_development_dependency 'poltergeist', '~> 1.5.0'
