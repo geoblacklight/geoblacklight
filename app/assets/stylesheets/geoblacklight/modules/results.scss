@@ -27,3 +27,13 @@
   @extend .text-span;
   @extend .hide-overflow;
 }
+
+.caret-toggle {
+  @extend .fa, .fa-caret-right;
+  cursor: pointer;
+  width: 10px;
+
+  &.open {
+    @extend .fa, .fa-caret-down;
+  }
+}
