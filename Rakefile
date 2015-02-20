@@ -13,6 +13,8 @@ require 'rspec/core/rake_task'
 require 'engine_cart/rake_task'
 require 'jettywrapper'
 
+Dir.glob('lib/tasks/configure_solr.rake').each { |r| load r}
+
 task default: :ci
 
 RSpec::Core::RakeTask.new(:spec)
@@ -26,7 +28,7 @@ task :fixtures => ['engine_cart:generate'] do
 end
 
 desc "Execute Continuous Integration build"
-task :ci => ['engine_cart:generate', 'jetty:clean', 'geoblacklight:configure_jetty'] do
+task :ci => ['engine_cart:generate', 'jetty:clean', 'geoblacklight:configure_solr'] do
   ENV['environment'] = "test"
   jetty_params = Jettywrapper.load_config
   jetty_params[:startup_wait]= 60
@@ -36,14 +38,5 @@ task :ci => ['engine_cart:generate', 'jetty:clean', 'geoblacklight:configure_jet
 
     # run the tests
     Rake::Task["spec"].invoke
-  end
-end
-
-
-namespace :geoblacklight do
-  desc "Copies the default SOLR config for the bundled Testing Server"
-  task :configure_jetty do
-    system 'curl -o jetty/solr/blacklight-core/conf/schema.xml https://raw.githubusercontent.com/geoblacklight/geoblacklight-schema/master/conf/schema.xml'
-    system 'curl -o jetty/solr/blacklight-core/conf/solrconfig.xml https://raw.githubusercontent.com/geoblacklight/geoblacklight-schema/master/conf/solrconfig.xml'
   end
 end
