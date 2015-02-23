@@ -18,5 +18,9 @@ module Geoblacklight
     def web_services
       @response, @document = get_solr_response_for_doc_id params[:id]
     end
+
+    def metadata
+      @response, @document = get_solr_response_for_doc_id params[:id]
+    end
   end
 end

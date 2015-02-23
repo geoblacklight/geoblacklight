@@ -17,6 +17,7 @@ module Geoblacklight
   require 'geoblacklight/download/kmz_download'
   require 'geoblacklight/download/shapefile_download'
   require 'geoblacklight/download/hgl_download'
+  require 'geoblacklight/metadata'
   require 'geoblacklight/reference'
   require 'geoblacklight/references'
   require 'geoblacklight/routes'

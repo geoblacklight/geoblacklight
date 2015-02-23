@@ -1,0 +1,12 @@
+<% document ||= @document %>
+
+<div class='metadata-view'>
+  <% document.references.refs.each do |ref| %>
+    <% if Settings.METADATA_SHOWN.include?(ref.type.to_s) %>
+      <div class='label label-default'>
+        <%= formatted_name_reference(ref.type) %>
+      </div>
+      <%= CodeRay.scan(Geoblacklight::Metadata.new(ref).metadata, :xml).div(css: :class, tab_width: 2).html_safe %>
+    <% end %>
+  <% end %>
+</div>
