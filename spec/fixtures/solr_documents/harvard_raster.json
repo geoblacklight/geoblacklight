@@ -41,7 +41,7 @@
   "layer_id_s": "cite:SDE2.G7064_S2_1834_K3",
   "layer_geom_type_s": "Raster",
   "layer_modified_dt": "2014-05-27T18:09:36Z",
-  "solr_bbox": "30.013108 59.669749 30.875309 60.041712",
+  "solr_bbox": "ENVELOPE(30.013108, 30.875309, 60.041712, 59.669749)",
   "solr_geom": "ENVELOPE(30.013108, 30.875309, 60.041712, 59.669749)",
   "solr_year_i": 1834,
   "solr_issued_dt": "2000-01-01T00:00:00Z"
