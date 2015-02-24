@@ -2,12 +2,6 @@ require 'rails/generators'
 require 'generators/geoblacklight/install_generator'
 
 namespace :geoblacklight do
-  desc "Copies the default SOLR config for the included Solr"
-  task :configure_jetty do
-    system 'curl -o jetty/solr/blacklight-core/conf/schema.xml https://raw.githubusercontent.com/geoblacklight/geoblacklight-schema/master/conf/schema.xml'
-    system 'curl -o jetty/solr/blacklight-core/conf/solrconfig.xml https://raw.githubusercontent.com/geoblacklight/geoblacklight-schema/master/conf/solrconfig.xml'
-  end
-
   namespace :solr do
     desc "Put sample data into solr"
     task :seed => :environment do

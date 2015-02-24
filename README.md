@@ -22,7 +22,7 @@ To install Solr (with Jetty)
 $ cd app-name
 $ rake jetty:download
 $ rake jetty:unzip
-$ rake geoblacklight:configure_jetty
+$ rake geoblacklight:configure_solr
 ```
 
 Or install with [Docker](https://github.com/geoblacklight/geoblacklight-docker)
