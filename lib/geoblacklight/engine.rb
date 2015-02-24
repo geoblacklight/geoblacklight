@@ -5,6 +5,7 @@ require 'rails_config'
 require 'faraday'
 require 'blacklight_range_limit'
 require 'nokogiri'
+require 'coderay'
 
 module Geoblacklight
   class Engine < ::Rails::Engine

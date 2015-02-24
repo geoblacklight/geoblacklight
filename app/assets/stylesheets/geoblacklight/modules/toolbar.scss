@@ -2,6 +2,7 @@
   a .geoblacklight {
     color: $gray-light;
   }
+
   .geoblacklight-citation {
     text-align: center;
     width: 1.4em;
@@ -18,6 +19,11 @@
   }
 
   .geoblacklight-web_services {
+    text-align: center;
+    width: 1.4em;
+  }
+
+  .geoblacklight-metadata {
     text-align: center;
     width: 1.4em;
   }

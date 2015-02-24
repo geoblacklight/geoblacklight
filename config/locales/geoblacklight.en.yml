@@ -21,3 +21,6 @@ en:
     references:
       wms: 'Web Mapping Service (WMS)'
       wfs: 'Web Feature Service (WFS)'
+      iso19139: 'ISO 19139'
+      mods: 'MODS'
+      fgdc: 'FGDC'

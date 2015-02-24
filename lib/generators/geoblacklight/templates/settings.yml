@@ -4,6 +4,12 @@ GEOMETRY_FIELD: 'solr_bbox'
 # Institution deployed at
 INSTITUTION: 'Stanford'
 
+# Metadata shown in tool panel
+METADATA_SHOWN:
+  - 'fgdc'
+  - 'iso19139'
+  - 'mods'
+
 # (For external Download) timeout and open_timeout parameters for Faraday
 TIMEOUT_DOWNLOAD: 16
 
