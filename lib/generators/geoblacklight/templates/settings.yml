@@ -1,5 +1,5 @@
 #Main Solr geometry field used for spatial search and bounding box. Should be type 'rpt'
-GEOMETRY_FIELD: 'solr_bbox'
+GEOMETRY_FIELD: 'solr_rpt'
 
 # Institution deployed at
 INSTITUTION: 'Stanford'

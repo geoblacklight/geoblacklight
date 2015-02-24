@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe GeotiffDownload do
-  let(:document) { SolrDocument.new(layer_slug_s: 'test', layer_id_s: 'stanford-test', solr_bbox: '-180 -90 180 90') }
+  let(:document) { SolrDocument.new(layer_slug_s: 'test', layer_id_s: 'stanford-test', solr_rpt: '-180 -90 180 90') }
   let(:download) { GeotiffDownload.new(document) }
   describe '#initialize' do
     it 'should initialize as a GeotiffDownload object with specific options' do
