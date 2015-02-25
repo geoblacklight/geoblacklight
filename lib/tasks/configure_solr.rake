@@ -8,11 +8,11 @@ namespace :geoblacklight do
   task :configure_solr do
     files_urls = [
       {
-        url: 'https://raw.githubusercontent.com/geoblacklight/geoblacklight-schema/master/conf/schema.xml',
+        url: 'https://raw.githubusercontent.com/geoblacklight/geoblacklight-schema/v0.3.0/conf/schema.xml',
         file: 'schema.xml'
       },
       {
-        url: 'https://raw.githubusercontent.com/geoblacklight/geoblacklight-schema/master/conf/solrconfig.xml',
+        url: 'https://raw.githubusercontent.com/geoblacklight/geoblacklight-schema/v0.3.0/conf/solrconfig.xml',
         file: 'solrconfig.xml'
       }
     ]
