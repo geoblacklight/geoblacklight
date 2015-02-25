@@ -20,7 +20,6 @@
   "layer_id_s": "sde:GISPORTAL.GISOWNER01.CAMBRIDGEGRID100_04",
   "layer_geom_type_s": "Polygon",
   "layer_modified_dt": "2014-12-04T21:33:07Z",
-  "solr_bbox": "-71.163984 42.34757 -71.052581 42.408316",
   "solr_geom": "ENVELOPE(-71.163984, -71.052581, 42.408316, 42.34757)",
   "solr_year_i": 2004
 }

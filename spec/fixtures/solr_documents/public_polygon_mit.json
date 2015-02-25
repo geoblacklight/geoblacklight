@@ -36,12 +36,7 @@
   "layer_id_s": "sde:SDE_DATA.US_MA_E25ZCTA5DCT_2000",
   "layer_geom_type_s": "Polygon",
   "layer_modified_dt": "2014-05-27T18:09:34Z",
-  "solr_bbox": "-73.533237 41.230345 -69.898565 42.888068",
-  "solr_ne_pt": "42.888068,-69.898565",
-  "solr_sw_pt": "41.230345,-73.533237",
   "solr_geom": "ENVELOPE(-73.533237, -69.898565, 42.888068, 41.230345)",
   "solr_year_i": 2000,
-  "solr_issued_dt": "2000-01-01T00:00:00Z",
-  "solr_wms_url": "http://arrowsmith.mit.edu:8080/geoserver/wms",
-  "solr_wfs_url": "http://arrowsmith.mit.edu:8080/geoserver/wfs"
+  "solr_issued_dt": "2000-01-01T00:00:00Z"
 }
