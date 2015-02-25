@@ -52,7 +52,13 @@ module Geoblacklight
     end
 
     def bounding_box_as_wsen
-      get(Settings.GEOMETRY_FIELD.to_sym)
+      s = get(Settings.GEOMETRY_FIELD.to_sym)
+      if s =~ /^\s*ENVELOPE\(\s*([-\.\d]+)\s*,\s*([-\.\d]+)\s*,\s*([-\.\d]+)\s*,\s*([-\.\d]+)\s*\)\s*$/
+        w, s, e, n = $1, $4, $2, $3
+        return "#{w} #{s} #{e} #{n}"
+      else
+        return s # as-is, not a WKT
+      end
     end
     ##
     # Provides a convenience method to access a SolrDocument's References

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe KmzDownload do
-  let(:document) { SolrDocument.new(layer_slug_s: 'test', solr_wfs_url: 'http://www.example.com/wfs', layer_id_s: 'stanford-test', solr_bbox: '-180 -90 180 90') }
+  let(:document) { SolrDocument.new(layer_slug_s: 'test', solr_wfs_url: 'http://www.example.com/wfs', layer_id_s: 'stanford-test', solr_geom: 'ENVELOPE(-180, 180, 90, -90)') }
   let(:download) { KmzDownload.new(document) }
   describe '#initialize' do
     it 'should initialize as a KmzDownload object with specific options' do

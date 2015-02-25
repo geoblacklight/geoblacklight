@@ -21,7 +21,6 @@
   "layer_id_s": "Columbia:Columbia.landinfo_global_aet",
   "layer_geom_type_s": "Point",
   "layer_modified_dt": "2014-12-12T19:54:57Z",
-  "solr_bbox": "-179.5 -56.0 180.0 83.0",
   "solr_geom": "ENVELOPE(-179.5, 180.0, 83.0, -56.0)",
   "solr_year_i": 1996
 }
