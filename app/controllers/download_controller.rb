@@ -22,7 +22,7 @@ class DownloadController < ApplicationController
   def hgl
     @response, @document = get_solr_response_for_doc_id params[:id]
     if params[:email]
-      response = HglDownload.new(@document, params[:email]).get
+      response = Geoblacklight::HglDownload.new(@document, params[:email]).get
       if response.nil?
         flash[:danger] = t 'geoblacklight.download.error'
       else

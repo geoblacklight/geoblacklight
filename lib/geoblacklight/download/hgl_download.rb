@@ -1,17 +1,19 @@
-class HglDownload < Download
-  def initialize(document, email)
+module Geoblacklight
+  class HglDownload < Geoblacklight::Download
+    def initialize(document, email)
 
-    request_params = {
-      "LayerName" => document[:layer_id_s].sub(/^cite:/, ''),
-      "UserEmail" => email
-    }
-    super(document, {
-      request_params: request_params,
-      service_type: 'hgl'
-    })
-  end
+      request_params = {
+        "LayerName" => document[:layer_id_s].sub(/^cite:/, ''),
+        "UserEmail" => email
+      }
+      super(document, {
+        request_params: request_params,
+        service_type: 'hgl'
+      })
+    end
 
-  def get
-    initiate_download
+    def get
+      initiate_download
+    end
   end
 end

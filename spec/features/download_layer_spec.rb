@@ -2,13 +2,13 @@ require 'spec_helper'
 
 feature 'Download layer' do
   scenario 'clicking initial shapefile download button should trigger download', js: true do
-    expect_any_instance_of(ShapefileDownload).to receive(:get).and_return('mit-us-ma-e25zcta5dct-2000-shapefile.zip')
+    expect_any_instance_of(Geoblacklight::ShapefileDownload).to receive(:get).and_return('mit-us-ma-e25zcta5dct-2000-shapefile.zip')
     visit catalog_path('mit-us-ma-e25zcta5dct-2000')
     find('a', text: 'Download Shapefile').click
     expect(page).to have_css('a', text: 'Your file mit-us-ma-e25zcta5dct-2000-shapefile.zip is ready for download')
   end
   scenario 'clicking kmz download button should trigger download', js: true do
-    expect_any_instance_of(KmzDownload).to receive(:get).and_return('mit-us-ma-e25zcta5dct-2000-kmz.kmz')
+    expect_any_instance_of(Geoblacklight::KmzDownload).to receive(:get).and_return('mit-us-ma-e25zcta5dct-2000-kmz.kmz')
     visit catalog_path('mit-us-ma-e25zcta5dct-2000')
     find('button.download-dropdown-toggle').click
     find('a', text: 'Download KMZ').click
@@ -48,7 +48,7 @@ feature 'Download layer' do
     expect(page).to have_css('#hglRequest')
   end
   scenario 'submitting email form should trigger HGL request', js: true do
-    expect_any_instance_of(HglDownload).to receive(:get).and_return('success')
+    expect_any_instance_of(Geoblacklight::HglDownload).to receive(:get).and_return('success')
     visit catalog_path('harvard-g7064-s2-1834-k3')
     find('a', text: 'Download GeoTIFF').click
     within '#hglRequest' do
