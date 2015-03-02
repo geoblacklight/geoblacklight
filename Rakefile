@@ -28,15 +28,22 @@ task :fixtures => ['engine_cart:generate'] do
 end
 
 desc "Execute Continuous Integration build"
-task :ci => ['engine_cart:generate', 'jetty:clean', 'geoblacklight:configure_solr'] do
-  ENV['environment'] = "test"
-  jetty_params = Jettywrapper.load_config
-  jetty_params[:startup_wait]= 60
+task :ci do
+  if Rails.env.test?
+    Rake::Task['engine_cart:generate'].invoke
+    Rake::Task['jetty:clean'].invoke
+    Rake::Task['geoblacklight:configure_solr'].invoke
+    ENV['environment'] = "test"
+    jetty_params = Jettywrapper.load_config
+    jetty_params[:startup_wait]= 60
 
-  Jettywrapper.wrap(jetty_params) do
-    Rake::Task["fixtures"].invoke
+    Jettywrapper.wrap(jetty_params) do
+      Rake::Task["fixtures"].invoke
 
-    # run the tests
-    Rake::Task["spec"].invoke
+      # run the tests
+      Rake::Task["spec"].invoke
+    end
+  else
+    system('rake ci RAILS_ENV=test')
   end
 end
