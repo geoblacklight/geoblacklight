@@ -42,13 +42,13 @@ class DownloadController < ApplicationController
   def check_type
     case params[:type]
     when 'shapefile'
-      response = ShapefileDownload.new(@document).get
+      response = Geoblacklight::ShapefileDownload.new(@document).get
     when 'kmz'
-      response = KmzDownload.new(@document).get
+      response = Geoblacklight::KmzDownload.new(@document).get
     when 'geojson'
-      response = GeojsonDownload.new(@document).get
+      response = Geoblacklight::GeojsonDownload.new(@document).get
     when 'geotiff'
-      response = GeotiffDownload.new(@document).get
+      response = Geoblacklight::GeotiffDownload.new(@document).get
     end
     response
   end

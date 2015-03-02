@@ -10,5 +10,10 @@ describe Geoblacklight::ShapefileDownload do
       expect(options[:content_type]).to eq 'application/zip'
       expect(options[:request_params][:typeName]).to eq 'stanford-test'
     end
+    it 'should merge custom options' do
+      download = Geoblacklight::ShapefileDownload.new(document, timeout: 33)
+      options = download.instance_variable_get(:@options)
+      expect(options[:timeout]).to eq 33
+    end
   end
 end

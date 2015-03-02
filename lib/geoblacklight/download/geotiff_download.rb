@@ -5,7 +5,7 @@ module Geoblacklight
       width: 4096
     }
 
-    def initialize(document)
+    def initialize(document, options = {})
       request_params = GEOTIFF_DOWNLOAD_PARAMS.merge(layers: document[:layer_id_s])
       super(document, {
         type: 'geotiff',
@@ -14,7 +14,7 @@ module Geoblacklight
         content_type: 'image/geotiff',
         service_type: 'wms',
         reflect: true
-      })
+      }.merge(options))
     end
   end
 end

@@ -8,7 +8,7 @@ module Geoblacklight
       outputformat: 'application/json'
     }
 
-    def initialize(document)
+    def initialize(document, options = {})
       request_params = GEOJSON_DOWNLOAD_PARAMS.merge(typeName: document[:layer_id_s])
       super(document, {
         type: 'geojson',
@@ -16,7 +16,7 @@ module Geoblacklight
         request_params: request_params,
         content_type: 'application/json',
         service_type: 'wfs'
-      })
+      }.merge(options))
     end
   end
 end

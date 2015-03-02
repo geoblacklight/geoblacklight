@@ -11,5 +11,10 @@ describe Geoblacklight::GeotiffDownload do
       expect(options[:request_params][:layers]).to eq 'stanford-test'
       expect(options[:reflect]).to be_truthy
     end
+    it 'should merge custom options' do
+      download = Geoblacklight::GeotiffDownload.new(document, timeout: 33)
+      options = download.instance_variable_get(:@options)
+      expect(options[:timeout]).to eq 33
+    end
   end
 end

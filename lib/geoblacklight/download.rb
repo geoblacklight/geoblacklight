@@ -70,5 +70,15 @@ module Geoblacklight
       Geoblacklight.logger.error error.inspect
       nil
     end
+
+    private
+
+    ##
+    # Returns timeout for the download request. `timeout` passed as an option to
+    # the Geoblacklight::Download class
+    # @returns [Fixnum] download timeout in seconds
+    def timeout
+      @options[:timeout] || Settings.TIMEOUT_DOWNLOAD || 20
+    end
   end
 end

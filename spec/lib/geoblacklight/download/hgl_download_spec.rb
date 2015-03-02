@@ -10,5 +10,10 @@ describe Geoblacklight::HglDownload do
       expect(options[:request_params]['LayerName']).to eq 'harvard-test'
       expect(options[:request_params]['UserEmail']).to eq 'foo@example.com'
     end
+    it 'should merge custom options' do
+      download = Geoblacklight::HglDownload.new(document, 'foo@example.com', timeout: 33)
+      options = download.instance_variable_get(:@options)
+      expect(options[:timeout]).to eq 33
+    end
   end
 end
