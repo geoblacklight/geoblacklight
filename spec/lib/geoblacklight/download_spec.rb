@@ -51,7 +51,7 @@ describe Geoblacklight::Download do
       bad_file = OpenStruct.new(headers: { 'content-type' => 'bad/file' })
       expect(download).to receive(:initiate_download).and_return(bad_file)
       expect(File).to receive(:delete).with("#{download.file_path}.tmp").and_return(nil)
-      expect(download.create_download_file).to eq nil
+      expect { download.create_download_file }.to raise_error(Geoblacklight::Exceptions::ExternalDownloadFailed, 'Wrong download type')
     end
     it 'should create the file, write it, and then rename from tmp if everything is ok' do
       shapefile = OpenStruct.new(headers: {'content-type' => 'application/zip'})
@@ -67,10 +67,11 @@ describe Geoblacklight::Download do
       expect(Faraday).to receive(:new).with(url: 'http://www.example.com/wms').and_return(response)
       download.initiate_download
     end
-    it 'should return nil with a connection failure' do
-      expect(response).to receive(:get).and_return(Faraday::Error::ConnectionFailed)
+    it 'should raise Geoblacklight::Exceptions::ExternalDownloadFailed with a connection failure' do
+      expect(response).to receive(:url_prefix).and_return 'http://www.example.com/wms'
+      expect(response).to receive(:get).and_raise(Faraday::Error::ConnectionFailed.new('Failed'))
       expect(Faraday).to receive(:new).with(url: 'http://www.example.com/wms').and_return(response)
-      expect(download.initiate_download).to be Faraday::ConnectionFailed
+      expect { download.initiate_download }.to raise_error(Geoblacklight::Exceptions::ExternalDownloadFailed)
     end
   end
 end
