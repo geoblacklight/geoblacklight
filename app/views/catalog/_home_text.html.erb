@@ -11,38 +11,38 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-6'>
-      <%= content_tag :h4, t('geoblacklight.home.category_heading'), class: 'text-center' %>
+      <%= content_tag :h3, t('geoblacklight.home.category_heading'), class: 'text-center' %>
       <div class='category-block'>
         <div class='category-icon'>
           <span class='glyphicon glyphicon-home'></span>
         </div>
-        <h3>Institution</h3>
+        <h4>Institution</h4>
         <%= render_facet_tags [:dct_provenance_s] %>
       </div>
       <div class='category-block'>
         <div class='category-icon'>
           <span class='glyphicon glyphicon-download'></span>
         </div>
-        <h3>Data type</h3>
+        <h4>Data type</h4>
         <%= render_facet_tags [:layer_geom_type_s] %>
       </div>
       <div class='category-block'>
         <div class='category-icon'>
           <span class='glyphicon glyphicon-globe'></span>
         </div>
-        <h3>Placename</h3>
+        <h4>Placename</h4>
         <%= render_facet_tags [:dct_spatial_sm] %>
       </div>
       <div class='category-block'>
         <div class='category-icon'>
           <span class='glyphicon glyphicon-tags'></span>
         </div>
-        <h3>Subject</h3>
+        <h4>Subject</h4>
         <%= render_facet_tags [:dc_subject_sm] %>
       </div>
     </div>
     <div class='col-md-6 text-center'>
-      <%= content_tag :h4, t('geoblacklight.home.map_heading') %>
+      <%= content_tag :h3, t('geoblacklight.home.map_heading') %>
       <%= content_tag :div, '', id: 'map', data: { map: 'home', 'catalog-path'=> catalog_index_path , 'map-bbox' => params[:bbox]} %>
     </div>
   </div>

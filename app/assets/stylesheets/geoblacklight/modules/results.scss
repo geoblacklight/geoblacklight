@@ -26,6 +26,7 @@
 .index_title {
   @extend .text-span;
   @extend .hide-overflow;
+  @extend h5;
 }
 
 .caret-toggle {

@@ -5,14 +5,14 @@
     <%= geoblacklight_icon(document['dct_provenance_s']) %>
     <%= geoblacklight_icon(document['dc_rights_s']) %>
   </div>
-  <h5 class="index_title col-sm-9s cosl-lg-10 text-span">
+  <h3 class="index_title col-sm-9s cosl-lg-10 text-span">
     <span class='caret-toggle'></span>
     <% counter = document_counter_with_offset(document_counter) %>
     <span class="document-counter">
       <%= t('blacklight.search.documents.counter', :counter => counter) if counter %>
     </span>
     <%= link_to_document document, document_show_link_field(document), counter: counter, title: document['dc_title_s'] %>
-  </h5>
+  </h3>
 
   <div class='col-md-12 more-info-area'>
     <div class='collapse' data-collapse-target="<%= document['uuid'] %>">
