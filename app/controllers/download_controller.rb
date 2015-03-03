@@ -22,7 +22,7 @@ class DownloadController < ApplicationController
   def hgl
     @response, @document = get_solr_response_for_doc_id params[:id]
     if params[:email]
-      response = HglDownload.new(@document, params[:email]).get
+      response = Geoblacklight::HglDownload.new(@document, params[:email]).get
       if response.nil?
         flash[:danger] = t 'geoblacklight.download.error'
       else
@@ -42,13 +42,13 @@ class DownloadController < ApplicationController
   def check_type
     case params[:type]
     when 'shapefile'
-      response = ShapefileDownload.new(@document).get
+      response = Geoblacklight::ShapefileDownload.new(@document).get
     when 'kmz'
-      response = KmzDownload.new(@document).get
+      response = Geoblacklight::KmzDownload.new(@document).get
     when 'geojson'
-      response = GeojsonDownload.new(@document).get
+      response = Geoblacklight::GeojsonDownload.new(@document).get
     when 'geotiff'
-      response = GeotiffDownload.new(@document).get
+      response = Geoblacklight::GeotiffDownload.new(@document).get
     end
     response
   end

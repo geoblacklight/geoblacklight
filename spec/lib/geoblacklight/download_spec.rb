@@ -1,16 +1,16 @@
 require 'spec_helper'
 
-describe Download do
+describe Geoblacklight::Download do
   let(:response) { double('response') }
   let(:get) { double('get') }
   let(:body) { double('body') }
   let(:document) { SolrDocument.new(layer_slug_s: 'test', dct_references_s: {'http://www.opengis.net/def/serviceType/ogc/wms' => 'http://www.example.com/wms'}.to_json) }
   let(:options) { { type: 'shapefile', extension: 'zip', service_type: 'wms', content_type: 'application/zip' } }
-  let(:download) { Download.new(document, options) }
+  let(:download) { Geoblacklight::Download.new(document, options) }
 
   describe '#initialize' do
     it 'should initialize as a Download object' do
-      expect(download).to be_an Download
+      expect(download).to be_an Geoblacklight::Download
     end
   end
   describe '#file_name' do
