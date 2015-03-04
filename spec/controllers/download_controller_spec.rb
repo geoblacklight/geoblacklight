@@ -26,7 +26,7 @@ describe Geoblacklight::DownloadController, type: :controller do
     end
     describe 'public file' do
       it 'should initiate download creation' do
-        get 'show', id: 'mit-us-ma-e25zcta5dct-2000'
+        get 'show', id: 'mit-us-ma-e25zcta5dct-2000', type: 'shapefile'
         expect(response.status).to eq 200
       end
     end

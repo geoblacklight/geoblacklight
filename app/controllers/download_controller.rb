@@ -1,6 +1,22 @@
 class DownloadController < ApplicationController
   include Blacklight::SolrHelper
 
+  rescue_from Geoblacklight::Exceptions::ExternalDownloadFailed do |exception|
+    Geoblacklight.logger.error exception.message + ' ' + exception.url
+    flash[:danger] = view_context
+                     .content_tag(:span,
+                                  flash_error_message(exception),
+                                  data: {
+                                    download: 'error',
+                                    download_id: params[:id],
+                                    download_type: "generated-#{params[:type]}"
+                                  })
+    respond_to do |format|
+      format.json { render json: flash, response: response }
+      format.html { render json: flash, response: response }
+    end
+  end
+
   def show
     @response, @document = get_solr_response_for_doc_id params[:id]
     restricted_should_authenticate
@@ -37,28 +53,43 @@ class DownloadController < ApplicationController
     end
   end
 
+  protected
+
+  ##
+  # Creates an error flash message with failed download url
+  # @param [Geoblacklight::Exceptions::ExternalDownloadFailed] Download failed
+  # exception
+  # @return [String] error message to display in flash 
+  def flash_error_message(exception)
+    if exception.url
+      message = t('geoblacklight.download.error_with_url',
+                  link: view_context
+                        .link_to(exception.url,
+                                 exception.url,
+                                 target: 'blank'))
+                .html_safe
+    else
+      message = t('geoblacklight.download.error')
+    end
+  end
+
   private
 
   def check_type
-    case params[:type]
+    response = case params[:type]
     when 'shapefile'
-      response = Geoblacklight::ShapefileDownload.new(@document).get
+      Geoblacklight::ShapefileDownload.new(@document).get
     when 'kmz'
-      response = Geoblacklight::KmzDownload.new(@document).get
+      Geoblacklight::KmzDownload.new(@document).get
     when 'geojson'
-      response = Geoblacklight::GeojsonDownload.new(@document).get
+      Geoblacklight::GeojsonDownload.new(@document).get
     when 'geotiff'
-      response = Geoblacklight::GeotiffDownload.new(@document).get
+      Geoblacklight::GeotiffDownload.new(@document).get
     end
-    response
   end
 
   def validate(response)
-    if response.nil?
-      flash[:danger] = view_context.content_tag(:span, t('geoblacklight.download.error'), data: { download: 'error', download_id: params[:id], download_type: "generated-#{params[:type]}"})
-    else
-      flash[:success] = view_context.link_to(t('geoblacklight.download.success', title: response), download_file_path(response), data: { download: 'trigger', download_id: params[:id], download_type: "generated-#{params[:type]}"})
-    end
+    flash[:success] = view_context.link_to(t('geoblacklight.download.success', title: response), download_file_path(response), data: { download: 'trigger', download_id: params[:id], download_type: "generated-#{params[:type]}"})
   end
 
   # Checks whether a document is public, if not require user to authenticate

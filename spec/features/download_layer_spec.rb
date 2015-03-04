@@ -7,6 +7,13 @@ feature 'Download layer' do
     find('a', text: 'Download Shapefile').click
     expect(page).to have_css('a', text: 'Your file mit-us-ma-e25zcta5dct-2000-shapefile.zip is ready for download')
   end
+  scenario 'failed download should return message with link to layer', js: true do
+    expect_any_instance_of(Geoblacklight::ShapefileDownload).to receive(:get).and_raise(Geoblacklight::Exceptions::ExternalDownloadFailed.new(message: 'Failed', url: 'http://www.example.com/failed'))
+    visit catalog_path('mit-us-ma-e25zcta5dct-2000')
+    find('a', text: 'Download Shapefile', match: :first).click
+    expect(page).to have_css 'div.alert.alert-danger', text: 'Sorry, the requested file could not be downloaded, try downloading it directly from:'
+    expect(page).to have_css 'a', text: 'http://www.example.com/failed'
+  end
   scenario 'clicking kmz download button should trigger download', js: true do
     expect_any_instance_of(Geoblacklight::KmzDownload).to receive(:get).and_return('mit-us-ma-e25zcta5dct-2000-kmz.kmz')
     visit catalog_path('mit-us-ma-e25zcta5dct-2000')

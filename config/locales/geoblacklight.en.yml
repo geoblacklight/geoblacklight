@@ -5,6 +5,7 @@ en:
       success: 'Your file %{title} is ready for download'
       hgl_success: 'You should receive an email when your download is ready'
       error: 'Sorry, the requested file could not be downloaded'
+      error_with_url: 'Sorry, the requested file could not be downloaded, try downloading it directly from: %{link}'
     home:
       headline: 'Explore and discover...'
       search_heading: 'Find the maps and data you need'
