@@ -6,16 +6,16 @@ namespace :geoblacklight do
     desc "Put sample data into solr"
     task :seed => :environment do
       docs = Dir['spec/fixtures/solr_documents/*.json'].map { |f| JSON.parse File.read(f) }.flatten
-      Blacklight.solr.add docs
-      Blacklight.solr.commit
+      Blacklight.default_index.connection.add docs
+      Blacklight.default_index.connection.commit
     end
 
     desc "Ingests a GeoHydra transformed.json"
     task :ingest_all => :environment do
       docs = JSON::parse(File.read("#{Rails.root}/tmp/transformed.json"))
       docs.each do |doc|
-        Blacklight.solr.add doc
-        Blacklight.solr.commit
+        Blacklight.default_index.connection.add doc
+        Blacklight.default_index.connection.commit
       end
     end
   end
