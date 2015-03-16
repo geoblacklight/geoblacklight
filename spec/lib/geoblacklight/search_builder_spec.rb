@@ -1,13 +1,10 @@
 require 'spec_helper'
 
 describe Geoblacklight::SearchBuilder do
-  let(:blacklight_config) { CatalogController.blacklight_config.deep_copy }
   let(:method_chain) { CatalogController.search_params_logic }
   let(:user_params) { Hash.new }
   let(:solr_params) { Hash.new }
   let(:context) { CatalogController.new }
-
-  before { allow(context).to receive(:blacklight_config).and_return(blacklight_config) }
 
   let(:search_builder) { described_class.new(method_chain, context) }
 
