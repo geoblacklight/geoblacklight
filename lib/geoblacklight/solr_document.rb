@@ -12,11 +12,11 @@ module Geoblacklight
     end
 
     def public?
-      get(:dc_rights_s).downcase == 'public'
+      fetch(:dc_rights_s).downcase == 'public'
     end
 
     def restricted?
-      get(:dc_rights_s).downcase == 'restricted'
+      fetch(:dc_rights_s).downcase == 'restricted'
     end
 
     def downloadable?
@@ -40,7 +40,7 @@ module Geoblacklight
     end
 
     def same_institution?
-      get(:dct_provenance_s).downcase == Settings.INSTITUTION.downcase
+      fetch(:dct_provenance_s).downcase == Settings.INSTITUTION.downcase
     end
 
     def item_viewer
@@ -52,7 +52,7 @@ module Geoblacklight
     end
 
     def bounding_box_as_wsen
-      s = get(Settings.GEOMETRY_FIELD.to_sym)
+      s = fetch(Settings.GEOMETRY_FIELD.to_sym)
       if s =~ /^\s*ENVELOPE\(\s*([-\.\d]+)\s*,\s*([-\.\d]+)\s*,\s*([-\.\d]+)\s*,\s*([-\.\d]+)\s*\)\s*$/
         w, s, e, n = $1, $4, $2, $3
         return "#{w} #{s} #{e} #{n}"
