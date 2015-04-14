@@ -13,12 +13,16 @@ module Geoblacklight
       "#{@document[:layer_slug_s]}-#{@options[:type]}.#{@options[:extension]}"
     end
 
-    def file_path
+    def self.file_path
       Settings.DOWNLOAD_PATH || "#{Rails.root}/tmp/cache/downloads"
     end
 
+    def file_path_and_name
+      "#{self.class.file_path}/#{file_name}"
+    end
+
     def download_exists?
-      File.file?(file_path)
+      File.file?(file_path_and_name)
     end
 
     def get
@@ -35,18 +39,18 @@ module Geoblacklight
     # @return [String] filename of the completed download
     def create_download_file
       download = initiate_download
-      File.open("#{file_path}/#{file_name}.tmp", 'wb')  do |file|
+      File.open("#{file_path_and_name}.tmp", 'wb')  do |file|
         if download.headers['content-type'] == @options[:content_type]
           file.write download.body
         else
           fail Geoblacklight::Exceptions::WrongDownloadFormat
         end
       end
-      File.rename("#{file_path}/#{file_name}.tmp", "#{file_path}/#{file_name}")
+      File.rename("#{file_path_and_name}.tmp", "#{file_path_and_name}")
       file_name
     rescue Geoblacklight::Exceptions::WrongDownloadFormat => error
       Geoblacklight.logger.error "#{error} expected #{@options[:content_type]} received #{download.headers['content-type']}"
-      File.delete("#{file_path}/#{file_name}.tmp")
+      File.delete("#{file_path_and_name}.tmp")
       raise Geoblacklight::Exceptions::ExternalDownloadFailed, message: 'Wrong download type'
     end
 
