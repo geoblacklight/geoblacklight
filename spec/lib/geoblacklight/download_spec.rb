@@ -20,11 +20,11 @@ describe Geoblacklight::Download do
   end
   describe '#file_path' do
     it 'should return the path with name and extension' do
-      expect(download.file_path).to eq "#{Rails.root}/tmp/cache/downloads"
+      expect(download.class.file_path).to eq "#{Rails.root}/tmp/cache/downloads"
     end
     it 'should be configurable' do
       expect(Settings).to receive(:DOWNLOAD_PATH).and_return('configured/path')
-      expect(download.file_path).to eq 'configured/path'
+      expect(download.class.file_path).to eq 'configured/path'
     end
   end
   describe '#download_exists?' do
@@ -45,7 +45,7 @@ describe Geoblacklight::Download do
     it 'should call create_download_file if it does not exist' do
       expect(download).to receive(:download_exists?).and_return(false)
       expect(download).to receive(:initiate_download).and_return(object: 'file')
-      expect(File).to receive(:open).with("#{download.file_path}/#{download.file_name}.tmp", 'wb').and_return('')
+      expect(File).to receive(:open).with("#{download.file_path_and_name}.tmp", 'wb').and_return('')
       expect(File).to receive(:rename)
       expect(download.get).to eq 'test-shapefile.zip'
     end
@@ -54,13 +54,13 @@ describe Geoblacklight::Download do
     it 'should create the file in fs and delete it if the content headers are not correct' do
       bad_file = OpenStruct.new(headers: { 'content-type' => 'bad/file' })
       expect(download).to receive(:initiate_download).and_return(bad_file)
-      expect(File).to receive(:delete).with("#{download.file_path}/#{download.file_name}.tmp").and_return(nil)
+      expect(File).to receive(:delete).with("#{download.file_path_and_name}.tmp").and_return(nil)
       expect { download.create_download_file }.to raise_error(Geoblacklight::Exceptions::ExternalDownloadFailed, 'Wrong download type')
     end
     it 'should create the file, write it, and then rename from tmp if everything is ok' do
       shapefile = OpenStruct.new(headers: {'content-type' => 'application/zip'})
       expect(download).to receive(:initiate_download).and_return(shapefile)
-      expect(File).to receive(:open).with("#{download.file_path}/#{download.file_name}.tmp", 'wb').and_return('')
+      expect(File).to receive(:open).with("#{download.file_path_and_name}.tmp", 'wb').and_return('')
       expect(File).to receive(:rename)
       expect(download.create_download_file).to eq download.file_name
     end
