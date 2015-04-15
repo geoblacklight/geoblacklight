@@ -33,4 +33,16 @@ describe GeoblacklightHelper do
       expect(download_text('GEOJSON')).to eq 'Download GeoJSON'
     end
   end
+
+  describe '#geoblacklight_basemap' do
+    let(:blacklight_config) { double }
+    it 'without configuration' do
+      expect(blacklight_config).to receive(:basemap_provider).and_return(nil)
+      expect(geoblacklight_basemap).to eq 'mapquest'
+    end
+    it 'with custom configuration' do
+      expect(blacklight_config).to receive(:basemap_provider).and_return('positron')
+      expect(geoblacklight_basemap).to eq 'positron'
+    end
+  end
 end
