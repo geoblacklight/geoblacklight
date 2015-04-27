@@ -1,7 +1,7 @@
 //= require geoblacklight/viewers/viewer
 
 GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
-
+  
   options: {
     /**
     * Initial bounds of map
@@ -9,32 +9,7 @@ GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
     */
     bbox: [[-80, -195], [80, 185]]
   },
-
-  basemap: {
-    darkMatter: L.tileLayer(
-      'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
-        maxZoom: 18,
-        worldCopyJump: true
-      }
-    ),
-    mapquest: L.tileLayer(
-      'https://otile{s}-s.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="//developer.mapquest.com/content/osm/mq_logo.png" alt="">',
-        maxZoom: 18,
-        worldCopyJump: true,
-        subdomains: '1234' // see http://developer.mapquest.com/web/products/open/map
-      }
-    ),
-    positron: L.tileLayer(
-      'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
-        maxZoom: 18,
-        worldCopyJump: true
-      }
-    )
-  },
-
+  
   overlay: L.layerGroup(),
 
   load: function() {
@@ -77,7 +52,7 @@ GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
   selectBasemap: function() {
     var _this = this;
     if (_this.data.basemap) {
-      return _this.basemap[_this.data.basemap];
+      return GeoBlacklight.Basemaps[_this.data.basemap];
     } else {
       return _this.basemap.mapquest;
     }
