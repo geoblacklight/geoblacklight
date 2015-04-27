@@ -3,6 +3,8 @@ module Geoblacklight
   module SolrDocument
     extend Blacklight::Solr::Document
 
+    include Geoblacklight::SolrDocument::Finder
+
     delegate :download_types, to: :references
     delegate :viewer_protocol, to: :item_viewer
     delegate :viewer_endpoint, to: :item_viewer
