@@ -84,4 +84,11 @@ module GeoblacklightHelper
       args[:value]
     end
   end
+
+  ##
+  # Selects the basemap used for map displays
+  # @return [String]
+  def geoblacklight_basemap
+    blacklight_config.basemap_provider || 'mapquest'
+  end
 end

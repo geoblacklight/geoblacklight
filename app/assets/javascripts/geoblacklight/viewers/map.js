@@ -1,7 +1,7 @@
 //= require geoblacklight/viewers/viewer
 
 GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
-
+  
   options: {
     /**
     * Initial bounds of map
@@ -9,16 +9,7 @@ GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
     */
     bbox: [[-80, -195], [80, 185]]
   },
-
-  basemap: L.tileLayer(
-    'https://otile{s}-s.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="//developer.mapquest.com/content/osm/mq_logo.png" alt="">',
-      maxZoom: 18,
-      worldCopyJump: true,
-      subdomains: '1234' // see http://developer.mapquest.com/web/products/open/map
-    }
-  ),
-
+  
   overlay: L.layerGroup(),
 
   load: function() {
@@ -26,7 +17,7 @@ GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
       this.options.bbox = L.bboxToBounds(this.data.mapBbox);
     }
     this.map = L.map(this.element).fitBounds(this.options.bbox);
-    this.map.addLayer(this.basemap);
+    this.map.addLayer(this.selectBasemap());
     this.map.addLayer(this.overlay);
     if (this.data.map !== 'index') {
       this.addBoundsOverlay(this.options.bbox);
@@ -53,5 +44,17 @@ GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
    */
   removeBoundsOverlay: function() {
     this.overlay.clearLayers();
+  },
+
+  /**
+  * Selects basemap if specified in data options, if not return mapquest
+  */
+  selectBasemap: function() {
+    var _this = this;
+    if (_this.data.basemap) {
+      return GeoBlacklight.Basemaps[_this.data.basemap];
+    } else {
+      return _this.basemap.mapquest;
+    }
   }
 });
