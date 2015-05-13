@@ -76,6 +76,25 @@ describe Geoblacklight::References do
       )
     )
   }
+  let(:custom_fields) {
+    Geoblacklight::References.new(
+      SolrDocument.new, :new_ref_field
+    )
+  }
+  describe '#initialize' do
+    it 'parses dct_references_s to @refs' do
+      expect(typical_ogp_shapefile.instance_variable_get(:@refs)).to be_an Array
+    end
+    it 'empty references return an empty array' do
+      empty_refs = no_service_shapefile.instance_variable_get(:@refs)
+      expect(empty_refs).to be_an Array
+      expect(empty_refs).to eq []
+    end
+    it 'sets @references_field' do
+      expect(typical_ogp_shapefile.reference_field).to eq :dct_references_s
+      expect(custom_fields.reference_field).to eq :new_ref_field
+    end
+  end
   describe 'format' do
     it 'should return format' do
       expect(complex_shapefile.format).to eq 'Shapefile'
