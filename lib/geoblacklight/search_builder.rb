@@ -7,6 +7,12 @@ module Geoblacklight
       @processor_chain += [:add_spatial_params] unless @processor_chain.include?(:add_spatial_params)
     end
 
+    ##
+    # Adds spatial parameters to a Solr query if :bbox is present.
+    # @param [Blacklight::Solr::Request] solr_params :bbox should be in Solr
+    # :bbox should be passed in using Solr lat-lon rectangle format e.g.
+    # "minX minY maxX maxY"
+    # @return [Blacklight::Solr::Request]
     def add_spatial_params(solr_params)
       if blacklight_params[:bbox]
         solr_params[:bq] ||= []
