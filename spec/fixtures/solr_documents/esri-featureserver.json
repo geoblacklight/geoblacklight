@@ -1,0 +1,27 @@
+{
+  "uuid": "urn:umn.edu:2f1711dd-e7b0-4775-81ed-c4f6f1b1bffd",
+  "dc_format_s": "Shapefile",
+  "dc_identifier_s": "urn:umn.edu:2f1711dd-e7b0-4775-81ed-c4f6f1b1bffd",
+  "dc_language_s": "English",
+  "dc_publisher_s": "City of Minneapolis",
+  "dc_rights_s": "Public",
+  "dc_title_s": "Parks",
+  "dc_type_s": "Dataset",
+  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"http://www.minneapolismn.gov/www/groups/public/@bis/documents/webcontent/wcms1p-106984.zip\",\"https://doc.arcgis.com/en/arcgis-online/reference/arcgis-server-services.htm\":\"http://services.arcgis.com/afSMGVsC7QlRK1kZ/ArcGIS/rest/services/Parks/FeatureServer/0\"}",
+  "dct_spatial_sm": [
+    "Minneapolis"
+  ],
+  "dct_temporal_sm": [
+    "2014"
+  ],
+  "dct_provenance_s": "Minnesota",
+  "georss_box_s": "44.882384 -93.375747 45.051174 -93.186763",
+  "georss_polygon_s": "45.051174 -93.375747 45.051174 -93.186763 44.882384 -93.186763 44.882384 -93.375747 45.051174 -93.375747",
+  "layer_slug_s": "minnesota-park",
+  "layer_id_s": "\"\":PARK",
+  "layer_geom_type_s": "Polygon",
+  "layer_modified_dt": "2014-12-16T00:33:04Z",
+  "solr_bbox": "-93.375747 44.882384 -93.186763 45.051174",
+  "solr_geom": "ENVELOPE(-93.375747, -93.186763, 45.051174, 44.882384)",
+  "solr_year_i": 2014
+}

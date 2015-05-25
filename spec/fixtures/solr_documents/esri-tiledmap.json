@@ -1,0 +1,22 @@
+{
+	"uuid": "color_ortho_imagery_2008_2009",
+	"dc_description_s": "In spring 2008, the U.S. Geological Survey, as part of its Boston 133 Cities Urban Area mapping program, contracted for true-color imagery covering the metropolitan Boston area and beyond. Image type for the entire region (more than 1.7 million acres) is 24-bit, 3-band (red, green, blue) natural color. Each band has pixel values ranging 0-255. Pixel resolution is 30 cm., or approximately one foot. Additionally, 30 municipalities participated in the Boston Upgrade of the USGS project; these cities and towns contributed funding for separate flights to produce 4-band (red, green, blue, near-infrared) imagery. Pixel resolution for these images is 15 centimeters (approximately 6 inches). In spring 2009, USGS continued the project and 4-band 30cm imagery was obtained for the remainder of the state. Additionally, 14 municipalities provided funding for 4-band 15cm imagery to cover their communities. This digital orthoimagery can serve a variety of purposes, from general planning, to field reference for spatial analysis, to a tool for data development and revision of vector maps. It can also serve as a reference layer or basemap for myriad applications inside geographic information system (GIS) software.",
+	"dc_format_s": "GeoTIFF",
+	"dc_identifier_s": "color_ortho_imagery_2008_2009",
+	"dc_language_s": "English",
+	"dc_rights_s": "Public",
+	"dc_title_s": "Massachusetts 2008-2009 USGS Color Ortho Imagery",
+	"dc_type_s": "Dataset",
+	"dct_references_s": "{\"http://schema.org/url\":\"http://www.mass.gov/itd/colororthos2008\",\"https://doc.arcgis.com/en/arcgis-online/reference/arcgis-server-services.htm\": \"http://tiles.arcgis.com/tiles/hGdibHYSPO59RG1h/arcgis/rest/services/coq0809_from_sids_package/MapServer\"}",
+	"dct_temporal_sm": [
+	"2008-2009"
+	],
+	"dct_provenance_s": "MassGIS",
+	"georss_box_s": "41.18 -73.61 42.96 -69.78",
+	"layer_slug_s": "massgis-color_ortho_imagery_2008_2009",
+	"layer_id_s": "color_ortho_imagery_2008_2009",
+	"layer_geom_type_s": "Raster",
+	"layer_modified_dt": "2014-12-16T00:59:49Z",
+	"solr_geom": "ENVELOPE(-73.61, -69.78, 42.96, 41.18)",
+	"solr_year_i": 2008
+}

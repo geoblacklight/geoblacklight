@@ -36,5 +36,17 @@ describe Geoblacklight::ItemViewer do
         expect(item_viewer.viewer_preference).to eq iiif: 'http://www.example.com/iiif'
       end
     end
+    describe 'for esrimapservice reference' do
+      let(:document_attributes) {
+        {
+          dct_references_s: {
+            'https://doc.arcgis.com/en/arcgis-online/reference/arcgis-server-services.htm' => 'http://www.example.com/esrimapservice'
+          }.to_json
+        }
+      }
+      it 'returns esrimapservice' do
+        expect(item_viewer.viewer_preference).to eq esrimapservice: 'http://www.example.com/esrimapservice'
+      end
+    end
   end
 end

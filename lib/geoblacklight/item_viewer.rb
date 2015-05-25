@@ -22,8 +22,12 @@ module Geoblacklight
       @references.iiif
     end
 
+    def esrimapservice
+      @references.esrimapservice
+    end
+
     def viewer_preference
-      [wms, iiif].compact.map(&:to_hash).first
+      [wms, iiif, esrimapservice].compact.map(&:to_hash).first
     end
   end
 end

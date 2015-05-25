@@ -1,0 +1,30 @@
+{
+  "uuid": "urn:umn.edu:bb624c9ef87b44e3a4c97b9563575e82",
+  "dc_creator_sm": "Hennepin County Minnesota",
+  "dc_description_s": "This data set contains park locations found within Hennepin County. The locations were derived from a variety of data sources including city, county and regional data. The extent of parks is based on information supplied by each park authority or other research methods.",
+  "dc_identifier_s": "urn:umn.edu:bb624c9ef87b44e3a4c97b9563575e82",
+  "dc_language_s": "English",
+  "dc_publisher_s": "Hennepin County Minnesota",
+  "dc_title_s": "Hennepin County Parks",
+  "dc_rights_s": "Public",
+  "dct_provenance_s": "Minnesota",
+  "layer_id_s": "HC_PARKS",
+  "layer_slug_s": "minnesota-hc-parks",
+  "layer_geom_type_s": "Polygon",
+  "layer_modified_dt": "2015-05-26T16:18:37Z",
+  "dc_format_s": "Shapefile",
+  "dc_type_s": "Dataset",
+  "dct_references_s": "{\"http://schema.org/url\": \"http://gis.hennepin.us/OpenData/Metadata/Parks.pdf\", \"https://doc.arcgis.com/en/arcgis-online/reference/arcgis-server-services.htm\":\"http://gis.hennepin.us/arcgis/rest/services/HennepinData/PLACES/MapServer/3\"}",
+  "dc_spatial_sm": [
+    "Minnesota",
+    "Hennepin County"
+  ],
+  "dct_temporal_sm": [
+    "2014"
+  ],
+  "dct_issued_s": "20140101",
+  "georss_polygon_s": "45.2465, -93.7693, 45.2465, -93.1465, 44.7765, -93.1465, 44.7765, -93.7693, 45.2465, -93.7693",
+  "solr_geom": "ENVELOPE(-93.7693, -93.1465, 45.2465, 44.7765)",
+  "georss_box_s": "44.7765 -93.7693 45.2465 -93.1465",
+  "solr_year_i": "2014"
+}
