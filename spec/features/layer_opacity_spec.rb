@@ -6,4 +6,10 @@ feature 'Layer opacity', js: true do
     expect(page).to have_css('div.opacity-text', text: '75%')
     expect(page.all('div.leaflet-layer')[1][:style]).to match(/opacity: 0.75;/)
   end
+
+  scenario 'ESRI image service layer should have opacity control' do
+    visit catalog_path('minnesota-test-oregon-naip-2011')
+    expect(page).to have_css('div.opacity-text', text: '75%')
+    expect(page.find('img.leaflet-image-layer', match: :first)[:style]).to match(/opacity: 0.75;/)
+  end
 end

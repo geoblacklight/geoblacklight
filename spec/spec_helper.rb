@@ -20,6 +20,8 @@ Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, options)
 end
 
+Capybara.default_wait_time = 15
+
 if ENV['COVERAGE'] || ENV['CI']
   require 'simplecov'
   SimpleCov.formatter = Coveralls::SimpleCov::Formatter

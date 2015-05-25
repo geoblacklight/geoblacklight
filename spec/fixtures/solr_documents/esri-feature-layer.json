@@ -1,0 +1,28 @@
+{
+  "uuid": "test-neighborhoods-pdx",
+  "dc_format_s": "Shapefile",
+  "dc_identifier_s": "test-neighborhoods-pdx",
+  "dc_language_s": "English",
+  "dc_publisher_s": "City of Portland, Bureau of Planning and Sustainability",
+  "dc_rights_s": "Public",
+  "dc_title_s": "Neighborhood Association Areas",
+  "dc_type_s": "Dataset",
+  "dct_references_s": "{\"http://www.arcgis.com/rdf#FeatureLayer\":\"https://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/Neighborhoods_pdx/FeatureServer/0\"}",
+  "dct_spatial_sm": [
+    "Clackamas County",
+    "Multnomah County", 
+    "Washington County",
+    "Oregon"
+  ],
+  "dct_temporal_sm": [
+    "2015"
+  ],
+  "dct_provenance_s": "Minnesota",
+  "georss_box_s": "45.4295 -122.8392 45.6582 -122.4680",
+  "layer_slug_s": "minnesota-test-neighborhoods-pdx",
+  "layer_id_s": "test-neighborhoods-pdx",
+  "layer_geom_type_s": "Polygon",
+  "layer_modified_dt": "2015-06-16T00:33:04Z",
+  "solr_geom": "ENVELOPE(-122.8392, -122.4680, 45.6582, 45.4295)",
+  "solr_year_i": 2015
+}
