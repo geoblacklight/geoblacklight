@@ -21,5 +21,7 @@ module Geoblacklight
     end
     class WrongDownloadFormat < StandardError
     end
+    class WrongBoundingBoxFormat < StandardError
+    end
   end
 end
