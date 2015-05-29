@@ -7,7 +7,7 @@
 	"dc_rights_s": "Public",
 	"dc_title_s": "Massachusetts 2008-2009 USGS Color Ortho Imagery",
 	"dc_type_s": "Dataset",
-	"dct_references_s": "{\"http://schema.org/url\":\"http://www.mass.gov/itd/colororthos2008\",\"https://doc.arcgis.com/en/arcgis-online/reference/arcgis-server-services.htm\": \"http://tiles.arcgis.com/tiles/hGdibHYSPO59RG1h/arcgis/rest/services/coq0809_from_sids_package/MapServer\"}",
+	"dct_references_s": "{\"http://schema.org/url\":\"http://www.mass.gov/itd/colororthos2008\",\"http://resources.arcgis.com/en/help/arcgis-rest-api\": \"http://tiles.arcgis.com/tiles/hGdibHYSPO59RG1h/arcgis/rest/services/coq0809_from_sids_package/MapServer\"}",
 	"dct_temporal_sm": [
 	"2008-2009"
 	],

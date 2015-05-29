@@ -14,7 +14,7 @@
   "layer_modified_dt": "2015-05-26T16:18:37Z",
   "dc_format_s": "Shapefile",
   "dc_type_s": "Dataset",
-  "dct_references_s": "{\"http://schema.org/url\": \"http://gis.hennepin.us/OpenData/Metadata/Parks.pdf\", \"https://doc.arcgis.com/en/arcgis-online/reference/arcgis-server-services.htm\":\"http://gis.hennepin.us/arcgis/rest/services/HennepinData/PLACES/MapServer/3\"}",
+  "dct_references_s": "{\"http://schema.org/url\": \"http://gis.hennepin.us/OpenData/Metadata/Parks.pdf\", \"http://resources.arcgis.com/en/help/arcgis-rest-api\":\"http://gis.hennepin.us/arcgis/rest/services/HennepinData/PLACES/MapServer/3\"}",
   "dc_spatial_sm": [
     "Minnesota",
     "Hennepin County"

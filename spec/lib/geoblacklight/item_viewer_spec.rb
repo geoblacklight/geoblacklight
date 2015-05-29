@@ -40,7 +40,7 @@ describe Geoblacklight::ItemViewer do
       let(:document_attributes) {
         {
           dct_references_s: {
-            'https://doc.arcgis.com/en/arcgis-online/reference/arcgis-server-services.htm' => 'http://www.example.com/esrimapservice'
+            'http://resources.arcgis.com/en/help/arcgis-rest-api' => 'http://www.example.com/esrimapservice'
           }.to_json
         }
       }

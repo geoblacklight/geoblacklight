@@ -15,7 +15,7 @@ module Geoblacklight
       wfs: 'http://www.opengis.net/def/serviceType/ogc/wfs',
       wms: 'http://www.opengis.net/def/serviceType/ogc/wms',
       hgl: 'http://schema.org/DownloadAction',
-      esrimapservice: 'https://doc.arcgis.com/en/arcgis-online/reference/arcgis-server-services.htm'
+      esrimapservice: 'http://resources.arcgis.com/en/help/arcgis-rest-api'
     }
   end
 end

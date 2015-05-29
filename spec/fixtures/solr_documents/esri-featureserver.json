@@ -7,7 +7,7 @@
   "dc_rights_s": "Public",
   "dc_title_s": "Parks",
   "dc_type_s": "Dataset",
-  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"http://www.minneapolismn.gov/www/groups/public/@bis/documents/webcontent/wcms1p-106984.zip\",\"https://doc.arcgis.com/en/arcgis-online/reference/arcgis-server-services.htm\":\"http://services.arcgis.com/afSMGVsC7QlRK1kZ/ArcGIS/rest/services/Parks/FeatureServer/0\"}",
+  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"http://www.minneapolismn.gov/www/groups/public/@bis/documents/webcontent/wcms1p-106984.zip\",\"http://resources.arcgis.com/en/help/arcgis-rest-api\":\"http://services.arcgis.com/afSMGVsC7QlRK1kZ/ArcGIS/rest/services/Parks/FeatureServer/0\"}",
   "dct_spatial_sm": [
     "Minneapolis"
   ],
