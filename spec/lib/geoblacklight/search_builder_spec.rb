@@ -36,10 +36,23 @@ describe Geoblacklight::SearchBuilder do
     end
 
     it 'should return a spatial search if bbox is given' do
-      params = { :bbox => '123' }
+      params = { bbox: '-180 -80 120 80' }
       subject.with(params)
-      expect(subject.add_spatial_params(solr_params)[:fq].to_s).to include("Intersects")
+      expect(subject.add_spatial_params(solr_params)[:fq].to_s).to include('Intersects')
+    end
+  end
+  describe '#envelope_bounds' do
+    it 'calls to_envelope on the bounding box' do
+      bbox = double('bbox', to_envelope: 'test')
+      expect(subject).to receive(:bounding_box).and_return bbox
+      expect(subject.envelope_bounds).to eq 'test'
+    end
+  end
+  describe '#bounding_box' do
+    it 'creates a bounding box from a Solr lat-lon rectangle format' do
+      params = { bbox: '-120 -80 120 80' }
+      subject.with(params)
+      expect(subject.bounding_box).to be_an Geoblacklight::BoundingBox
     end
   end
 end
-
