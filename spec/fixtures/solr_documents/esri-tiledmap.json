@@ -1,22 +1,23 @@
 {
-	"uuid": "color_ortho_imagery_2008_2009",
-	"dc_description_s": "In spring 2008, the U.S. Geological Survey, as part of its Boston 133 Cities Urban Area mapping program, contracted for true-color imagery covering the metropolitan Boston area and beyond. Image type for the entire region (more than 1.7 million acres) is 24-bit, 3-band (red, green, blue) natural color. Each band has pixel values ranging 0-255. Pixel resolution is 30 cm., or approximately one foot. Additionally, 30 municipalities participated in the Boston Upgrade of the USGS project; these cities and towns contributed funding for separate flights to produce 4-band (red, green, blue, near-infrared) imagery. Pixel resolution for these images is 15 centimeters (approximately 6 inches). In spring 2009, USGS continued the project and 4-band 30cm imagery was obtained for the remainder of the state. Additionally, 14 municipalities provided funding for 4-band 15cm imagery to cover their communities. This digital orthoimagery can serve a variety of purposes, from general planning, to field reference for spatial analysis, to a tool for data development and revision of vector maps. It can also serve as a reference layer or basemap for myriad applications inside geographic information system (GIS) software.",
+	"uuid": "test-soil-survey-map",
+	"dc_description_s": "This map shows the Soil Survey Geographic (SSURGO) by the United States Department of Agriculture's Natural Resources Conservation Service. It also shows data that was developed by the National Cooperative Soil Survey and supersedes the State Soil Geographic (STATSGO) dataset published in 1994. SSURGO digitizing duplicates the original soil survey maps. This level of mapping is designed for use by landowners, townships, and county natural resource planning and management. The user should be knowledgeable of soils data and their characteristics. The smallest scale map shows the Global Soil Regions map by the United States Department of Agriculture’s Natural Resources Conservation Service.",
 	"dc_format_s": "GeoTIFF",
-	"dc_identifier_s": "color_ortho_imagery_2008_2009",
+	"dc_identifier_s": "test-soil-survey-map",
 	"dc_language_s": "English",
+	"dc_publisher_s": "United States Department of Agriculture, Natural Resources Conservation Service",
 	"dc_rights_s": "Public",
-	"dc_title_s": "Massachusetts 2008-2009 USGS Color Ortho Imagery",
+	"dc_title_s": "Soil Survey Geographic (SSURGO)",
 	"dc_type_s": "Dataset",
-	"dct_references_s": "{\"http://schema.org/url\":\"http://www.mass.gov/itd/colororthos2008\",\"http://resources.arcgis.com/en/help/arcgis-rest-api\": \"http://tiles.arcgis.com/tiles/hGdibHYSPO59RG1h/arcgis/rest/services/coq0809_from_sids_package/MapServer\"}",
+	"dct_references_s": "{\"http://resources.arcgis.com/en/help/arcgis-rest-api\": \"http://services.arcgisonline.com/arcgis/rest/services/Specialty/Soil_Survey_Map/MapServer/0r\"}",
 	"dct_temporal_sm": [
-	"2008-2009"
+	"2010"
 	],
-	"dct_provenance_s": "MassGIS",
-	"georss_box_s": "41.18 -73.61 42.96 -69.78",
-	"layer_slug_s": "massgis-color_ortho_imagery_2008_2009",
-	"layer_id_s": "color_ortho_imagery_2008_2009",
+	"dct_provenance_s": "Minnesota",
+	"georss_box_s": "21.8079 -129.4956 48.6336 -64.4393",
+	"layer_slug_s": "minnesota-test-soil-survey-map",
+	"layer_id_s": "test-soil-survey_map",
 	"layer_geom_type_s": "Raster",
-	"layer_modified_dt": "2014-12-16T00:59:49Z",
-	"solr_geom": "ENVELOPE(-73.61, -69.78, 42.96, 41.18)",
-	"solr_year_i": 2008
+	"layer_modified_dt": "2015-06-16T00:59:49Z",
+	"solr_geom": "ENVELOPE(-129.4956, -64.4393, 48.6336, 21.8079)",
+	"solr_year_i": 2010
 }

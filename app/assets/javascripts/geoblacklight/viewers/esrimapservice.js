@@ -5,7 +5,7 @@ GeoBlacklight.Viewer.Esrimapservice = GeoBlacklight.Viewer.Map.extend({
 
   // default feature styles
   defaultStyles: {
-      'esriGeometryPoint': '',
+      'esriGeometryPoint': '', 
       'esriGeometryMultipoint': '',
       'esriGeometryPolyline': {color: 'blue', weight: 3 },
       'esriGeometryPolygon': {color: 'blue', weight: 2 }
@@ -30,16 +30,17 @@ GeoBlacklight.Viewer.Esrimapservice = GeoBlacklight.Viewer.Map.extend({
     // remove any trailing slash from endpoint url
     _this.data.url = _this.data.url.replace(/\/$/, '');
 
-    // get layer info as json
-    url = _this.data.url + '?f=json';
-    $.getJSON(url, function(data) {
-      _this.layerInfo = data;
+    L.esri.get = L.esri.Request.get.JSONP;
+    L.esri.get(_this.data.url, {}, function(error, response){
+      if(!error) {
+         _this.layerInfo = response;
 
-      // add layer to map
-      if (_this.addPreviewLayer()) {
+         // add layer to map
+        if (_this.addPreviewLayer()) {
 
-        // add control if layer is added
-        _this.addOpacityControl();
+          // add control if layer is added
+          _this.addOpacityControl();
+        }
       }
     });
   },
@@ -49,18 +50,24 @@ GeoBlacklight.Viewer.Esrimapservice = GeoBlacklight.Viewer.Map.extend({
     // set esri leaflet options
     var options = { opacity: 1 };
 
-    // split endpoint url
+    // parse url
     var pathArray = this.data.url.split('/');
     var lastSegment = pathArray[pathArray.length - 1];
     var esriMapServiceLayer;
 
-    // parse url
+    // if it is an image server enpoint
     if (lastSegment === 'ImageServer') {
       esriMapServiceLayer = L.esri.imageMapLayer(this.data.url, options);
+
+    // if it is a mapserver endpoint
     } else if (lastSegment === 'MapServer') {
 
-      // check for correct spatial reference
-      if (this.layerInfo.spatialReference.wkid === 102100) {
+      // check if this is a dynamic map service
+      if (this.layerInfo.singleFusedMapCache === false && this.layerInfo.supportsDynamicLayers !== false) {
+        esriMapServiceLayer = L.esri.dynamicMapLayer(this.data.url, options);
+
+      // check if this is a tile map and layer and for correct spatial reference
+      } else if (this.layerInfo.singleFusedMapCache === true && this.layerInfo.spatialReference.wkid === 102100) {
 
         /**
           * TODO:  perhaps allow non-mercator projections and custom scales
@@ -72,7 +79,7 @@ GeoBlacklight.Viewer.Esrimapservice = GeoBlacklight.Viewer.Map.extend({
     // if last path segment is an integer
     } else if (Number(lastSegment) === parseInt(lastSegment, 10)) {
 
-      //  test if layer is feature layer
+      // test if layer is feature layer
       if (this.layerInfo.type === 'Feature Layer') {
 
         // set default style
@@ -94,7 +101,7 @@ GeoBlacklight.Viewer.Esrimapservice = GeoBlacklight.Viewer.Map.extend({
   getFeatureStyle: function() {
     var _this = this;
 
-    // lookup based on layer geometry type and return style hash
+    // lookup style hash based on layer geometry type and return function
     return function(feature) { return _this.defaultStyles[_this.layerInfo.geometryType]; };
   },
 
