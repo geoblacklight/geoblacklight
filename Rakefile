@@ -27,6 +27,11 @@ task :fixtures => ['engine_cart:generate'] do
   end
 end
 
+desc 'Run Teaspoon JavaScript tests'
+task :teaspoon do
+  system("TEASPOON_RAILS_ENV='./spec/internal/config/environment' teaspoon --require=spec/internal/spec/teaspoon_env.rb")
+end
+
 desc "Execute Continuous Integration build"
 task :ci do
   if Rails.env.test?
@@ -43,6 +48,8 @@ task :ci do
       # run the tests
       Rake::Task["spec"].invoke
     end
+    # Run JavaScript tests
+    Rake::Task['teaspoon'].invoke
   else
     system('rake ci RAILS_ENV=test')
   end
