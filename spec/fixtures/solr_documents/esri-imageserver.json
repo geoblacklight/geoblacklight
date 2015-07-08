@@ -7,7 +7,7 @@
 	"dc_rights_s": "Public",
 	"dc_title_s": "2011 One Meter Color IR NAIP Orthoimagery",
 	"dc_type_s": "Dataset",
-	"dct_references_s": "{\"http://resources.arcgis.com/en/help/arcgis-rest-api\": \"http://imagery.oregonexplorer.info/arcgis/rest/services/NAIP_2011/NAIP_2011_Dynamic/ImageServer\"}",
+	"dct_references_s": "{\"http://resources.arcgis.com/en/help/arcgis-rest-api#imageService\": \"http://imagery.oregonexplorer.info/arcgis/rest/services/NAIP_2011/NAIP_2011_Dynamic/ImageServer\"}",
 	"dct_temporal_sm": [
 	"2011"
 	],
