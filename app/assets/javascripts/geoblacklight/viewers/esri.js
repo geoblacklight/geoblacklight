@@ -2,6 +2,12 @@
 
 GeoBlacklight.Viewer.Esri = GeoBlacklight.Viewer.Map.extend({
   layerInfo: {},
+  
+  layerOptions: {
+
+    // sets initial layer opacity
+    opacity: 0.75 
+  },
 
   load: function() {
     this.options.bbox = L.bboxToBounds(this.data.mapBbox);
@@ -43,12 +49,38 @@ GeoBlacklight.Viewer.Esri = GeoBlacklight.Viewer.Map.extend({
 
     // if not null, add layer to map
     if (layer) {
+
       this.overlay.addLayer(layer);
       return true;
     }
   },
+  
+  // clear attribute table and setup spinner icon
+  appendLoadingMessage: function() {
+    var spinner = '<tbody class="attribute-table-body"><tr><td colspan="2">' +
+      '<span id="attribute-table">' +
+      '<i class="fa fa-spinner fa-spin fa-align-center">' +
+      '</i></span>' +
+      '</td></tr></tbody>';
 
-  addOpacityControl: function() {
-    this.map.addControl(new L.Control.LayerOpacity(this.overlay));
+    $('.attribute-table-body').html(spinner);
+  },
+
+  // appends error message to attribute table
+  appendErrorMessage: function() {
+    $('.attribute-table-body').html('<tbody class="attribute-table-body">'+ 
+      '<tr><td colspan="2">Could not find that feature</td></tr></tbody>');
+  },
+
+  // populates attribute table with feature properties
+  populateAttributeTable: function(feature) {
+    var html = $('<tbody class="attribute-table-body"></tbody>');
+
+    // step through properties and append to table
+    for (var property in feature.properties) {
+      html.append('<tr><td>' + property + '</td>'+
+                  '<td>' + feature.properties[property] + '</tr>');
+    }
+    $('.attribute-table-body').replaceWith(html);
   }
 });

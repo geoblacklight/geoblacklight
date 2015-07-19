@@ -4,11 +4,19 @@
   'use strict';
 
   L.Control.LayerOpacity = L.Control.extend({
-    initialize: function(layerGroup) {
-      var options = {
-        position: 'topleft',
-        layer: layerGroup.getLayers()[0]
-      };
+    initialize: function(layer) {
+      var options = { position: 'topleft' };
+
+      // check if layer is actually a layer group
+      if (typeof layer.getLayers !== 'undefined') {
+
+        // add first layer from layer group to options 
+        options.layer = layer.getLayers()[0];
+      } else {
+
+        // add layer to options
+        options.layer = layer;
+      }
 
       L.Util.setOptions(this, options);
     },

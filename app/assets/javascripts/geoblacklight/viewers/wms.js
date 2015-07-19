@@ -29,10 +29,6 @@ GeoBlacklight.Viewer.Wms = GeoBlacklight.Viewer.Map.extend({
     this.setupInspection();
   },
 
-  addOpacityControl: function() {
-    this.map.addControl(new L.Control.LayerOpacity(this.overlay));
-  },
-
   setupInspection: function() {
     var _this = this;
     this.map.on('click', function(e) {

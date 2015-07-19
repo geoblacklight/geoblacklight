@@ -47,6 +47,13 @@ GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
   },
 
   /**
+   * Add an opacity control to map.
+   */
+  addOpacityControl: function() {
+    this.map.addControl(new L.Control.LayerOpacity(this.overlay));
+  },
+
+  /**
   * Selects basemap if specified in data options, if not return mapquest
   */
   selectBasemap: function() {

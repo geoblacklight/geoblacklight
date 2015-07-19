@@ -1,0 +1,22 @@
+{
+  "uuid": "test-census",
+  "dc_creator_sm": "US Bureau of the Census: http://www.census.gov",
+  "dc_description_s": "This service presents various population statistics from Census 2000, including total population, population density, racial counts, and more. The map service presents statistics at the state, county, block group, and block point levels. This is a sample service hosted by ESRI, powered by ArcGIS Server. ESRI reserves the right to change or remove this service at any time and without notice. ",
+  "dc_identifier_s": "test-census",
+  "dc_language_s": "English",
+  "dc_title_s": "Census 2000",
+  "dc_rights_s": "Public",
+  "dct_provenance_s": "Minnesota",
+  "layer_id_s": "test-census",
+  "layer_slug_s": "minnesota-test-census",
+  "layer_geom_type_s": "Polygon",
+  "layer_modified_dt": "2015-07-19T16:18:37Z",
+  "dc_format_s": "Shapefile",
+  "dc_type_s": "Dataset",
+  "dct_references_s": "{\"http://www.arcgis.com/rdf#DynamicMapLayer\":\"http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer\"}",
+  "dct_temporal_sm": [
+    "2000"
+  ],
+  "solr_geom": "ENVELOPE(-179.6191, -65.2442, 71.4062, 17.8812)",
+  "solr_year_i": "2000"
+}

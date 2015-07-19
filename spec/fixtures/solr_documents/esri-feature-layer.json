@@ -7,7 +7,7 @@
   "dc_rights_s": "Public",
   "dc_title_s": "Neighborhood Association Areas",
   "dc_type_s": "Dataset",
-  "dct_references_s": "{\"http://resources.arcgis.com/en/help/arcgis-rest-api#featureService\":\"https://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/Neighborhoods_pdx/FeatureServer/0\"}",
+  "dct_references_s": "{\"http://www.arcgis.com/rdf#FeatureLayer\":\"https://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/Neighborhoods_pdx/FeatureServer/0\"}",
   "dct_spatial_sm": [
     "Clackamas County",
     "Multnomah County", 

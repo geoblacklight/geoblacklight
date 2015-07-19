@@ -22,20 +22,25 @@ module Geoblacklight
       @references.iiif
     end
 
-    def mapservice
-      @references.mapservice
+    def tiled_map_layer
+      @references.tiled_map_layer
     end
 
-    def featureservice
-      @references.featureservice
+    def dynamic_map_layer
+      @references.dynamic_map_layer
     end
 
-    def imageservice
-      @references.imageservice
+    def feature_layer
+      @references.feature_layer
+    end
+
+    def image_map_layer
+      @references.image_map_layer
     end
 
     def viewer_preference
-      [wms, iiif, mapservice, featureservice, imageservice].compact.map(&:to_hash).first
+      [wms, iiif, tiled_map_layer, dynamic_map_layer,
+       image_map_layer, feature_layer].compact.map(&:to_hash).first
     end
   end
 end
