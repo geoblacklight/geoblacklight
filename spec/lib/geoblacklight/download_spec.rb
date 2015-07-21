@@ -6,7 +6,7 @@ describe Geoblacklight::Download do
   let(:body) { double('body') }
   let(:document) { SolrDocument.new(layer_slug_s: 'test', dct_references_s: {'http://www.opengis.net/def/serviceType/ogc/wms' => 'http://www.example.com/wms'}.to_json) }
   let(:options) { { type: 'shapefile', extension: 'zip', service_type: 'wms', content_type: 'application/zip' } }
-  let(:download) { Geoblacklight::Download.new(document, options) }
+  let(:download) { Geoblacklight::ShapefileDownload.new(document, options) }
 
   describe '#initialize' do
     it 'should initialize as a Download object' do
@@ -76,6 +76,13 @@ describe Geoblacklight::Download do
       expect(response).to receive(:get).and_raise(Faraday::Error::ConnectionFailed.new('Failed'))
       expect(Faraday).to receive(:new).with(url: 'http://www.example.com/wms').and_return(response)
       expect { download.initiate_download }.to raise_error(Geoblacklight::Exceptions::ExternalDownloadFailed)
+    end
+  end
+  describe '#url_with_params' do
+    it 'creates a download url with params' do
+      expect(download.url_with_params).to eq 'http://www.example.com/wms/?ser' \
+        'vice=wfs&version=2.0.0&request=GetFeature&srsName=EPSG%3A4326&output' \
+        'format=SHAPE-ZIP&typeName'
     end
   end
 end

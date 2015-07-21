@@ -91,4 +91,17 @@ module GeoblacklightHelper
   def geoblacklight_basemap
     blacklight_config.basemap_provider || 'mapquest'
   end
+
+  ##
+  # Creates a CartoDB OneClick link link, using the configuration link
+  # @param [String] file_link
+  # @return [String]
+  def cartodb_link(file_link)
+    params  = URI.encode_www_form(
+      file: file_link,
+      provider: application_name,
+      logo: Settings.APPLICATION_LOGO_URL
+    )
+    Settings.CARTODB_ONECLICK_LINK + '?' + params
+  end
 end

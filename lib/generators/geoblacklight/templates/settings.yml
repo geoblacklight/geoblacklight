@@ -1,3 +1,9 @@
+# Configurable Logo Used for CartoDB export
+APPLICATION_LOGO_URL: 'http://geoblacklight.org/images/geoblacklight-logo.png'
+
+# CartoDB OneClick Service https://cartodb.com/open-in-cartodb/
+CARTODB_ONECLICK_LINK: 'http://oneclick.cartodb.com/'
+
 # Download path can be configured using this setting
 #DOWNLOAD_PATH: "./tmp/cache/downloads"
 

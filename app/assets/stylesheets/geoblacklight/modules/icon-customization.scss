@@ -37,3 +37,8 @@
 .geoblacklight-metadata {
   @extend .fa, .fa-file-text-o;
 }
+
+.geoblacklight-cartodb {
+  @extend .fa, .fa-map-marker;
+}
+

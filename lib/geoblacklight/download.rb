@@ -74,6 +74,13 @@ module Geoblacklight
       raise Geoblacklight::Exceptions::ExternalDownloadFailed, message: 'Download timed out', url: conn.url_prefix.to_s
     end
 
+    ##
+    # Creates a download url for the object
+    # @return [String]
+    def url_with_params
+      url + '/?' + URI.encode_www_form(@options[:request_params])
+    end
+
     private
 
     ##

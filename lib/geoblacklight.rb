@@ -10,6 +10,7 @@ module Geoblacklight
   require 'geoblacklight/view_helper_override'
   require 'geoblacklight/item_viewer'
   require 'geoblacklight/solr_document/finder'
+  require 'geoblacklight/solr_document/carto_db'
   require 'geoblacklight/solr_document'
   require 'geoblacklight/wms_layer'
   require 'geoblacklight/wms_layer/feature_info_response'
