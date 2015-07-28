@@ -70,8 +70,11 @@ module GeoblacklightHelper
     "#{t 'geoblacklight.download.download'} #{proper_case_format(format)}".html_safe
   end
 
+  ##
+  # Deteremines if item view should include attribute table
+  # @return [Boolean]
   def show_attribute_table?
-    return true if document_available? && @document.viewer_protocol == 'wms'
+    document_available? && @document.inspectable?
   end
 
   ##

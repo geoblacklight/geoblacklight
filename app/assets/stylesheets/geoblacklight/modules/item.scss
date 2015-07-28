@@ -2,8 +2,13 @@
   height: 440px;
 }
 
-[data-protocol="wms"][data-available="true"] {
+[data-inspect="true"][data-available="true"] {
   cursor: crosshair;
+
+  // set cursor for feature layer svg elements
+  .leaflet-clickable {
+    cursor: crosshair;
+  }
 }
 
 .download-element {

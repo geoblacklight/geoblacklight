@@ -14,7 +14,11 @@ module Geoblacklight
       wcs: 'http://www.opengis.net/def/serviceType/ogc/wcs',
       wfs: 'http://www.opengis.net/def/serviceType/ogc/wfs',
       wms: 'http://www.opengis.net/def/serviceType/ogc/wms',
-      hgl: 'http://schema.org/DownloadAction'
+      hgl: 'http://schema.org/DownloadAction',
+      feature_layer: 'http://www.arcgis.com/rdf#FeatureLayer',
+      tiled_map_layer: 'http://www.arcgis.com/rdf#TiledMapLayer',
+      dynamic_map_layer: 'http://www.arcgis.com/rdf#DynamicMapLayer',
+      image_map_layer: 'http://www.arcgis.com/rdf#ImageMapLayer'
     }
   end
 end
