@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'leaflet-rails', '~> 0.7.3'
   spec.add_dependency 'blacklight_range_limit', '~> 5.0.3'
   spec.add_dependency 'font-awesome-rails', '~> 4.1.0.0'
-  spec.add_dependency 'rails_config'
+  spec.add_dependency 'rails_config', '~> 0.4.2'
   spec.add_dependency 'faraday'
   spec.add_dependency 'coderay'
   spec.add_dependency 'geoblacklight-icons', '>= 0.2'
