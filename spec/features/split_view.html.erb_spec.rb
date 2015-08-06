@@ -8,7 +8,7 @@ feature 'Index view', js: true do
   scenario 'should have documents and map on page' do
     visit catalog_index_path(f: { dct_provenance_s: ['Stanford']})
     expect(page).to have_css('#documents')
-    expect(page).to have_css(".document", count: 2)
+    expect(page).to have_css(".document", count: 3)
     expect(page).to have_css('#map')
   end
 
@@ -47,8 +47,8 @@ feature 'Index view', js: true do
 
   scenario 'spatial search should reset to page one' do
     visit '/?per_page=5&q=%2A&page=2'
-    find("#map").double_click
-    expect(find('.page_entries')).to have_content('1 - 2 of 2')
+    find('#map').double_click
+    expect(find('.page_entries')).to have_content(/^1 - \d of \d$/)
   end
 
   scenario 'clicking map search should retain current search parameters' do
