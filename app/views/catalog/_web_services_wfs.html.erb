@@ -1,0 +1,8 @@
+<% document ||= @document %>
+
+<%= render partial: 'web_services_default', locals: { reference: reference } %>
+
+<div class='form-group form-inline'>
+  <label class='control-label'>WFS <code>typeNames</code></label>
+  <input type='text' value='<%= wxs_identifier(document) %>' readonly='readonly' class='form-control'>
+</div>

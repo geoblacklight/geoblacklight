@@ -1,0 +1,8 @@
+<% document ||= @document %>
+
+<div class='form-group web-services-form'>
+  <label for='<%= reference.type%>_webservice'>
+    <%= "#{formatted_name_reference(reference.type)}" %>
+  </label>
+  <input type='text' id='<%= reference.type%>_webservice' value='<%= reference.endpoint %>' readonly='readonly' class='form-control'>
+</div>

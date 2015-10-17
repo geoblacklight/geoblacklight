@@ -2,11 +2,7 @@
 
 <% document.references.refs.each do |reference| %>
   <% if Settings.WEBSERVICES_SHOWN.include? reference.type.to_s %>
-    <div class='form-group web-services-form'>
-      <label for='<%= reference.type%>_webservice'>
-        <%= "#{formatted_name_reference(reference.type)} link" %>
-      </label>
-      <input type='text' id='<%= reference.type%>_webservice' value='<%= reference.endpoint %>' readonly='readonly' class='form-control'>
-    </div>
+    <%= render_web_services(reference) %>
+    <hr>
   <% end %>
 <% end %>
