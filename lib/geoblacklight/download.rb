@@ -63,10 +63,8 @@ module Geoblacklight
       conn = Faraday.new(url: url)
       conn.get do |request|
         request.params = @options[:request_params]
-        request.options = {
-          timeout: timeout,
-          open_timeout: timeout
-        }
+        request.options.timeout = timeout
+        request.options.open_timeout = timeout
       end
     rescue Faraday::Error::ConnectionFailed => error
       raise Geoblacklight::Exceptions::ExternalDownloadFailed, message: 'Download connection failed', url: conn.url_prefix.to_s

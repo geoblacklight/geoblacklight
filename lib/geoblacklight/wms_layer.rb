@@ -23,10 +23,8 @@ module Geoblacklight
         conn = Faraday.new(url: url)
         conn.get do |request|
           request.params = search_params
-          request.options = {
-            timeout: Settings.TIMEOUT_WMS,
-            open_timeout: Settings.TIMEOUT_WMS
-          }
+          request.options.timeout = Settings.TIMEOUT_WMS
+          request.options.open_timeout = Settings.TIMEOUT_WMS
         end
       rescue Faraday::Error::ConnectionFailed => error
         Geoblacklight.logger.error error.inspect
