@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe GeoblacklightHelper do
+describe GeoblacklightHelper, type: :helper do
   include GeoblacklightHelper
   include ActionView::Helpers::UrlHelper
   include ActionView::Helpers::TranslationHelper
@@ -43,6 +43,24 @@ describe GeoblacklightHelper do
     it 'with custom configuration' do
       expect(blacklight_config).to receive(:basemap_provider).and_return('positron')
       expect(geoblacklight_basemap).to eq 'positron'
+    end
+  end
+  describe '#render_web_services' do
+    let(:reference) { double(type: 'wms') }
+    it 'with a reference to a defined partial' do
+      expect(helper).to receive(:render)
+        .with(partial: 'web_services_wms', locals: { reference: reference })
+      helper.render_web_services(reference)
+    end
+    it 'with a reference to a missing partial' do
+      reference = double(type: 'iiif')
+      # expect(helper).to receive(:render).and_raise ActionView::MissingTemplate
+      expect(helper).to receive(:render)
+        .with(partial: 'web_services_iiif', locals: { reference: reference })
+        .and_raise ActionView::MissingTemplate.new({}, '', '', '', '')
+      expect(helper).to receive(:render)
+        .with(partial: 'web_services_default', locals: { reference: reference })
+      helper.render_web_services(reference)
     end
   end
 end

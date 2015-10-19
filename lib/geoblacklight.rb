@@ -7,6 +7,8 @@ module Geoblacklight
   require 'geoblacklight/constants'
   require 'geoblacklight/controller_override'
   require 'geoblacklight/exceptions'
+  require 'geoblacklight/geoblacklight_helper_behavior'
+  require 'geoblacklight/document_presenter'
   require 'geoblacklight/view_helper_override'
   require 'geoblacklight/item_viewer'
   require 'geoblacklight/solr_document/finder'
@@ -25,7 +27,7 @@ module Geoblacklight
   require 'geoblacklight/references'
   require 'geoblacklight/routes'
   require 'geoblacklight/search_builder'
-  
+
   def self.inject!
     CatalogController.send(:include, Geoblacklight::ControllerOverride)
     CatalogController.send(:include, Geoblacklight::CatalogHelperOverride)
