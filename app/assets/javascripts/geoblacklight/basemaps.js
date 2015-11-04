@@ -5,7 +5,8 @@ GeoBlacklight.Basemaps = {
     'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
       maxZoom: 18,
-      worldCopyJump: true
+      worldCopyJump: true,
+      detectRetina: true
     }
   ),
   mapquest: L.tileLayer(
@@ -13,14 +14,16 @@ GeoBlacklight.Basemaps = {
       attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="//developer.mapquest.com/content/osm/mq_logo.png" alt="">',
       maxZoom: 18,
       worldCopyJump: true,
-      subdomains: '1234' // see http://developer.mapquest.com/web/products/open/map
+      subdomains: '1234', // see http://developer.mapquest.com/web/products/open/map
+      detectRetina: true
     }
   ),
   positron: L.tileLayer(
     'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
       maxZoom: 18,
-      worldCopyJump: true
+      worldCopyJump: true,
+      detectRetina: true
     }
   )
 };
