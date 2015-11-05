@@ -6,7 +6,7 @@ feature 'Metadata tools' do
       visit catalog_path 'stanford-cg357zz0321'
       expect(page).to have_css 'li.metadata a', text: 'Metadata'
       click_link 'Metadata'
-      within '.modal-body' do
+      within 'div.modal-body' do
         expect(page).to have_css 'div.label', text: 'MODS'
         expect(page).to have_css 'div.CodeRay', count: 2
         expect(page).to have_css 'div.label', text: 'ISO 19139'
