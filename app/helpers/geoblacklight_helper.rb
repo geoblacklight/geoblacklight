@@ -71,7 +71,7 @@ module GeoblacklightHelper
   end
 
   def show_attribute_table?
-    return true if document_available? && @document.viewer_protocol == 'wms'
+    document_available? && @document.inspectable?
   end
 
   ##
