@@ -15,5 +15,5 @@ spec/reports
 test/tmp
 test/version_tmp
 tmp
-spec/internal
 jetty
+.internal_test_app
