@@ -34,12 +34,14 @@ module Geoblacklight
     # @return [Hash, nil]
     def downloads_by_format
       case format
-      when 'Shapefile'
-        vector_download_formats
-      when 'GeoTIFF'
-        geotiff_download_formats
-      when 'ArcGRID'
-        arcgrid_download_formats
+        when 'Scanned Map'
+          scanned_download_formats
+        when 'Shapefile'
+          vector_download_formats
+        when 'GeoTIFF'
+          geotiff_download_formats
+        when 'ArcGRID'
+          arcgrid_download_formats
       end
     end
 
@@ -78,6 +80,13 @@ module Geoblacklight
       if wfs && wms
         { shapefile: wfs.to_hash, kmz: wms.to_hash, geojson: wfs.to_hash } if wms.present? && wfs.present?
       end
+    end
+
+    ##
+    # Download hash for a JPG file with a IIIF reference present
+    # @return (see #downloads_by_format)
+    def scanned_download_formats
+      { jpg: iiif.to_hash } if iiif.present?
     end
 
     ##
