@@ -4,13 +4,13 @@ class DownloadController < ApplicationController
   rescue_from Geoblacklight::Exceptions::ExternalDownloadFailed do |exception|
     Geoblacklight.logger.error exception.message + ' ' + exception.url
     flash[:danger] = view_context
-                         .content_tag(:span,
-                                      flash_error_message(exception),
-                                      data: {
-                                          download: 'error',
-                                          download_id: params[:id],
-                                          download_type: "generated-#{params[:type]}"
-                                      })
+                     .content_tag(:span,
+                         flash_error_message(exception),
+                         data: {
+                           download: 'error',
+                           download_id: params[:id],
+                           download_type: "generated-#{params[:type]}"
+                         })
     respond_to do |format|
       format.json { render json: flash, response: response }
       format.html { render json: flash, response: response }
@@ -64,10 +64,10 @@ class DownloadController < ApplicationController
     if exception.url
       message = t('geoblacklight.download.error_with_url',
                   link: view_context
-                            .link_to(exception.url,
-                                     exception.url,
-                                     target: 'blank'))
-                    .html_safe
+                        .link_to(exception.url,
+                                 exception.url,
+                                 target: 'blank'))
+                .html_safe
     else
       message = t('geoblacklight.download.error')
     end
@@ -81,17 +81,17 @@ class DownloadController < ApplicationController
 
   def check_type
     response = case params[:type]
-                 when 'shapefile'
-                   Geoblacklight::ShapefileDownload.new(@document).get
-                 when 'kmz'
-                   Geoblacklight::KmzDownload.new(@document).get
-                 when 'geojson'
-                   Geoblacklight::GeojsonDownload.new(@document).get
-                 when 'geotiff'
-                   Geoblacklight::GeotiffDownload.new(@document).get
-                 when 'jpg'
-                   Geoblacklight::JpgDownload.new(@document).get
-               end
+    when 'shapefile'
+      Geoblacklight::ShapefileDownload.new(@document).get
+    when 'kmz'
+      Geoblacklight::KmzDownload.new(@document).get
+    when 'geojson'
+      Geoblacklight::GeojsonDownload.new(@document).get
+    when 'geotiff'
+      Geoblacklight::GeotiffDownload.new(@document).get
+    when 'jpg'
+      Geoblacklight::JpgDownload.new(@document).get
+    end
   end
 
   def validate(response)

@@ -63,10 +63,8 @@ module Geoblacklight
       conn = Faraday.new(url: url)
       conn.get do |request|
         request.params = @options[:request_params]
-        request.options = {
-            timeout: timeout,
-            open_timeout: timeout
-        }
+        request.options.timeout = timeout
+        request.options.open_timeout = timeout
       end
     rescue Faraday::Error::ConnectionFailed => error
       raise Geoblacklight::Exceptions::ExternalDownloadFailed, message: 'Download connection failed', url: conn.url_prefix.to_s
@@ -95,13 +93,7 @@ module Geoblacklight
     # URL for download
     # @return [String] URL that is checked in download
     def url
-      if @options[:service_type] == "iiif" # If generated JPG download, the URL sent to Faraday is altered here to remove '/info.json' from the IIIF endpoint
-        url = @document.download_types[:jpg][:iiif]
-        url.slice! "info.json"
-        url += "/full/full/0/default.jpg"
-      else
-        url = @document.references.send(@options[:service_type]).endpoint
-      end
+      url = @document.references.send(@options[:service_type]).endpoint
       url += '/reflect' if @options[:reflect]
       url
     end

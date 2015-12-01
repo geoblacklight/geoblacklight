@@ -34,14 +34,14 @@ module Geoblacklight
     # @return [Hash, nil]
     def downloads_by_format
       case format
-        when 'Scanned Map'
-          scanned_download_formats
-        when 'Shapefile'
-          vector_download_formats
-        when 'GeoTIFF'
-          geotiff_download_formats
-        when 'ArcGRID'
-          arcgrid_download_formats
+      when 'Scanned Map'
+        scanned_download_formats
+      when 'Shapefile'
+        vector_download_formats
+      when 'GeoTIFF'
+        geotiff_download_formats
+      when 'ArcGRID'
+        arcgrid_download_formats
       end
     end
 

@@ -1,6 +1,12 @@
 module Geoblacklight
   class JpgDownload < Geoblacklight::Download
 
+    def url
+      url = @document.download_types[:jpg][:iiif]
+      url.slice! "info.json"
+      url += "full/full/0/default.jpg"
+    end
+
     def initialize(document, options = {})
       super(document, {
                         type: 'jpg',
