@@ -29,6 +29,7 @@ TIMEOUT_WMS: 4
 WEBSERVICES_SHOWN:
   - 'wms'
   - 'wfs'
+  - 'iiif'
 
 # WMS Parameters
 WMS_PARAMS:
