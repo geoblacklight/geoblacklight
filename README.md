@@ -28,15 +28,8 @@ $ rake geoblacklight:configure_solr
 Or install with [Docker](https://github.com/geoblacklight/geoblacklight-docker)
 For more information see the [installation guide](https://github.com/geoblacklight/geoblacklight/wiki/Installation)
 
-###[Contributing](https://github.com/geoblacklight/geoblacklight/wiki/Contributing)
-
-1. Fork it ( http://github.com/my-github-username/geoblacklight/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
-
-Also, if you wish to ask questions or participate further, email the [GeoBlacklight Working Group](https://groups.google.com/forum/#!forum/geoblacklight-working-group) at [geoblacklight-working-group@googlegroups.com](mailto:geoblacklight-working-group@googlegroups.com).
+### Contributing
+Interested in contributing to GeoBlacklight? Please see our [contributing](CONTRIBUTING.md) guide.
 
 ###[Development](https://github.com/geoblacklight/geoblacklight/wiki/Development)
 
