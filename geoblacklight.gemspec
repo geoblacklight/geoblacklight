@@ -33,7 +33,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'jettywrapper', '>= 2.0'
   spec.add_development_dependency 'engine_cart', '~> 0.4.0'
   spec.add_development_dependency 'capybara', '~> 2.3.0'
-  spec.add_development_dependency 'poltergeist', '~> 1.5.0'
+  spec.add_development_dependency 'poltergeist', '~> 1.5'
   spec.add_development_dependency 'factory_girl_rails'
   spec.add_development_dependency 'database_cleaner'
 end
