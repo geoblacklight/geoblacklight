@@ -19,9 +19,11 @@ en:
       geotiff: 'GeoTIFF'
       kmz: 'KMZ'
       shapefile: 'Shapefile'
+      jpg: 'JPEG'
     references:
       wms: 'Web Mapping Service (WMS)'
       wfs: 'Web Feature Service (WFS)'
+      iiif: 'International Image Interoperability Framework (IIIF)'
       iso19139: 'ISO 19139'
       mods: 'MODS'
       fgdc: 'FGDC'

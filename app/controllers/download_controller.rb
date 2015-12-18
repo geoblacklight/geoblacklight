@@ -5,12 +5,12 @@ class DownloadController < ApplicationController
     Geoblacklight.logger.error exception.message + ' ' + exception.url
     flash[:danger] = view_context
                      .content_tag(:span,
-                                  flash_error_message(exception),
-                                  data: {
-                                    download: 'error',
-                                    download_id: params[:id],
-                                    download_type: "generated-#{params[:type]}"
-                                  })
+                         flash_error_message(exception),
+                         data: {
+                           download: 'error',
+                           download_id: params[:id],
+                           download_type: "generated-#{params[:type]}"
+                         })
     respond_to do |format|
       format.json { render json: flash, response: response }
       format.html { render json: flash, response: response }
@@ -89,11 +89,13 @@ class DownloadController < ApplicationController
       Geoblacklight::GeojsonDownload.new(@document).get
     when 'geotiff'
       Geoblacklight::GeotiffDownload.new(@document).get
+    when 'jpg'
+      Geoblacklight::JpgDownload.new(@document).get
     end
   end
 
   def validate(response)
-    flash[:success] = view_context.link_to(t('geoblacklight.download.success', title: response), download_file_path(response), data: { download: 'trigger', download_id: params[:id], download_type: "generated-#{params[:type]}"})
+    flash[:success] = view_context.link_to(t('geoblacklight.download.success', title: response), download_file_path(response), data: {download: 'trigger', download_id: params[:id], download_type: "generated-#{params[:type]}"})
   end
 
   # Checks whether a document is public, if not require user to authenticate
