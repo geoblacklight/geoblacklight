@@ -79,11 +79,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'dct_spatial_sm', :label => 'Place', :limit => 8
     config.add_facet_field 'dct_isPartOf_sm', :label => 'Collection', :limit => 8
 
-    config.add_facet_field 'solr_year_i', :label => 'Year', :limit => 10, :range => {
-      # :num_segments => 6,
-      :assumed_boundaries => [1100, 2015]
-      # :segments => true
-    }
+    config.add_facet_field 'solr_year_i', :label => 'Year', :limit => 10
 
     config.add_facet_field 'dc_rights_s', label: 'Access', limit: 8, partial: "icon_facet"
     config.add_facet_field 'layer_geom_type_s', label: 'Data type', limit: 8, partial: "icon_facet"
