@@ -3,7 +3,6 @@ require "geoblacklight/engine"
 module Geoblacklight
   require 'geoblacklight/bounding_box'
   require 'geoblacklight/catalog_helper_override'
-  require 'geoblacklight/config'
   require 'geoblacklight/constants'
   require 'geoblacklight/controller_override'
   require 'geoblacklight/exceptions'
