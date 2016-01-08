@@ -1,3 +1,4 @@
+require 'active_support/dependencies'
 require 'geoblacklight/engine'
 
 module Geoblacklight
