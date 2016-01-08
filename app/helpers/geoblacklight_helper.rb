@@ -50,7 +50,7 @@ module GeoblacklightHelper
   #
   def render_facet_links(facet, items)
     items.uniq.map do |item|
-      link_to item, catalog_index_path(f: { facet => [item] })
+      link_to item, search_catalog_path(f: { facet => [item] })
     end.join(', ').html_safe
   end
 

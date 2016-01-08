@@ -43,7 +43,7 @@
     </div>
     <div class='col-md-6 text-center'>
       <%= content_tag :h3, t('geoblacklight.home.map_heading') %>
-      <%= content_tag :div, '', id: 'map', data: { map: 'home', 'catalog-path'=> catalog_index_path , 'map-bbox' => params[:bbox], basemap: geoblacklight_basemap } %>
+      <%= content_tag :div, '', id: 'map', data: { map: 'home', 'catalog-path'=> search_catalog_path , 'map-bbox' => params[:bbox], basemap: geoblacklight_basemap } %>
     </div>
   </div>
 </div>
