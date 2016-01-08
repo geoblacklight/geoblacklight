@@ -27,10 +27,6 @@ module Geoblacklight
       (direct_download || download_types.present?) && available?
     end
 
-    def download_types
-      references.download_types
-    end
-
     def references
       References.new(self)
     end
