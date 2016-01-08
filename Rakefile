@@ -12,12 +12,21 @@ APP_ROOT = File.dirname(__FILE__)
 require 'rspec/core/rake_task'
 require 'engine_cart/rake_task'
 require 'jettywrapper'
+require 'rubocop/rake_task'
 
 Dir.glob('lib/tasks/configure_solr.rake').each { |r| load r}
 
 task default: :ci
 
-RSpec::Core::RakeTask.new(:spec)
+desc 'Run style checker'
+RuboCop::RakeTask.new(:rubocop) do |task|
+  task.fail_on_error = true
+end
+
+desc 'Run test suite and style checker'
+task spec: :rubocop do
+  RSpec::Core::RakeTask.new(:spec)
+end
 
 desc "Load fixtures"
 task :fixtures => ['engine_cart:generate'] do

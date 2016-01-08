@@ -1,0 +1,21 @@
+inherit_from:
+  - .rubocop_todo.yml
+
+AllCops:
+  Rails:
+    Enabled: true
+
+
+  DisplayCopNames: true
+
+  Include:
+  - '**/Rakefile'
+
+  Exclude:
+  - 'db/**/*'
+  - 'vendor/**/*'
+  - '.internal_test_app/**/*'
+  - "lib/generators/geoblacklight/templates/**/*"
+
+Metrics/LineLength:
+  Enabled: false

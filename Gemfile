@@ -8,11 +8,13 @@ gemspec
 # it'll want sprockets 2.11.0 and we'll have a conflict
 gem 'sprockets', '2.11.0'
 
-group :test do
+group :development, :test do
   # Peg simplecov to < 0.8 until this is resolved:
   # https://github.com/colszowka/simplecov/issues/281
   gem 'simplecov', '~> 0.7.1', require: false
   gem 'coveralls', require: false
+  gem 'rubocop', require: false
+  gem 'rubocop-rspec', require: false
 end
 
 # BEGIN ENGINE_CART BLOCK
