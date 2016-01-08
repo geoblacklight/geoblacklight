@@ -29,7 +29,7 @@ end
 
 desc 'Run Teaspoon JavaScript tests'
 task :teaspoon do
-  system("TEASPOON_RAILS_ENV='.internal_test_app/config/environment' teaspoon --require=.internal_test_app/spec/teaspoon_env.rb")
+  system("teaspoon --require=.internal_test_app/spec/teaspoon_env.rb")
 end
 
 desc "Execute Continuous Integration build"
