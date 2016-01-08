@@ -11,6 +11,31 @@ module Geoblacklight
 
     desc 'Install Geoblacklight'
 
+    def mount_geoblacklight_engine
+      route "mount Geoblacklight::Engine => 'geoblacklight'"
+    end
+
+    def inject_geoblacklight_routes
+      route <<-EOF.strip_heredoc
+          concern :gbl_exportable, Geoblacklight::Routes::Exportable.new
+          resources :solr_documents, only: [:show], controller: 'catalog' do
+            concerns :gbl_exportable
+          end
+
+          concern :gbl_wms, Geoblacklight::Routes::Wms.new
+          namespace :wms do
+            concerns :gbl_wms
+          end
+
+          concern :gbl_downloadable, Geoblacklight::Routes::Downloadable.new
+          namespace :download do
+            concerns :gbl_downloadable
+          end
+
+          resources :download, only: [:show]
+      EOF
+    end
+
     def install_jettywrapper
       return unless options[:jettywrapper]
       copy_file 'config/jetty.yml'

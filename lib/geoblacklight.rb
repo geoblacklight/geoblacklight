@@ -34,7 +34,6 @@ module Geoblacklight
       SearchHistoryController.helpers.is_a?(Geoblacklight::ViewHelperOverride)
     SavedSearchesController.send(:helper, Geoblacklight::ViewHelperOverride) unless
       SavedSearchesController.helpers.is_a?(Geoblacklight::ViewHelperOverride)
-    Blacklight::Routes.send(:include, Geoblacklight::Routes)
   end
 
   def self.logger
