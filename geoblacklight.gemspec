@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'blacklight', '~> 5.12', '< 6'
+  spec.add_dependency 'blacklight', '~> 6.3'
   spec.add_dependency 'leaflet-rails', '~> 0.7.3'
   spec.add_dependency 'font-awesome-rails', '~> 4.1.0.0'
   spec.add_dependency 'rails_config', '~> 0.4.2'
