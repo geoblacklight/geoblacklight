@@ -4,7 +4,7 @@ describe Geoblacklight::Download do
   let(:response) { double('response') }
   let(:get) { double('get') }
   let(:body) { double('body') }
-  let(:document) { SolrDocument.new(layer_slug_s: 'test', dct_references_s: {'http://www.opengis.net/def/serviceType/ogc/wms' => 'http://www.example.com/wms'}.to_json) }
+  let(:document) { SolrDocument.new(layer_slug_s: 'test', dct_references_s: { 'http://www.opengis.net/def/serviceType/ogc/wms' => 'http://www.example.com/wms' }.to_json) }
   let(:options) { { type: 'shapefile', extension: 'zip', service_type: 'wms', content_type: 'application/zip' } }
   let(:download) { Geoblacklight::ShapefileDownload.new(document, options) }
 
@@ -58,7 +58,7 @@ describe Geoblacklight::Download do
       expect { download.create_download_file }.to raise_error(Geoblacklight::Exceptions::ExternalDownloadFailed, 'Wrong download type')
     end
     it 'should create the file, write it, and then rename from tmp if everything is ok' do
-      shapefile = OpenStruct.new(headers: {'content-type' => 'application/zip'})
+      shapefile = OpenStruct.new(headers: { 'content-type' => 'application/zip' })
       expect(download).to receive(:initiate_download).and_return(shapefile)
       expect(File).to receive(:open).with("#{download.file_path_and_name}.tmp", 'wb').and_return('')
       expect(File).to receive(:rename)
