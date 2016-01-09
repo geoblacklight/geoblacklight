@@ -265,9 +265,9 @@ Style/PredicateName:
 
 # Offense count: 1
 # Cop supports --auto-correct.
-Style/RedundantBegin:
-  Exclude:
-    - 'lib/geoblacklight/wms_layer.rb'
+# Style/RedundantBegin:
+#   Exclude:
+#     - 'lib/geoblacklight/wms_layer.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.

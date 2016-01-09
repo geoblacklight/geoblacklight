@@ -19,20 +19,18 @@ module Geoblacklight
     end
 
     def request_response
-      begin
-        conn = Faraday.new(url: url)
-        conn.get do |request|
-          request.params = search_params
-          request.options.timeout = Settings.TIMEOUT_WMS
-          request.options.open_timeout = Settings.TIMEOUT_WMS
-        end
-      rescue Faraday::Error::ConnectionFailed => error
-        Geoblacklight.logger.error error.inspect
-        { error: error.inspect }
-      rescue Faraday::Error::TimeoutError => error
-        Geoblacklight.logger.error error.inspect
-        { error: error.inspect }
+      conn = Faraday.new(url: url)
+      conn.get do |request|
+        request.params = search_params
+        request.options.timeout = Settings.TIMEOUT_WMS
+        request.options.open_timeout = Settings.TIMEOUT_WMS
       end
+    rescue Faraday::Error::ConnectionFailed => error
+      Geoblacklight.logger.error error.inspect
+      { error: error.inspect }
+    rescue Faraday::Error::TimeoutError => error
+      Geoblacklight.logger.error error.inspect
+      { error: error.inspect }
     end
   end
 end
