@@ -347,5 +347,5 @@ Style/SpaceInsideParens:
 # Offense count: 3
 # Cop supports --auto-correct.
 # Configuration parameters: WordRegex.
-Style/WordArray:
-  MinSize: 4
+# Style/WordArray:
+#   MinSize: 4
