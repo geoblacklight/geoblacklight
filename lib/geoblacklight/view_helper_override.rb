@@ -33,7 +33,7 @@ module Geoblacklight
           remove: search_action_path(remove_spatial_filter_group(:bbox, params)))
       end
 
-      return content
+      content
     end
   end
 end

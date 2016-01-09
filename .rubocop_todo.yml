@@ -272,9 +272,9 @@ Style/RedundantBegin:
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: AllowMultipleReturnValues.
-Style/RedundantReturn:
-  Exclude:
-    - 'lib/geoblacklight/view_helper_override.rb'
+# Style/RedundantReturn:
+#   Exclude:
+#     - 'lib/geoblacklight/view_helper_override.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
