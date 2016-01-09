@@ -215,9 +215,9 @@ Style/IndentHash:
 
 # Offense count: 24
 # Cop supports --auto-correct.
-Style/LeadingCommentSpace:
-  Exclude:
-    - 'spec/teaspoon_env.rb'
+# Style/LeadingCommentSpace:
+#   Exclude:
+#     - 'spec/teaspoon_env.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
