@@ -1,4 +1,4 @@
-ENV["RAILS_ENV"] ||= 'test'
+ENV['RAILS_ENV'] ||= 'test'
 
 require 'factory_girl'
 require 'database_cleaner'
@@ -15,25 +15,25 @@ Capybara.javascript_driver = :poltergeist
 Capybara.register_driver :poltergeist do |app|
   options = {}
 
-  options[:timeout] = 120 if RUBY_PLATFORM == "java"
+  options[:timeout] = 120 if RUBY_PLATFORM == 'java'
 
   Capybara::Poltergeist::Driver.new(app, options)
 end
 
-if ENV["COVERAGE"] or ENV["CI"]
+if ENV['COVERAGE'] or ENV['CI']
   require 'simplecov'
   SimpleCov.formatter = Coveralls::SimpleCov::Formatter
   SimpleCov.start do
-    add_filter "/spec/"
+    add_filter '/spec/'
   end
 end
 
 
 require 'geoblacklight'
 
-Dir["./spec/support/**/*.rb"].sort.each {|f| require f}
+Dir['./spec/support/**/*.rb'].sort.each {|f| require f}
 
-FactoryGirl.definition_file_paths = [File.expand_path("../factories", __FILE__)]
+FactoryGirl.definition_file_paths = [File.expand_path('../factories', __FILE__)]
 FactoryGirl.find_definitions
 
 RSpec.configure do |config|

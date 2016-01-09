@@ -1,4 +1,4 @@
-require "geoblacklight/engine"
+require 'geoblacklight/engine'
 
 module Geoblacklight
   require 'geoblacklight/bounding_box'

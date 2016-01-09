@@ -48,7 +48,7 @@ module Geoblacklight
     end
 
     def itemtype
-      "http://schema.org/Dataset"
+      'http://schema.org/Dataset'
     end
 
     def bounding_box_as_wsen

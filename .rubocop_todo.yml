@@ -318,8 +318,8 @@ Style/SpaceInsideParens:
 # Offense count: 67
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/StringLiterals:
-  Enabled: false
+# Style/StringLiterals:
+#   Enabled: false
 
 # Offense count: 7
 # Cop supports --auto-correct.

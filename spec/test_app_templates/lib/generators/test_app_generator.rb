@@ -4,16 +4,16 @@ class TestAppGenerator < Rails::Generators::Base
   source_root File.expand_path('../../../../spec/test_app_templates', __FILE__)
 
   def add_gems
-    gem 'blacklight', "~> 5.9"
+    gem 'blacklight', '~> 5.9'
     gem 'teaspoon'
     gem 'teaspoon-jasmine'
     Bundler.with_clean_env do
-      run "bundle install"
+      run 'bundle install'
     end
   end
 
   def run_blacklight_generator
-    say_status("warning", "GENERATING BL", :yellow)
+    say_status('warning', 'GENERATING BL', :yellow)
 
     generate 'blacklight:install', '--devise'
   end

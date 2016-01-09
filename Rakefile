@@ -28,34 +28,34 @@ task spec: :rubocop do
   RSpec::Core::RakeTask.new(:spec)
 end
 
-desc "Load fixtures"
+desc 'Load fixtures'
 task :fixtures => ['engine_cart:generate'] do
   EngineCart.within_test_app do
-    system "rake geoblacklight:solr:seed RAILS_ENV=test"
+    system 'rake geoblacklight:solr:seed RAILS_ENV=test'
     system 'rake geoblacklight:downloads:mkdir'
   end
 end
 
 desc 'Run Teaspoon JavaScript tests'
 task :teaspoon do
-  system("teaspoon --require=.internal_test_app/spec/teaspoon_env.rb")
+  system('teaspoon --require=.internal_test_app/spec/teaspoon_env.rb')
 end
 
-desc "Execute Continuous Integration build"
+desc 'Execute Continuous Integration build'
 task :ci do
   if Rails.env.test?
     Rake::Task['engine_cart:generate'].invoke
     Rake::Task['jetty:clean'].invoke
     Rake::Task['geoblacklight:configure_solr'].invoke
-    ENV['environment'] = "test"
+    ENV['environment'] = 'test'
     jetty_params = Jettywrapper.load_config
     jetty_params[:startup_wait]= 60
 
     Jettywrapper.wrap(jetty_params) do
-      Rake::Task["fixtures"].invoke
+      Rake::Task['fixtures'].invoke
 
       # run the tests
-      Rake::Task["spec"].invoke
+      Rake::Task['spec'].invoke
     end
     # Run JavaScript tests
     Rake::Task['teaspoon'].invoke

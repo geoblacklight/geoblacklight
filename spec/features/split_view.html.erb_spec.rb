@@ -8,7 +8,7 @@ feature 'Index view', js: true do
   scenario 'should have documents and map on page' do
     visit catalog_index_path(f: { dct_provenance_s: ['Stanford']})
     expect(page).to have_css('#documents')
-    expect(page).to have_css(".document", count: 3)
+    expect(page).to have_css('.document', count: 3)
     expect(page).to have_css('#map')
   end
 
