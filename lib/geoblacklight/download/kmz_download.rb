@@ -1,7 +1,7 @@
 module Geoblacklight
   class KmzDownload < Geoblacklight::Download
     KMZ_DOWNLOAD_PARAMS = { service: 'wms', version: '1.1.0', request: 'GetMap', srsName: 'EPSG:900913', format: 'application/vnd.google-earth.kmz', width: 2000, height: 2000 }
-    
+
     def initialize(document, options = {})
       request_params = KMZ_DOWNLOAD_PARAMS.merge(layers: document[:layer_id_s], bbox: document.bounding_box_as_wsen.split(' ').join(', '))
       super(document, {

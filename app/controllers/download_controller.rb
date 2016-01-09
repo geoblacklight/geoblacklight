@@ -59,7 +59,7 @@ class DownloadController < ApplicationController
   # Creates an error flash message with failed download url
   # @param [Geoblacklight::Exceptions::ExternalDownloadFailed] Download failed
   # exception
-  # @return [String] error message to display in flash 
+  # @return [String] error message to display in flash
   def flash_error_message(exception)
     if exception.url
       message = t('geoblacklight.download.error_with_url',
@@ -81,15 +81,15 @@ class DownloadController < ApplicationController
 
   def check_type
     response = case params[:type]
-    when 'shapefile'
-      Geoblacklight::ShapefileDownload.new(@document).get
-    when 'kmz'
-      Geoblacklight::KmzDownload.new(@document).get
-    when 'geojson'
-      Geoblacklight::GeojsonDownload.new(@document).get
-    when 'geotiff'
-      Geoblacklight::GeotiffDownload.new(@document).get
-    end
+               when 'shapefile'
+                 Geoblacklight::ShapefileDownload.new(@document).get
+               when 'kmz'
+                 Geoblacklight::KmzDownload.new(@document).get
+               when 'geojson'
+                 Geoblacklight::GeojsonDownload.new(@document).get
+               when 'geotiff'
+                 Geoblacklight::GeotiffDownload.new(@document).get
+               end
   end
 
   def validate(response)

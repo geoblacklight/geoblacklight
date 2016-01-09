@@ -20,8 +20,8 @@ Lint/CircularArgumentReference:
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: AlignWith, SupportedStyles, AutoCorrect.
-Lint/EndAlignment:
-  Enabled: false
+# Lint/EndAlignment:
+#   Enabled: false
 
 # Offense count: 1
 Lint/RescueException:
@@ -324,25 +324,25 @@ Style/StringLiterals:
 # Offense count: 7
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/TrailingBlankLines:
-  Exclude:
-    - 'app/models/concerns/geoblacklight/solr_document/finder.rb'
-    - 'config/initializers/rails_config.rb'
-    - 'lib/geoblacklight/wms_layer/feature_info_response.rb'
-    - 'spec/controllers/download_controller_spec.rb'
-    - 'spec/lib/geoblacklight/controller_override_spec.rb'
-    - 'spec/lib/geoblacklight/download/hgl_download_spec.rb'
-    - 'spec/support/features/session_helpers.rb'
+# Style/TrailingBlankLines:
+#   Exclude:
+#     - 'app/models/concerns/geoblacklight/solr_document/finder.rb'
+#     - 'config/initializers/rails_config.rb'
+#     - 'lib/geoblacklight/wms_layer/feature_info_response.rb'
+#     - 'spec/controllers/download_controller_spec.rb'
+#     - 'spec/lib/geoblacklight/controller_override_spec.rb'
+#     - 'spec/lib/geoblacklight/download/hgl_download_spec.rb'
+#     - 'spec/support/features/session_helpers.rb'
 
 # Offense count: 5
 # Cop supports --auto-correct.
-Style/TrailingWhitespace:
-  Exclude:
-    - 'app/controllers/download_controller.rb'
-    - 'lib/geoblacklight/download.rb'
-    - 'lib/geoblacklight/download/kmz_download.rb'
-    - 'lib/geoblacklight/exceptions.rb'
-    - 'spec/teaspoon_env.rb'
+# Style/TrailingWhitespace:
+#   Exclude:
+#     - 'app/controllers/download_controller.rb'
+#     - 'lib/geoblacklight/download.rb'
+#     - 'lib/geoblacklight/download/kmz_download.rb'
+#     - 'lib/geoblacklight/exceptions.rb'
+#     - 'spec/teaspoon_env.rb'
 
 # Offense count: 3
 # Cop supports --auto-correct.
