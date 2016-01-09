@@ -311,9 +311,9 @@ Style/SpaceInsideBlockBraces:
 
 # Offense count: 1
 # Cop supports --auto-correct.
-Style/SpaceInsideParens:
-  Exclude:
-    - 'lib/geoblacklight/view_helper_override.rb'
+# Style/SpaceInsideParens:
+#   Exclude:
+#     - 'lib/geoblacklight/view_helper_override.rb'
 
 # Offense count: 67
 # Cop supports --auto-correct.
