@@ -285,9 +285,9 @@ Style/RegexpLiteral:
 
 # Offense count: 1
 # Cop supports --auto-correct.
-Style/SpaceAfterComma:
-  Exclude:
-    - 'app/helpers/geoblacklight_helper.rb'
+# Style/SpaceAfterComma:
+#   Exclude:
+#     - 'app/helpers/geoblacklight_helper.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
