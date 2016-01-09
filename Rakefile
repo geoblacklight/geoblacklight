@@ -14,7 +14,7 @@ require 'engine_cart/rake_task'
 require 'jettywrapper'
 require 'rubocop/rake_task'
 
-Dir.glob('lib/tasks/configure_solr.rake').each { |r| load r}
+Dir.glob('lib/tasks/configure_solr.rake').each { |r| load r }
 
 task default: :ci
 

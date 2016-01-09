@@ -115,7 +115,7 @@ describe Geoblacklight::SolrDocument do
       end
     end
     describe 'without an hgl download' do
-      let(:document_attributes) {{}}
+      let(:document_attributes) { {} }
       it 'should return nil' do
         expect(document.direct_download).to be_nil
       end
