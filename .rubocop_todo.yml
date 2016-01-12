@@ -7,10 +7,10 @@
 # versions of RuboCop, may require this file to be generated again.
 
 # Offense count: 2
-Lint/AmbiguousRegexpLiteral:
-  Exclude:
-    - 'spec/features/home_page_spec.rb'
-    - 'spec/features/saved_searches_spec.rb'
+# Lint/AmbiguousRegexpLiteral:
+#   Exclude:
+#     - 'spec/features/home_page_spec.rb'
+#     - 'spec/features/saved_searches_spec.rb'
 
 # Offense count: 2
 Lint/CircularArgumentReference:
@@ -253,9 +253,9 @@ Style/PercentLiteralDelimiters:
 
 # Offense count: 4
 # Cop supports --auto-correct.
-Style/PerlBackrefs:
-  Exclude:
-    - 'app/models/concerns/geoblacklight/solr_document.rb'
+# Style/PerlBackrefs:
+#   Exclude:
+#     - 'app/models/concerns/geoblacklight/solr_document.rb'
 
 # Offense count: 1
 # Configuration parameters: NamePrefix, NamePrefixBlacklist, NameWhitelist.
@@ -279,9 +279,9 @@ Style/PredicateName:
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles, AllowInnerSlashes.
-Style/RegexpLiteral:
-  Exclude:
-    - 'lib/generators/geoblacklight/install_generator.rb'
+# Style/RegexpLiteral:
+#   Exclude:
+#     - 'lib/generators/geoblacklight/install_generator.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.

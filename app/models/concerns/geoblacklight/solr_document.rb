@@ -53,8 +53,9 @@ module Geoblacklight
 
     def bounding_box_as_wsen
       s = fetch(Settings.GEOMETRY_FIELD.to_sym)
-      if s =~ /^\s*ENVELOPE\(\s*([-\.\d]+)\s*,\s*([-\.\d]+)\s*,\s*([-\.\d]+)\s*,\s*([-\.\d]+)\s*\)\s*$/
-        w, s, e, n = $1, $4, $2, $3
+      bbox_match = /^\s*ENVELOPE\(\s*([-\.\d]+)\s*,\s*([-\.\d]+)\s*,\s*([-\.\d]+)\s*,\s*([-\.\d]+)\s*\)\s*$/.match(s)
+      if bbox_match
+        w, e, n, s = bbox_match.captures
         return "#{w} #{s} #{e} #{n}"
       else
         return s # as-is, not a WKT
