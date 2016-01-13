@@ -32,7 +32,7 @@ module GeoblacklightHelper
   end
 
   def geoblacklight_icon(name)
-    content_tag :span, '', class: "geoblacklight-icon geoblacklight-#{name.downcase.gsub(' ', '-')}", title: name
+    content_tag :span, '', class: "geoblacklight-icon geoblacklight-#{name.downcase.tr(' ', '-')}", title: name
   end
 
   def render_search_form_no_navbar

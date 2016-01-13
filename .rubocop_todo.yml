@@ -59,9 +59,9 @@ Metrics/MethodLength:
 
 # Offense count: 1
 # Cop supports --auto-correct.
-Performance/StringReplacement:
-  Exclude:
-    - 'app/helpers/geoblacklight_helper.rb'
+# Performance/StringReplacement:
+#   Exclude:
+#     - 'app/helpers/geoblacklight_helper.rb'
 
 # Offense count: 1
 # Style/AccessorMethodName:
