@@ -9,7 +9,6 @@ require 'geoblacklight-icons'
 
 module Geoblacklight
   class Engine < ::Rails::Engine
-
     Blacklight::Configuration.default_values[:view].split.partials = ['index']
     Blacklight::Configuration.default_values[:view].delete_field('list')
     # GeoblacklightHelper is needed by all helpers, so we inject it

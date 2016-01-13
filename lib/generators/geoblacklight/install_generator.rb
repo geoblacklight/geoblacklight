@@ -2,7 +2,6 @@ require 'rails/generators'
 
 module Geoblacklight
   class Install < Rails::Generators::Base
-
     source_root File.expand_path('../templates', __FILE__)
 
     class_option :jettywrapper, type: :boolean, default: false, desc: 'Use jettywrapper to download and control Jetty'
@@ -69,6 +68,5 @@ module Geoblacklight
         run 'bundle install'
       end
     end
-
   end
 end

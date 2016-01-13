@@ -39,7 +39,7 @@ module Geoblacklight
     # @return [String] filename of the completed download
     def create_download_file
       download = initiate_download
-      File.open("#{file_path_and_name}.tmp", 'wb')  do |file|
+      File.open("#{file_path_and_name}.tmp", 'wb') do |file|
         if download.headers['content-type'] == @options[:content_type]
           file.write download.body
         else

@@ -141,51 +141,51 @@ Style/Documentation:
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: AllowAdjacentOneLineDefs.
-Style/EmptyLineBetweenDefs:
-  Exclude:
-    - 'app/models/concerns/geoblacklight/solr_document.rb'
+# Style/EmptyLineBetweenDefs:
+#   Exclude:
+#     - 'app/models/concerns/geoblacklight/solr_document.rb'
 
 # Offense count: 5
 # Cop supports --auto-correct.
-Style/EmptyLines:
-  Exclude:
-    - 'lib/generators/geoblacklight/templates/catalog_controller.rb'
-    - 'spec/spec_helper.rb'
+# Style/EmptyLines:
+#   Exclude:
+#     - 'lib/generators/geoblacklight/templates/catalog_controller.rb'
+#     - 'spec/spec_helper.rb'
 
 # Offense count: 8
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/EmptyLinesAroundClassBody:
-  Exclude:
-    - 'lib/generators/geoblacklight/install_generator.rb'
-    - 'lib/generators/geoblacklight/templates/catalog_controller.rb'
-    - 'lib/geoblacklight/engine.rb'
-    - 'lib/geoblacklight/metadata.rb'
-    - 'lib/geoblacklight/references.rb'
-    - 'lib/geoblacklight/wms_layer.rb'
+# Style/EmptyLinesAroundClassBody:
+#   Exclude:
+#     - 'lib/generators/geoblacklight/install_generator.rb'
+#     - 'lib/generators/geoblacklight/templates/catalog_controller.rb'
+#     - 'lib/geoblacklight/engine.rb'
+#     - 'lib/geoblacklight/metadata.rb'
+#     - 'lib/geoblacklight/references.rb'
+#     - 'lib/geoblacklight/wms_layer.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
-Style/EmptyLinesAroundMethodBody:
-  Exclude:
-    - 'lib/geoblacklight/download/hgl_download.rb'
+# Style/EmptyLinesAroundMethodBody:
+#   Exclude:
+#     - 'lib/geoblacklight/download/hgl_download.rb'
 
 # Offense count: 3
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/EmptyLinesAroundModuleBody:
-  Exclude:
-    - 'app/helpers/geoblacklight_helper.rb'
-    - 'app/models/concerns/geoblacklight/solr_document/finder.rb'
-    - 'lib/geoblacklight/catalog_helper_override.rb'
+# Style/EmptyLinesAroundModuleBody:
+#   Exclude:
+#     - 'app/helpers/geoblacklight_helper.rb'
+#     - 'app/models/concerns/geoblacklight/solr_document/finder.rb'
+#     - 'lib/geoblacklight/catalog_helper_override.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: AllowForAlignment.
-Style/ExtraSpacing:
-  Exclude:
-    - 'lib/geoblacklight/download.rb'
-    - 'lib/geoblacklight/search_builder.rb'
+# Style/ExtraSpacing:
+#   Exclude:
+#     - 'lib/geoblacklight/download.rb'
+#     - 'lib/geoblacklight/search_builder.rb'
 
 # Offense count: 2
 # Configuration parameters: MinBodyLength.

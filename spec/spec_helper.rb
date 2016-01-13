@@ -28,7 +28,6 @@ if ENV['COVERAGE'] or ENV['CI']
   end
 end
 
-
 require 'geoblacklight'
 
 Dir['./spec/support/**/*.rb'].sort.each { |f| require f }

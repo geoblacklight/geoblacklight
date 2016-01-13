@@ -61,6 +61,7 @@ module Geoblacklight
         return s # as-is, not a WKT
       end
     end
+
     ##
     # Provides a convenience method to access a SolrDocument's References
     # endpoint url without having to check and see if it is available

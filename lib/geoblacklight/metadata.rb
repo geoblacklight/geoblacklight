@@ -1,6 +1,5 @@
 module Geoblacklight
   class Metadata
-
     ##
     # Instantiates a Geoblacklight::Metadata object used for retrieving and
     # formatting metadata
