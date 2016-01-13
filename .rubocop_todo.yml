@@ -122,10 +122,10 @@ Style/ColonMethodCall:
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: Keywords.
-Style/CommentAnnotation:
-  Exclude:
-    - 'spec/views/catalog/_document_split.html.erb_spec.rb'
-    - 'spec/views/catalog/_index_split.html.erb_spec.rb'
+# Style/CommentAnnotation:
+#   Exclude:
+#     - 'spec/views/catalog/_document_split.html.erb_spec.rb'
+#     - 'spec/views/catalog/_index_split.html.erb_spec.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
