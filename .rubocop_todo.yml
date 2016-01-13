@@ -64,9 +64,9 @@ Performance/StringReplacement:
     - 'app/helpers/geoblacklight_helper.rb'
 
 # Offense count: 1
-Style/AccessorMethodName:
-  Exclude:
-    - 'lib/geoblacklight/wms_layer.rb'
+# Style/AccessorMethodName:
+#   Exclude:
+#     - 'lib/geoblacklight/wms_layer.rb'
 
 # Offense count: 3
 # Cop supports --auto-correct.

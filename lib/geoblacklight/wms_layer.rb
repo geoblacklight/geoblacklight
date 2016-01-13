@@ -13,7 +13,7 @@ module Geoblacklight
       @params.except('URL')
     end
 
-    def get_feature_info
+    def feature_info
       @response.check
     end
 
