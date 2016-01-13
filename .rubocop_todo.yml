@@ -197,8 +197,8 @@ Style/GuardClause:
 # Offense count: 26
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles, UseHashRocketsWithSymbolValues.
-Style/HashSyntax:
-  Enabled: false
+# Style/HashSyntax:
+#   Enabled: false
 
 # Offense count: 1
 # Cop supports --auto-correct.

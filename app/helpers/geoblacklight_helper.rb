@@ -1,11 +1,11 @@
 module GeoblacklightHelper
 
   def sms_helper()
-    content_tag(:i, '', :class => 'fa fa-mobile fa-fw') + ' ' + t('blacklight.tools.sms')
+    content_tag(:i, '', class: 'fa fa-mobile fa-fw') + ' ' + t('blacklight.tools.sms')
   end
 
   def email_helper
-    content_tag(:i, '', :class => 'fa fa-envelope fa-fw') + ' ' + t('blacklight.tools.email')
+    content_tag(:i, '', class: 'fa fa-envelope fa-fw') + ' ' + t('blacklight.tools.email')
   end
 
   def document_available?

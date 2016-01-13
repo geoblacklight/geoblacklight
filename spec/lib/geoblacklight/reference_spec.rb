@@ -28,7 +28,7 @@ describe Geoblacklight::Reference do
   end
   describe '#to_hash' do
     it 'creates a hash using type and endpoint' do
-      expect(typical_reference.to_hash).to eq :wms => 'http://hgl.harvard.edu:8080/geoserver/wms'
+      expect(typical_reference.to_hash).to eq wms: 'http://hgl.harvard.edu:8080/geoserver/wms'
     end
   end
 end

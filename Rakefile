@@ -29,7 +29,7 @@ task spec: :rubocop do
 end
 
 desc 'Load fixtures'
-task :fixtures => ['engine_cart:generate'] do
+task fixtures: ['engine_cart:generate'] do
   EngineCart.within_test_app do
     system 'rake geoblacklight:solr:seed RAILS_ENV=test'
     system 'rake geoblacklight:downloads:mkdir'
