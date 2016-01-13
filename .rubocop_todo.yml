@@ -221,9 +221,9 @@ Style/IndentHash:
 
 # Offense count: 1
 # Cop supports --auto-correct.
-Style/LineEndConcatenation:
-  Exclude:
-    - 'lib/generators/geoblacklight/install_generator.rb'
+# Style/LineEndConcatenation:
+#   Exclude:
+#     - 'lib/generators/geoblacklight/install_generator.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
