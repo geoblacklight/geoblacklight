@@ -13,8 +13,8 @@ module Geoblacklight
       copy_file 'config/jetty.yml'
 
       append_to_file 'Rakefile',
-        "\nZIP_URL = \"https://github.com/projectblacklight/blacklight-jetty/archive/v4.10.3.zip\"\n" \
-          "require 'jettywrapper'\n"
+                     "\nZIP_URL = \"https://github.com/projectblacklight/blacklight-jetty/archive/v4.10.3.zip\"\n" \
+                       "require 'jettywrapper'\n"
     end
 
     def assets

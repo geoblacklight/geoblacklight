@@ -29,8 +29,8 @@ module Geoblacklight
 
       if params[:bbox]
         content << render_constraint_element('Bounding Box',
-          params[:bbox],
-          remove: search_action_path(remove_spatial_filter_group(:bbox, params)))
+                                             params[:bbox],
+                                             remove: search_action_path(remove_spatial_filter_group(:bbox, params)))
       end
 
       content

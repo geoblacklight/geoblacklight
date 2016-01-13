@@ -71,10 +71,10 @@ Style/AccessorMethodName:
 # Offense count: 3
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/AlignParameters:
-  Exclude:
-    - 'lib/generators/geoblacklight/install_generator.rb'
-    - 'lib/geoblacklight/view_helper_override.rb'
+# Style/AlignParameters:
+#   Exclude:
+#     - 'lib/generators/geoblacklight/install_generator.rb'
+#     - 'lib/geoblacklight/view_helper_override.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
