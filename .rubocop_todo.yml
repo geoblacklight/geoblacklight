@@ -79,16 +79,16 @@ Style/AlignParameters:
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/AndOr:
-  Exclude:
-    - 'spec/spec_helper.rb'
+# Style/AndOr:
+#   Exclude:
+#     - 'spec/spec_helper.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/BarePercentLiterals:
-  Exclude:
-    - 'geoblacklight.gemspec'
+# Style/BarePercentLiterals:
+#   Exclude:
+#     - 'geoblacklight.gemspec'
 
 # Offense count: 16
 # Cop supports --auto-correct.

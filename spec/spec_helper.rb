@@ -20,7 +20,7 @@ Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, options)
 end
 
-if ENV['COVERAGE'] or ENV['CI']
+if ENV['COVERAGE'] || ENV['CI']
   require 'simplecov'
   SimpleCov.formatter = Coveralls::SimpleCov::Formatter
   SimpleCov.start do
