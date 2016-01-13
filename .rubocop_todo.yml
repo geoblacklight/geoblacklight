@@ -103,21 +103,21 @@ Style/BlockDelimiters:
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/BracesAroundHashParameters:
-  Exclude:
-    - 'spec/lib/geoblacklight/wms_layer/feature_info_response_spec.rb'
+# Style/BracesAroundHashParameters:
+#   Exclude:
+#     - 'spec/lib/geoblacklight/wms_layer/feature_info_response_spec.rb'
 
 # Offense count: 4
 # Cop supports --auto-correct.
 # Configuration parameters: IndentWhenRelativeTo, SupportedStyles, IndentOneStep.
-Style/CaseIndentation:
-  Enabled: false
+# Style/CaseIndentation:
+#   Enabled: false
 
 # Offense count: 1
 # Cop supports --auto-correct.
-Style/ColonMethodCall:
-  Exclude:
-    - 'lib/tasks/geoblacklight.rake'
+# Style/ColonMethodCall:
+#   Exclude:
+#     - 'lib/tasks/geoblacklight.rake'
 
 # Offense count: 2
 # Cop supports --auto-correct.
