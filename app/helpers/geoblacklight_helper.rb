@@ -17,8 +17,8 @@ module GeoblacklightHelper
   end
 
   def snippit(text)
-    if (text)
-      if (text.length > 150)
+    if text
+      if text.length > 150
         text.slice(0, 150) + '...'
       else
         text
