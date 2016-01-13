@@ -1,5 +1,5 @@
 module GeoblacklightHelper
-  def sms_helper()
+  def sms_helper
     content_tag(:i, '', class: 'fa fa-mobile fa-fw') + ' ' + t('blacklight.tools.sms')
   end
 

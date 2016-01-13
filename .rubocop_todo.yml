@@ -129,9 +129,9 @@ Style/CommentAnnotation:
 
 # Offense count: 1
 # Cop supports --auto-correct.
-Style/DefWithParentheses:
-  Exclude:
-    - 'app/helpers/geoblacklight_helper.rb'
+# Style/DefWithParentheses:
+#   Exclude:
+#     - 'app/helpers/geoblacklight_helper.rb'
 
 # Offense count: 25
 # Configuration parameters: Exclude.
