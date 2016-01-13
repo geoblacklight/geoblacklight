@@ -98,9 +98,7 @@ class DownloadController < ApplicationController
 
   # Checks whether a document is public, if not require user to authenticate
   def restricted_should_authenticate
-    unless @document.public?
-      authenticate_user!
-    end
+    authenticate_user! unless @document.public?
   end
 
   def file_name_to_id(file_name)
