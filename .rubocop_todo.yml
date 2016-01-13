@@ -189,10 +189,10 @@ Style/ExtraSpacing:
 
 # Offense count: 2
 # Configuration parameters: MinBodyLength.
-Style/GuardClause:
-  Exclude:
-    - 'app/controllers/download_controller.rb'
-    - 'lib/geoblacklight/references.rb'
+# Style/GuardClause:
+#   Exclude:
+#     - 'app/controllers/download_controller.rb'
+#     - 'lib/geoblacklight/references.rb'
 
 # Offense count: 26
 # Cop supports --auto-correct.

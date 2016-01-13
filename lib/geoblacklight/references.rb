@@ -75,9 +75,7 @@ module Geoblacklight
     # present
     # @return (see #downloads_by_format)
     def vector_download_formats
-      if wfs && wms
-        { shapefile: wfs.to_hash, kmz: wms.to_hash, geojson: wfs.to_hash } if wms.present? && wfs.present?
-      end
+      { shapefile: wfs.to_hash, kmz: wms.to_hash, geojson: wfs.to_hash } if wms.present? && wfs.present?
     end
 
     ##
