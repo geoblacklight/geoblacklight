@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Geoblacklight::References do
-  let(:typical_ogp_shapefile) {
+  let(:typical_ogp_shapefile) do
     Geoblacklight::References.new(
       SolrDocument.new(
         dc_format_s: 'Shapefile',
@@ -11,16 +11,16 @@ describe Geoblacklight::References do
         }.to_json
       )
     )
-  }
-  let(:no_service_shapefile) {
+  end
+  let(:no_service_shapefile) do
     Geoblacklight::References.new(
       SolrDocument.new(
         dc_format_s: 'Shapefile',
         dct_references_s: {}.to_json
       )
     )
-  }
-  let(:typical_ogp_geotiff) {
+  end
+  let(:typical_ogp_geotiff) do
     Geoblacklight::References.new(
       SolrDocument.new(
         dc_format_s: 'GeoTIFF',
@@ -30,8 +30,8 @@ describe Geoblacklight::References do
         }.to_json
       )
     )
-  }
-  let(:typical_arcgrid) {
+  end
+  let(:typical_arcgrid) do
     Geoblacklight::References.new(
       SolrDocument.new(
         dc_format_s: 'ArcGRID',
@@ -41,8 +41,8 @@ describe Geoblacklight::References do
         }.to_json
       )
     )
-  }
-  let(:complex_shapefile) {
+  end
+  let(:complex_shapefile) do
     Geoblacklight::References.new(
       SolrDocument.new(
         dc_format_s: 'Shapefile',
@@ -56,16 +56,16 @@ describe Geoblacklight::References do
         }.to_json
       )
     )
-  }
-  let(:direct_download_only) {
+  end
+  let(:direct_download_only) do
     Geoblacklight::References.new(
       dc_format_s: 'GeoTIFF',
       dct_references_s: {
         'http://schema.org/downloadUrl' => 'http://example.com/layer-id-geotiff.tiff'
       }.to_json
     )
-  }
-  let(:simple_iiif_image) {
+  end
+  let(:simple_iiif_image) do
     Geoblacklight::References.new(
       SolrDocument.new(
         dc_format_s: 'Raster',
@@ -75,12 +75,12 @@ describe Geoblacklight::References do
         }.to_json
       )
     )
-  }
-  let(:custom_fields) {
+  end
+  let(:custom_fields) do
     Geoblacklight::References.new(
       SolrDocument.new, :new_ref_field
     )
-  }
+  end
   describe '#initialize' do
     it 'parses dct_references_s to @refs' do
       expect(typical_ogp_shapefile.instance_variable_get(:@refs)).to be_an Array

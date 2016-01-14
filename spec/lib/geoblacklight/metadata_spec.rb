@@ -3,13 +3,13 @@ require 'spec_helper'
 describe Geoblacklight::Metadata do
   let(:response) { double('response') }
   let(:get) { double('get') }
-  let(:opengeometadata) {
+  let(:opengeometadata) do
     Geoblacklight::Metadata.new(
       Geoblacklight::Reference.new(
         ['http://www.loc.gov/mods/v3', 'http://purl.stanford.edu/cg357zz0321.mods']
       )
     )
-  }
+  end
   describe '#retrieve_metadata' do
     it 'returns response from an endpoint url' do
       expect(response).to receive(:get).and_return(get)

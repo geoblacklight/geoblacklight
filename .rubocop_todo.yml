@@ -92,12 +92,12 @@ Metrics/MethodLength:
 # Offense count: 16
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles, ProceduralMethods, FunctionalMethods, IgnoredMethods.
-Style/BlockDelimiters:
-  Exclude:
-    - 'spec/lib/geoblacklight/item_viewer_spec.rb'
-    - 'spec/lib/geoblacklight/metadata_spec.rb'
-    - 'spec/lib/geoblacklight/references_spec.rb'
-    - 'spec/models/concerns/geoblacklight/solr_document_spec.rb'
+# Style/BlockDelimiters:
+#   Exclude:
+#     - 'spec/lib/geoblacklight/item_viewer_spec.rb'
+#     - 'spec/lib/geoblacklight/metadata_spec.rb'
+#     - 'spec/lib/geoblacklight/references_spec.rb'
+#     - 'spec/models/concerns/geoblacklight/solr_document_spec.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.

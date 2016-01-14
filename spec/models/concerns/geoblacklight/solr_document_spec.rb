@@ -35,14 +35,14 @@ describe Geoblacklight::SolrDocument do
   end
   describe '#downloadable?' do
     describe 'available direct download' do
-      let(:document_attributes) {
+      let(:document_attributes) do
         {
           dc_rights_s: 'Public',
           dct_references_s: {
             'http://schema.org/downloadUrl' => 'http://example.com/direct/data.zip'
           }.to_json
         }
-      }
+      end
       it 'will be downloadable' do
         expect(document.downloadable?).to be_truthy
       end
@@ -84,13 +84,13 @@ describe Geoblacklight::SolrDocument do
   describe 'direct_download' do
     let(:document_attributes) { {} }
     describe 'with a direct download' do
-      let(:document_attributes) {
+      let(:document_attributes) do
         {
           dct_references_s: {
             'http://schema.org/downloadUrl' => 'http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip'
           }.to_json
         }
-      }
+      end
       it 'should return a direct download hash' do
         expect_any_instance_of(Geoblacklight::Reference).to receive(:to_hash)
         document.direct_download
@@ -103,13 +103,13 @@ describe Geoblacklight::SolrDocument do
   end
   describe 'hgl_download' do
     describe 'with an hgl download' do
-      let(:document_attributes) {
+      let(:document_attributes) do
         {
           dct_references_s: {
             'http://schema.org/DownloadAction' => 'http://example.com/harvard'
           }.to_json
         }
-      }
+      end
       it 'should return an hgl download hash' do
         expect(document.hgl_download[:hgl]).to eq('http://example.com/harvard')
       end
@@ -129,13 +129,13 @@ describe Geoblacklight::SolrDocument do
   end
   describe 'viewer_protocol' do
     describe 'with a wms reference' do
-      let(:document_attributes) {
+      let(:document_attributes) do
         {
           dct_references_s: {
             'http://www.opengis.net/def/serviceType/ogc/wms' => 'http://www.example.com/wms'
           }.to_json
         }
-      }
+      end
       it 'returns wms protocol' do
         expect(document.viewer_protocol).to eq 'wms'
       end
@@ -147,13 +147,13 @@ describe Geoblacklight::SolrDocument do
   end
   describe 'viewer_endpoint' do
     describe 'with a wms reference' do
-      let(:document_attributes) {
+      let(:document_attributes) do
         {
           dct_references_s: {
             'http://www.opengis.net/def/serviceType/ogc/wms' => 'http://www.example.com/wms'
           }.to_json
         }
-      }
+      end
       it 'returns wms endpoint' do
         expect(document.viewer_endpoint).to eq 'http://www.example.com/wms'
       end
