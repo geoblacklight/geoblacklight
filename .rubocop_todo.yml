@@ -13,9 +13,9 @@
 #     - 'spec/features/saved_searches_spec.rb'
 
 # Offense count: 2
-Lint/CircularArgumentReference:
-  Exclude:
-    - 'lib/geoblacklight/view_helper_override.rb'
+# Lint/CircularArgumentReference:
+#   Exclude:
+#     - 'lib/geoblacklight/view_helper_override.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -24,9 +24,9 @@ Lint/CircularArgumentReference:
 #   Enabled: false
 
 # Offense count: 1
-Lint/RescueException:
-  Exclude:
-    - 'lib/tasks/configure_solr.rake'
+# Lint/RescueException:
+#   Exclude:
+#     - 'lib/tasks/configure_solr.rake'
 
 # Offense count: 3
 # Cop supports --auto-correct.

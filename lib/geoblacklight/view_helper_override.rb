@@ -11,8 +11,8 @@ module Geoblacklight
       spatial_parameters? || super
     end
 
-    def query_has_constraints?(params = params)
-      has_search_parameters? || super
+    def query_has_constraints?(localized_params = params)
+      has_search_parameters? || super(localized_params)
     end
 
     def render_search_to_s(params)
@@ -24,13 +24,13 @@ module Geoblacklight
       render_search_to_s_element('Bounding box', render_filter_value(params['bbox']))
     end
 
-    def render_constraints_filters(params = params)
-      content = super(params)
+    def render_constraints_filters(localized_params = params)
+      content = super(localized_params)
 
-      if params[:bbox]
+      if localized_params[:bbox]
         content << render_constraint_element('Bounding Box',
-                                             params[:bbox],
-                                             remove: search_action_path(remove_spatial_filter_group(:bbox, params)))
+                                             localized_params[:bbox],
+                                             remove: search_action_path(remove_spatial_filter_group(:bbox, localized_params)))
       end
 
       content
