@@ -28,11 +28,16 @@ module GeoblacklightHelper
   end
 
   def render_facet_tags(facet)
-    render_facet_limit(facets_from_request(facet).first, partial: 'facet_tag_item', layout: 'facet_tag_layout')
+    render_facet_limit(facets_from_request(facet).first,
+                       partial: 'facet_tag_item',
+                       layout: 'facet_tag_layout')
   end
 
   def geoblacklight_icon(name)
-    content_tag :span, '', class: "geoblacklight-icon geoblacklight-#{name.downcase.tr(' ', '-')}", title: name
+    content_tag :span,
+                '',
+                class: "geoblacklight-icon geoblacklight-#{name.downcase.tr(' ', '-')}",
+                title: name
   end
 
   def render_search_form_no_navbar
@@ -44,7 +49,9 @@ module GeoblacklightHelper
   # passed in using the facet parameter
   #
   def render_facet_links(facet, items)
-    items.uniq.map { |item| link_to item, catalog_index_path(f: { "#{facet}" => [item] }) }.join(', ').html_safe
+    items.uniq.map do |item|
+      link_to item, catalog_index_path(f: { "#{facet}" => [item] })
+    end.join(', ').html_safe
   end
 
   ##

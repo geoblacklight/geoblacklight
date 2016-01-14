@@ -1,6 +1,10 @@
 module Geoblacklight
   class ShapefileDownload < Geoblacklight::Download
-    SHAPEFILE_DOWNLOAD_PARAMS = { service: 'wfs', version: '2.0.0', request: 'GetFeature', srsName: 'EPSG:4326', outputformat: 'SHAPE-ZIP' }
+    SHAPEFILE_DOWNLOAD_PARAMS = { service: 'wfs',
+                                  version: '2.0.0',
+                                  request: 'GetFeature',
+                                  srsName: 'EPSG:4326',
+                                  outputformat: 'SHAPE-ZIP' }
 
     def initialize(document, options = {})
       request_params = SHAPEFILE_DOWNLOAD_PARAMS.merge(typeName: document[:layer_id_s])

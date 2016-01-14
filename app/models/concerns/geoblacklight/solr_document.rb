@@ -52,8 +52,14 @@ module Geoblacklight
     end
 
     def bounding_box_as_wsen
-      s = fetch(Settings.GEOMETRY_FIELD.to_sym)
-      bbox_match = /^\s*ENVELOPE\(\s*([-\.\d]+)\s*,\s*([-\.\d]+)\s*,\s*([-\.\d]+)\s*,\s*([-\.\d]+)\s*\)\s*$/.match(s)
+      geom_field = fetch(Settings.GEOMETRY_FIELD.to_sym)
+      exp = /^\s*ENVELOPE\(
+                  \s*([-\.\d]+)\s*,
+                  \s*([-\.\d]+)\s*,
+                  \s*([-\.\d]+)\s*,
+                  \s*([-\.\d]+)\s*
+                  \)\s*$/x # uses 'x' option for free-spacing mode
+      bbox_match = exp.match(geom_field)
       if bbox_match
         w, e, n, s = bbox_match.captures
         return "#{w} #{s} #{e} #{n}"

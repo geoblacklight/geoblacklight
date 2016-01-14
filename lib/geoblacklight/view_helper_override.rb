@@ -28,9 +28,8 @@ module Geoblacklight
       content = super(localized_params)
 
       if localized_params[:bbox]
-        content << render_constraint_element('Bounding Box',
-                                             localized_params[:bbox],
-                                             remove: search_action_path(remove_spatial_filter_group(:bbox, localized_params)))
+        path = search_action_path(remove_spatial_filter_group(:bbox, localized_params))
+        content << render_constraint_element('Bounding Box', localized_params[:bbox], remove: path)
       end
 
       content

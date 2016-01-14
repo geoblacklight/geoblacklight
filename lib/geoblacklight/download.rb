@@ -49,7 +49,8 @@ module Geoblacklight
       File.rename("#{file_path_and_name}.tmp", "#{file_path_and_name}")
       file_name
     rescue Geoblacklight::Exceptions::WrongDownloadFormat => error
-      Geoblacklight.logger.error "#{error} expected #{@options[:content_type]} received #{download.headers['content-type']}"
+      Geoblacklight.logger.error "#{error} expected #{@options[:content_type]} "\
+                                 "received #{download.headers['content-type']}"
       File.delete("#{file_path_and_name}.tmp")
       raise Geoblacklight::Exceptions::ExternalDownloadFailed, message: 'Wrong download type'
     end
@@ -67,9 +68,13 @@ module Geoblacklight
         request.options.open_timeout = timeout
       end
     rescue Faraday::Error::ConnectionFailed
-      raise Geoblacklight::Exceptions::ExternalDownloadFailed, message: 'Download connection failed', url: conn.url_prefix.to_s
+      raise Geoblacklight::Exceptions::ExternalDownloadFailed,
+            message: 'Download connection failed',
+            url: conn.url_prefix.to_s
     rescue Faraday::Error::TimeoutError
-      raise Geoblacklight::Exceptions::ExternalDownloadFailed, message: 'Download timed out', url: conn.url_prefix.to_s
+      raise Geoblacklight::Exceptions::ExternalDownloadFailed,
+            message: 'Download timed out',
+            url: conn.url_prefix.to_s
     end
 
     ##

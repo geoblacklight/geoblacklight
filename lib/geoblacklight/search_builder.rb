@@ -4,7 +4,8 @@ module Geoblacklight
 
     def initialize(processor_chain, scope)
       super(processor_chain, scope)
-      @processor_chain += [:add_spatial_params] unless @processor_chain.include?(:add_spatial_params)
+      @processor_chain += [:add_spatial_params] unless @processor_chain
+                                                       .include?(:add_spatial_params)
     end
 
     ##

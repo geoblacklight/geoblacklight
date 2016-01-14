@@ -95,7 +95,11 @@ class DownloadController < ApplicationController
   end
 
   def validate(response)
-    flash[:success] = view_context.link_to(t('geoblacklight.download.success', title: response), download_file_path(response), data: { download: 'trigger', download_id: params[:id], download_type: "generated-#{params[:type]}" })
+    flash[:success] = view_context.link_to(t('geoblacklight.download.success', title: response),
+                                           download_file_path(response),
+                                           data: { download: 'trigger',
+                                                   download_id: params[:id],
+                                                   download_type: "generated-#{params[:type]}" })
   end
 
   # Checks whether a document is public, if not require user to authenticate
