@@ -71,6 +71,7 @@ class DownloadController < ApplicationController
     else
       message = t('geoblacklight.download.error')
     end
+    message
   end
 
   private
@@ -90,6 +91,7 @@ class DownloadController < ApplicationController
                when 'geotiff'
                  Geoblacklight::GeotiffDownload.new(@document).get
                end
+    response
   end
 
   def validate(response)

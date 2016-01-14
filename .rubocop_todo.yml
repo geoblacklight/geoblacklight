@@ -38,9 +38,9 @@
 #     - 'lib/tasks/geoblacklight.rake'
 
 # Offense count: 5
-Lint/UselessAssignment:
-  Exclude:
-    - 'app/controllers/download_controller.rb'
+# Lint/UselessAssignment:
+#   Exclude:
+#     - 'app/controllers/download_controller.rb'
 
 # Offense count: 4
 Metrics/AbcSize:
