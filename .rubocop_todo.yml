@@ -7,10 +7,10 @@
 # versions of RuboCop, may require this file to be generated again.
 
 # Offense count: 2
-RSpec/DescribeClass:
-  Exclude:
-    - 'spec/views/catalog/_document_split.html.erb_spec.rb'
-    - 'spec/views/catalog/_index_split.html.erb_spec.rb'
+# RSpec/DescribeClass:
+#   Exclude:
+#     - 'spec/views/catalog/_document_split.html.erb_spec.rb'
+#     - 'spec/views/catalog/_index_split.html.erb_spec.rb'
 
 # Offense count: 49
 RSpec/DescribedClass:
