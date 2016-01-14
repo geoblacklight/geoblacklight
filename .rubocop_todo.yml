@@ -49,6 +49,6 @@ RSpec/DescribedClass:
 #     - 'spec/lib/geoblacklight/wms_layer/feature_info_response_spec.rb'
 
 # Offense count: 12
-RSpec/InstanceVariable:
-  Exclude:
-    - 'spec/lib/geoblacklight/view_helper_override_spec.rb'
+# RSpec/InstanceVariable:
+#   Exclude:
+#     - 'spec/lib/geoblacklight/view_helper_override_spec.rb'
