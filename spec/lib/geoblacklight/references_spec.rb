@@ -96,49 +96,49 @@ describe Geoblacklight::References do
     end
   end
   describe 'format' do
-    it 'should return format' do
+    it 'returns format' do
       expect(complex_shapefile.format).to eq 'Shapefile'
       expect(direct_download_only.format).to eq 'GeoTIFF'
     end
   end
   describe 'refs' do
-    it 'should be enumberable references' do
+    it 'is enumberable references' do
       complex_shapefile.refs.each do |reference|
         expect(reference).to be_an Geoblacklight::Reference
       end
     end
   end
   describe 'direct_download' do
-    it 'should return the direct download link' do
+    it 'returns the direct download link' do
       download = complex_shapefile.download
       expect(download).to be_an Geoblacklight::Reference
       expect(download.endpoint).to eq('http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip')
       expect(direct_download_only.download.endpoint).to eq 'http://example.com/layer-id-geotiff.tiff'
     end
-    it 'should not return if download not available' do
+    it 'does not return if download not available' do
       expect(typical_ogp_shapefile.download).to be_nil
     end
   end
   describe 'preferred_download' do
-    it 'should return the direct download if available' do
+    it 'returns the direct download if available' do
       expect(complex_shapefile.preferred_download[:file_download][:download]).to eq 'http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip'
       expect(direct_download_only.preferred_download[:file_download][:download]).to eq 'http://example.com/layer-id-geotiff.tiff'
     end
-    it 'should return nil if there is no direct download' do
+    it 'returns nil if there is no direct download' do
       expect(typical_ogp_shapefile.preferred_download).to be_nil
     end
-    it 'should return nil if there is no direct download' do
+    it 'returns nil if there is no direct download' do
       expect(typical_ogp_geotiff.preferred_download).to be_nil
     end
   end
   describe 'download_types' do
-    it 'should return available downloads by format' do
+    it 'returns available downloads by format' do
       types = complex_shapefile.download_types
       expect(types.first[1]).to eq wfs: 'http://hgl.harvard.edu:8080/geoserver/wfs'
       expect(types.count).to eq 3
       expect(direct_download_only.download_types).to be_nil
     end
-    it 'should only return available downloads if no direct is present' do
+    it 'onlies return available downloads if no direct is present' do
       types = typical_ogp_shapefile.download_types
       expect(types.first[1]).to eq wfs: 'http://hgl.harvard.edu:8080/geoserver/wfs'
       expect(types.count).to eq 3

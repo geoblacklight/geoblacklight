@@ -11,11 +11,11 @@ describe Geoblacklight::ViewHelperOverride do
   end
 
   describe 'spatial_parameters?' do
-    it 'should not have spatial parameters' do
+    it 'does not have spatial parameters' do
       @fake_controller.params = {}
       expect(@fake_controller.spatial_parameters?).to be_falsey
     end
-    it 'should have spatial parameters' do
+    it 'has spatial parameters' do
       @fake_controller.params = { bbox: '123' }
       expect(@fake_controller.spatial_parameters?).to be_truthy
     end

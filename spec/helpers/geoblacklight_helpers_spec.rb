@@ -5,7 +5,7 @@ describe GeoblacklightHelper, type: :helper do
   include ActionView::Helpers::UrlHelper
   include ActionView::Helpers::TranslationHelper
   describe '#render_facet_links' do
-    it 'should contain unique links' do
+    it 'contains unique links' do
       expect(self).to receive(:catalog_index_path).exactly(3).times.and_return('http://example.com/catalog?f[dc_subject_sm][]=category')
       html = Capybara.string(render_facet_links('dc_subject_sm', %w(Test Test Earth Science)))
       expect(html).to have_css 'a', count: 3
