@@ -1,13 +1,7 @@
 require: rubocop-rspec
 
-inherit_from:
-  - .rubocop_todo.yml
-
 AllCops:
-  Rails:
-    Enabled: true
-
-
+  RunRailsCops: true
   DisplayCopNames: true
 
   Include:
@@ -26,14 +20,14 @@ Metrics/LineLength:
   - 'Rakefile'
   - 'lib/generators/geoblacklight/install_generator.rb'
 
-
+# TODO: Refactor large methods.
 Metrics/AbcSize:
   Max: 23
 
 Metrics/MethodLength:
   Max: 15
 
-# TODO: Add top-level class and module documentation
+# TODO: Add top-level class and module documentation.
 Style/Documentation:
   Enabled: false
 

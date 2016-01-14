@@ -2,8 +2,9 @@ require 'spec_helper'
 
 describe Geoblacklight::GeoblacklightHelperBehavior do
   let(:dummy_class) do
-    Class.new { include Geoblacklight::GeoblacklightHelperBehavior }.new
+    Class.new.extend(described_class)
   end
+
   describe '#wxs_identifier' do
     it 'calls defined presenter class' do
       expect(dummy_class).to receive(:presenter)

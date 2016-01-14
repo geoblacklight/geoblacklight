@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe GeoblacklightHelper, type: :helper do
-  include GeoblacklightHelper
   include ActionView::Helpers::UrlHelper
   include ActionView::Helpers::TranslationHelper
   describe '#render_facet_links' do

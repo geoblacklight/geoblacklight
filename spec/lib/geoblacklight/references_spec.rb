@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Geoblacklight::References do
   let(:typical_ogp_shapefile) do
-    Geoblacklight::References.new(
+    described_class.new(
       SolrDocument.new(
         dc_format_s: 'Shapefile',
         dct_references_s: {
@@ -13,7 +13,7 @@ describe Geoblacklight::References do
     )
   end
   let(:no_service_shapefile) do
-    Geoblacklight::References.new(
+    described_class.new(
       SolrDocument.new(
         dc_format_s: 'Shapefile',
         dct_references_s: {}.to_json
@@ -21,7 +21,7 @@ describe Geoblacklight::References do
     )
   end
   let(:typical_ogp_geotiff) do
-    Geoblacklight::References.new(
+    described_class.new(
       SolrDocument.new(
         dc_format_s: 'GeoTIFF',
         dct_references_s: {
@@ -32,7 +32,7 @@ describe Geoblacklight::References do
     )
   end
   let(:typical_arcgrid) do
-    Geoblacklight::References.new(
+    described_class.new(
       SolrDocument.new(
         dc_format_s: 'ArcGRID',
         dct_references_s: {
@@ -43,7 +43,7 @@ describe Geoblacklight::References do
     )
   end
   let(:complex_shapefile) do
-    Geoblacklight::References.new(
+    described_class.new(
       SolrDocument.new(
         dc_format_s: 'Shapefile',
         dct_references_s: {
@@ -58,7 +58,7 @@ describe Geoblacklight::References do
     )
   end
   let(:direct_download_only) do
-    Geoblacklight::References.new(
+    described_class.new(
       dc_format_s: 'GeoTIFF',
       dct_references_s: {
         'http://schema.org/downloadUrl' => 'http://example.com/layer-id-geotiff.tiff'
@@ -66,7 +66,7 @@ describe Geoblacklight::References do
     )
   end
   let(:simple_iiif_image) do
-    Geoblacklight::References.new(
+    described_class.new(
       SolrDocument.new(
         dc_format_s: 'Raster',
         dct_references_s: {
@@ -77,7 +77,7 @@ describe Geoblacklight::References do
     )
   end
   let(:custom_fields) do
-    Geoblacklight::References.new(
+    described_class.new(
       SolrDocument.new, :new_ref_field
     )
   end

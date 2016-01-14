@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 describe Geoblacklight::FeatureInfoResponse do
-  let(:response) { Geoblacklight::FeatureInfoResponse.new(OpenStruct.new(body: '<html><body><table><th>Header1</th><th>Header2</th><td>value1</td><td>value2</td></body></html>', headers: { 'content-type' => 'all good' })) }
-  let(:error_response) { Geoblacklight::FeatureInfoResponse.new(error: 'bad stuff') }
-  let(:content_response) { Geoblacklight::FeatureInfoResponse.new(OpenStruct.new(headers: { 'content-type' => 'text/xml' })) }
+  let(:response) { described_class.new(OpenStruct.new(body: '<html><body><table><th>Header1</th><th>Header2</th><td>value1</td><td>value2</td></body></html>', headers: { 'content-type' => 'all good' })) }
+  let(:error_response) { described_class.new(error: 'bad stuff') }
+  let(:content_response) { described_class.new(OpenStruct.new(headers: { 'content-type' => 'text/xml' })) }
 
   describe '#initialize' do
     it 'initializes as a FeatureInfoResponse type' do
-      expect(response).to be_an Geoblacklight::FeatureInfoResponse
+      expect(response).to be_an described_class
     end
   end
 

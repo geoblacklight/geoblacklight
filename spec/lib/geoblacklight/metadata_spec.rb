@@ -4,7 +4,7 @@ describe Geoblacklight::Metadata do
   let(:response) { double('response') }
   let(:get) { double('get') }
   let(:opengeometadata) do
-    Geoblacklight::Metadata.new(
+    described_class.new(
       Geoblacklight::Reference.new(
         ['http://www.loc.gov/mods/v3', 'http://purl.stanford.edu/cg357zz0321.mods']
       )

@@ -10,7 +10,7 @@ describe Geoblacklight::Download do
 
   describe '#initialize' do
     it 'initializes as a Download object' do
-      expect(download).to be_an Geoblacklight::Download
+      expect(download).to be_an described_class
     end
   end
   describe '#file_name' do

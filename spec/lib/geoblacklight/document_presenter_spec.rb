@@ -5,7 +5,7 @@ describe Geoblacklight::DocumentPresenter do
   let(:config) { Blacklight::Configuration.new }
   subject { presenter }
   let(:presenter) do
-    Geoblacklight::DocumentPresenter.new(document, request_context, config)
+    described_class.new(document, request_context, config)
   end
 
   let(:document) do
