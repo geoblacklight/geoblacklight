@@ -41,3 +41,6 @@ Style/Documentation:
 Style/PredicateName:
   Exclude:
     - 'lib/geoblacklight/view_helper_override.rb'
+
+RSpec/FilePath:
+  Enabled: false

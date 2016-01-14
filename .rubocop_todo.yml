@@ -38,15 +38,15 @@ RSpec/DescribedClass:
 
 # Offense count: 7
 # Configuration parameters: CustomTransform.
-RSpec/FilePath:
-  Exclude:
-    - 'spec/controllers/download_controller_spec.rb'
-    - 'spec/lib/geoblacklight/download/geojson_download_spec.rb'
-    - 'spec/lib/geoblacklight/download/geotiff_download_spec.rb'
-    - 'spec/lib/geoblacklight/download/hgl_download_spec.rb'
-    - 'spec/lib/geoblacklight/download/kmz_download_spec.rb'
-    - 'spec/lib/geoblacklight/download/shapefile_download_spec.rb'
-    - 'spec/lib/geoblacklight/wms_layer/feature_info_response_spec.rb'
+# RSpec/FilePath:
+#   Exclude:
+#     - 'spec/controllers/download_controller_spec.rb'
+#     - 'spec/lib/geoblacklight/download/geojson_download_spec.rb'
+#     - 'spec/lib/geoblacklight/download/geotiff_download_spec.rb'
+#     - 'spec/lib/geoblacklight/download/hgl_download_spec.rb'
+#     - 'spec/lib/geoblacklight/download/kmz_download_spec.rb'
+#     - 'spec/lib/geoblacklight/download/shapefile_download_spec.rb'
+#     - 'spec/lib/geoblacklight/wms_layer/feature_info_response_spec.rb'
 
 # Offense count: 12
 RSpec/InstanceVariable:
