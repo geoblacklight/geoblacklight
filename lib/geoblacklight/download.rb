@@ -66,9 +66,9 @@ module Geoblacklight
         request.options.timeout = timeout
         request.options.open_timeout = timeout
       end
-    rescue Faraday::Error::ConnectionFailed => error
+    rescue Faraday::Error::ConnectionFailed
       raise Geoblacklight::Exceptions::ExternalDownloadFailed, message: 'Download connection failed', url: conn.url_prefix.to_s
-    rescue Faraday::Error::TimeoutError => error
+    rescue Faraday::Error::TimeoutError
       raise Geoblacklight::Exceptions::ExternalDownloadFailed, message: 'Download timed out', url: conn.url_prefix.to_s
     end
 

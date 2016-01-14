@@ -41,7 +41,6 @@ Lint/UnusedBlockArgument:
 Lint/UselessAssignment:
   Exclude:
     - 'app/controllers/download_controller.rb'
-    - 'lib/geoblacklight/download.rb'
 
 # Offense count: 4
 Metrics/AbcSize:
@@ -49,8 +48,8 @@ Metrics/AbcSize:
 
 # Offense count: 194
 # Configuration parameters: AllowURI, URISchemes.
-Metrics/LineLength:
-  Max: 317
+# Metrics/LineLength:
+#   Max: 317
 
 # Offense count: 3
 # Configuration parameters: CountComments.
