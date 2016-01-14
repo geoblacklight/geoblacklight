@@ -31,11 +31,11 @@ Lint/RescueException:
 # Offense count: 3
 # Cop supports --auto-correct.
 # Configuration parameters: IgnoreEmptyBlocks.
-Lint/UnusedBlockArgument:
-  Exclude:
-    - 'lib/geoblacklight/engine.rb'
-    - 'lib/geoblacklight/routes.rb'
-    - 'lib/tasks/geoblacklight.rake'
+# Lint/UnusedBlockArgument:
+#   Exclude:
+#     - 'lib/geoblacklight/engine.rb'
+#     - 'lib/geoblacklight/routes.rb'
+#     - 'lib/tasks/geoblacklight.rake'
 
 # Offense count: 5
 Lint/UselessAssignment:

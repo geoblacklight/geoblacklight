@@ -6,7 +6,7 @@ module Geoblacklight
     end
 
     def web_services_routes(primary_resource)
-      add_routes do |options|
+      add_routes do
         post 'wms/handle'
         resources :download, only: [:show, :file]
         get 'download/file/:id' => 'download#file', as: :download_file
