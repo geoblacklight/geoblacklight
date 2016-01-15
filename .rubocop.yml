@@ -38,3 +38,8 @@ Style/PredicateName:
 
 RSpec/FilePath:
   Enabled: false
+
+# Rubocop bug causes view specs to fail.
+#  https://github.com/nevir/rubocop-rspec/issues/47
+RSpec/DescribeClass:
+  Enabled: false
