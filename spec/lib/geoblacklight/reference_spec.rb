@@ -2,10 +2,10 @@ require 'spec_helper'
 
 describe Geoblacklight::Reference do
   let(:typical_reference) do
-    Geoblacklight::Reference.new(['http://www.opengis.net/def/serviceType/ogc/wms', 'http://hgl.harvard.edu:8080/geoserver/wms'])
+    described_class.new(['http://www.opengis.net/def/serviceType/ogc/wms', 'http://hgl.harvard.edu:8080/geoserver/wms'])
   end
   let(:blank_reference) do
-    Geoblacklight::Reference.new([])
+    described_class.new([])
   end
   describe '#initialize' do
     it 'instance variable reference is set' do
@@ -28,7 +28,7 @@ describe Geoblacklight::Reference do
   end
   describe '#to_hash' do
     it 'creates a hash using type and endpoint' do
-      expect(typical_reference.to_hash).to eq :wms => 'http://hgl.harvard.edu:8080/geoserver/wms'
+      expect(typical_reference.to_hash).to eq wms: 'http://hgl.harvard.edu:8080/geoserver/wms'
     end
   end
 end

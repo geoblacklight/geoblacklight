@@ -11,7 +11,6 @@ module Geoblacklight
       ##
       # Class level finder methods for documents
       module ClassMethods
-
         ##
         # Find a Solr Document from an index
         # @param [String]

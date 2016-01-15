@@ -27,10 +27,6 @@ module Geoblacklight
       (direct_download || download_types.present?) && available?
     end
 
-    def download_types
-      references.download_types
-    end
-
     def references
       References.new(self)
     end
@@ -52,18 +48,26 @@ module Geoblacklight
     end
 
     def itemtype
-      "http://schema.org/Dataset"
+      'http://schema.org/Dataset'
     end
 
     def bounding_box_as_wsen
-      s = fetch(Settings.GEOMETRY_FIELD.to_sym)
-      if s =~ /^\s*ENVELOPE\(\s*([-\.\d]+)\s*,\s*([-\.\d]+)\s*,\s*([-\.\d]+)\s*,\s*([-\.\d]+)\s*\)\s*$/
-        w, s, e, n = $1, $4, $2, $3
+      geom_field = fetch(Settings.GEOMETRY_FIELD.to_sym)
+      exp = /^\s*ENVELOPE\(
+                  \s*([-\.\d]+)\s*,
+                  \s*([-\.\d]+)\s*,
+                  \s*([-\.\d]+)\s*,
+                  \s*([-\.\d]+)\s*
+                  \)\s*$/x # uses 'x' option for free-spacing mode
+      bbox_match = exp.match(geom_field)
+      if bbox_match
+        w, e, n, s = bbox_match.captures
         return "#{w} #{s} #{e} #{n}"
       else
         return s # as-is, not a WKT
       end
     end
+
     ##
     # Provides a convenience method to access a SolrDocument's References
     # endpoint url without having to check and see if it is available

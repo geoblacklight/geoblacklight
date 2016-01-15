@@ -59,7 +59,7 @@ class DownloadController < ApplicationController
   # Creates an error flash message with failed download url
   # @param [Geoblacklight::Exceptions::ExternalDownloadFailed] Download failed
   # exception
-  # @return [String] error message to display in flash 
+  # @return [String] error message to display in flash
   def flash_error_message(exception)
     if exception.url
       message = t('geoblacklight.download.error_with_url',
@@ -71,6 +71,7 @@ class DownloadController < ApplicationController
     else
       message = t('geoblacklight.download.error')
     end
+    message
   end
 
   private
@@ -81,26 +82,29 @@ class DownloadController < ApplicationController
 
   def check_type
     response = case params[:type]
-    when 'shapefile'
-      Geoblacklight::ShapefileDownload.new(@document).get
-    when 'kmz'
-      Geoblacklight::KmzDownload.new(@document).get
-    when 'geojson'
-      Geoblacklight::GeojsonDownload.new(@document).get
-    when 'geotiff'
-      Geoblacklight::GeotiffDownload.new(@document).get
-    end
+               when 'shapefile'
+                 Geoblacklight::ShapefileDownload.new(@document).get
+               when 'kmz'
+                 Geoblacklight::KmzDownload.new(@document).get
+               when 'geojson'
+                 Geoblacklight::GeojsonDownload.new(@document).get
+               when 'geotiff'
+                 Geoblacklight::GeotiffDownload.new(@document).get
+               end
+    response
   end
 
   def validate(response)
-    flash[:success] = view_context.link_to(t('geoblacklight.download.success', title: response), download_file_path(response), data: { download: 'trigger', download_id: params[:id], download_type: "generated-#{params[:type]}"})
+    flash[:success] = view_context.link_to(t('geoblacklight.download.success', title: response),
+                                           download_file_path(response),
+                                           data: { download: 'trigger',
+                                                   download_id: params[:id],
+                                                   download_type: "generated-#{params[:type]}" })
   end
 
   # Checks whether a document is public, if not require user to authenticate
   def restricted_should_authenticate
-    unless @document.public?
-      authenticate_user!
-    end
+    authenticate_user! unless @document.public?
   end
 
   def file_name_to_id(file_name)

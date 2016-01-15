@@ -11,7 +11,7 @@ describe Geoblacklight::SearchBuilder do
   subject { search_builder.with(user_params) }
 
   describe '#initialize' do
-    it 'should have add_spatial_params in processor chain once' do
+    it 'has add_spatial_params in processor chain once' do
       expect(subject.processor_chain).to include :add_spatial_params
       expect(subject.processor_chain
         .count { |x| x == :add_spatial_params }).to eq 1
@@ -23,11 +23,11 @@ describe Geoblacklight::SearchBuilder do
   end
 
   describe '#add_spatial_params' do
-    it 'should return the solr_params when no bbox is given' do
+    it 'returns the solr_params when no bbox is given' do
       expect(subject.add_spatial_params(solr_params)).to eq solr_params
     end
 
-    it 'should return a spatial search if bbox is given' do
+    it 'returns a spatial search if bbox is given' do
       params = { bbox: '-180 -80 120 80' }
       subject.with(params)
       expect(subject.add_spatial_params(solr_params)[:fq].to_s).to include('Intersects')

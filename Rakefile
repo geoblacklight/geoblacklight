@@ -12,41 +12,50 @@ APP_ROOT = File.dirname(__FILE__)
 require 'rspec/core/rake_task'
 require 'engine_cart/rake_task'
 require 'jettywrapper'
+require 'rubocop/rake_task'
 
-Dir.glob('lib/tasks/configure_solr.rake').each { |r| load r}
+Dir.glob('lib/tasks/configure_solr.rake').each { |r| load r }
 
 task default: :ci
 
-RSpec::Core::RakeTask.new(:spec)
+desc 'Run style checker'
+RuboCop::RakeTask.new(:rubocop) do |task|
+  task.fail_on_error = true
+end
 
-desc "Load fixtures"
-task :fixtures => ['engine_cart:generate'] do
+desc 'Run test suite and style checker'
+task spec: :rubocop do
+  RSpec::Core::RakeTask.new(:spec)
+end
+
+desc 'Load fixtures'
+task fixtures: ['engine_cart:generate'] do
   EngineCart.within_test_app do
-    system "rake geoblacklight:solr:seed RAILS_ENV=test"
+    system 'rake geoblacklight:solr:seed RAILS_ENV=test'
     system 'rake geoblacklight:downloads:mkdir'
   end
 end
 
 desc 'Run Teaspoon JavaScript tests'
 task :teaspoon do
-  system("teaspoon --require=.internal_test_app/spec/teaspoon_env.rb")
+  system('teaspoon --require=.internal_test_app/spec/teaspoon_env.rb')
 end
 
-desc "Execute Continuous Integration build"
+desc 'Execute Continuous Integration build'
 task :ci do
   if Rails.env.test?
     Rake::Task['engine_cart:generate'].invoke
     Rake::Task['jetty:clean'].invoke
     Rake::Task['geoblacklight:configure_solr'].invoke
-    ENV['environment'] = "test"
+    ENV['environment'] = 'test'
     jetty_params = Jettywrapper.load_config
-    jetty_params[:startup_wait]= 60
+    jetty_params[:startup_wait] = 60
 
     Jettywrapper.wrap(jetty_params) do
-      Rake::Task["fixtures"].invoke
+      Rake::Task['fixtures'].invoke
 
       # run the tests
-      Rake::Task["spec"].invoke
+      Rake::Task['spec'].invoke
     end
     # Run JavaScript tests
     Rake::Task['teaspoon'].invoke

@@ -1,6 +1,6 @@
 class WmsController < ApplicationController
   def handle
-    response = Geoblacklight::WmsLayer.new(params).get_feature_info
+    response = Geoblacklight::WmsLayer.new(params).feature_info
 
     respond_to do |format|
       format.json { render json: response }

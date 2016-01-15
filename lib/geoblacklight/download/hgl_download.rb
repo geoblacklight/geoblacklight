@@ -1,10 +1,9 @@
 module Geoblacklight
   class HglDownload < Geoblacklight::Download
     def initialize(document, email, options = {})
-
       request_params = {
-        "LayerName" => document[:layer_id_s].sub(/^cite:/, ''),
-        "UserEmail" => email
+        'LayerName' => document[:layer_id_s].sub(/^cite:/, ''),
+        'UserEmail' => email
       }
       super(document, {
         request_params: request_params,

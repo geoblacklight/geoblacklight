@@ -7,7 +7,7 @@ module Geoblacklight
 
       ##
       # URL tried from failed download
-      # @return [String] 
+      # @return [String]
       def url
         @options[:url].to_s
       end

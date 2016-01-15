@@ -28,7 +28,8 @@ module Geoblacklight
     # @return [Geoblacklight::BoundingBox]
     def self.from_rectangle(rectangle)
       rectangle_array = rectangle.split(' ')
-      fail Geoblacklight::Exceptions::WrongBoundingBoxFormat, 'Bounding box should be a string in Solr rectangle syntax e.g."W S E N"' if rectangle_array.count != 4
+      message = 'Bounding box should be a string in Solr rectangle syntax e.g."W S E N"'
+      fail Geoblacklight::Exceptions::WrongBoundingBoxFormat, message if rectangle_array.count != 4
       new(
         rectangle_array[0],
         rectangle_array[1],

@@ -39,7 +39,7 @@ module Geoblacklight
     # @return [String] filename of the completed download
     def create_download_file
       download = initiate_download
-      File.open("#{file_path_and_name}.tmp", 'wb')  do |file|
+      File.open("#{file_path_and_name}.tmp", 'wb') do |file|
         if download.headers['content-type'] == @options[:content_type]
           file.write download.body
         else
@@ -49,7 +49,8 @@ module Geoblacklight
       File.rename("#{file_path_and_name}.tmp", "#{file_path_and_name}")
       file_name
     rescue Geoblacklight::Exceptions::WrongDownloadFormat => error
-      Geoblacklight.logger.error "#{error} expected #{@options[:content_type]} received #{download.headers['content-type']}"
+      Geoblacklight.logger.error "#{error} expected #{@options[:content_type]} "\
+                                 "received #{download.headers['content-type']}"
       File.delete("#{file_path_and_name}.tmp")
       raise Geoblacklight::Exceptions::ExternalDownloadFailed, message: 'Wrong download type'
     end
@@ -57,7 +58,7 @@ module Geoblacklight
     ##
     # Initiates download from a remote source url using the `request_params`.
     # Will catch Faraday::Error::ConnectionFailed and
-    # Faraday::Error::TimeoutError 
+    # Faraday::Error::TimeoutError
     # @return [Faraday::Request] returns a Faraday::Request object
     def initiate_download
       conn = Faraday.new(url: url)
@@ -66,10 +67,14 @@ module Geoblacklight
         request.options.timeout = timeout
         request.options.open_timeout = timeout
       end
-    rescue Faraday::Error::ConnectionFailed => error
-      raise Geoblacklight::Exceptions::ExternalDownloadFailed, message: 'Download connection failed', url: conn.url_prefix.to_s
-    rescue Faraday::Error::TimeoutError => error
-      raise Geoblacklight::Exceptions::ExternalDownloadFailed, message: 'Download timed out', url: conn.url_prefix.to_s
+    rescue Faraday::Error::ConnectionFailed
+      raise Geoblacklight::Exceptions::ExternalDownloadFailed,
+            message: 'Download connection failed',
+            url: conn.url_prefix.to_s
+    rescue Faraday::Error::TimeoutError
+      raise Geoblacklight::Exceptions::ExternalDownloadFailed,
+            message: 'Download timed out',
+            url: conn.url_prefix.to_s
     end
 
     ##

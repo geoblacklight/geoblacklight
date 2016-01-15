@@ -5,7 +5,7 @@ feature 'saved searches' do
     visit root_path
     within '#map' do
       find('.search-control a').click
-      expect(page.current_url).to match /bbox=/
+      expect(page.current_url).to match(/bbox=/)
     end
     visit search_history_path
     expect(page).to have_css 'td.query a', text: /Bounding box:/

@@ -1,11 +1,10 @@
 module GeoblacklightHelper
-
-  def sms_helper()
-    content_tag(:i, '', :class => 'fa fa-mobile fa-fw') + ' ' + t('blacklight.tools.sms')
+  def sms_helper
+    content_tag(:i, '', class: 'fa fa-mobile fa-fw') + ' ' + t('blacklight.tools.sms')
   end
 
   def email_helper
-    content_tag(:i, '', :class => 'fa fa-envelope fa-fw') + ' ' + t('blacklight.tools.email')
+    content_tag(:i, '', class: 'fa fa-envelope fa-fw') + ' ' + t('blacklight.tools.email')
   end
 
   def document_available?
@@ -17,9 +16,9 @@ module GeoblacklightHelper
   end
 
   def snippit(text)
-    if (text)
-      if (text.length > 150)
-        text.slice(0,150) + '...'
+    if text
+      if text.length > 150
+        text.slice(0, 150) + '...'
       else
         text
       end
@@ -29,11 +28,16 @@ module GeoblacklightHelper
   end
 
   def render_facet_tags(facet)
-    render_facet_limit(facets_from_request(facet).first, partial: 'facet_tag_item', layout: 'facet_tag_layout')
+    render_facet_limit(facets_from_request(facet).first,
+                       partial: 'facet_tag_item',
+                       layout: 'facet_tag_layout')
   end
 
   def geoblacklight_icon(name)
-    content_tag :span, '', class: "geoblacklight-icon geoblacklight-#{name.downcase.gsub(' ', '-')}", title: name
+    content_tag :span,
+                '',
+                class: "geoblacklight-icon geoblacklight-#{name.downcase.tr(' ', '-')}",
+                title: name
   end
 
   def render_search_form_no_navbar
@@ -45,7 +49,9 @@ module GeoblacklightHelper
   # passed in using the facet parameter
   #
   def render_facet_links(facet, items)
-    items.uniq.map { |item| link_to item, catalog_index_path(f: { "#{facet}" => [item] }) }.join(', ').html_safe
+    items.uniq.map do |item|
+      link_to item, catalog_index_path(f: { "#{facet}" => [item] })
+    end.join(', ').html_safe
   end
 
   ##

@@ -1,6 +1,5 @@
 module Geoblacklight
   module CatalogHelperOverride
-
     ##
     # Removes spatial query from params
     # @param [Symbol] symbol of field to be removed

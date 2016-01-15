@@ -1,0 +1,45 @@
+require: rubocop-rspec
+
+AllCops:
+  RunRailsCops: true
+  DisplayCopNames: true
+
+  Include:
+  - '**/Rakefile'
+
+  Exclude:
+  - 'db/**/*'
+  - 'vendor/**/*'
+  - '.internal_test_app/**/*'
+  - 'lib/generators/geoblacklight/templates/**/*'
+
+Metrics/LineLength:
+  Max: 100
+  Exclude:
+  - 'spec/**/*'
+  - 'Rakefile'
+  - 'lib/generators/geoblacklight/install_generator.rb'
+
+# TODO: Refactor large methods.
+Metrics/AbcSize:
+  Max: 23
+
+Metrics/MethodLength:
+  Max: 15
+
+# TODO: Add top-level class and module documentation.
+Style/Documentation:
+  Enabled: false
+
+# Overrides method in blacklight. Must use method name.
+Style/PredicateName:
+  Exclude:
+    - 'lib/geoblacklight/view_helper_override.rb'
+
+RSpec/FilePath:
+  Enabled: false
+
+# Rubocop bug causes view specs to fail.
+#  https://github.com/nevir/rubocop-rspec/issues/47
+RSpec/DescribeClass:
+  Enabled: false
