@@ -14,8 +14,8 @@ describe Geoblacklight::SolrDocument::Finder do
     end
   end
   describe '#index' do
-    it 'creates and returns a Blacklight::SolrRepository' do
-      expect(subject.index).to be_an Blacklight::SolrRepository
+    it 'creates and returns a Blacklight::Solr::Repository' do
+      expect(subject.index).to be_an Blacklight::Solr::Repository
     end
   end
 end
