@@ -4,7 +4,7 @@ GeoBlacklight.Viewer.FeatureLayer = GeoBlacklight.Viewer.Esri.extend({
 
   // default feature styles
   defaultStyles: {
-    'esriGeometryPoint': '', 
+    'esriGeometryPoint': '',
     'esriGeometryMultipoint': '',
     'esriGeometryPolyline': {color: 'blue', weight: 3 },
     'esriGeometryPolygon': {color: 'blue', weight: 2 }
@@ -44,8 +44,8 @@ GeoBlacklight.Viewer.FeatureLayer = GeoBlacklight.Viewer.Esri.extend({
     var _this = this;
 
     // lookup style hash based on layer geometry type and return function
-    return function(feature) { 
-      return _this.defaultStyles[_this.layerInfo.geometryType]; 
+    return function(feature) {
+      return _this.defaultStyles[_this.layerInfo.geometryType];
     };
   },
 
@@ -58,7 +58,7 @@ GeoBlacklight.Viewer.FeatureLayer = GeoBlacklight.Viewer.Esri.extend({
   setupInspection: function(featureLayer) {
     var _this = this;
 
-    // inspect on click    
+    // inspect on click
     featureLayer.on('click', function(e) {
       _this.appendLoadingMessage();
 
@@ -66,7 +66,7 @@ GeoBlacklight.Viewer.FeatureLayer = GeoBlacklight.Viewer.Esri.extend({
       featureLayer.query()
       .returnGeometry(false)
       .intersects(e.latlng)
-      .run(function(error, featureCollection, response){
+      .run(function(error, featureCollection, response) {
         if (error) {
           _this.appendErrorMessage();
         } else {

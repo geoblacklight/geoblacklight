@@ -2,11 +2,11 @@
 
 GeoBlacklight.Viewer.Esri = GeoBlacklight.Viewer.Map.extend({
   layerInfo: {},
-  
+
   layerOptions: {
 
     // sets initial layer opacity
-    opacity: 0.75 
+    opacity: 0.75
   },
 
   load: function() {
