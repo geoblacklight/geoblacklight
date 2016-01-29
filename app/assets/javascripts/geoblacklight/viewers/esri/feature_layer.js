@@ -13,13 +13,13 @@ GeoBlacklight.Viewer.FeatureLayer = GeoBlacklight.Viewer.Esri.extend({
   getPreviewLayer: function() {
 
     // set layer url
-    this.layerOptions.url = this.data.url;
+    this.options.url = this.data.url;
 
     // set default style
-    this.layerOptions.style = this.getFeatureStyle();
+    this.options.style = this.getFeatureStyle();
 
     // define feature layer
-    this.esriFeatureLayer = L.esri.featureLayer(this.layerOptions);
+    this.esriFeatureLayer = L.esri.featureLayer(this.options);
 
     //setup feature inspection and opacity
     this.setupInspection(this.esriFeatureLayer);
@@ -51,7 +51,7 @@ GeoBlacklight.Viewer.FeatureLayer = GeoBlacklight.Viewer.Esri.extend({
 
   setupInitialOpacity: function(featureLayer) {
     featureLayer.on('load', function(e) {
-      featureLayer.setOpacity(0.75);
+      featureLayer.setOpacity(this.options);
     });
   },
 

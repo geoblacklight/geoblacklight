@@ -5,7 +5,7 @@ GeoBlacklight.Viewer.TiledMapLayer = GeoBlacklight.Viewer.Esri.extend({
   getPreviewLayer: function() {
 
     // set layer url
-    this.layerOptions.url = this.data.url;
+    this.options.url = this.data.url;
 
     // check if this is a tile map and layer and for correct spatial reference
     if (this.layerInfo.singleFusedMapCache === true && this.layerInfo.spatialReference.wkid === 102100) {
@@ -15,7 +15,7 @@ GeoBlacklight.Viewer.TiledMapLayer = GeoBlacklight.Viewer.Esri.extend({
         *        - use Proj4Leaflet
       */
 
-      var esriTiledMapLayer = L.esri.tiledMapLayer(this.layerOptions);
+      var esriTiledMapLayer = L.esri.tiledMapLayer(this.options);
 
       //setup feature inspection
       this.setupInspection(esriTiledMapLayer);

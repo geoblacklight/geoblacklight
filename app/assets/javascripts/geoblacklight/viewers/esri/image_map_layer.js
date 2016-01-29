@@ -6,9 +6,9 @@ GeoBlacklight.Viewer.ImageMapLayer = GeoBlacklight.Viewer.Esri.extend({
   getPreviewLayer: function() {
 
     // set layer url
-    this.layerOptions.url = this.data.url;
+    this.options.url = this.data.url;
 
     // return image service layer
-    return L.esri.imageMapLayer(this.layerOptions);
+    return L.esri.imageMapLayer(this.options);
   }
 });
