@@ -1,0 +1,37 @@
+{
+    "uuid": "urn-90f14ff4-1359-4beb-b931-5cb41d20ab90",
+    "layer_geom_type_s": "Polygon",
+    "dc_identifier_s": "urn-90f14ff4-1359-4beb-b931-5cb41d20ab90",
+    "dc_title_s": "Glacial Boundaries: Illinois, 1997",
+    "dc_description_s": "This is an SDE feature class containing glacial boundary polygons representing the extent of glaciation for major glacial episodes in Illinois. Data are originally from the Quaternary Deposits in Illinois (1:500,000) map by Lineback (1979). Data have been subsequently modified to conform with the reclassification by Hansel and Johnson, ISGS Bulletin 104 (1996). Glacial episode is identified for each polygon. The data include the Wisconsin, Illinois and the Pre-Illinois episodes. Areas not glaciated are also identified. The nominal scale is 1:500,000.",
+    "dc_rights_s": "Public",
+    "dct_provenance_s": "University of Illinois",
+    "layer_id_s": "urn:f14ff4-1359-4beb-b931-5cb41d20ab90",
+    "layer_slug_s": "illinois-f14ff4-1359-4beb-b931-5cb41d20ab90",
+    "layer_modified_dt": "2016-01-12T16:10:41Z",
+    "dc_creator_sm": [
+        "Illinois State Geological Survey"
+    ],
+    "dc_publisher_sm": [
+        "Illinois State Geological Survey"
+    ],
+    "dc_format_s": "Shapefile",
+    "dc_type_s": "Dataset",
+    "dc_subject_sm": [
+        "Geoscientific Information",
+        "Boundaries",
+        "Glacier",
+        "Glacial",
+        "Geology",
+        "Glaciation"
+    ],
+    "dct_spatial_sm": [
+        "Illinois"
+    ],
+    "dct_issued_s": "1997-12-13",
+    "dct_temporal_sm": "1996",
+    "solr_geom": "ENVELOPE(-91.513518, -87.495214, 42.508348, 36.969972)",
+    "georss_box_s": "36.969972 -91.513518 42.508348 -87.495214",
+    "solr_year_i": 1997,
+    "dct_references_s": "{\"urn:x-esri:serviceType:ArcGIS#DynamicMapLayer\":\"http://data.isgs.illinois.edu/arcgis/rest/services/Geology/Glacial_Boundaries/MapServer\",\"http://schema.org/url\":\"https://clearinghouse.isgs.illinois.edu/data/geology/glacial-boundaries\",\"http://schema.org/downloadUrl\":\"https://clearinghouse.isgs.illinois.edu/sites/clearinghouse.isgs/files/Clearinghouse/data/ISGS/Geology/zips/IL_Glacial_Bndys_Py.zip\"}"
+}

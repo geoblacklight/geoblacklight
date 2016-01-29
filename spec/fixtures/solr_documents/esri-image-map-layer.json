@@ -1,0 +1,22 @@
+{
+  "uuid": "oregon-naip-2011",
+  "dc_description_s": "A Web Mercator mosaic derived from half-meter resolution color Digital Orthophoto Quadrangles (DOQ) of the entire state of Oregon from the summer of 2011 for multiple state agencies in Oregon. The original content was produced utilizing the scanned aerial film acquired during peak agriculture growing seasons under the National Agriculture Imagery Program (NAIP) under contract for the United States Department of Agriculture (USDA) for the Farm Service Agency's (FSA) Compliance Program. A DOQ is a raster image in which displacement in the image caused by sensor orientation and terrain relief has been removed. A DOQ combines the image characteristics of a photograph with the geometric qualities of a map. The geographic extent of the DOQ is a full 7.5-minute map (latitude and longitude) with a nominal buffer. The horizontal accuracy is within 5 meters of reference ortho imagery (1992 USGS DOQs.) The 1992 USGS DOQ imagery met National Map Accuracy Standards at 1:24,000 scale for 7.5-minute quadrangles. Translated to the ground, the 0.5 mm error distance at 1:24,000 scale is 39.4 ft (12 meters), making the absolute accuracy for the 2011 Oregon DOQs +/- 17 meters. The process of reprojecting and mosaicing the images may have added a potential shift of +/-0.75 meters, making the cumulative accuracy +/-17.75 meters. The original images were projected into a GCS_WGS_1984_Web_Mercator(Auxiliary Sphere) for compatibility with other generic web map services.",
+  "dc_format_s": "GeoTIFF",
+  "dc_identifier_s": "oregon-naip-2011",
+  "dc_language_s": "English",
+  "dc_rights_s": "Public",
+  "dc_title_s": "2011 One Meter Color IR NAIP Orthoimagery",
+  "dc_type_s": "Dataset",
+  "dct_references_s": "{\"urn:x-esri:serviceType:ArcGIS#ImageMapLayer\": \"http://imagery.oregonexplorer.info/arcgis/rest/services/NAIP_2011/NAIP_2011_Dynamic/ImageServer\"}",
+  "dct_temporal_sm": [
+    "2011"
+  ],
+  "dct_provenance_s": "University of Minnesota",
+  "georss_box_s": "41.91 -124.88 46.34 -116.41",
+  "layer_slug_s": "minnesota-test-oregon-naip-2011",
+  "layer_id_s": "oregon-naip-2011",
+  "layer_geom_type_s": "Raster",
+  "layer_modified_dt": "2015-27-15T00:41:49Z",
+  "solr_geom": "ENVELOPE(-124.88, -116.41, 46.34, 41.91)",
+  "solr_year_i": 2008
+}

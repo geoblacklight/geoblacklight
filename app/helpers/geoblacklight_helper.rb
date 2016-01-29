@@ -76,6 +76,9 @@ module GeoblacklightHelper
     "#{t 'geoblacklight.download.download'} #{proper_case_format(format)}".html_safe
   end
 
+  ##
+  # Deteremines if item view should include attribute table
+  # @return [Boolean]
   def show_attribute_table?
     document_available? && @document.inspectable?
   end

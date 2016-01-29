@@ -1,0 +1,39 @@
+ {
+  "layer_geom_type_s": "Polygon",
+  "layer_modified_dt": "2016-01-19T09:33:12.85Z",
+  "solr_geom": "ENVELOPE(-93.3291083642602, -93.1896159986687, 45.0512462600492, 44.8901520021226)",
+  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"http://opendata.minneapolismn.gov/datasets/772ebcaf2ec0405ea1b156b5937593e7_0.zip\",\"urn:x-esri:serviceType:ArcGIS#FeatureLayer\":\"https://services.arcgis.com/afSMGVsC7QlRK1kZ/arcgis/rest/services/Fire_Station_Areas/FeatureServer/0\",\"http://schema.org/url\":\"http://opendata.minneapolismn.gov/datasets/772ebcaf2ec0405ea1b156b5937593e7_0\"}",
+  "dc_rights_s": "Public",
+  "uuid": "http://opendata.minneapolismn.gov/datasets/772ebcaf2ec0405ea1b156b5937593e7_0",
+  "dct_provenance_s": "University of Minnesota",
+  "dc_subject_sm": [
+    "Boundaries",
+    "Minneapolis",
+    "Fire Station Areas",
+    "Fire",
+    "Fire Department",
+    "Boundaries"
+  ],
+  "dct_temporal_sm": [
+    "2015"
+  ],
+  "dc_description_s": "Map service showing the Fire Station service areas for the Minneapolis Fire Department.",
+  "dct_issued_s": "2012-04-25T19:32:02.000ZZ",
+  "dc_format_s": "Shapefile",
+  "dc_creator_sm": [
+    "MapIT Minneapolis"
+  ],
+  "dc_type_s": "Dataset",
+  "dc_identifier_s": "http://opendata.minneapolismn.gov/datasets/772ebcaf2ec0405ea1b156b5937593e7_0",
+  "solr_year_i": 2015,
+  "dct_spatial_sm": [
+    "Minneapolis, City of"
+  ],
+  "dc_publisher_sm": [
+    "MapIT Minneapolis"
+  ],
+  "layer_id_s": "urn:772ebcaf2ec0405ea1b156b5937593e7_0",
+  "georss_box_s": "44.8901520021226 -93.3291083642602 45.0512462600492 -93.1896159986687",
+  "dc_title_s": "Fire Station Areas",
+  "layer_slug_s": "minnesota-772ebcaf2ec0405ea1b156b5937593e7_0"
+}

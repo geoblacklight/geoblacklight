@@ -36,5 +36,17 @@ describe Geoblacklight::ItemViewer do
         expect(item_viewer.viewer_preference).to eq iiif: 'http://www.example.com/iiif'
       end
     end
+    describe 'for tiled map layer reference' do
+      let(:document_attributes) do
+        {
+          dct_references_s: {
+            'urn:x-esri:serviceType:ArcGIS#TiledMapLayer' => 'http://www.example.com/MapServer'
+          }.to_json
+        }
+      end
+      it 'returns mapservice' do
+        expect(item_viewer.viewer_preference).to eq tiled_map_layer: 'http://www.example.com/MapServer'
+      end
+    end
   end
 end

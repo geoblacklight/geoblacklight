@@ -24,7 +24,7 @@ feature 'Index view', js: true do
       expect(page).to have_css('div.panel.facet_limit', text: 'Format')
     end
     click_link 'Institution'
-    expect(page).to have_css('a.facet_select', text: 'Tufts', visible: true)
+    expect(page).to have_css('a.facet_select', text: 'Columbia', visible: true)
     expect(page).to have_css('a.facet_select', text: 'MIT', visible: true)
     expect(page).to have_css('a.facet_select', text: 'Stanford', visible: true)
   end
@@ -48,7 +48,7 @@ feature 'Index view', js: true do
   scenario 'spatial search should reset to page one' do
     visit '/?per_page=5&q=%2A&page=2'
     find('#map').double_click
-    expect(find('.page_entries')).to have_content(/^1 - \d of \d$/)
+    expect(find('.page_entries')).to have_content(/^1 - \d of \d.$/)
   end
 
   scenario 'clicking map search should retain current search parameters' do

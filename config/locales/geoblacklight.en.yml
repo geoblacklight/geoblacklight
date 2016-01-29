@@ -25,3 +25,7 @@ en:
       iso19139: 'ISO 19139'
       mods: 'MODS'
       fgdc: 'FGDC'
+      feature_layer: 'ArcGIS Feature Layer'
+      tiled_map_layer: 'ArcGIS Tiled Map Layer'
+      dynamic_map_layer: 'ArcGIS Dynamic Map Layer'
+      image_map_layer: 'ArcGIS Image Map Layer'
