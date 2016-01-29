@@ -7,7 +7,8 @@ GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
     * Initial bounds of map
     * @type {L.LatLngBounds}
     */
-    bbox: [[-80, -195], [80, 185]]
+    bbox: [[-80, -195], [80, 185]],
+    opacity: 0.75
   },
   
   overlay: L.layerGroup(),

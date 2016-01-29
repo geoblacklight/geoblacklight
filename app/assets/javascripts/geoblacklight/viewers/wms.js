@@ -23,7 +23,7 @@ GeoBlacklight.Viewer.Wms = GeoBlacklight.Viewer.Map.extend({
       transparent: true,
       tiled: true,
       CRS: 'EPSG:900913',
-      opacity: 0.75,
+      opacity: this.options.opacity,
       detectRetina: true
     });
     this.overlay.addLayer(wmsLayer);

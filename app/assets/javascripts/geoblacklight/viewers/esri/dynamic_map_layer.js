@@ -40,14 +40,14 @@ GeoBlacklight.Viewer.DynamicMapLayer = GeoBlacklight.Viewer.Esri.extend({
   getPreviewLayer: function() {
 
     // set layer url
-    this.layerOptions.url = this.data.url;
+    this.options.url = this.data.url;
 
     // show only single layer, if specified
     if (this.dynamicLayerId) {
-      this.layerOptions.layers = [this.dynamicLayerId];
+      this.options.layers = [this.dynamicLayerId];
     }
 
-    var esriDynamicMapLayer = L.esri.dynamicMapLayer(this.layerOptions);
+    var esriDynamicMapLayer = L.esri.dynamicMapLayer(this.options);
 
     // setup feature inspection
     this.setupInspection(esriDynamicMapLayer);
