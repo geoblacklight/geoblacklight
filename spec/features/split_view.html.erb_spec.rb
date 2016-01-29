@@ -24,7 +24,7 @@ feature 'Index view', js: true do
       expect(page).to have_css('div.panel.facet_limit', text: 'Format')
     end
     click_link 'Institution'
-    expect(page).to have_css('a.facet_select', text: 'Tufts', visible: true)
+    expect(page).to have_css('a.facet_select', text: 'Columbia', visible: true)
     expect(page).to have_css('a.facet_select', text: 'MIT', visible: true)
     expect(page).to have_css('a.facet_select', text: 'Stanford', visible: true)
   end
