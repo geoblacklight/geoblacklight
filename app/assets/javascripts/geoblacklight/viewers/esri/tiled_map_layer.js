@@ -15,7 +15,6 @@ GeoBlacklight.Viewer.TiledMapLayer = GeoBlacklight.Viewer.Esri.extend({
         *        - use Proj4Leaflet
       */
 
-      // 
       var esriTiledMapLayer = L.esri.tiledMapLayer(this.layerOptions);
 
       //setup feature inspection
@@ -25,15 +24,15 @@ GeoBlacklight.Viewer.TiledMapLayer = GeoBlacklight.Viewer.Esri.extend({
     }
   },
 
-  setupInspection: function(layer) { 
+  setupInspection: function(layer) {
     var _this = this;
     this.map.on('click', function(e) {
       _this.appendLoadingMessage();
 
       // query layer at click location
       L.esri.Tasks.identifyFeatures({
-          url: layer.options.url,
-          useCors: true
+        url: layer.options.url,
+        useCors: true
       })
         .tolerance(0)
         .returnGeometry(false)
