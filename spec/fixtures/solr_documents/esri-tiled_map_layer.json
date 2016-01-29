@@ -8,7 +8,7 @@
   "dc_rights_s": "Public",
   "dc_title_s": "Soil Survey Geographic (SSURGO)",
   "dc_type_s": "Dataset",
-  "dct_references_s": "{\"http://www.arcgis.com/rdf#TiledMapLayer\": \"http://services.arcgisonline.com/arcgis/rest/services/Specialty/Soil_Survey_Map/MapServer\"}",
+  "dct_references_s": "{\"urn:x-esri:serviceType:ArcGIS#TiledMapLayer\": \"http://services.arcgisonline.com/arcgis/rest/services/Specialty/Soil_Survey_Map/MapServer\"}",
   "dct_temporal_sm": [
     "2010"
   ],

@@ -2,7 +2,7 @@
   "layer_geom_type_s": "Polygon",
   "layer_modified_dt": "2016-01-19T09:33:12.85Z",
   "solr_geom": "ENVELOPE(-93.3291083642602, -93.1896159986687, 45.0512462600492, 44.8901520021226)",
-  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"http://opendata.minneapolismn.gov/datasets/772ebcaf2ec0405ea1b156b5937593e7_0.zip\",\"http://www.arcgis.com/rdf#FeatureLayer\":\"https://services.arcgis.com/afSMGVsC7QlRK1kZ/arcgis/rest/services/Fire_Station_Areas/FeatureServer/0\",\"http://schema.org/url\":\"http://opendata.minneapolismn.gov/datasets/772ebcaf2ec0405ea1b156b5937593e7_0\"}",
+  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"http://opendata.minneapolismn.gov/datasets/772ebcaf2ec0405ea1b156b5937593e7_0.zip\",\"urn:x-esri:serviceType:ArcGIS#FeatureLayer\":\"https://services.arcgis.com/afSMGVsC7QlRK1kZ/arcgis/rest/services/Fire_Station_Areas/FeatureServer/0\",\"http://schema.org/url\":\"http://opendata.minneapolismn.gov/datasets/772ebcaf2ec0405ea1b156b5937593e7_0\"}",
   "dc_rights_s": "Public",
   "uuid": "http://opendata.minneapolismn.gov/datasets/772ebcaf2ec0405ea1b156b5937593e7_0",
   "dct_provenance_s": "University of Minnesota",

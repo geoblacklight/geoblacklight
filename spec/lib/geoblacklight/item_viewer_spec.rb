@@ -40,7 +40,7 @@ describe Geoblacklight::ItemViewer do
       let(:document_attributes) do
         {
           dct_references_s: {
-            'http://www.arcgis.com/rdf#TiledMapLayer' => 'http://www.example.com/MapServer'
+            'urn:x-esri:serviceType:ArcGIS#TiledMapLayer' => 'http://www.example.com/MapServer'
           }.to_json
         }
       end

@@ -33,5 +33,5 @@
     "solr_geom": "ENVELOPE(-91.513518, -87.495214, 42.508348, 36.969972)",
     "georss_box_s": "36.969972 -91.513518 42.508348 -87.495214",
     "solr_year_i": 1997,
-    "dct_references_s": "{\"http://www.arcgis.com/rdf#DynamicMapLayer\":\"http://data.isgs.illinois.edu/arcgis/rest/services/Geology/Glacial_Boundaries/MapServer\",\"http://schema.org/url\":\"https://clearinghouse.isgs.illinois.edu/data/geology/glacial-boundaries\",\"http://schema.org/downloadUrl\":\"https://clearinghouse.isgs.illinois.edu/sites/clearinghouse.isgs/files/Clearinghouse/data/ISGS/Geology/zips/IL_Glacial_Bndys_Py.zip\"}"
+    "dct_references_s": "{\"urn:x-esri:serviceType:ArcGIS#DynamicMapLayer\":\"http://data.isgs.illinois.edu/arcgis/rest/services/Geology/Glacial_Boundaries/MapServer\",\"http://schema.org/url\":\"https://clearinghouse.isgs.illinois.edu/data/geology/glacial-boundaries\",\"http://schema.org/downloadUrl\":\"https://clearinghouse.isgs.illinois.edu/sites/clearinghouse.isgs/files/Clearinghouse/data/ISGS/Geology/zips/IL_Glacial_Bndys_Py.zip\"}"
 }
