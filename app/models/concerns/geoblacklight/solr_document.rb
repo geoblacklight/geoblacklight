@@ -24,7 +24,7 @@ module Geoblacklight
     end
 
     def downloadable?
-      (direct_download || download_types.present?) && available?
+      (direct_download || download_types.present? || iiif_download) && available?
     end
 
     def references
@@ -41,6 +41,10 @@ module Geoblacklight
 
     def same_institution?
       fetch(:dct_provenance_s).downcase == Settings.INSTITUTION.downcase
+    end
+
+    def iiif_download
+      return references.iiif.to_hash unless references.iiif.blank?
     end
 
     def item_viewer

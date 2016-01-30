@@ -44,6 +44,23 @@ describe GeoblacklightHelper, type: :helper do
       expect(geoblacklight_basemap).to eq 'positron'
     end
   end
+
+  describe '#iiif_jpg_url' do
+    let(:document) { SolrDocument.new(document_attributes) }
+    let(:document_attributes) do
+      {
+        dct_references_s: {
+          'http://iiif.io/api/image' => 'https://example.edu/image/info.json'
+        }.to_json
+      }
+    end
+
+    it 'returns JPG download URL when given URL to a IIIF info.json' do
+      assign(:document, document)
+      expect(helper.iiif_jpg_url).to eq 'https://example.edu/image/full/full/0/default.jpg'
+    end
+  end
+
   describe '#render_web_services' do
     let(:reference) { double(type: 'wms') }
     it 'with a reference to a defined partial' do
