@@ -15,6 +15,10 @@ module GeoblacklightHelper
     document_available? && @document.downloadable?
   end
 
+  def iiif_jpg_url
+    @document.references.iiif.endpoint.sub! 'info.json', 'full/full/0/default.jpg'
+  end
+
   def snippit(text)
     if text
       if text.length > 150

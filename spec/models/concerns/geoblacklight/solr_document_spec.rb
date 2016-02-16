@@ -121,6 +121,26 @@ describe Geoblacklight::SolrDocument do
       end
     end
   end
+  describe 'iiif_download' do
+    describe 'with a IIIF download' do
+      let(:document_attributes) do
+        {
+          dct_references_s: {
+            'http://iiif.io/api/image' => 'https://example.edu/images/info.json'
+          }.to_json
+        }
+      end
+      it 'returns a IIIF download hash' do
+        expect(document.iiif_download[:iiif]).to eq('https://example.edu/images/info.json')
+      end
+    end
+    describe 'without a IIIF download' do
+      let(:document_attributes) { {} }
+      it 'returns nil' do
+        expect(document.iiif_download).to be_nil
+      end
+    end
+  end
   describe 'item_viewer' do
     let(:document_attributes) { {} }
     it 'is a ItemViewer' do

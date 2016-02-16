@@ -21,6 +21,14 @@ feature 'Download layer' do
     find('a', text: 'Download KMZ').click
     expect(page).to have_css('a', text: 'Your file mit-us-ma-e25zcta5dct-2000-kmz.kmz is ready for download')
   end
+  scenario 'jpg download option should be present under toggle' do
+    visit catalog_path('princeton-02870w62c')
+    expect(page).to have_css('li a', text: 'Download JPG')
+  end
+  scenario 'clicking jpg download button should redirect to external image' do
+    visit catalog_path('princeton-02870w62c')
+    expect(page).to have_css("a.btn.btn-default[href='http://libimages.princeton.edu/loris2/pudl0076%2Fmap_pownall%2F00000001.jp2/full/full/0/default.jpg']", text: 'Download JPG')
+  end
   scenario 'options should be available under toggle' do
     visit catalog_path('mit-us-ma-e25zcta5dct-2000')
     find('button.download-dropdown-toggle').click
