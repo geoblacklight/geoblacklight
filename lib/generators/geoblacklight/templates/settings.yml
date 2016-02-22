@@ -50,3 +50,27 @@ WMS_PARAMS:
   :SRS: 'EPSG:4326'
   :EXCEPTIONS: 'application/json'
   :INFO_FORMAT: 'text/html'
+
+# Settings for leaflet 
+LEAFLET:
+  MAP:
+  LAYERS:
+  VIEWERS:
+    IIIF:
+      CONTROLS:
+        - 'Fullscreen'
+    WMS:
+      CONTROLS:
+        - 'Opacity'
+    TILEDMAPLAYER:
+      CONTROLS:
+        - 'Opacity'
+    FEATURELAYER:
+      CONTROLS:
+        - 'Opacity'
+    DYNAMICMAPLAYER:
+      CONTROLS:
+        - 'Opacity'
+    IMAGEMAPLAYER:
+      CONTROLS:
+        - 'Opacity'

@@ -22,8 +22,8 @@ GeoBlacklight.Viewer.Esri = GeoBlacklight.Viewer.Map.extend({
     _this.data.url = _this.data.url.replace(/\/$/, '');
 
     L.esri.get = L.esri.Request.get.JSONP;
-    L.esri.get(_this.data.url, {}, function(error, response){
-      if(!error) {
+    L.esri.get(_this.data.url, {}, function(error, response) {
+      if (!error) {
         _this.layerInfo = response;
 
         // get layer as defined in submodules (e.g. esri/mapservice)
@@ -31,9 +31,8 @@ GeoBlacklight.Viewer.Esri = GeoBlacklight.Viewer.Map.extend({
 
         // add layer to map
         if (_this.addPreviewLayer(layer)) {
-
-          // add control if layer is added
-          _this.addOpacityControl();
+          // add controls if layer is added
+          _this.loadControls();
         }
       }
     });
@@ -48,7 +47,7 @@ GeoBlacklight.Viewer.Esri = GeoBlacklight.Viewer.Map.extend({
       return true;
     }
   },
-  
+
   // clear attribute table and setup spinner icon
   appendLoadingMessage: function() {
     var spinner = '<tbody class="attribute-table-body"><tr><td colspan="2">' +
@@ -62,7 +61,7 @@ GeoBlacklight.Viewer.Esri = GeoBlacklight.Viewer.Map.extend({
 
   // appends error message to attribute table
   appendErrorMessage: function() {
-    $('.attribute-table-body').html('<tbody class="attribute-table-body">'+ 
+    $('.attribute-table-body').html('<tbody class="attribute-table-body">' +
       '<tr><td colspan="2">Could not find that feature</td></tr></tbody>');
   },
 
@@ -72,9 +71,10 @@ GeoBlacklight.Viewer.Esri = GeoBlacklight.Viewer.Map.extend({
 
     // step through properties and append to table
     for (var property in feature.properties) {
-      html.append('<tr><td>' + property + '</td>'+
+      html.append('<tr><td>' + property + '</td>' +
                   '<td>' + feature.properties[property] + '</tr>');
     }
+
     $('.attribute-table-body').replaceWith(html);
   }
 });

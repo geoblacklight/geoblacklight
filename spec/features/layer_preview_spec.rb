@@ -12,5 +12,6 @@ feature 'Layer preview', js: true do
     within '.leaflet-tile-pane' do
       expect(page).to have_css('.leaflet-layer', count: 2)
     end
+    expect(page).not_to have_css '.leaflet-control-fullscreen-button'
   end
 end

@@ -87,4 +87,10 @@ describe GeoblacklightHelper, type: :helper do
       helper.render_web_services(reference)
     end
   end
+
+  describe '#leaflet_options' do
+    it 'returns a hash of options for leaflet' do
+      expect(leaflet_options[:VIEWERS][:IIIF][:CONTROLS]).to eq(['Fullscreen'])
+    end
+  end
 end
