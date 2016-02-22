@@ -106,13 +106,20 @@ module GeoblacklightHelper
   end
 
   ##
+  # Removes blank space from provider to accomodate CartoDB OneClick
+  #
+  def cartodb_provider
+    application_name.delete(' ')
+  end
+
+  ##
   # Creates a CartoDB OneClick link link, using the configuration link
   # @param [String] file_link
   # @return [String]
   def cartodb_link(file_link)
     params  = URI.encode_www_form(
       file: file_link,
-      provider: application_name,
+      provider: cartodb_provider,
       logo: Settings.APPLICATION_LOGO_URL
     )
     Settings.CARTODB_ONECLICK_LINK + '?' + params
