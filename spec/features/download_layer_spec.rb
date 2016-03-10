@@ -48,12 +48,12 @@ feature 'Download layer' do
   scenario 'restricted layer should not have download available to non logged in user' do
     visit catalog_path('stanford-cg357zz0321')
     expect(page).to have_css 'a', text: 'Login to view and download'
-    expect(page).to_not have_css 'button', text: 'Download Shapefile'
+    expect(page).not_to have_css 'button', text: 'Download Shapefile'
   end
   scenario 'restricted layer should have download available to logged in user' do
     sign_in
     visit catalog_path('stanford-cg357zz0321')
-    expect(page).to_not have_css 'a', text: 'Login to view and download'
+    expect(page).not_to have_css 'a', text: 'Login to view and download'
     expect(page).to have_css 'a', text: 'Download Shapefile'
     expect(page).to have_css 'button.download-dropdown-toggle'
   end

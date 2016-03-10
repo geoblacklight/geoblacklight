@@ -51,21 +51,5 @@ RSpec/AnyInstance:
   Exclude:
     - 'spec/models/concerns/geoblacklight/solr_document_spec.rb'
 
-# Offense count: 12
-# Configuration parameters: AcceptedMethod.
-RSpec/NotToNot:
-  Exclude:
-    - 'spec/controllers/catalog_controller_spec.rb'
-    - 'spec/features/download_layer_spec.rb'
-    - 'spec/features/exports_spec.rb'
-    - 'spec/features/home_page_spec.rb'
-    - 'spec/features/layer_inspection_spec.rb'
-    - 'spec/features/metadata_panel_spec.rb'
-    - 'spec/features/split_view.html.erb_spec.rb'
-    - 'spec/features/web_services_modal_spec.rb'
-    - 'spec/lib/geoblacklight/wms_layer/feature_info_response_spec.rb'
-    - 'spec/lib/geoblacklight/wms_layer_spec.rb'
-    - 'spec/models/concerns/geoblacklight/solr_document_spec.rb'
-
 Style/SignalException:
   EnforcedStyle: semantic

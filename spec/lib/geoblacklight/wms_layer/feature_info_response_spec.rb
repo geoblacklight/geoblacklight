@@ -25,7 +25,7 @@ describe Geoblacklight::FeatureInfoResponse do
 
   describe '#format' do
     it 'returns a formated response' do
-      expect(response.format).to_not be_nil
+      expect(response.format).not_to be_nil
       expect(response.format[:values].length).to eq 2
       expect(response.format[:values][0]).to eq %w(Header1 value1)
       expect(response.format[:values][1]).to eq %w(Header2 value2)

@@ -21,7 +21,7 @@ feature 'web services tools' do
   feature 'no wms or wfs provided' do
     scenario 'does not show up in tools' do
       visit catalog_path 'mit-001145244'
-      expect(page).to_not have_css 'li.web_services a', text: 'Web services'
+      expect(page).not_to have_css 'li.web_services a', text: 'Web services'
     end
   end
 end

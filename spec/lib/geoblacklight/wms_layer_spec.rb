@@ -18,7 +18,7 @@ describe Geoblacklight::WmsLayer do
   describe '#search_params' do
     it 'returns all params except URL plus default params' do
       expect(wms_layer.search_params.length).to eq 8
-      expect(wms_layer.search_params).to_not include 'URL' => 'http://www.example.com'
+      expect(wms_layer.search_params).not_to include 'URL' => 'http://www.example.com'
     end
   end
 
