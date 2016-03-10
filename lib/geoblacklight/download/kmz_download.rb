@@ -5,7 +5,7 @@ module Geoblacklight
                             request: 'GetMap',
                             srsName: 'EPSG:900913',
                             format: 'application/vnd.google-earth.kmz',
-                            width: 2000, height: 2000 }
+                            width: 2000, height: 2000 }.freeze
 
     def initialize(document, options = {})
       bbox_wsen = document.bounding_box_as_wsen.split(' ').join(', ')

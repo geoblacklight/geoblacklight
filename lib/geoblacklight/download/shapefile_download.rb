@@ -4,7 +4,7 @@ module Geoblacklight
                                   version: '2.0.0',
                                   request: 'GetFeature',
                                   srsName: 'EPSG:4326',
-                                  outputformat: 'SHAPE-ZIP' }
+                                  outputformat: 'SHAPE-ZIP' }.freeze
 
     def initialize(document, options = {})
       request_params = SHAPEFILE_DOWNLOAD_PARAMS.merge(typeName: document[:layer_id_s])

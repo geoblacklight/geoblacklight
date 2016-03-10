@@ -88,17 +88,5 @@ Style/GuardClause:
 Style/MultilineMethodCallIndentation:
   Enabled: false
 
-# Offense count: 8
-# Cop supports --auto-correct.
-Style/MutableConstant:
-  Exclude:
-    - 'Rakefile'
-    - 'lib/geoblacklight/constants.rb'
-    - 'lib/geoblacklight/download/geojson_download.rb'
-    - 'lib/geoblacklight/download/geotiff_download.rb'
-    - 'lib/geoblacklight/download/kmz_download.rb'
-    - 'lib/geoblacklight/download/shapefile_download.rb'
-    - 'lib/geoblacklight/version.rb'
-
 Style/SignalException:
   EnforcedStyle: semantic
