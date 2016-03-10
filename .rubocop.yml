@@ -116,10 +116,3 @@ Style/SignalException:
 Style/SpaceAroundOperators:
   Exclude:
     - 'app/helpers/geoblacklight_helper.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/UnneededInterpolation:
-  Exclude:
-    - 'app/helpers/geoblacklight_helper.rb'
-    - 'lib/geoblacklight/download.rb'
