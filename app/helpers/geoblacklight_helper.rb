@@ -117,7 +117,7 @@ module GeoblacklightHelper
   # @param [String] file_link
   # @return [String]
   def cartodb_link(file_link)
-    params  = URI.encode_www_form(
+    params = URI.encode_www_form(
       file: file_link,
       provider: cartodb_provider,
       logo: Settings.APPLICATION_LOGO_URL
