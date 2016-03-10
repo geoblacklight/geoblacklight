@@ -100,12 +100,5 @@ Style/MutableConstant:
     - 'lib/geoblacklight/download/shapefile_download.rb'
     - 'lib/geoblacklight/version.rb'
 
-# Offense count: 3
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: only_raise, only_fail, semantic
 Style/SignalException:
-  Exclude:
-    - 'lib/geoblacklight/bounding_box.rb'
-    - 'lib/geoblacklight/download.rb'
-    - 'spec/features/layer_with_no_references_spec.rb'
+  EnforcedStyle: semantic
