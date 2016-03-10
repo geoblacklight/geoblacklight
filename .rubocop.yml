@@ -81,12 +81,5 @@ Style/GuardClause:
     - 'app/models/concerns/geoblacklight/solr_document.rb'
     - 'lib/geoblacklight/metadata.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, IndentationWidth.
-# SupportedStyles: aligned, indented
-Style/MultilineMethodCallIndentation:
-  Enabled: false
-
 Style/SignalException:
   EnforcedStyle: semantic

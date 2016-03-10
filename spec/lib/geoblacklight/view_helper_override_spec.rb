@@ -7,7 +7,7 @@ describe Geoblacklight::ViewHelperOverride do
 
   let(:fake_controller) do
     GeoblacklightControllerTestClass.new
-      .extend(described_class)
+                                    .extend(described_class)
   end
 
   describe 'spatial_parameters?' do
