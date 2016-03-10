@@ -64,12 +64,9 @@ module Geoblacklight
                   \s*([-\.\d]+)\s*
                   \)\s*$/x # uses 'x' option for free-spacing mode
       bbox_match = exp.match(geom_field)
-      if bbox_match
-        w, e, n, s = bbox_match.captures
-        return "#{w} #{s} #{e} #{n}"
-      else
-        return s # as-is, not a WKT
-      end
+      return s unless bbox_match # return as-is, not a WKT
+      w, e, n, s = bbox_match.captures
+      "#{w} #{s} #{e} #{n}"
     end
 
     ##
