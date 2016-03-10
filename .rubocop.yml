@@ -1,7 +1,7 @@
-require: rubocop-rspec
+Rails:
+  Enabled: true
 
 AllCops:
-  RunRailsCops: true
   DisplayCopNames: true
 
   Include:
@@ -43,3 +43,90 @@ RSpec/FilePath:
 #  https://github.com/nevir/rubocop-rspec/issues/47
 RSpec/DescribeClass:
   Enabled: false
+
+# Offense count: 3
+# Cop supports --auto-correct.
+Performance/Casecmp:
+  Exclude:
+    - 'app/models/concerns/geoblacklight/solr_document.rb'
+
+# Offense count: 11
+RSpec/AnyInstance:
+  Exclude:
+    - 'spec/controllers/download_controller_spec.rb'
+    - 'spec/features/download_layer_spec.rb'
+    - 'spec/models/concerns/geoblacklight/solr_document/carto_db_spec.rb'
+    - 'spec/models/concerns/geoblacklight/solr_document_spec.rb'
+
+# Offense count: 12
+# Configuration parameters: AcceptedMethod.
+RSpec/NotToNot:
+  Exclude:
+    - 'spec/controllers/catalog_controller_spec.rb'
+    - 'spec/features/download_layer_spec.rb'
+    - 'spec/features/exports_spec.rb'
+    - 'spec/features/home_page_spec.rb'
+    - 'spec/features/layer_inspection_spec.rb'
+    - 'spec/features/metadata_panel_spec.rb'
+    - 'spec/features/split_view.html.erb_spec.rb'
+    - 'spec/features/web_services_modal_spec.rb'
+    - 'spec/lib/geoblacklight/wms_layer/feature_info_response_spec.rb'
+    - 'spec/lib/geoblacklight/wms_layer_spec.rb'
+    - 'spec/models/concerns/geoblacklight/solr_document_spec.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: SingleLineConditionsOnly.
+Style/ConditionalAssignment:
+  Exclude:
+    - 'spec/spec_helper.rb'
+
+# Offense count: 2
+# Configuration parameters: MinBodyLength.
+Style/GuardClause:
+  Exclude:
+    - 'app/models/concerns/geoblacklight/solr_document.rb'
+    - 'lib/geoblacklight/metadata.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles, IndentationWidth.
+# SupportedStyles: aligned, indented
+Style/MultilineMethodCallIndentation:
+  Enabled: false
+
+# Offense count: 8
+# Cop supports --auto-correct.
+Style/MutableConstant:
+  Exclude:
+    - 'Rakefile'
+    - 'lib/geoblacklight/constants.rb'
+    - 'lib/geoblacklight/download/geojson_download.rb'
+    - 'lib/geoblacklight/download/geotiff_download.rb'
+    - 'lib/geoblacklight/download/kmz_download.rb'
+    - 'lib/geoblacklight/download/shapefile_download.rb'
+    - 'lib/geoblacklight/version.rb'
+
+# Offense count: 3
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+# SupportedStyles: only_raise, only_fail, semantic
+Style/SignalException:
+  Exclude:
+    - 'lib/geoblacklight/bounding_box.rb'
+    - 'lib/geoblacklight/download.rb'
+    - 'spec/features/layer_with_no_references_spec.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: AllowForAlignment.
+Style/SpaceAroundOperators:
+  Exclude:
+    - 'app/helpers/geoblacklight_helper.rb'
+
+# Offense count: 2
+# Cop supports --auto-correct.
+Style/UnneededInterpolation:
+  Exclude:
+    - 'app/helpers/geoblacklight_helper.rb'
+    - 'lib/geoblacklight/download.rb'
