@@ -32,8 +32,14 @@ describe Geoblacklight::DownloadController, type: :controller do
     end
   end
   describe '#hgl' do
+    let(:hgl_download) { instance_double(Geoblacklight::HglDownload) }
+
+    before do
+      allow(Geoblacklight::HglDownload).to receive(:new).and_return(hgl_download)
+    end
+
     it 'requests file' do
-      expect_any_instance_of(Geoblacklight::HglDownload).to receive(:get).and_return('success')
+      allow(hgl_download).to receive(:get).and_return('success')
       get :hgl, id: 'harvard-g7064-s2-1834-k3', email: 'foo@example.com'
       expect(response.status).to eq 200
     end

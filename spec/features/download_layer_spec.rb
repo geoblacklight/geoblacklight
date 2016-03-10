@@ -1,21 +1,31 @@
 require 'spec_helper'
 
 feature 'Download layer' do
+  let(:shapefile_download) { instance_double(Geoblacklight::ShapefileDownload) }
+  let(:kmz_download) { instance_double(Geoblacklight::KmzDownload) }
+  let(:hgl_download) { instance_double(Geoblacklight::HglDownload) }
+
+  before do
+    allow(Geoblacklight::ShapefileDownload).to receive(:new).and_return(shapefile_download)
+    allow(Geoblacklight::KmzDownload).to receive(:new).and_return(kmz_download)
+    allow(Geoblacklight::HglDownload).to receive(:new).and_return(hgl_download)
+  end
+
   scenario 'clicking initial shapefile download button should trigger download', js: true do
-    expect_any_instance_of(Geoblacklight::ShapefileDownload).to receive(:get).and_return('mit-us-ma-e25zcta5dct-2000-shapefile.zip')
+    expect(shapefile_download).to receive(:get).and_return('mit-us-ma-e25zcta5dct-2000-shapefile.zip')
     visit catalog_path('mit-us-ma-e25zcta5dct-2000')
     find('a', text: 'Download Shapefile').click
     expect(page).to have_css('a', text: 'Your file mit-us-ma-e25zcta5dct-2000-shapefile.zip is ready for download')
   end
   scenario 'failed download should return message with link to layer', js: true do
-    expect_any_instance_of(Geoblacklight::ShapefileDownload).to receive(:get).and_raise(Geoblacklight::Exceptions::ExternalDownloadFailed.new(message: 'Failed', url: 'http://www.example.com/failed'))
+    expect(shapefile_download).to receive(:get).and_raise(Geoblacklight::Exceptions::ExternalDownloadFailed.new(message: 'Failed', url: 'http://www.example.com/failed'))
     visit catalog_path('mit-us-ma-e25zcta5dct-2000')
     find('a', text: 'Download Shapefile', match: :first).click
     expect(page).to have_css 'div.alert.alert-danger', text: 'Sorry, the requested file could not be downloaded, try downloading it directly from:'
     expect(page).to have_css 'a', text: 'http://www.example.com/failed'
   end
   scenario 'clicking kmz download button should trigger download', js: true do
-    expect_any_instance_of(Geoblacklight::KmzDownload).to receive(:get).and_return('mit-us-ma-e25zcta5dct-2000-kmz.kmz')
+    expect(kmz_download).to receive(:get).and_return('mit-us-ma-e25zcta5dct-2000-kmz.kmz')
     visit catalog_path('mit-us-ma-e25zcta5dct-2000')
     find('button.download-dropdown-toggle').click
     find('a', text: 'Download KMZ').click
@@ -63,7 +73,7 @@ feature 'Download layer' do
     expect(page).to have_css('#hglRequest')
   end
   scenario 'submitting email form should trigger HGL request', js: true do
-    expect_any_instance_of(Geoblacklight::HglDownload).to receive(:get).and_return('success')
+    expect(hgl_download).to receive(:get).and_return('success')
     visit catalog_path('harvard-g7064-s2-1834-k3')
     find('a', text: 'Download GeoTIFF').click
     within '#hglRequest' do

@@ -2,6 +2,12 @@ require 'spec_helper'
 
 describe Geoblacklight::SolrDocument::CartoDb do
   let(:subject) { SolrDocument.new }
+  let(:geojson_download) { instance_double(Geoblacklight::GeojsonDownload) }
+
+  before do
+    allow(Geoblacklight::GeojsonDownload).to receive(:new).and_return(geojson_download)
+  end
+
   describe '#cartodb_reference' do
     it 'returns nil for restricted documents' do
       expect(subject).to receive(:public?).and_return(false)
@@ -21,7 +27,7 @@ describe Geoblacklight::SolrDocument::CartoDb do
       expect(subject).to receive(:public?).and_return(true)
       expect(subject).to receive(:download_types)
         .and_return(geojson: { 'stuff' => 'stuff' })
-      expect_any_instance_of(Geoblacklight::GeojsonDownload)
+      expect(geojson_download)
         .to receive(:url_with_params)
         .and_return('http://www.example.com/geojsonDownload')
       expect(subject.cartodb_reference).to eq 'http://www.example.com/geojsonDownload'
