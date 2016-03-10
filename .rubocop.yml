@@ -44,12 +44,6 @@ RSpec/FilePath:
 RSpec/DescribeClass:
   Enabled: false
 
-# Offense count: 3
-# Cop supports --auto-correct.
-Performance/Casecmp:
-  Exclude:
-    - 'app/models/concerns/geoblacklight/solr_document.rb'
-
 # Offense count: 11
 RSpec/AnyInstance:
   Exclude:

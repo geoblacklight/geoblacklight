@@ -16,11 +16,11 @@ module Geoblacklight
     end
 
     def public?
-      fetch(:dc_rights_s).downcase == 'public'
+      fetch(:dc_rights_s).casecmp('public').zero?
     end
 
     def restricted?
-      fetch(:dc_rights_s).downcase == 'restricted'
+      fetch(:dc_rights_s).casecmp('restricted').zero?
     end
 
     def downloadable?
@@ -40,7 +40,7 @@ module Geoblacklight
     end
 
     def same_institution?
-      fetch(:dct_provenance_s).downcase == Settings.INSTITUTION.downcase
+      fetch(:dct_provenance_s).casecmp(Settings.INSTITUTION.downcase).zero?
     end
 
     def iiif_download
