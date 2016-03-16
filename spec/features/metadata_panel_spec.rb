@@ -18,7 +18,7 @@ feature 'Metadata tools' do
   feature 'when metadata references are not available' do
     scenario 'is not in tools' do
       visit catalog_path 'mit-us-ma-e25zcta5dct-2000'
-      expect(page).to_not have_css 'li.metadata a', text: 'Metadata'
+      expect(page).not_to have_css 'li.metadata a', text: 'Metadata'
     end
   end
 end

@@ -13,8 +13,8 @@ group :development, :test do
   # https://github.com/colszowka/simplecov/issues/281
   gem 'simplecov', '~> 0.7.1', require: false
   gem 'coveralls', require: false
-  gem 'rubocop', '0.35.1', require: false
-  gem 'rubocop-rspec', '1.3.1', require: false
+  gem 'rubocop', '0.38.0', require: false
+  gem 'rubocop-rspec', '1.4.0', require: false
 end
 
 # BEGIN ENGINE_CART BLOCK

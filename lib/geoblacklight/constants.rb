@@ -19,6 +19,6 @@ module Geoblacklight
       tiled_map_layer: 'urn:x-esri:serviceType:ArcGIS#TiledMapLayer',
       dynamic_map_layer: 'urn:x-esri:serviceType:ArcGIS#DynamicMapLayer',
       image_map_layer: 'urn:x-esri:serviceType:ArcGIS#ImageMapLayer'
-    }
+    }.freeze
   end
 end

@@ -5,8 +5,8 @@ rescue LoadError
   puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
 end
 
-BLACKLIGHT_JETTY_VERSION = '4.10.3'
-ZIP_URL = "https://github.com/projectblacklight/blacklight-jetty/archive/v#{BLACKLIGHT_JETTY_VERSION}.zip"
+BLACKLIGHT_JETTY_VERSION = '4.10.3'.freeze
+ZIP_URL = "https://github.com/projectblacklight/blacklight-jetty/archive/v#{BLACKLIGHT_JETTY_VERSION}.zip".freeze
 APP_ROOT = File.dirname(__FILE__)
 
 require 'rspec/core/rake_task'
@@ -20,6 +20,7 @@ task default: :ci
 
 desc 'Run style checker'
 RuboCop::RakeTask.new(:rubocop) do |task|
+  task.requires << 'rubocop-rspec'
   task.fail_on_error = true
 end
 

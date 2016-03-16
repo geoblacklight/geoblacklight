@@ -1,7 +1,7 @@
-require: rubocop-rspec
+Rails:
+  Enabled: true
 
 AllCops:
-  RunRailsCops: true
   DisplayCopNames: true
 
   Include:
@@ -43,3 +43,13 @@ RSpec/FilePath:
 #  https://github.com/nevir/rubocop-rspec/issues/47
 RSpec/DescribeClass:
   Enabled: false
+
+# geoblacklight references in solr_document_spec are
+# difficult to mock because of the use of 'method_missing'.
+# https://relishapp.com/rspec/rspec-mocks/docs/verifying-doubles/dynamic-classes
+RSpec/AnyInstance:
+  Exclude:
+    - 'spec/models/concerns/geoblacklight/solr_document_spec.rb'
+
+Style/SignalException:
+  EnforcedStyle: semantic

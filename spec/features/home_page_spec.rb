@@ -5,7 +5,7 @@ feature 'Home page', js: true do # use js: true for tests which require js, but 
     visit root_path
   end
   scenario 'search bar' do
-    expect(page).to_not have_css '#search-navbar'
+    expect(page).not_to have_css '#search-navbar'
     within '.jumbotron' do
       expect(page).to have_css 'h2', text: 'Explore and discover...'
       expect(page).to have_css 'h3', text: 'Find the maps and data you need'

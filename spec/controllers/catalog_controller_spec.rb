@@ -5,7 +5,7 @@ describe CatalogController, type: :controller do
     it 'returns a document based off an id' do
       get :web_services, id: 'mit-us-ma-e25zcta5dct-2000'
       expect(response.status).to eq 200
-      expect(assigns(:document)).to_not be_nil
+      expect(assigns(:document)).not_to be_nil
     end
   end
 end

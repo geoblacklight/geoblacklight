@@ -13,7 +13,7 @@ feature 'Export features' do
   feature 'when restricted or no wfs' do
     scenario 'is not in tools' do
       visit catalog_path 'princeton-02870w62c'
-      expect(page).to_not have_css 'li.exports a', text: 'Open in CartoDB'
+      expect(page).not_to have_css 'li.exports a', text: 'Open in CartoDB'
     end
   end
 end

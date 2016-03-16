@@ -46,7 +46,7 @@ module Geoblacklight
           fail Geoblacklight::Exceptions::WrongDownloadFormat
         end
       end
-      File.rename("#{file_path_and_name}.tmp", "#{file_path_and_name}")
+      File.rename("#{file_path_and_name}.tmp", file_path_and_name)
       file_name
     rescue Geoblacklight::Exceptions::WrongDownloadFormat => error
       Geoblacklight.logger.error "#{error} expected #{@options[:content_type]} "\

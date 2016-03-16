@@ -14,12 +14,9 @@ module Geoblacklight
     # @return [String] returned metadata string
     def metadata
       response = retrieve_metadata
-      if response.nil? || response.status == 404
-        Geoblacklight.logger.error "Could not reach #{@reference.endpoint}"
-        return "Could not reach #{@reference.endpoint}"
-      else
-        return response.body
-      end
+      return response.body unless response.nil? || response.status == 404
+      Geoblacklight.logger.error "Could not reach #{@reference.endpoint}"
+      "Could not reach #{@reference.endpoint}"
     end
 
     ##
