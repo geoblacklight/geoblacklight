@@ -56,7 +56,7 @@ module Geoblacklight
     end
 
     def bounding_box_as_wsen
-      geom_field = fetch(Settings.GEOMETRY_FIELD.to_sym)
+      geom_field = fetch(Settings.FIELDS.GEOMETRY.to_sym)
       exp = /^\s*ENVELOPE\(
                   \s*([-\.\d]+)\s*,
                   \s*([-\.\d]+)\s*,

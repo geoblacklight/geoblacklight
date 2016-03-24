@@ -12,7 +12,7 @@ module Geoblacklight
     # Accessor for a document's file format
     # @return [String] file format for the document
     def format
-      @document[:dc_format_s]
+      @document[Settings.FIELDS.FILE_FORMAT]
     end
 
     ##

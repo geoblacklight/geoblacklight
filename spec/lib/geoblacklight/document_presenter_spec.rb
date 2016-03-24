@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe Geoblacklight::DocumentPresenter do
   let(:request_context) { double(add_facet_params: '') }
-  let(:config) { Blacklight::Configuration.new }
+  let(:wxs_identifier_field) { Blacklight::Configuration.new }
+  let(:solr_fields) { Settings.FIELDS }
   subject { presenter }
   let(:presenter) do
     described_class.new(document, request_context, config)
@@ -13,17 +14,14 @@ describe Geoblacklight::DocumentPresenter do
   end
 
   describe '#wxs_identifier' do
-    describe 'without wxs identifier in configuration' do
-    end
-    it 'returns empty string' do
-      expect(subject.wxs_identifier).to eq ''
-    end
-    describe 'without wxs identifier in configuration' do
-      let(:config) do
-        Blacklight::Configuration.new.configure do |config|
-          config.wxs_identifier_field = 'layer_id_s'
-        end
+    context 'document without wxs identifier field present' do
+      before { solr_fields.WXS_IDENTIFIER = 'non_present_field' }
+      it 'returns empty string' do
+        expect(subject.wxs_identifier).to eq ''
       end
+    end
+    context 'without wxs identifier in configuration' do
+      before { solr_fields.WXS_IDENTIFIER = 'layer_id_s' }
       it 'returns configured field' do
         expect(subject.wxs_identifier).to eq 'druid:abc123'
       end
