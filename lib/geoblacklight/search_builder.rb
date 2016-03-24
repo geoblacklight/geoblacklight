@@ -17,9 +17,9 @@ module Geoblacklight
     def add_spatial_params(solr_params)
       if blacklight_params[:bbox]
         solr_params[:bq] ||= []
-        solr_params[:bq] = ["#{Settings.GEOMETRY_FIELD}:\"IsWithin(#{envelope_bounds})\"^10"]
+        solr_params[:bq] = ["#{Settings.FIELDS.GEOMETRY}:\"IsWithin(#{envelope_bounds})\"^10"]
         solr_params[:fq] ||= []
-        solr_params[:fq] << "#{Settings.GEOMETRY_FIELD}:\"Intersects(#{envelope_bounds})\""
+        solr_params[:fq] << "#{Settings.FIELDS.GEOMETRY}:\"Intersects(#{envelope_bounds})\""
       end
       solr_params
     rescue Geoblacklight::Exceptions::WrongBoundingBoxFormat
