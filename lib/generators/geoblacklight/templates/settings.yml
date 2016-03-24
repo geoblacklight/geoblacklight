@@ -16,6 +16,8 @@ FIELDS:
   :GEOMETRY: 'solr_geom'
   :WXS_IDENTIFIER: 'layer_id_s'
   :RIGHTS: 'dc_rights_s'
+  :PROVENANCE: 'dct_provenance_s'
+  :GEOM_TYPE: 'layer_geom_type_s'
 
 # Institution deployed at
 INSTITUTION: 'Stanford'

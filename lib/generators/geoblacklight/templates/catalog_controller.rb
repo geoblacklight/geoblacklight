@@ -68,7 +68,7 @@ class CatalogController < ApplicationController
     #    :years_25 => { :label => 'within 25 Years', :fq => "pub_date:[#{Time.now.year - 25 } TO *]" }
     # }
 
-    config.add_facet_field 'dct_provenance_s', label: 'Institution', limit: 8, partial: "icon_facet"
+    config.add_facet_field Settings.FIELDS.PROVENANCE, label: 'Institution', limit: 8, partial: "icon_facet"
     config.add_facet_field 'dc_creator_sm', :label => 'Author', :limit => 8
     config.add_facet_field 'dc_publisher_s', :label => 'Publisher', :limit => 8
     config.add_facet_field 'dc_subject_sm', :label => 'Subject', :limit => 8
@@ -78,7 +78,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'solr_year_i', :label => 'Year', :limit => 10
 
     config.add_facet_field Settings.FIELDS.RIGHTS, label: 'Access', limit: 8, partial: "icon_facet"
-    config.add_facet_field 'layer_geom_type_s', label: 'Data type', limit: 8, partial: "icon_facet"
+    config.add_facet_field Settings.FIELDS.GEOM_TYPE, label: 'Data type', limit: 8, partial: "icon_facet"
     config.add_facet_field Settings.FIELDS.FILE_FORMAT, :label => 'Format', :limit => 8
 
     # Have BL send all facet field names to Solr, which has been the default
@@ -99,7 +99,7 @@ class CatalogController < ApplicationController
     # config.add_index_field 'lc_callnum_display', :label => 'Call number:'
 
     # config.add_index_field 'dc_title_t', :label => 'Display Name:'
-    # config.add_index_field 'dct_provenance_s', :label => 'Institution:'
+    # config.add_index_field Settings.FIELDS.PROVENANCE, :label => 'Institution:'
     # config.add_index_field Settings.FIELDS.RIGHTS, :label => 'Access:'
     # # config.add_index_field 'Area', :label => 'Area:'
     # config.add_index_field 'dc_subject_sm', :label => 'Keywords:'
@@ -119,7 +119,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'dct_spatial_sm', label: 'Place(s)', itemprop: 'spatial', link_to_search: true
     config.add_show_field 'dc_subject_sm', label: 'Subject(s)', itemprop: 'keywords', link_to_search: true
     config.add_show_field 'dct_temporal_sm', label: 'Year', itemprop: 'temporal'
-    config.add_show_field 'dct_provenance_s', label: 'Held by', link_to_search: true
+    config.add_show_field Settings.FIELDS.PROVENANCE, label: 'Held by', link_to_search: true
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields

@@ -1,8 +1,8 @@
 <h2>
   <span itemprop="name"><%= document_heading(document) %></span>
   <small>
-    <%= geoblacklight_icon(document['layer_geom_type_s']) %>
-    <%= geoblacklight_icon(document['dct_provenance_s']) %>
+    <%= geoblacklight_icon(document[Settings.FIELDS.GEOM_TYPE]) %>
+    <%= geoblacklight_icon(document[Settings.FIELDS.PROVENANCE]) %>
     <%= geoblacklight_icon(document[Settings.FIELDS.RIGHTS]) %>
   </small>
 </h2>

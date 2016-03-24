@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Geoblacklight::SolrDocument do
   let(:document) { SolrDocument.new(document_attributes) }
   let(:rights_field) { Settings.FIELDS.RIGHTS }
+  let(:provenance_field) { Settings.FIELDS.PROVENANCE }
   describe '#available?' do
     let(:document_attributes) { {} }
     describe 'a public document' do
@@ -51,7 +52,7 @@ describe Geoblacklight::SolrDocument do
   end
   describe '#same_institution?' do
     describe 'within the same institution' do
-      let(:document_attributes) { { dct_provenance_s: 'STANFORD' } }
+      let(:document_attributes) { { provenance_field => 'STANFORD' } }
       it 'is true' do
         allow(Settings).to receive('Institution').and_return('Stanford')
         expect(document.same_institution?).to be_truthy
@@ -62,7 +63,7 @@ describe Geoblacklight::SolrDocument do
       end
     end
     describe 'within a different institution' do
-      let(:document_attributes) { { dct_provenance_s: 'MIT' } }
+      let(:document_attributes) { { provenance_field => 'MIT' } }
       it 'is false' do
         allow(Settings).to receive('Institution').and_return('Stanford')
         expect(document.same_institution?).to be_falsey
