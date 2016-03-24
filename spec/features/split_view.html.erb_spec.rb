@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 feature 'Index view', js: true do
+  let(:subject_field) { Settings.FIELDS.SUBJECT }
   before do
     visit catalog_index_path(q: '*')
   end
@@ -52,7 +53,7 @@ feature 'Index view', js: true do
   end
 
   scenario 'clicking map search should retain current search parameters' do
-    visit '/?f[dc_subject_sm][]=polygon&f[dc_subject_sm][]=boundaries'
+    visit "/?f[#{subject_field}][]=polygon&f[#{subject_field}][]=boundaries"
     find('#map').double_click
     within '#appliedParams' do
       expect(page).to have_content('Subject polygon')

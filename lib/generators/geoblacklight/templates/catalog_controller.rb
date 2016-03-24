@@ -71,8 +71,8 @@ class CatalogController < ApplicationController
     config.add_facet_field Settings.FIELDS.PROVENANCE, label: 'Institution', limit: 8, partial: "icon_facet"
     config.add_facet_field 'dc_creator_sm', :label => 'Author', :limit => 8
     config.add_facet_field 'dc_publisher_s', :label => 'Publisher', :limit => 8
-    config.add_facet_field 'dc_subject_sm', :label => 'Subject', :limit => 8
-    config.add_facet_field 'dct_spatial_sm', :label => 'Place', :limit => 8
+    config.add_facet_field Settings.FIELDS.SUBJECT, :label => 'Subject', :limit => 8
+    config.add_facet_field Settings.FIELDS.SPATIAL_COVERAGE, :label => 'Place', :limit => 8
     config.add_facet_field 'dct_isPartOf_sm', :label => 'Collection', :limit => 8
 
     config.add_facet_field 'solr_year_i', :label => 'Year', :limit => 10
@@ -102,7 +102,7 @@ class CatalogController < ApplicationController
     # config.add_index_field Settings.FIELDS.PROVENANCE, :label => 'Institution:'
     # config.add_index_field Settings.FIELDS.RIGHTS, :label => 'Access:'
     # # config.add_index_field 'Area', :label => 'Area:'
-    # config.add_index_field 'dc_subject_sm', :label => 'Keywords:'
+    # config.add_index_field Settings.FIELDS.SUBJECT, :label => 'Keywords:'
 
 
 
@@ -116,8 +116,8 @@ class CatalogController < ApplicationController
     config.add_show_field 'dc_description_s', label: 'Description', itemprop: 'description', helper_method: :render_value_as_truncate_abstract
     config.add_show_field 'dc_publisher_s', label: 'Publisher', itemprop: 'publisher'
     config.add_show_field 'dct_isPartOf_sm', label: 'Collection', itemprop: 'isPartOf'
-    config.add_show_field 'dct_spatial_sm', label: 'Place(s)', itemprop: 'spatial', link_to_search: true
-    config.add_show_field 'dc_subject_sm', label: 'Subject(s)', itemprop: 'keywords', link_to_search: true
+    config.add_show_field Settings.FIELDS.SPATIAL_COVERAGE, label: 'Place(s)', itemprop: 'spatial', link_to_search: true
+    config.add_show_field Settings.FIELDS.SUBJECT, label: 'Subject(s)', itemprop: 'keywords', link_to_search: true
     config.add_show_field 'dct_temporal_sm', label: 'Year', itemprop: 'temporal'
     config.add_show_field Settings.FIELDS.PROVENANCE, label: 'Held by', link_to_search: true
 
