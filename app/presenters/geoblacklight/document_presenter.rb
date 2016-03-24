@@ -11,5 +11,10 @@ module Geoblacklight
       f = fields.find { |field| @document.has? field }
       render_field_value(@document[f])
     end
+
+    def file_format
+      field = Settings.FIELDS.FILE_FORMAT.to_sym
+      render_field_value(@document[field])
+    end
   end
 end

@@ -10,6 +10,10 @@ CARTODB_ONECLICK_LINK: 'http://oneclick.cartodb.com/'
 #Main Solr geometry field used for spatial search and bounding box. Should be type 'rpt'
 GEOMETRY_FIELD: 'solr_geom'
 
+#Solr field mappings
+FIELDS:
+  :FILE_FORMAT: 'dc_format_s'
+
 # Institution deployed at
 INSTITUTION: 'Stanford'
 

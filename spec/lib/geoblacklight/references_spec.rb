@@ -59,10 +59,12 @@ describe Geoblacklight::References do
   end
   let(:direct_download_only) do
     described_class.new(
-      dc_format_s: 'GeoTIFF',
-      dct_references_s: {
-        'http://schema.org/downloadUrl' => 'http://example.com/layer-id-geotiff.tiff'
-      }.to_json
+      SolrDocument.new(
+        dc_format_s: 'GeoTIFF',
+        dct_references_s: {
+          'http://schema.org/downloadUrl' => 'http://example.com/layer-id-geotiff.tiff'
+        }.to_json
+      )
     )
   end
   let(:simple_iiif_image) do

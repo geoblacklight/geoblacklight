@@ -83,7 +83,7 @@ class CatalogController < ApplicationController
 
     config.add_facet_field 'dc_rights_s', label: 'Access', limit: 8, partial: "icon_facet"
     config.add_facet_field 'layer_geom_type_s', label: 'Data type', limit: 8, partial: "icon_facet"
-    config.add_facet_field 'dc_format_s', :label => 'Format', :limit => 8
+    config.add_facet_field Settings.FIELDS.FILE_FORMAT, :label => 'Format', :limit => 8
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
