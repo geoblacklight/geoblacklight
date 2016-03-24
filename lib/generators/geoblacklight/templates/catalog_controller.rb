@@ -77,7 +77,7 @@ class CatalogController < ApplicationController
 
     config.add_facet_field 'solr_year_i', :label => 'Year', :limit => 10
 
-    config.add_facet_field 'dc_rights_s', label: 'Access', limit: 8, partial: "icon_facet"
+    config.add_facet_field Settings.FIELDS.RIGHTS, label: 'Access', limit: 8, partial: "icon_facet"
     config.add_facet_field 'layer_geom_type_s', label: 'Data type', limit: 8, partial: "icon_facet"
     config.add_facet_field Settings.FIELDS.FILE_FORMAT, :label => 'Format', :limit => 8
 
@@ -100,7 +100,7 @@ class CatalogController < ApplicationController
 
     # config.add_index_field 'dc_title_t', :label => 'Display Name:'
     # config.add_index_field 'dct_provenance_s', :label => 'Institution:'
-    # config.add_index_field 'dc_rights_s', :label => 'Access:'
+    # config.add_index_field Settings.FIELDS.RIGHTS, :label => 'Access:'
     # # config.add_index_field 'Area', :label => 'Area:'
     # config.add_index_field 'dc_subject_sm', :label => 'Keywords:'
 

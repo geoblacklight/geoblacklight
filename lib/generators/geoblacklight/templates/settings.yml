@@ -15,6 +15,7 @@ FIELDS:
   :FILE_FORMAT: 'dc_format_s'
   :GEOMETRY: 'solr_geom'
   :WXS_IDENTIFIER: 'layer_id_s'
+  :RIGHTS: 'dc_rights_s'
 
 # Institution deployed at
 INSTITUTION: 'Stanford'

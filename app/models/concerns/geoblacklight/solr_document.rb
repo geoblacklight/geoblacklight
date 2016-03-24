@@ -16,11 +16,11 @@ module Geoblacklight
     end
 
     def public?
-      fetch(:dc_rights_s).casecmp('public').zero?
+      fetch(Settings.FIELDS.RIGHTS).casecmp('public').zero?
     end
 
     def restricted?
-      fetch(:dc_rights_s).casecmp('restricted').zero?
+      fetch(Settings.FIELDS.RIGHTS).casecmp('restricted').zero?
     end
 
     def downloadable?
@@ -56,7 +56,7 @@ module Geoblacklight
     end
 
     def bounding_box_as_wsen
-      geom_field = fetch(Settings.FIELDS.GEOMETRY.to_sym)
+      geom_field = fetch(Settings.FIELDS.GEOMETRY)
       exp = /^\s*ENVELOPE\(
                   \s*([-\.\d]+)\s*,
                   \s*([-\.\d]+)\s*,

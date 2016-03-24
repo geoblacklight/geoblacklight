@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Geoblacklight::SolrDocument do
   let(:document) { SolrDocument.new(document_attributes) }
+  let(:rights_field) { Settings.FIELDS.RIGHTS }
   describe '#available?' do
     let(:document_attributes) { {} }
     describe 'a public document' do
@@ -21,13 +22,13 @@ describe Geoblacklight::SolrDocument do
   end
   describe '#public?' do
     describe 'a public document' do
-      let(:document_attributes) { { dc_rights_s: 'PUBLIC' } }
+      let(:document_attributes) { { rights_field => 'PUBLIC' } }
       it 'is public' do
         expect(document.public?).to be_truthy
       end
     end
     describe 'a restricted resource' do
-      let(:document_attributes) { { dc_rights_s: 'RESTRICTED' } }
+      let(:document_attributes) { { rights_field => 'RESTRICTED' } }
       it 'does not be public' do
         expect(document.public?).to be_falsey
       end
@@ -37,7 +38,7 @@ describe Geoblacklight::SolrDocument do
     describe 'available direct download' do
       let(:document_attributes) do
         {
-          dc_rights_s: 'Public',
+          rights_field => 'Public',
           dct_references_s: {
             'http://schema.org/downloadUrl' => 'http://example.com/direct/data.zip'
           }.to_json
