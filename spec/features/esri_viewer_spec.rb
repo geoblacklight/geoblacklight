@@ -17,9 +17,9 @@ feature 'feature_layer reference', js: true do
     expect(page).to have_css 'img.leaflet-image-layer', visible: true
   end
   scenario 'displays feature layer' do
+    pending 'cannot currently test for svg feature'
     visit catalog_path 'minnesota-772ebcaf2ec0405ea1b156b5937593e7_0'
     expect(page).to have_css '.leaflet-control-zoom', visible: true
-    pending 'cannot currently test for svg feature'
     expect(Nokogiri::HTML.parse(page.body).css('g').length).to eq 23
   end
   scenario 'displays image map layer' do
