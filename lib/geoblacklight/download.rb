@@ -10,7 +10,7 @@ module Geoblacklight
     end
 
     def file_name
-      "#{@document[:layer_slug_s]}-#{@options[:type]}.#{@options[:extension]}"
+      "#{@document.id}-#{@options[:type]}.#{@options[:extension]}"
     end
 
     def self.file_path

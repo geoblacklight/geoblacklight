@@ -1,11 +1,13 @@
 require 'spec_helper'
 
 describe Geoblacklight::References do
+  let(:references_field) { Settings.FIELDS.REFERENCES }
+  let(:file_format_field) { Settings.FIELDS.FILE_FORMAT }
   let(:typical_ogp_shapefile) do
     described_class.new(
       SolrDocument.new(
-        dc_format_s: 'Shapefile',
-        dct_references_s: {
+        file_format_field => 'Shapefile',
+        references_field => {
           'http://www.opengis.net/def/serviceType/ogc/wms' => 'http://hgl.harvard.edu:8080/geoserver/wms',
           'http://www.opengis.net/def/serviceType/ogc/wfs' => 'http://hgl.harvard.edu:8080/geoserver/wfs'
         }.to_json
@@ -15,16 +17,16 @@ describe Geoblacklight::References do
   let(:no_service_shapefile) do
     described_class.new(
       SolrDocument.new(
-        dc_format_s: 'Shapefile',
-        dct_references_s: {}.to_json
+        file_format_field => 'Shapefile',
+        references_field => {}.to_json
       )
     )
   end
   let(:typical_ogp_geotiff) do
     described_class.new(
       SolrDocument.new(
-        dc_format_s: 'GeoTIFF',
-        dct_references_s: {
+        file_format_field => 'GeoTIFF',
+        references_field => {
           'http://www.opengis.net/def/serviceType/ogc/wms' => 'http://hgl.harvard.edu:8080/geoserver/wms',
           'http://www.opengis.net/def/serviceType/ogc/wfs' => 'http://hgl.harvard.edu:8080/geoserver/wfs'
         }.to_json
@@ -34,8 +36,8 @@ describe Geoblacklight::References do
   let(:typical_arcgrid) do
     described_class.new(
       SolrDocument.new(
-        dc_format_s: 'ArcGRID',
-        dct_references_s: {
+        file_format_field => 'ArcGRID',
+        references_field => {
           'http://www.opengis.net/def/serviceType/ogc/wms' => 'http://hgl.harvard.edu:8080/geoserver/wms',
           'http://www.opengis.net/def/serviceType/ogc/wfs' => 'http://hgl.harvard.edu:8080/geoserver/wfs'
         }.to_json
@@ -45,8 +47,8 @@ describe Geoblacklight::References do
   let(:complex_shapefile) do
     described_class.new(
       SolrDocument.new(
-        dc_format_s: 'Shapefile',
-        dct_references_s: {
+        file_format_field => 'Shapefile',
+        references_field => {
           'http://schema.org/downloadUrl' => 'http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip',
           'http://www.isotc211.org/schemas/2005/gmd/' => 'http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/iso19139.xml',
           'http://www.loc.gov/mods/v3' => 'http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/mods.xml',
@@ -60,8 +62,8 @@ describe Geoblacklight::References do
   let(:direct_download_only) do
     described_class.new(
       SolrDocument.new(
-        dc_format_s: 'GeoTIFF',
-        dct_references_s: {
+        file_format_field => 'GeoTIFF',
+        references_field => {
           'http://schema.org/downloadUrl' => 'http://example.com/layer-id-geotiff.tiff'
         }.to_json
       )
@@ -70,8 +72,8 @@ describe Geoblacklight::References do
   let(:simple_iiif_image) do
     described_class.new(
       SolrDocument.new(
-        dc_format_s: 'Raster',
-        dct_references_s: {
+        file_format_field => 'Raster',
+        references_field => {
           'http://schema.org/url' => 'http://arks.princeton.edu/ark:/88435/02870w62c',
           'http://iiif.io/api/image' => 'http://libimages.princeton.edu/loris2/pudl0076%2Fmap_pownall%2F00000001.jp2/info.json'
         }.to_json
@@ -84,7 +86,7 @@ describe Geoblacklight::References do
     )
   end
   describe '#initialize' do
-    it 'parses dct_references_s to @refs' do
+    it 'parses configured references field to @refs' do
       expect(typical_ogp_shapefile.instance_variable_get(:@refs)).to be_an Array
     end
     it 'empty references return an empty array' do
@@ -93,7 +95,7 @@ describe Geoblacklight::References do
       expect(empty_refs).to eq []
     end
     it 'sets @references_field' do
-      expect(typical_ogp_shapefile.reference_field).to eq :dct_references_s
+      expect(typical_ogp_shapefile.reference_field).to eq references_field
       expect(custom_fields.reference_field).to eq :new_ref_field
     end
   end

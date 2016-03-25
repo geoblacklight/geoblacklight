@@ -48,9 +48,10 @@ describe GeoblacklightHelper, type: :helper do
 
   describe '#iiif_jpg_url' do
     let(:document) { SolrDocument.new(document_attributes) }
+    let(:references_field) { Settings.FIELDS.REFERENCES }
     let(:document_attributes) do
       {
-        dct_references_s: {
+        references_field => {
           'http://iiif.io/api/image' => 'https://example.edu/image/info.json'
         }.to_json
       }

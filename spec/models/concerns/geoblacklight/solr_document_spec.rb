@@ -4,6 +4,7 @@ describe Geoblacklight::SolrDocument do
   let(:document) { SolrDocument.new(document_attributes) }
   let(:rights_field) { Settings.FIELDS.RIGHTS }
   let(:provenance_field) { Settings.FIELDS.PROVENANCE }
+  let(:references_field) { Settings.FIELDS.REFERENCES }
   describe '#available?' do
     let(:document_attributes) { {} }
     describe 'a public document' do
@@ -40,7 +41,7 @@ describe Geoblacklight::SolrDocument do
       let(:document_attributes) do
         {
           rights_field => 'Public',
-          dct_references_s: {
+          references_field => {
             'http://schema.org/downloadUrl' => 'http://example.com/direct/data.zip'
           }.to_json
         }
@@ -88,7 +89,7 @@ describe Geoblacklight::SolrDocument do
     describe 'with a direct download' do
       let(:document_attributes) do
         {
-          dct_references_s: {
+          references_field => {
             'http://schema.org/downloadUrl' => 'http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip'
           }.to_json
         }
@@ -107,7 +108,7 @@ describe Geoblacklight::SolrDocument do
     describe 'with an hgl download' do
       let(:document_attributes) do
         {
-          dct_references_s: {
+          references_field => {
             'http://schema.org/DownloadAction' => 'http://example.com/harvard'
           }.to_json
         }
@@ -127,7 +128,7 @@ describe Geoblacklight::SolrDocument do
     describe 'with a IIIF download' do
       let(:document_attributes) do
         {
-          dct_references_s: {
+          references_field => {
             'http://iiif.io/api/image' => 'https://example.edu/images/info.json'
           }.to_json
         }
@@ -153,7 +154,7 @@ describe Geoblacklight::SolrDocument do
     describe 'with a wms reference' do
       let(:document_attributes) do
         {
-          dct_references_s: {
+          references_field => {
             'http://www.opengis.net/def/serviceType/ogc/wms' => 'http://www.example.com/wms'
           }.to_json
         }
@@ -171,7 +172,7 @@ describe Geoblacklight::SolrDocument do
     describe 'with a wms reference' do
       let(:document_attributes) do
         {
-          dct_references_s: {
+          references_field => {
             'http://www.opengis.net/def/serviceType/ogc/wms' => 'http://www.example.com/wms'
           }.to_json
         }

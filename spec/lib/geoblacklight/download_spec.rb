@@ -4,7 +4,8 @@ describe Geoblacklight::Download do
   let(:response) { double('response') }
   let(:get) { double('get') }
   let(:body) { double('body') }
-  let(:document) { SolrDocument.new(layer_slug_s: 'test', dct_references_s: { 'http://www.opengis.net/def/serviceType/ogc/wms' => 'http://www.example.com/wms' }.to_json) }
+  let(:references_field) { Settings.FIELDS.REFERENCES }
+  let(:document) { SolrDocument.new(layer_slug_s: 'test', references_field => { 'http://www.opengis.net/def/serviceType/ogc/wms' => 'http://www.example.com/wms' }.to_json) }
   let(:options) { { type: 'shapefile', extension: 'zip', service_type: 'wms', content_type: 'application/zip' } }
   let(:download) { Geoblacklight::ShapefileDownload.new(document, options) }
 

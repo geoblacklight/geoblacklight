@@ -20,6 +20,7 @@ FIELDS:
   :GEOM_TYPE: 'layer_geom_type_s'
   :SPATIAL_COVERAGE: 'dct_spatial_sm'
   :SUBJECT: 'dc_subject_sm'
+  :REFERENCES: 'dct_references_s'
 
 # Institution deployed at
 INSTITUTION: 'Stanford'
