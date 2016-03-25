@@ -21,6 +21,7 @@ feature 'feature_layer reference', js: true do
     visit catalog_path 'minnesota-772ebcaf2ec0405ea1b156b5937593e7_0'
     expect(page).to have_css '.leaflet-control-zoom', visible: true
     expect(Nokogiri::HTML.parse(page.body).css('g').length).to eq 23
+    fail
   end
   scenario 'displays image map layer' do
     visit catalog_path 'minnesota-test-oregon-naip-2011'

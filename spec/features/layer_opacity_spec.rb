@@ -12,4 +12,9 @@ feature 'Layer opacity', js: true do
     expect(page).to have_css('div.opacity-text', text: '75%')
     expect(page.find('img.leaflet-image-layer', match: :first)[:style]).to match(/opacity: 0.75;/)
   end
+
+  scenario 'IIIF layer should not have opacity control' do
+    visit catalog_path('princeton-02870w62c')
+    expect(page).not_to have_css('div.opacity-text', text: '75%')
+  end
 end

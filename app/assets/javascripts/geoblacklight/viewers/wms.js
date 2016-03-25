@@ -7,10 +7,9 @@ GeoBlacklight.Viewer.Wms = GeoBlacklight.Viewer.Map.extend({
     this.map = L.map(this.element).fitBounds(this.options.bbox);
     this.map.addLayer(this.selectBasemap());
     this.map.addLayer(this.overlay);
-
     if (this.data.available) {
       this.addPreviewLayer();
-      this.addOpacityControl();
+      this.loadControls();
     } else {
       this.addBoundsOverlay(this.options.bbox);
     }
@@ -55,15 +54,18 @@ GeoBlacklight.Viewer.Wms = GeoBlacklight.Viewer.Map.extend({
             $('.attribute-table-body').html('<tbody class="attribute-table-body"><tr><td colspan="2">Could not find that feature</td></tr></tbody>');
             return;
           }
+
           var html = $('<tbody class="attribute-table-body"></tbody>');
           $.each(data.values, function(i, val) {
             html.append('<tr><td>' + val[0] + '</td><td>' + val[1] + '</tr>');
           });
+
           $('.attribute-table-body').replaceWith(html);
         },
+
         fail: function(error) {
           console.log(error);
-        }
+        },
       });
     });
   }
