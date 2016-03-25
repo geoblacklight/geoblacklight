@@ -30,8 +30,8 @@ GeoBlacklight.Viewer.DynamicMapLayer = GeoBlacklight.Viewer.Esri.extend({
         // add layer to map
         if (_this.addPreviewLayer(layer)) {
 
-          // add control if layer is added
-          _this.addOpacityControl();
+          // add controls if layer is added
+          _this.loadControls();
         }
       }
     });

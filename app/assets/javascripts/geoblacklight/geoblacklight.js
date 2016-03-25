@@ -35,6 +35,7 @@
     }
   });
 
+  // Hash for leaflet controls.
+  GeoBlacklight.Controls = {};
   global.GeoBlacklight = GeoBlacklight;
-
 }(this);
