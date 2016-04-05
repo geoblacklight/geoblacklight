@@ -137,4 +137,11 @@ module GeoblacklightHelper
   rescue ActionView::MissingTemplate
     render partial: 'web_services_default', locals: { reference: reference }
   end
+
+  ##
+  # Returns a hash of the leaflet plugin settings to pass to the viewer.
+  # @return[Hash]
+  def leaflet_options
+    Settings.LEAFLET
+  end
 end

@@ -28,16 +28,12 @@ GeoBlacklight.Viewer.FeatureLayer = GeoBlacklight.Viewer.Esri.extend({
     return this.esriFeatureLayer;
   },
 
-  // override opacity control because feature layer is special
-  addOpacityControl: function() {
+  controlPreload: function() {
 
     // define setOpacity function that works for svg elements
     this.esriFeatureLayer.setOpacity = function(opacity) {
       $('.leaflet-clickable').css({ opacity: opacity });
     };
-
-    // add new opacity control
-    this.map.addControl(new L.Control.LayerOpacity(this.esriFeatureLayer));
   },
 
   getFeatureStyle: function() {

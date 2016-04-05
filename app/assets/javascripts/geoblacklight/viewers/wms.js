@@ -10,7 +10,7 @@ GeoBlacklight.Viewer.Wms = GeoBlacklight.Viewer.Map.extend({
 
     if (this.data.available) {
       this.addPreviewLayer();
-      this.addOpacityControl();
+      this.loadControls();
     } else {
       this.addBoundsOverlay(this.options.bbox);
     }

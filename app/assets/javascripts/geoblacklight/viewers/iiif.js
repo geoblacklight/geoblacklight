@@ -9,7 +9,7 @@ GeoBlacklight.Viewer.Iiif = GeoBlacklight.Viewer.extend({
       crs: L.CRS.Simple,
       zoom: 0
     });
-
+    this.loadControls();
     this.iiifLayer = L.tileLayer.iiif(this.data.url)
       .addTo(this.map);
   },
