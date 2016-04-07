@@ -64,6 +64,13 @@ describe Geoblacklight::Download do
       expect(File).to receive(:rename)
       expect(download.create_download_file).to eq download.file_name
     end
+    it 'accepts response MIME type that is more complex than requested' do
+      geojson = OpenStruct.new(headers: { 'content-type' => 'application/json;charset=utf-8' })
+      expect(download).to receive(:initiate_download).and_return(geojson)
+      expect(File).to receive(:open).with("#{download.file_path_and_name}.tmp", 'wb').and_return('')
+      expect(File).to receive(:rename)
+      expect(download.create_download_file).to eq download.file_name
+    end
   end
   describe '#initiate_download' do
     it 'request download from server' do
