@@ -40,11 +40,8 @@ module Geoblacklight
     def create_download_file
       download = initiate_download
       File.open("#{file_path_and_name}.tmp", 'wb') do |file|
-        if download.headers['content-type'] == @options[:content_type]
-          file.write download.body
-        else
-          fail Geoblacklight::Exceptions::WrongDownloadFormat
-        end
+        fail Geoblacklight::Exceptions::WrongDownloadFormat unless matches_mimetype?(download)
+        file.write download.body
       end
       File.rename("#{file_path_and_name}.tmp", file_path_and_name)
       file_name
@@ -85,6 +82,10 @@ module Geoblacklight
     end
 
     private
+
+    def matches_mimetype?(download)
+      MIME::Type.simplified(download.headers['content-type']) == @options[:content_type]
+    end
 
     ##
     # Returns timeout for the download request. `timeout` passed as an option to
