@@ -75,7 +75,7 @@ class CatalogController < ApplicationController
     config.add_facet_field Settings.FIELDS.SPATIAL_COVERAGE, :label => 'Place', :limit => 8
     config.add_facet_field 'dct_isPartOf_sm', :label => 'Collection', :limit => 8
 
-    config.add_facet_field 'solr_year_i', :label => 'Year', :limit => 10
+    config.add_facet_field Settings.FIELDS.YEAR, :label => 'Year', :limit => 10
 
     config.add_facet_field Settings.FIELDS.RIGHTS, label: 'Access', limit: 8, partial: "icon_facet"
     config.add_facet_field Settings.FIELDS.GEOM_TYPE, label: 'Data type', limit: 8, partial: "icon_facet"
@@ -194,7 +194,7 @@ class CatalogController < ApplicationController
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case).
     config.add_sort_field 'score desc, dc_title_sort asc', :label => 'relevance'
-    config.add_sort_field 'solr_year_i desc, dc_title_sort asc', :label => 'year'
+    config.add_sort_field "#{Settings.FIELDS.YEAR} desc, dc_title_sort asc", :label => 'year'
     config.add_sort_field 'dc_publisher_sort asc, dc_title_sort asc', :label => 'publisher'
     config.add_sort_field 'dc_title_sort asc', :label => 'title'
 
