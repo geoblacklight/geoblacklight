@@ -70,7 +70,7 @@ class CatalogController < ApplicationController
 
     config.add_facet_field Settings.FIELDS.PROVENANCE, label: 'Institution', limit: 8, partial: "icon_facet"
     config.add_facet_field Settings.FIELDS.CREATOR, :label => 'Author', :limit => 8
-    config.add_facet_field 'dc_publisher_s', :label => 'Publisher', :limit => 8
+    config.add_facet_field Settings.FIELDS.PUBLISHER, :label => 'Publisher', :limit => 8
     config.add_facet_field Settings.FIELDS.SUBJECT, :label => 'Subject', :limit => 8
     config.add_facet_field Settings.FIELDS.SPATIAL_COVERAGE, :label => 'Place', :limit => 8
     config.add_facet_field 'dct_isPartOf_sm', :label => 'Collection', :limit => 8
@@ -114,7 +114,7 @@ class CatalogController < ApplicationController
     # helper_method: [Symbol] method that can be used to render the value
     config.add_show_field Settings.FIELDS.CREATOR, label: 'Author(s)', itemprop: 'author'
     config.add_show_field Settings.FIELDS.DESCRIPTION, label: 'Description', itemprop: 'description', helper_method: :render_value_as_truncate_abstract
-    config.add_show_field 'dc_publisher_s', label: 'Publisher', itemprop: 'publisher'
+    config.add_show_field Settings.FIELDS.PUBLISHER, label: 'Publisher', itemprop: 'publisher'
     config.add_show_field 'dct_isPartOf_sm', label: 'Collection', itemprop: 'isPartOf'
     config.add_show_field Settings.FIELDS.SPATIAL_COVERAGE, label: 'Place(s)', itemprop: 'spatial', link_to_search: true
     config.add_show_field Settings.FIELDS.SUBJECT, label: 'Subject(s)', itemprop: 'keywords', link_to_search: true
@@ -195,7 +195,7 @@ class CatalogController < ApplicationController
     # except in the relevancy case).
     config.add_sort_field 'score desc, dc_title_sort asc', :label => 'relevance'
     config.add_sort_field "#{Settings.FIELDS.YEAR} desc, dc_title_sort asc", :label => 'year'
-    config.add_sort_field 'dc_publisher_sort asc, dc_title_sort asc', :label => 'publisher'
+    config.add_sort_field "#{Settings.FIELDS.PUBLISHER} asc, dc_title_sort asc", :label => 'publisher'
     config.add_sort_field 'dc_title_sort asc', :label => 'title'
 
     # If there are more than this many search results, no spelling ("did you

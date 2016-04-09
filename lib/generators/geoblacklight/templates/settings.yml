@@ -24,6 +24,7 @@ FIELDS:
   :YEAR: 'solr_year_i'
   :CREATOR: 'dc_creator_sm'
   :DESCRIPTION: 'dc_description_s'
+  :PUBLISHER: 'dc_publisher_s'
 
 # Institution deployed at
 INSTITUTION: 'Stanford'

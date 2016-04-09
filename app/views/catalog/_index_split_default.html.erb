@@ -17,7 +17,7 @@
   <div class='col-md-12 more-info-area'>
     <div class='collapse' data-collapse-target="<%= document.id %>">
       <small>
-        <%= document[Settings.FIELDS.YEAR] %>. <i><%= document[Settings.FIELDS.CREATOR].nil?? '' : document[Settings.FIELDS.CREATOR].join(', ') %></i>. <%= snippit(document[Settings.FIELDS.DESCRIPTION]) %>. <%= document['dc_publisher_s'] %>.
+        <%= document[Settings.FIELDS.YEAR] %>. <i><%= document[Settings.FIELDS.CREATOR].nil?? '' : document[Settings.FIELDS.CREATOR].join(', ') %></i>. <%= snippit(document[Settings.FIELDS.DESCRIPTION]) %>. <%= document[Settings.FIELDS.PUBLISHER] %>.
       </small>
     </div>
   </div>
