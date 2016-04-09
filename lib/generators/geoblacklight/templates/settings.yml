@@ -26,6 +26,7 @@ FIELDS:
   :DESCRIPTION: 'dc_description_s'
   :PUBLISHER: 'dc_publisher_s'
   :PART_OF: 'dct_isPartOf_sm'
+  :TEMPORAL: 'dct_temporal_sm'
 
 # Institution deployed at
 INSTITUTION: 'Stanford'

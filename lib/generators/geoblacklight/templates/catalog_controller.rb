@@ -118,7 +118,7 @@ class CatalogController < ApplicationController
     config.add_show_field Settings.FIELDS.PART_OF, label: 'Collection', itemprop: 'isPartOf'
     config.add_show_field Settings.FIELDS.SPATIAL_COVERAGE, label: 'Place(s)', itemprop: 'spatial', link_to_search: true
     config.add_show_field Settings.FIELDS.SUBJECT, label: 'Subject(s)', itemprop: 'keywords', link_to_search: true
-    config.add_show_field 'dct_temporal_sm', label: 'Year', itemprop: 'temporal'
+    config.add_show_field Settings.FIELDS.TEMPORAL, label: 'Year', itemprop: 'temporal'
     config.add_show_field Settings.FIELDS.PROVENANCE, label: 'Held by', link_to_search: true
 
     # "fielded" search configuration. Used by pulldown among other places.
