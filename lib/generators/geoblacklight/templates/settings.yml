@@ -25,6 +25,7 @@ FIELDS:
   :CREATOR: 'dc_creator_sm'
   :DESCRIPTION: 'dc_description_s'
   :PUBLISHER: 'dc_publisher_s'
+  :PART_OF: 'dct_isPartOf_sm'
 
 # Institution deployed at
 INSTITUTION: 'Stanford'
