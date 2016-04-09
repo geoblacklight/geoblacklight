@@ -23,6 +23,7 @@ FIELDS:
   :REFERENCES: 'dct_references_s'
   :YEAR: 'solr_year_i'
   :CREATOR: 'dc_creator_sm'
+  :DESCRIPTION: 'dc_description_s'
 
 # Institution deployed at
 INSTITUTION: 'Stanford'
