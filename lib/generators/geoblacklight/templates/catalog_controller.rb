@@ -69,7 +69,7 @@ class CatalogController < ApplicationController
     # }
 
     config.add_facet_field Settings.FIELDS.PROVENANCE, label: 'Institution', limit: 8, partial: "icon_facet"
-    config.add_facet_field 'dc_creator_sm', :label => 'Author', :limit => 8
+    config.add_facet_field Settings.FIELDS.CREATOR, :label => 'Author', :limit => 8
     config.add_facet_field 'dc_publisher_s', :label => 'Publisher', :limit => 8
     config.add_facet_field Settings.FIELDS.SUBJECT, :label => 'Subject', :limit => 8
     config.add_facet_field Settings.FIELDS.SPATIAL_COVERAGE, :label => 'Place', :limit => 8
@@ -112,7 +112,7 @@ class CatalogController < ApplicationController
     # item_prop: [String] property given to span with Schema.org item property
     # link_to_search: [Boolean] that can be passed to link to a facet search
     # helper_method: [Symbol] method that can be used to render the value
-    config.add_show_field 'dc_creator_sm', label: 'Author(s)', itemprop: 'author'
+    config.add_show_field Settings.FIELDS.CREATOR, label: 'Author(s)', itemprop: 'author'
     config.add_show_field 'dc_description_s', label: 'Description', itemprop: 'description', helper_method: :render_value_as_truncate_abstract
     config.add_show_field 'dc_publisher_s', label: 'Publisher', itemprop: 'publisher'
     config.add_show_field 'dct_isPartOf_sm', label: 'Collection', itemprop: 'isPartOf'
