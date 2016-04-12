@@ -1,8 +1,6 @@
 <h2>
   <span itemprop="name"><%= document_heading(document) %></span>
   <small>
-    <%= geoblacklight_icon(document[Settings.FIELDS.GEOM_TYPE]) %>
-    <%= geoblacklight_icon(document[Settings.FIELDS.PROVENANCE]) %>
-    <%= geoblacklight_icon(document[Settings.FIELDS.RIGHTS]) %>
+    <%= render partial: 'header_icons', locals: { document: document } %>
   </small>
 </h2>

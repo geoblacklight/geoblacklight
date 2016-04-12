@@ -1,9 +1,7 @@
 <% # header bar for doc items in index view -%>
 <%= content_tag :div, class: 'documentHeader row', data: { layer_id: document.id, bbox: document.bounding_box_as_wsen } do %>
   <div class='status-icons'>
-    <%= geoblacklight_icon(document[Settings.FIELDS.GEOM_TYPE]) %>
-    <%= geoblacklight_icon(document[Settings.FIELDS.PROVENANCE]) %>
-    <%= geoblacklight_icon(document[Settings.FIELDS.RIGHTS]) %>
+    <%= render partial: 'header_icons', locals: { document: document } %>
   </div>
   <h3 class="index_title col-sm-9s cosl-lg-10 text-span">
     <span class='caret-toggle'></span>
