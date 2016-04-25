@@ -4,9 +4,10 @@ describe GeoblacklightHelper, type: :helper do
   include ActionView::Helpers::UrlHelper
   include ActionView::Helpers::TranslationHelper
   describe '#render_facet_links' do
+    let(:subject_field) { Settings.FIELDS.SUBJECT }
     it 'contains unique links' do
-      expect(self).to receive(:catalog_index_path).exactly(3).times.and_return('http://example.com/catalog?f[dc_subject_sm][]=category')
-      html = Capybara.string(render_facet_links('dc_subject_sm', %w(Test Test Earth Science)))
+      expect(self).to receive(:catalog_index_path).exactly(3).times.and_return("http://example.com/catalog?f[#{subject_field}][]=category")
+      html = Capybara.string(render_facet_links(subject_field, %w(Test Test Earth Science)))
       expect(html).to have_css 'a', count: 3
       expect(html).to have_css 'a', text: 'Test', count: 1
       expect(html).to have_css 'a', text: 'Earth', count: 1
@@ -47,9 +48,10 @@ describe GeoblacklightHelper, type: :helper do
 
   describe '#iiif_jpg_url' do
     let(:document) { SolrDocument.new(document_attributes) }
+    let(:references_field) { Settings.FIELDS.REFERENCES }
     let(:document_attributes) do
       {
-        dct_references_s: {
+        references_field => {
           'http://iiif.io/api/image' => 'https://example.edu/image/info.json'
         }.to_json
       }
@@ -58,6 +60,24 @@ describe GeoblacklightHelper, type: :helper do
     it 'returns JPG download URL when given URL to a IIIF info.json' do
       assign(:document, document)
       expect(helper.iiif_jpg_url).to eq 'https://example.edu/image/full/full/0/default.jpg'
+    end
+  end
+
+  describe '#snippit' do
+    let(:document) { SolrDocument.new(document_attributes) }
+    let(:references_field) { Settings.FIELDS.REFERENCES }
+    let(:document_attributes) do
+      {
+        value: 'This is a really long string that should get truncated when it gets rendered'\
+        'in the index view to give a brief description of the contents of a particular document'\
+        'indexed into Solr'
+      }
+    end
+    it 'truncates longer strings to 150 characters' do
+      expect(helper.snippit(document).length).to eq 150
+    end
+    it 'truncated string ends with ...' do
+      expect(helper.snippit(document)[-3..-1]).to eq '...'
     end
   end
 

@@ -19,16 +19,12 @@ module GeoblacklightHelper
     @document.references.iiif.endpoint.sub! 'info.json', 'full/full/0/default.jpg'
   end
 
-  def snippit(text)
-    if text
-      if text.length > 150
-        text.slice(0, 150) + '...'
-      else
-        text
-      end
-    else
-      ''
-    end
+  ##
+  # Blacklight catalog controller helper method to truncate field value to 150 chars
+  # @param [SolrDocument] args
+  # @return [String]
+  def snippit(args)
+    truncate(args[:value], length: 150)
   end
 
   def render_facet_tags(facet)

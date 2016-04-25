@@ -1,8 +1,6 @@
 <h2>
   <span itemprop="name"><%= document_heading(document) %></span>
   <small>
-    <%= geoblacklight_icon(document['layer_geom_type_s']) %>
-    <%= geoblacklight_icon(document['dct_provenance_s']) %>
-    <%= geoblacklight_icon(document['dc_rights_s']) %>
+    <%= render partial: 'header_icons', locals: { document: document } %>
   </small>
 </h2>

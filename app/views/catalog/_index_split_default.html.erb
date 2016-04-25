@@ -1,9 +1,7 @@
 <% # header bar for doc items in index view -%>
-<%= content_tag :div, class: 'documentHeader row', data: { layer_id: document[:uuid], bbox: document.bounding_box_as_wsen } do %>
+<%= content_tag :div, class: 'documentHeader row', data: { layer_id: document.id, bbox: document.bounding_box_as_wsen } do %>
   <div class='status-icons'>
-    <%= geoblacklight_icon(document['layer_geom_type_s']) %>
-    <%= geoblacklight_icon(document['dct_provenance_s']) %>
-    <%= geoblacklight_icon(document['dc_rights_s']) %>
+    <%= render partial: 'header_icons', locals: { document: document } %>
   </div>
   <h3 class="index_title col-sm-9s cosl-lg-10 text-span">
     <span class='caret-toggle'></span>
@@ -11,13 +9,13 @@
     <span class="document-counter">
       <%= t('blacklight.search.documents.counter', :counter => counter) if counter %>
     </span>
-    <%= link_to_document document, document_show_link_field(document), counter: counter, title: document['dc_title_s'] %>
+    <%= link_to_document document, document_show_link_field(document), counter: counter, title: document[blacklight_config.index.title_field] %>
   </h3>
 
   <div class='col-md-12 more-info-area'>
-    <div class='collapse' data-collapse-target="<%= document['uuid'] %>">
+    <div class='collapse' data-collapse-target="<%= document.id %>">
       <small>
-        <%= document['solr_year_i'] %>. <i><%= document['dc_creator_sm'].nil?? '' : document['dc_creator_sm'].join(', ') %></i>. <%= snippit(document['dc_description_s']) %>. <%= document['dc_publisher_s'] %>.
+        <%= geoblacklight_present(:index_fields_display, document) %>
       </small>
     </div>
   </div>

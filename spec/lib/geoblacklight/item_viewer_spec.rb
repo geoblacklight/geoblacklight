@@ -4,6 +4,7 @@ describe Geoblacklight::ItemViewer do
   let(:document) { SolrDocument.new(document_attributes) }
   let(:document_attributes) { {} }
   let(:references) { document.references }
+  let(:references_field) { Settings.FIELDS.REFERENCES }
   let(:item_viewer) { described_class.new(references) }
   describe 'viewer_preference' do
     describe 'for no references' do
@@ -14,7 +15,7 @@ describe Geoblacklight::ItemViewer do
     describe 'for wms reference' do
       let(:document_attributes) do
         {
-          dct_references_s: {
+          references_field => {
             'http://www.opengis.net/def/serviceType/ogc/wms' => 'http://www.example.com/wms',
             'http://iiif.io/api/image' => 'http://www.example.com/iiif'
           }.to_json
@@ -27,7 +28,7 @@ describe Geoblacklight::ItemViewer do
     describe 'for iiif only reference' do
       let(:document_attributes) do
         {
-          dct_references_s: {
+          references_field => {
             'http://iiif.io/api/image' => 'http://www.example.com/iiif'
           }.to_json
         }
@@ -39,7 +40,7 @@ describe Geoblacklight::ItemViewer do
     describe 'for tiled map layer reference' do
       let(:document_attributes) do
         {
-          dct_references_s: {
+          references_field => {
             'urn:x-esri:serviceType:ArcGIS#TiledMapLayer' => 'http://www.example.com/MapServer'
           }.to_json
         }
