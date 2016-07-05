@@ -1,26 +1,27 @@
 require 'spec_helper'
 
 feature 'Configurable basemap', js: true do
-  scenario 'defaults to mapquest' do
+  scenario 'defaults to positron' do
     visit root_path
-    expect(page).to have_css "img[src*='mqcdn.com']"
+    expect(page).to have_css "img[src*='cartodb']"
   end
   feature 'without provided basemap config' do
     before do
       CatalogController.blacklight_config.basemap_provider = nil
     end
-    scenario 'has mapquest map' do
+    scenario 'has CartoDB map' do
       visit root_path
-      expect(page).to have_css "img[src*='mqcdn.com']"
+      expect(page).to have_css "img[src*='cartodb']"
     end
   end
-  feature 'using positron' do
+  feature 'using darkMatter' do
     before do
-      CatalogController.blacklight_config.basemap_provider = 'positron'
+      CatalogController.blacklight_config.basemap_provider = 'darkMatter'
     end
-    scenario 'has positron map' do
+    scenario 'has darkMatter map' do
+      puts CatalogController.blacklight_config.basemap_provider
       visit root_path
-      expect(page).to have_css "img[src*='light_all']"
+      expect(page).to have_css "img[src*='dark_all']"
     end
   end
 end
