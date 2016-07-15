@@ -80,13 +80,13 @@ module Geoblacklight
 
     # Necessary for bootstrap-sass 3.2
     def inject_sprockets
-      blacklight_css = Dir['app/assets/stylesheets/blacklight.css.scss'].first
+      blacklight_css = Dir['app/assets/stylesheets/blacklight.scss'].first
       if blacklight_css
         insert_into_file blacklight_css, before: "@import 'bootstrap';" do
           "@import 'bootstrap-sprockets';\n"
         end
       else
-        say_status 'warning', 'Can not find blacklight.css.scss, did not insert our require', :red
+        say_status 'warning', 'Can not find blacklight.scss, did not insert our require', :red
       end
     end
 
