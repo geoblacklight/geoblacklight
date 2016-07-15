@@ -1,12 +1,11 @@
 require 'spec_helper'
 
 describe Geoblacklight::SearchBuilder do
-  let(:method_chain) { CatalogController.search_params_logic }
   let(:user_params) { Hash.new }
   let(:solr_params) { Hash.new }
   let(:context) { CatalogController.new }
 
-  let(:search_builder) { described_class.new(method_chain, context) }
+  let(:search_builder) { described_class.new(context) }
 
   subject { search_builder.with(user_params) }
 
