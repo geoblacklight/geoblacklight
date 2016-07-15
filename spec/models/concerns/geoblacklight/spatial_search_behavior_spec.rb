@@ -1,25 +1,21 @@
 require 'spec_helper'
 
-describe Geoblacklight::SearchBuilder do
+describe Geoblacklight::SpatialSearchBehavior do
   let(:user_params) { Hash.new }
   let(:solr_params) { Hash.new }
+  let(:blacklight_config) { CatalogController.blacklight_config.deep_copy }
   let(:context) { CatalogController.new }
 
-  let(:search_builder) { described_class.new(context) }
-
-  subject { search_builder.with(user_params) }
-
-  describe '#initialize' do
-    it 'has add_spatial_params in processor chain once' do
-      expect(subject.processor_chain).to include :add_spatial_params
-      expect(subject.processor_chain
-        .count { |x| x == :add_spatial_params }).to eq 1
-      new_search = described_class.new(subject.processor_chain, context)
-      expect(new_search.processor_chain).to include :add_spatial_params
-      expect(subject.processor_chain
-        .count { |x| x == :add_spatial_params }).to eq 1
+  let(:search_builder_class) do
+    Class.new(Blacklight::SearchBuilder).tap do |klass|
+      include Blacklight::Solr::SearchBuilderBehavior
+      klass.include(described_class)
     end
   end
+
+  let(:search_builder) { search_builder_class.new(context) }
+
+  subject { search_builder.with(user_params) }
 
   describe '#add_spatial_params' do
     it 'returns the solr_params when no bbox is given' do
