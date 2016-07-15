@@ -1,5 +1,5 @@
 <%= form_tag search_action_url, :method => :get, :class => 'search-query-form clearfix' do %>
-<%= render_hash_as_hidden_fields(params_for_search().except(:q, :search_field, :qt, :page, :utf8)) %>
+<%= render_hash_as_hidden_fields(search_state.params_for_search().except(:q, :search_field, :qt, :page, :utf8)) %>
 
 <% unless search_fields.empty? %>
 <label for="search_field" class="sr-only"><%= t('blacklight.search.form.search_field.label') %></label>
