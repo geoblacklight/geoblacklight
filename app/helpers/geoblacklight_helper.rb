@@ -24,7 +24,7 @@ module GeoblacklightHelper
   # @param [SolrDocument] args
   # @return [String]
   def snippit(args)
-    truncate(args[:value], length: 150)
+    truncate(Array(args[:value]).flatten.first, length: 150)
   end
 
   def render_facet_tags(facet)
