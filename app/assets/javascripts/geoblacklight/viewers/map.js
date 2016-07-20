@@ -54,7 +54,7 @@ GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
     if (_this.data.basemap) {
       return GeoBlacklight.Basemaps[_this.data.basemap];
     } else {
-      return _this.basemap.mapquest;
+      return _this.basemap.positron;
     }
   }
 });

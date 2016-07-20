@@ -98,7 +98,7 @@ module GeoblacklightHelper
   # Selects the basemap used for map displays
   # @return [String]
   def geoblacklight_basemap
-    blacklight_config.basemap_provider || 'mapquest'
+    blacklight_config.basemap_provider || 'positron'
   end
 
   ##
