@@ -74,6 +74,12 @@ module Geoblacklight
       end
     end
 
+    def add_spatial_search_behavior
+      inject_into_file 'app/models/search_builder.rb', after: 'include Blacklight::Solr::SearchBuilderBehavior' do
+        "\n  include Geoblacklight::SpatialSearchBehavior"
+      end
+    end
+
     def create_downloads_directory
       FileUtils.mkdir_p('tmp/cache/downloads') unless File.directory?('tmp/cache/downloads')
     end
