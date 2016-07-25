@@ -15,7 +15,7 @@
   "layer_slug_s": "princeton-test-oregon-naip-2011",
   "layer_id_s": "oregon-naip-2011",
   "layer_geom_type_s": "Raster",
-  "layer_modified_dt": "2015-27-15T00:41:49Z",
+  "layer_modified_dt": "2015-07-15T00:41:49Z",
   "solr_geom": "ENVELOPE(-124.88, -116.41, 46.34, 41.91)",
   "solr_year_i": 2008
 }
