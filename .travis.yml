@@ -5,7 +5,10 @@ notifications:
   email: false
 
 rvm:
-  - 2.1
+  - 2.2.5
+
+jdk:
+  - oraclejdk8
 
 env:
   global:

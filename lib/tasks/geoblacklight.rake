@@ -2,7 +2,16 @@ require 'rails/generators'
 require 'generators/geoblacklight/install_generator'
 
 namespace :geoblacklight do
-  namespace :solr do
+  desc 'Run Solr and GeoBlacklight for interactive development'
+  task :server, [:rails_server_args] do |_t, args|
+    SolrWrapper.wrap(port: '8983') do |solr|
+      solr.with_collection(name: 'blacklight-core', dir: File.join(File.expand_path('../../', File.dirname(__FILE__)), 'solr', 'conf')) do
+        system "bundle exec rails s #{args[:rails_server_args]}"
+      end
+    end
+  end
+
+  namespace :index do
     desc "Put sample data into solr"
     task :seed => :environment do
       docs = Dir['spec/fixtures/solr_documents/*.json'].map { |f| JSON.parse File.read(f) }.flatten
@@ -34,6 +43,7 @@ namespace :geoblacklight do
       Blacklight.default_index.connection.commit
     end
   end
+
   namespace :downloads do
     desc 'Delete all cached downloads'
     task delete: :environment do

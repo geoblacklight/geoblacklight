@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!--
  Licensed to the Apache Software Foundation (ASF) under one or more
  contributor license agreements.  See the NOTICE file distributed with
@@ -20,11 +20,25 @@
      this file, see http://wiki.apache.org/solr/SolrConfigXml.
 -->
 <config>
-  <luceneMatchVersion>4.7</luceneMatchVersion>
-  <dataDir>${solr.data.dir:}</dataDir>
+  
+  <!-- Controls what version of Lucene various components of Solr
+       adhere to.  Generally, you want to use the latest version to
+       get all bug fixes and improvements. It is highly recommended
+       that you fully re-index after changing this setting as it can
+       affect both how text is indexed and queried.
+  -->
+  <luceneMatchVersion>6.1</luceneMatchVersion>
+  
+  <lib dir="${solr.install.dir:../../../..}/contrib/analysis-extras/lib" />
+  <lib dir="${solr.install.dir:../../../..}/contrib/analysis-extras/lucene-libs" />
+
   <directoryFactory name="DirectoryFactory" class="${solr.directoryFactory:solr.NRTCachingDirectoryFactory}"/>
+
   <codecFactory class="solr.SchemaCodecFactory"/>
   <schemaFactory class="ClassicIndexSchemaFactory"/>
+
+  <dataDir>${solr.blacklight-core.data.dir:}</dataDir>
+    
   <indexConfig>
     <lockType>${solr.lock.type:native}</lockType>
   </indexConfig>
@@ -154,9 +168,6 @@
       <str>spellcheck</str>
     </arr>
   </requestHandler>
-
-  <requestHandler name="/update" class="solr.UpdateRequestHandler"/>
-  <requestHandler name="/admin/" class="solr.admin.AdminHandlers"/>
 
   <!-- ping/healthcheck -->
   <requestHandler name="/admin/ping" class="solr.PingRequestHandler">
