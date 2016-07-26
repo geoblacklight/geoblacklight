@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one or more
+ contributor license agreements.  See the NOTICE file distributed with
+ this work for additional information regarding copyright ownership.
+ The ASF licenses this file to You under the Apache License, Version 2.0
+ (the "License"); you may not use this file except in compliance with
+ the License.  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+<!-- 
+     For more details about configurations options that may appear in
+     this file, see http://wiki.apache.org/solr/SolrConfigXml. 
+-->
+<config>
+  <luceneMatchVersion>4.7</luceneMatchVersion>
+  <dataDir>${solr.data.dir:}</dataDir>
+  <directoryFactory name="DirectoryFactory" class="${solr.directoryFactory:solr.NRTCachingDirectoryFactory}"/>
+  <codecFactory class="solr.SchemaCodecFactory"/>
+  <schemaFactory class="ClassicIndexSchemaFactory"/>
+  <indexConfig>
+    <lockType>${solr.lock.type:native}</lockType>
+  </indexConfig>
+
+  <!-- The default high-performance update handler -->
+  <updateHandler class="solr.DirectUpdateHandler2">
+    <updateLog>
+      <str name="dir">${solr.ulog.dir:}</str>
+    </updateLog>
+    <autoCommit>
+      <maxTime>15000</maxTime>
+      <openSearcher>false</openSearcher>
+    </autoCommit>
+  </updateHandler>
+
+  <!-- realtime get handler, guaranteed to return the latest stored fields 
+    of any document, without the need to commit or open a new searcher. The current 
+    implementation relies on the updateLog feature being enabled. -->
+  <requestHandler name="/get" class="solr.RealTimeGetHandler">
+    <lst name="defaults">
+      <str name="omitHeader">true</str>
+    </lst>
+  </requestHandler>  
+  
+  <requestHandler name="/replication" class="solr.ReplicationHandler" startup="lazy" /> 
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       Query section - these settings control query time things like caches
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <query>
+    <maxBooleanClauses>1024</maxBooleanClauses>
+    <filterCache class="solr.FastLRUCache" size="512" initialSize="512" autowarmCount="0"/>
+    <queryResultCache class="solr.LRUCache" size="512" initialSize="512" autowarmCount="0"/>
+    <documentCache class="solr.LRUCache" size="512" initialSize="512" autowarmCount="0"/>
+    <enableLazyFieldLoading>true</enableLazyFieldLoading>
+    <queryResultWindowSize>20</queryResultWindowSize>
+    <queryResultMaxDocsCached>200</queryResultMaxDocsCached>
+    <listener event="newSearcher" class="solr.QuerySenderListener">
+      <arr name="queries">
+       <lst><str name="q">stanford</str></lst>
+       <lst><str name="q">polygon</str></lst>
+      </arr>
+    </listener>
+    <listener event="firstSearcher" class="solr.QuerySenderListener">
+      <arr name="queries">
+        <lst>
+          <str name="q">static firstSearcher warming in solrconfig.xml</str>
+        </lst>
+      </arr>
+    </listener>
+    <useColdSearcher>false</useColdSearcher>
+    <maxWarmingSearchers>2</maxWarmingSearchers>
+  </query>
+
+  <requestDispatcher handleSelect="false">
+    <requestParsers enableRemoteStreaming="true" multipartUploadLimitInKB="2048000" formdataUploadLimitInKB="2048"/>
+    <httpCaching never304="true"/>
+   </requestDispatcher>
+
+  <requestHandler name="/search" class="solr.SearchHandler"/>
+
+  <requestHandler name="/select" class="solr.SearchHandler">
+    <lst name="defaults">
+      <int name="start">0</int>
+      <int name="rows">10</int>
+      <str name="wt">json</str>
+      <int name="indent">2</int>
+      <str name="defType">edismax</str>
+      <str name="echoParams">all</str>
+      <str name="mm">6&lt;-1 6&lt;90%</str>
+      <int name="qs">1</int>
+      <int name="ps">0</int>
+      <float name="tie">0.01</float>
+      <str name="fl">*,score</str>
+      <str name="sort">score desc, dc_title_sort asc</str>
+      <str name="q.alt">*:*</str>
+      <str name="qf">
+        text^1
+        dc_description_ti^2
+        dc_creator_tmi^3
+        dc_publisher_ti^3
+        dct_isPartOf_tmi^4
+        dc_subject_tmi^5
+        dct_spatial_tmi^5
+        dct_temporal_tmi^5
+        dc_title_ti^6
+        dc_rights_ti^7
+        dct_provenance_ti^8
+        layer_geom_type_ti^9
+        layer_slug_ti^10
+        dc_identifier_ti^10
+      </str>
+      <str name="pf"><!-- phrase boost within result set -->
+        text^1
+        dc_description_ti^2
+        dc_creator_tmi^3
+        dc_publisher_ti^3
+        dct_isPartOf_tmi^4
+        dc_subject_tmi^5
+        dct_spatial_tmi^5
+        dct_temporal_tmi^5
+        dc_title_ti^6
+        dc_rights_ti^7
+        dct_provenance_ti^8
+        layer_geom_type_ti^9
+        layer_slug_ti^10
+        dc_identifier_ti^10
+      </str>
+      <bool name="facet">true</bool>
+      <int name="facet.mincount">1</int>
+      <int name="facet.limit">10</int>
+      <str name="facet.field">dct_isPartOf_sm</str>
+      <str name="facet.field">dct_provenance_s</str>
+      <str name="facet.field">dct_spatial_sm</str>
+      <str name="facet.field">dc_creator_sm</str>
+      <str name="facet.field">dc_format_s</str>
+      <str name="facet.field">dc_language_s</str>
+      <str name="facet.field">dc_publisher_s</str>
+      <str name="facet.field">dc_rights_s</str>
+      <str name="facet.field">dc_subject_sm</str>
+      <str name="facet.field">layer_geom_type_s</str>
+      <str name="facet.field">solr_year_i</str>
+    </lst>
+  </requestHandler>
+
+  <requestHandler name="/update" class="solr.UpdateRequestHandler"/>
+  <requestHandler name="/admin/" class="solr.admin.AdminHandlers"/>
+
+  <!-- ping/healthcheck -->
+  <requestHandler name="/admin/ping" class="solr.PingRequestHandler">
+    <lst name="invariants">
+      <str name="q">solrpingquery</str>
+    </lst>
+    <lst name="defaults">
+      <str name="echoParams">all</str>
+    </lst>
+    <!-- An optional feature of the PingRequestHandler is to configure the 
+         handler with a "healthcheckFile" which can be used to enable/disable 
+         the PingRequestHandler.
+         relative paths are resolved against the data dir 
+      -->
+    <str name="healthcheckFile">server-enabled.txt</str>
+  </requestHandler>
+  
+  <requestHandler name="/analysis/field" 
+                  startup="lazy"
+                  class="solr.FieldAnalysisRequestHandler" />
+                  
+  <!-- Legacy config for the admin interface -->
+  <admin>
+    <defaultQuery>*:*</defaultQuery>
+  </admin>
+</config>
