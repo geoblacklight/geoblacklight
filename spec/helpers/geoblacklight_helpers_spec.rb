@@ -6,7 +6,7 @@ describe GeoblacklightHelper, type: :helper do
   describe '#render_facet_links' do
     let(:subject_field) { Settings.FIELDS.SUBJECT }
     it 'contains unique links' do
-      expect(self).to receive(:catalog_index_path).exactly(3).times.and_return("http://example.com/catalog?f[#{subject_field}][]=category")
+      expect(self).to receive(:search_catalog_path).exactly(3).times.and_return("http://example.com/catalog?f[#{subject_field}][]=category")
       html = Capybara.string(render_facet_links(subject_field, %w(Test Test Earth Science)))
       expect(html).to have_css 'a', count: 3
       expect(html).to have_css 'a', text: 'Test', count: 1
@@ -66,18 +66,35 @@ describe GeoblacklightHelper, type: :helper do
   describe '#snippit' do
     let(:document) { SolrDocument.new(document_attributes) }
     let(:references_field) { Settings.FIELDS.REFERENCES }
-    let(:document_attributes) do
-      {
-        value: 'This is a really long string that should get truncated when it gets rendered'\
-        'in the index view to give a brief description of the contents of a particular document'\
-        'indexed into Solr'
-      }
+    context 'as a String' do
+      let(:document_attributes) do
+        {
+          value: 'This is a really long string that should get truncated when it gets rendered'\
+          'in the index view to give a brief description of the contents of a particular document'\
+          'indexed into Solr'
+        }
+      end
+      it 'truncates longer strings to 150 characters' do
+        expect(helper.snippit(document).length).to eq 150
+      end
+      it 'truncated string ends with ...' do
+        expect(helper.snippit(document)[-3..-1]).to eq '...'
+      end
     end
-    it 'truncates longer strings to 150 characters' do
-      expect(helper.snippit(document).length).to eq 150
-    end
-    it 'truncated string ends with ...' do
-      expect(helper.snippit(document)[-3..-1]).to eq '...'
+    context 'as an Array' do
+      let(:document_attributes) do
+        {
+          value: ['This is a really long string that should get truncated when it gets rendered'\
+          'in the index view to give a brief description of the contents of a particular document'\
+          'indexed into Solr']
+        }
+      end
+      it 'truncates longer strings to 150 characters' do
+        expect(helper.snippit(document).length).to eq 150
+      end
+      it 'truncated string ends with ...' do
+        expect(helper.snippit(document)[-3..-1]).to eq '...'
+      end
     end
   end
 

@@ -10,11 +10,5 @@ module Geoblacklight
     def geoblacklight_present(presenting_method, document = @document)
       presenter(document).try(presenting_method.to_sym) || ''
     end
-
-    ##
-    # Use the Geoblacklight::DocumentPresenter
-    def presenter_class
-      Geoblacklight::DocumentPresenter
-    end
   end
 end

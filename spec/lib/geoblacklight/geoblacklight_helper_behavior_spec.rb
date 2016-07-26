@@ -21,10 +21,4 @@ describe Geoblacklight::GeoblacklightHelperBehavior do
       end
     end
   end
-  describe '#presenter_class' do
-    it 'is defined as Geoblacklight::DocumentPresenter' do
-      expect(dummy_class.presenter_class.new({}, {}, {}))
-        .to be_a Geoblacklight::DocumentPresenter
-    end
-  end
 end

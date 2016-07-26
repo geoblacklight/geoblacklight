@@ -24,7 +24,7 @@ module GeoblacklightHelper
   # @param [SolrDocument] args
   # @return [String]
   def snippit(args)
-    truncate(args[:value], length: 150)
+    truncate(Array(args[:value]).flatten.first, length: 150)
   end
 
   def render_facet_tags(facet)
@@ -50,7 +50,7 @@ module GeoblacklightHelper
   #
   def render_facet_links(facet, items)
     items.uniq.map do |item|
-      link_to item, catalog_index_path(f: { facet => [item] })
+      link_to item, search_catalog_path(f: { facet => [item] })
     end.join(', ').html_safe
   end
 

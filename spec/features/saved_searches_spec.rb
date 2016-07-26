@@ -7,7 +7,7 @@ feature 'saved searches' do
       find('.search-control a').click
       expect(page.current_url).to match(/bbox=/)
     end
-    visit search_history_path
+    visit blacklight.search_history_path
     expect(page).to have_css 'td.query a', text: /Bounding box:/
   end
 end

@@ -4,7 +4,7 @@ class TestAppGenerator < Rails::Generators::Base
   source_root File.expand_path('../../../../spec/test_app_templates', __FILE__)
 
   def add_gems
-    gem 'blacklight', '~> 5.9'
+    gem 'blacklight', '~> 6.3'
     gem 'teaspoon'
     gem 'teaspoon-jasmine'
     Bundler.with_clean_env do

@@ -11,6 +11,31 @@ module Geoblacklight
 
     desc 'Install Geoblacklight'
 
+    def mount_geoblacklight_engine
+      route "mount Geoblacklight::Engine => 'geoblacklight'"
+    end
+
+    def inject_geoblacklight_routes
+      route <<-EOF.strip_heredoc
+          concern :gbl_exportable, Geoblacklight::Routes::Exportable.new
+          resources :solr_documents, only: [:show], controller: 'catalog' do
+            concerns :gbl_exportable
+          end
+
+          concern :gbl_wms, Geoblacklight::Routes::Wms.new
+          namespace :wms do
+            concerns :gbl_wms
+          end
+
+          concern :gbl_downloadable, Geoblacklight::Routes::Downloadable.new
+          namespace :download do
+            concerns :gbl_downloadable
+          end
+
+          resources :download, only: [:show]
+      EOF
+    end
+
     def install_jettywrapper
       return unless options[:jettywrapper]
       copy_file 'config/jetty.yml'
@@ -21,7 +46,7 @@ module Geoblacklight
     end
 
     def assets
-      copy_file 'geoblacklight.css.scss', 'app/assets/stylesheets/geoblacklight.css.scss'
+      copy_file 'geoblacklight.scss', 'app/assets/stylesheets/geoblacklight.scss'
       copy_file 'geoblacklight.js', 'app/assets/javascripts/geoblacklight.js'
 
       append_to_file 'config/initializers/assets.rb',
@@ -49,19 +74,25 @@ module Geoblacklight
       end
     end
 
+    def add_spatial_search_behavior
+      inject_into_file 'app/models/search_builder.rb', after: 'include Blacklight::Solr::SearchBuilderBehavior' do
+        "\n  include Geoblacklight::SpatialSearchBehavior"
+      end
+    end
+
     def create_downloads_directory
       FileUtils.mkdir_p('tmp/cache/downloads') unless File.directory?('tmp/cache/downloads')
     end
 
     # Necessary for bootstrap-sass 3.2
     def inject_sprockets
-      blacklight_css = Dir['app/assets/stylesheets/blacklight.css.scss'].first
+      blacklight_css = Dir['app/assets/stylesheets/blacklight.scss'].first
       if blacklight_css
         insert_into_file blacklight_css, before: "@import 'bootstrap';" do
           "@import 'bootstrap-sprockets';\n"
         end
       else
-        say_status 'warning', 'Can not find blacklight.css.scss, did not insert our require', :red
+        say_status 'warning', 'Can not find blacklight.scss, did not insert our require', :red
       end
     end
 

@@ -1,11 +1,9 @@
 module Geoblacklight
-  class SearchBuilder < Blacklight::Solr::SearchBuilder
-    self.default_processor_chain += [:add_spatial_params]
+  module SpatialSearchBehavior
+    extend ActiveSupport::Concern
 
-    def initialize(processor_chain, scope)
-      super(processor_chain, scope)
-      @processor_chain += [:add_spatial_params] unless @processor_chain
-                                                       .include?(:add_spatial_params)
+    included do
+      self.default_processor_chain += [:add_spatial_params]
     end
 
     ##

@@ -2,7 +2,7 @@
 <% if document_downloadable? %>
   <div class='btn-group' itemprop='distribution' itemscope='itemscope' itemtype='http://schema.org/DataDownload'>
     <% if document.direct_download.present? %>
-    <%= link_to(download_text(geoblacklight_present(:file_format, @document)), document.direct_download[:download], class: 'btn btn-default', 'contentUrl' => document.direct_download[:download], data: { download: 'trigger', download_type: 'direct', download_id: document.id }) %>
+    <%= link_to(download_text(document.file_format), document.direct_download[:download], class: 'btn btn-default', 'contentUrl' => document.direct_download[:download], data: { download: 'trigger', download_type: 'direct', download_id: document.id }) %>
     <% elsif document.hgl_download.present? %>
     <%= link_to(download_text(document.download_types.first[0]),
     download_hgl_path(id: document), data: {ajax_modal: 'trigger', download: 'trigger', download_type: 'harvard-hgl', download_id: document.id },
@@ -27,7 +27,7 @@
       <% if document.direct_download.present? %>
       <li role="presentation" class="dropdown-header">Original</li>
       <li>
-        <%= link_to(download_text(geoblacklight_present(:file_format, @document)), document.direct_download[:download], 'contentUrl' => document.direct_download[:download], data: { download: 'trigger', download_type: 'direct', download_id: document.id }) %>
+        <%= link_to(download_text(@document.file_format), document.direct_download[:download], 'contentUrl' => document.direct_download[:download], data: { download: 'trigger', download_type: 'direct', download_id: document.id }) %>
       </li>
       <% end %>
       <% if document.download_types.present? || document.iiif_download.present? %>
