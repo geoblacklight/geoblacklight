@@ -17,6 +17,7 @@ GeoBlacklight.Viewer.Wms = GeoBlacklight.Viewer.Map.extend({
   },
 
   addPreviewLayer: function() {
+    var _this = this;
     var wmsLayer = L.tileLayer.wms(this.data.url, {
       layers: this.data.layerId,
       format: 'image/png',
@@ -24,7 +25,7 @@ GeoBlacklight.Viewer.Wms = GeoBlacklight.Viewer.Map.extend({
       tiled: true,
       CRS: 'EPSG:900913',
       opacity: this.options.opacity,
-      detectRetina: true
+      detectRetina: _this.detectRetina()
     });
     this.overlay.addLayer(wmsLayer);
     this.setupInspection();

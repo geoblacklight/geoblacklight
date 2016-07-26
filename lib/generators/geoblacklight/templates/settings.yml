@@ -72,6 +72,7 @@ OPACITY_CONTROL: &opacity_control
 LEAFLET:
   MAP:
   LAYERS:
+    DETECT_RETINA: true
   VIEWERS:
     WMS:
       <<: *opacity_control
