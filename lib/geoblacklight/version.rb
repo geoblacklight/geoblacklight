@@ -1,3 +1,3 @@
 module Geoblacklight
-  VERSION = '0.12.1'.freeze
+  VERSION = '1.0.0.pre1'.freeze
 end
