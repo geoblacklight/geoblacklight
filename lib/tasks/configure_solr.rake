@@ -20,8 +20,4 @@ namespace :geoblacklight do
       FileUtils.cp File.join(root, item[:src]), "jetty/solr/blacklight-core/conf/#{item[:file]}", verbose: true
     end
   end
-
-  # Leaving this task in for backwards compatibility
-  desc 'Runs geoblacklight:configure_solr, you should just use geoblacklight:configure_solr'
-  task configure_jetty: :configure_solr
 end
