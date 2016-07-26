@@ -47,14 +47,20 @@ GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
   },
 
   /**
-  * Selects basemap if specified in data options, if not return mapquest
+  * Selects basemap if specified in data options, if not return positron.
   */
   selectBasemap: function() {
     var _this = this;
+    var basemap;
+
     if (_this.data.basemap) {
-      return GeoBlacklight.Basemaps[_this.data.basemap];
+      basemap = GeoBlacklight.Basemaps[_this.data.basemap];
     } else {
-      return _this.basemap.positron;
+      basemap = _this.basemap.positron;
     }
+
+    // Use value from app settings to set the detect retina option.
+    basemap.options.detectRetina = _this.detectRetina();
+    return basemap;
   }
 });

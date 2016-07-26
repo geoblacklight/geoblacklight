@@ -51,5 +51,17 @@ GeoBlacklight.Viewer = L.Class.extend({
   **/
   controlPreload: function() {
     return;
+  },
+
+  /**
+  * Gets the value of detect retina from application settings.
+  **/
+  detectRetina: function() {
+    var options = this.data.leafletOptions;
+    if (options && options.LAYERS) {
+      return options.LAYERS.DETECT_RETINA ? options.LAYERS.DETECT_RETINA : false;
+    } else {
+      return false;
+    }
   }
 });
