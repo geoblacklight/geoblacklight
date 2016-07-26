@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema name="geoblacklight-schema" version="1.5">
+  <uniqueKey>uuid</uniqueKey>
+  <fields>
+    <field name="_version_" type="long"   stored="true" indexed="true"/>
+    <field name="timestamp" type="date"   stored="true" indexed="true" default="NOW"/>
+    <field name="uuid"      type="string" stored="true" indexed="true" required="true"/>
+
+    <!-- core generated fields -->
+    <field name="text" type="text_en" stored="false" indexed="true" multiValued="true"
+                       termVectors="true" termPositions="true" termOffsets="true" />
+
+    <!-- dynamic field with simple types by suffix -->
+    <dynamicField name="*_b"    type="boolean" stored="true"  indexed="true"/>
+    <dynamicField name="*_d"    type="double"  stored="true"  indexed="true"/>
+    <dynamicField name="*_dt"   type="date"    stored="true"  indexed="true"/>
+    <dynamicField name="*_f"    type="float"   stored="true"  indexed="true"/>
+    <dynamicField name="*_i"    type="int"     stored="true"  indexed="true"/>
+    <dynamicField name="*_l"    type="long"    stored="true"  indexed="true"/>
+    <dynamicField name="*_s"    type="string"  stored="true"  indexed="true"/>
+    <dynamicField name="*_ss"   type="string"  stored="true"  indexed="false"/>
+    <dynamicField name="*_si"   type="string"  stored="false" indexed="true"/>
+    <dynamicField name="*_sim"  type="string"  stored="false" indexed="true" multiValued="true" />
+    <dynamicField name="*_sm"   type="string"  stored="true"  indexed="true" multiValued="true" />
+    <dynamicField name="*_url"  type="string"  stored="true"  indexed="false"/>
+    <dynamicField name="*_blob" type="binary"  stored="true"  indexed="false"/>
+
+    <!-- dynamic Text fields by suffix without storage -->
+    <dynamicField name="*_t"    type="text_en" stored="false"  indexed="true"
+                                termVectors="true" termPositions="true" termOffsets="true"/>
+    <dynamicField name="*_tm"   type="text_en" stored="false"  indexed="true" multiValued="true"
+                                termVectors="true" termPositions="true" termOffsets="true"/>
+    <dynamicField name="*_ti"   type="text_en" stored="false" indexed="true"
+                                termVectors="true" termPositions="true" termOffsets="true"/>
+    <dynamicField name="*_tmi"  type="text_en" stored="false" indexed="true" multiValued="true"
+                                termVectors="true" termPositions="true" termOffsets="true"/>
+    <dynamicField name="*_sort" type="text_sort" stored="false" indexed="true" multiValued="false"/>
+
+    <!-- Spatial field types:
+
+         Solr3:
+           <field name="my_pt">83.1,-117.312</field>
+             as (y,x)
+
+         Solr4:
+
+           <field name="my_bbox">-117.312 83.1 -115.39 84.31</field>
+             as (W S E N)
+
+           <field name="my_geom">ENVELOPE(-117.312, -115.39, 84.31, 83.1)</field>
+             as (W E N S)
+
+           <field name="my_jts">POLYGON((1 8, 1 9, 2 9, 2 8, 1 8))</field>
+             as WKT for point, linestring, polygon
+
+      -->
+    <dynamicField name="*_pt"   type="location"     stored="true" indexed="true"/>
+    <dynamicField name="*_bbox" type="location_rpt" stored="true" indexed="true"/>
+    <dynamicField name="*_geom" type="location_rpt" stored="true" indexed="true"/>
+    <!-- <dynamicField name="*_jts"  type="location_jts" stored="true" indexed="true"/> -->
+  </fields>
+
+  <types>
+    <fieldType name="string"  class="solr.StrField"  sortMissingLast="true" />
+    <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>
+
+    <fieldType name="int"    class="solr.TrieIntField"     precisionStep="8" positionIncrementGap="0"/>
+    <fieldType name="float"  class="solr.TrieFloatField"   precisionStep="8" positionIncrementGap="0"/>
+    <fieldType name="long"   class="solr.TrieLongField"    precisionStep="8" positionIncrementGap="0"/>
+    <fieldType name="double" class="solr.TrieDoubleField"  precisionStep="8" positionIncrementGap="0"/>
+
+    <!-- The format for this date field is of the form 1995-12-31T23:59:59Z.
+         The trailing "Z" designates UTC time and is mandatory.
+         A Trie based date field for faster date range queries and date faceting. -->
+    <fieldType name="date" class="solr.TrieDateField" precisionStep="6" positionIncrementGap="0"/>
+
+    <!--Binary data type. The data should be sent/retrieved in as Base64 encoded Strings -->
+    <fieldtype name="binary" class="solr.BinaryField"/>
+
+    <!-- A text field with defaults appropriate for English: it
+         tokenizes with StandardTokenizer, removes English stop words
+         (lang/stopwords_en.txt), down cases, protects words from protwords.txt, and
+         finally applies Porter's stemming.  The query time analyzer
+         also applies synonyms from synonyms.txt. -->
+    <fieldType name="text_en" class="solr.TextField" positionIncrementGap="100">
+      <analyzer type="index">
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords_en.txt"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.EnglishPossessiveFilterFactory"/>
+        <filter class="solr.KeywordMarkerFilterFactory" protected="protwords.txt"/>
+        <filter class="solr.PorterStemFilterFactory"/>
+      </analyzer>
+      <analyzer type="query">
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords_en.txt"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.EnglishPossessiveFilterFactory"/>
+        <filter class="solr.KeywordMarkerFilterFactory" protected="protwords.txt"/>
+        <filter class="solr.PorterStemFilterFactory"/>
+      </analyzer>
+    </fieldType>
+
+    <!-- for alpha sorting as a single token -->
+    <fieldType name="text_sort" class="solr.TextField" sortMissingLast="true" omitNorms="true">
+      <analyzer>
+        <tokenizer class="solr.KeywordTokenizerFactory"/>
+        <filter class="solr.LowerCaseFilterFactory" />
+        <filter class="solr.TrimFilterFactory" />
+        <filter class="solr.PatternReplaceFilterFactory" pattern="([^a-z0-9 ])" replacement="" replace="all"/>
+      </analyzer>
+    </fieldType>
+
+    <!-- Spatial field types -->
+    <fieldType name="location" class="solr.LatLonType" subFieldSuffix="_d"/>
+
+    <fieldType name="location_rpt" class="solr.SpatialRecursivePrefixTreeFieldType"
+               distErrPct="0.025"
+               maxDistErr="0.000009"
+               units="degrees"
+            />
+
+    <!-- JTS-enabled spatial predicates; requires JTS installation -->
+    <!-- <fieldType name="location_jts" class="solr.SpatialRecursivePrefixTreeFieldType"
+               spatialContextFactory="com.spatial4j.core.context.jts.JtsSpatialContextFactory"
+               distErrPct="0.025"
+               maxDistErr="0.000009"
+               units="degrees"
+            /> -->
+  </types>
+
+  <!-- for scoring formula -->
+  <copyField source="dct_spatial_sm"     dest="dct_spatial_tmi"     maxChars="10000"/>
+  <copyField source="dct_temporal_sm"    dest="dct_temporal_tmi"    maxChars="10000"/>
+  <copyField source="dc_creator_sm"      dest="dc_creator_tmi"      maxChars="1000"/>
+  <copyField source="dc_description_s"   dest="dc_description_ti"   maxChars="10000"/>
+  <copyField source="dc_format_s"        dest="dc_format_ti"        maxChars="100"/>
+  <copyField source="dc_identifier_s"    dest="dc_identifier_ti"    maxChars="100"/>
+  <copyField source="dc_publisher_s"     dest="dc_publisher_ti"     maxChars="1000"/>
+  <copyField source="dc_rights_s"        dest="dc_rights_ti"        maxChars="100"/>
+  <copyField source="dct_provenance_s"   dest="dct_provenance_ti"   maxChars="1000"/>
+  <copyField source="dc_subject_sm"      dest="dc_subject_tmi"      maxChars="10000"/>
+  <copyField source="dc_title_s"         dest="dc_title_ti"         maxChars="1000"/>
+  <copyField source="dct_isPartOf_sm"    dest="dct_isPartOf_tmi"    maxChars="1000"/>
+  <copyField source="layer_geom_type_s"  dest="layer_geom_type_ti"  maxChars="100"/>
+  <copyField source="layer_slug_s"       dest="layer_slug_ti"       maxChars="100"/>
+
+  <!-- core text search -->
+  <copyField source="*_ti"               dest="text" />
+  <copyField source="*_tmi"              dest="text" />
+
+  <!-- for sorting text fields -->
+  <copyField source="dct_provenance_s"   dest="dct_provenance_sort"/>
+  <copyField source="dc_publisher_s"     dest="dc_publisher_sort"/>
+  <copyField source="dc_title_s"         dest="dc_title_sort"/>
+
+</schema>
