@@ -18,6 +18,21 @@ namespace :geoblacklight do
         Blacklight.default_index.connection.commit
       end
     end
+
+    desc "Ingests a directory of geoblacklight.json files"
+    task :ingest, [:directory] => :environment do |_t, args|
+      args.with_default(directory: 'data')
+      Dir.glob(File.join(args[:directory], '**', 'geoblacklight.json')).each do |fn|
+        puts "Ingesting #{fn}"
+        begin
+          Blacklight.default_index.connection.add(JSON.parse(File.read(fn)))
+        rescue => e
+          puts "Failed to ingest #{fn}: #{e.inspect}"
+        end
+      end
+      puts "Committing changes to Solr"
+      Blacklight.default_index.connection.commit
+    end
   end
   namespace :downloads do
     desc 'Delete all cached downloads'
