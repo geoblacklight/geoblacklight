@@ -72,7 +72,7 @@ GeoBlacklight.Viewer.Esri = GeoBlacklight.Viewer.Map.extend({
     // step through properties and append to table
     for (var property in feature.properties) {
       html.append('<tr><td>' + property + '</td>'+
-                  '<td>' + feature.properties[property] + '</tr>');
+                  '<td>' + GeoBlacklight.Util.linkify(feature.properties[property]) + '</tr>');
     }
     $('.attribute-table-body').replaceWith(html);
   }
