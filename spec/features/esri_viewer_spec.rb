@@ -12,7 +12,7 @@ feature 'feature_layer reference', js: true do
     expect(page).to have_css 'img.leaflet-image-layer', visible: true
   end
   scenario 'displays dynamic layer (single layer)' do
-    visit solr_document_path 'maryland-fc5cd2-732d-4559-a9c7-df38dd683aec'
+    visit solr_document_path 'michigan-state-urn-ad0e6ebc-824e-4450-a0d9-987f2232724f'
     expect(page).to have_css '.leaflet-control-zoom', visible: true
     expect(page).to have_css 'img.leaflet-image-layer', visible: true
   end
@@ -34,7 +34,7 @@ feature 'feature_layer reference', js: true do
     expect(page).to have_css 'img.leaflet-tile.leaflet-tile-loaded', visible: true
   end
   scenario 'displays Esri WMS layer' do
-    visit solr_document_path 'psu-32ef9f-0762-445c-8250-f4a5e220a46d'
+    visit solr_document_path 'purdue-urn-f082acb1-b01e-4a08-9126-fd62a23fd9aa'
     expect(page).to have_css '.leaflet-control-zoom', visible: true
     expect(page).to have_css 'img.leaflet-tile.leaflet-tile-loaded', visible: true
   end

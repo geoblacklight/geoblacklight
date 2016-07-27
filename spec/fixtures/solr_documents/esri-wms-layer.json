@@ -1,41 +1,35 @@
 {
-    "uuid": "urn-0a32ef9f-0762-445c-8250-f4a5e220a46d",
-    "layer_geom_type_s": "Point",
-    "dc_identifier_s": "urn-0a32ef9f-0762-445c-8250-f4a5e220a46d",
-    "dc_title_s": "Coal Pillar Location-Mining: Pennsylvania, 2015",
-    "dc_description_s": "Coal Pillar Locations are pillars of coal that must remain in place to provide support for a coal mine.",
-    "dc_rights_s": "Public",
-    "dct_provenance_s": "Penn State University",
-    "layer_id_s": "30",
-    "layer_slug_s": "psu-32ef9f-0762-445c-8250-f4a5e220a46d",
-    "layer_modified_dt": "2016-01-21T09:47:40Z",
-    "dc_creator_sm": [
-        "Pennsylvania Department of Environmental Protection"
-    ],
-    "dc_publisher_sm": [
-        "Pennsylvania Department of Environmental Protection"
-    ],
-    "dc_format_s": "Shapefile",
-    "dc_type_s": "Dataset",
-    "dc_subject_sm": [
-        "Geoscientific Information",
-        "Environment",
-        "EFacts",
-        "Mine",
-        "Mining",
-        "Mines",
-        "Coal",
-        "Coal Pillar",
-        "Coal Pillar Location-Mining",
-        "CPILL"
-    ],
-    "dct_spatial_sm": [
-        "Pennsylvania"
-    ],
-    "dct_issued_s": "2015-09-04",
-    "dct_temporal_sm": "2015",
-    "solr_geom": "ENVELOPE(-80.586626, -78.554382, 41.664169, 39.69975)",
-    "georss_box_s": "39.69975 -80.586626 41.664169 -78.554382",
-    "solr_year_i": 2015,
-    "dct_references_s": "{\"http://schema.org/url\":\"http://www.pasda.psu.edu/uci/MetadataDisplay.aspx?entry=PASDA&file=CoalPillarLocationMining2015_10.xml&dataset=273\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"http://data1.commons.psu.edu/arcgis/services/pasda/DEP/MapServer/WMSServer\",\"http://schema.org/downloadUrl\":\"http://www.pasda.psu.edu/data/dep/CoalPillarLocationMining2016_01.zip\"}"
+  "dc_creator_sm": [
+    "(creation): U.S. Geological Survey",
+    "(selection/conversion): Bernardin, Lochmueller and Associates"
+  ],
+  "dc_description_s": "USGS National Atlas metadata states NThis data set portrays the National Agricultural Statistics Service, U.S. Department of Agriculture's 1997 Census data for the United States, presented by county. There are 25 categories of data which include information about farms, crops, livestock, values of products, and farm operator characteristics.N",
+  "dc_format_s": "Shapefile",
+  "dc_identifier_s": "urn-f082acb1-b01e-4a08-9126-fd62a23fd9aa",
+  "dc_publisher_sm": [
+    "Bernardin, Lochmueller and Associates"
+  ],
+  "dc_rights_s": "Public",
+  "dc_subject_sm": [
+    "farming",
+    "agriculture"
+  ],
+  "dc_title_s": "Agriculture Census: Indiana, 1997",
+  "dc_type_s": "Dataset",
+  "dct_issued_s": "2003-01-28",
+  "dct_provenance_s": "Purdue",
+  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"http://maps.indiana.edu/download/Environment/Agriculture_Census.zip\",\"http://schema.org/url\":\"http://indianamap.org/\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"https://opengeometadata.github.io/edu.purdue/f0/82/ac/b1b01e4a089126fd62a23fd9aa/iso19139.xml\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://maps.indiana.edu/arcgis/services/Environment/Agriculture_Census/MapServer/WMSServer\",\"urn:x-esri:serviceType:ArcGIS#DynamicMapLayer\":\"https://maps.indiana.edu/arcgis/rest/services/Environment/Agriculture_Census/MapServer\"}",
+  "dct_spatial_sm": [
+    "Indiana"
+  ],
+  "dct_temporal_sm": "1972-1997",
+  "georss_box_s": "37.7554 -88.1607 41.7753 -84.6882",
+  "georss_polygon_s": "37.7554 -88.1607 41.7753 -88.1607 41.7753 -84.6882 37.7554 -84.6882 37.7554 -88.1607",
+  "layer_geom_type_s": "Mixed",
+  "layer_id_s": "0",
+  "layer_modified_dt": "2016-06-20T16:17:36Z",
+  "layer_slug_s": "purdue-urn-f082acb1-b01e-4a08-9126-fd62a23fd9aa",
+  "solr_geom": "ENVELOPE(-88.1607, -84.6882, 41.7753, 37.7554)",
+  "solr_year_i": 1972,
+  "uuid": "urn-f082acb1-b01e-4a08-9126-fd62a23fd9aa"
 }
