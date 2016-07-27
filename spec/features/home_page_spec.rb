@@ -14,7 +14,7 @@ feature 'Home page', js: true do # use js: true for tests which require js, but 
   end
   scenario 'find by category' do
     expect(page).to have_css '.category-block', count: 4
-    expect(page).to have_css '.home-facet-link', count: 32
+    expect(page).to have_css '.home-facet-link', count: 33
     expect(page).to have_css 'a.more_facets_link', count: 4
     click_link 'Elevation'
     expect(page).to have_css '.filterName', text: 'Subject'
