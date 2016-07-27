@@ -58,7 +58,7 @@ GeoBlacklight.Viewer.Wms = GeoBlacklight.Viewer.Map.extend({
           }
           var html = $('<tbody class="attribute-table-body"></tbody>');
           $.each(data.values, function(i, val) {
-            html.append('<tr><td>' + val[0] + '</td><td>' + val[1] + '</tr>');
+            html.append('<tr><td>' + val[0] + '</td><td>' + GeoBlacklight.Util.linkify(val[1]) + '</tr>');
           });
           $('.attribute-table-body').replaceWith(html);
         },
