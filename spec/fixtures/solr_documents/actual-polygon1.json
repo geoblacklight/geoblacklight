@@ -1,5 +1,5 @@
 {
-  "uuid": "urn:geodata.tufts.edu:Tufts.CambridgeGrid100_04",
+  "geoblacklight_version": "1.0",
   "dc_description_s": "This polygon dataset is a 100 foot grid overlay for Cambridge, MA.",
   "dc_format_s": "Shapefile",
   "dc_identifier_s": "urn:geodata.tufts.edu:Tufts.CambridgeGrid100_04",
@@ -14,8 +14,6 @@
   ],
   "dct_issued_s": "2005",
   "dct_provenance_s": "Tufts",
-  "georss_box_s": "42.34757 -71.163984 42.408316 -71.052581",
-  "georss_polygon_s": "42.408316 -71.163984 42.408316 -71.052581 42.34757 -71.052581 42.34757 -71.163984 42.408316 -71.163984",
   "layer_slug_s": "tufts-cambridgegrid100-04",
   "layer_id_s": "sde:GISPORTAL.GISOWNER01.CAMBRIDGEGRID100_04",
   "layer_geom_type_s": "Polygon",

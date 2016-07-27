@@ -1,5 +1,5 @@
 {
-  "uuid": "http://arks.princeton.edu/ark:/88435/02870w62c",
+  "geoblacklight_version": "1.0",
   "dc_description_s": "Partly colored. Relief shown pictorially. Shows administrative divisions. From Thomas Jefferys's The American atlas, or, A geographical description of the whole continent of America (London : Printed by R. Sayer and Bennett, 1778). Insets: A chart of the mouth of Hudson's River, from Sandy Hook to New York. A plan of the city of New York. Plan of Amboy, with its environs, from an actual survey.",
   "dc_format_s": "Raster",
   "dc_identifier_s": "http://arks.princeton.edu/ark:/88435/02870w62c",
@@ -27,7 +27,6 @@
   ],
   "dct_issued_s": "1778",
   "dct_provenance_s": "Princeton",
-  "georss_box_s": "38.6693 -76.3394 46.5798 -72.1916",
   "layer_slug_s": "princeton-02870w62c",
   "layer_id_s": "02870w62c",
   "layer_geom_type_s": "Raster",

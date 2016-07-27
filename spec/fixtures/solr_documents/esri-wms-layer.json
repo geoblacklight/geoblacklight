@@ -1,4 +1,5 @@
 {
+  "geoblacklight_version": "1.0",
   "dc_creator_sm": [
     "(creation): U.S. Geological Survey",
     "(selection/conversion): Bernardin, Lochmueller and Associates"
@@ -23,13 +24,10 @@
     "Indiana"
   ],
   "dct_temporal_sm": "1972-1997",
-  "georss_box_s": "37.7554 -88.1607 41.7753 -84.6882",
-  "georss_polygon_s": "37.7554 -88.1607 41.7753 -88.1607 41.7753 -84.6882 37.7554 -84.6882 37.7554 -88.1607",
   "layer_geom_type_s": "Mixed",
   "layer_id_s": "0",
   "layer_modified_dt": "2016-06-20T16:17:36Z",
   "layer_slug_s": "purdue-urn-f082acb1-b01e-4a08-9126-fd62a23fd9aa",
   "solr_geom": "ENVELOPE(-88.1607, -84.6882, 41.7753, 37.7554)",
-  "solr_year_i": 1972,
-  "uuid": "urn-f082acb1-b01e-4a08-9126-fd62a23fd9aa"
+  "solr_year_i": 1972
 }
