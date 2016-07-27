@@ -8,7 +8,7 @@ feature 'Layer opacity', js: true do
   end
 
   scenario 'ESRI image service layer should have opacity control' do
-    visit solr_document_path('minnesota-test-oregon-naip-2011')
+    visit solr_document_path('princeton-test-oregon-naip-2011')
     expect(page).to have_css('div.opacity-text', text: '75%')
     expect(page.find('img.leaflet-image-layer', match: :first)[:style]).to match(/opacity: 0.75;/)
   end

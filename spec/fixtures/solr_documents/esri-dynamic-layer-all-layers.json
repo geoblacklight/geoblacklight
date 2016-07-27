@@ -5,9 +5,9 @@
     "dc_title_s": "Glacial Boundaries: Illinois, 1997",
     "dc_description_s": "This is an SDE feature class containing glacial boundary polygons representing the extent of glaciation for major glacial episodes in Illinois. Data are originally from the Quaternary Deposits in Illinois (1:500,000) map by Lineback (1979). Data have been subsequently modified to conform with the reclassification by Hansel and Johnson, ISGS Bulletin 104 (1996). Glacial episode is identified for each polygon. The data include the Wisconsin, Illinois and the Pre-Illinois episodes. Areas not glaciated are also identified. The nominal scale is 1:500,000.",
     "dc_rights_s": "Public",
-    "dct_provenance_s": "University of Illinois",
+    "dct_provenance_s": "Minnesota",
     "layer_id_s": "urn:f14ff4-1359-4beb-b931-5cb41d20ab90",
-    "layer_slug_s": "illinois-f14ff4-1359-4beb-b931-5cb41d20ab90",
+    "layer_slug_s": "minnesota-f14ff4-1359-4beb-b931-5cb41d20ab90",
     "layer_modified_dt": "2016-01-12T16:10:41Z",
     "dc_creator_sm": [
         "Illinois State Geological Survey"
