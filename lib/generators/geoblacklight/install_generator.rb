@@ -18,7 +18,7 @@ module Geoblacklight
     def inject_geoblacklight_routes
       route <<-EOF.strip_heredoc
           concern :gbl_exportable, Geoblacklight::Routes::Exportable.new
-          resources :solr_documents, only: [:show], controller: 'catalog' do
+          resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog' do
             concerns :gbl_exportable
           end
 
