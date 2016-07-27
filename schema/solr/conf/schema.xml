@@ -18,6 +18,7 @@
     <dynamicField name="*_dt"   type="date"    stored="true"  indexed="true"/>
     <dynamicField name="*_f"    type="float"   stored="true"  indexed="true"/>
     <dynamicField name="*_i"    type="int"     stored="true"  indexed="true"/>
+    <dynamicField name="*_im"   type="int"     stored="true"  indexed="true" multiValued="true" />
     <dynamicField name="*_l"    type="long"    stored="true"  indexed="true"/>
     <dynamicField name="*_s"    type="string"  stored="true"  indexed="true"/>
     <dynamicField name="*_ss"   type="string"  stored="true"  indexed="false"/>
