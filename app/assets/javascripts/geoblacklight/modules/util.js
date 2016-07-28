@@ -1,7 +1,5 @@
 /*global GeoBlacklight */
 
-'use strict';
-
 GeoBlacklight.Util = {
   // Regex taken from http://stackoverflow.com/questions/37684/how-to-replace-plain-urls-with-links
   linkify: function(str) {
