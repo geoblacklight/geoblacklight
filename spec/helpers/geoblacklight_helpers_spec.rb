@@ -96,6 +96,19 @@ describe GeoblacklightHelper, type: :helper do
         expect(helper.snippit(document)[-3..-1]).to eq '...'
       end
     end
+    context 'as a multivalued Array' do
+      let(:document_attributes) do
+        {
+          value: %w(short description)
+        }
+      end
+      it 'uses both values' do
+        expect(helper.snippit(document)).to eq 'short description'
+      end
+      it 'does not truncate' do
+        expect(helper.snippit(document)[-3..-1]).not_to eq '...'
+      end
+    end
   end
 
   describe '#cartodb_link' do
@@ -128,6 +141,15 @@ describe GeoblacklightHelper, type: :helper do
   describe '#leaflet_options' do
     it 'returns a hash of options for leaflet' do
       expect(leaflet_options[:VIEWERS][:WMS][:CONTROLS]).to eq(['Opacity'])
+    end
+  end
+
+  describe '#render_value_as_truncate_abstract' do
+    context 'with multiple values' do
+      let(:document) { SolrDocument.new(value: %w(short description)) }
+      it 'wraps in correct DIV class' do
+        expect(helper.render_value_as_truncate_abstract(document)).to eq '<div class="truncate-abstract">short description</div>'
+      end
     end
   end
 end
