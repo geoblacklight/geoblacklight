@@ -140,4 +140,16 @@ module GeoblacklightHelper
   def leaflet_options
     Settings.LEAFLET
   end
+
+  ##
+  # Renders a facet item with an icon placed as the first child of
+  # `.facet-label`. This works with `render_facet_value` and
+  # `render_selected_facet_value`
+  # @return String
+  def render_facet_item_with_icon(field_name, item)
+    doc = Nokogiri::HTML.fragment(render_facet_item(field_name, item))
+    doc.at_css('.facet-label').children.first
+       .add_previous_sibling(geoblacklight_icon(item.value))
+    doc.to_html.html_safe
+  end
 end

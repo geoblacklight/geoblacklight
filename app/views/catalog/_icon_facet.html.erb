@@ -2,12 +2,7 @@
   <% paginator = facet_paginator(facet_field, display_facet) %>
   <% paginator.items.each do |item| -%>
   <li>
-    <%= geoblacklight_icon item.value %>
-    <% if facet_in_params?( solr_field, item.value ) %>
-    <%= render_selected_facet_value(solr_field, item) %>
-    <% else %>
-    <%= render_facet_value(solr_field, item) %>
-    <% end -%>
+    <%= render_facet_item_with_icon(field_name, item) %>
   </li>
   <% end %>
 </ul>
