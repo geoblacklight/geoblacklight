@@ -1,5 +1,5 @@
 {
-  "uuid": "http://purl.stanford.edu/cg357zz0321",
+  "geoblacklight_version": "1.0",
   "dc_identifier_s": "http://purl.stanford.edu/cg357zz0321",
   "dc_title_s": "10 Meter Countours: Russian River Basin, California",
   "dc_description_s": "This line shapefile contains contours that were derived from a mosiac of 10 meter digital elevation models for the extent of the Russian River basin, located in Sonoma and Mendocino Counties, California.This layer can be used for watershed analysis and planning in the Russian River region of California.",
@@ -31,12 +31,6 @@
     "Sonoma County (Calif.)",
     "Mendocino County (Calif.)"
   ],
-  "dc_relation_sm": [
-    "http://sws.geonames.org/5397100/about.rdf",
-    "http://sws.geonames.org/5372163/about.rdf"
-  ],
-  "georss_box_s": "38.302994 -123.387366 39.398403 -122.52958",
-  "georss_polygon_s": "38.302994 -123.387366 39.398403 -123.387366 39.398403 -122.52958 38.302994 -122.52958 38.302994 -123.387366",
   "solr_geom": "ENVELOPE(-123.387366, -122.52958, 39.398403, 38.302994)",
   "solr_year_i": 2002
 }

@@ -1,5 +1,5 @@
 {
-  "uuid": "http://purl.stanford.edu/cz128vq0535",
+  "geoblacklight_version": "1.0",
   "dc_identifier_s": "http://purl.stanford.edu/cz128vq0535",
   "dc_title_s": "2005 Rural Poverty GIS Database: Uganda",
   "dc_description_s": "This polygon shapefile contains 2005 poverty data for 855 rural subcounties in Uganda. These data are intended for researchers, students, policy makers and the general public for reference and mapping purposes, and may be used for basic applications such as viewing, querying, and map output production.",
@@ -22,9 +22,6 @@
   "dct_issued_s": "2005",
   "dct_temporal_sm": "2005",
   "dct_spatial_sm": "Uganda",
-  "dc_relation_sm": "http://sws.geonames.org/226074/about.rdf",
-  "georss_box_s": "-1.478794 29.572742 4.234077 35.000308",
-  "georss_polygon_s": "-1.478794 29.572742 4.234077 29.572742 4.234077 35.000308 -1.478794 35.000308 -1.478794 29.572742",
   "solr_geom": "ENVELOPE(29.572742, 35.000308, 4.234077, -1.478794)",
   "solr_year_i": 2005,
   "stanford_rights_metadata_s": "<?xml version=\"1.0\"?>\n<rightsMetadata>\n  <access type=\"discover\">\n    <machine>\n      <world/>\n    </machine>\n  </access>\n  <access type=\"read\">\n    <machine>\n      <world/>\n    </machine>\n  </access>\n  <use>\n    <human type=\"useAndReproduction\">This item is in the public domain.  There are no restrictions on use.</human>\n    <human type=\"creativeCommons\"/>\n    <machine type=\"creativeCommons\"/>\n  </use>\n  <copyright>\n    <human>This work is in the Public Domain, meaning that it is not subject to copyright.</human>\n  </copyright>\n</rightsMetadata>\n"

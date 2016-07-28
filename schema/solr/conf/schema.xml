@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema name="geoblacklight-schema" version="1.5">
-  <uniqueKey>uuid</uniqueKey>
+  <uniqueKey>layer_slug_s</uniqueKey>
   <fields>
     <field name="_version_" type="long"   stored="true" indexed="true"/>
     <field name="timestamp" type="date"   stored="true" indexed="true" default="NOW"/>
-    <field name="uuid"      type="string" stored="true" indexed="true" required="true"/>
+    <field name="layer_slug_s" type="string" stored="true" indexed="true" required="true"/>
+    <field name="geoblacklight_version" type="string" stored="true" indexed="true"/>
+    <field name="uuid"      type="string" stored="true" indexed="true"/><!-- deprecated -->
 
     <!-- core generated fields -->
     <field name="text" type="text_en" stored="false" indexed="true" multiValued="true"
@@ -16,6 +18,7 @@
     <dynamicField name="*_dt"   type="date"    stored="true"  indexed="true"/>
     <dynamicField name="*_f"    type="float"   stored="true"  indexed="true"/>
     <dynamicField name="*_i"    type="int"     stored="true"  indexed="true"/>
+    <dynamicField name="*_im"   type="int"     stored="true"  indexed="true" multiValued="true" />
     <dynamicField name="*_l"    type="long"    stored="true"  indexed="true"/>
     <dynamicField name="*_s"    type="string"  stored="true"  indexed="true"/>
     <dynamicField name="*_ss"   type="string"  stored="true"  indexed="false"/>

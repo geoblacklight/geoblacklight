@@ -1,31 +1,39 @@
-# GeoBlacklight-Schema
+## <a name="resource-layer">layer</a>
 
-Table View
 
-Properties | Type | Controlled Values | Description
----------- | ---- | ------------ |-----------
-**uuid** | string || Unique identifier for layer that is globally unique.
-**dc\_identifier\_s** | string || Unique identifier for layer. May be same as UUID but may be an alternate identifier.
-**dc\_title\_s** | string || Title for the layer.
-**dc\_description\_s** | string || Description for the layer.
-**dc\_rights\_s**| string | "Public", "Restricted" | Access rights for the layer.
-**dct\_provenance\_s** | string || Institution who holds the layer.
-**dct\_references\_s** | string || JSON hash for external resources, where each key is a URI for the protocol or format and the value is the URL to the resource.
-**georss\_box\_s** | string || Bounding box as maximum values for S W N E. Example: 12.6 -119.4 19.9 84.8.
-**layer\_id\_s** | string || The complete identifier for the layer via WMS/WFS/WCS protocol. Example: druid:vr593vj7147.
-**layer\_geom\_type\_s** | string | "Point", "Line", "Polygon", "Raster", "Scanned Map", "Mixed" | Geometry type for layer data, using controlled vocabulary.
-**layer\_modified\_dt** | string | date-time | Last modification date for the metadata record, using XML Schema dateTime format (YYYY-MM-DDThh:mm:ssZ).
-**layer\_slug\_s** | string || Unique identifier visible to the user, used for Permalinks. Example: stanford-vr593vj7147.
-**solr\_geom** | string | /ENVELOPE(.\*,.\*,.\*,.\*)/ | **Derived** from georss\_polygon\_s or georss\_box\_s. Shape of the layer as a ENVELOPE WKT using W E N S. Example: ENVELOPE(76.76, 84.76, 19.91, 12.62). Note that this field is indexed as a Solr spatial (RPT) field.
-**solr\_year\_i** | integer || **Derived** from dct\_temporal\_sm. Year for which layer is valid and only a single value. Example: 1989. Note that this field is indexed as a Solr numeric field.
-dc\_creator\_sm | multivalued string || Author(s). Example: George Washington, Thomas Jefferson.
-dc\_format\_s | string | Shapefile, GeoTIFF, ArcGRID | File format for the layer, using a controlled vocabulary.
-dc\_language\_s | string || Language for the layer. Example: English.
-dc\_publisher\_s | string || Publisher. Example: ML InfoMap.
-dc\_subject\_sm | multivalued string || Subjects, preferrably in a controlled vocabulary. Examples: Census, Human settlements.
-dc\_type\_s | string | "Dataset", "Image", "PhysicalObject" | Resource type, using DCMI Type Vocabulary.
-dct\_spatial\_sm | multivalued string || Spatial coverage and place names, perferrably in a controlled vocabulary. Example: "Paris, France".
-dct\_temporal\_sm | multivalued string || Temporal coverage, typically years or dates. Example: 1989, circa 2010, 2007-2009. Note that this field is not in a specific date format.
-dct\_issued\_dt | string | date-time | Issued date for the layer, using XML Schema dateTime format (YYYY-MM-DDThh:mm:ssZ).
-dct\_isPartOf\_sm | multivalued string || Holding dataset for the layer, such as the name of a collection. Example: Village Maps of India.
-georss\_point\_s | string || Point representation for layer as y, x - i.e., centroid. Example: 12.6 -119.4.
+A GIS data layer. See [this example](https://github.com/OpenGeoMetadata/edu.stanford.purl/blob/master/bb/099/zb/1450/geoblacklight.json) metadata layer.
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **dc_creator_sm** | *array* | Author(s) of the layer. *Optional* | `"George Washington, Thomas Jefferson"` |
+| **dc_description_s** | *string* | Description for the layer. | `"My Description"` |
+| **dc_format_s** | *string* | File format for the layer, using a controlled vocabulary. *Optional*<br/> **one of:**`"Shapefile"` or `"GeoTIFF"` or `"ArcGRID"` | `"Shapefile"` |
+| **dc_identifier_s** | *string* | Unique identifier for layer as a URI. It should be globally unique across all institutions, assumed not to be end-user visible, and is usually of the form `http://institution/id`. See https://github.com/geoblacklight/geoblacklight/wiki/Schema for more detailed documentation. | `"http://purl.stanford.edu/vr593vj7147"` |
+| **dc_language_s** | *string* | Language for the layer. *Optional*. Note that future versions of the schema may make this a multi-valued field. | `"English"` |
+| **dc_publisher_s** | *string* | Publisher of the layer. *Optional* | `"ML InfoMap"` |
+| **dc_relation_sm** | *array* | *DEPRECATED* (use `dct_isPartOf_sm`). A reference to a related resource for this layer. *Optional* | `"http://purl.stanford.edu/vr593vj7147"` |
+| **dc_rights_s** | *string* | Access rights for the layer.<br/> **one of:**`"Public"` or `"Restricted"` | `"Public"` |
+| **dc_source_sm** | *array* | The identity of a layer from which this layer's data was derived. *Optional* | `"stanford-vr593vj7147"` |
+| **dc_subject_sm** | *array* | Subjects for the layer, preferrably in a controlled vocabulary. *Optional* | `"Census, Human settlements"` |
+| **dc_title_s** | *string* | Title for the layer. | `"My Title"` |
+| **dc_type_s** | *string* | Resource type of the layer, using DCMI Type Vocabulary, usually a `Dataset`. *Optional*<br/> **one of:**`"Dataset"` or `"Image"` or `"PhysicalObject"` | `"Dataset"` |
+| **dct_isPartOf_sm** | *array* | Holding dataset for the layer, such as the name of a collection. *Optional* | `"Village Maps of India"` |
+| **dct_issued_dt** | *date-time* | Issued date for the layer, using XML Schema dateTime format (YYYY-MM-DDThh:mm:ssZ). *Optional* | `"2015-01-01T12:00:00Z"` |
+| **dct_provenance_s** | *string* | Institution who holds the layer. | `"Stanford"` |
+| **dct_references_s** | *string* | External resources that are available for the layer. The value is a JSON hash where each key is a URI for the protocol or format, and the value is the URL to the external resource. See `dct_references_s` [detailed documentation](http://geoblacklight.org/tutorial/2015/02/09/geoblacklight-overview.html) | `"{ ... }"` |
+| **dct_spatial_sm** | *array* | Spatial coverage and place names for the layer, preferrably in a controlled vocabulary. *Optional* | `"Paris, San Francisco"` |
+| **dct_temporal_sm** | *array* | Temporal coverage for the layer, typically years or dates. Note that this field is not in a specific date format. *Optional* | `"1989, circa 2010, 2007-2009"` |
+| **geoblacklight_version** | *string* | The version of the GeoBlacklight Schema to which this metadata record conforms. | `"1.0"` |
+| **georss_box_s** | *string* | *DEPRECATED* (use `solr_geom`): Bounding box for the layer, as maximum values for S W N E. | `"12.6 -119.4 19.9 84.8"` |
+| **georss_point_s** | *string* | *DEPRECATED* (use `georss_box_s`): Point representation for layer as y, x - i.e., centroid | `"12.6 -119.4"` |
+| **layer_geom_type_s** | *string* | Geometry type for layer data, using controlled vocabulary.<br/> **one of:**`"Point"` or `"Line"` or `"Polygon"` or `"Raster"` or `"Scanned Map"` or `"Mixed"` | `"Point"` |
+| **layer_id_s** | *string* | The complete identifier for the layer via WMS/WFS/WCS protocol. | `"druid:vr593vj7147"` |
+| **layer_modified_dt** | *date-time* | Last modification date for the metadata record, using XML Schema dateTime format (YYYY-MM-DDThh:mm:ssZ). | `"2015-01-01T12:00:00Z"` |
+| **layer_slug_s** | *string* | Identifies a layer in human-readable keywords. Note this value is visible to the user, and used for Permalinks. The value should be alpha-numeric characters separated by dashes, and is typically of the form `institution-keyword1-keyword2`. It should also be globally unique across all institutions in *your* GeoBlacklight index. See https://github.com/geoblacklight/geoblacklight/wiki/Schema for more detailed documentation. | `"stanford-andhra-pradesh-village-boundaries"` |
+| **solr_geom** | *string* | Bounding box of the layer as a ENVELOPE WKT (from the CQL standard) using coordinates in (West, East, North, South) order. Note that this field is indexed as a Solr spatial (RPT) field.<br/> **pattern:** `ENVELOPE(.*,.*,.*,.*)` | `"ENVELOPE(76.76, 84.76, 19.91, 12.62)"` |
+| **solr_year_i** | *integer* | *DEPRECATED* (only used by the Blacklight range plugin, not core GeoBlacklight, and generally you want a multi-valued field here): *Derived from* `dct_temporal_sm`. Year for which layer is valid and only a single value. Note that this field is indexed as a Solr numeric field. | `"1989"` |
+| **uuid** | *string* | *DEPRECATED* (use `dc_identifier_s`): Unique identifier for layer that is globally unique. | `"http://purl.stanford.edu/vr593vj7147"` |
+
+

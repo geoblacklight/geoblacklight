@@ -1,4 +1,5 @@
 {
+  "geoblacklight_version": "1.0",
   "dc_creator_sm": [
     "State of Michigan"
   ],
@@ -24,13 +25,10 @@
   "dct_spatial_sm": [
     "Michigan"
   ],
-  "georss_box_s": "41.6321 -90.5497 48.2152 -82.0758",
-  "georss_polygon_s": "41.6321 -90.5497 48.2152 -90.5497 48.2152 -82.0758 41.6321 -82.0758 41.6321 -90.5497",
   "layer_geom_type_s": "Polygon",
   "layer_id_s": "urn:urn-ad0e6ebc-824e-4450-a0d9-987f2232724f",
   "layer_modified_dt": "2016-07-18T15:17:46Z",
   "layer_slug_s": "michigan-state-urn-ad0e6ebc-824e-4450-a0d9-987f2232724f",
   "solr_geom": "ENVELOPE(-90.5497, -82.0758, 48.2152, 41.6321)",
-  "solr_year_i": 2015,
-  "uuid": "urn-ad0e6ebc-824e-4450-a0d9-987f2232724f"
+  "solr_year_i": 2015
 }

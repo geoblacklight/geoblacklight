@@ -1,10 +1,10 @@
 {
+  "geoblacklight_version": "1.0",
   "layer_geom_type_s": "Polygon",
   "layer_modified_dt": "2016-07-11T09:15:37Z",
   "solr_geom": "ENVELOPE(-93.3291083642602, -93.1896159986687, 45.0512462600492, 44.8901520021226)",
   "dct_references_s": "{\"http://schema.org/downloadUrl\":\"http://opendata.minneapolismn.gov/datasets/772ebcaf2ec0405ea1b156b5937593e7_0.zip\",\"urn:x-esri:serviceType:ArcGIS#FeatureLayer\":\"https://services.arcgis.com/afSMGVsC7QlRK1kZ/arcgis/rest/services/Fire_Station_Areas/FeatureServer/0\",\"http://schema.org/url\":\"http://opendata.minneapolismn.gov/datasets/772ebcaf2ec0405ea1b156b5937593e7_0\"}",
   "dc_rights_s": "Public",
-  "uuid": "e2f33b52-4039-4bbb-9095-b5cdc0175943",
   "dct_provenance_s": "Minnesota",
   "dc_subject_sm": [
     "utilitiesCommunications",
@@ -19,7 +19,6 @@
   ],
   "dc_type_s": "Dataset",
   "dc_identifier_s": "e2f33b52-4039-4bbb-9095-b5cdc0175943",
-  "georss_polygon_s": "44.8901520021226 -93.3291083642602 45.0512462600492 -93.3291083642602 45.0512462600492 -93.1896159986687 44.8901520021226 -93.1896159986687 44.8901520021226 -93.3291083642602",
   "solr_year_i": 2012,
   "dct_spatial_sm": [
     "City of Minneapolis, Minnesota",
@@ -29,7 +28,6 @@
     "MapIT Minneapolis"
   ],
   "layer_id_s": "urn:e2f33b52-4039-4bbb-9095-b5cdc0175943",
-  "georss_box_s": "44.8901520021226 -93.3291083642602 45.0512462600492 -93.1896159986687",
   "dc_title_s": "Fire Station Areas: Minneapolis, Minnesota",
   "layer_slug_s": "minnesota-e2f33b52-4039-4bbb-9095-b5cdc0175943"
 }

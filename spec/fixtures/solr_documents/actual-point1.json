@@ -1,5 +1,5 @@
 {
-  "uuid": "urn:columbia.edu:Columbia.landinfo_global_aet",
+  "geoblacklight_version": "1.0",
   "dc_description_s": "Actual Evapotrans is a point theme representing the sum of evaporation and plant transpiration to the atmosphere from throughout the world.  Measurements are represented by points at every.5 degrees and provided for every month of the year. This dataset is a part of the Global Climate Database from the Global Change Department National Institute of Public Health and Environmental Protection.",
   "dc_format_s": "Shapefile",
   "dc_identifier_s": "urn:columbia.edu:Columbia.landinfo_global_aet",
@@ -15,8 +15,6 @@
     "1996"
   ],
   "dct_provenance_s": "Columbia",
-  "georss_box_s": "-56.0 -179.5 83.0 180.0",
-  "georss_polygon_s": "83.0 -179.5 83.0 180.0 -56.0 180.0 -56.0 -179.5 83.0 -179.5",
   "layer_slug_s": "columbia-columbia-landinfo-global-aet",
   "layer_id_s": "Columbia:Columbia.landinfo_global_aet",
   "layer_geom_type_s": "Point",
