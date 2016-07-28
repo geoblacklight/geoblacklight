@@ -24,7 +24,7 @@ module GeoblacklightHelper
   # @param [SolrDocument] args
   # @return [String]
   def snippit(args)
-    truncate(Array(args[:value]).flatten.first, length: 150)
+    truncate(Array(args[:value]).flatten.join(' '), length: 150)
   end
 
   def render_facet_tags(facet)
@@ -90,7 +90,7 @@ module GeoblacklightHelper
   # @param [Hash] args from get_field_values
   def render_value_as_truncate_abstract(args)
     content_tag :div, class: 'truncate-abstract' do
-      args[:value]
+      Array(args[:value]).flatten.join(' ')
     end
   end
 
