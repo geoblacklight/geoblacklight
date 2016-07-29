@@ -1,7 +1,7 @@
 module Geoblacklight
   class WmsLayer
     def initialize(params)
-      @params = params.merge(Settings.WMS_PARAMS)
+      @params = params.to_h.merge(Settings.WMS_PARAMS)
       @response = Geoblacklight::FeatureInfoResponse.new(request_response)
     end
 

@@ -7,6 +7,7 @@ require 'coveralls'
 Coveralls.wear!('rails')
 EngineCart.load_application!
 
+require 'rails-controller-testing' if Rails::VERSION::MAJOR >= 5
 require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/poltergeist'

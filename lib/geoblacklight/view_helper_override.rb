@@ -27,7 +27,7 @@ module Geoblacklight
     def render_constraints_filters(localized_params = params)
       content = super(localized_params)
 
-      if localized_params[:bbox]
+      if localized_params.to_h[:bbox]
         path = search_action_path(remove_spatial_filter_group(:bbox, localized_params))
         content << render_constraint_element('Bounding Box', localized_params[:bbox], remove: path)
       end
