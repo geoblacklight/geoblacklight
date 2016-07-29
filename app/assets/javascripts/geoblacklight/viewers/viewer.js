@@ -1,7 +1,5 @@
 /*global GeoBlacklight */
 
-'use strict';
-
 // base viewer
 GeoBlacklight.Viewer = L.Class.extend({
   options: {},
