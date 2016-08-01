@@ -144,6 +144,26 @@ describe Geoblacklight::SolrDocument do
       end
     end
   end
+  describe 'data_dictionary_download' do
+    describe 'with a data dictionary reference' do
+      let(:document_attributes) do
+        {
+          references_field => {
+            'http://lccn.loc.gov/sh85035852' => 'https://example.edu/documentation/data_dictionary.zip'
+          }.to_json
+        }
+      end
+      it 'returns a data dictionary download hash' do
+        expect(document.data_dictionary_download[:data_dictionary]).to eq('https://example.edu/documentation/data_dictionary.zip')
+      end
+    end
+    describe 'without a data dictionary download' do
+      let(:document_attributes) { {} }
+      it 'returns nil' do
+        expect(document.data_dictionary_download).to be_nil
+      end
+    end
+  end
   describe 'item_viewer' do
     let(:document_attributes) { {} }
     it 'is a ItemViewer' do
