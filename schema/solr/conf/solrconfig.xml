@@ -15,9 +15,9 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 -->
-<!-- 
+<!--
      For more details about configurations options that may appear in
-     this file, see http://wiki.apache.org/solr/SolrConfigXml. 
+     this file, see http://wiki.apache.org/solr/SolrConfigXml.
 -->
 <config>
   <luceneMatchVersion>4.7</luceneMatchVersion>
@@ -40,16 +40,16 @@
     </autoCommit>
   </updateHandler>
 
-  <!-- realtime get handler, guaranteed to return the latest stored fields 
-    of any document, without the need to commit or open a new searcher. The current 
+  <!-- realtime get handler, guaranteed to return the latest stored fields
+    of any document, without the need to commit or open a new searcher. The current
     implementation relies on the updateLog feature being enabled. -->
   <requestHandler name="/get" class="solr.RealTimeGetHandler">
     <lst name="defaults">
       <str name="omitHeader">true</str>
     </lst>
-  </requestHandler>  
-  
-  <requestHandler name="/replication" class="solr.ReplicationHandler" startup="lazy" /> 
+  </requestHandler>
+
+  <requestHandler name="/replication" class="solr.ReplicationHandler" startup="lazy" />
 
   <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
        Query section - these settings control query time things like caches
@@ -147,7 +147,12 @@
       <str name="facet.field">dc_subject_sm</str>
       <str name="facet.field">layer_geom_type_s</str>
       <str name="facet.field">solr_year_i</str>
+
+      <str name="spellcheck">true</str>
     </lst>
+    <arr name="last-components">
+      <str>spellcheck</str>
+    </arr>
   </requestHandler>
 
   <requestHandler name="/update" class="solr.UpdateRequestHandler"/>
@@ -161,18 +166,65 @@
     <lst name="defaults">
       <str name="echoParams">all</str>
     </lst>
-    <!-- An optional feature of the PingRequestHandler is to configure the 
-         handler with a "healthcheckFile" which can be used to enable/disable 
+    <!-- An optional feature of the PingRequestHandler is to configure the
+         handler with a "healthcheckFile" which can be used to enable/disable
          the PingRequestHandler.
-         relative paths are resolved against the data dir 
+         relative paths are resolved against the data dir
       -->
     <str name="healthcheckFile">server-enabled.txt</str>
   </requestHandler>
-  
-  <requestHandler name="/analysis/field" 
+
+  <requestHandler name="/analysis/field"
                   startup="lazy"
                   class="solr.FieldAnalysisRequestHandler" />
-                  
+
+  <searchComponent name="spellcheck" class="solr.SpellCheckComponent">
+    <!-- a spellchecker built from a field of the main index -->
+    <lst name="spellchecker">
+      <str name="name">default</str>
+      <str name="field">spell</str>
+      <str name="classname">solr.DirectSolrSpellChecker</str>
+      <!-- the spellcheck distance measure used, the default is the internal levenshtein -->
+      <str name="distanceMeasure">internal</str>
+      <!-- minimum accuracy needed to be considered a valid spellcheck suggestion -->
+      <float name="accuracy">0.5</float>
+      <!-- the maximum #edits we consider when enumerating terms: can be 1 or 2 -->
+      <int name="maxEdits">2</int>
+      <!-- the minimum shared prefix when enumerating terms -->
+      <int name="minPrefix">1</int>
+      <!-- maximum number of inspections per result. -->
+      <int name="maxInspections">5</int>
+      <!-- minimum length of a query term to be considered for correction -->
+      <int name="minQueryLength">4</int>
+      <!-- maximum threshold of documents a query term can appear to be considered for correction -->
+      <float name="maxQueryFrequency">0.01</float>
+      <!-- uncomment this to require suggestions to occur in 1% of the documents
+        <float name="thresholdTokenFrequency">.01</float>
+      -->
+    </lst>
+  </searchComponent>
+
+  <searchComponent name="suggest" class="solr.SuggestComponent">
+    <lst name="suggester">
+      <str name="name">mySuggester</str>
+      <str name="lookupImpl">FuzzyLookupFactory</str>
+      <str name="suggestAnalyzerFieldType">textSuggest</str>
+      <str name="buildOnCommit">true</str>
+      <str name="field">suggest</str>
+    </lst>
+  </searchComponent>
+
+  <requestHandler name="/suggest" class="solr.SearchHandler" startup="lazy">
+    <lst name="defaults">
+      <str name="suggest">true</str>
+      <str name="suggest.count">5</str>
+      <str name="suggest.dictionary">mySuggester</str>
+    </lst>
+    <arr name="components">
+      <str>suggest</str>
+    </arr>
+  </requestHandler>
+
   <!-- Legacy config for the admin interface -->
   <admin>
     <defaultQuery>*:*</defaultQuery>
