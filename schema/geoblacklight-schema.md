@@ -19,7 +19,7 @@ A GIS data layer. See [this example](https://github.com/OpenGeoMetadata/edu.stan
 | **dc_subject_sm** | *array* | Subjects for the layer, preferrably in a controlled vocabulary. *Optional* | `"Census, Human settlements"` |
 | **dc_title_s** | *string* | Title for the layer. | `"My Title"` |
 | **dc_type_s** | *string* | Resource type of the layer, using DCMI Type Vocabulary, usually a `Dataset`. *Optional*<br/> **one of:**`"Dataset"` or `"Image"` or `"PhysicalObject"` | `"Dataset"` |
-| **dct_isPartOf_sm** | *array* | Holding dataset for the layer, such as the name of a collection. *Optional* | `"Village Maps of India"` |
+| **dct_isPartOf_sm** | *array* | Holding entity for the layer, such as the title of a collection. *Optional* | `"Village Maps of India"` |
 | **dct_issued_dt** | *date-time* | Issued date for the layer, using XML Schema dateTime format (YYYY-MM-DDThh:mm:ssZ). *Optional* | `"2015-01-01T12:00:00Z"` |
 | **dct_provenance_s** | *string* | Institution who holds the layer. | `"Stanford"` |
 | **dct_references_s** | *string* | External resources that are available for the layer. The value is a JSON hash where each key is a URI for the protocol or format, and the value is the URL to the external resource. See `dct_references_s` [detailed documentation](http://geoblacklight.org/tutorial/2015/02/09/geoblacklight-overview.html) | `"{ ... }"` |
@@ -35,5 +35,3 @@ A GIS data layer. See [this example](https://github.com/OpenGeoMetadata/edu.stan
 | **solr_geom** | *string* | Bounding box of the layer as a ENVELOPE WKT (from the CQL standard) using coordinates in (West, East, North, South) order. Note that this field is indexed as a Solr spatial (RPT) field.<br/> **pattern:** `ENVELOPE(.*,.*,.*,.*)` | `"ENVELOPE(76.76, 84.76, 19.91, 12.62)"` |
 | **solr_year_i** | *integer* | *DEPRECATED* (only used by the Blacklight range plugin, not core GeoBlacklight, and generally you want a multi-valued field here): *Derived from* `dct_temporal_sm`. Year for which layer is valid and only a single value. Note that this field is indexed as a Solr numeric field. | `"1989"` |
 | **uuid** | *string* | *DEPRECATED* (use `dc_identifier_s`): Unique identifier for layer that is globally unique. | `"http://purl.stanford.edu/vr593vj7147"` |
-
-
