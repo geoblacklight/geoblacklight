@@ -1,0 +1,14 @@
+<%# Renders the primary download that is shown first %>
+<% document ||= @document %>
+
+<% if document.direct_download.present? %>
+  <%= link_to(download_text(document.file_format), document.direct_download[:download], class: 'btn btn-default', 'contentUrl' => document.direct_download[:download], data: { download: 'trigger', download_type: 'direct', download_id: document.id }) %>
+<% elsif document.hgl_download.present? %>
+  <%= link_to(download_text(document.download_types.first[0]),
+  download_hgl_path(id: document), data: {ajax_modal: 'trigger', download: 'trigger', download_type: 'harvard-hgl', download_id: document.id },
+  class: 'btn btn-default') %>
+<% elsif document.iiif_download.present? %>
+  <%= link_to "Download JPG", iiif_jpg_url, class: 'btn btn-default', download: 'trigger' %>
+<% else %>
+  <%= link_to(download_text(document.download_types.first[0]), '', data: { download_path: "#{download_path(document.id, type: document.download_types.first[0])}", download: 'trigger', download_type: document.download_types.first[0], download_id: document.id }, class: 'btn btn-default') %>
+<% end %>
