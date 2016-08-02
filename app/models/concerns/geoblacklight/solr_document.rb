@@ -47,6 +47,10 @@ module Geoblacklight
       return references.iiif.to_hash unless references.iiif.blank?
     end
 
+    def data_dictionary_download
+      return references.data_dictionary.to_hash unless references.data_dictionary.blank?
+    end
+
     def item_viewer
       ItemViewer.new(references)
     end

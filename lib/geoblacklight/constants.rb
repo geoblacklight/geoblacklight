@@ -18,7 +18,8 @@ module Geoblacklight
       feature_layer: 'urn:x-esri:serviceType:ArcGIS#FeatureLayer',
       tiled_map_layer: 'urn:x-esri:serviceType:ArcGIS#TiledMapLayer',
       dynamic_map_layer: 'urn:x-esri:serviceType:ArcGIS#DynamicMapLayer',
-      image_map_layer: 'urn:x-esri:serviceType:ArcGIS#ImageMapLayer'
+      image_map_layer: 'urn:x-esri:serviceType:ArcGIS#ImageMapLayer',
+      data_dictionary: 'http://lccn.loc.gov/sh85035852'
     }.freeze
   end
 end
