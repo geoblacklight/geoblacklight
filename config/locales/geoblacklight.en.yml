@@ -13,6 +13,7 @@ en:
       map_heading: 'Find by location'
     tools:
       login_to_view: 'Login to view and download'
+      open_carto: 'Open in Carto'
     formats:
       arcgrid: 'ArcGRID'
       geojson: 'GeoJSON'
