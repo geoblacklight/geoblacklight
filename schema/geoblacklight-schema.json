@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "description": "Schema for GeoBlacklight as implemented for Solr 4.10+. See http://journal.code4lib.org/articles/9710 for more details. Note that the Solr schema uses dynamic typing based on the suffix of the field name. For example, _s denotes a string where _sm denotes a multi-valued string (array of strings).",
-  "id": "http://geoblacklight.org/schema",
+  "description": "Schema for GeoBlacklight. See https://github.com/geoblacklight/geoblacklight/wiki/Schema for more details.",
+  "id": "http://geoblacklight.org/v1.0/schema",
   "title": "GeoBlacklight Schema",
   "required": [
     "dc_title_s",
