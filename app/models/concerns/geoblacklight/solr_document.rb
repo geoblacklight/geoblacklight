@@ -32,11 +32,11 @@ module Geoblacklight
     end
 
     def direct_download
-      return references.download.to_hash unless references.download.blank?
+      references.download.to_hash unless references.download.blank?
     end
 
     def hgl_download
-      return references.hgl.to_hash unless references.hgl.blank?
+      references.hgl.to_hash unless references.hgl.blank?
     end
 
     def same_institution?
@@ -44,11 +44,11 @@ module Geoblacklight
     end
 
     def iiif_download
-      return references.iiif.to_hash unless references.iiif.blank?
+      references.iiif.to_hash unless references.iiif.blank?
     end
 
     def data_dictionary_download
-      return references.data_dictionary.to_hash unless references.data_dictionary.blank?
+      references.data_dictionary.to_hash unless references.data_dictionary.blank?
     end
 
     def item_viewer
