@@ -15,7 +15,10 @@ feature 'Download layer' do
     expect(shapefile_download).to receive(:get).and_return('mit-us-ma-e25zcta5dct-2000-shapefile.zip')
     visit solr_document_path('mit-us-ma-e25zcta5dct-2000')
     find('a', text: 'Download Shapefile').click
-    expect(page).to have_css('a', text: 'Your file mit-us-ma-e25zcta5dct-2000-shapefile.zip is ready for download')
+    expect(page).to have_css(
+      'a[href="/download/file/mit-us-ma-e25zcta5dct-2000-shapefile.zip"]',
+      text: 'Your file mit-us-ma-e25zcta5dct-2000-shapefile.zip is ready for download'
+    )
   end
   scenario 'failed download should return message with link to layer', js: true do
     expect(shapefile_download).to receive(:get).and_raise(Geoblacklight::Exceptions::ExternalDownloadFailed.new(message: 'Failed', url: 'http://www.example.com/failed'))
@@ -29,7 +32,10 @@ feature 'Download layer' do
     visit solr_document_path('mit-us-ma-e25zcta5dct-2000')
     find('button.download-dropdown-toggle').click
     find('a', text: 'Download KMZ').click
-    expect(page).to have_css('a', text: 'Your file mit-us-ma-e25zcta5dct-2000-kmz.kmz is ready for download')
+    expect(page).to have_css(
+      'a[href="/download/file/mit-us-ma-e25zcta5dct-2000-kmz.kmz"]',
+      text: 'Your file mit-us-ma-e25zcta5dct-2000-kmz.kmz is ready for download'
+    )
   end
   scenario 'jpg download option should be present under toggle' do
     visit solr_document_path('princeton-02870w62c')
