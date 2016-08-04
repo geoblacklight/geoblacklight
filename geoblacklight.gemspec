@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'blacklight', '~> 6.3'
   spec.add_dependency 'leaflet-rails', '~> 0.7.3'
   spec.add_dependency 'font-awesome-rails'
-  spec.add_dependency 'config', '~> 1.2.1'
+  spec.add_dependency 'config'
   spec.add_dependency 'faraday'
   spec.add_dependency 'coderay'
   spec.add_dependency 'geoblacklight-icons', '>= 0.2'
@@ -33,7 +33,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec-rails', '~> 3.1'
   spec.add_development_dependency 'engine_cart', '~> 0.10'
   spec.add_development_dependency 'capybara', '>= 2.5.0'
-  spec.add_development_dependency 'poltergeist', '>= 1.5.0'
+  spec.add_development_dependency 'poltergeist'
   spec.add_development_dependency 'factory_girl_rails'
   spec.add_development_dependency 'database_cleaner', '~> 1.3'
 end
