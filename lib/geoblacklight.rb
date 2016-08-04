@@ -22,6 +22,9 @@ module Geoblacklight
   require 'geoblacklight/reference'
   require 'geoblacklight/references'
   require 'geoblacklight/routes'
+  require 'geoblacklight/relation/descendants'
+  require 'geoblacklight/relation/ancestors'
+  require 'geoblacklight/relation/relation_response'
 
   def self.inject!
     CatalogController.send(:include, Geoblacklight::ControllerOverride)
