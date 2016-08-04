@@ -34,6 +34,14 @@
   @extend .fa, .fa-envelope;
 }
 
+.geoblacklight-relations-ancestor {
+  @extend .fa, .fa-pagelines;
+}
+
+.geoblacklight-relations-descendant {
+  @extend .fa, .fa-leaf;
+}
+
 .geoblacklight-web_services {
   @extend .fa, .fa-external-link;
 }
