@@ -6,6 +6,10 @@ module Geoblacklight
 
     desc 'Install Geoblacklight'
 
+    def add_solr_wrapper
+      generate 'blacklight:solr5'
+    end
+
     def mount_geoblacklight_engine
       route "mount Geoblacklight::Engine => 'geoblacklight'"
     end
