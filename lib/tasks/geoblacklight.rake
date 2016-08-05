@@ -1,3 +1,4 @@
+require 'solr_wrapper'
 require 'rails/generators'
 require 'generators/geoblacklight/install_generator'
 
