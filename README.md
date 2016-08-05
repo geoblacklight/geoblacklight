@@ -17,13 +17,11 @@ Creating a new GeoBlacklight application from the template
 $ rails new app-name -m https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/template.rb
 ```
 
-To install Solr (with Jetty)
+To launch app:
 
 ```
 $ cd app-name
-$ rake jetty:download
-$ rake jetty:unzip
-$ rake geoblacklight:configure_solr
+$ rake geoblacklight:server
 ```
 
 Or install with [Docker](https://github.com/geoblacklight/geoblacklight-docker)

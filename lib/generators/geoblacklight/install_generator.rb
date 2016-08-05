@@ -4,12 +4,11 @@ module Geoblacklight
   class Install < Rails::Generators::Base
     source_root File.expand_path('../templates', __FILE__)
 
-    class_option :jettywrapper,
-                 type: :boolean,
-                 default: false,
-                 desc: 'Use jettywrapper to download and control Jetty'
-
     desc 'Install Geoblacklight'
+
+    def add_solr_wrapper
+      generate 'blacklight:solr5'
+    end
 
     def mount_geoblacklight_engine
       route "mount Geoblacklight::Engine => 'geoblacklight'"
@@ -36,15 +35,6 @@ module Geoblacklight
       EOF
     end
 
-    def install_jettywrapper
-      return unless options[:jettywrapper]
-      copy_file 'config/jetty.yml'
-
-      append_to_file 'Rakefile',
-                     "\nZIP_URL = \"https://github.com/projectblacklight/blacklight-jetty/archive/v4.10.3.zip\"\n" \
-                       "require 'jettywrapper'\n"
-    end
-
     def assets
       copy_file 'geoblacklight.scss', 'app/assets/stylesheets/geoblacklight.scss'
       copy_file 'geoblacklight.js', 'app/assets/javascripts/geoblacklight.js'
@@ -60,6 +50,10 @@ module Geoblacklight
 
     def rails_config
       copy_file 'settings.yml', 'config/settings.yml'
+    end
+
+    def solr_config
+      directory '../../../../solr', 'solr'
     end
 
     def include_geoblacklight_solrdocument
