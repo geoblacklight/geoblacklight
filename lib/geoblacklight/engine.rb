@@ -15,6 +15,7 @@ module Geoblacklight
     # into action view base here.
     initializer 'geoblacklight.helpers' do
       ActionView::Base.send :include, GeoblacklightHelper
+      ActionView::Base.send :include, CartoHelper
     end
 
     config.to_prepare do

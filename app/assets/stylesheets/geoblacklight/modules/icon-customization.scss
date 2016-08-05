@@ -42,7 +42,11 @@
   @extend .fa, .fa-file-text-o;
 }
 
-.geoblacklight-cartodb {
+.geoblacklight-carto {
   @extend .fa, .fa-map-marker;
 }
 
+// DEPRECATED: Will be removed in GeoBlacklight v2.0
+.geoblacklight-cartodb {
+  @extend .geoblacklight-cartodb;
+}
