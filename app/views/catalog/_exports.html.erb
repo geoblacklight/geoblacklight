@@ -1,6 +1,6 @@
 <% document ||= @document %>
-<% if document.cartodb_reference.present? %>
-    <%= link_to(cartodb_link(document.cartodb_reference), target: '_blank') do %>
-    <span class='geoblacklight geoblacklight-cartodb'></span>Open in CartoDB
+<% if document.carto_reference.present? %>
+    <%= link_to(carto_link(document.carto_reference), target: '_blank') do %>
+    <span class='geoblacklight geoblacklight-carto'></span><%= t('geoblacklight.tools.open_carto') %>
     <% end %>
 <% end %>

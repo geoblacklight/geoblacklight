@@ -111,14 +111,6 @@ describe GeoblacklightHelper, type: :helper do
     end
   end
 
-  describe '#cartodb_link' do
-    let(:application_name) { 'My GeoBlacklight Deployment' }
-
-    it 'removes spaces from application_name to produce valid CartoDB request URL' do
-      expect(cartodb_link('http://demo.org/wfs/layer.json')).to eq 'http://oneclick.cartodb.com/?file=http%3A%2F%2Fdemo.org%2Fwfs%2Flayer.json&provider=MyGeoBlacklightDeployment&logo=http%3A%2F%2Fgeoblacklight.org%2Fimages%2Fgeoblacklight-logo.png'
-    end
-  end
-
   describe '#render_web_services' do
     let(:reference) { double(type: 'wms') }
     it 'with a reference to a defined partial' do
