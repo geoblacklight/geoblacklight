@@ -72,4 +72,11 @@ namespace :geoblacklight do
       end
     end
   end
+
+  namespace :solr do
+    desc "Put sample data into solr"
+    task :seed => :environment do
+      Rake::Task['geoblacklight:index:seed'].invoke
+    end
+  end
 end
