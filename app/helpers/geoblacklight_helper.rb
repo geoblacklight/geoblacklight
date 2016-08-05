@@ -1,4 +1,7 @@
 module GeoblacklightHelper
+  extend Deprecation
+  self.deprecation_horizon = 'Geoblacklight 2.0.0'
+
   def sms_helper
     content_tag(:i, '', class: 'fa fa-mobile fa-fw') + ' ' + t('blacklight.tools.sms')
   end
@@ -103,23 +106,21 @@ module GeoblacklightHelper
 
   ##
   # Removes blank space from provider to accomodate CartoDB OneClick
-  #
+  # @deprecated Use {#carto_provider} instead.
   def cartodb_provider
-    application_name.delete(' ')
+    carto_provider
   end
+  deprecation_deprecate cartodb_provider: 'use GeoblacklightHelper#carto_provider instead'
 
   ##
-  # Creates a CartoDB OneClick link link, using the configuration link
+  # Creates a Carto OneClick link link, using the configuration link
   # @param [String] file_link
   # @return [String]
+  # @deprecated Use {#carto_link} instead.
   def cartodb_link(file_link)
-    params = URI.encode_www_form(
-      file: file_link,
-      provider: cartodb_provider,
-      logo: Settings.APPLICATION_LOGO_URL
-    )
-    Settings.CARTODB_ONECLICK_LINK + '?' + params
+    carto_link(file_link)
   end
+  deprecation_deprecate carto_link: 'use GeoblacklightHelper#carto_link instead'
 
   ##
   # Renders the partials for a Geoblacklight::Reference in the web services
