@@ -1,6 +1,5 @@
 gem 'blacklight'
 gem 'geoblacklight'
-gem 'jettywrapper'
 
 run 'bundle install'
 
