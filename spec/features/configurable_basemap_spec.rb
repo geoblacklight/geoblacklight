@@ -19,7 +19,6 @@ feature 'Configurable basemap', js: true do
       CatalogController.blacklight_config.basemap_provider = 'darkMatter'
     end
     scenario 'has darkMatter map' do
-      puts CatalogController.blacklight_config.basemap_provider
       visit root_path
       expect(page).to have_css "img[src*='dark_all']"
     end
