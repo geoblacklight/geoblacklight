@@ -1,7 +1,7 @@
 require 'blacklight'
 require 'leaflet-rails'
 require 'font-awesome-rails'
-require 'rails_config'
+require 'config'
 require 'faraday'
 require 'nokogiri'
 require 'coderay'
