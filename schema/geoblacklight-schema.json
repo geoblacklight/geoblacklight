@@ -3,20 +3,20 @@
   "description": "Schema for GeoBlacklight. See https://github.com/geoblacklight/geoblacklight/wiki/Schema for more details.",
   "id": "http://geoblacklight.org/v1.0/schema",
   "title": "GeoBlacklight Schema",
-  "required": [
-    "dc_title_s",
-    "dc_description_s",
-    "dc_rights_s",
-    "dct_provenance_s",
-    "layer_slug_s",
-    "solr_geom"
-  ],
   "type": "array",
   "properties": {
     "layer": {
       "title": "layer",
       "description": "A GIS data layer. See [this example](https://github.com/OpenGeoMetadata/edu.stanford.purl/blob/master/bb/099/zb/1450/geoblacklight.json) metadata layer.",
       "type": "object",
+      "required": [
+        "dc_title_s",
+        "dc_identifier_s",
+        "dc_rights_s",
+        "dct_provenance_s",
+        "layer_slug_s",
+        "solr_geom"
+      ],
       "properties": {
         "uuid": {
           "type": "string",
@@ -35,7 +35,7 @@
         },
         "dc_description_s": {
           "type": "string",
-          "description": "Description for the layer.",
+          "description": "Description for the layer. *Optional*",
           "example": "My Description"
         },
         "dc_rights_s": {
@@ -53,7 +53,8 @@
         },
         "dct_references_s": {
           "type": "string",
-          "description": "External resources that are available for the layer. The value is a JSON hash where each key is a URI for the protocol or format, and the value is the URL to the external resource. See `dct_references_s` [detailed documentation](http://geoblacklight.org/tutorial/2015/02/09/geoblacklight-overview.html)",
+          "description": "External resources that are available for the layer. The value is a JSON hash where each key is a URI for the protocol or format, and the value is the URL to the external resource. See `dct_references_s` [detailed documentation](http://geoblacklight.org/tutorial/2015/02/09/geoblacklight-overview.html). *Optional*",
+          "pattern": "\\{.*\\}",
           "example": "{ ... }"
         },
         "georss_box_s": {
@@ -63,7 +64,7 @@
         },
         "layer_id_s": {
           "type": "string",
-          "description": "The complete identifier for the layer via WMS/WFS/WCS protocol.",
+          "description": "The complete identifier for the layer via WMS/WFS/WCS protocol. *Optional*",
           "example": "druid:vr593vj7147"
         },
         "layer_geom_type_s": {
@@ -74,18 +75,20 @@
             "Polygon",
             "Raster",
             "Scanned Map",
+            "Image",
             "Mixed"
           ],
-          "description": "Geometry type for layer data, using controlled vocabulary."
+          "description": "Geometry type for layer data, using controlled vocabulary. *Optional*"
         },
         "layer_modified_dt": {
           "type": "string",
           "format": "date-time",
-          "description": "Last modification date for the metadata record, using XML Schema dateTime format (YYYY-MM-DDThh:mm:ssZ)."
+          "description": "Last modification date for the metadata record, using XML Schema dateTime format (YYYY-MM-DDThh:mm:ssZ). *Optional*"
         },
         "layer_slug_s": {
           "type": "string",
           "description": "Identifies a layer in human-readable keywords. Note this value is visible to the user, and used for Permalinks. The value should be alpha-numeric characters separated by dashes, and is typically of the form `institution-keyword1-keyword2`. It should also be globally unique across all institutions in *your* GeoBlacklight index. See https://github.com/geoblacklight/geoblacklight/wiki/Schema for more detailed documentation.",
+          "pattern": "^[-a-zA-Z0-9]+$",
           "example": "stanford-andhra-pradesh-village-boundaries"
         },
         "solr_geom": {
@@ -109,12 +112,8 @@
         },
         "dc_format_s": {
           "type": "string",
-          "enum": [
-            "Shapefile",
-            "GeoTIFF",
-            "ArcGRID"
-          ],
-          "description": "File format for the layer, using a controlled vocabulary. *Optional*"
+          "description": "File format for the layer, ideally using a controlled vocabulary. *Optional*",
+          "example": "Shapefile, GeoTIFF, ArcGRID"
         },
         "dc_language_s": {
           "type": "string",
@@ -196,7 +195,9 @@
         "geoblacklight_version": {
           "type": "string",
           "description": "The version of the GeoBlacklight Schema to which this metadata record conforms.",
-          "example": "1.0"
+          "enum": [
+            "1.0"
+          ]
         }
       }
     }
