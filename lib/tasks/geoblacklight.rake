@@ -7,7 +7,15 @@ namespace :geoblacklight do
   task :server, [:rails_server_args] do |_t, args|
     SolrWrapper.wrap(port: '8983') do |solr|
       solr.with_collection(name: 'blacklight-core', dir: File.join(File.expand_path('../../', File.dirname(__FILE__)), 'solr', 'conf')) do
-        system "bundle exec rails s #{args[:rails_server_args]}"
+          puts "\nSolr server running: http://localhost:#{solr.port}/solr/#/blacklight-core"
+          puts "\n^C to stop"
+          puts ' '
+          begin
+            Rake::Task['geoblacklight:solr:seed'].invoke
+            system "bundle exec rails s #{args[:rails_server_args]}"
+          rescue Interrupt
+            puts 'Shutting down...'
+          end
       end
     end
   end

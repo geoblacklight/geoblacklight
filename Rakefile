@@ -79,7 +79,14 @@ namespace :geoblacklight do
         Rake::Task['geoblacklight:internal:seed'].invoke
 
         within_test_app do
-          system "bundle exec rails s #{args[:rails_server_args]}"
+          puts "\nSolr server running: http://localhost:#{solr.port}/solr/#/blacklight-core"
+          puts "\n^C to stop"
+          puts ' '
+          begin
+            system "bundle exec rails s #{args[:rails_server_args]}"
+          rescue Interrupt
+            puts 'Shutting down...'
+          end
         end
       end
     end
