@@ -1,10 +1,10 @@
-require 'solr_wrapper'
 require 'rails/generators'
 require 'generators/geoblacklight/install_generator'
 
 namespace :geoblacklight do
   desc 'Run Solr and GeoBlacklight for interactive development'
   task :server, [:rails_server_args] do |_t, args|
+    require 'solr_wrapper'
     SolrWrapper.wrap(port: '8983') do |solr|
       solr.with_collection(name: 'blacklight-core', dir: File.join(File.expand_path('../../', File.dirname(__FILE__)), 'solr', 'conf')) do
           puts "\nSolr server running: http://localhost:#{solr.port}/solr/#/blacklight-core"
