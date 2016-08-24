@@ -20,6 +20,16 @@ describe GeoblacklightHelper, type: :helper do
       html = Capybara.string(geoblacklight_icon('TEst 123'))
       expect(html).to have_css '.geoblacklight-test-123'
     end
+    it 'supports in use cases' do
+      {
+        'Paper map' => 'paper-map',
+        'Michigan State' => 'michigan-state',
+        'CD ROM' => 'cd-rom'
+      }.each do |key, value|
+        html = Capybara.string(geoblacklight_icon(key))
+        expect(html).to have_css ".geoblacklight-#{value}"
+      end
+    end
   end
 
   describe '#proper_case_format' do
