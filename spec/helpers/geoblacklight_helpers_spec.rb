@@ -16,15 +16,16 @@ describe GeoblacklightHelper, type: :helper do
   end
 
   describe '#geoblacklight_icon' do
-    it 'lowercases and subs spaces for hyphens' do
-      html = Capybara.string(geoblacklight_icon('TEst 123'))
+    it 'replaces special characters, lowercases, and subs spaces for hyphens' do
+      html = Capybara.string(geoblacklight_icon('TEst & 123'))
       expect(html).to have_css '.geoblacklight-test-123'
     end
     it 'supports in use cases' do
       {
         'Paper map' => 'paper-map',
         'Michigan State' => 'michigan-state',
-        'CD ROM' => 'cd-rom'
+        'CD ROM' => 'cd-rom',
+        'Lewis & Clark' => 'lewis-clark'
       }.each do |key, value|
         html = Capybara.string(geoblacklight_icon(key))
         expect(html).to have_css ".geoblacklight-#{value}"

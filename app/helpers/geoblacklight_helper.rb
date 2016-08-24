@@ -39,7 +39,7 @@ module GeoblacklightHelper
   def geoblacklight_icon(name)
     content_tag :span,
                 '',
-                class: "geoblacklight-icon geoblacklight-#{name.downcase.tr(' ', '-')}",
+                class: "geoblacklight-icon geoblacklight-#{name.parameterize}",
                 title: name
   end
 
