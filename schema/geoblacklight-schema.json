@@ -3,8 +3,7 @@
   "description": "Schema for GeoBlacklight. See https://github.com/geoblacklight/geoblacklight/wiki/Schema for more details.",
   "id": "http://geoblacklight.org/v1.0/schema",
   "title": "GeoBlacklight Schema",
-  "type": "array",
-  "properties": {
+  "definitions": {
     "layer": {
       "title": "layer",
       "description": "A GIS data layer. See [this example](https://github.com/OpenGeoMetadata/edu.stanford.purl/blob/master/bb/099/zb/1450/geoblacklight.json) metadata layer.",
@@ -201,5 +200,15 @@
         }
       }
     }
-  }
+  },
+  "anyOf": [
+    {
+      "$ref": "#/definitions/layer"
+    }, {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/layer"
+      }
+    }
+  ]
 }
