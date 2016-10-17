@@ -94,12 +94,6 @@ module Geoblacklight
       gsub_file('app/assets/javascripts/application.js', %r{\/\/= require turbolinks}, '')
     end
 
-    def devise_require
-      inject_into_file 'config/initializers/devise.rb', before: 'Devise.setup do |config|' do
-        "require 'devise'\n"
-      end
-    end
-
     def bundle_install
       Bundler.with_clean_env do
         run 'bundle install'
