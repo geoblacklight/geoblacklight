@@ -19,7 +19,7 @@ class TestAppGenerator < Rails::Generators::Base
   end
 
   def install_engine
-    generate 'geoblacklight:install', '-f'
+    generate 'geoblacklight:install'
   end
 
   def fixtures
