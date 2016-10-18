@@ -1,34 +1,37 @@
 {
   "geoblacklight_version": "1.0",
-  "dc_creator_sm": [
-    "State of Michigan"
-  ],
-  "dc_description_s": "Michigan Glacial Landsystems",
-  "dc_format_s": "Shapefile",
-  "dc_identifier_s": "urn-ad0e6ebc-824e-4450-a0d9-987f2232724f",
-  "dc_publisher_sm": [
-    "State of Michigan GIS Open Data"
-  ],
-  "dc_rights_s": "Public",
-  "dc_subject_sm": [
-    "geoscientificinformation",
-    "utilitiesCommunications",
-    "inlandWaters",
-    "glaciers",
-    "geology"
-  ],
-  "dc_title_s": "Glacial Landsystems: Michigan, 2015",
-  "dc_type_s": "Dataset",
-  "dct_issued_s": "2015-02-28T18:53:27Z",
-  "dct_provenance_s": "Michigan State",
-  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"http://gis.michigan.opendata.arcgis.com/datasets/a020fc444ff04d6abf7b03b268cadb71_9.zip\",\"http://schema.org/url\":\"http://gis.michigan.opendata.arcgis.com/datasets/a020fc444ff04d6abf7b03b268cadb71_9\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"https://opengeometadata.github.io/edu.michstate/ad/0e/6e/bc824e4450a0d9987f2232724f/iso19139.xml\",\"urn:x-esri:serviceType:ArcGIS#DynamicMapLayer\":\"https://gisago.mcgi.state.mi.us/arcgis/rest/services/OpenData/hydro/MapServer/9\"}",
-  "dct_spatial_sm": [
-    "Michigan"
-  ],
   "layer_geom_type_s": "Polygon",
-  "layer_id_s": "urn:urn-ad0e6ebc-824e-4450-a0d9-987f2232724f",
-  "layer_modified_dt": "2016-07-18T15:17:46Z",
-  "layer_slug_s": "michigan-state-urn-ad0e6ebc-824e-4450-a0d9-987f2232724f",
-  "solr_geom": "ENVELOPE(-90.5497, -82.0758, 48.2152, 41.6321)",
-  "solr_year_i": 2015
+  "layer_modified_dt": "2016-09-19T16:48:34Z",
+  "solr_geom": "ENVELOPE(-93.772, -93.1769, 45.2477, 44.7834)",
+  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"http://gis.hennepin.opendata.arcgis.com/datasets/62c63204202b45aca308a60efd8784d9_0.zip\",\"http://schema.org/url\":\"http://gis.hennepin.opendata.arcgis.com/datasets/62c63204202b45aca308a60efd8784d9_0\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"https://opengeometadata.github.io/edu.umn/0f/7a/e3/8b4bf24e03a32be87f245ccb03/iso19139.xml\",\"urn:x-esri:serviceType:ArcGIS#DynamicMapLayer\":\"https://gis.hennepin.us/arcgis/rest/services/HennepinData/PEOPLE_SOCIETY/MapServer/0\"}",
+  "dc_rights_s": "Public",
+  "dct_provenance_s": "Minnesota",
+  "dc_subject_sm": [
+    "Society"
+  ],
+  "dct_temporal_sm": [
+    "2015"
+  ],
+  "dc_description_s": "2010 US Census County Subdivisions (Cities) for Hennepin County with subset of PL94-171 demographic data. The Hennepin County GIS Office downloaded US Census data from the following sites: Shapefiles: http://www.census.gov/cgi-bin/geo/shapefiles2010/main PL94-171: http://www.census.gov/rdo/data/2010_census_redistricting_data_pl_94-171_summary_files.html PL94-171 tabular data was post processed per instructions and stored in an Access database. Link to Attribute Table Information: http://gis.hennepin.us/OpenData/Metadata/2010%20Census%20Cities.pdf Data updated: 04/08/2011 Use Limitations: This data (i) is furnished 'AS IS' with no representation as to completeness or accuracy; (ii) is furnished with no warranty of any kind; and (iii) is not suitable for legal, engineering or surveying purposes. Hennepin County shall not be liable for any damage, injury or loss resulting from this data.",
+  "dct_issued_s": "2015-09-11T18:24:36Z",
+  "dc_format_s": "Shapefile",
+  "dc_creator_sm": [
+    "Hennepin County"
+  ],
+  "dc_type_s": "Dataset",
+  "dc_identifier_s": "urn-0f7ae38b-4bf2-4e03-a32b-e87f245ccb03",
+  "dct_isPartOf_sm": [
+    "Hennepin County Open Data"
+  ],
+  "solr_year_i": 2015,
+  "dct_spatial_sm": [
+    "Hennepin County, Minnesota",
+    "Minnesota"
+  ],
+  "dc_publisher_sm": [
+    "Hennepin County"
+  ],
+  "layer_id_s": "urn:urn-0f7ae38b-4bf2-4e03-a32b-e87f245ccb03",
+  "dc_title_s": "2010 Census Cities: Hennepin County, Minnesota",
+  "layer_slug_s": "Minnesota-urn-0f7ae38b-4bf2-4e03-a32b-e87f245ccb03"
 }

@@ -12,7 +12,7 @@ feature 'feature_layer reference', js: true do
     expect(page).to have_css 'img.leaflet-image-layer', visible: true
   end
   scenario 'displays dynamic layer (single layer)' do
-    visit solr_document_path 'michigan-state-urn-ad0e6ebc-824e-4450-a0d9-987f2232724f'
+    visit solr_document_path 'Minnesota-urn-0f7ae38b-4bf2-4e03-a32b-e87f245ccb03'
     expect(page).to have_css '.leaflet-control-zoom', visible: true
     expect(page).to have_css 'img.leaflet-image-layer', visible: true
   end
