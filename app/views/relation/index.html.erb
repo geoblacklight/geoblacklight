@@ -1,39 +1,38 @@
 <% unless @relations.empty? %>
-    <div class="panel panel-default show-tools">
-      <div class="panel-heading">
-        Data Relations
-      </div>
-      <div class="panel-body">
-        <ul class="nav">
-          <% unless (@relations.ancestors['numFound'].to_i == 0) %>
-              <b><%= t('geoblacklight.relations.ancestor') %></b>
-              <% @relations.ancestors['docs'].each do |ancestor| %>
-                  <li>
-                    <%= link_to solr_document_path(ancestor['layer_slug_s']) do %>
-                        <span class='geoblacklight geoblacklight-relations-ancestor'></span> <%= ancestor['dc_title_s'] %>
-                    <% end %>
-                  </li>
-              <% end %>
-          <% end %>
-          <% unless (@relations.descendants['numFound'].to_i == 0) %>
-              <b><%= t('geoblacklight.relations.descendant') %>
-                (<%= @relations.descendants['numFound'] %>)</b>
-              <% @relations.descendants['docs'][0..2].each do |descendant| %>
-                  <li>
-                    <%= link_to solr_document_path(descendant['layer_slug_s']) do %>
-                        <span class='geoblacklight geoblacklight-relations-descendant'></span> <%= descendant['dc_title_s'] %>
-                    <% end %>
-                  </li>
-              <% end %>
-              <% unless (@relations.descendants['numFound'].to_i <= 3) %>
-                  <li>
-                    <%= link_to search_catalog_path({f: {"#{Settings.FIELDS.SOURCE}" => [@relations.id]}}) do %>
-                        <%= "Browse all #{@relations.descendants['numFound']} records..." %>
-                    <% end %>
-                  </li>
-              <% end %>
-          <% end %>
-        </ul>
-      </div>
+  <div class="panel panel-default show-tools">
+    <div class="panel-heading">
+      Data Relations
     </div>
+    <div class="panel-body">
+      <ul class="nav">
+        <% unless (@relations.ancestors['numFound'].to_i == 0) %>
+          <b><%= t('geoblacklight.relations.ancestor') %></b>
+          <% @relations.ancestors['docs'].each do |ancestor| %>
+            <li>
+              <%= link_to solr_document_path(ancestor['layer_slug_s']) do %>
+                <span class='geoblacklight geoblacklight-relations-ancestor'></span> <%= ancestor['dc_title_s'] %>
+              <% end %>
+            </li>
+          <% end %>
+        <% end %>
+        <% unless (@relations.descendants['numFound'].to_i == 0) %>
+          <b><%= t('geoblacklight.relations.descendant') %>(<%= @relations.descendants['numFound'] %>)</b>
+          <% @relations.descendants['docs'][0..2].each do |descendant| %>
+            <li>
+              <%= link_to solr_document_path(descendant['layer_slug_s']) do %>
+                <span class='geoblacklight geoblacklight-relations-descendant'></span> <%= descendant['dc_title_s'] %>
+              <% end %>
+            </li>
+          <% end %>
+          <% unless (@relations.descendants['numFound'].to_i <= 3) %>
+            <li>
+              <%= link_to search_catalog_path({f: {"#{Settings.FIELDS.SOURCE}" => [@relations.id]}}) do %>
+                <%= "Browse all #{@relations.descendants['numFound']} records..." %>
+              <% end %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 <% end %>
