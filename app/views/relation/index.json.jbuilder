@@ -1,1 +1,2 @@
-json.array! @relation_response.relations
+json.ancestors@relations.ancestors
+json.descendants @relations.descendants
