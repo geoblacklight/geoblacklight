@@ -29,8 +29,6 @@ module Geoblacklight
             concerns :gbl_downloadable
           end
           resources :download, only: [:show]
-
-          get '/catalog/:id/relations' => 'relation#relations', as: :relations
       EOF
     end
 
