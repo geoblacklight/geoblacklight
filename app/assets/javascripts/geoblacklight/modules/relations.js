@@ -6,7 +6,6 @@ Blacklight.onLoad(function () {
         $.ajax({
             url: relation_url,
             type: 'GET',
-            dataType: 'html',
             success: function (data) {
                 $elem.append($(data).hide().fadeIn(200));
             }
