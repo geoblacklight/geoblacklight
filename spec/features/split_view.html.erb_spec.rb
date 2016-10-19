@@ -49,7 +49,7 @@ feature 'Index view', js: true do
   scenario 'spatial search should reset to page one' do
     visit '/?per_page=5&q=%2A&page=2'
     find('#map').double_click
-    expect(find('.page_entries')).to have_content(/^1 - \d of \d.$/)
+    expect(find('.page_entries')).to have_content(/^1 - \d of \d.*$/)
   end
 
   scenario 'clicking map search should retain current search parameters' do
