@@ -8,11 +8,11 @@ module Geoblacklight
       end
 
       def ancestors
-        Geoblacklight::Relation::Ancestors.new(@search_id, @repository).results
+        @ancestors ||= Geoblacklight::Relation::Ancestors.new(@search_id, @repository).results
       end
 
       def descendants
-        Geoblacklight::Relation::Descendants.new(@search_id, @repository).results
+        @descendants ||= Geoblacklight::Relation::Descendants.new(@search_id, @repository).results
       end
 
       def empty?
