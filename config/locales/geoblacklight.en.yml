@@ -34,6 +34,6 @@ en:
       data_dictionary: 'Documentation'
     relations:
       ancestor: 'Source Datasets'
-      descendant: 'Derived Datasets'
+      descendant: 'Derived Datasets (%{count})'
       browse_all: "Browse all %{count} records..."
       title: 'Data Relations'
