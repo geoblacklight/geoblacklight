@@ -35,3 +35,5 @@ en:
     relations:
       ancestor: 'Source Datasets'
       descendant: 'Derived Datasets'
+      browse_all: "Browse all %{count} records..."
+      title: 'Data Relations'
