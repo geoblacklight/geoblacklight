@@ -1,7 +1,7 @@
 module Geoblacklight
   module Relation
     class RelationResponse
-      attr_reader :id
+      attr_reader :search_id
       def initialize(id, repository)
         @search_id = id
         @repository = repository
