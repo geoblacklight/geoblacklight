@@ -25,17 +25,17 @@ feature 'Display related documents' do
     }
   end
   scenario 'Record with dc_source_sm value(s) should have parent(s)' do
-    visit relations_path('nyu_2451_34502')
+    visit relations_solr_document_path('nyu_2451_34502')
     expect(page).to have_css('ul b', text: 'Source Datasets')
   end
 
   scenario 'Record that is pointed to by others should have children' do
-    visit relations_path('nyu_2451_34635')
+    visit relations_solr_document_path('nyu_2451_34635')
     expect(page).to have_css('ul b', text: 'Derived Datasets')
   end
 
   scenario 'Relations should respond to json' do
-    visit relations_path('nyu_2451_34635', format: 'json')
+    visit relations_solr_document_path('nyu_2451_34635', format: 'json')
     expect(page.body).to eq(expected_json_resp.to_json)
   end
 
