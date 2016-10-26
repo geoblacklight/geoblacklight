@@ -9,6 +9,7 @@ module Geoblacklight
         mapper.member do
           mapper.get 'web_services'
           mapper.get 'metadata'
+          mapper.get 'relations' => 'relation#index'
         end
       end
     end

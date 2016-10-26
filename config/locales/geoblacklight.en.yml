@@ -32,3 +32,8 @@ en:
       dynamic_map_layer: 'ArcGIS Dynamic Map Layer'
       image_map_layer: 'ArcGIS Image Map Layer'
       data_dictionary: 'Documentation'
+    relations:
+      ancestor: 'Source Datasets'
+      descendant: 'Derived Datasets (%{count})'
+      browse_all: "Browse all %{count} records..."
+      title: 'Data Relations'

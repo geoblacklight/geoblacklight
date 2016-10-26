@@ -1,0 +1,13 @@
+<% unless @relations.empty? %>
+  <div class="panel panel-default show-tools">
+    <div class="panel-heading">
+      <%= t('geoblacklight.relations.title') %>
+    </div>
+    <div class="panel-body">
+      <ul class="nav">
+        <%= render 'ancestors' unless @relations.ancestors['numFound'].to_i == 0 %>
+        <%= render 'descendants' unless @relations.descendants['numFound'].to_i == 0 %>
+      </ul>
+    </div>
+  </div>
+<% end %>
