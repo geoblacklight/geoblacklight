@@ -15,7 +15,7 @@ module Geoblacklight
     def add_spatial_params(solr_params)
       if blacklight_params[:bbox]
         solr_params[:bq] ||= []
-        solr_params[:bq] = ["#{Settings.FIELDS.GEOMETRY}:\"IsWithin(#{envelope_bounds})\"^10"]
+        solr_params[:bq] << "#{Settings.FIELDS.GEOMETRY}:\"IsWithin(#{envelope_bounds})\"#{boost}"
         solr_params[:fq] ||= []
         solr_params[:fq] << "#{Settings.FIELDS.GEOMETRY}:\"Intersects(#{envelope_bounds})\""
       end
@@ -29,6 +29,12 @@ module Geoblacklight
     # @return [String]
     def envelope_bounds
       bounding_box.to_envelope
+    end
+
+    ## Allow bq boost to be configured, default 10 for backwards compatibility
+    # @return [String]
+    def boost
+      "^#{Settings.BBOX_WITHIN_BOOST || '10'}"
     end
 
     ##

@@ -27,6 +27,18 @@ describe Geoblacklight::SpatialSearchBehavior do
       subject.with(params)
       expect(subject.add_spatial_params(solr_params)[:fq].to_s).to include('Intersects')
     end
+    it 'applies boost based on configured Settings.BBOX_WITHIN_BOOST' do
+      allow(Settings).to receive(:BBOX_WITHIN_BOOST).and_return 99
+      params = { bbox: '-180 -80 120 80' }
+      subject.with(params)
+      expect(subject.add_spatial_params(solr_params)[:bq].to_s).to include('^99')
+    end
+    it 'applies default boost of 10 when Settings.BBOX_WITHIN_BOOST not configured' do
+      allow(Settings).to receive(:BBOX_WITHIN_BOOST).and_return nil
+      params = { bbox: '-180 -80 120 80' }
+      subject.with(params)
+      expect(subject.add_spatial_params(solr_params)[:bq].to_s).to include('^10')
+    end
   end
   describe '#envelope_bounds' do
     it 'calls to_envelope on the bounding box' do
