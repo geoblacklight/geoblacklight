@@ -11,16 +11,22 @@ Blacklight.onLoad(function() {
   $('[data-map="index"]').each(function() {
     var data = $(this).data(),
     opts = { baseUrl: data.catalogPath },
-    geoblacklight, bbox;
+    geoblacklight;
+    var bbox = [[-180, -90], [180, 90]];
+
+    var parseableBbox = /(-?[0-9]{2})\s(-?[0-9]{3})\s(-?[0-9]{2})\s(-?[0-9]{3})/;
 
     if (typeof data.mapBbox === 'string') {
       bbox = L.bboxToBounds(data.mapBbox);
     } else {
       $('.document [data-bbox]').each(function() {
-        if (typeof bbox === 'undefined') {
-          bbox = L.bboxToBounds($(this).data().bbox);
-        } else {
-          bbox.extend(L.bboxToBounds($(this).data().bbox));
+        var currentBbox = $(this).data().bbox;
+        if (parseableBbox.test(currentBbox)) {
+          if (typeof bbox === 'undefined') {
+            bbox = L.bboxToBounds($(this).data().bbox);
+          } else {
+            bbox.extend(L.bboxToBounds($(this).data().bbox));
+          }
         }
       });
     }
