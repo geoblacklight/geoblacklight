@@ -10,7 +10,10 @@ CARTO_ONECLICK_LINK: 'http://oneclick.cartodb.com/'
 # DEPRECATED Main Solr geometry field used for spatial search and bounding box. Should be type 'rpt'
 GEOMETRY_FIELD: 'solr_geom'
 
-#Solr field mappings
+# The bq boost value for spatial search matches within a bounding box
+BBOX_WITHIN_BOOST: '10'
+
+# Solr field mappings
 FIELDS:
   :FILE_FORMAT: 'dc_format_s'
   :GEOMETRY: 'solr_geom'
