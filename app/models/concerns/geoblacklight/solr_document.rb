@@ -60,7 +60,7 @@ module Geoblacklight
     end
 
     def bounding_box_as_wsen
-      geom_field = fetch(Settings.FIELDS.GEOMETRY)
+      geom_field = fetch(Settings.FIELDS.GEOMETRY, '')
       exp = /^\s*ENVELOPE\(
                   \s*([-\.\d]+)\s*,
                   \s*([-\.\d]+)\s*,
@@ -68,13 +68,13 @@ module Geoblacklight
                   \s*([-\.\d]+)\s*
                   \)\s*$/x # uses 'x' option for free-spacing mode
       bbox_match = exp.match(geom_field)
-      return s unless bbox_match # return as-is, not a WKT
+      return geom_field unless bbox_match # return as-is, not a WKT
       w, e, n, s = bbox_match.captures
       "#{w} #{s} #{e} #{n}"
     end
 
     def wxs_identifier
-      fetch(Settings.FIELDS.WXS_IDENTIFIER)
+      fetch(Settings.FIELDS.WXS_IDENTIFIER, '')
     end
 
     def file_format
