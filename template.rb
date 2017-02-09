@@ -4,6 +4,6 @@ gem 'geoblacklight', '>= 1.3'
 run 'bundle install'
 
 generate 'blacklight:install', '--devise'
-generate 'geoblacklight:install', '--solrwrapper', '-f'
+generate 'geoblacklight:install', '-f'
 
 rake 'db:migrate'
