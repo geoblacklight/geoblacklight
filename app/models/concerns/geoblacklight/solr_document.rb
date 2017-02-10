@@ -1,11 +1,15 @@
 module Geoblacklight
   # Extends Blacklight::Solr::Document for GeoBlacklight specific functionalit
   module SolrDocument
+    require 'geo_ruby/ewk'
     extend Blacklight::Solr::Document
 
     include Geoblacklight::SolrDocument::Finder
     include Geoblacklight::SolrDocument::Carto
     include Geoblacklight::SolrDocument::Inspection
+    include Geoblacklight::SolrDocument::Geometry
+
+    include GeoRuby::SimpleFeatures
 
     delegate :download_types, to: :references
     delegate :viewer_protocol, to: :item_viewer
@@ -57,20 +61,6 @@ module Geoblacklight
 
     def itemtype
       'http://schema.org/Dataset'
-    end
-
-    def bounding_box_as_wsen
-      geom_field = fetch(Settings.FIELDS.GEOMETRY, '')
-      exp = /^\s*ENVELOPE\(
-                  \s*([-\.\d]+)\s*,
-                  \s*([-\.\d]+)\s*,
-                  \s*([-\.\d]+)\s*,
-                  \s*([-\.\d]+)\s*
-                  \)\s*$/x # uses 'x' option for free-spacing mode
-      bbox_match = exp.match(geom_field)
-      return geom_field unless bbox_match # return as-is, not a WKT
-      w, e, n, s = bbox_match.captures
-      "#{w} #{s} #{e} #{n}"
     end
 
     def wxs_identifier

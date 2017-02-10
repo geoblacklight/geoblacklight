@@ -6,21 +6,21 @@ GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
     * Initial bounds of map
     * @type {L.LatLngBounds}
     */
-    bbox: [[-80, -195], [80, 185]],
-    opacity: 0.75
+    opacity: 0.75,
+    geojson: L.geoJson({"type":"Polygon","coordinates":[[[-195,-80],[-195,80],[185,80],[185,-80],[-195,-80]]]}),
   },
-  
+
   overlay: L.layerGroup(),
 
   load: function() {
-    if (this.data.mapBbox) {
-      this.options.bbox = L.bboxToBounds(this.data.mapBbox);
+    if (this.data.mapGeojson) {
+      this.options.geojson = L.geoJson(this.data.mapGeojson);
     }
-    this.map = L.map(this.element).fitBounds(this.options.bbox);
+    this.map = L.map(this.element).fitBounds(this.options.geojson);
     this.map.addLayer(this.selectBasemap());
     this.map.addLayer(this.overlay);
-    if (this.data.map !== 'index') {
-      this.addBoundsOverlay(this.options.bbox);
+    if (this.data.map !== 'index' && this.data.map !== 'home' ) {
+      this.map.addLayer(this.options.geojson);
     }
   },
 
@@ -37,6 +37,10 @@ GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
         bounds.getNorthWest()
       ]));
     }
+  },
+
+  addGeoJsonOverlay: function(geojson) {
+    this.overlay.addLayer(geojson);
   },
 
   /**
