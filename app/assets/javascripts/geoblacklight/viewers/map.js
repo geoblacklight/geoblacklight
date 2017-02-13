@@ -3,11 +3,14 @@
 GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
   options: {
     /**
-    * Initial bounds of map
-    * @type {L.LatLngBounds}
-    */
+     * Initial bounds of map
+     * @type {L.LatLngBounds}
+     */
     opacity: 0.75,
-    geojson: L.geoJson({"type":"Polygon","coordinates":[[[-195,-80],[-195,80],[185,80],[185,-80],[-195,-80]]]}),
+    geojson: L.geoJson({
+      "type": "Polygon",
+      "coordinates": [[[-195, -80], [-195, 80], [185, 80], [185, -80], [-195, -80]]]
+    }),
   },
 
   overlay: L.layerGroup(),
@@ -19,7 +22,7 @@ GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
     this.map = L.map(this.element).fitBounds(this.options.geojson);
     this.map.addLayer(this.selectBasemap());
     this.map.addLayer(this.overlay);
-    if (this.data.map !== 'index' && this.data.map !== 'home' ) {
+    if (this.data.map !== 'index' && this.data.map !== 'home') {
       this.map.addLayer(this.options.geojson);
     }
   },
@@ -51,8 +54,8 @@ GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
   },
 
   /**
-  * Selects basemap if specified in data options, if not return positron.
-  */
+   * Selects basemap if specified in data options, if not return positron.
+   */
   selectBasemap: function() {
     var _this = this;
     if (_this.data.basemap) {
