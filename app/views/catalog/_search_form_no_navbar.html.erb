@@ -1,10 +1,12 @@
 <%= form_tag search_action_url, :method => :get, :class => 'search-query-form clearfix' do %>
 <%= render_hash_as_hidden_fields(search_state.params_for_search().except(:q, :search_field, :qt, :page, :utf8)) %>
 
-<% unless search_fields.empty? %>
+<% if search_fields.length > 1 %>
 <label for="search_field" class="sr-only"><%= t('blacklight.search.form.search_field.label') %></label>
 <%= select_tag(:search_field, options_for_select(search_fields, h(params[:search_field])), :title => t('blacklight.search.form.search_field.title'), :class=>"search_field form-control") %>
 <span class="sr-only"><%= t('blacklight.search.form.search_field.post_label') %></span>
+<% elsif search_fields.length == 1 %>
+  <%= hidden_field_tag :search_field, search_fields.first.last %>
 <% end %>
 <div class="input-group search-input-group">
   <label for="q" class="sr-only"><%= t('blacklight.search.form.search.label') %></label>
