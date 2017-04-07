@@ -16,7 +16,7 @@
     "Rogers, Henry Darwin",
     "Pownall, Thomas"
   ],
-  "dct_references_s": "{\"http://schema.org/url\":\"http://arks.princeton.edu/ark:/88435/02870w62c\",\"http://schema.org/thumbnailUrl\":\"http://libimages.princeton.edu/loris2/pudl0076%2Fmap_pownall%2F00000001.jp2/full/50,/0/default.jpg\",\"http://iiif.io/api/image\":\"http://libimages.princeton.edu/loris2/pudl0076%2Fmap_pownall%2F00000001.jp2/info.json\"}",
+  "dct_references_s": "{\"http://schema.org/url\":\"http://arks.princeton.edu/ark:/88435/02870w62c\",\"http://schema.org/thumbnailUrl\":\"https://libimages.princeton.edu/loris2/pudl0076%2Fmap_pownall%2F00000001.jp2/full/50,/0/default.jpg\",\"http://iiif.io/api/image\":\"https://libimages.princeton.edu/loris/pudl0076/map_pownall/00000001.jp2/info.json\"}",
   "dct_spatial_sm": [
     "New York (State)",
     "New Jersey",
