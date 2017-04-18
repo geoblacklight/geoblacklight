@@ -1,4 +1,4 @@
-# Geoblacklight
+# GeoBlacklight
 
 [![Build Status](https://travis-ci.org/geoblacklight/geoblacklight.svg?branch=master)](https://travis-ci.org/geoblacklight/geoblacklight) | [![Coverage Status](https://img.shields.io/coveralls/geoblacklight/geoblacklight.svg)](https://coveralls.io/r/geoblacklight/geoblacklight?branch=coveralls) | [![Gem Version](https://img.shields.io/gem/v/geoblacklight.svg)](https://github.com/geoblacklight/geoblacklight/releases)
 [![Stories in Ready](https://badge.waffle.io/geoblacklight/geoblacklight.png?label=ready&title=Ready)](https://waffle.io/geoblacklight/geoblacklight)
