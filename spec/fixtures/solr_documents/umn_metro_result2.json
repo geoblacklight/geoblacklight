@@ -1,0 +1,35 @@
+{
+  "layer_geom_type_s": "Mixed",
+  "layer_modified_dt": "2017-01-20T18:39:22Z",
+  "solr_geom": "ENVELOPE(-94.012, -92.732, 45.415, 44.471)",
+  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"ftp://ftp.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_metc/society_census_trt_comb1990_2000/shp_society_census_trt_comb1990_2000.zip\",\"http://schema.org/url\":\"https://gisdata.mn.gov/dataset/us-mn-state-metc-society-census-trt-comb1990-2000\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"https://opengeometadata.github.io/edu.umn/e9/71/49/88c3074135b7a7a1d521949f5d/iso19139.xml\"}",
+  "dc_rights_s": "Public",
+  "dct_provenance_s": "Minnesota",
+  "dc_subject_sm": [
+    "Society"
+  ],
+  "dc_format_s": "Shapefile",
+  "dc_description_s": "This dataset consists of a correspondence table and shape file of the combined 1990 and 2000 Census tracts. Note: Census tracts from 1990 and 2000 do not match in all areas. This dataset is an attempt to match them. Some combining and splitting of tracts was necessary. See the Lineage in Section 2 of the metadata for more information.",
+  "dct_issued_s": "2003-01-27",
+  "dct_temporal_sm": [
+    "1990-2000"
+  ],
+  "dc_creator_sm": [
+    "Metropolitan Council"
+  ],
+  "dc_identifier_s": "e9714988-c307-4135-b7a7-a1d521949f5d",
+  "solr_year_i": 1990,
+  "dct_spatial_sm": [
+    "Minnesota, United States",
+    "Minneapolis-St. Paul-Bloomington, United States"
+  ],
+  "dc_publisher_sm": [
+    "Metropolitan Council"
+  ],
+  "layer_id_s": "e9714988-c307-4135-b7a7-a1d521949f5d",
+  "dc_title_s": "1990 to 2000 Census Tract Correspondence and Combined Tracts: Twin Cities Metro, Minnesota, 2003",
+  "layer_slug_s": "e9714988-c307-4135-b7a7-a1d521949f5d",
+  "dct_isPartOf_sm": [
+    "Minnesota Geospatial Commons"
+  ]
+}

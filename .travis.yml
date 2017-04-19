@@ -5,21 +5,19 @@ notifications:
   email: false
 
 rvm:
-  - 2.3.1
+  - 2.3.4
 
 matrix:
   include:
-    - rvm: 2.3.1
-      env: "RAILS_VERSION=4.2.7.1"
-    - rvm: 2.2.5
-      env: "RAILS_VERSION=5.0.0.1"
+    - rvm: 2.3.4
+      env: "RAILS_VERSION=5.0.3"
 
 before_install:
   - gem update --system
   - gem install bundler
 
 env:
- - "RAILS_VERSION=5.0.0.1"
+ - "RAILS_VERSION=5.0.3"
 
 global_env:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
