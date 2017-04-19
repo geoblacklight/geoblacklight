@@ -11,10 +11,17 @@ Blacklight.onLoad(function() {
   $('[data-map="index"]').each(function() {
     var data = $(this).data(),
     opts = { baseUrl: data.catalogPath },
-    geoblacklight;
-    var bbox = [[-180, -90], [180, 90]];
+    geoblacklight, bbox;
 
-    var parseableBbox = /(-?[0-9]{2})\s(-?[0-9]{3})\s(-?[0-9]{2})\s(-?[0-9]{3})/;
+    // Cannot extend an array. See line #35
+    // var bbox = [[-180, -90], [180, 90]];
+
+    var lngRe = '(-?[0-9]{1,2}(\\.[0-9]+)?)';
+    var latRe = '(-?[0-9]{1,3}(\\.[0-9]+)?)';
+
+    var parseableBbox = new RegExp(
+      [lngRe,latRe,lngRe,latRe].join('\\s+')
+    );
 
     if (typeof data.mapBbox === 'string') {
       bbox = L.bboxToBounds(data.mapBbox);
@@ -23,9 +30,9 @@ Blacklight.onLoad(function() {
         var currentBbox = $(this).data().bbox;
         if (parseableBbox.test(currentBbox)) {
           if (typeof bbox === 'undefined') {
-            bbox = L.bboxToBounds($(this).data().bbox);
+            bbox = L.bboxToBounds(currentBbox);
           } else {
-            bbox.extend(L.bboxToBounds($(this).data().bbox));
+            bbox.extend(L.bboxToBounds(currentBbox));
           }
         }
       });
