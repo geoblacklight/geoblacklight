@@ -19,7 +19,7 @@ module Geoblacklight
         table_values[:values].push([th.text])
       end
       page.css('td').each_with_index do |td, index|
-        table_values[:values][index].push(td.text)
+        table_values[:values][index].push(td.text) unless index >= table_values[:values].count
       end
       table_values
     end
