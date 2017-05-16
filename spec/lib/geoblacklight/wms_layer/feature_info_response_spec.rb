@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Geoblacklight::FeatureInfoResponse do
   let(:response) { described_class.new(OpenStruct.new(body: '<html><body><table><th>Header1</th><th>Header2</th><td>value1</td><td>value2</td></body></html>', headers: { 'content-type' => 'all good' })) }
+  let(:response_multiple_features) { described_class.new(OpenStruct.new(body: '<html><body><table><th>Header1</th><th>Header2</th><tr><td>value1</td><td>value2</td></tr><tr><td>value3</td><td>value4</td></tr></body></html>', headers: { 'content-type' => 'all good' })) }
   let(:error_response) { described_class.new(error: 'bad stuff') }
   let(:content_response) { described_class.new(OpenStruct.new(headers: { 'content-type' => 'text/xml' })) }
 
@@ -29,6 +30,12 @@ describe Geoblacklight::FeatureInfoResponse do
       expect(response.format[:values].length).to eq 2
       expect(response.format[:values][0]).to eq %w(Header1 value1)
       expect(response.format[:values][1]).to eq %w(Header2 value2)
+    end
+    it 'returns a formated response when multiple features are retrieved' do
+      expect(response_multiple_features.format).not_to be_nil
+      expect(response_multiple_features.format[:values].length).to eq 2
+      expect(response_multiple_features.format[:values][0]).to eq %w(Header1 value1)
+      expect(response_multiple_features.format[:values][1]).to eq %w(Header2 value2)
     end
   end
 

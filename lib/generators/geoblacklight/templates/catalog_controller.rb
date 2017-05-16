@@ -145,7 +145,7 @@ class CatalogController < ApplicationController
     # solr request handler? The one set in config[:default_solr_parameters][:qt],
     # since we aren't specifying it otherwise.
 
-    # config.add_search_field 'text', :label => 'All Fields'
+    config.add_search_field 'all_fields', :label => 'All Fields'
     # config.add_search_field 'dc_title_ti', :label => 'Title'
     # config.add_search_field 'dc_description_ti', :label => 'Description'
 
