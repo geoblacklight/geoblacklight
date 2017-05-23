@@ -1,0 +1,31 @@
+{
+  "layer_geom_type_s": "Mixed",
+  "layer_modified_dt": "2017-01-20T18:38:45Z",
+  "solr_geom": "ENVELOPE(-97.612501, -88.842351, 49.464145, 42.906949)",
+  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"ftp://gdrs.dnr.state.mn.us/gdrs/data/pub/us_mn_state_dnr/tif_base_usgs_scanned_topo_100k_drg.zip\",\"http://schema.org/url\":\"https://gisdata.mn.gov/dataset/base-usgs-scanned-topo-100k-drg\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"https://opengeometadata.github.io/edu.umn/08/32/9e/9637794cea9fa85d9939b6276f/iso19139.xml\"}",
+  "dc_rights_s": "Public",
+  "dct_provenance_s": "Minnesota",
+  "dc_subject_sm": [
+    "Imagery and Base Maps"
+  ],
+  "dc_format_s": "GeoTIFF",
+  "dc_description_s": "A digital raster graphic (DRG) is a scanned image of an U.S. Geological Survey (USGS) standard series topographic map, including all map collar information. The image inside the map neatline is georeferenced to the surface of the earth and fit to the Universal Transverse Mercator projection. The horizontal positional accuracy and datum of the DRG matches the accuracy and datum of the source map. The map is scanned at a minimum resolution of 250 dots per inch. DRG's are created by scanning published paper maps on high-resolution scanners. The raster image is georeferenced and fit to the UTM projection. Colors are standardized to remove scanner limitations and artifacts. The average data set size is about 6 megabytes in Tagged Image File Format (TIFF) with PackBits compression. DRG's can be easily combined with other digital cartographic products such as digital elevation models (DEM) and digital orthophoto quadrangles (DOQ). DRG's are stored as rectified TIFF files in geoTIFF format. GeoTIFF is a relatively new TIFF image storage format that incorporates georeferencing information in the header. This allows software, such as ArcView, ARC/INFO, or EPPL7 to reference the image without an additional header or world file. Within the Minnesota Department of Natural Resources Core GIS data set the DRG's have been processed to be in compliance with departmental data standards (UTM Extended Zone 15, NAD83 datum) and the map collar information has been removed to facilitate the display of the DRG's in a seamless fashion. These DRG's were clipped and transformed to UTM Zone 15 using EPPL7 Raster GIS.",
+  "dct_issued_s": "2010-04-22T06:00:00.000ZZ",
+  "dc_creator_sm": [
+    "U.S. Geological Survey (USGS) and Minnesota Department of Natural Resources (DNR)"
+  ],
+  "dc_identifier_s": "08329e96-3779-4cea-9fa8-5d9939b6276f",
+  "dct_isPartOf_sm": [
+    "Minnesota Geospatial Commons"
+  ],
+  "solr_year_i": 2010,
+  "dct_spatial_sm": [
+    "Minnesota, United States"
+  ],
+  "dc_publisher_sm": [
+    "Minnesota Department of Natural Resources"
+  ],
+  "layer_id_s": "08329e96-3779-4cea-9fa8-5d9939b6276f",
+  "dc_title_s": "1:100k Digital Raster Graphic, Collars Removed: Minnesota, 2010",
+  "layer_slug_s": "08329e96-3779-4cea-9fa8-5d9939b6276f"
+}
