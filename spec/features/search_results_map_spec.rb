@@ -33,10 +33,10 @@ feature 'search results map', js: true do
     # Example bbox for q: Minneapolis
     # "-94.537353515625,44.004669106432225,-92.208251953125,45.87088761346192"
     left, bottom, right, top = bbox.split(',')
-    expect(left.to_f).to be_within(2).of(-94)
-    expect(bottom.to_f).to be_within(2).of(44)
-    expect(right.to_f).to be_within(2).of(-92)
-    expect(top.to_f).to be_within(2).of(45)
+    expect(left.to_f).to be_within(1).of(-94)
+    expect(bottom.to_f).to be_within(1).of(44)
+    expect(right.to_f).to be_within(1).of(-92)
+    expect(top.to_f).to be_within(1).of(45)
   end
   scenario 'view is scoped to NYC' do
     visit root_path
