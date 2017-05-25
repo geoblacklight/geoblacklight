@@ -19,8 +19,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
   spec.required_rubygems_version = '>= 2.5.2'
 
-  spec.add_dependency 'rails', '>= 4.2.0', '< 6'
-  spec.add_dependency 'blacklight', '~> 6.3'
+  spec.add_dependency 'rails', '>= 4.2.0', '< 5.1'
+  spec.add_dependency 'blacklight', '~> 6.3', '< 6.10'
   spec.add_dependency 'leaflet-rails', '~> 0.7.3'
   spec.add_dependency 'font-awesome-rails'
   spec.add_dependency 'config'
