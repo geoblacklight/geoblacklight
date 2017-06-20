@@ -4,14 +4,14 @@ GeoBlacklight.Viewer.Esri = GeoBlacklight.Viewer.Map.extend({
   layerInfo: {},
 
   load: function() {
-    this.options.bbox = L.bboxToBounds(this.data.mapBbox);
-    this.map = L.map(this.element).fitBounds(this.options.bbox);
+    this.options.geojson = L.geoJson(this.data.mapGeojson);
+    this.map = L.map(this.element).fitBounds(this.options.geojson);
     this.map.addLayer(this.selectBasemap());
     this.map.addLayer(this.overlay);
     if (this.data.available) {
       this.getEsriLayer();
     } else {
-      this.addBoundsOverlay(this.options.bbox);
+      this.addGeoJsonOverlay(this.options.geojson);
     }
   },
 

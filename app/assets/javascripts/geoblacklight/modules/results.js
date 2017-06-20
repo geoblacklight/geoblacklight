@@ -10,25 +10,29 @@ Blacklight.onLoad(function() {
 
   $('[data-map="index"]').each(function() {
     var data = $(this).data(),
-    opts = { baseUrl: data.catalogPath },
-    geoblacklight;
-    var bbox = [[-180, -90], [180, 90]];
+      opts = {baseUrl: data.catalogPath},
+      geoblacklight;
+    var geojson;
 
-    var parseableBbox = /(-?[0-9]{2})\s(-?[0-9]{3})\s(-?[0-9]{2})\s(-?[0-9]{3})/;
-
-    if (typeof data.mapBbox === 'string') {
-      bbox = L.bboxToBounds(data.mapBbox);
+    if (typeof data.mapGeojson === 'string') { // Single, not array
+      geojson = L.geoJson(data.mapGeojson).getBounds();
     } else {
-      $('.document [data-bbox]').each(function() {
-        var currentBbox = $(this).data().bbox;
-        if (parseableBbox.test(currentBbox)) {
-          if (typeof bbox === 'undefined') {
-            bbox = L.bboxToBounds($(this).data().bbox);
+      $('.document [data-geojson]').each(function() {
+        var currentBbox = $(this).data().geojson;
+        if (typeof currentBbox.coordinates == 'object') {
+          if (typeof geojson === 'undefined') {
+            geojson = L.geoJson($(this).data().geojson).getBounds();
           } else {
-            bbox.extend(L.bboxToBounds($(this).data().bbox));
+            geojson.extend(L.geoJson($(this).data().geojson).getBounds());
           }
         }
       });
+      if (typeof geojson == 'undefined') {
+        geojson = L.geoJson({
+          "type": "Polygon",
+          "coordinates": [[[-195, -80], [-195, 80], [185, 80], [185, -80], [-195, -80]]]
+        }).getBounds();
+      }
     }
 
     if (!historySupported) {
@@ -41,13 +45,13 @@ Blacklight.onLoad(function() {
     }
 
     // instantiate new map
-    geoblacklight = new GeoBlacklight.Viewer.Map(this, { bbox: bbox });
+    geoblacklight = new GeoBlacklight.Viewer.Map(this, {geojson: geojson});
 
     // set hover listeners on map
     $('#content')
       .on('mouseenter', '#documents [data-layer-id]', function() {
-        var bounds = L.bboxToBounds($(this).data('bbox'));
-        geoblacklight.addBoundsOverlay(bounds);
+        var geojson = L.geoJson($(this).data('geojson'));
+        geoblacklight.addGeoJsonOverlay(geojson);
       })
       .on('mouseleave', '#documents [data-layer-id]', function() {
         geoblacklight.removeBoundsOverlay();

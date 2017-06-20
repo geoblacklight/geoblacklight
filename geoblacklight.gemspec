@@ -28,6 +28,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'coderay'
   spec.add_dependency 'geoblacklight-icons', '>= 0.2'
   spec.add_dependency 'deprecation'
+  spec.add_dependency 'georuby', '~> 2.5.2'
 
   spec.add_development_dependency 'solr_wrapper'
   spec.add_development_dependency 'rails-controller-testing'
