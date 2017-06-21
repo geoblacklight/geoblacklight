@@ -32,7 +32,7 @@ Blacklight.onLoad(function() {
             bbox.extend(L.bboxToBounds(currentBbox));
           }
         } else {
-          // Unparseable bbox, use default value.
+          // bbox not parseable, use default value.
           // [[-180, -90], [180, 90]];
           bbox = L.bboxToBounds("-180 -90 180 90");
         }
