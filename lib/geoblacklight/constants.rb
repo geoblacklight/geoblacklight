@@ -7,6 +7,7 @@ module Geoblacklight
       geojson: 'http://geojson.org/geojson-spec.html',
       html: 'http://www.w3.org/1999/xhtml',
       iiif: 'http://iiif.io/api/image',
+      iiif_manifest: 'http://iiif.io/api/presentation#manifest',
       iso19139: 'http://www.isotc211.org/schemas/2005/gmd/',
       mods: 'http://www.loc.gov/mods/v3',
       shapefile: 'http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf',
