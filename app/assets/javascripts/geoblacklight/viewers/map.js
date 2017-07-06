@@ -20,7 +20,7 @@ GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
 
     // Add initial bbox to map element for easier testing
     if (this.map.getBounds().isValid()) {
-      this.element.setAttribute('data-map-bbox', this.map.getBounds().toBBoxString());
+      this.element.setAttribute('data-js-map-render-bbox', this.map.getBounds().toBBoxString());
     }
 
     this.map.addLayer(this.selectBasemap());
