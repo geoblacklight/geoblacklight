@@ -1,0 +1,37 @@
+{
+  "geoblacklight_version": "1.0",
+  "layer_geom_type_s": "Mixed",
+  "layer_modified_dt": "2017-01-20T18:38:47Z",
+  "solr_geom": "ENVELOPE(-94.012, -92.732, 45.415, 44.471)",
+  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"ftp://ftp.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_metc/plan_frmwrk2030dev_plan_ar2011/shp_plan_frmwrk2030dev_plan_ar2011.zip\",\"http://schema.org/url\":\"https://gisdata.mn.gov/dataset/us-mn-state-metc-plan-frmwrk2030dev-plan-ar2011\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"https://opengeometadata.github.io/edu.umn/4a/d4/13/49035c4bd391a777b99afbf550/iso19139.xml\"}",
+  "dc_rights_s": "Public",
+  "dct_provenance_s": "Minnesota",
+  "dc_subject_sm": [
+    "Planning and Cadastral",
+    "Urban planning and development"
+  ],
+  "dc_format_s": "Shapefile",
+  "dc_description_s": "The 2030 Regional Development Framework Planning Areas - 2011 updates the 2030 Regional Development Framework Planning Areas initially adopted on January 14, 2004 and ammended in 2006. This dataset reflect the agreed upon planning areas between a community and the Metropolitan Council and defined in the communities' 2030 Comprehensive Plan Update and is intended to supplement the 2030 Regional Development Framework - the planning guide for the 7-county Twin Cities metropolitan area of Minneapolis and Saint Paul, Minnesota. Planning area definitions and strategies for the planning areas are available in the 2030 Regional Development Framework document at http://www.metrocouncil.org/Planning/Planning/2030-Regional-Development-Framework.aspx (See Chapter 3). For questions about how decisions were made regarding individual communities' geographic planning areas, please contact the Metropolitan Council Regional Framework Development staff, Dan Marckel, 651-602-1548. See Currentness Reference and Lineage in Data Quality Section of this metadata for more information.",
+  "dct_issued_s": "2014-05-23",
+  "dct_temporal_sm": [
+    "2011"
+  ],
+  "dc_creator_sm": [
+    "Metropolitan Council"
+  ],
+  "dc_identifier_s": "4ad41349-035c-4bd3-91a7-77b99afbf550",
+  "solr_year_i": 2011,
+  "dct_spatial_sm": [
+    "Minnesota, United States",
+    "Minneapolis-St. Paul-Bloomington, United States"
+  ],
+  "dc_publisher_sm": [
+    "Metropolitan Council"
+  ],
+  "layer_id_s": "4ad41349-035c-4bd3-91a7-77b99afbf550",
+  "dc_title_s": "2030 Regional Development Framework Planning Areas: Twin Cities Metro, Minnesota, 2011",
+  "layer_slug_s": "4ad41349-035c-4bd3-91a7-77b99afbf550",
+  "dct_isPartOf_sm": [
+    "Minnesota Geospatial Commons"
+  ]
+}
