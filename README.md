@@ -9,7 +9,7 @@ of the Blacklight Solr-powered discovery interface and the
 multi-institutional OpenGeoportal federated metadata sharing
 communities. We're actively looking for community input and development partners.
 
-###[Installation](https://github.com/geoblacklight/geoblacklight/wiki/Installation)
+### [Installation](https://github.com/geoblacklight/geoblacklight/wiki/Installation)
 
 Creating a new GeoBlacklight application from the template
 
@@ -30,7 +30,7 @@ For more information see the [installation guide](https://github.com/geoblacklig
 ### Contributing
 Interested in contributing to GeoBlacklight? Please see our [contributing](CONTRIBUTING.md) guide.
 
-###[Development](https://github.com/geoblacklight/geoblacklight/wiki/Development)
+### [Development](https://github.com/geoblacklight/geoblacklight/wiki/Development)
 
 See the [development guide](https://github.com/geoblacklight/geoblacklight/wiki/Development) on our wiki for more information about setting up your development environment.
 
