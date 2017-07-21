@@ -2,6 +2,7 @@ module Geoblacklight
   ##
   # Adds custom functionality for Geoblacklight document presentation
   class DocumentPresenter < Blacklight::IndexPresenter
+    include ActionView::Helpers::OutputSafetyHelper
     ##
     # Presents configured index fields in search results. Passes values through
     # configured helper_method. Multivalued fields separated by presenter
@@ -16,7 +17,7 @@ module Geoblacklight
           fields_values << val
         end
       end
-      fields_values.join(' ')
+      safe_join(fields_values, ' ')
     end
   end
 end
