@@ -19,7 +19,6 @@ GeoBlacklight.Viewer.DynamicMapLayer = GeoBlacklight.Viewer.Esri.extend({
       this.data.url = this.data.url.slice(0,-(lastSegment.length + 1));
     }
 
-    // L.esri.get = L.esri.Request.get.JSONP;
     L.esri.get(_this.data.url, {}, function(error, response){
       if(!error) {
         _this.layerInfo = response;
