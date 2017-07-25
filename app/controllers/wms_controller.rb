@@ -1,4 +1,6 @@
 class WmsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+  
   def handle
     response = Geoblacklight::WmsLayer.new(wms_params).feature_info
 
