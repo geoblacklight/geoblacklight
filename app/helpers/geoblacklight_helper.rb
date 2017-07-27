@@ -153,4 +153,25 @@ module GeoblacklightHelper
        .add_previous_sibling(geoblacklight_icon(item.value))
     doc.to_html.html_safe
   end
+
+  ##
+  # Renders the transformed metadata
+  # (Renders a partial when the metadata isn't available)
+  # @param [Geoblacklight::Metadata::Base] metadata the metadata object
+  # @return [String]
+  def render_transformed_metadata(metadata)
+    render partial: 'catalog/metadata/content', locals: { content: metadata.transform.html_safe }
+  rescue Geoblacklight::MetadataTransformer::ParseError => e
+    Geoblacklight.logger.warn e.message
+    render partial: 'catalog/metadata/missing'
+  end
+
+  ##
+  # Determines whether or not the metadata is the first within the array of References
+  # @param [SolrDocument] document the Solr Document for the item
+  # @param [Geoblacklight::Metadata::Base] metadata the object for the metadata resource
+  # @return [Boolean]
+  def first_metadata?(document, metadata)
+    document.references.shown_metadata.first.type == metadata.type
+  end
 end

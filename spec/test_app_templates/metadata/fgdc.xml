@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<metadata>
+  <idinfo>
+  <citation>
+      <citeinfo>
+        <origin>Esri</origin>
+        <pubdate>20110608</pubdate>
+        <title>Custom Link Sample</title>
+        <geoform>tabular digital data</geoform>
+        <pubinfo>
+          <pubplace>380 New York St., Redlands, CA, USA</pubplace>
+          <publish>Esri</publish>
+        </pubinfo>
+        <onlink>http://www.esri.com</onlink>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>This is a test metadata record for use in the Add a custom link to a search result
+        web help topic. Note, the ftp URL here is just a sample and does not open an actual ftp
+        site.</abstract>
+      <purpose>SAMPLE</purpose>
+      <supplinf>This does not represent an actual dataset</supplinf>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <rngdates>
+          <begdate>20110608</begdate>
+          <enddate>Present</enddate>
+        </rngdates>
+      </timeinfo>
+      <current>ground condition</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>None planned</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>-96</westbc>
+        <eastbc>-83</eastbc>
+        <northbc>34</northbc>
+        <southbc>20</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>None</themekt>
+        <themekey>SAMPLE</themekey>
+      </theme>
+      <theme>
+        <themekt>ISO 19115 Topic Category</themekt>
+        <themekey>oceans</themekey>
+      </theme>
+    </keywords>
+    <accconst>None.</accconst>
+    <useconst>None.</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>Esri</cntorg>
+          <cntper>SDI Solutions Team</cntper>
+        </cntorgp>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>380 New York St.</address>
+          <city>Redlands</city>
+          <state>CA</state>
+          <postal>92373</postal>
+          <country>UNITED STATES</country>
+        </cntaddr>
+        <cntvoice>909-793-2853</cntvoice>
+      </cntinfo>
+    </ptcontac>
+  </idinfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>Esri</cntorg>
+        </cntorgp>
+        <cntpos>Customer Service</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>380 New York St.</address>
+          <city>Redlands</city>
+          <state>CA</state>
+          <postal>92373</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>909-793-2853</cntvoice>
+      </cntinfo>
+    </distrib>
+    <resdesc>Downloadable Data</resdesc>
+    <distliab>None.</distliab>
+    <stdorder>
+      <digform>
+        <digtinfo>
+          <formname>Originator's Data Format(s)</formname>
+        </digtinfo>
+        <digtopt>
+          <onlinopt>
+            <computer>
+              <networka>
+                <networkr>ftp://ftp.sample.com</networkr>
+              </networka>
+            </computer>
+            <accinstr>None.</accinstr>
+            <oncomp>Standard Internet browser, PC, Mac, UNIX, Linux
+              systems</oncomp>
+          </onlinopt>
+        </digtopt>
+      </digform>
+      <fees>None.</fees>
+    </stdorder>
+  </distinfo>
+  <metainfo>
+    <metd>20110608</metd>
+    <metc>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>Esri</cntorg>
+        </cntorgp>
+        <cntpos>SDI Solutions</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>380 New York St.</address>
+          <city>Redlands</city>
+          <state>CA</state>
+          <postal>92373</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>909-793-2853</cntvoice>
+      </cntinfo>
+    </metc>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <metac>None</metac>
+    <metuc>None</metuc>
+    <metsi>
+      <metscs>None</metscs>
+      <metsc>Unclassified</metsc>
+      <metshd>None</metshd>
+    </metsi>
+  </metainfo>
+</metadata>

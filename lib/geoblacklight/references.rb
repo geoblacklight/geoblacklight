@@ -9,6 +9,20 @@ module Geoblacklight
     end
 
     ##
+    # Return only those metadata references which are exposed within the configuration
+    # @return [Geoblacklight::Reference]
+    def shown_metadata_refs
+      @refs.select { |ref| Settings.METADATA_SHOWN.include?(ref.type.to_s) }
+    end
+
+    ##
+    # Return only metadata for shown metadata
+    # @return [Geoblacklight::Metadata::Base]
+    def shown_metadata
+      @shown_metadata ||= shown_metadata_refs.map { |ref| Geoblacklight::Metadata.instance(ref) }
+    end
+
+    ##
     # Accessor for a document's file format
     # @return [String] file format for the document
     def format

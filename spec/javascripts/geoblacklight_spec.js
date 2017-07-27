@@ -9,5 +9,9 @@ describe('GeoBlacklight', function() {
     it('History.js is defined', function() {
       expect(History).toBeDefined();
     });
+
+    it('MetadataDownloadButton is defined', function() {
+      expect(GeoBlacklight.MetadataDownloadButton).toBeDefined();
+    });
   });
 });

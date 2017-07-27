@@ -25,6 +25,8 @@ class TestAppGenerator < Rails::Generators::Base
   def fixtures
     FileUtils.mkdir_p 'spec/fixtures/solr_documents'
     directory 'solr_documents', 'spec/fixtures/solr_documents'
+    FileUtils.mkdir_p 'spec/fixtures/metadata'
+    directory 'metadata', 'spec/fixtures/metadata'
   end
 
   def install_teaspoon

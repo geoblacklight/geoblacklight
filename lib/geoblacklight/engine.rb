@@ -4,7 +4,6 @@ require 'font-awesome-rails'
 require 'config'
 require 'faraday'
 require 'nokogiri'
-require 'coderay'
 require 'geoblacklight-icons'
 
 module Geoblacklight

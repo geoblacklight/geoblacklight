@@ -1,5 +1,29 @@
-.metadata-view {
-  pre {
-    @extend .pre-scrollable;
+/**
+ * Rules for the geospatial metadata Bootstrap Modal dialog
+ */
+.modal-dialog {
+  width: 1148px;
+}
+
+.modal-header {
+  .modal-title {
+    font-weight: 400;
+    font-size: 20px;
+  }
+}
+
+.modal-body {
+  overflow-y: scroll;
+  height: calc(100vh - 190px);
+
+  .metadata-view {
+    .nav-pills {
+      text-align: center;
+
+      li {
+        float: none;
+        display: inline-block;
+      }
+    }
   }
 }
