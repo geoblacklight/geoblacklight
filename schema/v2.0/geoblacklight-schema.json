@@ -76,8 +76,7 @@
           "items": {
             "type": "object",
             "required": [
-              "@type",
-              "title"
+              "@type"
             ],
             "properties": {
               "accessURL": {
@@ -95,8 +94,11 @@
                 "description": "URL providing direct access to a downloadable file of a dataset. *One of downloadURL or accessURL required*",
                 "example": "http://stacks.stanford.edu/file/druid:cz128vq0535/data.zip"
               },
-               "format": {
-                "type": "string",
+              "format": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
                 "description": "File format(s) available for download, using a controlled vocabulary. *Optional*",
                 "example": "GeoJSON"
               },
@@ -108,7 +110,7 @@
               "mediaType": {
                 "type": "string",
                 "description": "The machine-readable file format (IANA Media Type or MIME Type) of the distribution’s downloadURL. *Required with downloadURL*",
-                "mediaType": "application/xml",
+                "example": "application/xml"
               },
               "@type": {
                 "type": "string",
@@ -119,7 +121,7 @@
               },
               "title": {
                 "type": "string",
-                "description": "Title of the download.",
+                "description": "Title of the download. *Required with downloadURL*",
                 "example": "Original Shapefile"
               }
             }
@@ -155,7 +157,6 @@
         },
         "issued": {
           "type": "string",
-          "format": "date-time",
           "description": "Issued date for the layer, using XML Schema dateTime format (YYYY-MM-DDThh:mm:ssZ). *Optional*"
         },
         "landingPage": {
@@ -165,6 +166,9 @@
         },
         "language": {
           "type": "array",
+          "items": {
+            "type": "string"
+          },
           "description": "Language for the dataset. Should adhere to the RFC 5646 standard. *Optional*.",
           "example": "en"
         },
