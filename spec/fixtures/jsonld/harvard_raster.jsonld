@@ -38,6 +38,9 @@
       "title": "FGDC Metadata"
     }
   ],
+  "format": [
+    "GeoTIFF"
+  ],
   "geom": "ENVELOPE(30.013108, 30.875309, 60.041712, 59.669749)",
   "geomType": "Raster",
   "issued": "2000",

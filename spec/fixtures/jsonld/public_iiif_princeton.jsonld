@@ -14,9 +14,12 @@
       "accessURL": "http://libimages.princeton.edu/loris2/pudl0076%2Fmap_pownall%2F00000001.jp2/info.json",
       "conformsTo": "http://iiif.io/api/image",
       "downloadableAs": [
-        "JPG"
+        "JPEG"
       ]
     }
+  ],
+  "format": [
+    "JPEG"
   ],
   "geom": "ENVELOPE(-76.3394, -72.1916, 46.5798, 38.6693)",
   "geomType": "Raster",

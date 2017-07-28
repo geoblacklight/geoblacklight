@@ -39,6 +39,9 @@
       "conformsTo": "urn:x-esri:serviceType:ArcGIS#DynamicMapLayer"
     }
   ],
+  "format": [
+    "Shapefile"
+  ],
   "geom": "ENVELOPE(-88.1607, -84.6882, 41.7753, 37.7554)",
   "geomType": "Mixed",
   "issued": "2003-01-28",

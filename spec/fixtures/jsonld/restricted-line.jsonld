@@ -60,6 +60,11 @@
       "layerId": "druid:cg357zz0321"
     }
   ],
+  "format": [
+    "Shapefile",
+    "GeoJSON",
+    "KMZ"
+  ],
   "geom": "ENVELOPE(-123.387366, -122.52958, 39.398403, 38.302994)",
   "geomType": "Line",
   "issued": "2003",

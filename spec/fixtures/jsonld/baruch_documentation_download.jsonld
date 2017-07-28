@@ -41,6 +41,11 @@
       "title": "ISO 19139 Metadata"
     }
   ],
+  "format": [
+    "Shapefile",
+    "GeoJSON",
+    "KMZ"
+  ],
   "geom": "ENVELOPE(-74.030876, -73.755405, 40.9031249999998, 40.5761269999998)",
   "geomType": "Point",
   "isPartOf": "NYC Geodatabase (version jan2016)",

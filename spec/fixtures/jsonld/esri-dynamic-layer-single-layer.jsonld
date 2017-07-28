@@ -29,6 +29,9 @@
       "conformsTo": "urn:x-esri:serviceType:ArcGIS#DynamicMapLayer"
     }
   ],
+  "format": [
+    "Shapefile"
+  ],
   "geom": "ENVELOPE(-93.772, -93.1769, 45.2477, 44.7834)",
   "geomType": "Polygon",
   "isPartOf": [

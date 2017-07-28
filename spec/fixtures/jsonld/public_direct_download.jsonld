@@ -57,6 +57,11 @@
       "layerId": "druid:cz128vq0535"
     }
   ],
+  "format": [
+    "Shapefile",
+    "GeoJSON",
+    "KMZ"
+  ],
   "geom": "ENVELOPE(29.572742, 35.000308, 4.234077, -1.478794)",
   "geomType": "Polygon",
   "issued": "2005",

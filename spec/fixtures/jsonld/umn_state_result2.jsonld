@@ -24,6 +24,9 @@
       "title": "ISO 19139 Metadata"
     }
   ],
+  "format": [
+    "GeoTIFF"
+  ],
   "geom": "ENVELOPE(-97.991522, -87.177541, 49.892443, 42.891013)",
   "geomType": "Mixed",
   "isPartOf": [

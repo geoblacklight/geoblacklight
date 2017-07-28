@@ -21,6 +21,9 @@
       "conformsTo": "urn:x-esri:serviceType:ArcGIS#FeatureLayer"
     }
   ],
+  "format": [
+    "Shapefile"
+  ],
   "geom": "ENVELOPE(-93.3291083642602, -93.1896159986687, 45.0512462600492, 44.8901520021226)",
   "geomType": "Polygon",
   "issued": "2012-04-25T19:32:02.000ZZ",

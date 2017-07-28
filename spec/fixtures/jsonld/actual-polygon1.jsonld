@@ -41,6 +41,11 @@
       "title": "HTML Metadata"
     }
   ],
+  "format": [
+    "Shapefile",
+    "GeoJSON",
+    "KMZ"
+  ],
   "geom": "ENVELOPE(-71.163984, -71.052581, 42.408316, 42.34757)",
   "geomType": "Polygon",
   "issued": "2005",

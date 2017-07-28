@@ -9,10 +9,13 @@
     {
       "@type": "dcat:Distribution",
       "downloadURL": "https://archive.nyu.edu/retrieve/74856/nyu_2451_34636.zip",
-      "format": "ESRI Geodatabase",
+      "format": "ESRI Personal GeoDatabase",
       "mediaType": "application/zip",
       "title": "ESRI Geodatabase"
     }
+  ],
+  "format": [
+    "ESRI Personal GeoDatabase",
   ],
   "geom": "ENVELOPE(-74.255895, -73.700272, 40.9152819999998, 40.4959289999998)",
   "geomType": "Mixed",
