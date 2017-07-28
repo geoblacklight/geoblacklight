@@ -18,7 +18,7 @@
       "@type": "dcat:Distribution",
       "accessURL": "https://maps-public.geo.nyu.edu/geoserver/sdr/wfs",
       "conformsTo": "http://www.opengis.net/def/serviceType/ogc/wfs",
-      "downloadableAs": [
+      "format": [
         "Shapefile",
         "GeoJSON"
       ],
@@ -28,7 +28,7 @@
       "@type": "dcat:Distribution",
       "accessURL": "https://maps-public.geo.nyu.edu/geoserver/sdr/wms",
       "conformsTo": "http://www.opengis.net/def/serviceType/ogc/wms",
-      "downloadableAs": [
+      "format": [
         "KMZ"
       ],
       "layerId": "sdr:nyu_2451_34502"

@@ -44,7 +44,7 @@
       "@type": "dcat:Distribution",
       "accessURL": "http://geowebservices-restricted.stanford.edu/geoserver/wfs",
       "conformsTo": "http://www.opengis.net/def/serviceType/ogc/wfs",
-      "downloadableAs": [
+      "format": [
         "Shapefile",
         "GeoJSON"
       ],
@@ -54,7 +54,7 @@
       "@type": "dcat:Distribution",
       "accessURL": "http://geowebservices-restricted.stanford.edu/geoserver/wms",
       "conformsTo": "http://www.opengis.net/def/serviceType/ogc/wms",
-      "downloadableAs": [
+      "format": [
         "KMZ"
       ],
       "layerId": "druid:cg357zz0321"

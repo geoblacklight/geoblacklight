@@ -28,7 +28,7 @@
       "@type": "dcat:Distribution",
       "accessURL": "https://maps.indiana.edu/arcgis/services/Environment/Agriculture_Census/MapServer/WMSServer",
       "conformsTo": "http://www.opengis.net/def/serviceType/ogc/wms",
-      "downloadableAs": [
+      "format": [
         "KMZ"
       ],
       "layerId": "0"

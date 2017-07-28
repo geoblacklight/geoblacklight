@@ -15,7 +15,7 @@
       "@type": "dcat:Distribution",
       "accessURL": "http://hgl.harvard.edu:8080/geoserver/wcs",
       "conformsTo": "http://www.opengis.net/def/serviceType/ogc/wcs",
-      "downloadableAs": [
+      "format": [
 
       ],
       "layerId": "cite:SDE2.G7064_S2_1834_K3"
@@ -24,7 +24,7 @@
       "@type": "dcat:Distribution",
       "accessURL": "http://hgl.harvard.edu:8080/geoserver/wms",
       "conformsTo": "http://www.opengis.net/def/serviceType/ogc/wms",
-      "downloadableAs": [
+      "format": [
         "GeoTIFF"
       ],
       "layerId": "cite:SDE2.G7064_S2_1834_K3"

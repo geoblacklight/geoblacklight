@@ -9,7 +9,7 @@
       "@type": "dcat:Distribution",
       "accessURL": "http://geoserver01.uit.tufts.edu/wfs",
       "conformsTo": "http://www.opengis.net/def/serviceType/ogc/wfs",
-      "downloadableAs": [
+      "format": [
         "Shapefile",
         "GeoJSON"
       ],
@@ -19,7 +19,7 @@
       "@type": "dcat:Distribution",
       "accessURL": "http://geoserver01.uit.tufts.edu/wms",
       "conformsTo": "http://www.opengis.net/def/serviceType/ogc/wms",
-      "downloadableAs": [
+      "format": [
         "KMZ"
       ],
       "layerId": "sde:GISPORTAL.GISOWNER01.CAMBRIDGEGRID100_04"

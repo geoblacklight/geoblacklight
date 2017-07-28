@@ -43,7 +43,7 @@
       "@type": "dcat:Distribution",
       "accessURL": "http://kurma-podd1.stanford.edu/geoserver/wcs",
       "conformsTo": "http://www.opengis.net/def/serviceType/ogc/wcs",
-      "downloadableAs": [
+      "format": [
 
       ],
       "layerId": "druid:dp018hs9766"
@@ -52,7 +52,7 @@
       "@type": "dcat:Distribution",
       "accessURL": "http://kurma-podd1.stanford.edu/geoserver/wms",
       "conformsTo": "http://www.opengis.net/def/serviceType/ogc/wms",
-      "downloadableAs": [
+      "format": [
         "GeoTIFF"
       ],
       "layerId": "druid:dp018hs9766"
