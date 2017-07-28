@@ -1,0 +1,42 @@
+{
+  "@context": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/context.jsonld",
+  "@id": "e2f33b52-4039-4bbb-9095-b5cdc0175943",
+  "@type": "dcat:Dataset",
+  "accessLevel": "public",
+  "creator": [
+    "MapIT Minneapolis"
+  ],
+  "description": "Map service showing the Fire Station service areas for the Minneapolis Fire Department.",
+  "distribution": [
+    {
+      "@type": "dcat:Distribution",
+      "downloadURL": "http://opendata.minneapolismn.gov/datasets/772ebcaf2ec0405ea1b156b5937593e7_0.zip",
+      "format": "Shapefile",
+      "mediaType": "application/zip",
+      "title": "Shapefile"
+    },
+    {
+      "@type": "dcat:Distribution",
+      "accessURL": "https://services.arcgis.com/afSMGVsC7QlRK1kZ/arcgis/rest/services/Fire_Station_Areas/FeatureServer/0",
+      "conformsTo": "urn:x-esri:serviceType:ArcGIS#FeatureLayer"
+    }
+  ],
+  "geom": "ENVELOPE(-93.3291083642602, -93.1896159986687, 45.0512462600492, 44.8901520021226)",
+  "geomType": "Polygon",
+  "issued": "2012-04-25T19:32:02.000ZZ",
+  "landingPage": "http://opendata.minneapolismn.gov/datasets/772ebcaf2ec0405ea1b156b5937593e7_0",
+  "modified": "2016-07-11T09:15:37Z",
+  "provenance": "Minnesota",
+  "resourceType": "Dataset",
+  "slug": "minnesota-e2f33b52-4039-4bbb-9095-b5cdc0175943",
+  "spatial": [
+    "City of Minneapolis, Minnesota",
+    "Minneapolis"
+  ],
+  "subject": [
+    "utilitiesCommunications",
+    "fire"
+  ],
+  "temporal": "2015",
+  "title": "Fire Station Areas: Minneapolis, Minnesota"
+}

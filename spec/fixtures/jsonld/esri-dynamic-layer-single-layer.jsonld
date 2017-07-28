@@ -1,0 +1,54 @@
+{
+  "@context": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/context.jsonld",
+  "@id": "urn-0f7ae38b-4bf2-4e03-a32b-e87f245ccb03",
+  "@type": "dcat:Dataset",
+  "accessLevel": "public",
+  "creator": [
+    "Hennepin County"
+  ],
+  "description": "2010 US Census County Subdivisions (Cities) for Hennepin County with subset of PL94-171 demographic data. The Hennepin County GIS Office downloaded US Census data from the following sites: Shapefiles: http://www.census.gov/cgi-bin/geo/shapefiles2010/main PL94-171: http://www.census.gov/rdo/data/2010_census_redistricting_data_pl_94-171_summary_files.html PL94-171 tabular data was post processed per instructions and stored in an Access database. Link to Attribute Table Information: http://gis.hennepin.us/OpenData/Metadata/2010%20Census%20Cities.pdf Data updated: 04/08/2011 Use Limitations: This data (i) is furnished 'AS IS' with no representation as to completeness or accuracy; (ii) is furnished with no warranty of any kind; and (iii) is not suitable for legal, engineering or surveying purposes. Hennepin County shall not be liable for any damage, injury or loss resulting from this data.",
+  "distribution": [
+    {
+      "@type": "dcat:Distribution",
+      "downloadURL": "http://gis.hennepin.opendata.arcgis.com/datasets/62c63204202b45aca308a60efd8784d9_0.zip",
+      "format": "Shapefile",
+      "mediaType": "application/zip",
+      "title": "Shapefile"
+    },
+    {
+      "@type": "dcat:Distribution",
+      "conformsTo": "http://www.isotc211.org/schemas/2005/gmd/",
+      "downloadURL": "https://opengeometadata.github.io/edu.umn/0f/7a/e3/8b4bf24e03a32be87f245ccb03/iso19139.xml",
+      "format": "ISO19139",
+      "mediaType": "application/xml",
+      "title": "ISO 19139 Metadata"
+    },
+    {
+      "@type": "dcat:Distribution",
+      "accessURL": "https://gis.hennepin.us/arcgis/rest/services/HennepinData/PEOPLE_SOCIETY/MapServer/0",
+      "conformsTo": "urn:x-esri:serviceType:ArcGIS#DynamicMapLayer"
+    }
+  ],
+  "geom": "ENVELOPE(-93.772, -93.1769, 45.2477, 44.7834)",
+  "geomType": "Polygon",
+  "isPartOf": [
+    "Hennepin County Open Data"
+  ],
+  "issued": "2015-09-11T18:24:36Z",
+  "landingPage": "http://gis.hennepin.opendata.arcgis.com/datasets/62c63204202b45aca308a60efd8784d9_0",
+  "modified": "2016-09-19T16:48:34Z",
+  "provenance": "Minnesota",
+  "resourceType": "Dataset",
+  "slug": "Minnesota-urn-0f7ae38b-4bf2-4e03-a32b-e87f245ccb03",
+  "spatial": [
+    "Hennepin County, Minnesota",
+    "Minnesota"
+  ],
+  "subject": [
+    "Society"
+  ],
+  "temporal": [
+    "2015"
+  ],
+  "title": "2010 Census Cities: Hennepin County, Minnesota"
+}

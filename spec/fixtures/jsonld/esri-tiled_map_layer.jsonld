@@ -1,0 +1,26 @@
+{
+  "@context": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/context.jsonld",
+  "@id": "test-soil-survey-map",
+  "@type": "dcat:Dataset",
+  "accessLevel": "public",
+  "description": "This map shows the Soil Survey Geographic (SSURGO) by the United States Department of Agriculture's Natural Resources Conservation Service. It also shows data that was developed by the National Cooperative Soil Survey and supersedes the State Soil Geographic (STATSGO) dataset published in 1994. SSURGO digitizing duplicates the original soil survey maps. This level of mapping is designed for use by landowners, townships, and county natural resource planning and management. The user should be knowledgeable of soils data and their characteristics. The smallest scale map shows the Global Soil Regions map by the United States Department of Agriculture’s Natural Resources Conservation Service.",
+  "distribution": [
+    {
+      "@type": "dcat:Distribution",
+      "accessURL": "http://services.arcgisonline.com/arcgis/rest/services/Specialty/Soil_Survey_Map/MapServer",
+      "conformsTo": "urn:x-esri:serviceType:ArcGIS#TiledMapLayer"
+    }
+  ],
+  "geom": "ENVELOPE(-129.4956, -64.4393, 48.6336, 21.8079)",
+  "geomType": "Raster",
+  "language": "English",
+  "modified": "2015-06-16T00:59:49Z",
+  "provenance": "NYU",
+  "publisher": "United States Department of Agriculture, Natural Resources Conservation Service",
+  "resourceType": "Dataset",
+  "slug": "nyu-test-soil-survey-map",
+  "temporal": [
+    "2010"
+  ],
+  "title": "Soil Survey Geographic (SSURGO)"
+}

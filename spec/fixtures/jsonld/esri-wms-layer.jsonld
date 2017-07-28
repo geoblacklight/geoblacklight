@@ -1,0 +1,59 @@
+{
+  "@context": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/context.jsonld",
+  "@id": "urn-f082acb1-b01e-4a08-9126-fd62a23fd9aa",
+  "@type": "dcat:Dataset",
+  "accessLevel": "public",
+  "creator": [
+    "(creation): U.S. Geological Survey",
+    "(selection/conversion): Bernardin, Lochmueller and Associates"
+  ],
+  "description": "USGS National Atlas metadata states NThis data set portrays the National Agricultural Statistics Service, U.S. Department of Agriculture's 1997 Census data for the United States, presented by county. There are 25 categories of data which include information about farms, crops, livestock, values of products, and farm operator characteristics.N",
+  "distribution": [
+    {
+      "@type": "dcat:Distribution",
+      "downloadURL": "http://maps.indiana.edu/download/Environment/Agriculture_Census.zip",
+      "format": "Shapefile",
+      "mediaType": "application/zip",
+      "title": "Shapefile"
+    },
+    {
+      "@type": "dcat:Distribution",
+      "conformsTo": "http://www.isotc211.org/schemas/2005/gmd/",
+      "downloadURL": "https://opengeometadata.github.io/edu.purdue/f0/82/ac/b1b01e4a089126fd62a23fd9aa/iso19139.xml",
+      "format": "ISO19139",
+      "mediaType": "application/xml",
+      "title": "ISO 19139 Metadata"
+    },
+    {
+      "@type": "dcat:Distribution",
+      "accessURL": "https://maps.indiana.edu/arcgis/services/Environment/Agriculture_Census/MapServer/WMSServer",
+      "conformsTo": "http://www.opengis.net/def/serviceType/ogc/wms",
+      "downloadableAs": [
+        "KMZ"
+      ],
+      "layerId": "0"
+    },
+    {
+      "@type": "dcat:Distribution",
+      "accessURL": "https://maps.indiana.edu/arcgis/rest/services/Environment/Agriculture_Census/MapServer",
+      "conformsTo": "urn:x-esri:serviceType:ArcGIS#DynamicMapLayer"
+    }
+  ],
+  "geom": "ENVELOPE(-88.1607, -84.6882, 41.7753, 37.7554)",
+  "geomType": "Mixed",
+  "issued": "2003-01-28",
+  "landingPage": "http://indianamap.org/",
+  "modified": "2016-06-20T16:17:36Z",
+  "provenance": "Purdue",
+  "resourceType": "Dataset",
+  "slug": "purdue-urn-f082acb1-b01e-4a08-9126-fd62a23fd9aa",
+  "spatial": [
+    "Indiana"
+  ],
+  "subject": [
+    "farming",
+    "agriculture"
+  ],
+  "temporal": "1972-1997",
+  "title": "Agriculture Census: Indiana, 1997"
+}

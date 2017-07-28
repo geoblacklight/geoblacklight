@@ -1,0 +1,57 @@
+{
+  "@context": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/context.jsonld",
+  "@id": "urn:geodata.tufts.edu:Tufts.CambridgeGrid100_04",
+  "@type": "dcat:Dataset",
+  "accessLevel": "public",
+  "description": "This polygon dataset is a 100 foot grid overlay for Cambridge, MA.",
+  "distribution": [
+    {
+      "@type": "dcat:Distribution",
+      "accessURL": "http://geoserver01.uit.tufts.edu/wfs",
+      "conformsTo": "http://www.opengis.net/def/serviceType/ogc/wfs",
+      "downloadableAs": [
+        "Shapefile",
+        "GeoJSON"
+      ],
+      "layerId": "sde:GISPORTAL.GISOWNER01.CAMBRIDGEGRID100_04"
+    },
+    {
+      "@type": "dcat:Distribution",
+      "accessURL": "http://geoserver01.uit.tufts.edu/wms",
+      "conformsTo": "http://www.opengis.net/def/serviceType/ogc/wms",
+      "downloadableAs": [
+        "KMZ"
+      ],
+      "layerId": "sde:GISPORTAL.GISOWNER01.CAMBRIDGEGRID100_04"
+    },
+    {
+      "@type": "dcat:Distribution",
+      "conformsTo": "http://www.opengis.net/cat/csw/csdgm",
+      "downloadURL": "https://raw.githubusercontent.com/OpenGeoMetadata/edu.tufts/master/165/242/110/132/fgdc.xml",
+      "format": "FGDC",
+      "mediaType": "application/xml",
+      "title": "FGDC Metadata"
+    },
+    {
+      "@type": "dcat:Distribution",
+      "conformsTo": "http://www.w3.org/1999/xhtml",
+      "downloadURL": "http://opengeometadata.stanford.edu/metadata/org.opengeoportal/sde:GISPORTAL.GISOWNER01.CAMBRIDGEGRID100_04/fgdc.html",
+      "format": "HTML",
+      "mediaType": "application/html",
+      "title": "HTML Metadata"
+    }
+  ],
+  "geom": "ENVELOPE(-71.163984, -71.052581, 42.408316, 42.34757)",
+  "geomType": "Polygon",
+  "issued": "2005",
+  "language": "English",
+  "modified": "2014-12-04T21:33:07Z",
+  "provenance": "Tufts",
+  "publisher": "Cambridge (Mass.) Geographic Information Systems",
+  "resourceType": "Dataset",
+  "slug": "tufts-cambridgegrid100-04",
+  "temporal": [
+    "2004"
+  ],
+  "title": "100 Foot Grid Cambridge MA 2004"
+}

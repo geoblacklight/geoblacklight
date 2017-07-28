@@ -1,0 +1,57 @@
+{
+  "@context": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/context.jsonld",
+  "@id": "urn:arrowsmith.mit.edu:MIT.SDE_DATA.US_MA_E25ZCTA5DCT_2000",
+  "@type": "dcat:Dataset",
+  "accessLevel": "public",
+  "distribution": [
+    {
+      "@type": "dcat:Distribution",
+      "accessURL": "http://arrowsmith.mit.edu:8080/geoserver/wfs",
+      "conformsTo": "http://www.opengis.net/def/serviceType/ogc/wfs",
+      "downloadableAs": [
+        "Shapefile",
+        "GeoJSON"
+      ],
+      "layerId": "sde:SDE_DATA.US_MA_E25ZCTA5DCT_2000"
+    },
+    {
+      "@type": "dcat:Distribution",
+      "accessURL": "http://arrowsmith.mit.edu:8080/geoserver/wms",
+      "conformsTo": "http://www.opengis.net/def/serviceType/ogc/wms",
+      "downloadableAs": [
+        "KMZ"
+      ],
+      "layerId": "sde:SDE_DATA.US_MA_E25ZCTA5DCT_2000"
+    }
+  ],
+  "geom": "ENVELOPE(-73.533237, -69.898565, 42.888068, 41.230345)",
+  "geomType": "Polygon",
+  "issued": "2000",
+  "language": "English",
+  "modified": "2014-05-27T18:09:34Z",
+  "provenance": "MIT",
+  "publisher": "U.S. Census Bureau",
+  "resourceType": "Dataset",
+  "slug": "mit-us-ma-e25zcta5dct-2000",
+  "spatial": [
+    "Massachusetts MA USA"
+  ],
+  "subject": [
+    "polygon",
+    "Zip",
+    "Code",
+    "Tabulation",
+    "Areas",
+    "demographics",
+    "population",
+    "census",
+    "boundaries",
+    "ZCTAs",
+    "zip",
+    "codes"
+  ],
+  "temporal": [
+    "2000"
+  ],
+  "title": "Massachusetts (ZCTA - 5 digit zip code tabulation area, 2000)"
+}

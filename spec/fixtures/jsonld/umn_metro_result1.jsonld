@@ -1,0 +1,49 @@
+{
+  "@context": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/context.jsonld",
+  "@id": "4ad41349-035c-4bd3-91a7-77b99afbf550",
+  "@type": "dcat:Dataset",
+  "accessLevel": "public",
+  "creator": [
+    "Metropolitan Council"
+  ],
+  "description": "The 2030 Regional Development Framework Planning Areas - 2011 updates the 2030 Regional Development Framework Planning Areas initially adopted on January 14, 2004 and ammended in 2006. This dataset reflect the agreed upon planning areas between a community and the Metropolitan Council and defined in the communities' 2030 Comprehensive Plan Update and is intended to supplement the 2030 Regional Development Framework - the planning guide for the 7-county Twin Cities metropolitan area of Minneapolis and Saint Paul, Minnesota. Planning area definitions and strategies for the planning areas are available in the 2030 Regional Development Framework document at http://www.metrocouncil.org/Planning/Planning/2030-Regional-Development-Framework.aspx (See Chapter 3). For questions about how decisions were made regarding individual communities' geographic planning areas, please contact the Metropolitan Council Regional Framework Development staff, Dan Marckel, 651-602-1548. See Currentness Reference and Lineage in Data Quality Section of this metadata for more information.",
+  "distribution": [
+    {
+      "@type": "dcat:Distribution",
+      "downloadURL": "ftp://ftp.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_metc/plan_frmwrk2030dev_plan_ar2011/shp_plan_frmwrk2030dev_plan_ar2011.zip",
+      "format": "Shapefile",
+      "mediaType": "application/zip",
+      "title": "Shapefile"
+    },
+    {
+      "@type": "dcat:Distribution",
+      "conformsTo": "http://www.isotc211.org/schemas/2005/gmd/",
+      "downloadURL": "https://opengeometadata.github.io/edu.umn/4a/d4/13/49035c4bd391a777b99afbf550/iso19139.xml",
+      "format": "ISO19139",
+      "mediaType": "application/xml",
+      "title": "ISO 19139 Metadata"
+    }
+  ],
+  "geom": "ENVELOPE(-94.012, -92.732, 45.415, 44.471)",
+  "geomType": "Mixed",
+  "isPartOf": [
+    "Minnesota Geospatial Commons"
+  ],
+  "issued": "2014-05-23",
+  "landingPage": "https://gisdata.mn.gov/dataset/us-mn-state-metc-plan-frmwrk2030dev-plan-ar2011",
+  "modified": "2017-01-20T18:38:47Z",
+  "provenance": "Minnesota",
+  "slug": "4ad41349-035c-4bd3-91a7-77b99afbf550",
+  "spatial": [
+    "Minnesota, United States",
+    "Minneapolis-St. Paul-Bloomington, United States"
+  ],
+  "subject": [
+    "Planning and Cadastral",
+    "Urban planning and development"
+  ],
+  "temporal": [
+    "2011"
+  ],
+  "title": "2030 Regional Development Framework Planning Areas: Twin Cities Metro, Minnesota, 2011"
+}

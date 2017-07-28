@@ -1,0 +1,86 @@
+{
+  "@context": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/context.jsonld",
+  "@id": "http://purl.stanford.edu/cg357zz0321",
+  "@type": "dcat:Dataset",
+  "accessLevel": "restricted",
+  "creator": [
+    "United States. National Oceanic and Atmospheric Administration",
+    "Circuit Rider Productions"
+  ],
+  "description": "This line shapefile contains contours that were derived from a mosiac of 10 meter digital elevation models for the extent of the Russian River basin, located in Sonoma and Mendocino Counties, California.This layer can be used for watershed analysis and planning in the Russian River region of California.",
+  "distribution": [
+    {
+      "@type": "dcat:Distribution",
+      "downloadURL": "http://stacks.stanford.edu/file/druid:cg357zz0321/data.zip",
+      "format": "Shapefile",
+      "mediaType": "application/zip",
+      "title": "Shapefile"
+    },
+    {
+      "@type": "dcat:Distribution",
+      "conformsTo": "http://www.loc.gov/mods/v3",
+      "downloadURL": "http://purl.stanford.edu/cg357zz0321.mods",
+      "format": "MODS",
+      "mediaType": "application/mods+xml",
+      "title": "MODS Metadata"
+    },
+    {
+      "@type": "dcat:Distribution",
+      "conformsTo": "http://www.isotc211.org/schemas/2005/gmd/",
+      "downloadURL": "https://raw.githubusercontent.com/OpenGeoMetadata/edu.stanford.purl/master/cg/357/zz/0321/iso19139.xml",
+      "format": "ISO19139",
+      "mediaType": "application/xml",
+      "title": "ISO 19139 Metadata"
+    },
+    {
+      "@type": "dcat:Distribution",
+      "conformsTo": "http://www.w3.org/1999/xhtml",
+      "downloadURL": "http://opengeometadata.stanford.edu/metadata/edu.stanford.purl/druid:cg357zz0321/default.html",
+      "format": "HTML",
+      "mediaType": "application/html",
+      "title": "HTML Metadata"
+    },
+    {
+      "@type": "dcat:Distribution",
+      "accessURL": "http://geowebservices-restricted.stanford.edu/geoserver/wfs",
+      "conformsTo": "http://www.opengis.net/def/serviceType/ogc/wfs",
+      "downloadableAs": [
+        "Shapefile",
+        "GeoJSON"
+      ],
+      "layerId": "druid:cg357zz0321"
+    },
+    {
+      "@type": "dcat:Distribution",
+      "accessURL": "http://geowebservices-restricted.stanford.edu/geoserver/wms",
+      "conformsTo": "http://www.opengis.net/def/serviceType/ogc/wms",
+      "downloadableAs": [
+        "KMZ"
+      ],
+      "layerId": "druid:cg357zz0321"
+    }
+  ],
+  "geom": "ENVELOPE(-123.387366, -122.52958, 39.398403, 38.302994)",
+  "geomType": "Line",
+  "issued": "2003",
+  "landingPage": "http://purl.stanford.edu/cg357zz0321",
+  "language": "English",
+  "modified": "2014-12-03T01:20:46Z",
+  "provenance": "Stanford",
+  "publisher": "Circuit Rider Productions",
+  "resourceType": "Dataset",
+  "slug": "stanford-cg357zz0321",
+  "spatial": [
+    "Sonoma County (Calif.)",
+    "Mendocino County (Calif.)"
+  ],
+  "subject": [
+    "Contours (Cartography)",
+    "Elevation",
+    "Inland Waters"
+  ],
+  "temporal": [
+    "2002"
+  ],
+  "title": "10 Meter Countours: Russian River Basin, California"
+}

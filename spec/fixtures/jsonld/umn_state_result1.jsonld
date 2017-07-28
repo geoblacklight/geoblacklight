@@ -1,0 +1,44 @@
+{
+  "@context": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/context.jsonld",
+  "@id": "08329e96-3779-4cea-9fa8-5d9939b6276f",
+  "@type": "dcat:Dataset",
+  "accessLevel": "public",
+  "creator": [
+    "U.S. Geological Survey (USGS) and Minnesota Department of Natural Resources (DNR)"
+  ],
+  "description": "A digital raster graphic (DRG) is a scanned image of an U.S. Geological Survey (USGS) standard series topographic map, including all map collar information. The image inside the map neatline is georeferenced to the surface of the earth and fit to the Universal Transverse Mercator projection. The horizontal positional accuracy and datum of the DRG matches the accuracy and datum of the source map. The map is scanned at a minimum resolution of 250 dots per inch. DRG's are created by scanning published paper maps on high-resolution scanners. The raster image is georeferenced and fit to the UTM projection. Colors are standardized to remove scanner limitations and artifacts. The average data set size is about 6 megabytes in Tagged Image File Format (TIFF) with PackBits compression. DRG's can be easily combined with other digital cartographic products such as digital elevation models (DEM) and digital orthophoto quadrangles (DOQ). DRG's are stored as rectified TIFF files in geoTIFF format. GeoTIFF is a relatively new TIFF image storage format that incorporates georeferencing information in the header. This allows software, such as ArcView, ARC/INFO, or EPPL7 to reference the image without an additional header or world file. Within the Minnesota Department of Natural Resources Core GIS data set the DRG's have been processed to be in compliance with departmental data standards (UTM Extended Zone 15, NAD83 datum) and the map collar information has been removed to facilitate the display of the DRG's in a seamless fashion. These DRG's were clipped and transformed to UTM Zone 15 using EPPL7 Raster GIS.",
+  "distribution": [
+    {
+      "@type": "dcat:Distribution",
+      "downloadURL": "ftp://gdrs.dnr.state.mn.us/gdrs/data/pub/us_mn_state_dnr/tif_base_usgs_scanned_topo_100k_drg.zip",
+      "format": "GeoTIFF",
+      "mediaType": "application/zip",
+      "title": "GeoTIFF"
+    },
+    {
+      "@type": "dcat:Distribution",
+      "conformsTo": "http://www.isotc211.org/schemas/2005/gmd/",
+      "downloadURL": "https://opengeometadata.github.io/edu.umn/08/32/9e/9637794cea9fa85d9939b6276f/iso19139.xml",
+      "format": "ISO19139",
+      "mediaType": "application/xml",
+      "title": "ISO 19139 Metadata"
+    }
+  ],
+  "geom": "ENVELOPE(-97.612501, -88.842351, 49.464145, 42.906949)",
+  "geomType": "Mixed",
+  "isPartOf": [
+    "Minnesota Geospatial Commons"
+  ],
+  "issued": "2010-04-22T06:00:00.000ZZ",
+  "landingPage": "https://gisdata.mn.gov/dataset/base-usgs-scanned-topo-100k-drg",
+  "modified": "2017-01-20T18:38:45Z",
+  "provenance": "Minnesota",
+  "slug": "08329e96-3779-4cea-9fa8-5d9939b6276f",
+  "spatial": [
+    "Minnesota, United States"
+  ],
+  "subject": [
+    "Imagery and Base Maps"
+  ],
+  "title": "1:100k Digital Raster Graphic, Collars Removed: Minnesota, 2010"
+}

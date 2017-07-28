@@ -1,0 +1,39 @@
+{
+  "@context": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/context.jsonld",
+  "@id": "urn:columbia.edu:Columbia.landinfo_global_aet",
+  "@type": "dcat:Dataset",
+  "accessLevel": "public",
+  "description": "Actual Evapotrans is a point theme representing the sum of evaporation and plant transpiration to the atmosphere from throughout the world.  Measurements are represented by points at every.5 degrees and provided for every month of the year. This dataset is a part of the Global Climate Database from the Global Change Department National Institute of Public Health and Environmental Protection.",
+  "distribution": [
+    {
+      "@type": "dcat:Distribution",
+      "conformsTo": "http://www.opengis.net/cat/csw/csdgm",
+      "downloadURL": "http://opengeometadata.stanford.edu/metadata/org.opengeoportal/Columbia:Columbia.landinfo_global_aet/fgdc.xml",
+      "format": "FGDC",
+      "mediaType": "application/xml",
+      "title": "FGDC Metadata"
+    },
+    {
+      "@type": "dcat:Distribution",
+      "conformsTo": "http://www.w3.org/1999/xhtml",
+      "downloadURL": "http://opengeometadata.stanford.edu/metadata/org.opengeoportal/Columbia:Columbia.landinfo_global_aet/fgdc.html",
+      "format": "HTML",
+      "mediaType": "application/html",
+      "title": "HTML Metadata"
+    }
+  ],
+  "geom": "ENVELOPE(-179.5, 180.0, 83.0, -56.0)",
+  "geomType": "Point",
+  "language": "English",
+  "modified": "2014-12-12T19:54:57Z",
+  "provenance": "Columbia",
+  "resourceType": "Dataset",
+  "slug": "columbia-columbia-landinfo-global-aet",
+  "spatial": [
+    "World"
+  ],
+  "temporal": [
+    "1996"
+  ],
+  "title": "Actual Evapotrans"
+}

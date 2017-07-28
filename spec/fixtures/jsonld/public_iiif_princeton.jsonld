@@ -1,0 +1,45 @@
+{
+  "@context": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/context.jsonld",
+  "@id": "http://arks.princeton.edu/ark:/88435/02870w62c",
+  "@type": "dcat:Dataset",
+  "accessLevel": "public",
+  "creator": [
+    "Rogers, Henry Darwin",
+    "Pownall, Thomas"
+  ],
+  "description": "Partly colored. Relief shown pictorially. Shows administrative divisions. From Thomas Jefferys's The American atlas, or, A geographical description of the whole continent of America (London : Printed by R. Sayer and Bennett, 1778). Insets: A chart of the mouth of Hudson's River, from Sandy Hook to New York. A plan of the city of New York. Plan of Amboy, with its environs, from an actual survey.",
+  "distribution": [
+    {
+      "@type": "dcat:Distribution",
+      "accessURL": "http://libimages.princeton.edu/loris2/pudl0076%2Fmap_pownall%2F00000001.jp2/info.json",
+      "conformsTo": "http://iiif.io/api/image",
+      "downloadableAs": [
+        "JPG"
+      ]
+    }
+  ],
+  "geom": "ENVELOPE(-76.3394, -72.1916, 46.5798, 38.6693)",
+  "geomType": "Raster",
+  "issued": "1778",
+  "landingPage": "http://arks.princeton.edu/ark:/88435/02870w62c",
+  "language": "English",
+  "modified": "2014-10-09T18:00:18Z",
+  "provenance": "Princeton",
+  "publisher": "London, Robt. Sayer & John Bennett",
+  "resourceType": "Dataset",
+  "slug": "princeton-02870w62c",
+  "spatial": [
+    "New York (State)",
+    "New Jersey",
+    "Pennsylvania"
+  ],
+  "subject": [
+    "New York (State)‒Maps",
+    "New Jersey‒Maps"
+  ],
+  "temporal": [
+    "1778"
+  ],
+  "thumbnailUrl": "http://libimages.princeton.edu/loris2/pudl0076%2Fmap_pownall%2F00000001.jp2/full/50,/0/default.jpg",
+  "title": "The provinces of New York and New Jersey, with part of Pensilvania, and the Province of Quebec : drawn by Major Holland, Surveyor General, of the Northern District in America. Corrected and improved, from the original materials, by Governr. Pownall, Member of Parliament, 1776"
+}
