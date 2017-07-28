@@ -28,7 +28,9 @@
       "@type": "dcat:Distribution",
       "conformsTo": "http://www.opengis.net/cat/csw/csdgm",
       "downloadURL": "https://raw.githubusercontent.com/OpenGeoMetadata/edu.tufts/master/165/242/110/132/fgdc.xml",
-      "format": "FGDC",
+      "format": [
+        "FGDC"
+      ],
       "mediaType": "application/xml",
       "title": "FGDC Metadata"
     },
@@ -36,15 +38,12 @@
       "@type": "dcat:Distribution",
       "conformsTo": "http://www.w3.org/1999/xhtml",
       "downloadURL": "http://opengeometadata.stanford.edu/metadata/org.opengeoportal/sde:GISPORTAL.GISOWNER01.CAMBRIDGEGRID100_04/fgdc.html",
-      "format": "HTML",
+      "format": [
+        "HTML"
+      ],
       "mediaType": "application/html",
       "title": "HTML Metadata"
     }
-  ],
-  "format": [
-    "Shapefile",
-    "GeoJSON",
-    "KMZ"
   ],
   "geom": "ENVELOPE(-71.163984, -71.052581, 42.408316, 42.34757)",
   "geomType": "Polygon",

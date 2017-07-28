@@ -16,13 +16,12 @@
     {
       "@type": "dcat:Distribution",
       "downloadURL": "https://clearinghouse.isgs.illinois.edu/sites/clearinghouse.isgs/files/Clearinghouse/data/ISGS/Geology/zips/IL_Glacial_Bndys_Py.zip",
-      "format": "Shapefile",
+      "format": [
+        "Shapefile"
+      ],
       "mediaType": "application/zip",
       "title": "Shapefile"
     }
-  ],
-  "format": [
-    "Shapefile"
   ],
   "geom": "ENVELOPE(-91.513518, -87.495214, 42.508348, 36.969972)",
   "geomType": "Polygon",

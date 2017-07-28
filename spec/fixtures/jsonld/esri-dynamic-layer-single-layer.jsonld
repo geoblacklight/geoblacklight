@@ -11,7 +11,9 @@
     {
       "@type": "dcat:Distribution",
       "downloadURL": "http://gis.hennepin.opendata.arcgis.com/datasets/62c63204202b45aca308a60efd8784d9_0.zip",
-      "format": "Shapefile",
+      "format": [
+        "Shapefile"
+      ],
       "mediaType": "application/zip",
       "title": "Shapefile"
     },
@@ -19,7 +21,9 @@
       "@type": "dcat:Distribution",
       "conformsTo": "http://www.isotc211.org/schemas/2005/gmd/",
       "downloadURL": "https://opengeometadata.github.io/edu.umn/0f/7a/e3/8b4bf24e03a32be87f245ccb03/iso19139.xml",
-      "format": "ISO19139",
+      "format": [
+        "ISO19139"
+      ],
       "mediaType": "application/xml",
       "title": "ISO 19139 Metadata"
     },
@@ -28,9 +32,6 @@
       "accessURL": "https://gis.hennepin.us/arcgis/rest/services/HennepinData/PEOPLE_SOCIETY/MapServer/0",
       "conformsTo": "urn:x-esri:serviceType:ArcGIS#DynamicMapLayer"
     }
-  ],
-  "format": [
-    "Shapefile"
   ],
   "geom": "ENVELOPE(-93.772, -93.1769, 45.2477, 44.7834)",
   "geomType": "Polygon",

@@ -18,9 +18,6 @@
       ]
     }
   ],
-  "format": [
-    "JPEG"
-  ],
   "geom": "ENVELOPE(-76.3394, -72.1916, 46.5798, 38.6693)",
   "geomType": "Raster",
   "issued": "1778",

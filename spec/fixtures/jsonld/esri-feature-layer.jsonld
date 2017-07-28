@@ -11,7 +11,9 @@
     {
       "@type": "dcat:Distribution",
       "downloadURL": "http://opendata.minneapolismn.gov/datasets/772ebcaf2ec0405ea1b156b5937593e7_0.zip",
-      "format": "Shapefile",
+      "format": [
+        "Shapefile"
+      ],
       "mediaType": "application/zip",
       "title": "Shapefile"
     },
@@ -20,9 +22,6 @@
       "accessURL": "https://services.arcgis.com/afSMGVsC7QlRK1kZ/arcgis/rest/services/Fire_Station_Areas/FeatureServer/0",
       "conformsTo": "urn:x-esri:serviceType:ArcGIS#FeatureLayer"
     }
-  ],
-  "format": [
-    "Shapefile"
   ],
   "geom": "ENVELOPE(-93.3291083642602, -93.1896159986687, 45.0512462600492, 44.8901520021226)",
   "geomType": "Polygon",

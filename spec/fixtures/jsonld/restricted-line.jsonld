@@ -12,7 +12,9 @@
     {
       "@type": "dcat:Distribution",
       "downloadURL": "http://stacks.stanford.edu/file/druid:cg357zz0321/data.zip",
-      "format": "Shapefile",
+      "format": [
+        "Shapefile"
+      ],
       "mediaType": "application/zip",
       "title": "Shapefile"
     },
@@ -20,7 +22,9 @@
       "@type": "dcat:Distribution",
       "conformsTo": "http://www.loc.gov/mods/v3",
       "downloadURL": "http://purl.stanford.edu/cg357zz0321.mods",
-      "format": "MODS",
+      "format": [
+        "MODS"
+      ],
       "mediaType": "application/mods+xml",
       "title": "MODS Metadata"
     },
@@ -28,7 +32,9 @@
       "@type": "dcat:Distribution",
       "conformsTo": "http://www.isotc211.org/schemas/2005/gmd/",
       "downloadURL": "https://raw.githubusercontent.com/OpenGeoMetadata/edu.stanford.purl/master/cg/357/zz/0321/iso19139.xml",
-      "format": "ISO19139",
+      "format": [
+        "ISO19139"
+      ],
       "mediaType": "application/xml",
       "title": "ISO 19139 Metadata"
     },
@@ -36,7 +42,9 @@
       "@type": "dcat:Distribution",
       "conformsTo": "http://www.w3.org/1999/xhtml",
       "downloadURL": "http://opengeometadata.stanford.edu/metadata/edu.stanford.purl/druid:cg357zz0321/default.html",
-      "format": "HTML",
+      "format": [
+        "HTML"
+      ],
       "mediaType": "application/html",
       "title": "HTML Metadata"
     },
@@ -59,11 +67,6 @@
       ],
       "layerId": "druid:cg357zz0321"
     }
-  ],
-  "format": [
-    "Shapefile",
-    "GeoJSON",
-    "KMZ"
   ],
   "geom": "ENVELOPE(-123.387366, -122.52958, 39.398403, 38.302994)",
   "geomType": "Line",

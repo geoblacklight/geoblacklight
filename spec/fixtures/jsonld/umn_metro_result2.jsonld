@@ -11,7 +11,9 @@
     {
       "@type": "dcat:Distribution",
       "downloadURL": "ftp://ftp.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_metc/society_census_trt_comb1990_2000/shp_society_census_trt_comb1990_2000.zip",
-      "format": "Shapefile",
+      "format": [
+        "Shapefile"
+      ],
       "mediaType": "application/zip",
       "title": "Shapefile"
     },
@@ -19,13 +21,12 @@
       "@type": "dcat:Distribution",
       "conformsTo": "http://www.isotc211.org/schemas/2005/gmd/",
       "downloadURL": "https://opengeometadata.github.io/edu.umn/e9/71/49/88c3074135b7a7a1d521949f5d/iso19139.xml",
-      "format": "ISO19139",
+      "format": [
+        "ISO19139"
+      ],
       "mediaType": "application/xml",
       "title": "ISO 19139 Metadata"
     }
-  ],
-  "format": [
-    "Shapefile"
   ],
   "geom": "ENVELOPE(-94.012, -92.732, 45.415, 44.471)",
   "geomType": "Mixed",

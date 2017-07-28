@@ -11,7 +11,9 @@
     {
       "@type": "dcat:Distribution",
       "downloadURL": "ftp://ftp.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_metc/plan_frmwrk2030dev_plan_ar2011/shp_plan_frmwrk2030dev_plan_ar2011.zip",
-      "format": "Shapefile",
+      "format": [
+        "Shapefile"
+      ],
       "mediaType": "application/zip",
       "title": "Shapefile"
     },
@@ -19,13 +21,12 @@
       "@type": "dcat:Distribution",
       "conformsTo": "http://www.isotc211.org/schemas/2005/gmd/",
       "downloadURL": "https://opengeometadata.github.io/edu.umn/4a/d4/13/49035c4bd391a777b99afbf550/iso19139.xml",
-      "format": "ISO19139",
+      "format": [
+        "ISO19139"
+      ],
       "mediaType": "application/xml",
       "title": "ISO 19139 Metadata"
     }
-  ],
-  "format": [
-    "Shapefile"
   ],
   "geom": "ENVELOPE(-94.012, -92.732, 45.415, 44.471)",
   "geomType": "Mixed",

@@ -9,13 +9,12 @@
     {
       "@type": "dcat:Distribution",
       "downloadURL": "https://archive.nyu.edu/retrieve/74854/nyu_2451_34635.zip",
-      "format": "SQLite",
+      "format": [
+        "SQLite"
+      ],
       "mediaType": "application/zip",
       "title": "SQLite Database"
     }
-  ],
-  "format": [
-    "SQLite",
   ],
   "geom": "ENVELOPE(-74.255895, -73.700272, 40.9152819999998, 40.4959289999998)",
   "geomType": "Mixed",

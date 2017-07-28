@@ -11,7 +11,9 @@
     {
       "@type": "dcat:Distribution",
       "downloadURL": "ftp://ftp.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_dnr/base_usgs_scanned_topo_250k_drg/fgdb_base_usgs_scanned_topo_250k_drg.zip",
-      "format": "GeoTIFF",
+      "format": [
+        "GeoTIFF"
+      ],
       "mediaType": "application/zip",
       "title": "GeoTIFF"
     },
@@ -19,13 +21,12 @@
       "@type": "dcat:Distribution",
       "conformsTo": "http://www.isotc211.org/schemas/2005/gmd/",
       "downloadURL": "https://opengeometadata.github.io/edu.umn/18/63/6f/2f3d0a470e82bf26f9ceb4ea43/iso19139.xml",
-      "format": "ISO19139",
+      "format": [
+        "ISO19139"
+      ],
       "mediaType": "application/xml",
       "title": "ISO 19139 Metadata"
     }
-  ],
-  "format": [
-    "GeoTIFF"
   ],
   "geom": "ENVELOPE(-97.991522, -87.177541, 49.892443, 42.891013)",
   "geomType": "Mixed",

@@ -9,7 +9,9 @@
     {
       "@type": "dcat:Distribution",
       "downloadURL": "https://archive.nyu.edu/retrieve/74856/nyu_2451_34636.zip",
-      "format": "ESRI Personal GeoDatabase",
+      "format": [
+        "ESRI Personal GeoDatabase"
+      ],
       "mediaType": "application/zip",
       "title": "ESRI Geodatabase"
     }

@@ -11,7 +11,9 @@
     {
       "@type": "dcat:Distribution",
       "downloadURL": "http://stacks.stanford.edu/file/druid:dp018hs9766/data.zip",
-      "format": "GeoTIFF",
+      "format": [
+        "GeoTIFF"
+      ],
       "mediaType": "application/zip",
       "title": "GeoTIFF"
     },
@@ -19,7 +21,9 @@
       "@type": "dcat:Distribution",
       "conformsTo": "http://www.loc.gov/mods/v3",
       "downloadURL": "http://purl.stanford.edu/dp018hs9766.mods",
-      "format": "MODS",
+      "format": [
+        "MODS"
+      ],
       "mediaType": "application/mods+xml",
       "title": "MODS Metadata"
     },
@@ -27,7 +31,9 @@
       "@type": "dcat:Distribution",
       "conformsTo": "http://www.isotc211.org/schemas/2005/gmd/",
       "downloadURL": "https://raw.githubusercontent.com/OpenGeoMetadata/edu.stanford.purl/master/dp/018/hs/9766/iso19139.xml",
-      "format": "ISO19139",
+      "format": [
+        "ISO19139"
+      ],
       "mediaType": "application/xml",
       "title": "ISO 19139 Metadata"
     },
@@ -35,7 +41,9 @@
       "@type": "dcat:Distribution",
       "conformsTo": "http://www.w3.org/1999/xhtml",
       "downloadURL": "http://opengeometadata.stanford.edu/metadata/edu.stanford.purl/druid:dp018hs9766/default.html",
-      "format": "HTML",
+      "format": [
+        "HTML"
+      ],
       "mediaType": "application/html",
       "title": "HTML Metadata"
     },
@@ -43,9 +51,6 @@
       "@type": "dcat:Distribution",
       "accessURL": "http://kurma-podd1.stanford.edu/geoserver/wcs",
       "conformsTo": "http://www.opengis.net/def/serviceType/ogc/wcs",
-      "format": [
-
-      ],
       "layerId": "druid:dp018hs9766"
     },
     {

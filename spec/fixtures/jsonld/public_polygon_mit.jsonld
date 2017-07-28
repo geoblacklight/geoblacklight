@@ -24,11 +24,6 @@
       "layerId": "sde:SDE_DATA.US_MA_E25ZCTA5DCT_2000"
     }
   ],
-  "format": [
-    "Shapefile",
-    "GeoJSON",
-    "KMZ"
-  ],
   "geom": "ENVELOPE(-73.533237, -69.898565, 42.888068, 41.230345)",
   "geomType": "Polygon",
   "issued": "2000",

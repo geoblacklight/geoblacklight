@@ -12,7 +12,9 @@
     {
       "@type": "dcat:Distribution",
       "downloadURL": "http://maps.indiana.edu/download/Environment/Agriculture_Census.zip",
-      "format": "Shapefile",
+      "format": [
+        "Shapefile"
+      ],
       "mediaType": "application/zip",
       "title": "Shapefile"
     },
@@ -20,7 +22,9 @@
       "@type": "dcat:Distribution",
       "conformsTo": "http://www.isotc211.org/schemas/2005/gmd/",
       "downloadURL": "https://opengeometadata.github.io/edu.purdue/f0/82/ac/b1b01e4a089126fd62a23fd9aa/iso19139.xml",
-      "format": "ISO19139",
+      "format": [
+        "ISO19139"
+      ],
       "mediaType": "application/xml",
       "title": "ISO 19139 Metadata"
     },
@@ -38,9 +42,6 @@
       "accessURL": "https://maps.indiana.edu/arcgis/rest/services/Environment/Agriculture_Census/MapServer",
       "conformsTo": "urn:x-esri:serviceType:ArcGIS#DynamicMapLayer"
     }
-  ],
-  "format": [
-    "Shapefile"
   ],
   "geom": "ENVELOPE(-88.1607, -84.6882, 41.7753, 37.7554)",
   "geomType": "Mixed",

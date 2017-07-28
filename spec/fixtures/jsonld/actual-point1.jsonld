@@ -9,7 +9,9 @@
       "@type": "dcat:Distribution",
       "conformsTo": "http://www.opengis.net/cat/csw/csdgm",
       "downloadURL": "http://opengeometadata.stanford.edu/metadata/org.opengeoportal/Columbia:Columbia.landinfo_global_aet/fgdc.xml",
-      "format": "FGDC",
+      "format": [
+        "FGDC"
+      ],
       "mediaType": "application/xml",
       "title": "FGDC Metadata"
     },
@@ -17,7 +19,9 @@
       "@type": "dcat:Distribution",
       "conformsTo": "http://www.w3.org/1999/xhtml",
       "downloadURL": "http://opengeometadata.stanford.edu/metadata/org.opengeoportal/Columbia:Columbia.landinfo_global_aet/fgdc.html",
-      "format": "HTML",
+      "format": [
+        "HTML"
+      ],
       "mediaType": "application/html",
       "title": "HTML Metadata"
     }

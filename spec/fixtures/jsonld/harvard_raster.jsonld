@@ -15,9 +15,6 @@
       "@type": "dcat:Distribution",
       "accessURL": "http://hgl.harvard.edu:8080/geoserver/wcs",
       "conformsTo": "http://www.opengis.net/def/serviceType/ogc/wcs",
-      "format": [
-
-      ],
       "layerId": "cite:SDE2.G7064_S2_1834_K3"
     },
     {
@@ -33,13 +30,12 @@
       "@type": "dcat:Distribution",
       "conformsTo": "http://www.opengis.net/cat/csw/csdgm",
       "downloadURL": "https://raw.githubusercontent.com/OpenGeoMetadata/edu.harvard/master/217/121/227/77/fgdc.xml",
-      "format": "FGDC",
+      "format": [
+        "FGDC"
+      ],
       "mediaType": "application/xml",
       "title": "FGDC Metadata"
     }
-  ],
-  "format": [
-    "GeoTIFF"
   ],
   "geom": "ENVELOPE(30.013108, 30.875309, 60.041712, 59.669749)",
   "geomType": "Raster",
