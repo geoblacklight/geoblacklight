@@ -21,7 +21,6 @@ GeoBlacklight.Viewer.Esri = GeoBlacklight.Viewer.Map.extend({
     // remove any trailing slash from endpoint url
     _this.data.url = _this.data.url.replace(/\/$/, '');
 
-    // L.esri.get = L.esri.Request.get.JSONP;
     L.esri.get(_this.data.url, {}, function(error, response){
       if(!error) {
         _this.layerInfo = response;
