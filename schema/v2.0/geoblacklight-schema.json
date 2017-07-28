@@ -90,7 +90,6 @@
                 "description": "URI used to identify a standardized specification the distribution conforms to. *Required with accessURL *",
                 "example": "http://www.opengis.net/def/serviceType/ogc/wms"
               },
-              
               "downloadURL": {
                 "type": "string",
                 "description": "URL providing direct access to a downloadable file of a dataset. *One of downloadURL or accessURL required*",
@@ -105,6 +104,11 @@
                 "type": "string",
                 "description": "The complete identifier for the layer via WMS/WFS/WCS protocol. *Optional*",
                 "example": "druid:vr593vj7147"
+              },
+              "mediaType": {
+                "type": "string",
+                "description": "The machine-readable file format (IANA Media Type or MIME Type) of the distribution’s downloadURL. *Required with downloadURL*",
+                "mediaType": "application/xml",
               },
               "@type": {
                 "type": "string",
