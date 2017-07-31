@@ -3,6 +3,7 @@
   "@id": "urn-0f7ae38b-4bf2-4e03-a32b-e87f245ccb03",
   "@type": "dcat:Dataset",
   "accessLevel": "public",
+  "conformsTo": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/geoblacklight-schema.json",
   "creator": [
     "Hennepin County"
   ],

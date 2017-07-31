@@ -3,6 +3,7 @@
   "@id": "08329e96-3779-4cea-9fa8-5d9939b6276f",
   "@type": "dcat:Dataset",
   "accessLevel": "public",
+  "conformsTo": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/geoblacklight-schema.json",
   "creator": [
     "U.S. Geological Survey (USGS) and Minnesota Department of Natural Resources (DNR)"
   ],

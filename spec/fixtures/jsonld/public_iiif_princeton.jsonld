@@ -3,6 +3,7 @@
   "@id": "http://arks.princeton.edu/ark:/88435/02870w62c",
   "@type": "dcat:Dataset",
   "accessLevel": "public",
+  "conformsTo": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/geoblacklight-schema.json",
   "creator": [
     "Rogers, Henry Darwin",
     "Pownall, Thomas"
@@ -22,10 +23,14 @@
   "geomType": "Raster",
   "issued": "1778",
   "landingPage": "http://arks.princeton.edu/ark:/88435/02870w62c",
-  "language": "English",
+  "language": [
+    "English"
+  ],
   "modified": "2014-10-09T18:00:18Z",
   "provenance": "Princeton",
-  "publisher": "London, Robt. Sayer & John Bennett",
+  "publisher": [
+    "London, Robt. Sayer & John Bennett"
+  ],
   "resourceType": "Dataset",
   "slug": "princeton-02870w62c",
   "spatial": [

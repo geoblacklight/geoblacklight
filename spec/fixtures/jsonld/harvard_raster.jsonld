@@ -3,6 +3,7 @@
   "@id": "urn:hul.harvard.edu:HARVARD.SDE2.G7064_S2_1834_K3",
   "@type": "dcat:Dataset",
   "accessLevel": "public",
+  "conformsTo": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/geoblacklight-schema.json",
   "description": "This layer is a georeferenced raster image of the historic paper map entitled: [Karta mesta zanimaemago Sanktpeterburgom : v tom vide v kakom onoe nakhodilos' za god do osnovaniia goroda; sostavlena dlia panoramy S. Peterburga, 1834]. It was published in 1834. Scale [ca. 1:76,000]. Covers Saint Petersburg Region, Russia. Map in Russian and Swedish.\n\nThe image inside the map neatline is georeferenced to the surface of the earth and fit to the 'Pulkovo 1995 Gauss Kruger Zone 6N' coordinate system. All map collar and inset information is also available as part of the raster image, including any inset maps, profiles, statistical tables, directories, text, illustrations, index maps, legends, or other information associated with the principal map.\n\nThis map shows features such as roads, drainage, built-up areas and selected buildings, ground cover, and more. Relief is shown by hachures. Depths shown by soundings. Includes insets: [Retusari island] -- [Sluselberg]. \n\nThis layer is part of a selection of digitally scanned and georeferenced historic maps from The Harvard Map Collection as part of the Imaging the Urban Environment project.  Maps selected for this project represent major urban areas and cities of the world, at various time periods.  These maps typically portray both natural and manmade features at a large scale. The selection represents a range of regions, originators, ground condition dates, scales, and purposes.",
   "distribution": [
     {
@@ -40,10 +41,14 @@
   "geom": "ENVELOPE(30.013108, 30.875309, 60.041712, 59.669749)",
   "geomType": "Raster",
   "issued": "2000",
-  "language": "English",
+  "language": [
+    "English"
+  ],
   "modified": "2014-05-27T18:09:36Z",
   "provenance": "Harvard",
-  "publisher": "Harvard Map Collection, Harvard College Library",
+  "publisher": [
+    "Harvard Map Collection, Harvard College Library"
+  ],
   "resourceType": "Dataset",
   "slug": "harvard-g7064-s2-1834-k3",
   "spatial": [

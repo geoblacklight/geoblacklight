@@ -3,6 +3,7 @@
   "@id": "urn:geodata.tufts.edu:Tufts.CambridgeGrid100_04",
   "@type": "dcat:Dataset",
   "accessLevel": "public",
+  "conformsTo": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/geoblacklight-schema.json",
   "description": "This polygon dataset is a 100 foot grid overlay for Cambridge, MA.",
   "distribution": [
     {
@@ -48,10 +49,14 @@
   "geom": "ENVELOPE(-71.163984, -71.052581, 42.408316, 42.34757)",
   "geomType": "Polygon",
   "issued": "2005",
-  "language": "English",
+  "language": [
+    "English"
+  ],
   "modified": "2014-12-04T21:33:07Z",
   "provenance": "Tufts",
-  "publisher": "Cambridge (Mass.) Geographic Information Systems",
+  "publisher": [
+    "Cambridge (Mass.) Geographic Information Systems"
+  ],
   "resourceType": "Dataset",
   "slug": "tufts-cambridgegrid100-04",
   "temporal": [

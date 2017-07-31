@@ -2,7 +2,8 @@
   "@context": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/context.jsonld",
   "@id": "http://purl.stanford.edu/dp018hs9766",
   "@type": "dcat:Dataset",
-  "accessLevel": "restricted",
+  "accessLevel": "restricted public",
+  "conformsTo": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/geoblacklight-schema.json",
   "creator": [
     "Seafloor Mapping Lab"
   ],
@@ -67,10 +68,14 @@
   "geomType": "Raster",
   "issued": "2006",
   "landingPage": "http://purl.stanford.edu/dp018hs9766",
-  "language": "English",
+  "language": [
+    "English"
+  ],
   "modified": "2014-12-03T02:15:20Z",
   "provenance": "Stanford",
-  "publisher": "Seafloor Mapping Lab",
+  "publisher": [
+    "Seafloor Mapping Lab"
+  ],
   "resourceType": "Dataset",
   "slug": "stanford-dp018hs9766",
   "spatial": [

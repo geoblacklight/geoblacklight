@@ -3,6 +3,7 @@
   "@id": "urn-f082acb1-b01e-4a08-9126-fd62a23fd9aa",
   "@type": "dcat:Dataset",
   "accessLevel": "public",
+  "conformsTo": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/geoblacklight-schema.json",
   "creator": [
     "(creation): U.S. Geological Survey",
     "(selection/conversion): Bernardin, Lochmueller and Associates"
@@ -58,6 +59,8 @@
     "farming",
     "agriculture"
   ],
-  "temporal": "1972-1997",
+  "temporal": [
+    "1972-1997"
+  ],
   "title": "Agriculture Census: Indiana, 1997"
 }

@@ -3,6 +3,7 @@
   "@id": "urn:arrowsmith.mit.edu:MIT.SDE_DATA.US_MA_E25ZCTA5DCT_2000",
   "@type": "dcat:Dataset",
   "accessLevel": "public",
+  "conformsTo": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/geoblacklight-schema.json",
   "distribution": [
     {
       "@type": "dcat:Distribution",
@@ -27,10 +28,14 @@
   "geom": "ENVELOPE(-73.533237, -69.898565, 42.888068, 41.230345)",
   "geomType": "Polygon",
   "issued": "2000",
-  "language": "English",
+  "language": [
+    "English"
+  ],
   "modified": "2014-05-27T18:09:34Z",
   "provenance": "MIT",
-  "publisher": "U.S. Census Bureau",
+  "publisher": [
+    "U.S. Census Bureau"
+  ],
   "resourceType": "Dataset",
   "slug": "mit-us-ma-e25zcta5dct-2000",
   "spatial": [

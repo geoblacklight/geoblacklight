@@ -3,6 +3,7 @@
   "@id": "4ad41349-035c-4bd3-91a7-77b99afbf550",
   "@type": "dcat:Dataset",
   "accessLevel": "public",
+  "conformsTo": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/geoblacklight-schema.json",
   "creator": [
     "Metropolitan Council"
   ],

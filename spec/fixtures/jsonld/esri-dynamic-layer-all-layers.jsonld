@@ -3,6 +3,7 @@
   "@id": "urn-90f14ff4-1359-4beb-b931-5cb41d20ab90",
   "@type": "dcat:Dataset",
   "accessLevel": "public",
+  "conformsTo": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/geoblacklight-schema.json",
   "creator": [
     "Illinois State Geological Survey"
   ],
@@ -42,6 +43,8 @@
     "Geology",
     "Glaciation"
   ],
-  "temporal": "1996",
+  "temporal": [
+    "1996"
+  ],
   "title": "Glacial Boundaries: Illinois, 1997"
 }

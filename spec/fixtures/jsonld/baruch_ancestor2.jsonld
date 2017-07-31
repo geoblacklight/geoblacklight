@@ -3,7 +3,10 @@
   "@id": "http://hdl.handle.net/2451/34636",
   "@type": "dcat:Dataset",
   "accessLevel": "public",
-  "creator": "GIS Lab, Newman Library, Baruch CUNY",
+  "conformsTo": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/geoblacklight-schema.json",
+  "creator": [
+    "GIS Lab, Newman Library, Baruch CUNY"
+  ],
   "description": "The NYC Geodatabase (nyc_gdb) is a resource designed for basic geographic analysis and thematic mapping within the five boroughs of New York City. It contains geographic features and data compiled from several public sources. Subsets of large features like water, greenspace, and public facilities were created and Census geographies like tracts, ZCTAs, and PUMAs were geoprocessed to create land-based boundaries. Census data from the 2010 Census, American Community Survey (ACS), and ZIP Code Business Patterns are stored in tables that can be easily related to geographic features. Transit and public facility point data were gathered from several city agencies and transformed into spatial data that can be used for reference or analysis for measuring distance, drawing buffers, or counting features within areas. The data is provided in ESRI Geodatabase format.",
   "distribution": [
     {
@@ -17,14 +20,18 @@
     }
   ],
   "format": [
-    "ESRI Personal GeoDatabase",
+    "ESRI Personal GeoDatabase"
   ],
   "geom": "ENVELOPE(-74.255895, -73.700272, 40.9152819999998, 40.4959289999998)",
   "geomType": "Mixed",
-  "isPartOf": "NYC Geodatabase (version jan2016)",
+  "isPartOf": [
+    "NYC Geodatabase (version jan2016)"
+  ],
   "issued": "1/15/2016",
   "landingPage": "http://hdl.handle.net/2451/34636",
-  "language": "English",
+  "language": [
+    "English"
+  ],
   "modified": "2016-5-2T18:21:7Z",
   "provenance": "Baruch CUNY",
   "publisher": [

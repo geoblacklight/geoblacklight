@@ -3,6 +3,7 @@
   "@id": "e2f33b52-4039-4bbb-9095-b5cdc0175943",
   "@type": "dcat:Dataset",
   "accessLevel": "public",
+  "conformsTo": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/geoblacklight-schema.json",
   "creator": [
     "MapIT Minneapolis"
   ],
@@ -39,6 +40,8 @@
     "utilitiesCommunications",
     "fire"
   ],
-  "temporal": "2015",
+  "temporal": [
+    "2015"
+  ],
   "title": "Fire Station Areas: Minneapolis, Minnesota"
 }

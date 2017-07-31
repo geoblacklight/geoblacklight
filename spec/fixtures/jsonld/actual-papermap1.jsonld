@@ -3,6 +3,7 @@
   "@id": "urn:arrowsmith.mit.edu:MIT.001145244",
   "@type": "dcat:Dataset",
   "accessLevel": "public",
+  "conformsTo": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/geoblacklight-schema.json",
   "description": "Panel title. Depths shown by isolines. \"Geological map [copyright] NERC 1996.\" Also available on flat sheet. \"Sheet 1\"--on panel. Includes text, notes, organizations' logos, and ancillary map of \"Orogenic terranes of Britain, Ireland and surrounding seas.\"",
   "distribution": [
     {
@@ -30,10 +31,14 @@
   "geomType": "Paper Map",
   "issued": "2000",
   "landingPage": "http://library.mit.edu/item/001145244",
-  "language": "English",
+  "language": [
+    "English"
+  ],
   "modified": "2014-12-04T21:32:59Z",
   "provenance": "MIT",
-  "publisher": "British Geological Survey",
+  "publisher": [
+    "British Geological Survey"
+  ],
   "resourceType": "Dataset",
   "slug": "mit-001145244",
   "temporal": [
