@@ -10,16 +10,19 @@ EngineCart.load_application!
 require 'rails-controller-testing' if Rails::VERSION::MAJOR >= 5
 require 'rspec/rails'
 require 'capybara/rspec'
-require 'capybara/poltergeist'
-Capybara.javascript_driver = :poltergeist
+require 'selenium-webdriver'
 
-Capybara.register_driver :poltergeist do |app|
-  options = {}
+Capybara.register_driver(:headless_chrome) do |app|
+  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+    chromeOptions: { args: %w(headless disable-gpu) }
+  )
 
-  options[:timeout] = RUBY_PLATFORM == 'java' ? 120 : 15
-
-  Capybara::Poltergeist::Driver.new(app, options)
+  Capybara::Selenium::Driver.new(app,
+                                 browser: :chrome,
+                                 desired_capabilities: capabilities)
 end
+
+Capybara.javascript_driver = :headless_chrome
 
 Capybara.default_wait_time = 15
 

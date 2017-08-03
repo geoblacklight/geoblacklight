@@ -34,7 +34,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec-rails', '~> 3.1'
   spec.add_development_dependency 'engine_cart', '~> 1.0'
   spec.add_development_dependency 'capybara', '>= 2.5.0'
-  spec.add_development_dependency 'poltergeist'
+  spec.add_development_dependency 'selenium-webdriver'
+  spec.add_development_dependency 'chromedriver-helper'
   spec.add_development_dependency 'factory_girl_rails'
   spec.add_development_dependency 'database_cleaner', '~> 1.3'
 end
