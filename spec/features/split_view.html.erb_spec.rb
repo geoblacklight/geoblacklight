@@ -34,14 +34,14 @@ feature 'Index view', js: true do
     # Needed to find an svg element on the page
     visit search_catalog_path(f: { Settings.FIELDS.PROVENANCE => ['Stanford'] })
     expect(Nokogiri::HTML.parse(page.body).css('path').length).to eq 0
-    find('.documentHeader', match: :first).trigger(:mouseover)
+    find('.documentHeader', match: :first).hover
     expect(Nokogiri::HTML.parse(page.body).css('path').length).to eq 1
   end
 
   scenario 'click on a record area to expand collapse' do
     within('.documentHeader', match: :first) do
       expect(page).not_to have_css('.collapse')
-      find('.status-icons').trigger('click')
+      find('.status-icons').click
       expect(page).to have_css('.collapse', visible: true)
     end
   end
