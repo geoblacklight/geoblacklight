@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Geoblacklight::ViewHelperOverride do
   class GeoblacklightControllerTestClass
+    include AbstractController::Translation
     attr_accessor :params
   end
 

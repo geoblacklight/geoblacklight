@@ -1,5 +1,6 @@
 en:
   geoblacklight:
+    bbox_label: 'Bounding Box'
     download:
       download: 'Download'
       success: 'Your file %{title} is ready for download'
