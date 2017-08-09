@@ -21,7 +21,7 @@ module Geoblacklight
 
     def render_search_to_s_bbox(params)
       return ''.html_safe if params['bbox'].blank?
-      render_search_to_s_element('Bounding box', render_filter_value(params['bbox']))
+      render_search_to_s_element(t('geoblacklight.bbox_label'), render_filter_value(params['bbox']))
     end
 
     def render_constraints_filters(localized_params = params)
@@ -30,7 +30,8 @@ module Geoblacklight
 
       if localized_params[:bbox]
         path = search_action_path(remove_spatial_filter_group(:bbox, localized_params))
-        content << render_constraint_element('Bounding Box', localized_params[:bbox], remove: path)
+        content << render_constraint_element(t('geoblacklight.bbox_label'),
+                                             localized_params[:bbox], remove: path)
       end
 
       content
