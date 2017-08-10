@@ -8,9 +8,9 @@ feature 'Metadata tools' do
       click_link 'Metadata'
       using_wait_time 15 do
         within '.metadata-view' do
-          expect(page).to have_css 'div.label', text: 'MODS'
-          expect(page).to have_css 'div.CodeRay', count: 2
-          expect(page).to have_css 'div.label', text: 'ISO 19139'
+          expect(page).to have_css '.pill-metadata', text: 'ISO 19139'
+          expect(page).to have_css 'dt', text: 'Identification Information'
+          expect(page).to have_css 'dt', text: 'Metadata Reference Information'
         end
       end
     end

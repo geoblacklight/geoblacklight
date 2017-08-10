@@ -40,7 +40,6 @@ INSTITUTION: 'Stanford'
 METADATA_SHOWN:
   - 'fgdc'
   - 'iso19139'
-  - 'mods'
 
 # (For external Download) timeout and open_timeout parameters for Faraday
 TIMEOUT_DOWNLOAD: 16
@@ -68,7 +67,7 @@ WMS_PARAMS:
   :EXCEPTIONS: 'application/json'
   :INFO_FORMAT: 'text/html'
 
-# Settings for leaflet 
+# Settings for leaflet
 OPACITY_CONTROL: &opacity_control
   CONTROLS:
     - 'Opacity'

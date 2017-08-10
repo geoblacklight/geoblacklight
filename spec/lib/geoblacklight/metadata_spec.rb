@@ -1,25 +1,33 @@
 require 'spec_helper'
 
 describe Geoblacklight::Metadata do
-  let(:response) { double('response') }
-  let(:get) { double('get') }
-  let(:opengeometadata) do
-    described_class.new(
-      Geoblacklight::Reference.new(
-        ['http://www.loc.gov/mods/v3', 'http://purl.stanford.edu/cg357zz0321.mods']
-      )
-    )
-  end
-  describe '#retrieve_metadata' do
-    it 'returns response from an endpoint url' do
-      expect(response).to receive(:get).and_return(get)
-      expect(Faraday).to receive(:new).with(url: 'http://purl.stanford.edu/cg357zz0321.mods').and_return(response)
-      opengeometadata.retrieve_metadata
+  describe '.instance' do
+    let(:reference) { instance_double(Geoblacklight::Reference) }
+    context 'with an FGDC metadata reference' do
+      before do
+        allow(reference).to receive(:type).and_return('fgdc')
+      end
+      it 'constructs an Geoblacklight::Metadata::Fgdc instance' do
+        expect(described_class.instance(reference)).to be_a Geoblacklight::Metadata::Fgdc
+      end
     end
-    it 'returns nil when a connection error' do
-      expect(response).to receive(:get).and_return(Faraday::Error::ConnectionFailed)
-      expect(Faraday).to receive(:new).with(url: 'http://purl.stanford.edu/cg357zz0321.mods').and_return(response)
-      opengeometadata.retrieve_metadata
+
+    context 'with an ISO19139 metadata reference' do
+      before do
+        allow(reference).to receive(:type).and_return('iso19139')
+      end
+      it 'constructs an Geoblacklight::Metadata::Iso19139 instance' do
+        expect(described_class.instance(reference)).to be_a Geoblacklight::Metadata::Iso19139
+      end
+    end
+
+    context 'with another metadata reference' do
+      before do
+        allow(reference).to receive(:type).and_return('unsupported')
+      end
+      it 'constructs an Geoblacklight::Metadata::Base instance' do
+        expect(described_class.instance(reference)).to be_a Geoblacklight::Metadata::Base
+      end
     end
   end
 end

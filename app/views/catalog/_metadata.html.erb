@@ -1,12 +1,28 @@
 <% document ||= @document %>
 
 <div class='metadata-view'>
-  <% document.references.refs.each do |ref| %>
-    <% if Settings.METADATA_SHOWN.include?(ref.type.to_s) %>
-      <div class='label label-default'>
-        <%= formatted_name_reference(ref.type) %>
+
+  <div class="container-fluid">
+    <ul class="nav nav-pills" role="tablist">
+      <% document.references.shown_metadata.each do |metadata| %>
+        <li role="presentation" class="<%= first_metadata?(document, metadata) ? 'active' : nil %>">
+          <a class="pill-metadata"
+             href="#<%= metadata.type %>"
+             aria-controls="<%= metadata.type %>"
+             role="tab"
+             data-toggle="pill"
+             data-ref-endpoint="<%= metadata.endpoint %>"
+             data-ref-download="#btn-metadata-download"><%= formatted_name_reference(metadata.type) %></a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="tab-content">
+    <% document.references.shown_metadata.each do |metadata| %>
+      <div role="tabpanel" class="tab-pane<%= first_metadata?(document, metadata) ? ' active' : nil %>" id="<%= metadata.type %>">
+        <%= render_transformed_metadata(metadata) %>
       </div>
-      <%= CodeRay.scan(Geoblacklight::Metadata.new(ref).metadata, :xml).div(css: :class, tab_width: 2).html_safe %>
     <% end %>
-  <% end %>
+  </div>
 </div>

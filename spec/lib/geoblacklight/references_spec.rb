@@ -106,10 +106,21 @@ describe Geoblacklight::References do
     end
   end
   describe 'refs' do
-    it 'is enumberable references' do
+    it 'is a set of enumberable references' do
       complex_shapefile.refs.each do |reference|
         expect(reference).to be_an Geoblacklight::Reference
       end
+    end
+  end
+  describe 'shown_metadata_refs' do
+    it 'is a set of metadata references exposed by the configuration' do
+      expect(complex_shapefile.shown_metadata_refs.count).to eq 1
+    end
+  end
+  describe 'shown_metadata' do
+    it 'is a set of metadata resources exposed by the configuration' do
+      expect(complex_shapefile.shown_metadata.count).to eq 1
+      expect(complex_shapefile.shown_metadata.first).to be_a Geoblacklight::Metadata::Base
     end
   end
   describe 'direct_download' do
