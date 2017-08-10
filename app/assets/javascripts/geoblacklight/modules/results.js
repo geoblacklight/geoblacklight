@@ -11,40 +11,25 @@ Blacklight.onLoad(function() {
   $('[data-map="index"]').each(function() {
     var data = $(this).data(),
     opts = { baseUrl: data.catalogPath },
+    world = L.latLngBounds([[-90, -180], [90, 180]]),
     geoblacklight, bbox;
-
-    validateBounds = function(bounds) {
-      if (bounds) {
-        return L.latLngBounds([[-90, -180],[90, 180]]).contains(bounds);
-      } else {
-        return false;
-      }
-    }
-
-    validBboxToBounds = function(bbox) {
-      var bounds = L.bboxToBounds(bbox);
-      if (validateBounds(bounds)) {
-        return bounds;
-      } else {
-        return null;
-      };
-    }
 
     if (typeof data.mapBbox === 'string') {
       bbox = L.bboxToBounds(data.mapBbox);
     } else {
       $('.document [data-bbox]').each(function() {
-        var currentBounds = validBboxToBounds($(this).data().bbox);
 
-        if (currentBounds) {
+        try {
+          var currentBounds = L.bboxToBounds($(this).data().bbox);
+          if (!world.contains(currentBounds)) {
+            throw "Invalid bounds";
+          }
           if (typeof bbox === 'undefined') {
             bbox = currentBounds;
           } else {
             bbox.extend(currentBounds);
           }
-        } else {
-          // bbox not parseable, use default value.
-          // [[-180, -90], [180, 90]];
+        } catch (e) {
           bbox = L.bboxToBounds("-180 -90 180 90");
         }
       });
