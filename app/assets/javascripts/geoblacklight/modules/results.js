@@ -13,23 +13,34 @@ Blacklight.onLoad(function() {
     opts = { baseUrl: data.catalogPath },
     geoblacklight, bbox;
 
-    var lngRe = '(-?[0-9]{1,2}(\\.[0-9]+)?)';
-    var latRe = '(-?[0-9]{1,3}(\\.[0-9]+)?)';
+    validateBounds = function(bounds) {
+      if (bounds) {
+        return L.latLngBounds([[-90, -180],[90, 180]]).contains(bounds);
+      } else {
+        return false;
+      }
+    }
 
-    var parseableBbox = new RegExp(
-      [lngRe,latRe,lngRe,latRe].join('\\s+')
-    );
+    validBboxToBounds = function(bbox) {
+      var bounds = L.bboxToBounds(bbox);
+      if (validateBounds(bounds)) {
+        return bounds;
+      } else {
+        return null;
+      };
+    }
 
     if (typeof data.mapBbox === 'string') {
       bbox = L.bboxToBounds(data.mapBbox);
     } else {
       $('.document [data-bbox]').each(function() {
-        var currentBbox = $(this).data().bbox;
-        if (parseableBbox.test(currentBbox)) {
+        var currentBounds = validBboxToBounds($(this).data().bbox);
+
+        if (currentBounds) {
           if (typeof bbox === 'undefined') {
-            bbox = L.bboxToBounds(currentBbox);
+            bbox = currentBounds;
           } else {
-            bbox.extend(L.bboxToBounds(currentBbox));
+            bbox.extend(currentBounds);
           }
         } else {
           // bbox not parseable, use default value.
@@ -80,5 +91,4 @@ Blacklight.onLoad(function() {
       }
     });
   }
-
 });
