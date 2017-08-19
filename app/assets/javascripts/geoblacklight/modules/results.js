@@ -11,29 +11,25 @@ Blacklight.onLoad(function() {
   $('[data-map="index"]').each(function() {
     var data = $(this).data(),
     opts = { baseUrl: data.catalogPath },
+    world = L.latLngBounds([[-90, -180], [90, 180]]),
     geoblacklight, bbox;
-
-    var lngRe = '(-?[0-9]{1,2}(\\.[0-9]+)?)';
-    var latRe = '(-?[0-9]{1,3}(\\.[0-9]+)?)';
-
-    var parseableBbox = new RegExp(
-      [lngRe,latRe,lngRe,latRe].join('\\s+')
-    );
 
     if (typeof data.mapBbox === 'string') {
       bbox = L.bboxToBounds(data.mapBbox);
     } else {
       $('.document [data-bbox]').each(function() {
-        var currentBbox = $(this).data().bbox;
-        if (parseableBbox.test(currentBbox)) {
-          if (typeof bbox === 'undefined') {
-            bbox = L.bboxToBounds(currentBbox);
-          } else {
-            bbox.extend(L.bboxToBounds(currentBbox));
+
+        try {
+          var currentBounds = L.bboxToBounds($(this).data().bbox);
+          if (!world.contains(currentBounds)) {
+            throw "Invalid bounds";
           }
-        } else {
-          // bbox not parseable, use default value.
-          // [[-180, -90], [180, 90]];
+          if (typeof bbox === 'undefined') {
+            bbox = currentBounds;
+          } else {
+            bbox.extend(currentBounds);
+          }
+        } catch (e) {
           bbox = L.bboxToBounds("-180 -90 180 90");
         }
       });
@@ -80,5 +76,4 @@ Blacklight.onLoad(function() {
       }
     });
   }
-
 });

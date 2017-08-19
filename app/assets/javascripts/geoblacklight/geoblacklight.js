@@ -14,7 +14,7 @@
     if (bbox.length === 4) {
       return L.latLngBounds([[bbox[1], bbox[0]], [bbox[3], bbox[2]]]);
     } else {
-      return null;
+      throw "Invalid bounding box string";
     }
   };
 
