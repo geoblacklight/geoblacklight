@@ -170,6 +170,18 @@ describe GeoblacklightHelper, type: :helper do
       end
     end
 
+    context 'with valid XML data without an HTML transform' do
+      before do
+        allow(metadata).to receive(:transform).and_raise(Geoblacklight::MetadataTransformer::TransformError)
+        allow(metadata).to receive(:to_xml).and_return('<data></data>')
+      end
+
+      it 'renders the partial with metadata content' do
+        expect(helper).to receive(:render).with(partial: 'catalog/metadata/markup', locals: { content: '<data></data>' })
+        helper.render_transformed_metadata(metadata)
+      end
+    end
+
     context 'without XML data' do
       before do
         allow(metadata).to receive(:transform).and_raise(Geoblacklight::MetadataTransformer::ParseError)

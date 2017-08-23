@@ -38,6 +38,7 @@ INSTITUTION: 'Stanford'
 
 # Metadata shown in tool panel
 METADATA_SHOWN:
+  - 'mods'
   - 'fgdc'
   - 'iso19139'
 

@@ -114,12 +114,12 @@ describe Geoblacklight::References do
   end
   describe 'shown_metadata_refs' do
     it 'is a set of metadata references exposed by the configuration' do
-      expect(complex_shapefile.shown_metadata_refs.count).to eq 1
+      expect(complex_shapefile.shown_metadata_refs.count).to eq 2
     end
   end
   describe 'shown_metadata' do
     it 'is a set of metadata resources exposed by the configuration' do
-      expect(complex_shapefile.shown_metadata.count).to eq 1
+      expect(complex_shapefile.shown_metadata.count).to eq 2
       expect(complex_shapefile.shown_metadata.first).to be_a Geoblacklight::Metadata::Base
     end
   end

@@ -1,0 +1,8 @@
+<div id="metadata-markup-container" class="container-fluid">
+  <div class="alert alert-warning" role="alert">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    <span class="sr-only">Error:</span>
+    <span>The metadata for this item cannot be transformed.</span>
+  </div>
+  <%= CodeRay.scan(content, :xml).div.html_safe %>
+</div>

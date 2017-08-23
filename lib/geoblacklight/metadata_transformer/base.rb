@@ -18,7 +18,7 @@ module Geoblacklight
       # @return [String] the transformed metadata in the HTML
       def transform
         cleaned_metadata.to_html
-      rescue StandardError => e
+      rescue => e
         raise TransformError, e.message
       end
 
@@ -29,8 +29,13 @@ module Geoblacklight
       # @return [Nokogiri::XML::Document] the Nokogiri XML Document for the cleaned HTML
       def cleaned_metadata
         transformed_doc = Nokogiri::XML(@metadata.to_html)
-        transformed_elem = transformed_doc.xpath('//body').children
-        transformed_elem || Nokogiri::XML
+        if transformed_doc.xpath('//body').children.empty?
+          fail TransformError,\
+               'Failed to extract the <body> child elements from the transformed metadata'
+        end
+        transformed_doc.xpath('//body').children
+      rescue => e
+        raise TransformError, e.message
       end
 
       ##

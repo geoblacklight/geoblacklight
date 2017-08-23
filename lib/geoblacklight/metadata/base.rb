@@ -7,6 +7,7 @@ module Geoblacklight
       delegate :type, to: :reference
       delegate :to_html, to: :metadata
       delegate :transform, to: :transformer
+      delegate :to_xml, to: :document
 
       ##
       # Instantiates a Geoblacklight::Metadata object used for retrieving and
@@ -44,8 +45,11 @@ module Geoblacklight
       # @return [String, nil] metadata string or nil if there is a
       # connection error
       def retrieve_metadata
-        conn = Faraday.new(url: @reference.endpoint)
-        response = conn.get
+        connection = Faraday.new(url: @reference.endpoint) do |conn|
+          conn.use FaradayMiddleware::FollowRedirects
+          conn.adapter Faraday.default_adapter
+        end
+        response = connection.get
         return response.body unless response.nil? || response.status == 404
         Geoblacklight.logger.error "Could not reach #{@reference.endpoint}"
         ''
