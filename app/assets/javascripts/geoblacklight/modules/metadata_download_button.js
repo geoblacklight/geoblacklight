@@ -1,4 +1,4 @@
-//= require bootstrap/dropdown
+//= require bootstrap/tab
 
 !(function(global) {
 

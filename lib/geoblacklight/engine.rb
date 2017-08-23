@@ -1,8 +1,10 @@
 require 'blacklight'
 require 'leaflet-rails'
 require 'font-awesome-rails'
+require 'coderay'
 require 'config'
 require 'faraday'
+require 'faraday_middleware'
 require 'nokogiri'
 require 'geoblacklight-icons'
 

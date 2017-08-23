@@ -161,8 +161,11 @@ module GeoblacklightHelper
   # @return [String]
   def render_transformed_metadata(metadata)
     render partial: 'catalog/metadata/content', locals: { content: metadata.transform.html_safe }
-  rescue Geoblacklight::MetadataTransformer::ParseError => e
-    Geoblacklight.logger.warn e.message
+  rescue Geoblacklight::MetadataTransformer::TransformError => transform_err
+    Geoblacklight.logger.warn transform_err.message
+    render partial: 'catalog/metadata/markup', locals: { content: metadata.to_xml }
+  rescue => err
+    Geoblacklight.logger.warn err.message
     render partial: 'catalog/metadata/missing'
   end
 
