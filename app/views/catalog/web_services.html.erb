@@ -1,1 +1,10 @@
-<%= render :partial => 'web_services' %>
+<div class="modal-header">
+  <button type="button" class="ajax-modal-close close" data-dismiss="modal" aria-hidden="true">×</button>
+  <h1 class="modal-title">Web services</h1>
+  <div class="modal-body">
+    <%= render partial: 'web_services' %>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default hide-without-js" data-dismiss="modal">Close</button>
+  </div>
+</div>
