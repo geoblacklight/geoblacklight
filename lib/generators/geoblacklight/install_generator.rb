@@ -7,25 +7,27 @@ module Geoblacklight
     desc 'Install Geoblacklight'
 
     def mount_geoblacklight_engine
-      route "mount Geoblacklight::Engine => 'geoblacklight'"
+      inject_into_file 'config/routes.rb', "mount Geoblacklight::Engine => 'geoblacklight'\n", before: /^end/
     end
 
     def inject_geoblacklight_routes
-      route <<-EOF.strip_heredoc
-          concern :gbl_exportable, Geoblacklight::Routes::Exportable.new
-          resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog' do
-            concerns :gbl_exportable
-          end
-          concern :gbl_wms, Geoblacklight::Routes::Wms.new
-          namespace :wms do
-            concerns :gbl_wms
-          end
-          concern :gbl_downloadable, Geoblacklight::Routes::Downloadable.new
-          namespace :download do
-            concerns :gbl_downloadable
-          end
-          resources :download, only: [:show]
-      EOF
+      routes = <<-"ROUTES"
+        concern :gbl_exportable, Geoblacklight::Routes::Exportable.new
+        resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog' do
+          concerns :gbl_exportable
+        end
+        concern :gbl_wms, Geoblacklight::Routes::Wms.new
+        namespace :wms do
+          concerns :gbl_wms
+        end
+        concern :gbl_downloadable, Geoblacklight::Routes::Downloadable.new
+        namespace :download do
+          concerns :gbl_downloadable
+        end
+        resources :download, only: [:show]
+      ROUTES
+
+      inject_into_file 'config/routes.rb', routes, before: /^end/
     end
 
     def assets
