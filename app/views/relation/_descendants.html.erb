@@ -1,4 +1,6 @@
-<b><%= t('geoblacklight.relations.descendant', count: @relations.descendants['numFound']) %></b>
+<li>
+  <b><%= t('geoblacklight.relations.descendant', count: @relations.descendants['numFound']) %></b>
+</li>
 <% @relations.descendants['docs'][0..2].each do |descendant| %>
   <li>
     <%= link_to solr_document_path(descendant['layer_slug_s']) do %>

@@ -1,4 +1,6 @@
-<b><%= t('geoblacklight.relations.ancestor') %></b>
+<li>
+  <b><%= t('geoblacklight.relations.ancestor') %></b>
+</li>
 <% @relations.ancestors['docs'].each do |ancestor| %>
   <li>
     <%= link_to solr_document_path(ancestor['layer_slug_s']) do %>
