@@ -38,8 +38,8 @@ require 'geoblacklight'
 
 Dir['./spec/support/**/*.rb'].sort.each { |f| require f }
 
-FactoryGirl.definition_file_paths = [File.expand_path('../factories', __FILE__)]
-FactoryGirl.find_definitions
+FactoryBot.definition_file_paths = [File.expand_path('../factories', __FILE__)]
+FactoryBot.find_definitions
 
 RSpec.configure do |config|
   config.use_transactional_fixtures = false
