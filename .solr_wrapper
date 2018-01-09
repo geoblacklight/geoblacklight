@@ -3,4 +3,4 @@
 collection:
   dir: solr/conf/
   name: blacklight-core
- 
+version: 7.1.0
