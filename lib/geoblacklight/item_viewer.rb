@@ -38,8 +38,12 @@ module Geoblacklight
       @references.image_map_layer
     end
 
+    def index_map
+      @references.index_map
+    end
+
     def viewer_preference
-      [wms, iiif, tiled_map_layer, dynamic_map_layer,
+      [index_map, wms, iiif, tiled_map_layer, dynamic_map_layer,
        image_map_layer, feature_layer].compact.map(&:to_hash).first
     end
   end
