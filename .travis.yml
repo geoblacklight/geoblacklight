@@ -2,7 +2,7 @@ dist: trusty
 addons:
   chrome: stable
 language: ruby
-sudo: false
+sudo: required
 
 notifications:
   email: false
