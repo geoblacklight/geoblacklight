@@ -8,7 +8,7 @@ module Features
     end
 
     def sign_in
-      user = FactoryGirl.create(:user)
+      user = FactoryBot.create(:user)
       user.save
       visit new_user_session_path
       fill_in 'user_email', with: user.email
