@@ -49,5 +49,15 @@ describe Geoblacklight::ItemViewer do
         expect(item_viewer.viewer_preference).to eq tiled_map_layer: 'http://www.example.com/MapServer'
       end
     end
+    context 'index map' do
+      let(:document_attributes) do
+        {
+          references_field => {
+            'https://openindexmaps.org' => 'http://www.example.com/index_map'
+          }.to_json
+        }
+      end
+      it { expect(item_viewer.viewer_preference).to eq index_map: 'http://www.example.com/index_map' }
+    end
   end
 end
