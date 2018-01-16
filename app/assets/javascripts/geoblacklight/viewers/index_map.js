@@ -20,27 +20,29 @@ GeoBlacklight.Viewer.IndexMap = GeoBlacklight.Viewer.Map.extend({
         {
           style: function(feature) {
             var style = {
-              weight: 1,
-              color: '#1eb300',
+              weight: 1
             }
-            var title = feature.properties.Title
-            if (title === null) {
-              style.color = '#b3001e'
+            // Style the colors based on availability
+            if (feature.properties.available) {
+              style.color = '#1eb300';
+            } else {
+              style.color = '#b3001e';
             }
             return style;
           },
           onEachFeature: function(feature, layer) {
-            layer.bindLabel(feature.properties.Sheet_Num, {
-              direction: 'auto', permanent: true
-            });
-            if (feature.properties.Title !== null) {
+            // Add a hover label for the label property
+            if (feature.properties.label !== null) {
+              layer.bindLabel(feature.properties.label, {
+                direction: 'auto', permanent: true
+              });
+            }
+            // If it is available add clickable info
+            if (feature.properties.available !== null) {
               layer.on('click', function(e) {
-                console.log(e)
-                var html = '';
-                $.each(feature.properties, function(key, val) {
-                  html += key + ': ' + val + '\n';
+                GeoBlacklight.Util.indexMapTemplate(feature.properties, function(html) {
+                  $('.viewer-information').html(html);
                 });
-                $('.viewer-information').html(html);
               });
             }
           }
