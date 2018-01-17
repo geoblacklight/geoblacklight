@@ -2,6 +2,7 @@ require 'spec_helper'
 
 feature 'Attribute table values', js: true do
   scenario 'are linkified' do
+    pending 'ArcGIS server returning an error'
     visit solr_document_path 'minnesota-e2f33b52-4039-4bbb-9095-b5cdc0175943'
     # Wait until SVG elements are added
     expect(page).to have_css '.leaflet-overlay-pane svg'
