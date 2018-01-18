@@ -86,7 +86,7 @@ feature 'Download layer' do
       fill_in('Email', with: 'foo@example.com')
       click_button('Request')
     end
-    using_wait_time 45 do
+    using_wait_time 95 do
       expect(page).to have_css('.alert-success')
       expect(page).to have_content('You should receive an email when your download is ready')
     end
