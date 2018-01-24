@@ -1,18 +1,11 @@
 /**
  * Rules for the geospatial metadata Bootstrap Modal dialog
  */
-.modal-dialog {
-  width: 1148px;
+.modal-dialog.metadata-modal {
+  width: 90%;
 }
 
-.modal-header {
-  .modal-title {
-    font-weight: 400;
-    font-size: 20px;
-  }
-}
-
-.modal-body {
+.metadata-body.modal-body {
   overflow-y: scroll;
   height: calc(100vh - 190px);
 
