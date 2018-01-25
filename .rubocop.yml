@@ -1,3 +1,5 @@
+inherit_from: .rubocop_todo.yml
+
 Rails:
   Enabled: true
 
@@ -12,6 +14,8 @@ AllCops:
   - 'vendor/**/*'
   - '.internal_test_app/**/*'
   - 'lib/generators/geoblacklight/templates/**/*'
+  - 'geoblacklight.gemspec'
+  - 'Gemfile'
 
 Metrics/LineLength:
   Max: 100
@@ -19,6 +23,7 @@ Metrics/LineLength:
   - 'spec/**/*'
   - 'Rakefile'
   - 'lib/generators/geoblacklight/install_generator.rb'
+  - 'lib/tasks/geoblacklight.rake'
 
 # TODO: Refactor large methods.
 Metrics/AbcSize:
@@ -68,4 +73,3 @@ Style/DotPosition:
   SupportedStyles:
   - leading
   - trailing
-
