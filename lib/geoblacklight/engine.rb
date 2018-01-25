@@ -8,6 +8,7 @@ require 'faraday_middleware'
 require 'nokogiri'
 require 'geoblacklight-icons'
 require 'mime/types'
+require 'handlebars_assets'
 
 module Geoblacklight
   class Engine < ::Rails::Engine
