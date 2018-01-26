@@ -115,6 +115,19 @@ describe Geoblacklight::References do
   describe 'shown_metadata_refs' do
     it 'is a set of metadata references exposed by the configuration' do
       expect(complex_shapefile.shown_metadata_refs.count).to eq 2
+      expect(complex_shapefile.shown_metadata_refs.first.type.to_s).to eq 'mods'
+      expect(complex_shapefile.shown_metadata_refs.last.type.to_s).to eq 'iso19139'
+    end
+    context 'with an overridden order for the formats' do
+      let(:settings_klass) { class_double('Settings').as_stubbed_const }
+      before do
+        allow(settings_klass).to receive(:METADATA_SHOWN).and_return %w(iso19139 mods)
+        allow(settings_klass).to receive(:FIELDS).and_return OpenStruct.new(FILE_FORMAT: 'dc_format_s')
+      end
+      it 'is ordered by the configuration' do
+        expect(complex_shapefile.shown_metadata_refs.first.type.to_s).to eq 'iso19139'
+        expect(complex_shapefile.shown_metadata_refs.last.type.to_s).to eq 'mods'
+      end
     end
   end
   describe 'shown_metadata' do
