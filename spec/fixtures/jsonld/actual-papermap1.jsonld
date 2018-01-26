@@ -1,0 +1,48 @@
+{
+  "@context": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/context.jsonld",
+  "@id": "urn:arrowsmith.mit.edu:MIT.001145244",
+  "@type": "dcat:Dataset",
+  "accessLevel": "public",
+  "conformsTo": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/geoblacklight-schema.json",
+  "description": "Panel title. Depths shown by isolines. \"Geological map [copyright] NERC 1996.\" Also available on flat sheet. \"Sheet 1\"--on panel. Includes text, notes, organizations' logos, and ancillary map of \"Orogenic terranes of Britain, Ireland and surrounding seas.\"",
+  "distribution": [
+    {
+      "@type": "dcat:Distribution",
+      "conformsTo": "http://www.opengis.net/cat/csw/csdgm",
+      "downloadURL": "http://opengeometadata.stanford.edu/metadata/org.opengeoportal/MIT:001145244/fgdc.xml",
+      "format": [
+        "FGDC"
+      ],
+      "mediaType": "application/xml",
+      "title": "FGDC Metadata"
+    },
+    {
+      "@type": "dcat:Distribution",
+      "conformsTo": "http://www.w3.org/1999/xhtml",
+      "downloadURL": "http://opengeometadata.stanford.edu/metadata/org.opengeoportal/MIT:001145244/fgdc.html",
+      "format": [
+        "HTML"
+      ],
+      "mediaType": "application/html",
+      "title": "HTML Metadata"
+    }
+  ],
+  "geom": "ENVELOPE(-13.0, 4.0, 62.0, 49.0)",
+  "geomType": "Paper Map",
+  "issued": "2000",
+  "landingPage": "http://library.mit.edu/item/001145244",
+  "language": [
+    "English"
+  ],
+  "modified": "2014-12-04T21:32:59Z",
+  "provenance": "MIT",
+  "publisher": [
+    "British Geological Survey"
+  ],
+  "resourceType": "Dataset",
+  "slug": "mit-001145244",
+  "temporal": [
+    "1996"
+  ],
+  "title": "1:1 500 000 series [cartographic material] : tectonic map of Britain, Ireland and adjacent areas / British Geological Survey ; Geological Survey of Ireland ; Geological Survey of Northern Ireland."
+}

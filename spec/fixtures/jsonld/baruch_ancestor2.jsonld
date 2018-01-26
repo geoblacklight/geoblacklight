@@ -1,0 +1,66 @@
+{
+  "@context": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/context.jsonld",
+  "@id": "http://hdl.handle.net/2451/34636",
+  "@type": "dcat:Dataset",
+  "accessLevel": "public",
+  "conformsTo": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/geoblacklight-schema.json",
+  "creator": [
+    "GIS Lab, Newman Library, Baruch CUNY"
+  ],
+  "description": "The NYC Geodatabase (nyc_gdb) is a resource designed for basic geographic analysis and thematic mapping within the five boroughs of New York City. It contains geographic features and data compiled from several public sources. Subsets of large features like water, greenspace, and public facilities were created and Census geographies like tracts, ZCTAs, and PUMAs were geoprocessed to create land-based boundaries. Census data from the 2010 Census, American Community Survey (ACS), and ZIP Code Business Patterns are stored in tables that can be easily related to geographic features. Transit and public facility point data were gathered from several city agencies and transformed into spatial data that can be used for reference or analysis for measuring distance, drawing buffers, or counting features within areas. The data is provided in ESRI Geodatabase format.",
+  "distribution": [
+    {
+      "@type": "dcat:Distribution",
+      "downloadURL": "https://archive.nyu.edu/retrieve/74856/nyu_2451_34636.zip",
+      "format": [
+        "ESRI Personal GeoDatabase"
+      ],
+      "mediaType": "application/zip",
+      "title": "ESRI Geodatabase"
+    }
+  ],
+  "format": [
+    "ESRI Personal GeoDatabase"
+  ],
+  "geom": "ENVELOPE(-74.255895, -73.700272, 40.9152819999998, 40.4959289999998)",
+  "geomType": "Mixed",
+  "isPartOf": [
+    "NYC Geodatabase (version jan2016)"
+  ],
+  "issued": "1/15/2016",
+  "landingPage": "http://hdl.handle.net/2451/34636",
+  "language": [
+    "English"
+  ],
+  "modified": "2016-5-2T18:21:7Z",
+  "provenance": "Baruch CUNY",
+  "publisher": [
+    "Newman Library (Bernard M. Baruch College)"
+  ],
+  "resourceType": "Dataset",
+  "slug": "nyu_2451_34636",
+  "spatial": [
+    "New York, New York, United States",
+    "Bronx County, New York, United States",
+    "Kings County, New York, United States",
+    "New York County, New York, United States",
+    "Queens County, New York, United States",
+    "Richmond County, New York, United States",
+    "Borough of Bronx, New York, United States",
+    "Borough of Brooklyn, New York, United States",
+    "Borough of Manhattan, New York, United States",
+    "Borough of Queens, New York, United States",
+    "Borough of Staten Island, New York, United States"
+  ],
+  "subject": [
+    "Boroughs",
+    "Boundaries",
+    "Counties"
+  ],
+  "temporal": [
+    "2010",
+    "2016"
+  ],
+  "title": "2016 NYC Geodatabase, ArcGIS Version (jan2016)",
+  "describedBy": "https://archive.nyu.edu/retrieve/74857/nyu_2451_34636_doc.zip"
+}

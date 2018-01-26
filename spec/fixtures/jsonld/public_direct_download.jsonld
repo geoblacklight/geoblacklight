@@ -1,0 +1,96 @@
+{
+  "@context": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/context.jsonld",
+  "@id": "http://purl.stanford.edu/cz128vq0535",
+  "@type": "dcat:Dataset",
+  "accessLevel": "public",
+  "conformsTo": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/geoblacklight-schema.json",
+  "creator": [
+    "Uganda Bureau of Statistics"
+  ],
+  "description": "This polygon shapefile contains 2005 poverty data for 855 rural subcounties in Uganda. These data are intended for researchers, students, policy makers and the general public for reference and mapping purposes, and may be used for basic applications such as viewing, querying, and map output production.",
+  "distribution": [
+    {
+      "@type": "dcat:Distribution",
+      "downloadURL": "http://stacks.stanford.edu/file/druid:cz128vq0535/data.zip",
+      "format": [
+        "Shapefile"
+      ],
+      "mediaType": "application/zip",
+      "title": "Shapefile"
+    },
+    {
+      "@type": "dcat:Distribution",
+      "conformsTo": "http://www.loc.gov/mods/v3",
+      "downloadURL": "http://purl.stanford.edu/cz128vq0535.mods",
+      "format": [
+        "MODS"
+      ],
+      "mediaType": "application/mods+xml",
+      "title": "MODS Metadata"
+    },
+    {
+      "@type": "dcat:Distribution",
+      "conformsTo": "http://www.isotc211.org/schemas/2005/gmd/",
+      "downloadURL": "http://opengeometadata.stanford.edu/metadata/edu.stanford.purl/druid:cz128vq0535/iso19139.xml",
+      "format": [
+        "ISO19139"
+      ],
+      "mediaType": "application/xml",
+      "title": "ISO 19139 Metadata"
+    },
+    {
+      "@type": "dcat:Distribution",
+      "conformsTo": "http://www.w3.org/1999/xhtml",
+      "downloadURL": "http://opengeometadata.stanford.edu/metadata/edu.stanford.purl/druid:cz128vq0535/default.html",
+      "format": [
+        "HTML"
+      ],
+      "mediaType": "application/html",
+      "title": "HTML Metadata"
+    },
+    {
+      "@type": "dcat:Distribution",
+      "accessURL": "https://geowebservices.stanford.edu/geoserver/wfs",
+      "conformsTo": "http://www.opengis.net/def/serviceType/ogc/wfs",
+      "format": [
+        "Shapefile",
+        "GeoJSON"
+      ],
+      "layerId": "druid:cz128vq0535"
+    },
+    {
+      "@type": "dcat:Distribution",
+      "accessURL": "https://geowebservices.stanford.edu/geoserver/wms",
+      "conformsTo": "http://www.opengis.net/def/serviceType/ogc/wms",
+      "format": [
+        "KMZ"
+      ],
+      "layerId": "druid:cz128vq0535"
+    }
+  ],
+  "geom": "ENVELOPE(29.572742, 35.000308, 4.234077, -1.478794)",
+  "geomType": "Polygon",
+  "issued": "2005",
+  "landingPage": "http://purl.stanford.edu/cz128vq0535",
+  "language": [
+    "English"
+  ],
+  "modified": "2015-04-16T23:02:57Z",
+  "provenance": "Stanford",
+  "publisher": [
+    "Uganda Bureau of Statistics"
+  ],
+  "resourceType": "Dataset",
+  "slug": "stanford-cz128vq0535",
+  "spatial": [
+    "Uganda"
+  ],
+  "subject": [
+    "Poverty",
+    "Statistics"
+  ],
+  "temporal": [
+    "2005"
+  ],
+  "title": "2005 Rural Poverty GIS Database: Uganda"
+}

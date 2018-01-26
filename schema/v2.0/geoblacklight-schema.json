@@ -1,0 +1,269 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Schema for DCAT-based GeoBlacklight 2.0 schema. See https://github.com/geoblacklight/geoblacklight/wiki/Schema for more details.",
+  "id": "http://geoblacklight.org/v2.0/schema",
+  "title": "GeoBlacklight Schema v2.0",
+  "definitions": {
+    "dataset": {
+      "title": "dataset",
+      "description": "A GIS data layer or map. See [this example](https://github.com/OpenGeoMetadata/edu.stanford.purl/blob/master/bb/099/zb/1450/geoblacklight.json) metadata layer.",
+      "type": "object",
+      "required": [
+        "@context",
+        "@id",
+        "@type",
+        "accessLevel",
+        "conformsTo",
+        "geom",
+        "provenance",
+        "slug",
+        "title"
+      ],
+      "properties": {
+        "@context": {
+          "type": "string",
+          "description": "Keyword Used to define the short-hand names that are used throughout the Geoblacklight JSON-LD document.",
+          "example": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/context.jsonld"
+        },
+        "@id": {
+          "type": "string",
+          "description": "Unique identifier for layer as a URI. It should be globally unique across all institutions, assumed not to be end-user visible, and is usually of the form `http://institution/id`. See https://github.com/geoblacklight/geoblacklight/wiki/Schema for more detailed documentation.",
+          "example": "http://purl.stanford.edu/vr593vj7147"
+        },
+        "@type": {
+          "type": "string",
+          "description": "Keyword used to used to set the data type of a node or typed value.",
+          "enum": [
+            "dcat:Dataset"
+          ]
+        },
+        "accessLevel": {
+          "type": "string",
+          "enum": [
+            "public",
+            "restricted public",
+            "non-public"
+          ],
+          "description": "Access rights for the layer."
+        },
+        "conformsTo": {
+          "type": "string",
+          "description": "URI that identifies the version of the The version of the GeoBlacklight Schema to which this metadata record conforms.",
+          "enum": [
+            "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/geoblacklight-schema.json"
+          ]
+        },
+        "creator": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Author(s) of the layer. *Optional*",
+          "example": "George Washington, Thomas Jefferson"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description for the layer. *Optional*",
+          "example": "My Description"
+        },
+        "describedBy": {
+          "type": "string",
+          "description": "URI that references a codebook or documentation for the dataset *Optional*",
+          "example": "My Description"
+        },
+        "distribution": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "@type"
+            ],
+            "properties": {
+              "accessURL": {
+                "type": "string",
+                "description": "URL providing indirect access to a dataset, for example via API. *One of downloadURL or accessURL required*",
+                "example": "https://geowebservices.stanford.edu/geoserver/wms"
+              },
+              "conformsTo": {
+                "type": "string",
+                "description": "URI used to identify a standardized specification the distribution conforms to. *Required with accessURL *",
+                "example": "http://www.opengis.net/def/serviceType/ogc/wms"
+              },
+              "downloadURL": {
+                "type": "string",
+                "description": "URL providing direct access to a downloadable file of a dataset. *One of downloadURL or accessURL required*",
+                "example": "http://stacks.stanford.edu/file/druid:cz128vq0535/data.zip"
+              },
+              "format": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "File format(s) available for download, using a controlled vocabulary. *Optional*",
+                "example": "GeoJSON"
+              },
+              "layerId": {
+                "type": "string",
+                "description": "The complete identifier for the layer via WMS/WFS/WCS protocol. *Optional*",
+                "example": "druid:vr593vj7147"
+              },
+              "mediaType": {
+                "type": "string",
+                "description": "The machine-readable file format (IANA Media Type or MIME Type) of the distribution’s downloadURL. *Required with downloadURL*",
+                "example": "application/xml"
+              },
+              "@type": {
+                "type": "string",
+                "description": "Keyword used to used to set the data type of the distribution.",
+                "enum": [
+                  "dcat:Distribution"
+                ]
+              },
+              "title": {
+                "type": "string",
+                "description": "Title of the download. *Required with downloadURL*",
+                "example": "Original Shapefile"
+              }
+            }
+          },
+          "description": "An array of dcat:distribution objects which represents a specific available form of a dataset. Usually a download or web service.  *Optional*"
+        },
+        "geom": {
+          "type": "string",
+          "pattern": "ENVELOPE(.*,.*,.*,.*)",
+          "description": "Bounding box of the layer as a ENVELOPE WKT (from the CQL standard) using coordinates in (West, East, North, South) order. Note that this field is indexed as a Solr spatial (RPT) field.",
+          "example": "ENVELOPE(76.76, 84.76, 19.91, 12.62)"
+        },
+        "geomType": {
+          "type": "string",
+          "enum": [
+            "Point",
+            "Line",
+            "Polygon",
+            "Raster",
+            "Scanned Map",
+            "Image",
+            "Mixed",
+            "Paper Map"
+          ],
+          "description": "Geometry type for layer data, using a controlled vocabulary. *Optional*"
+        },
+        "isPartOf": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Holding entity for the layer, such as the title of a collection. *Optional*",
+          "example": "Village Maps of India"
+        },
+        "issued": {
+          "type": "string",
+          "description": "Issued date for the layer, using XML Schema dateTime format (YYYY-MM-DDThh:mm:ssZ). *Optional*"
+        },
+        "landingPage": {
+          "type": "string",
+          "description": "A human-friendly hub or landing page that users can be directed to for all resources tied to the dataset. *Optional*",
+          "example": "https://clearinghouse.isgs.illinois.edu/data/geology/glacial-boundaries"
+        },
+        "language": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Language for the dataset. Should adhere to the RFC 5646 standard. *Optional*.",
+          "example": "en"
+        },
+        "license": {
+          "type": "string",
+          "description": "Link to a legal document giving official permission to do something with the resource. *Optional*",
+          "example": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "modified": {
+          "type": "string",
+          "format": "string",
+          "description": "Last modification date for the metadata record, using XML Schema dateTime format (YYYY-MM-DDThh:mm:ssZ). *Optional*"
+        },
+        "provenance": {
+          "type": "string",
+          "description": "Institution who holds the layer.",
+          "example": "Stanford"
+        },
+        "publisher": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Publisher of the layer. *Optional*",
+          "example": "ML InfoMap"
+        },
+        "resourceType": {
+          "type": "string",
+          "enum": [
+            "Dataset",
+            "Image",
+            "PhysicalObject"
+          ],
+          "description": "Resource type of the layer, using DCMI Type Vocabulary, usually a `Dataset`. *Optional*"
+        },
+        "rights": {
+          "type": "string",
+          "description": "Human-readable information regarding access or restrictions based on privacy, security, or other policies. *Optional*"
+        },
+        "slug": {
+          "type": "string",
+          "description": "Identifies a layer in human-readable keywords. Note this value is visible to the user, and used for Permalinks. The value should be alpha-numeric characters separated by dashes, and is typically of the form `institution-keyword1-keyword2`. It should also be globally unique across all institutions in *your* GeoBlacklight index. See https://github.com/geoblacklight/geoblacklight/wiki/Schema for more detailed documentation.",
+          "pattern": "^[-a-zA-Z0-9]+$",
+          "example": "stanford-andhra-pradesh-village-boundaries"
+        },
+        "source": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The identity of a layer from which this layer's data was derived. *Optional*",
+          "example": "stanford-vr593vj7147"
+        },
+        "spatial": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Spatial coverage and place names for the layer, preferrably in a controlled vocabulary. *Optional*",
+          "example": "Paris, San Francisco"
+        },
+        "subject": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Subjects for the layer, preferrably in a controlled vocabulary. *Optional*",
+          "example": "Census, Human settlements"
+        },
+        "temporal": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Temporal coverage for the layer, typically years or dates. Note that this field is not in a specific date format. *Optional*",
+          "example": "1989, circa 2010, 2007-2009"
+        },
+        "title": {
+          "type": "string",
+          "description": "Title for the layer.",
+          "example": "My Title"
+        }
+      }
+    }
+  },
+  "anyOf": [
+    {
+      "$ref": "#/definitions/dataset"
+    },
+    {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/dataset"
+      }
+    }
+  ]
+}

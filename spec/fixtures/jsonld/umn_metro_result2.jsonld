@@ -1,0 +1,53 @@
+{
+  "@context": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/context.jsonld",
+  "@id": "e9714988-c307-4135-b7a7-a1d521949f5d",
+  "@type": "dcat:Dataset",
+  "accessLevel": "public",
+  "conformsTo": "https://raw.githubusercontent.com/geoblacklight/geoblacklight/master/schema/v2.0/geoblacklight-schema.json",
+  "creator": [
+    "Metropolitan Council"
+  ],
+  "description": "This dataset consists of a correspondence table and shape file of the combined 1990 and 2000 Census tracts. Note: Census tracts from 1990 and 2000 do not match in all areas. This dataset is an attempt to match them. Some combining and splitting of tracts was necessary. See the Lineage in Section 2 of the metadata for more information.",
+  "distribution": [
+    {
+      "@type": "dcat:Distribution",
+      "downloadURL": "ftp://ftp.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_metc/society_census_trt_comb1990_2000/shp_society_census_trt_comb1990_2000.zip",
+      "format": [
+        "Shapefile"
+      ],
+      "mediaType": "application/zip",
+      "title": "Shapefile"
+    },
+    {
+      "@type": "dcat:Distribution",
+      "conformsTo": "http://www.isotc211.org/schemas/2005/gmd/",
+      "downloadURL": "https://opengeometadata.github.io/edu.umn/e9/71/49/88c3074135b7a7a1d521949f5d/iso19139.xml",
+      "format": [
+        "ISO19139"
+      ],
+      "mediaType": "application/xml",
+      "title": "ISO 19139 Metadata"
+    }
+  ],
+  "geom": "ENVELOPE(-94.012, -92.732, 45.415, 44.471)",
+  "geomType": "Mixed",
+  "isPartOf": [
+    "Minnesota Geospatial Commons"
+  ],
+  "issued": "2003-01-27",
+  "landingPage": "https://gisdata.mn.gov/dataset/us-mn-state-metc-society-census-trt-comb1990-2000",
+  "modified": "2017-01-20T18:39:22Z",
+  "provenance": "Minnesota",
+  "slug": "e9714988-c307-4135-b7a7-a1d521949f5d",
+  "spatial": [
+    "Minnesota, United States",
+    "Minneapolis-St. Paul-Bloomington, United States"
+  ],
+  "subject": [
+    "Society"
+  ],
+  "temporal": [
+    "1990-2000"
+  ],
+  "title": "1990 to 2000 Census Tract Correspondence and Combined Tracts: Twin Cities Metro, Minnesota, 2003"
+}
