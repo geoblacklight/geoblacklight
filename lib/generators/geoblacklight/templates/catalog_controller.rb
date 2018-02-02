@@ -7,11 +7,16 @@ class CatalogController < ApplicationController
 
   configure_blacklight do |config|
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
+    ## @see https://lucene.apache.org/solr/guide/6_6/common-query-parameters.html
+    ## @see https://lucene.apache.org/solr/guide/6_6/the-dismax-query-parser.html#TheDisMaxQueryParser-Theq.altParameter
     config.default_solr_params = {
-      :start => 0,
-      :rows => 10,
+      start: 0,
       'q.alt' => '*:*'
     }
+
+    ## Default rows returned from Solr
+    ## @see https://lucene.apache.org/solr/guide/6_6/common-query-parameters.html
+    config.default_per_page = 10
 
     ## Default parameters to send on single-document requests to Solr. These settings are the Blackligt defaults (see SolrHelper#solr_doc_params) or
     ## parameters included in the Blacklight-jetty document requestHandler.
@@ -31,7 +36,7 @@ class CatalogController < ApplicationController
 
     config.show.display_type_field = 'format'
 
-    ## 
+    ##
     # Configure the index document presenter.
     config.index.document_presenter_class = Geoblacklight::DocumentPresenter
 
