@@ -11,7 +11,23 @@ GeoBlacklight.Viewer.IndexMap = GeoBlacklight.Viewer.Map.extend({
       this.addBoundsOverlay(this.options.bbox);
     }
   },
+  availabilityStyle: function(availability) {
+    var style = {
+      radius: 4,
+      weight: 1,
+    }
+    // Style the colors based on availability
+    if (typeof(availability) === 'undefined') {
+      return style; // default Leaflet style colorings
+    }
 
+    if (availability) {
+      style.color = '#1eb300';
+    } else {
+      style.color = '#b3001e';
+    }
+    return style
+  },
   addPreviewLayer: function() {
     var _this = this;
     var geoJSONLayer;
@@ -19,16 +35,7 @@ GeoBlacklight.Viewer.IndexMap = GeoBlacklight.Viewer.Map.extend({
       geoJSONLayer = L.geoJson(data,
         {
           style: function(feature) {
-            var style = {
-              weight: 1
-            }
-            // Style the colors based on availability
-            if (feature.properties.available) {
-              style.color = '#1eb300';
-            } else {
-              style.color = '#b3001e';
-            }
-            return style;
+            return _this.availabilityStyle(feature.properties.available);
           },
           onEachFeature: function(feature, layer) {
             // Add a hover label for the label property
@@ -45,6 +52,10 @@ GeoBlacklight.Viewer.IndexMap = GeoBlacklight.Viewer.Map.extend({
                 });
               });
             }
+          },
+          // For point index maps, use circle markers
+          pointToLayer: function (feature, latlng) {
+            return L.circleMarker(latlng);
           }
         }).addTo(_this.map);
         _this.map.fitBounds(geoJSONLayer.getBounds());

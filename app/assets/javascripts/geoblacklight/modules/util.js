@@ -16,7 +16,7 @@ GeoBlacklight.Util = {
     $.when(thumbDeferred).done(function() {
       cb(HandlebarsTemplates["index_map_info"](data));
     });
-    if (data.iiifUrl) {
+    if (data.iiifUrl && !data.thumbnailUrl) {
       var manifest = $.getJSON(data.iiifUrl, function(manifestResponse) {
         if (manifestResponse.thumbnail['@id'] !== null) {
           data.thumbnailUrl = manifestResponse.thumbnail['@id'];

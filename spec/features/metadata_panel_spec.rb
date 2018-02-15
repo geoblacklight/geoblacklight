@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Metadata tools' do
   feature 'when metadata references are available', js: :true do
     scenario 'shows up as HTML' do
-      visit solr_document_path 'columbia-columbia-landinfo-global-aet'
+      visit solr_document_path 'harvard-g7064-s2-1834-k3'
       expect(page).to have_css 'li.metadata a', text: 'Metadata'
       click_link 'Metadata'
       using_wait_time 15 do
