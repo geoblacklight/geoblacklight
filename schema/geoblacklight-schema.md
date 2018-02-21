@@ -126,7 +126,7 @@
 | Entry Guidelines				| This may be an individual or an organization. If available, it should match with the Library of Congress Name Authority File.|
 | Controlled Vocabulary			| If available, it should match with the Library of Congress Name Authority File.|
 | Element Set					| Dublin Core Metadata Element Set|
-| Example						| "George Washington, Thomas Jefferson"|
+| Example						| "George Washington", "Thomas Jefferson"|
 
 ### Description
 | Label| Description|
@@ -183,7 +183,7 @@
 | Required						| no|
 | Type							| array|
 | Description					| This is used for parent/child relationships and activates the Data Relations widget in GeoBlacklight.|
-| Entry Guidelines				| This is only added to the child records. Enter the slug of the parent record(s) into this field. See https://github.com/geoblacklight/geoblacklight/wiki/Using-data-relations-widget for more information.|
+| Entry Guidelines				| This is only added to the child records. Enter the layer_slug_s of the parent record(s) into this field. See https://github.com/geoblacklight/geoblacklight/wiki/Using-data-relations-widget for more information.|
 | Controlled Vocabulary			| no|
 | Element Set					| Dublin Core Metadata Element Set|
 | Example						| "stanford-vr593vj7147"|
@@ -198,7 +198,7 @@
 | Entry Guidelines				| These should be consistent and chosen from a controlled vocabulary. Place name subject headings should be transferred to Spatial Coverage. Use sentence style capitalization, where only the first word of a phrase is capitalized|
 | Controlled Vocabulary			| Recommended thesauri are ISO Topic Categories and Library of Congress Subject Headings. Library of Congress place name subject headings should be transferred to Spatial Coverage.|
 | Element Set					| Dublin Core Metadata Element Set|
-| Example						| "Census, Human settlements"|
+| Example						| "Census", "Human settlements"|
 
 
 ### Type
@@ -291,8 +291,8 @@
 | uri							| `layer_id_s`|
 | Required						| no|
 | Type							| string|
-| Description					| This indicates the layer of GeoServer web services|
-| Entry Guidelines				| Only the layer name is added here. The base URL of the GeoServer is added to References|
+| Description					| This indicates the layer id for any WMS or WFS web services listed in the dct_references_s field|
+| Entry Guidelines				| Only the layer name is added here. The base service endpoint URLs (e.g. "https://maps-public.geo.nyu.edu/geoserver/sdr/wms") are added to References|
 | Controlled Vocabulary			| no|
 | Element Set					| GeoBlacklight|
 | Example						| "druid:vr593vj7147"|
