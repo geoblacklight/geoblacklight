@@ -32,7 +32,7 @@ class DownloadController < ApplicationController
     # Grab the solr document to check if it should be public or not
     @response, @document = fetch(file_name_to_id(params[:id]))
     restricted_should_authenticate
-    send_file download_file_path_and_name, type: 'application/zip', x_sendfile: true
+    send_file download_file_path_and_name, x_sendfile: true
   end
 
   def hgl
