@@ -1,25 +1,36 @@
-<div id="header-navbar" class="navbar navbar-inverse navbar-static-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#user-util-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark topbar" role="navigation">
+  <div class="<%= container_classes %>">
+    <%= link_to application_name, root_path, class: 'mb-0 navbar-brand' %>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#user-util-collapse" aria-controls="user-util-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
-    <%= link_to application_name, root_path, class: "navbar-brand" %>
-    </div>
 
-    <div class="collapse navbar-collapse" id="user-util-collapse">
-      <%= render :partial=>'/user_util_links' %>
+    <div class="collapse navbar-collapse justify-content-md-end" id="user-util-collapse">
+      <%= render 'shared/user_util_links' %>
     </div>
   </div>
-</div>
+</nav>
 
-<% if controller_name == 'catalog' && has_search_parameters? %>
-  <div id="search-navbar" class="navbar navbar-default navbar-static-top" role="navigation">
-    <div class="container">
+<% if controller_name == 'catalog' && (has_search_parameters? || params[:action] == 'show') %>
+  <div class="navbar-search navbar navbar-light bg-faded" role="navigation">
+    <div class="<%= container_classes %> stuff">
       <%= render_search_bar  %>
+    </div>
+  </div>
+<% else %>
+  <div class='geobl-homepage-masthead jumbotron'>
+    <div class='d-flex justify-content-center'>
+      <%= content_tag :h2, t('geoblacklight.home.headline'), class: 'text-center' %>
+    </div>
+    <div class='d-flex justify-content-center'>
+      <%= content_tag :h3, t('geoblacklight.home.search_heading'), class: 'text-center' %>
+    </div>
+    <div class='row justify-content-md-center'>
+      <div class='col-md-6 col-sm-12'>
+        <div class='navbar-search'>
+          <%= render_search_bar %>
+        </div>
+      </div>
     </div>
   </div>
 <% end %>
