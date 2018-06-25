@@ -1,12 +1,13 @@
+<% content_for(:sidebar) do %>
+  <% if has_search_parameters? %>
+    <%= render 'search_sidebar' %>
+  <% end %>
+<% end %>
+
 <% unless has_search_parameters? %>
   <%# if there are no input/search related params, display the "home" partial -%>
   <%= render 'home' %>
+  <%= render 'shared/sitelinks_search_box' %>
 <% else %>
-  <div id="sidebar" class="col-md-3 col-sm-4">
-    <%= render 'search_sidebar' %>
-  </div>
-
-  <div id="content" class="col-md-9 col-sm-8">
-    <%= render 'search_results' %>
-  </div>
+  <%= render 'search_results' %>
 <% end %>
