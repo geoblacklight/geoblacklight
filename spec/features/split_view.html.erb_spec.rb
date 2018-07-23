@@ -25,10 +25,12 @@ feature 'Index view', js: true do
       expect(page).to have_css('div.panel.facet_limit', text: 'Format')
     end
     click_link 'Institution'
-    expect(page).to have_css('a.facet_select', text: 'Columbia', visible: true)
-    expect(page).to have_css('a.facet_select', text: 'MIT', visible: true)
-    expect(page).to have_css('a.facet_select', text: 'Stanford', visible: true)
-    expect(page).to have_css('a.more_facets_link', text: 'more Institution »', visible: true)
+    using_wait_time 120 do
+      expect(page).to have_css('a.facet_select', text: 'Columbia', visible: true)
+      expect(page).to have_css('a.facet_select', text: 'MIT', visible: true)
+      expect(page).to have_css('a.facet_select', text: 'Stanford', visible: true)
+      expect(page).to have_css('a.more_facets_link', text: /more\sInstitution\s»/, visible: true)
+    end
   end
 
   scenario 'hover on record should produce bounding box on map' do
