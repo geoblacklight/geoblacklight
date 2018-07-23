@@ -12,7 +12,10 @@ module Geoblacklight
     # Return only those metadata references which are exposed within the configuration
     # @return [Geoblacklight::Reference]
     def shown_metadata_refs
-      @refs.select { |ref| Settings.METADATA_SHOWN.include?(ref.type.to_s) }
+      metadata = @refs.select { |ref| Settings.METADATA_SHOWN.include?(ref.type.to_s) }
+      metadata.sort do |u, v|
+        Settings.METADATA_SHOWN.index(u.type.to_s) <=> Settings.METADATA_SHOWN.index(v.type.to_s)
+      end
     end
 
     ##
