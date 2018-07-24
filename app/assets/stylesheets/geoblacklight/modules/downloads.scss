@@ -1,0 +1,82 @@
+%downloads-exports {
+  .list-group-item {
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+@mixin download-export {
+  &-link {
+    &-container {
+      padding: 4px 15px;
+      text-align: center;
+
+      a {
+        width: 100%;
+        font-weight: 600;
+        background-color: $link-color;
+        color: #ffffff;
+        border-color: darken($link-color, 6.5%);
+      }
+    }
+  }
+}
+
+.downloads {
+  @extend %downloads-exports;
+
+  .download {
+    @include download-export;
+  }
+}
+
+.exports {
+  @extend %downloads-exports;
+
+  .panel-heading {
+    h2 {
+      display: inline;
+    }
+
+    .fa-spinner {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+  }
+
+  .export {
+    @include download-export;
+
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+
+    @media (min-width: $screen-lg-min) {
+      text-align: left;
+    }
+
+    &-label {
+      padding: 10px 12px;
+
+      @media (min-width: $screen-lg-min) {
+        display: inline-block;
+      }
+    }
+
+    &-link {
+      &-container {
+
+        @media (min-width: $screen-lg-min) {
+          display: inline-block;
+          float: right;
+        }
+
+        a {
+          @media (min-width: $screen-lg-min) {
+            width: inherit;
+          }
+        }
+      }
+    }
+  }
+}

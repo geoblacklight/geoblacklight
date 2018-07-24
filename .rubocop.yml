@@ -40,6 +40,14 @@ Metrics/LineLength:
 Metrics/MethodLength:
   Max: 16
 
+Metrics/ModuleLength:
+  Exclude:
+  - 'app/helpers/geoblacklight_helper.rb'
+
+# TODO: Add top-level class and module documentation.
+Style/Documentation:
+  Enabled: false
+
 # Overrides method in blacklight. Must use method name.
 Naming/PredicateName:
   Exclude:
@@ -65,3 +73,12 @@ Style/StringLiterals:
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#consistent-string-literals
   Enabled: true
   EnforcedStyle: single_quotes
+
+Style/DotPosition:
+  Description: Checks the position of the dot in multi-line method calls.
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#consistent-multi-line-chains
+  Enabled: true
+  EnforcedStyle: leading
+  SupportedStyles:
+  - leading
+  - trailing
