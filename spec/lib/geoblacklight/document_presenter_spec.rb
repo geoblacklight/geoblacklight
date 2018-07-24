@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Geoblacklight::DocumentPresenter do
-  let(:request_context) { double(add_facet_params: '') }
+  let(:request_context) { double(document_index_view_type: 'list') }
   let(:blacklight_config) do
     Blacklight::Configuration.new.configure do |config|
       config.add_index_field 'layer_id_s'
