@@ -15,20 +15,20 @@ feature 'Index view', js: true do
 
   scenario 'should have facets listed correctly' do
     within '#facet-panel-collapse' do
-      expect(page).to have_css('div.panel.facet_limit', text: 'Institution')
-      expect(page).to have_css('div.panel.facet_limit', text: 'Publisher')
-      expect(page).to have_css('div.panel.facet_limit', text: 'Subject')
-      expect(page).to have_css('div.panel.facet_limit', text: 'Place')
-      expect(page).to have_css('div.panel.facet_limit', text: 'Year')
-      expect(page).to have_css('div.panel.facet_limit', text: 'Access')
-      expect(page).to have_css('div.panel.facet_limit', text: 'Data type')
-      expect(page).to have_css('div.panel.facet_limit', text: 'Format')
+      expect(page).to have_css('div.card.facet-limit', text: 'Institution')
+      expect(page).to have_css('div.card.facet-limit', text: 'Publisher')
+      expect(page).to have_css('div.card.facet-limit', text: 'Subject')
+      expect(page).to have_css('div.card.facet-limit', text: 'Place')
+      expect(page).to have_css('div.card.facet-limit', text: 'Year')
+      expect(page).to have_css('div.card.facet-limit', text: 'Access')
+      expect(page).to have_css('div.card.facet-limit', text: 'Data type')
+      expect(page).to have_css('div.card.facet-limit', text: 'Format')
     end
     click_link 'Institution'
     using_wait_time 120 do
-      expect(page).to have_css('a.facet_select', text: 'Columbia', visible: true)
-      expect(page).to have_css('a.facet_select', text: 'MIT', visible: true)
-      expect(page).to have_css('a.facet_select', text: 'Stanford', visible: true)
+      expect(page).to have_css('a.facet-select', text: 'Columbia', visible: true)
+      expect(page).to have_css('a.facet-select', text: 'MIT', visible: true)
+      expect(page).to have_css('a.facet-select', text: 'Stanford', visible: true)
       expect(page).to have_css('a.more_facets_link', text: /more\sInstitution\s»/, visible: true)
     end
   end
@@ -36,9 +36,12 @@ feature 'Index view', js: true do
   scenario 'hover on record should produce bounding box on map' do
     # Needed to find an svg element on the page
     visit search_catalog_path(f: { Settings.FIELDS.PROVENANCE => ['Stanford'] })
-    expect(Nokogiri::HTML.parse(page.body).css('path').length).to eq 0
+    # BL7 has svg icons, so sniffing for SVG path won't return false
+    # expect(Nokogiri::HTML.parse(page.body).css('path').length).to eq 0
     find('.documentHeader', match: :first).hover
-    expect(Nokogiri::HTML.parse(page.body).css('path').length).to eq 1
+    within('#map') do
+      expect(page).to have_css('path')
+    end
   end
 
   scenario 'click on a record area to expand collapse' do
