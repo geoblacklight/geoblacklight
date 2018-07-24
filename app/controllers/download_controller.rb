@@ -1,5 +1,6 @@
 class DownloadController < ApplicationController
-  include Blacklight::SearchHelper
+  # include Blacklight::SearchHelper
+  include Blacklight::Catalog
 
   rescue_from Geoblacklight::Exceptions::ExternalDownloadFailed do |exception|
     Geoblacklight.logger.error exception.message + ' ' + exception.url
@@ -18,7 +19,7 @@ class DownloadController < ApplicationController
   end
 
   def show
-    @response, @document = fetch params[:id]
+    @response, @document = search_service.fetch params[:id]
     restricted_should_authenticate
     response = check_type
     validate response
@@ -30,13 +31,13 @@ class DownloadController < ApplicationController
 
   def file
     # Grab the solr document to check if it should be public or not
-    @response, @document = fetch(file_name_to_id(params[:id]))
+    @response, @document = search_service.fetch(file_name_to_id(params[:id]))
     restricted_should_authenticate
     send_file download_file_path_and_name, x_sendfile: true
   end
 
   def hgl
-    @response, @document = fetch params[:id]
+    @response, @document = search_service.fetch params[:id]
     if params[:email]
       response = Geoblacklight::HglDownload.new(@document, params[:email]).get
       if response.nil?
