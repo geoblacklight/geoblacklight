@@ -10,6 +10,9 @@ group :development, :test do
   gem 'coveralls', require: false
   gem 'rubocop', '0.38.0', require: false
   gem 'rubocop-rspec', '1.4.0', require: false
+
+  # See https://github.com/rails/rails/issues/32955
+  gem 'thor', '>= 0.19.0'
 end
 
 # BEGIN ENGINE_CART BLOCK
