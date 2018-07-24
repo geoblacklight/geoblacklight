@@ -82,3 +82,12 @@ Style/StringLiterals:
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#consistent-string-literals
   Enabled: true
   EnforcedStyle: single_quotes
+
+Style/DotPosition:
+  Description: Checks the position of the dot in multi-line method calls.
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#consistent-multi-line-chains
+  Enabled: true
+  EnforcedStyle: leading
+  SupportedStyles:
+  - leading
+  - trailing
