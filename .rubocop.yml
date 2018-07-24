@@ -22,7 +22,7 @@ Metrics/LineLength:
 
 # TODO: Refactor large methods.
 Metrics/AbcSize:
-  Max: 23
+  Max: 24
 
 Metrics/MethodLength:
   Max: 16
@@ -68,4 +68,3 @@ Style/DotPosition:
   SupportedStyles:
   - leading
   - trailing
-
