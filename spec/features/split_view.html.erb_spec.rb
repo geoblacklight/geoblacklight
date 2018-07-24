@@ -64,7 +64,7 @@ feature 'Index view', js: true do
     within '#appliedParams' do
       expect(page).to have_content('Subject polygon')
       expect(page).to have_content('Subject boundaries')
-      expect(page).to have_css 'span.filterName', text: 'Bounding Box'
+      expect(page).to have_css 'span.filter-name', text: 'Bounding Box'
     end
   end
 end
