@@ -63,7 +63,7 @@ feature 'Index view', js: true do
     find('#map').double_click
     within '#appliedParams' do
       expect(page).to have_content('Subject Population')
-      expect(page).to have_css 'span.filterName', text: 'Bounding Box'
+      expect(page).to have_css 'span.filter-name', text: 'Bounding Box'
     end
   end
 end
