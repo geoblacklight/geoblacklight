@@ -1,0 +1,39 @@
+<%# Renders the secondary downloads displayed in the split dropdown %>
+<% document ||= @document %>
+
+<button type='button' class='btn btn-default dropdown-toggle download-dropdown-toggle' data-toggle='dropdown' aria-expanded='false'>
+  <span class='caret'></span>
+  <span class='sr-only'>Toggle Download Dropdown</span>
+</button>
+<ul class='dropdown-menu' role='menu'>
+  <% if document.hgl_download.present? %>
+    <li role="presentation" class="dropdown-header">Original</li>
+    <li>
+      <%= link_to(download_text(document.download_types.first[0]),
+      download_hgl_path(id: document), data: {blacklight_modal: 'trigger', download: 'trigger', download_type: 'harvard-hgl', download_id: document.id }) %>
+    </li>
+  <% else %>
+    <% if document.direct_download.present? %>
+      <li role="presentation" class="dropdown-header">Original</li>
+      <li>
+        <%= link_to(download_text(@document.file_format), document.direct_download[:download], 'contentUrl' => document.direct_download[:download], data: { download: 'trigger', download_type: 'direct', download_id: document.id }) %>
+      </li>
+    <% end %>
+    <% if document.download_types.present? || document.iiif_download.present? %>
+      <li role="presentation" class="dropdown-header">Generated</li>
+    <% end %>
+    <% if document.iiif_download.present? %>
+      <li>
+        <%= link_to "Download JPG", iiif_jpg_url, download: 'trigger' %>
+      </li>
+    <% end %>
+
+    <% if document.download_types.present? %>
+      <% document.download_types.each do |type| %>
+        <%= content_tag(:li) do %>
+          <% link_to(download_text(type[0]), '', data: { download_path: "#{download_path(document.id, type: type[0])}", download: 'trigger', download_type: type[0], download_id: document.id }) %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+</ul>
