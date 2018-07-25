@@ -31,5 +31,13 @@ describe Geoblacklight::Relation::RelationResponse do
     it 'returns true if document has neither ancestors nor descendants' do
       expect(empty_relation_resp.empty?).to be true
     end
+
+    context 'with a layer slug containing a colon' do
+      let(:empty_relation_resp) { described_class.new('uva-Norfolk:police_point', repository) }
+
+      it 'returns true if document has neither ancestors nor descendants' do
+        expect(empty_relation_resp.empty?).to be true
+      end
+    end
   end
 end

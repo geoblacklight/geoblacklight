@@ -1,6 +1,6 @@
 ENV['RAILS_ENV'] ||= 'test'
 
-require 'factory_girl'
+require 'factory_bot'
 require 'database_cleaner'
 require 'engine_cart'
 require 'coveralls'
