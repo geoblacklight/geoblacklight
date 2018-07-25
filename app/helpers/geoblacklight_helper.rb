@@ -37,9 +37,10 @@ module GeoblacklightHelper
   end
 
   def geoblacklight_icon(name)
+    icon_name = name ? name.parameterize : 'none'
     content_tag :span,
                 '',
-                class: "geoblacklight-icon geoblacklight-#{name.parameterize}",
+                class: "geoblacklight-icon geoblacklight-#{icon_name}",
                 title: name
   end
 

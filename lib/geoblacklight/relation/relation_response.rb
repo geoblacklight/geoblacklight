@@ -3,7 +3,7 @@ module Geoblacklight
     class RelationResponse
       attr_reader :search_id
       def initialize(id, repository)
-        @search_id = id
+        @search_id = RSolr.solr_escape(id)
         @repository = repository
       end
 

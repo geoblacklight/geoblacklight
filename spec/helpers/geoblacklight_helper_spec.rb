@@ -31,6 +31,10 @@ describe GeoblacklightHelper, type: :helper do
         expect(html).to have_css ".geoblacklight-#{value}"
       end
     end
+    it 'handles nil values' do
+      html = Capybara.string(geoblacklight_icon(nil))
+      expect(html).to have_css '.geoblacklight-none'
+    end
   end
 
   describe '#proper_case_format' do
