@@ -5,7 +5,9 @@ feature 'Index map' do
     visit solr_document_path('stanford-fb897vt9938')
     # Wait until SVG elements are added
     expect(page).to have_css '.leaflet-overlay-pane svg'
-    page.first('svg g path').click
+    within '#map' do
+      first('svg g path').click
+    end
     within '.index-map-info' do
       expect(page).to have_css 'h3', text: 'Dabao Kinbōzu -- ダバオ近傍圖'
       expect(page).to have_css 'a img[src="https://stacks.stanford.edu/image/iiif/zh828kt2136%2Fzh828kt2136_00_0001/full/!400,400/0/default.jpg"]'
@@ -25,7 +27,9 @@ feature 'Index map' do
     visit solr_document_path('cornell-ny-aerial-photos-1960s')
     # Wait until SVG elements are added
     expect(page).to have_css '.leaflet-overlay-pane svg'
-    page.first('svg g path').click
+    within '#map' do
+      first('svg g path').click
+    end
     within '.index-map-info' do
       expect(page).to have_css 'img[src="http://stor.artstor.org/stor/e6d1510d-de11-436a-9bfd-3dcdfbbc6296_size2"]'
       within 'dl' do
