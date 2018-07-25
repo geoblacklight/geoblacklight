@@ -10,7 +10,7 @@
     <li role="presentation" class="dropdown-header">Original</li>
     <li>
       <%= link_to(download_text(document.download_types.first[0]),
-      download_hgl_path(id: document), data: {ajax_modal: 'trigger', download: 'trigger', download_type: 'harvard-hgl', download_id: document.id }) %>
+      download_hgl_path(id: document), data: {blacklight_modal: 'trigger', download: 'trigger', download_type: 'harvard-hgl', download_id: document.id }) %>
     </li>
   <% else %>
     <% if document.direct_download.present? %>
