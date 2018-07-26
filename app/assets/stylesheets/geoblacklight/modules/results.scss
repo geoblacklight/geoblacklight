@@ -5,6 +5,7 @@
 .more-info-area {
   order:3;
   max-height: 100px;
+  overflow:hidden;
 }
 
 .text-span{
@@ -21,7 +22,7 @@
 
 .status-icons {
   order: 2;
-  margin-right: 10px;
+  margin-left: 0.5rem;
 }
 
 .index_title {
@@ -30,6 +31,7 @@
   @extend .hide-overflow;
   @extend h5;
   font-size:1rem;
+  width:80%;
 }
 
 .caret-toggle {
