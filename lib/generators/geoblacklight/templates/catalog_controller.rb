@@ -214,6 +214,8 @@ class CatalogController < ApplicationController
     config.spell_max = 5
 
     # Tools from Blacklight
+    config.add_results_collection_tool(:sort_widget)
+    config.add_results_collection_tool(:per_page_widget)
     config.add_show_tools_partial(:bookmark, partial: 'bookmark_control', if: :render_bookmarks_control?)
     config.add_show_tools_partial(:email, callback: :email_action, validator: :validate_email_params)
 
