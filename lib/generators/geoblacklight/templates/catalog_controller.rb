@@ -222,8 +222,14 @@ class CatalogController < ApplicationController
     # Configure basemap provider for GeoBlacklight maps (uses https only basemap
     # providers with open licenses)
     # Valid basemaps include:
-    # 'positron' http://cartodb.com/basemaps/
-    # 'darkMatter' http://cartodb.com/basemaps/
+    # 'positron'
+    # 'darkMatter'
+    # 'positronLite'
+    # 'worldAntique'
+    # 'worldEco'
+    # 'flatBlue'
+    # 'midnightCommander' 
+    
     config.basemap_provider = 'positron'
 
     # Configuration for autocomplete suggestor
