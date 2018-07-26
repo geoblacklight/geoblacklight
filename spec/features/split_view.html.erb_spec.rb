@@ -13,6 +13,12 @@ feature 'Index view', js: true do
     expect(page).to have_css('#map')
   end
 
+  scenario 'should have sort and per_page on page' do
+    visit search_catalog_path(f: { Settings.FIELDS.PROVENANCE => ['Stanford'] })
+    expect(page).to have_css('#sort-dropdown')
+    expect(page).to have_css('#per_page-dropdown')
+  end
+
   scenario 'should have facets listed correctly' do
     within '#facet-panel-collapse' do
       expect(page).to have_css('div.card.facet-limit', text: 'Institution')
