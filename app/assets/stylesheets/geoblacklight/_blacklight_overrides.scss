@@ -1,0 +1,19 @@
+/**
+  Stylesheet for overriding styles inherited from Blacklight proper
+**/
+
+// Begin - Addresses GBL issue #634
+// Emulates font-size for SVG icons and aligns to baseline
+.blacklight-icons {
+  display: inline-flex;
+  height: $font-size-base;
+  width: $font-size-base;
+}
+
+.blacklight-icons svg {
+  height: 1rem;
+  width: 1rem;
+  top: .125rem;
+  position: relative;
+}
+// End - Addresses GBL issue #634
