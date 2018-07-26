@@ -17,3 +17,18 @@
   position: relative;
 }
 // End - Addresses GBL issue #634
+
+// Begin - Addresses GBL issue #639
+.facet-limit {
+  margin-bottom:0;
+}
+
+.facets-collapse .card+.card {
+  margin-top: 0.5rem;
+}
+
+.documents-list .document {
+  margin-top:0.5rem;
+  padding-top:0.5rem;
+}
+// End - Addresses GBL issue #639
