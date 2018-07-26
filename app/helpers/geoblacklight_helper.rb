@@ -118,7 +118,7 @@ module GeoblacklightHelper
   # Looks up properly formatted names for formats
   #
   def proper_case_format(format)
-    t "geoblacklight.formats.#{format.downcase}"
+    t("geoblacklight.formats.#{format.to_s.parameterize(separator: '_')}")
   end
 
   ##

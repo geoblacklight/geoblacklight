@@ -27,7 +27,9 @@ en:
       geotiff: 'GeoTIFF'
       kmz: 'KMZ'
       shapefile: 'Shapefile'
-      jpg: "JPG"
+      jpg: 'JPG'
+      esri_geodatabase: 'ESRI Geodatabase'
+      sqlite_database: 'SQLite Database'
     references:
       wms: 'Web Mapping Service (WMS)'
       wfs: 'Web Feature Service (WFS)'

@@ -25,8 +25,8 @@ describe 'catalog/_show_downloads.html.erb', type: :view do
     end
   end
   context 'document is not downloadable' do
-    let(:document) { double('document', restricted?: true, same_institution?: true) }
-    before(:each) do
+    let(:document) { instance_double(SolrDocument, restricted?: true, same_institution?: true) }
+    before do
       expect(view).to receive(:document_downloadable?).and_return(false)
     end
 
