@@ -3,6 +3,7 @@
 }
 
 .more-info-area {
+  order:3;
   max-height: 100px;
 }
 
@@ -19,14 +20,16 @@
 }
 
 .status-icons {
-  float: right;
+  order: 2;
   margin-right: 10px;
 }
 
 .index_title {
+  order: 1;
   @extend .text-span;
   @extend .hide-overflow;
   @extend h5;
+  font-size:1rem;
 }
 
 .caret-toggle {
