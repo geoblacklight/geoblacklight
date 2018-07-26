@@ -4,6 +4,10 @@ feature 'Home page', js: true do # use js: true for tests which require js, but 
   before do
     visit root_path
   end
+  scenario 'navbar' do
+    expect(page).to have_css '#bookmarks_nav'
+    expect(page).to have_css 'a', text: 'History'
+  end
   scenario 'search bar' do
     expect(page).not_to have_css '#search-navbar'
     within '.jumbotron' do
