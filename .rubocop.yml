@@ -1,17 +1,33 @@
+require: rubocop-rspec
+
+inherit_gem:
+  bixby: bixby_default.yml
+
+inherit_from: .rubocop_todo.yml
+
 Rails:
   Enabled: true
 
 AllCops:
   DisplayCopNames: true
-
   Include:
   - '**/Rakefile'
-
   Exclude:
   - 'db/**/*'
   - 'vendor/**/*'
   - '.internal_test_app/**/*'
   - 'lib/generators/geoblacklight/templates/**/*'
+  - 'geoblacklight.gemspec'
+  - 'Gemfile'
+
+Layout/DotPosition:
+  Description: Checks the position of the dot in multi-line method calls.
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#consistent-multi-line-chains
+  Enabled: true
+  EnforcedStyle: leading
+  SupportedStyles:
+  - leading
+  - trailing
 
 Metrics/LineLength:
   Max: 100
@@ -19,30 +35,15 @@ Metrics/LineLength:
   - 'spec/**/*'
   - 'Rakefile'
   - 'lib/generators/geoblacklight/install_generator.rb'
-
-# TODO: Refactor large methods.
-Metrics/AbcSize:
-  Max: 23
+  - 'lib/tasks/geoblacklight.rake'
 
 Metrics/MethodLength:
   Max: 16
 
-# TODO: Add top-level class and module documentation.
-Style/Documentation:
-  Enabled: false
-
 # Overrides method in blacklight. Must use method name.
-Style/PredicateName:
+Naming/PredicateName:
   Exclude:
     - 'lib/geoblacklight/view_helper_override.rb'
-
-RSpec/FilePath:
-  Enabled: false
-
-# Rubocop bug causes view specs to fail.
-#  https://github.com/nevir/rubocop-rspec/issues/47
-RSpec/DescribeClass:
-  Enabled: false
 
 # geoblacklight references in solr_document_spec are
 # difficult to mock because of the use of 'method_missing'.
@@ -50,6 +51,11 @@ RSpec/DescribeClass:
 RSpec/AnyInstance:
   Exclude:
     - 'spec/models/concerns/geoblacklight/solr_document_spec.rb'
+
+# Rubocop bug causes view specs to fail.
+#  https://github.com/nevir/rubocop-rspec/issues/47
+RSpec/DescribeClass:
+  Enabled: false
 
 Style/SignalException:
   EnforcedStyle: semantic
@@ -59,13 +65,3 @@ Style/StringLiterals:
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#consistent-string-literals
   Enabled: true
   EnforcedStyle: single_quotes
-
-Style/DotPosition:
-  Description: Checks the position of the dot in multi-line method calls.
-  StyleGuide: https://github.com/bbatsov/ruby-style-guide#consistent-multi-line-chains
-  Enabled: true
-  EnforcedStyle: leading
-  SupportedStyles:
-  - leading
-  - trailing
-
