@@ -9,6 +9,8 @@
     initialize: function(el, options) {
       L.Util.setOptions(this, options);
       this.$el = $(el);
+      this.options.spinner.hide();
+      $('.exports .panel-heading').append(this.options.spinner);
       this.configureHandler();
     },
 
@@ -17,20 +19,28 @@
     },
 
     download: function(ev) {
-      var url = this.$el.data('downloadPath');
       ev.preventDefault();
-      this.$el.closest('.btn-group').append(this.options.spinner);
+      if (this.downloading) {
+        return;
+      }
+      this.downloading = true;
+      var url = this.$el.data('downloadPath');
+      this.options.spinner.show();
       $.getJSON(url)
         .done(L.Util.bind(this.complete, this))
         .fail(L.Util.bind(this.error, this));
     },
 
     complete: function(data) {
+      this.downloading = false;
+      this.$el.prop('disabled', false);
       this.renderMessage(data);
       this.options.spinner.hide();
     },
 
     error: function(data) {
+      this.downloading = false;
+      this.$el.prop('disabled', false);
       this.options.spinner.hide();
     },
 

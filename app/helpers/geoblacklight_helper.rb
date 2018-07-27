@@ -22,6 +22,62 @@ module GeoblacklightHelper
     @document.references.iiif.endpoint.sub! 'info.json', 'full/full/0/default.jpg'
   end
 
+  def download_link_direct(text, document)
+    link_to(
+      text,
+      document.direct_download[:download],
+      'contentUrl' => document.direct_download[:download],
+      class: ['btn', 'btn-default', 'download', 'download-original'],
+      data: {
+        download: 'trigger',
+        download_type: 'direct',
+        download_id: document.id
+      }
+    )
+  end
+
+  def download_link_hgl(text, document)
+    link_to(
+      text,
+      download_hgl_path(id: document),
+      class: ['btn', 'btn-default', 'download', 'download-original'],
+      data: {
+        ajax_modal: 'trigger',
+        download: 'trigger',
+        download_type: 'harvard-hgl',
+        download_id: document.id
+      }
+    )
+  end
+
+  # Generates the link markup for the IIIF JPEG download
+  # @return [String]
+  def download_link_iiif
+    link_to(
+      download_text('JPG'),
+      iiif_jpg_url,
+      'contentUrl' => iiif_jpg_url,
+      class: ['btn', 'btn-default', 'download', 'download-generated'],
+      data: {
+        download: 'trigger'
+      }
+    )
+  end
+
+  def download_link_generated(download_type, document)
+    link_to(
+      t('geoblacklight.download.export_link', download_format: proper_case_format(download_type)),
+      '',
+      class: ['btn', 'btn-default', 'download', 'download-generated'],
+      data: {
+        download_path: download_path(document.id, type: download_type),
+        download: 'trigger',
+        download_type: download_type,
+        download_id: document.id
+      }
+    )
+  end
+
   ##
   # Blacklight catalog controller helper method to truncate field value to 150 chars
   # @param [SolrDocument] args
@@ -62,7 +118,7 @@ module GeoblacklightHelper
   # Looks up properly formatted names for formats
   #
   def proper_case_format(format)
-    t "geoblacklight.formats.#{format.downcase}"
+    t("geoblacklight.formats.#{format.to_s.parameterize(separator: '_')}")
   end
 
   ##
@@ -77,7 +133,25 @@ module GeoblacklightHelper
   # Wraps download text with proper_case_format
   #
   def download_text(format)
-    "#{t 'geoblacklight.download.download'} #{proper_case_format(format)}".html_safe
+    download_format = proper_case_format(format)
+    value = t('geoblacklight.download.download_link', download_format: download_format)
+    value.html_safe
+  end
+
+  def download_generated_body(format)
+    value = proper_case_format(format)
+    value = case value
+            when t('geoblacklight.formats.shapefile')
+              t('geoblacklight.download.export_shapefile_link')
+            when t('geoblacklight.formats.kmz')
+              t('geoblacklight.download.export_kmz_link')
+            when t('geoblacklight.formats.geojson')
+              t('geoblacklight.download.export_geojson_link')
+            else
+              value
+            end
+
+    value.html_safe
   end
 
   ##

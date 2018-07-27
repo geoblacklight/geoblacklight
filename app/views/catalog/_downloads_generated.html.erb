@@ -1,0 +1,6 @@
+<%# Renders the secondary downloads displayed in the split dropdown %>
+<% document ||= @document %>
+
+<% document.download_types.each do |type| %>
+  <%= render partial: 'download_generated_link', locals: { download_body: download_generated_body(type.first), download_link: download_link_generated(type.first, document) } %>
+<% end %>

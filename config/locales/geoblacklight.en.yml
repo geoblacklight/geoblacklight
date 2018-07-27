@@ -3,10 +3,16 @@ en:
     bbox_label: 'Bounding Box'
     download:
       download: 'Download'
+      download_link: 'Original %{download_format}'
       success: 'Your file %{title} is ready for download'
       hgl_success: 'You should receive an email when your download is ready'
       error: 'Sorry, the requested file could not be downloaded'
       error_with_url: 'Sorry, the requested file could not be downloaded, try downloading it directly from: %{link}'
+      export_formats: 'Export Formats'
+      export_link: 'Export'
+      export_shapefile_link: 'EPSG:4326 Shapefile'
+      export_kmz_link: 'KMZ'
+      export_geojson_link: 'GeoJSON'
     home:
       headline: 'Explore and discover...'
       search_heading: 'Find the maps and data you need'
@@ -21,6 +27,9 @@ en:
       geotiff: 'GeoTIFF'
       kmz: 'KMZ'
       shapefile: 'Shapefile'
+      jpg: 'JPG'
+      esri_geodatabase: 'ESRI Geodatabase'
+      sqlite_database: 'SQLite Database'
     references:
       wms: 'Web Mapping Service (WMS)'
       wfs: 'Web Feature Service (WFS)'
