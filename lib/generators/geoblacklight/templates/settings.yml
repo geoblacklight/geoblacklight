@@ -41,6 +41,7 @@ METADATA_SHOWN:
   - 'mods'
   - 'fgdc'
   - 'iso19139'
+  - 'html'
 
 # (For external Download) timeout and open_timeout parameters for Faraday
 TIMEOUT_DOWNLOAD: 16

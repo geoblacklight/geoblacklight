@@ -21,6 +21,15 @@ describe Geoblacklight::Metadata do
       end
     end
 
+    context 'with an html metadata reference' do
+      before do
+        allow(reference).to receive(:type).and_return('html')
+      end
+      it 'constructs an Geoblacklight::Metadata::Html instance' do
+        expect(described_class.instance(reference)).to be_a Geoblacklight::Metadata::Html
+      end
+    end
+
     context 'with another metadata reference' do
       before do
         allow(reference).to receive(:type).and_return('unsupported')

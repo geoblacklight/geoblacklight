@@ -3,7 +3,7 @@
  *
  */
 #metadata-container {
-  height: 1024px;
+  height: calc(100vh - 260px);
 
   ul {
     margin-top: 0;
@@ -34,5 +34,10 @@
   */
   div > dl > dt {
     font-size: 22px;
+  }
+
+  iframe {
+    height: 100%;
+    width: 100%;
   }
 }

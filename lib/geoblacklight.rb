@@ -21,6 +21,7 @@ module Geoblacklight
   require 'geoblacklight/metadata'
   require 'geoblacklight/metadata/base'
   require 'geoblacklight/metadata/fgdc'
+  require 'geoblacklight/metadata/html'
   require 'geoblacklight/metadata/iso19139'
   require 'geoblacklight/metadata_transformer'
   require 'geoblacklight/metadata_transformer/base'
