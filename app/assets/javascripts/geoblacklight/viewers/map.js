@@ -1,12 +1,13 @@
 //= require geoblacklight/viewers/viewer
 
 GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
+
   options: {
     /**
     * Initial bounds of map
     * @type {L.LatLngBounds}
     */
-    bbox: [[-80, -195], [80, 185]],
+    bbox: [[-82, -144], [77, 161]],
     opacity: 0.75
   },
 
