@@ -28,7 +28,7 @@ en:
       placename: 'Placename'
       subject: 'Subject'
     tools:
-      login_to_view: 'Login to view and download'
+      login_to_view: 'Login to view'
       open_carto: 'Open in Carto'
     formats:
       arcgrid: 'ArcGRID'
