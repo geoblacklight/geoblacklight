@@ -1,3 +1,12 @@
+%list-group-item-children {
+  padding: 10px, 15px;
+}
+
+%list-group-item-anchors {
+  text-align: center;
+  width: 1.4em;
+}
+
 .show-tools {
   @include sidebar-children;
 
