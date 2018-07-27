@@ -89,6 +89,10 @@ module Geoblacklight
       gsub_file('app/assets/javascripts/application.js', %r{\/\/= require turbolinks}, '')
     end
 
+    def update_application_name
+      gsub_file('config/locales/blacklight.en.yml', 'Blacklight', 'GeoBlacklight')
+    end
+
     def bundle_install
       Bundler.with_clean_env do
         run 'bundle install'
