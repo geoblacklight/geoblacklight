@@ -1,50 +1,81 @@
+%list-group-item-children {
+  padding: 10px, 15px;
+}
+
+%list-group-item-anchors {
+  text-align: center;
+  width: 1.4em;
+}
+
 .show-tools {
-  a .geoblacklight {
-    color: $gray-600;
-  }
+  .list-group {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    padding-left: 4px;
+    padding-right: 4px;
 
-  .geoblacklight-citation {
-    text-align: center;
-    width: 1.4em;
-  }
+    .list-group-item {
+      border-color: $white;
+      padding: 8px 32px;
 
-  .geoblacklight-data-dictionary {
-    text-align: center;
-    width: 1.4em;
-  }
-  
-  .geoblacklight-sms {
-    text-align: center;
-    width: 1.4em;
-  }
-  
-  .geoblacklight-email {
-    text-align: center;
-    width: 1.4em;
-  }
+      form {
+        @extend %list-group-item-children;
 
-  .geoblacklight-web_services {
-    text-align: center;
-    width: 1.4em;
-  }
+        .checkbox {
+          margin-left: 4px;
+          margin-right: 4px;
 
-  .geoblacklight-metadata {
-    text-align: center;
-    width: 1.4em;
-  }
+          label {
+            margin-bottom: inherit;
+          }
+        }
+      }
 
-  .geoblacklight-carto {
-    text-align: center;
-    width: 1.4em;
-  }
+      a {
+        @extend %list-group-item-children;
 
-  // DEPRECATED: Will be removed in GeoBlacklight v2.0
-  .geoblacklight-cartodb {
-    text-align: center;
-    width: 1.4em;
-  }
+        .geoblacklight {
+          color: $gray-600;
 
-  .downloads {
-    padding-top: 15px;
+          &-citation {
+            @extend %list-group-item-anchors;
+          }
+
+          &-data-dictionary {
+            @extend %list-group-item-anchors;
+          }
+
+          &-sms {
+            @extend %list-group-item-anchors;
+          }
+
+          &-email {
+            @extend %list-group-item-anchors;
+          }
+
+          &-web_services {
+            @extend %list-group-item-anchors;
+          }
+
+          &-metadata {
+            @extend %list-group-item-anchors;
+          }
+
+          &-carto {
+            @extend %list-group-item-anchors;
+          }
+
+          // DEPRECATED: Will be removed in GeoBlacklight v2.0
+          &-cartodb {
+            @extend %list-group-item-anchors;
+          }
+        }
+      }
+    }
+
+    .downloads {
+      margin-left: 4px;
+      margin-right: 4px;
+    }
   }
 }
