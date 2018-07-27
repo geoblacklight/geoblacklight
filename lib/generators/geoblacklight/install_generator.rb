@@ -88,6 +88,12 @@ module Geoblacklight
       gsub_file('config/locales/blacklight.en.yml', 'Blacklight', 'GeoBlacklight')
     end
 
+    # Temporarily pin blacklight to latest commit on master.
+    # TODO: Remove before merging blacklight 7 branch.
+    def pin_blacklight_7
+      gsub_file('Gemfile', "gem 'blacklight'", "gem 'blacklight', github: 'projectblacklight/blacklight', ref: '99878d4'")
+    end
+
     def bundle_install
       Bundler.with_clean_env do
         run 'bundle install'
