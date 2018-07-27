@@ -1,18 +1,28 @@
-[data-map="home"] {
-  height: 400px;
-}
 
 .geobl-homepage-masthead {
-
   .search-query-form {
     max-width: 100%;
   }
 }
 
-.category-block {
-  min-height: 240px;
+#main-container {
+  .category-block {
+    min-height: 240px;
 
-  .category-icon {
-    font-size: 6em;
+    .category-icon {
+      font-size: 6em;
+    }
+  }
+
+  [data-map="home"] {
+    height: 400px;
+
+    .leaflet-control-container {
+      .search-control {
+        a {
+          color: $white;
+        }
+      }
+    }
   }
 }
