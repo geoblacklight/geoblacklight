@@ -3,15 +3,15 @@ require 'spec_helper'
 feature 'Configurable basemap', js: true do
   scenario 'defaults to positron' do
     visit root_path
-    expect(page).to have_css "img[src*='cartodb']"
+    expect(page).to have_css "img[src*='carto']"
   end
   feature 'without provided basemap config' do
     before do
       CatalogController.blacklight_config.basemap_provider = nil
     end
-    scenario 'has CartoDB map' do
+    scenario 'has Carto map' do
       visit root_path
-      expect(page).to have_css "img[src*='cartodb']"
+      expect(page).to have_css "img[src*='carto']"
     end
   end
   feature 'using darkMatter' do
