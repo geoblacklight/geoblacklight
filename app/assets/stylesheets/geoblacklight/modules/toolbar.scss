@@ -1,46 +1,66 @@
 .show-tools {
-  a .geoblacklight {
-    color: $gray-600;
-  }
+  @include sidebar-children;
 
-  .geoblacklight-citation {
-    text-align: center;
-    width: 1.4em;
-  }
+  .list-group {
 
-  .geoblacklight-data-dictionary {
-    text-align: center;
-    width: 1.4em;
-  }
+    .list-group-item {
 
-  .geoblacklight-sms {
-    text-align: center;
-    width: 1.4em;
-  }
+      form {
+        @extend %list-group-item-children;
 
-  .geoblacklight-email {
-    text-align: center;
-    width: 1.4em;
-  }
+        .checkbox {
+          margin-left: 4px;
+          margin-right: 4px;
 
-  .geoblacklight-web_services {
-    text-align: center;
-    width: 1.4em;
-  }
+          label {
+            margin-bottom: inherit;
+          }
+        }
+      }
 
-  .geoblacklight-metadata {
-    text-align: center;
-    width: 1.4em;
-  }
+      a {
 
-  .geoblacklight-carto {
-    text-align: center;
-    width: 1.4em;
-  }
+        .geoblacklight {
 
-  // DEPRECATED: Will be removed in GeoBlacklight v2.0
-  .geoblacklight-cartodb {
-    text-align: center;
-    width: 1.4em;
+          &-citation {
+            @extend %list-group-item-anchors;
+          }
+
+          &-data-dictionary {
+            @extend %list-group-item-anchors;
+          }
+
+          &-sms {
+            @extend %list-group-item-anchors;
+          }
+
+          &-email {
+            @extend %list-group-item-anchors;
+          }
+
+          &-web_services {
+            @extend %list-group-item-anchors;
+          }
+
+          &-metadata {
+            @extend %list-group-item-anchors;
+          }
+
+          &-carto {
+            @extend %list-group-item-anchors;
+          }
+
+          // DEPRECATED: Will be removed in GeoBlacklight v2.0
+          &-cartodb {
+            @extend %list-group-item-anchors;
+          }
+        }
+      }
+    }
+
+    .downloads {
+      margin-left: 4px;
+      margin-right: 4px;
+    }
   }
 }
