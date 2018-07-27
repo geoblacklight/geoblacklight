@@ -17,7 +17,6 @@
       L.Util.setOptions(this, options);
       this.$el = $(el);
       this.$download = $(this.target || this.$el.data('ref-download'));
-      this.setRefUrl();
       this.configureHandler();
     },
 
@@ -25,29 +24,34 @@
      * Bind Elements to DOM element event listeners using jQuery
      */
     configureHandler: function configureHandler() {
-      this.$el.on('click',this.onclick);
-      this.$el.on('click',L.Util.bind(this.setRefUrl, this));
+      this.$el.on('click',L.Util.bind(this.updateRefUrl, this));
+    },
+
+    /**
+     * Determines if the URL for the download button element has been set
+     */
+    refUrlIsSet: function refUrlIsSet() {
+      return !(this.$download.attr('href') == null || this.$download.attr('href').length === 0)
+    },
+
+    /**
+     * Hides or shows the download button (depending upon whether or not the download URL has been set)
+     */
+    updateDownloadDisplay: function updateDownloadDisplay() {
+      if(!this.refUrlIsSet()) {
+        this.$download.hide();
+      } else {
+        this.$download.show();
+      }
     },
 
     /**
      * Set the hyperlink URL using the metadata URI
      */
-    setRefUrl: function setRefUrl() {
+    updateRefUrl: function setRefUrl() {
       var refUrl = this.$el.data('ref-endpoint');
-      if(refUrl == null || refUrl.length === 0) {
-        this.$download.hide();
-      } else {
-        this.$download.show();
-        this.$download.attr('href', refUrl);
-      }
-    },
-
-    /**
-     *
-     */
-    onclick: function onclick(e) {
-      e.preventDefault();
-      $(this).tab('show');
+      this.$download.attr('href', refUrl);
+      this.updateDownloadDisplay();
     }
   });
 

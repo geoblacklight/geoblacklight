@@ -39,6 +39,7 @@
     },
 
     error: function(data) {
+      this.renderErrorMessage(data);
       this.downloading = false;
       this.$el.prop('disabled', false);
       this.options.spinner.hide();
@@ -49,8 +50,12 @@
         var flash = '<div class="alert alert-' + msg[0] + '"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + msg[1] + '</div>';
         $('div.flash_messages').append(flash);
       });
-    }
+    },
 
+    renderErrorMessage: function(message) {
+      var flash = '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Failed to process the download request.</div>';
+      $('div.flash_messages').append(flash);
+    }
   });
 
   global.GeoBlacklight.Downloader = Downloader;
