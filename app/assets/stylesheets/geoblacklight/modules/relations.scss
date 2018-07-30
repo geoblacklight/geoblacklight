@@ -1,0 +1,15 @@
+.relations {
+  @include sidebar-children;
+
+  .list-group {
+    .relations-ancestors {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .relations-descendants {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
+}
