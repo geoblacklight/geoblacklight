@@ -10,7 +10,7 @@
       L.Util.setOptions(this, options);
       this.$el = $(el);
       this.options.spinner.hide();
-      $('.exports .panel-heading').append(this.options.spinner);
+      $('.exports .card-header').append(this.options.spinner);
       this.configureHandler();
     },
 
