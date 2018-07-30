@@ -84,7 +84,7 @@ describe GeoblacklightHelper, type: :helper do
     end
 
     it 'generates a link to the HGL route' do
-      expect(download_link_hgl(text, document)).to eq '<a class="btn btn-default download download-original" data-ajax-modal="trigger" data-download="trigger" data-download-type="harvard-hgl" data-download-id="test-id" href="/download/hgl/test-id">Test Link Text</a>'
+      expect(download_link_hgl(text, document)).to eq '<a class="btn btn-default download download-original" data-blacklight-modal="trigger" data-download="trigger" data-download-type="harvard-hgl" data-download-id="test-id" href="/download/hgl/test-id">Test Link Text</a>'
     end
   end
 

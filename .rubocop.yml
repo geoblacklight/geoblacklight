@@ -64,6 +64,7 @@ RSpec/AnyInstance:
   Exclude:
     - 'spec/models/concerns/geoblacklight/solr_document_spec.rb'
     - 'spec/helpers/geoblacklight_helper_spec.rb'
+    - 'spec/features/download_layer_spec.rb'
 
 # Rubocop bug causes view specs to fail.
 #  https://github.com/nevir/rubocop-rspec/issues/47
