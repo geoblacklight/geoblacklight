@@ -41,7 +41,7 @@ feature 'Display related documents' do
 
   scenario 'Record with relations should render widget in catalog#show', js: true do
     visit solr_document_path('nyu_2451_34635')
-    expect(page).to have_css('div.panel-heading', text: 'Data Relations')
+    expect(page).to have_css('div.card-header', text: 'Data Relations')
   end
 
   scenario 'Record without relations should not render widget in catalog#show', js: true do

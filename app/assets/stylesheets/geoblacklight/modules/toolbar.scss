@@ -1,22 +1,10 @@
-%list-group-item-children {
-  padding: 10px, 15px;
-}
-
-%list-group-item-anchors {
-  text-align: center;
-  width: 1.4em;
-}
 
 .show-tools {
+  @include sidebar-children;
+
   .list-group {
-    padding-top: 24px;
-    padding-bottom: 24px;
-    padding-left: 4px;
-    padding-right: 4px;
 
     .list-group-item {
-      border-color: $white;
-      padding: 8px 32px;
 
       form {
         @extend %list-group-item-children;
@@ -32,10 +20,8 @@
       }
 
       a {
-        @extend %list-group-item-children;
 
         .geoblacklight {
-          color: $gray-600;
 
           &-citation {
             @extend %list-group-item-anchors;
