@@ -8,7 +8,6 @@
 @mixin download-export {
   &-link {
     &-container {
-      padding: 4px 15px;
       text-align: center;
 
       a {
@@ -23,6 +22,7 @@
 }
 
 .downloads {
+  @include sidebar-children;
   @extend %downloads-exports;
 
   .download {
@@ -31,16 +31,12 @@
 }
 
 .exports {
+  @include sidebar-children;
   @extend %downloads-exports;
 
-  .panel-heading {
-    h2 {
-      display: inline;
-    }
-
+  .card-header {
     .fa-spinner {
-      padding-left: 8px;
-      padding-right: 8px;
+      float: right;
     }
   }
 
@@ -56,7 +52,7 @@
     }
 
     &-label {
-      padding: 10px 12px;
+      padding: 6px 12px;
 
       @include media-breakpoint-up(lg) {
         display: inline-block;

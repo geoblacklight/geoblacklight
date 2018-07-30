@@ -2,9 +2,9 @@
 
 <% if document_downloadable? %>
   <% if document.direct_download.present? || document.hgl_download.present? || document.iiif_download.present? %>
-    <div class="panel panel-default downloads">
-      <div class="panel-heading">
-        <h2 class="mb-0 h6"><%= t('geoblacklight.download.download').pluralize %></h2>
+    <div class="card downloads">
+      <div class="card-header">
+        <h2><%= t('geoblacklight.download.download').pluralize %></h2>
       </div>
 
       <ul class="list-group list-group-flush">
@@ -14,9 +14,10 @@
   <% end %>
 
   <% if document.download_types.present? %>
-    <div class="panel panel-default exports">
-      <div class="panel-heading">
-        <h2 class="mb-0 h6"><%= t('geoblacklight.download.export_formats') %></h2>
+    <div class="card exports">
+      <div class="card-header">
+
+        <h2><%= t('geoblacklight.download.export_formats') %></h2>
       </div>
 
       <ul class="list-group list-group-flush">
