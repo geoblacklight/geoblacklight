@@ -1,0 +1,35 @@
+// Mixins and shared properties for sidebar elements
+
+@mixin sidebar-children {
+  %list-group-item-children {
+    padding: 10px, 15px;
+  }
+
+  %list-group-item-anchors {
+    text-align: center;
+    width: 1.4em;
+  }
+
+  margin-top: 16px;
+  margin-bottom: 16px;
+
+  .list-group {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    padding-left: 4px;
+    padding-right: 4px;
+
+    .list-group-item {
+      border-color: $white;
+      padding: 8px 32px;
+
+      a {
+        @extend %list-group-item-children;
+
+        .geoblacklight {
+          color: $gray-600;
+        }
+      }
+    }
+  }
+}
