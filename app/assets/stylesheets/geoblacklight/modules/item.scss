@@ -1,16 +1,23 @@
-[data-map="item"] {  
-  height: 440px;
-}
+.document {
+  .row {
+    margin-top: 24px;
+    margin-bottom: 24px;
 
-[data-inspect="true"][data-available="true"] {
-  cursor: crosshair;
+    [data-map="item"] {
+      height: 440px;
+    }
 
-  // set cursor for feature layer svg elements
-  .leaflet-clickable {
-    cursor: crosshair;
+    [data-inspect="true"][data-available="true"] {
+      cursor: crosshair;
+
+      // set cursor for feature layer svg elements
+      .leaflet-clickable {
+        cursor: crosshair;
+      }
+    }
+
+    .download-element {
+      padding-bottom: 10px;
+    }
   }
-}
-
-.download-element {
-  padding-bottom: 10px;
 }
