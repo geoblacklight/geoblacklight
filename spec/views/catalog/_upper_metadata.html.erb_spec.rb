@@ -28,15 +28,14 @@ describe 'catalog/_upper_metadata.html.erb', type: :view do
   end
 
   it 'renders the field values for the default GeoBlacklight show fields' do
+    expect(presenter).to receive(:field_value).with('dc_creator_sm')
+    expect(presenter).to receive(:field_value).with('dc_description_s')
+    expect(presenter).to receive(:field_value).with('dc_publisher_s')
+    expect(presenter).to receive(:field_value).with('dct_isPartOf_sm')
+    expect(presenter).to receive(:field_value).with('dct_spatial_sm')
+    expect(presenter).to receive(:field_value).with('dc_subject_sm')
+    expect(presenter).to receive(:field_value).with('dct_temporal_sm')
+    expect(presenter).to receive(:field_value).with('dct_provenance_s')
     render
-
-    expect(presenter).to have_received(:field_value).with('dc_creator_sm')
-    expect(presenter).to have_received(:field_value).with('dc_description_s')
-    expect(presenter).to have_received(:field_value).with('dc_publisher_s')
-    expect(presenter).to have_received(:field_value).with('dct_isPartOf_sm')
-    expect(presenter).to have_received(:field_value).with('dct_spatial_sm')
-    expect(presenter).to have_received(:field_value).with('dc_subject_sm')
-    expect(presenter).to have_received(:field_value).with('dct_temporal_sm')
-    expect(presenter).to have_received(:field_value).with('dct_provenance_s')
   end
 end

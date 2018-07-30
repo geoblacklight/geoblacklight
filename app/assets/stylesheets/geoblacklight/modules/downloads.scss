@@ -51,14 +51,14 @@
     padding-right: 0px;
     text-align: center;
 
-    @media (min-width: $screen-lg-min) {
+    @include media-breakpoint-up(lg) {
       text-align: left;
     }
 
     &-label {
       padding: 10px 12px;
 
-      @media (min-width: $screen-lg-min) {
+      @include media-breakpoint-up(lg) {
         display: inline-block;
       }
     }
@@ -66,13 +66,13 @@
     &-link {
       &-container {
 
-        @media (min-width: $screen-lg-min) {
+        @include media-breakpoint-up(lg) {
           display: inline-block;
           float: right;
         }
 
         a {
-          @media (min-width: $screen-lg-min) {
+          @include media-breakpoint-up(lg) {
             width: inherit;
           }
         }
