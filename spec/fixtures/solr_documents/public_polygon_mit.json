@@ -21,7 +21,7 @@
   ],
   "dc_title_s": "Massachusetts (ZCTA - 5 digit zip code tabulation area, 2000)",
   "dc_type_s": "Dataset",
-  "dct_references_s": "{\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"http://arrowsmith.mit.edu:8080/geoserver/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"http://arrowsmith.mit.edu:8080/geoserver/wms\"}",
+  "dct_references_s": "{\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"https://geodata.mit.edu/geoserver/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://geodata.mit.edu/geoserver/wms\"}",
   "dct_spatial_sm": [
     "Massachusetts MA USA"
   ],
