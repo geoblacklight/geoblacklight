@@ -10,7 +10,7 @@
       // check if layer is actually a layer group
       if (typeof layer.getLayers !== 'undefined') {
 
-        // add first layer from layer group to options 
+        // add first layer from layer group to options
         options.layer = layer.getLayers()[0];
       } else {
 
@@ -30,7 +30,9 @@
         handleArrowDown = L.DomUtil.create('div', 'opacity-arrow-down', handle),
         bottom = L.DomUtil.create('div', 'opacity-bottom', container);
 
+      L.DomEvent.stopPropagation(container);
       L.DomEvent.disableClickPropagation(container);
+
       this.setListeners(handle, bottom, handleText);
       handle.style.top = handle.offsetTop - 13 + 50 + 'px';
       handleText.innerHTML = parseInt(this.options.layer.options.opacity * 100) + '%';
@@ -42,7 +44,7 @@
         start = false,
         startTop;
 
-      L.DomEvent.addListener(document, 'mousemove', function(e) {
+      L.DomEvent.on(document, 'mousemove', function(e) {
         if (!start) return;
         var percentInverse = Math.max(0, Math.min(200, startTop + parseInt(e.clientY, 10) - start)) / 2;
         handle.style.top = ((percentInverse * 2) - 13) + 'px';
@@ -52,16 +54,13 @@
         _this.options.layer.setOpacity(1 - (percentInverse / 100));
       });
 
-      L.DomEvent.addListener(handle, 'mousedown', function(e) {
-        L.DomEvent.disableClickPropagation(e);
+      L.DomEvent.on(handle, 'mousedown', function(e) {
         start = parseInt(e.clientY, 10);
         startTop = handle.offsetTop - 12;
         return false;
       });
 
-      L.DomEvent.addListener(document, 'mouseup', function(e) {
-        L.DomEvent.stopPropagation(e);
-        L.DomEvent.disableClickPropagation(e);
+      L.DomEvent.on(document, 'mouseup', function(e) {
         start = null;
       });
     }
