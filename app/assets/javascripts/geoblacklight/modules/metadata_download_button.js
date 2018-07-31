@@ -48,7 +48,7 @@
     /**
      * Set the hyperlink URL using the metadata URI
      */
-    updateRefUrl: function setRefUrl() {
+    updateRefUrl: function updateRefUrl() {
       var refUrl = this.$el.data('ref-endpoint');
       this.$download.attr('href', refUrl);
       this.updateDownloadDisplay();
