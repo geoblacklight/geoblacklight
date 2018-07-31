@@ -40,7 +40,7 @@ GeoBlacklight.Viewer.IndexMap = GeoBlacklight.Viewer.Map.extend({
           onEachFeature: function(feature, layer) {
             // Add a hover label for the label property
             if (feature.properties.label !== null) {
-              layer.bindPopup(feature.properties.label);
+              layer.bindTooltip(feature.properties.label);
             }
             // If it is available add clickable info
             if (feature.properties.available !== null) {
