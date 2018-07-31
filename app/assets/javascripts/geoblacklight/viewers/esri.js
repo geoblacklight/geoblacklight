@@ -20,8 +20,6 @@ GeoBlacklight.Viewer.Esri = GeoBlacklight.Viewer.Map.extend({
 
     // remove any trailing slash from endpoint url
     _this.data.url = _this.data.url.replace(/\/$/, '');
-
-    L.esri.get = L.esri.Request.get.JSONP;
     L.esri.get(_this.data.url, {}, function(error, response){
       if(!error) {
         _this.layerInfo = response;
@@ -47,7 +45,7 @@ GeoBlacklight.Viewer.Esri = GeoBlacklight.Viewer.Map.extend({
       return true;
     }
   },
-  
+
   // clear attribute table and setup spinner icon
   appendLoadingMessage: function() {
     var spinner = '<tbody class="attribute-table-body"><tr><td colspan="2">' +
@@ -61,7 +59,7 @@ GeoBlacklight.Viewer.Esri = GeoBlacklight.Viewer.Map.extend({
 
   // appends error message to attribute table
   appendErrorMessage: function() {
-    $('.attribute-table-body').html('<tbody class="attribute-table-body">'+ 
+    $('.attribute-table-body').html('<tbody class="attribute-table-body">'+
       '<tr><td colspan="2">Could not find that feature</td></tr></tbody>');
   },
 
