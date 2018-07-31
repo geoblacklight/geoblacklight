@@ -19,7 +19,7 @@ en:
       category_heading: 'Find by...'
       map_heading: 'Find by location'
     tools:
-      login_to_view: 'Login to view'
+      login_to_view: 'Login to View and Download'
       open_carto: 'Open in Carto'
     formats:
       arcgrid: 'ArcGRID'
