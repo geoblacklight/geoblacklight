@@ -10,7 +10,7 @@ en:
       error_with_url: 'Sorry, the requested file could not be downloaded, try downloading it directly from: %{link}'
       export_formats: 'Export Formats'
       export_link: 'Export'
-      export_shapefile_link: 'EPSG:4326 Shapefile'
+      export_shapefile_link: 'Shapefile'
       export_kmz_link: 'KMZ'
       export_geojson_link: 'GeoJSON'
     home:
@@ -19,7 +19,7 @@ en:
       category_heading: 'Find by...'
       map_heading: 'Find by location'
     tools:
-      login_to_view: 'Login to view'
+      login_to_view: 'Login to View and Download'
       open_carto: 'Open in Carto'
     formats:
       arcgrid: 'ArcGRID'
