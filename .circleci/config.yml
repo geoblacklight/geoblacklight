@@ -2,39 +2,101 @@
 version: 2
 jobs:
   rails_5_2_0:
-    parallelism: 2
     working_directory: ~/geoblacklight
     docker:
       - image: circleci/ruby:2.5.1-node-browsers
         environment:
-          RAILS_ENV: test
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          # We need both GEM_HOME and BUNDLE_PATH because of the test app
+          GEM_HOME: /home/circleci/geoblacklight/vendor/bundle
+          BUNDLE_PATH: /home/circleci/geoblacklight/vendor/bundle
           CI: true
+          RAILS_ENV: test
           RAILS_VERSION: 5.2.0
     steps:
       - checkout
-      - run: bundle install
+      # Restore bundle cache
+      - type: cache-restore
+        name: Restore bundle cache
+        key: geoblacklight-bundle-5-2-0-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-3f5eff
+      # Install gems
+      - run: bundle check || bundle install
+      # Restore cached Solr
+      - type: cache-restore
+        name: Restore solr cache
+        key: geoblacklight-solr{{ checksum ".solr_wrapper" }}
+      # Run solr wrapper, which downloads correct solr version if not cached
+      - run: bundle exec rake solr:clean
+      # Cache Solr
+      - type: cache-save
+        name: Store solr cache
+        key: geoblacklight-solr{{ checksum ".solr_wrapper" }}
+        paths:
+          - tmp/solr
+      # Run specs
       - run: bundle exec rake ci
+      # Store bundle cache
+      - type: cache-save
+        name: Store bundle cache
+        key: geoblacklight-bundle-5-2-0-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-3f5eff
+        paths:
+          - /home/circleci/geoblacklight/vendor/bundle
   rails_5_1_6:
-    parallelism: 2
     working_directory: ~/geoblacklight
     docker:
       - image: circleci/ruby:2.4.4-node-browsers
         environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          GEM_HOME: /home/circleci/geoblacklight/vendor/bundle
+          BUNDLE_PATH: /home/circleci/geoblacklight/vendor/bundle
           RAILS_ENV: test
           RAILS_VERSION: 5.1.6
     steps:
       - checkout
-      - run: bundle install
+      # Restore bundle cache
+      - type: cache-restore
+        name: Restore bundle cache
+        key: geoblacklight-bundle-5-1-6-{{ checksum "Gemfile" }}-{{ checksum "geoblacklight.gemspec" }}-3f5eff
+      # Install gems and run specs
+      - run: bundle check || bundle install
+      # Restore cached Solr
+      - type: cache-restore
+        name: Restore solr cache
+        key: geoblacklight-solr{{ checksum ".solr_wrapper" }}
+      # Run solr wrapper, which downloads correct solr version if not cached
+      - run: bundle exec rake solr:clean
+      # Cache Solr
+      - type: cache-save
+        name: Store solr cache
+        key: geoblacklight-solr{{ checksum ".solr_wrapper" }}
+        paths:
+          - tmp/solr
+      # Run specs
       - run: bundle exec rake ci
+      # Store bundle cache
+      - type: cache-save
+        name: Store bundle cache
+        key: geoblacklight-bundle-5-1-6-{{ checksum "Gemfile" }}-{{ checksum "geoblacklight.gemspec" }}-3f5eff
+        paths:
+          - /home/circleci/geoblacklight/vendor/bundle
   rubocop:
     working_directory: ~/geoblacklight
     docker:
-      - image: circleci/ruby:2.4.4-node-browsers
+      - image: circleci/ruby:2.5.1-node-browsers
         environment:
+          GEM_HOME: /home/circleci/geoblacklight/vendor/bundle
+          BUNDLE_PATH: /home/circleci/geoblacklight/vendor/bundle
           RAILS_ENV: test
     steps:
       - checkout
-      - run: bundle install
+      # Restore bundle cache
+      - type: cache-restore
+        name: Restore bundle cache
+        key: geoblacklight-bundle-5-2-0-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-3f5eff
+      # Install gems and run rubocop
+      - run: bundle check || bundle install
       - run: bundle exec rake rubocop
 workflows:
   version: 2
@@ -42,4 +104,6 @@ workflows:
     jobs:
       - rails_5_2_0
       - rails_5_1_6
-      - rubocop
+      - rubocop:
+          requires:
+            - rails_5_2_0
