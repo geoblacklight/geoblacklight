@@ -26,7 +26,9 @@
     </div>
   <% end %>
 <% elsif document.restricted? && document.same_institution? %>
-  <div class='panel-body'>
-    <%= link_to t('geoblacklight.tools.login_to_view'), new_user_session_path(referrer: request.original_url) %>
+  <div class="card authentication">
+    <div class="card-header">
+      <%= link_to t('geoblacklight.tools.login_to_view'), new_user_session_path(referrer: request.original_url), class: ['btn', 'btn-default'] %>
+    </div>
   </div>
 <% end %>

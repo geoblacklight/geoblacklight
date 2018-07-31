@@ -34,7 +34,7 @@ describe 'catalog/_show_downloads.html.erb', type: :view do
       it 'renders login link' do
         assign :document, document
         render
-        expect(rendered).to have_css '.panel-body a'
+        expect(rendered).to have_css '.card-header a'
       end
     end
   end
