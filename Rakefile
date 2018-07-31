@@ -14,15 +14,15 @@ require 'rubocop/rake_task'
 
 EngineCart.fingerprint_proc = EngineCart.rails_fingerprint_proc
 
-desc 'Run style checker'
+desc 'Run RuboCop style checker'
 RuboCop::RakeTask.new(:rubocop) do |task|
   task.requires << 'rubocop-rspec'
   task.fail_on_error = true
 end
 
-desc 'Run test suite and style checker'
-task spec: :rubocop do
-  RSpec::Core::RakeTask.new(:spec)
+task(:spec).clear
+RSpec::Core::RakeTask.new(:spec) do |t|
+  t.verbose = false
 end
 
 desc 'Run Teaspoon JavaScript tests'
