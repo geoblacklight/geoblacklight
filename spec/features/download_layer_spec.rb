@@ -49,7 +49,7 @@ feature 'Download layer' do
   end
   scenario 'restricted layer should not have download available to non logged in user' do
     visit solr_document_path('stanford-cg357zz0321')
-    expect(page).to have_css 'a', text: 'Login to view'
+    expect(page).to have_css 'a', text: 'Login to View and Download'
     expect(page).not_to have_css 'button', text: 'Download Shapefile'
   end
   scenario 'restricted layer should have download available to logged in user' do
