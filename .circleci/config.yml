@@ -1,0 +1,45 @@
+---
+version: 2
+jobs:
+  rails_5_2_0:
+    parallelism: 2
+    working_directory: ~/geoblacklight
+    docker:
+      - image: circleci/ruby:2.5.1-node-browsers
+        environment:
+          RAILS_ENV: test
+          CI: true
+          RAILS_VERSION: 5.2.0
+    steps:
+      - checkout
+      - run: bundle install
+      - run: bundle exec rake ci
+  rails_5_1_6:
+    parallelism: 2
+    working_directory: ~/geoblacklight
+    docker:
+      - image: circleci/ruby:2.4.4-node-browsers
+        environment:
+          RAILS_ENV: test
+          RAILS_VERSION: 5.1.6
+    steps:
+      - checkout
+      - run: bundle install
+      - run: bundle exec rake ci
+  rubocop:
+    working_directory: ~/geoblacklight
+    docker:
+      - image: circleci/ruby:2.4.4-node-browsers
+        environment:
+          RAILS_ENV: test
+    steps:
+      - checkout
+      - run: bundle install
+      - run: bundle exec rake rubocop
+workflows:
+  version: 2
+  build_accept_deploy:
+    jobs:
+      - rails_5_2_0
+      - rails_5_1_6
+      - rubocop
