@@ -69,6 +69,13 @@ module Geoblacklight
       end
     end
 
+    # Turn off JQuery animations during testing
+    def inject_disable_jquery_animations
+      inject_into_file 'app/views/layouts/application.html.erb', before: '</head>' do
+        "  <%= javascript_tag '$.fx.off = true;' if Rails.env.test? %>\n"
+      end
+    end
+
     def create_downloads_directory
       FileUtils.mkdir_p('tmp/cache/downloads') unless File.directory?('tmp/cache/downloads')
     end
