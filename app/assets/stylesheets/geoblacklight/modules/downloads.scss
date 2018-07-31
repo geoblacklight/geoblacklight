@@ -5,18 +5,22 @@
   }
 }
 
+%download-export-links {
+  a {
+    width: 100%;
+    font-weight: 600;
+    background-color: $link-color;
+    color: #ffffff;
+    border-color: darken($link-color, 6.5%);
+    white-space: inherit;
+  }
+}
+
 @mixin download-export {
   &-link {
     &-container {
       text-align: center;
-
-      a {
-        width: 100%;
-        font-weight: 600;
-        background-color: $link-color;
-        color: #ffffff;
-        border-color: darken($link-color, 6.5%);
-      }
+      @extend %download-export-links;
     }
   }
 }
@@ -27,6 +31,16 @@
 
   .download {
     @include download-export;
+  }
+}
+
+.authentication {
+  @include sidebar-children;
+  .card-header {
+    background-color: inherit;
+    border-bottom: inherit;
+
+    @extend %download-export-links;
   }
 }
 
@@ -46,15 +60,16 @@
     padding-left: 0px;
     padding-right: 0px;
     text-align: center;
+    width: 100%;
 
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up(xl) {
       text-align: left;
     }
 
     &-label {
       padding: 6px 12px;
 
-      @include media-breakpoint-up(lg) {
+      @include media-breakpoint-up(xl) {
         display: inline-block;
       }
     }
@@ -62,13 +77,13 @@
     &-link {
       &-container {
 
-        @include media-breakpoint-up(lg) {
+        @include media-breakpoint-up(xl) {
           display: inline-block;
           float: right;
         }
 
         a {
-          @include media-breakpoint-up(lg) {
+          @include media-breakpoint-up(xl) {
             width: inherit;
           }
         }
