@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe Geoblacklight::DocumentPresenter do
+  # Please see https://github.com/projectblacklight/blacklight/blob/v6.15.0/spec/presenters/index_presenter_spec.rb#L4
   let(:request_context) { double(add_facet_params: '') }
   let(:blacklight_config) do
     Blacklight::Configuration.new.configure do |config|

@@ -15,6 +15,18 @@ describe GeoblacklightHelper, type: :helper do
     end
   end
 
+  describe '#sms_helper' do
+    it 'generates an icon for SMS messaging' do
+      expect(sms_helper).to eq('<i class="fa fa-mobile fa-fw"></i> SMS This')
+    end
+  end
+
+  describe '#email_helper' do
+    it 'generates an icon for e-mail messaging' do
+      expect(email_helper).to eq('<i class="fa fa-envelope fa-fw"></i> Email')
+    end
+  end
+
   describe '#geoblacklight_icon' do
     it 'replaces special characters, lowercases, and subs spaces for hyphens' do
       html = Capybara.string(geoblacklight_icon('TEst & 123'))
@@ -200,22 +212,44 @@ describe GeoblacklightHelper, type: :helper do
     end
   end
 
+  context 'when CartoHelper methods are within scope' do
+    include CartoHelper
+
+    before do
+      allow(helper).to receive(:application_name).and_return('GeoBlacklight')
+    end
+
+    describe '#cartodb_provider' do
+      it 'aliases CartoHelper#carto_provider' do
+        expect(helper.cartodb_provider).to eq('GeoBlacklight')
+      end
+    end
+
+    describe '#cartodb_link' do
+      it 'aliases CartoHelper#carto_link' do
+        expect(helper.cartodb_link('http://demo.org/wfs/layer.json')).to eq(helper.carto_link('http://demo.org/wfs/layer.json'))
+      end
+    end
+  end
+
   describe '#render_web_services' do
-    let(:reference) { double(type: 'wms') }
+    let(:reference) { instance_double(Geoblacklight::Reference, type: 'wms') }
     it 'with a reference to a defined partial' do
       expect(helper).to receive(:render)
         .with(partial: 'web_services_wms', locals: { reference: reference })
       helper.render_web_services(reference)
     end
-    it 'with a reference to a missing partial' do
-      reference = double(type: 'iiif')
-      # expect(helper).to receive(:render).and_raise ActionView::MissingTemplate
-      expect(helper).to receive(:render)
-        .with(partial: 'web_services_iiif', locals: { reference: reference })
-        .and_raise ActionView::MissingTemplate.new({}, '', '', '', '')
-      expect(helper).to receive(:render)
-        .with(partial: 'web_services_default', locals: { reference: reference })
-      helper.render_web_services(reference)
+    context 'when the partial is missing' do
+      let(:reference) { instance_double(Geoblacklight::Reference, type: 'iiif') }
+
+      it 'with a reference to a missing partial' do
+        expect(helper).to receive(:render)
+          .with(partial: 'web_services_iiif', locals: { reference: reference })
+          .and_raise ActionView::MissingTemplate.new({}, '', '', '', '')
+        expect(helper).to receive(:render)
+          .with(partial: 'web_services_default', locals: { reference: reference })
+        helper.render_web_services(reference)
+      end
     end
   end
 

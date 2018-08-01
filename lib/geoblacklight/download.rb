@@ -39,6 +39,7 @@ module Geoblacklight
     # @return [String] filename of the completed download
     def create_download_file
       download = initiate_download
+
       File.open("#{file_path_and_name}.tmp", 'wb') do |file|
         fail Geoblacklight::Exceptions::WrongDownloadFormat unless matches_mimetype?(download)
         file.write download.body
