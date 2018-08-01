@@ -8,6 +8,7 @@ describe('MetadataDownloadButton', function() {
       var button = new GeoBlacklight.MetadataDownloadButton('#foo');
       expect(button.$el.attr('id')).toBe('foo');
       expect(button.$download.attr('id')).toBe('bar');
+      button.updateRefUrl();
       expect(button.$download.attr('href')).toBe('http://testdomain');
     });
   });

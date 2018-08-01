@@ -1,14 +1,30 @@
-.modal-header, .modal-body, .modal-footer {
-  .hide-without-js {
-    display: none;
+.modal {
+  &-header {
+    border-bottom: none;
   }
-}
 
-#ajax-modal {
-  .modal-header, .modal-body, .modal-footer {
-    .hide-without-js {
-      display: inline-block; 
+  &-body {
+    .form-horizontal {
+      .form-group {
+        * {
+          float: left;
+        }
+
+        .control-label {
+          text-align: right;
+          margin-bottom: 0;
+          padding-top: 7px;
+        }
+      }
     }
   }
 
+  &-footer {
+    margin-bottom: 8px;
+    border-top: none;
+
+    .btn {
+      border-color: $gray-400;
+    }
+  }
 }
