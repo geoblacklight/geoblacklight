@@ -4,10 +4,6 @@ source 'https://rubygems.org'
 gemspec
 
 group :development, :test do
-  gem 'coveralls', require: false
-  # Peg simplecov to < 0.8 until this is resolved:
-  # https://github.com/colszowka/simplecov/issues/281
-  gem 'simplecov', '~> 0.7.1', require: false
   # See https://github.com/rails/rails/issues/32955
   gem 'thor', '>= 0.19.0'
 end

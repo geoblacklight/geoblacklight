@@ -1,10 +1,24 @@
 ENV['RAILS_ENV'] ||= 'test'
 
+require 'simplecov'
+require 'coveralls'
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
+  [
+    SimpleCov::Formatter::HTMLFormatter,
+    Coveralls::SimpleCov::Formatter
+  ]
+)
+SimpleCov.start 'rails' do
+  add_filter 'lib/generators/geoblacklight/install_generator.rb'
+  add_filter 'lib/geoblacklight/version.rb'
+  add_filter 'lib/generators/geoblacklight/templates'
+  add_filter '/spec'
+end
+
 require 'factory_bot'
 require 'database_cleaner'
+
 require 'engine_cart'
-require 'coveralls'
-Coveralls.wear!('rails')
 EngineCart.load_application!
 
 require 'rails-controller-testing' if Rails::VERSION::MAJOR >= 5
@@ -23,16 +37,7 @@ Capybara.register_driver(:headless_chrome) do |app|
 end
 
 Capybara.javascript_driver = :headless_chrome
-
 Capybara.default_max_wait_time = 15
-
-if ENV['COVERAGE'] || ENV['CI']
-  require 'simplecov'
-  SimpleCov.formatter = Coveralls::SimpleCov::Formatter
-  SimpleCov.start do
-    add_filter '/spec/'
-  end
-end
 
 require 'geoblacklight'
 
