@@ -11,6 +11,7 @@
 |Geodatabase	|Vector or Raster	|
 |GeoJPEG		|Raster				|
 |GeoJSON		|Vector				|
+|GeoPackage |Vector or Raster	|
 |GeoPDF			|Vector or Raster	|
 |GeoTIFF		|Raster				|
 |KML			|Vector				|
