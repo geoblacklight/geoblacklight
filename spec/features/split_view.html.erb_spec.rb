@@ -9,7 +9,7 @@ feature 'Index view', js: true do
   scenario 'should have documents and map on page' do
     visit search_catalog_path(f: { Settings.FIELDS.PROVENANCE => ['Stanford'] })
     expect(page).to have_css('#documents')
-    expect(page).to have_css('.document', count: 4)
+    expect(page).to have_css('.document', count: 5)
     expect(page).to have_css('#map')
   end
 

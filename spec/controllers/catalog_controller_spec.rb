@@ -36,7 +36,7 @@ describe CatalogController, type: :controller do
         get :index
         expect(response.status).to eq 200
         expect(assigns(:response).docs).not_to be_empty
-        expect(assigns(:response).docs.first.id).to eq 'mit-001145244'
+        expect(assigns(:response).docs.first.id).to eq 'stanford-zn545gm0023'
       end
 
       it 'filters using a default DisMax query when no query is provided by the client' do

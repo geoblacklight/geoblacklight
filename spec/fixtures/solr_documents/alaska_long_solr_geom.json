@@ -1,0 +1,35 @@
+{
+  "dc_identifier_s": "http://purl.stanford.edu/zn545gm0023",
+  "dc_title_s": "100-Meter Resolution Color-Sliced Elevation of Alaska",
+  "dc_description_s": "This layer is a georeferenced raster image displaying color-sliced elevation data for Alaska at 100-meter resolution, using an Albers Equal-Area Conic projection. Each color tint represents a range of elevation values. There are 32 elevation classes and colors required to map all 50 of the United States, Puerto Rico, and the U.S. Virgin Islands, plus an additional class and color to represent non-U.S. land. The Alaska map layer contains all 33 classes. The color-sliced elevation data were derived from National Elevation Dataset (NED) data and show the terrain of Alaska at a resolution of 100 meters. The NED is a raster product assembled by the U.S. Geological Survey, designed to provide national elevation data in a seamless form with a consistent datum, elevation unit, and projection. Data corrections made in the NED assembly process minimize artifacts, permit edge matching, and fill sliver areas of missing data. This layer is part of the 1997-2014 edition of the National Atlas of the United States.The 100-meter resolution color-sliced elevation data were developed to portray the terrain of the United States at 1:1,000,000 scale. They are intended primarily for visual purposes. The original NED data should be used for conducting analysis and determining the most accurate elevation values. No responsibility is assumed by the National Atlas of the United States in the use of these data.",
+  "dc_rights_s": "Public",
+  "dct_provenance_s": "Stanford",
+  "dct_references_s": "{\"http://schema.org/url\":\"http://purl.stanford.edu/zn545gm0023\",\"http://schema.org/downloadUrl\":\"http://stacks.stanford.edu/file/druid:zn545gm0023/data.zip\",\"http://www.loc.gov/mods/v3\":\"http://purl.stanford.edu/zn545gm0023.mods\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"https://raw.githubusercontent.com/OpenGeoMetadata/edu.stanford.purl/master/zn/545/gm/0023/iso19139.xml\",\"http://www.opengis.net/def/serviceType/ogc/wcs\":\"https://geowebservices.stanford.edu/geoserver/wcs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://geowebservices.stanford.edu/geoserver/wms\"}",
+  "layer_id_s": "druid:zn545gm0023",
+  "layer_slug_s": "stanford-zn545gm0023",
+  "layer_geom_type_s": "Raster",
+  "layer_modified_dt": "2016-03-23T21:28:19Z",
+  "dc_format_s": "GeoTIFF",
+  "dc_language_s": "English",
+  "dc_type_s": "Dataset",
+  "dc_publisher_s": "National Atlas of the United States",
+  "dc_creator_sm": [
+    "Geological Survey (U.S.)"
+  ],
+  "dc_subject_sm": [
+    "Digital elevation models",
+    "Topographic maps",
+    "Imagery and Base Maps",
+    "Elevation"
+  ],
+  "dct_issued_s": "2013",
+  "dct_temporal_sm": [
+  "2012"
+  ],
+  "dct_spatial_sm": [
+  "Alaska"
+  ],
+  "solr_geom": "ENVELOPE(-179.9999845, 179.9993566, 71.9545187, 43.0532272)",
+  "solr_year_i": 2012,
+  "geoblacklight_version": "1.0"
+}

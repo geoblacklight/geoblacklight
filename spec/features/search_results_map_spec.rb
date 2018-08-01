@@ -52,4 +52,28 @@ feature 'search results map', js: true do
     expect(right.to_f).to be_within(2).of(-73)
     expect(top.to_f).to be_within(2).of(40)
   end
+  scenario 'swlng is less than 0 and less than nelat' do
+    visit search_catalog_path(q: 'East Asia and Oceania.')
+    expect(page).to have_css '#map'
+    bbox = page.find('#map')['data-js-map-render-bbox']
+    # Example bbox for q: East Asia and Oceania.
+    # "-298.12500000000006,-89.68308276560911,298.12500000000006,89.68308276560914"
+    left, bottom, right, top = bbox.split(',')
+    expect(left.to_f).to be_within(1).of(-298)
+    expect(bottom.to_f).to be_within(1).of(-89)
+    expect(right.to_f).to be_within(1).of(298)
+    expect(top.to_f).to be_within(1).of(89)
+  end
+  scenario 'longitude crosses the antimeridian - area of Alaska' do
+    visit solr_document_path 'stanford-zn545gm0023'
+    expect(page).to have_css '#map'
+    bbox = page.find('#map')['data-map-bbox']
+    # Example bbox for show page of 100-Meter Resolution Color-Sliced Elevation of Alaska
+    # "-179.9999845 43.0532272 179.9993566 71.9545187"
+    left, bottom, right, top = bbox.split(' ')
+    expect(left.to_f).to be_within(1).of(-179)
+    expect(bottom.to_f).to be_within(1).of(43)
+    expect(right.to_f).to be_within(1).of(179)
+    expect(top.to_f).to be_within(1).of(71)
+  end
 end
