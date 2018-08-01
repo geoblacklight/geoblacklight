@@ -1,6 +1,6 @@
-# Place any default configuration for solr_wrapper here
-# port: 8983
+url: https://archive.apache.org/dist/lucene/solr/7.4.0/solr-7.4.0.zip
+validate: false
+download_dir: tmp/solr
 collection:
   dir: solr/conf/
   name: blacklight-core
- 
