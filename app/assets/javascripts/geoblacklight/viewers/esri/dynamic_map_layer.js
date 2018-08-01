@@ -18,8 +18,7 @@ GeoBlacklight.Viewer.DynamicMapLayer = GeoBlacklight.Viewer.Esri.extend({
       this.dynamicLayerId = lastSegment;
       this.data.url = this.data.url.slice(0,-(lastSegment.length + 1));
     }
-    
-    L.esri.get = L.esri.Request.get.JSONP;
+
     L.esri.get(_this.data.url, {}, function(error, response){
       if(!error) {
         _this.layerInfo = response;
@@ -54,13 +53,13 @@ GeoBlacklight.Viewer.DynamicMapLayer = GeoBlacklight.Viewer.Esri.extend({
     return esriDynamicMapLayer;
   },
 
-  setupInspection: function(layer) { 
+  setupInspection: function(layer) {
     var _this = this;
     this.map.on('click', function(e) {
       _this.appendLoadingMessage();
 
       // query layer at click location
-      var identify = L.esri.Tasks.identifyFeatures({
+      var identify = L.esri.identifyFeatures({
           url: layer.options.url,
           useCors: true
       })

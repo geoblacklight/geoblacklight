@@ -50,6 +50,9 @@ GeoBlacklight.Viewer.Wms = GeoBlacklight.Viewer.Map.extend({
       $.ajax({
         type: 'POST',
         url: '/wms/handle',
+        beforeSend: function(xhr) {
+          xhr.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
+        },
         data: wmsoptions,
         success: function(data) {
           if (data.hasOwnProperty('error') || data.values.length === 0) {
