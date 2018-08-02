@@ -8,15 +8,15 @@
 
 #main-container {
   .category-block {
-    min-height: 240px;
+    min-height: 15rem;
 
     .category-icon {
-      font-size: 6em;
+      font-size: 6rem;
     }
   }
 
   [data-map="home"] {
-    height: 400px;
+    height: 25rem;
 
     .leaflet-control-container {
       .search-control {

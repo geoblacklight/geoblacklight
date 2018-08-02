@@ -1,79 +1,79 @@
 .leaflet-control.opacity-control {
   background-color: #a9acb1;
-  border-radius: 15px;
+  border-radius: 1rem;
   color: black;
-  font: bold 18px 'Lucida Console', Monaco, monospace;
+  font: bold 1.125rem 'Lucida Console', Monaco, monospace;
   display: block;
-  height: 200px;
-  left: 11px;
+  height: 12.5rem;
+  left: 0.5rem;
   position: relative;
-  top: 15px;
-  width: 5px;
-  
+  top: 1rem;
+  width: 0.25rem;
+
   .opacity-handle {
     background-color: #fff;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     border: 1px solid #eee;
     cursor: ns-resize;
-    font-size: 10px;
-    height: 26px;
-    left: -11px;
-    line-height: 26px;
+    font-size: 0.625rem;
+    height: 2rem;
+    left: -0.6875rem;
+    line-height: 1.5rem;
     position: absolute;
     text-align: center;
     top: 0;
-    width: 26px;
+    width: 1.625rem;
     @include map-control-shadow;
-    
+
     &:hover {
       background-color: #f4f4f4;
     }
   }
-  
+
   .opacity-arrow-up {
     color: #aaa;
     position: absolute;
-    top: -11px;
+    top: -1.5rem;
     text-align: center;
     width: 100%;
-    
+
     &:before {
       content: '=';
-    } 
+    }
   }
-  
+
   .opacity-arrow-down {
-    bottom: -10px;
+    bottom: -1.5rem;
     color: #aaa;
     position: absolute;
     text-align: center;
     width: 100%;
-    
+
     &:before {
       content: '=';
-    }  
+    }
   }
 
   .opacity-bottom {
     background-color: #017afd;
-    border-radius: 15px;
+    border-radius: 1rem;
     display: block;
-    height: 137px;
-    left: 0px;
+    height: 8.5rem;
+    left: 0rem;
     position: relative;
-    top: 63px;
-    width: 5px;  
+    top: 4rem;
+    width: 0.5rem;
   }
-  
+
   // Area underneath slider to prevent unintentioned map clicks
   .opacity-area {
-    padding: 14px;
+    padding: 1rem;
     cursor: default;
-    height: 200px;
-    left: -11px;
+    height: 12.5rem;
+    left: -1.5rem;
     position: absolute;
-    top: 0px;
-    width: 20px;
+    top: 0rem;
+    width: 1.5rem;
   }
 }
 

@@ -4,7 +4,7 @@
       @media (min-width: map-get($grid-breakpoints, "md")) {
         dt {
           float: left;
-          width: 160px;
+          width: 10rem;
           clear: left;
           text-align: right;
           overflow: hidden;
@@ -13,7 +13,7 @@
         }
 
         dd {
-          margin-left: 180px;
+          margin-left: 11.25rem;
         }
       }
     }
@@ -21,7 +21,7 @@
 
   #viewer-container {
     [data-map="item"] {
-      height: 440px;
+      height: 27.5rem;
     }
 
     [data-inspect="true"][data-available="true"] {
