@@ -172,6 +172,11 @@ describe Geoblacklight::References do
       expect(types.count).to eq 3
     end
   end
+  describe '#method_missing' do
+    it 'defaults to the base behavior if the method signature is not a URI key' do
+      expect { typical_ogp_shapefile.invalid }.to raise_error(NoMethodError)
+    end
+  end
   describe 'downloads_by_format' do
     it 'returns shapefile' do
       expect(typical_ogp_shapefile.downloads_by_format.count).to eq 3
