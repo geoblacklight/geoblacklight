@@ -1,33 +1,35 @@
+{"output 1": [
 {
-  "geoblacklight_version": "1.0",
-  "layer_geom_type_s": "Polygon",
-  "layer_modified_dt": "2016-07-11T09:15:37Z",
-  "solr_geom": "ENVELOPE(-93.3291083642602, -93.1896159986687, 45.0512462600492, 44.8901520021226)",
-  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"http://opendata.minneapolismn.gov/datasets/772ebcaf2ec0405ea1b156b5937593e7_0.zip\",\"urn:x-esri:serviceType:ArcGIS#FeatureLayer\":\"https://services.arcgis.com/afSMGVsC7QlRK1kZ/arcgis/rest/services/Fire_Station_Areas/FeatureServer/0\",\"http://schema.org/url\":\"http://opendata.minneapolismn.gov/datasets/772ebcaf2ec0405ea1b156b5937593e7_0\"}",
-  "dc_rights_s": "Public",
-  "dct_provenance_s": "Minnesota",
-  "dc_subject_sm": [
-    "utilitiesCommunications",
-    "fire"
-  ],
-  "dct_temporal_sm": "2015",
-  "dc_description_s": "Map service showing the Fire Station service areas for the Minneapolis Fire Department.",
-  "dct_issued_s": "2012-04-25T19:32:02.000ZZ",
-  "dc_format_s": "Shapefile",
-  "dc_creator_sm": [
-    "MapIT Minneapolis"
-  ],
-  "dc_type_s": "Dataset",
-  "dc_identifier_s": "e2f33b52-4039-4bbb-9095-b5cdc0175943",
-  "solr_year_i": 2012,
-  "dct_spatial_sm": [
-    "City of Minneapolis, Minnesota",
-    "Minneapolis"
-  ],
-  "dc_publisher_sm": [
-    "MapIT Minneapolis"
-  ],
-  "layer_id_s": "urn:e2f33b52-4039-4bbb-9095-b5cdc0175943",
-  "dc_title_s": "Fire Station Areas: Minneapolis, Minnesota",
-  "layer_slug_s": "minnesota-e2f33b52-4039-4bbb-9095-b5cdc0175943"
+
+
+"dc_identifier_s": "f406332e63eb4478a9560ad86ae90327_18",
+"dc_title_s": "Transit - Airports: Maryland",
+"dc_description_s": "This is a MD iMAP hosted service layer. Find more information at http:\/\/imap.maryland.gov. The Airports database is a geographic point database of aircraft landing facilities in the State of Maryland. Attribute data is provided on the physical and operational characteristics of the landing facility, current usage including enplanements and aircraft operations, congestion levels and usage categories. This geospatial data is derived from the FAA's National Airspace System Resource Aeronautical Data Product. This dataset only contains features located within the State of Maryland. Last Updated: 06\/2013",
+"dc_rights_s": "Public",
+"dc_format_s": "Shapefile",
+"dc_language_sm": "English",
+"dc_type_sm": ["Dataset","Service"],
+"dc_publisher_sm": ["State of Maryland"],
+"dc_creator_sm": ["Maryland iMap"],
+"dc_subject_sm": ["Transportation"],
+"dct_provenance_s": "Maryland",
+"dct_references_s": "{\"http://schema.org/url\":\"http://data.imap.maryland.gov/datasets/f406332e63eb4478a9560ad86ae90327_18\",\"http://schema.org/downloadUrl\":\"http://data.imap.maryland.gov/datasets/f406332e63eb4478a9560ad86ae90327_18.zip\",\"urn:x-esri:serviceType:ArcGIS#FeatureLayer\":\"https://geodata.md.gov/imap/rest/services/Transportation/MD_Transit/FeatureServer/18\"}",
+"dct_isPartOf_sm": ["ArcGIS Open Data"],
+"dct_issued_s": "2016-02-16",
+"dct_temporal_sm": ["2016"],
+"dct_spatial_sm": ["Maryland, United States"],
+"layer_slug_s": "f406332e63eb4478a9560ad86ae90327_18",
+"layer_geom_type_s": "Vector",
+"layer_modified_dt": "2018-08-02T17:16:57Z",
+"solr_geom": "ENVELOPE(-79.4539, -75.124, 39.7194, 37.9667)",
+"solr_year_i": 2016,
+"b1g_genre_sm": ["Geospatial data"],
+"b1g_centroid_ss": "38.84305,-77.28895",
+"b1g_geonames_sm": [],
+"b1g_image_ss": "",
+"b1g_collection_sm": "10a-01",
+"geoblacklight_version": "1.0"
 }
+
+] 
+ }
