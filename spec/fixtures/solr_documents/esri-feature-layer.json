@@ -1,7 +1,4 @@
-{"output 1": [
 {
-
-
 "dc_identifier_s": "f406332e63eb4478a9560ad86ae90327_18",
 "dc_title_s": "Transit - Airports: Maryland",
 "dc_description_s": "This is a MD iMAP hosted service layer. Find more information at http:\/\/imap.maryland.gov. The Airports database is a geographic point database of aircraft landing facilities in the State of Maryland. Attribute data is provided on the physical and operational characteristics of the landing facility, current usage including enplanements and aircraft operations, congestion levels and usage categories. This geospatial data is derived from the FAA's National Airspace System Resource Aeronautical Data Product. This dataset only contains features located within the State of Maryland. Last Updated: 06\/2013",
@@ -31,5 +28,3 @@
 "geoblacklight_version": "1.0"
 }
 
-] 
- }
