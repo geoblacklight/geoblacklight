@@ -23,6 +23,8 @@
 .status-icons {
   order: 2;
   margin-left: 0.5rem;
+  position:relative;
+  bottom:0.25rem;
 }
 
 .index_title {
@@ -38,6 +40,7 @@
   @extend .fa, .fa-caret-right;
   cursor: pointer;
   width: 0.625rem;
+  margin-left:1rem;
 
   &.open {
     @extend .fa, .fa-caret-down;
