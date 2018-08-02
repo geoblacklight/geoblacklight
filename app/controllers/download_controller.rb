@@ -61,7 +61,7 @@ class DownloadController < ApplicationController
   # exception
   # @return [String] error message to display in flash
   def flash_error_message(exception)
-    if exception.url
+    if exception.url.present?
       message = t('geoblacklight.download.error_with_url',
                   link: view_context
                         .link_to(exception.url,

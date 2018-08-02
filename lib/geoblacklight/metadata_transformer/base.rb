@@ -37,13 +37,6 @@ module Geoblacklight
       rescue => e
         raise TransformError, e.message
       end
-
-      ##
-      # Retrieve the Class for the GeoCombine::Metadata instance
-      # @return [GeoCombine::Metadata]
-      def metadata_class
-        GeoCombine::Metadata
-      end
     end
   end
 end
