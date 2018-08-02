@@ -2,23 +2,23 @@
 
 @mixin sidebar-children {
   %list-group-item-children {
-    padding: 10px, 15px;
+    padding: 0.5rem, 1rem;
   }
 
   %list-group-item-anchors {
     text-align: center;
-    width: 1.4em;
+    width: 1.4rem;
   }
 
-  margin-top: 16px;
-  margin-bottom: 16px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 
   .card-header {
     h2 {
       display: inline-block;
-      padding-top: 8px;
-      padding-bottom: 8px;
-      margin-bottom: 0px;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      margin-bottom: 0rem;
       font-size: 1rem;
     }
   }

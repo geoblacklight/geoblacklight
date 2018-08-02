@@ -1,10 +1,10 @@
 %list-group-item-children {
-  padding: 10px, 15px;
+  padding: 0.5rem, 1rem;
 }
 
 %list-group-item-anchors {
   text-align: center;
-  width: 1.4em;
+  width: 1.4rem;
 }
 
 .show-tools {
@@ -18,8 +18,8 @@
         @extend %list-group-item-children;
 
         .checkbox {
-          margin-left: 4px;
-          margin-right: 4px;
+          margin-left: 0.25rem;
+          margin-right: 0.25rem;
 
           label {
             margin-bottom: inherit;
@@ -68,8 +68,8 @@
     }
 
     .downloads {
-      margin-left: 4px;
-      margin-right: 4px;
+      margin-left: 0.25rem;
+      margin-right: 0.25rem;
     }
   }
 }

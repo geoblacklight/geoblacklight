@@ -2,7 +2,7 @@
 
 .geoblacklight-icon {
   color: $gray-600;
-  font-size: 1.2em;
+  font-size: 1.2rem;
 }
 
 .geoblacklight-stanford {
@@ -15,7 +15,7 @@
 
 .geoblacklight-restricted {
   @extend .fa, .fa-lock, .text-muted;
-  width: 17px;
+  width: 1rem;
 }
 
 .geoblacklight-citation {

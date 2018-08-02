@@ -57,8 +57,8 @@
   .export {
     @include download-export;
 
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0rem;
+    padding-right: 0rem;
     text-align: center;
     width: 100%;
 
@@ -67,7 +67,7 @@
     }
 
     &-label {
-      padding: 6px 12px;
+      padding: 0.5rem 0.75rem;
 
       @include media-breakpoint-up(xl) {
         display: inline-block;

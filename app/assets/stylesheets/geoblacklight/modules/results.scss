@@ -1,10 +1,10 @@
 [data-map="index"] {
-  height: 480px;
+  height: 30rem;
 }
 
 .more-info-area {
   order:3;
-  max-height: 100px;
+  max-height: 6rem;
   overflow:hidden;
 }
 
@@ -37,7 +37,7 @@
 .caret-toggle {
   @extend .fa, .fa-caret-right;
   cursor: pointer;
-  width: 10px;
+  width: 0.625rem;
 
   &.open {
     @extend .fa, .fa-caret-down;
