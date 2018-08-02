@@ -14,12 +14,12 @@
   "dct_temporal_sm": [
     "2005-2005"
   ],
-  "georss_box_s": "36.82 -76.346 36.971 -76.176",
   "georss_polygon_s": "36.82 -76.346 36.971 -76.346 36.971 -76.176 36.82 -76.176 36.82 -76.346",
   "layer_geom_type_s": "MultiPoint",
   "layer_id_s": "Norfolk:police_point",
   "layer_modified_dt": "2008-11-12T15:29:47Z",
   "layer_slug_s": "uva-Norfolk:police_point",
   "solr_geom": "ENVELOPE(-76.346, -76.176, 36.971, 36.82)",
-  "solr_year_i": 2005
+  "solr_year_i": 2005,
+  "geoblacklight_version": "1.0"
 }
