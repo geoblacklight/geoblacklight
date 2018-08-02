@@ -22,12 +22,17 @@ describe Geoblacklight::HglDownload do
 
   describe '#get' do
     let(:references_field) { Settings.FIELDS.REFERENCES }
-    let(:references) do
+    let(:references_values) do
       {
         'http://www.opengis.net/def/serviceType/ogc/wms' => 'http://www.example.com/wms'
       }
     end
-    let(:options) { { service_type: 'wms', references_field => references.to_json } }
+    let(:options) do
+      {
+        service_type: 'wms',
+        references_field => references_values.to_json
+      }
+    end
     let(:faraday_connection) { instance_double(Faraday::Connection) }
     let(:faraday_response) { instance_double(Faraday::Response) }
     let(:faraday_request) { instance_double(Faraday::Request) }
