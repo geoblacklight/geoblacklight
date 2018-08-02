@@ -24,7 +24,7 @@ feature 'Download layer' do
     expect(shapefile_download).to receive(:get).and_raise(Geoblacklight::Exceptions::ExternalDownloadFailed.new(message: 'Failed', url: 'http://www.example.com/failed'))
     visit solr_document_path('mit-us-ma-e25zcta5dct-2000')
     find('a[data-download-type="shapefile"]', text: 'Export').click
-    expect(page).to have_css 'div.alert.alert-danger', text: 'Sorry, the requested file could not be downloaded, try downloading it directly from:'
+    expect(page).to have_css 'div.alert.alert-danger', text: 'Sorry, the requested file could not be downloaded. Try downloading it directly from:'
     expect(page).to have_css 'a', text: 'http://www.example.com/failed'
   end
   scenario 'clicking kmz download button should trigger download', js: true do
