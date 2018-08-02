@@ -1,16 +1,16 @@
 <div class='container'>
   <div class='row text-center'>
-    <div class='col'>
+    <div class='col-sm'>
       <%= content_tag :h3, t('geoblacklight.home.category_heading') %>
       <div class='row'>
-        <div class='category-block col'>
+        <div class='category-block col-sm'>
           <div class='category-icon'>
             <span class='fa fa-home'></span>
           </div>
           <h4>Institution</h4>
           <%= render_facet_tags [Settings.FIELDS.PROVENANCE] %>
         </div>
-        <div class='category-block col'>
+        <div class='category-block col-sm'>
           <div class='category-icon'>
             <span class='fa fa-arrow-circle-down'></span>
           </div>
@@ -19,14 +19,14 @@
         </div>
       </div>
       <div class='row'>
-        <div class='category-block col'>
+        <div class='category-block col-sm'>
           <div class='category-icon'>
             <span class='fa fa-globe'></span>
           </div>
           <h4>Placename</h4>
           <%= render_facet_tags [Settings.FIELDS.SPATIAL_COVERAGE] %>
         </div>
-        <div class='category-block col'>
+        <div class='category-block col-sm'>
           <div class='category-icon'>
             <span class='fa fa-tags'></span>
           </div>
@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-    <div class='col'>
+    <div class='col-sm'>
       <%= content_tag :h3, t('geoblacklight.home.map_heading') %>
       <%= content_tag :div, '', id: 'map', data: { map: 'home', 'catalog-path'=> search_catalog_path , 'map-bbox' => params[:bbox], basemap: geoblacklight_basemap, leaflet_options: leaflet_options } %>
     </div>
