@@ -1,5 +1,5 @@
-gem 'blacklight', '>= 6.3'
-gem 'geoblacklight', '>= 1.4'
+gem 'blacklight', '>= 6.11'
+gem 'geoblacklight', '>= 1.9'
 
 run 'bundle install'
 
