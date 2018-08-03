@@ -9,7 +9,7 @@
     <span class="document-counter">
       <%= t('blacklight.search.documents.counter', :counter => counter) if counter %>
     </span>
-    <%= link_to_document document, document_show_link_field(document), counter: counter, title: document[blacklight_config.index.title_field] %>
+    <%= link_to_document document, document_show_link_field(document), counter: counter, title: document[blacklight_config.index.title_field], itemprop: "name" %>
   </h3>
 
   <div class='col-md-12 more-info-area'>
@@ -20,4 +20,3 @@
     </div>
   </div>
 <% end %>
-
