@@ -1,5 +1,4 @@
 {
-  "uuid": "http://purl.stanford.edu/fb897vt9938",
   "dc_identifier_s": "http://purl.stanford.edu/fb897vt9938",
   "dc_title_s": "Dabao Kinbōzu, Maps Index",
   "dc_description_s": "This polygon GeoJSON file is an index to 1:50000 scale maps of Davao (Philippines), titled 'Dabao Kinbōzu -- ダバオ近傍圖/Dabao Kinbōzu.’ This map series was originally produced by the Japanese Land Survey Department of the General Staff Headquarters in 1944. Stanford University Libraries holds a large collection of Japanese military and imperial maps, referred to as gaihōzu, or \"maps of outer lands.\" These maps were produced starting in the early Meiji (1868-1912) era and the end of World War II by the Land Survey Department of the General Staff Headquarters, the former Japanese Army. The Library is in the process of scanning and making available all of the maps in the collection. To create this index, footprints were generated using the fishnet tool, and metadata were supplied for the digitized paper maps by Stanford University Libraries. After the footprints were created, the GeoJSON was trimmed and labeled according to the sources.This layer provides an index map that can be used to locate individual scanned map sheets.",
@@ -32,8 +31,6 @@
   "dct_spatial_sm": [
     "Davao (Philippines)"
   ],
-  "georss_box_s": "6.6666 125 7.3333 126",
-  "georss_polygon_s": "6.6666 125 7.3333 125 7.3333 126 6.6666 126 6.6666 125",
   "solr_geom": "ENVELOPE(125, 126, 7.3333, 6.6666)",
   "solr_year_i": 1944,
   "stanford_rights_metadata_s": "<?xml version=\"1.0\"?>\n<rightsMetadata>\n  <access type=\"discover\">\n    <machine>\n      <world/>\n    </machine>\n  </access>\n  <access type=\"read\">\n    <machine>\n      <world/>\n    </machine>\n  </access>\n  <use>\n    <human type=\"useAndReproduction\">This item is in the public domain.  There are no restrictions on use.</human>\n    <human type=\"creativeCommons\"/>\n    <machine type=\"creativeCommons\"/>\n  </use>\n  <copyright>\n    <human>This work is in the Public Domain, meaning that it is not subject to copyright.</human>\n  </copyright>\n</rightsMetadata>\n"

@@ -1,0 +1,20 @@
+{
+  "geoblacklight_version": "1.0",
+  "dc_identifier_s": "ark:/88435/sx61dn82p",
+  "layer_slug_s": "princeton-sx61dn82p",
+  "dc_title_s": "East Asia and Oceania",
+  "solr_geom": "ENVELOPE(-124.73333333333333, 68.0, 62.45, -53.233333333333334)",
+  "dct_provenance_s": "Princeton",
+  "dc_rights_s": "Public",
+  "dc_description_s": "United States. Central Intelligence Agency. Map no. 802861 (A04678) 4-02.",
+  "dc_language_s": "eng",
+  "dc_publisher_s": "[Washington, D.C.] : [Central Intelligence Agency], 2002.",
+  "dc_subject_sm": [
+    "Asia, east — Maps"
+  ],
+  "layer_modified_dt": "2018-06-07T06:03:16Z",
+  "layer_id_s": "public-figgy:a990e1b4-7f0e-44b8-ae2a-de7e93cdd74a",
+  "dct_references_s": "{\"http://schema.org/url\":\"https://catalog.princeton.edu/catalog/6829320\",\"http://schema.org/downloadUrl\":\"https://figgy.princeton.edu/downloads/a990e1b4-7f0e-44b8-ae2a-de7e93cdd74a/file/36a2274c-e0c6-4901-a14f-7c422d15e194\",\"http://schema.org/thumbnailUrl\":\"https://figgy.princeton.edu/downloads/a990e1b4-7f0e-44b8-ae2a-de7e93cdd74a/file/726bf9ce-7f57-48bc-9e9f-45fc5b93c6f0\",\"http://iiif.io/api/image\":\"https://libimages1.princeton.edu/loris/figgy_prod/2e%2Fa9%2F43%2F2ea943b0bd4348fc9954b299f1b359f6%2Fintermediate_file.jp2/info.json\",\"http://iiif.io/api/presentation#manifest\":\"https://figgy.princeton.edu/concern/scanned_maps/0c2e1053-22ef-409e-ad9a-7a4709a5efcb/manifest\"}",
+  "layer_geom_type_s": "Image",
+  "dc_format_s": "TIFF"
+}

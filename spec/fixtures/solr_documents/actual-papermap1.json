@@ -8,7 +8,7 @@
   "dc_rights_s": "Public",
   "dc_title_s": "1:1 500 000 series [cartographic material] : tectonic map of Britain, Ireland and adjacent areas / British Geological Survey ; Geological Survey of Ireland ; Geological Survey of Northern Ireland.",
   "dc_type_s": "Dataset",
-  "dct_references_s": "{\"http://schema.org/url\":\"http://library.mit.edu/item/001145244\",\"http://www.opengis.net/cat/csw/csdgm\":\"http://opengeometadata.stanford.edu/metadata/org.opengeoportal/MIT:001145244/fgdc.xml\",\"http://www.w3.org/1999/xhtml\":\"http://opengeometadata.stanford.edu/metadata/org.opengeoportal/MIT:001145244/fgdc.html\"}",
+  "dct_references_s": "{\"http://schema.org/url\":\"http://library.mit.edu/item/001145244\"}",
   "dct_temporal_sm": [
     "1996"
   ],

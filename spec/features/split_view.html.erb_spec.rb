@@ -26,7 +26,7 @@ feature 'Index view', js: true do
     end
     click_link 'Institution'
     using_wait_time 120 do
-      expect(page).to have_css('a.facet_select', text: 'Columbia', visible: true)
+      expect(page).to have_css('a.facet_select', text: 'Minnesota', visible: true)
       expect(page).to have_css('a.facet_select', text: 'MIT', visible: true)
       expect(page).to have_css('a.facet_select', text: 'Stanford', visible: true)
       expect(page).to have_css('a.more_facets_link', text: /more\sInstitution\s»/, visible: true)

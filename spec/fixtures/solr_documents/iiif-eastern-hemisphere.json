@@ -1,0 +1,30 @@
+{
+  "dc_identifier_s": "57f0f116-b64e-4773-8684-96ba09afb549",
+  "dc_title_s": "A new & accurate map of Asia: drawn from actual surveys, and otherwise collected from journals; assisted by the most approved modern maps & charts. the whole being regulated by astron. observations",
+  "dc_description_s": "Cartographic Details: Scale [1:26,000,000]. Numbered \"N⁰52.\" Decorative title cartouche with palm tree. Shows boundaries, rivers, islands and principal settlements. Relief shown pictorially. London meridian. 35 x 43 cm",
+  "dc_rights_s": "Public",
+  "dc_format_s": "TIFF",
+  "dc_language_sm": [
+    "English"
+  ],
+  "dc_type_sm": [
+    "Image"
+  ],
+  "dc_creator_sm": [
+    "Bowen, Emanuel (-1767)"
+  ],
+  "dct_provenance_s": "Minnesota",
+  "dct_references_s": "{\"http://schema.org/url\":\"http://purl.umn.edu/200804\",\"http://schema.org/downloadUrl\":\"https://umedia.lib.umn.edu/sites/default/files/archive/113/image/tiff/1058396.tif\",\"http://iiif.io/api/image\":\"https://umedia.lib.umn.edu/fcgi-bin/iipsrv.fcgi?IIIF=sites/default/files/reference/113/image/jp2/1058396.jp2/info.json\"}",
+  "dct_isPartOf_sm": [
+    "John R. Borchert Map Library"
+  ],
+  "dct_temporal_sm": [
+    "1750"
+  ],
+  "layer_slug_s": "57f0f116-b64e-4773-8684-96ba09afb549",
+  "layer_geom_type_s": "Image",
+  "layer_modified_dt": "2018-08-02T16:28:36Z",
+  "solr_geom": "ENVELOPE(25, -168.35, 81.66, -12.93)",
+  "solr_year_i": 1750,
+  "geoblacklight_version": "1.0"
+}

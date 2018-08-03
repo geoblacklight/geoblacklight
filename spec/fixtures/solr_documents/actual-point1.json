@@ -1,24 +1,37 @@
 {
-  "geoblacklight_version": "1.0",
-  "dc_description_s": "Actual Evapotrans is a point theme representing the sum of evaporation and plant transpiration to the atmosphere from throughout the world.  Measurements are represented by points at every.5 degrees and provided for every month of the year. This dataset is a part of the Global Climate Database from the Global Change Department National Institute of Public Health and Environmental Protection.",
+  "dc_creator_sm": [
+  ],
+  "dc_description_s": "This point shapefile was created as a guide to New York City’s non-neighborhood place locations that appear in “New York: A City of Neighborhoods.” These place locations include parks, cemeteries, and airports. Best estimates of label centroids were established at a 1:1,000 scale, but are ideally viewed at a 1:50,000 scale.",
   "dc_format_s": "Shapefile",
-  "dc_identifier_s": "urn:columbia.edu:Columbia.landinfo_global_aet",
+  "dc_identifier_s": "http://hdl.handle.net/2451/34564",
   "dc_language_s": "English",
+  "dc_publisher_s": "New York (City). Department of City Planning",
   "dc_rights_s": "Public",
-  "dc_title_s": "Actual Evapotrans",
+  "dc_subject_sm": [
+    "Airports",
+    "Parks",
+    "Public spaces"
+  ],
+  "dc_title_s": "2014 New York City Places",
   "dc_type_s": "Dataset",
-  "dct_references_s": "{\"http://www.opengis.net/cat/csw/csdgm\":\"http://opengeometadata.stanford.edu/metadata/org.opengeoportal/Columbia:Columbia.landinfo_global_aet/fgdc.xml\",\"http://www.w3.org/1999/xhtml\":\"http://opengeometadata.stanford.edu/metadata/org.opengeoportal/Columbia:Columbia.landinfo_global_aet/fgdc.html\"}",
+  "dct_isPartOf_sm": [
+    "Bytes of the Big Apple"
+  ],
+  "dct_issued_s": "2014",
+  "dct_provenance_s": "NYU",
+  "dct_references_s": "{\"http://schema.org/url\":\"http://hdl.handle.net/2451/34564\",\"http://schema.org/downloadUrl\":\"https://archive.nyu.edu/retrieve/74563/nyu_2451_34564.zip\",\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"https://maps-public.geo.nyu.edu/geoserver/sdr/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://maps-public.geo.nyu.edu/geoserver/sdr/wms\"}",
   "dct_spatial_sm": [
-    "World"
+    "New York, New York, United States"
   ],
   "dct_temporal_sm": [
-    "1996"
+    "2014"
   ],
-  "dct_provenance_s": "Columbia",
-  "layer_slug_s": "columbia-columbia-landinfo-global-aet",
-  "layer_id_s": "Columbia:Columbia.landinfo_global_aet",
+  "geoblacklight_version": "1.0",
   "layer_geom_type_s": "Point",
-  "layer_modified_dt": "2014-12-12T19:54:57Z",
-  "solr_geom": "ENVELOPE(-179.5, 180.0, 83.0, -56.0)",
-  "solr_year_i": 1996
+  "layer_id_s": "sdr:nyu_2451_34564",
+  "layer_modified_dt": "2016-04-20T21:31:14Z",
+  "layer_slug_s": "nyu-2451-34564",
+  "nyu_addl_dspace_s": "35497",
+  "solr_geom": "ENVELOPE(-74.2485646353495, -73.7322869841185, 40.8962098695574, 40.4995658893951)",
+  "solr_year_i": 2014
 }
