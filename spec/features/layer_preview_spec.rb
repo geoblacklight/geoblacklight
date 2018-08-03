@@ -7,7 +7,7 @@ feature 'Layer preview', js: true do
   end
 
   scenario 'Public layer should show wms layer not bounding box' do
-    visit solr_document_path('mit-us-ma-e25zcta5dct-2000')
+    visit solr_document_path('mit-f6rqs4ucovjk2')
     expect(Nokogiri::HTML.parse(page.body).css('path').length).to eq 0
     within '.leaflet-tile-pane' do
       expect(page).to have_css('.leaflet-layer', count: 2)

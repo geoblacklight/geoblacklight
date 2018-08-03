@@ -12,7 +12,7 @@ describe Geoblacklight::DownloadController, type: :controller do
       it 'initiates download' do
         allow(controller).to receive(:render) # Needed for testing with Rails 4
         expect(controller).to receive(:send_file)
-        get :file, params: { id: 'mit-us-ma-e25zcta5dct-2000-shapefile', format: 'zip' }
+        get :file, params: { id: 'mit-f6rqs4ucovjk2-shapefile', format: 'zip' }
       end
     end
   end
@@ -32,7 +32,7 @@ describe Geoblacklight::DownloadController, type: :controller do
 
       it 'initiates download creation' do
         allow(shapefile_download).to receive(:get).and_return('success')
-        get :show, params: { id: 'mit-us-ma-e25zcta5dct-2000', type: 'shapefile' }
+        get :show, params: { id: 'mit-f6rqs4ucovjk2', type: 'shapefile' }
         expect(response.status).to eq 200
       end
     end

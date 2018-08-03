@@ -28,7 +28,7 @@ feature 'Metadata tools' do
   end
   feature 'when metadata references are not available' do
     scenario 'is not in tools' do
-      visit solr_document_path 'mit-us-ma-e25zcta5dct-2000'
+      visit solr_document_path 'mit-f6rqs4ucovjk2'
       expect(page).not_to have_css 'li.metadata a', text: 'Metadata'
     end
   end

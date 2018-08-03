@@ -4,7 +4,9 @@
   "dc_description_s": "The 2030 Regional Development Framework Planning Areas - 2011 updates the 2030 Regional Development Framework Planning Areas initially adopted on January 14, 2004 and ammended in 2006. This dataset reflect the agreed upon planning areas between a community and the Metropolitan Council and defined in the communities' 2030 Comprehensive Plan Update and is intended to supplement the 2030 Regional Development Framework - the planning guide for the 7-county Twin Cities metropolitan area of Minneapolis and Saint Paul, Minnesota.   Planning area definitions and strategies for the planning areas are available in the 2030 Regional Development Framework document at http://www.metrocouncil.org/Planning/Planning/2030-Regional-Development-Framework.aspx  (See Chapter 3). For questions about how decisions were made regarding individual communities' geographic planning areas, please contact the Metropolitan Council Regional Framework Development staff, Dan Marckel, 651-602-1548.  See Currentness Reference and Lineage in Data Quality Section of this metadata for more information.",
   "dc_rights_s": "Public",
   "dc_format_s": "Shapefile",
-  "dc_language_sm": "English",
+  "dc_language_sm": [
+    "English"
+  ],
   "dc_type_sm": [
     "Dataset",
     "Service"
@@ -19,7 +21,7 @@
     "Planning and Cadastral"
   ],
   "dct_provenance_s": "Minnesota",
-  "dct_references_s": "{\"http://schema.org/url\":\"https://gisdata.mn.gov/dataset/02236876-9c21-42f6-9870-d2562da8e44f\",\"http://schema.org/downloadUrl\":\"ftp://ftp.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_metc/plan_frmwrk2030dev_plan_ar2011/shp_plan_frmwrk2030dev_plan_ar2011.zip\",\"urn:x-esri:serviceType:ArcGIS#DynamicMapLayer\":\"https://gis2.metc.state.mn.us/arcgis/rest/services/MetroGIS/Planning_Development/MapServer\",\"http://www.opengis.net/cat/csw/csdgm\":\"https://btaagdp.org/metadata/05a-01/pub/gdrs/data/pub/us_mn_state_metc/plan_frmwrk2030dev_plan_ar2011/metadata/metadata.xml\"}",
+  "dct_references_s": "{\"http://schema.org/url\":\"https://gisdata.mn.gov/dataset/02236876-9c21-42f6-9870-d2562da8e44f\",\"http://schema.org/downloadUrl\":\"ftp://ftp.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_metc/plan_frmwrk2030dev_plan_ar2011/shp_plan_frmwrk2030dev_plan_ar2011.zip\",\"urn:x-esri:serviceType:ArcGIS#DynamicMapLayer\":\"https://gis2.metc.state.mn.us/arcgis/rest/services/MetroGIS/Planning/MapServer/3\",\"http://www.opengis.net/cat/csw/csdgm\":\"https://btaagdp.org/metadata/05a-01/pub/gdrs/data/pub/us_mn_state_metc/plan_frmwrk2030dev_plan_ar2011/metadata/metadata.xml\"}",
   "dct_isPartOf_sm": [
     "Minnesota Geospatial Commons"
   ],
