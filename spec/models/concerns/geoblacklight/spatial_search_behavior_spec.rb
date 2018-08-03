@@ -43,6 +43,16 @@ describe Geoblacklight::SpatialSearchBehavior do
         expect(subject.add_spatial_params(solr_params)[:bq].to_s).to include('^10')
       end
 
+      it 'applies overlapRatio when Settings.OVERLAP_RATIO_BOOST is configured' do
+        allow(Settings).to receive(:OVERLAP_RATIO_BOOST).and_return 2
+        expect(subject.add_spatial_params(solr_params)[:bf].to_s).to include('$overlap^2')
+      end
+
+      it 'does not apply overlapRatio when Settings.OVERLAP_RATIO_BOOST not configured' do
+        allow(Settings).to receive(:OVERLAP_RATIO_BOOST).and_return nil
+        expect(subject.add_spatial_params(solr_params)).not_to have_key(:overlap)
+      end
+
       context 'when the wrong format for the bounding box is used' do
         before do
           allow(subject).to receive(:bounding_box).and_raise(Geoblacklight::Exceptions::WrongBoundingBoxFormat)

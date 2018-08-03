@@ -18,6 +18,12 @@ module Geoblacklight
         solr_params[:bq] << "#{Settings.FIELDS.GEOMETRY}:\"IsWithin(#{envelope_bounds})\"#{boost}"
         solr_params[:fq] ||= []
         solr_params[:fq] << "#{Settings.FIELDS.GEOMETRY}:\"Intersects(#{envelope_bounds})\""
+
+        if Settings.OVERLAP_RATIO_BOOST
+          solr_params[:overlap] =
+            "{!field uf=* defType=lucene f=solr_bboxtype score=overlapRatio}Intersects(#{envelope_bounds})"
+          solr_params[:bf] = "$overlap^#{Settings.OVERLAP_RATIO_BOOST}"
+        end
       end
       solr_params
     rescue Geoblacklight::Exceptions::WrongBoundingBoxFormat
