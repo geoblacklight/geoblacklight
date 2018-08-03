@@ -76,7 +76,19 @@
         this.$dynamicButton.hide();
       }
 
-      map.on("moveend", dynamicSearcher, this);
+      this.wasResized = false;
+      map.on("resize", function(event) {
+        this.wasResized = true;
+      }, this);
+
+      map.on("moveend", function(event) {
+        if (this.wasResized) {
+          this.wasResized = false;
+        } else {
+          dynamicSearcher.apply(this);
+        }
+      }, this);
+
       map.on("movestart", function() {
         if (!this.options.dynamic) {
           this.$dynamicButton.hide();
