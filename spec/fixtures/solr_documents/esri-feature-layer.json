@@ -31,7 +31,7 @@
     "Maryland, United States"
   ],
   "layer_slug_s": "f406332e63eb4478a9560ad86ae90327_18",
-  "layer_geom_type_s": "Vector",
+  "layer_geom_type_s": "Point",
   "layer_modified_dt": "2018-08-02T17:16:57Z",
   "solr_geom": "ENVELOPE(-79.4539, -75.124, 39.7194, 37.9667)",
   "solr_year_i": 2016,

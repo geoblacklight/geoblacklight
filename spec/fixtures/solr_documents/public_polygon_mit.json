@@ -1,39 +1,27 @@
 {
-  "geoblacklight_version": "1.0",
+  "dc_creator_sm": [
+    "United States. Bureau of the Census"
+  ],
   "dc_format_s": "Shapefile",
-  "dc_identifier_s": "urn:arrowsmith.mit.edu:MIT.SDE_DATA.US_MA_E25ZCTA5DCT_2000",
-  "dc_language_s": "English",
-  "dc_publisher_s": "U.S. Census Bureau",
+  "dc_publisher_s": "United States. Bureau of the Census",
   "dc_rights_s": "Public",
   "dc_subject_sm": [
-    "polygon",
-    "Zip",
-    "Code",
-    "Tabulation",
-    "Areas",
-    "demographics",
-    "population",
-    "census",
-    "boundaries",
-    "ZCTAs",
-    "zip",
-    "codes"
+    "Zip codes",
+    "Census data",
+    "Demographic surveys",
+    "Population"
   ],
   "dc_title_s": "Massachusetts (ZCTA - 5 digit zip code tabulation area, 2000)",
   "dc_type_s": "Dataset",
-  "dct_references_s": "{\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"https://geodata.mit.edu/geoserver/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://geodata.mit.edu/geoserver/wms\"}",
-  "dct_spatial_sm": [
-    "Massachusetts MA USA"
-  ],
-  "dct_temporal_sm": [
-    "2000"
-  ],
-  "dct_issued_s": "2000",
   "dct_provenance_s": "MIT",
-  "layer_slug_s": "mit-us-ma-e25zcta5dct-2000",
-  "layer_id_s": "sde:SDE_DATA.US_MA_E25ZCTA5DCT_2000",
+  "dct_spatial_sm": [
+    "Massachusetts"
+  ],
+  "dct_references_s": "{\"http://www.opengis.net/def/serviceType/ogc/wms\": \"https://geodata.mit.edu/geoserver/wms\", \"http://www.opengis.net/def/serviceType/ogc/wfs\": \"https://geodata.mit.edu/geoserver/wfs\"}",
   "layer_geom_type_s": "Polygon",
-  "layer_modified_dt": "2014-05-27T18:09:34Z",
+  "layer_id_s": "mit:SDE_DATA_US_MA_E25ZCTA5DCT_2000",
+  "layer_modified_dt": "2018-05-15T20:00:25Z",
+  "layer_slug_s": "mit-f6rqs4ucovjk2",
   "solr_geom": "ENVELOPE(-73.533237, -69.898565, 42.888068, 41.230345)",
-  "solr_year_i": 2000
+  "geoblacklight_version": "1.0"
 }

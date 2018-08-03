@@ -56,11 +56,10 @@ feature 'Index view', js: true do
   end
 
   scenario 'clicking map search should retain current search parameters' do
-    visit "/?f[#{subject_field}][]=polygon&f[#{subject_field}][]=boundaries"
+    visit "/?f[#{subject_field}][]=Population"
     find('#map').double_click
     within '#appliedParams' do
-      expect(page).to have_content('Subject polygon')
-      expect(page).to have_content('Subject boundaries')
+      expect(page).to have_content('Subject Population')
       expect(page).to have_css 'span.filterName', text: 'Bounding Box'
     end
   end

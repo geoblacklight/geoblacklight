@@ -12,28 +12,28 @@ feature 'Download layer' do
   end
 
   scenario 'clicking initial shapefile download button should trigger download', js: true do
-    expect(shapefile_download).to receive(:get).and_return('mit-us-ma-e25zcta5dct-2000-shapefile.zip')
-    visit solr_document_path('mit-us-ma-e25zcta5dct-2000')
+    expect(shapefile_download).to receive(:get).and_return('mit-f6rqs4ucovjk2-shapefile.zip')
+    visit solr_document_path('mit-f6rqs4ucovjk2')
     find('a[data-download-type="shapefile"]', text: 'Export').click
     expect(page).to have_css(
-      'a[href="/download/file/mit-us-ma-e25zcta5dct-2000-shapefile.zip"]',
-      text: 'Your file mit-us-ma-e25zcta5dct-2000-shapefile.zip is ready for download'
+      'a[href="/download/file/mit-f6rqs4ucovjk2-shapefile.zip"]',
+      text: 'Your file mit-f6rqs4ucovjk2-shapefile.zip is ready for download'
     )
   end
   scenario 'failed download should return message with link to layer', js: true do
     expect(shapefile_download).to receive(:get).and_raise(Geoblacklight::Exceptions::ExternalDownloadFailed.new(message: 'Failed', url: 'http://www.example.com/failed'))
-    visit solr_document_path('mit-us-ma-e25zcta5dct-2000')
+    visit solr_document_path('mit-f6rqs4ucovjk2')
     find('a[data-download-type="shapefile"]', text: 'Export').click
     expect(page).to have_css 'div.alert.alert-danger', text: 'Sorry, the requested file could not be downloaded. Try downloading it directly from:'
     expect(page).to have_css 'a', text: 'http://www.example.com/failed'
   end
   scenario 'clicking kmz download button should trigger download', js: true do
-    expect(kmz_download).to receive(:get).and_return('mit-us-ma-e25zcta5dct-2000-kmz.kmz')
-    visit solr_document_path('mit-us-ma-e25zcta5dct-2000')
+    expect(kmz_download).to receive(:get).and_return('mit-f6rqs4ucovjk2-kmz.kmz')
+    visit solr_document_path('mit-f6rqs4ucovjk2')
     find('a[data-download-type="kmz"]', text: 'Export').click
     expect(page).to have_css(
-      'a[href="/download/file/mit-us-ma-e25zcta5dct-2000-kmz.kmz"]',
-      text: 'Your file mit-us-ma-e25zcta5dct-2000-kmz.kmz is ready for download'
+      'a[href="/download/file/mit-f6rqs4ucovjk2-kmz.kmz"]',
+      text: 'Your file mit-f6rqs4ucovjk2-kmz.kmz is ready for download'
     )
   end
   scenario 'jpg download option should be present under toggle' do
@@ -45,7 +45,7 @@ feature 'Download layer' do
     expect(page).to have_css("a.btn.btn-default[href='https://libimages.princeton.edu/loris/pudl0076/map_pownall/00000001.jp2/full/full/0/default.jpg']", text: 'Original JPG')
   end
   scenario 'options should be available under toggle' do
-    visit solr_document_path('mit-us-ma-e25zcta5dct-2000')
+    visit solr_document_path('mit-f6rqs4ucovjk2')
     expect(page).to have_css('li a[data-download-type="shapefile"]', text: 'Export')
     expect(page).to have_css('li a[data-download-type="kmz"]', text: 'Export')
   end
