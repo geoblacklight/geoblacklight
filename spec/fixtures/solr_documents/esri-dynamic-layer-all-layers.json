@@ -1,36 +1,24 @@
 {
-    "geoblacklight_version": "1.0",
-    "layer_geom_type_s": "Polygon",
-    "dc_identifier_s": "urn-90f14ff4-1359-4beb-b931-5cb41d20ab90",
-    "dc_title_s": "Glacial Boundaries: Illinois, 1997",
-    "dc_description_s": "This is an SDE feature class containing glacial boundary polygons representing the extent of glaciation for major glacial episodes in Illinois. Data are originally from the Quaternary Deposits in Illinois (1:500,000) map by Lineback (1979). Data have been subsequently modified to conform with the reclassification by Hansel and Johnson, ISGS Bulletin 104 (1996). Glacial episode is identified for each polygon. The data include the Wisconsin, Illinois and the Pre-Illinois episodes. Areas not glaciated are also identified. The nominal scale is 1:500,000.",
-    "dc_rights_s": "Public",
-    "dct_provenance_s": "Minnesota",
-    "layer_id_s": "urn:f14ff4-1359-4beb-b931-5cb41d20ab90",
-    "layer_slug_s": "minnesota-f14ff4-1359-4beb-b931-5cb41d20ab90",
-    "layer_modified_dt": "2016-01-12T16:10:41Z",
-    "dc_creator_sm": [
-        "Illinois State Geological Survey"
-    ],
-    "dc_publisher_sm": [
-        "Illinois State Geological Survey"
-    ],
-    "dc_format_s": "Shapefile",
-    "dc_type_s": "Dataset",
-    "dc_subject_sm": [
-        "Geoscientific Information",
-        "Boundaries",
-        "Glacier",
-        "Glacial",
-        "Geology",
-        "Glaciation"
-    ],
-    "dct_spatial_sm": [
-        "Illinois"
-    ],
-    "dct_issued_s": "1997-12-13",
-    "dct_temporal_sm": "1996",
-    "solr_geom": "ENVELOPE(-91.513518, -87.495214, 42.508348, 36.969972)",
-    "solr_year_i": 1997,
-    "dct_references_s": "{\"urn:x-esri:serviceType:ArcGIS#DynamicMapLayer\":\"http://data.isgs.illinois.edu/arcgis/rest/services/Geology/Glacial_Boundaries/MapServer\",\"http://schema.org/url\":\"https://clearinghouse.isgs.illinois.edu/data/geology/glacial-boundaries\",\"http://schema.org/downloadUrl\":\"https://clearinghouse.isgs.illinois.edu/sites/clearinghouse.isgs/files/Clearinghouse/data/ISGS/Geology/zips/IL_Glacial_Bndys_Py.zip\"}"
+"dc_identifier_s": "90f14ff4-1359-4beb-b931-5cb41d20ab90",
+"dc_title_s": "Glacial Boundaries: Illinois, 1998",
+"dc_description_s": "Glacial boundary lines representing the extent of glaciation for major glacial episodes in Illinois. Data originally from Quaternary Deposits in Illinois map by Lineback (1979) and modified according to the reclassification by Hansel and Johnson, ISGS Bulletin 104 (1996). Attribute items include glacial episode identifier. ISGS, 1984 (revised 1998).",
+"dc_rights_s": "Public",
+"dc_format_s": "Shapefile",
+"dc_language_sm": "English",
+"dc_type_sm": ["Dataset"],
+"dc_publisher_sm": ["Illinois State Geological Survey"],
+"dc_creator_sm": ["Illinois State Geological Survey"],
+"dc_subject_sm": ["Geoscientific Information"],
+"dct_provenance_s": "Illinois",
+"dct_references_s": "{\"urn:x-esri:serviceType:ArcGIS#DynamicMapLayer\":\"http://data.isgs.illinois.edu/arcgis/rest/services/Geology/Glacial_Boundaries/MapServer\",\"http://schema.org/url\":\"https://clearinghouse.isgs.illinois.edu/data/geology/glacial-boundaries\",\"http://schema.org/downloadUrl\":\"https://clearinghouse.isgs.illinois.edu/sites/clearinghouse.isgs/files/Clearinghouse/data/ISGS/Geology/zips/IL_Glacial_Bndys_Py.zip\"}",
+"dct_isPartOf_sm": ["Illinois Geospatial Data Clearinghouse"],
+"dct_issued_s": "1998",
+"dct_temporal_sm": ["1998"],
+"dct_spatial_sm": ["Illinois, United States"],
+"layer_slug_s": "90f14ff4-1359-4beb-b931-5cb41d20ab90",
+"layer_geom_type_s": "Polygon",
+"layer_modified_dt": "2018-08-02T17:00:40Z",
+"solr_geom": "ENVELOPE(-91.513518, -87.495214, 42.508348,  36.969972)",
+"solr_year_i": 1998,
+"geoblacklight_version": "1.0"
 }

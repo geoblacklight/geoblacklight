@@ -1,16 +1,15 @@
 {
-  "uuid": "http://purl.stanford.edu/fb897vt9938",
   "dc_identifier_s": "http://purl.stanford.edu/fb897vt9938",
   "dc_title_s": "Dabao Kinbōzu, Maps Index",
-  "dc_description_s": "This polygon GeoJSON file is an index to 1:50000 scale maps of Davao (Philippines), titled 'Dabao Kinbōzu -- ダバオ近傍圖/Dabao Kinbōzu.’ This map series was originally produced by the Japanese Land Survey Department of the General Staff Headquarters in 1944. Stanford University Libraries holds a large collection of Japanese military and imperial maps, referred to as gaihōzu, or \"maps of outer lands.\" These maps were produced starting in the early Meiji (1868-1912) era and the end of World War II by the Land Survey Department of the General Staff Headquarters, the former Japanese Army. The Library is in the process of scanning and making available all of the maps in the collection. To create this index, footprints were generated using the fishnet tool, and metadata were supplied for the digitized paper maps by Stanford University Libraries. After the footprints were created, the GeoJSON was trimmed and labeled according to the sources.This layer provides an index map that can be used to locate individual scanned map sheets.",
+  "dc_description_s": "This polygon shapefile is an index to 1:50000 scale maps of Davao (Philippines), titled 'Dabao Kinbōzu -- ダバオ近傍圖/Dabao Kinbōzu.’ This map series was originally produced by the Japanese Land Survey Department of the General Staff Headquarters in 1944. Stanford University Libraries holds a large collection of Japanese military and imperial maps, referred to as gaihōzu, or \"maps of outer lands.\" These maps were produced starting in the early Meiji (1868-1912) era and the end of World War II by the Land Survey Department of the General Staff Headquarters, the former Japanese Army. The Library is in the process of scanning and making available all of the maps in the collection. To create this index, footprints were generated using the fishnet tool, and metadata were supplied for the digitized paper maps by Stanford University Libraries. After the footprints were created, the shapefile was trimmed and labeled according to the sources.This layer provides an index map that can be used to locate individual scanned map sheets.",
   "dc_rights_s": "Public",
   "dct_provenance_s": "Stanford",
-  "dct_references_s": "{\"http://schema.org/url\":\"http://purl.stanford.edu/fb897vt9938\",\"http://schema.org/downloadUrl\":\"https://gist.githubusercontent.com/mejackreed/4a44f1f7cc4fbb926068738e903a9e96/raw/fedfb0e599d647920f084627b7dca8f88a358757/stanford-fb897vt9938.geojson\",\"http://www.loc.gov/mods/v3\":\"http://purl.stanford.edu/fb897vt9938.mods\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"http://opengeometadata.stanford.edu/metadata/edu.stanford.purl/druid:fb897vt9938/iso19139.xml\",\"http://www.w3.org/1999/xhtml\":\"http://opengeometadata.stanford.edu/metadata/edu.stanford.purl/druid:fb897vt9938/default.html\",\"https://openindexmaps.org\": \"https://gist.githubusercontent.com/mejackreed/4a44f1f7cc4fbb926068738e903a9e96/raw/fedfb0e599d647920f084627b7dca8f88a358757/stanford-fb897vt9938.geojson\"}",
+  "dct_references_s": "{\"http://schema.org/url\":\"http://purl.stanford.edu/fb897vt9938\",\"http://schema.org/downloadUrl\":\"http://stacks.stanford.edu/file/druid:fb897vt9938/data.zip\",\"http://www.loc.gov/mods/v3\":\"http://purl.stanford.edu/fb897vt9938.mods\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"https://raw.githubusercontent.com/OpenGeoMetadata/edu.stanford.purl/master/fb/897/vt/9938/iso19139.xml\",\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"https://geowebservices.stanford.edu/geoserver/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://geowebservices.stanford.edu/geoserver/wms\"}",
   "layer_id_s": "druid:fb897vt9938",
   "layer_slug_s": "stanford-fb897vt9938",
   "layer_geom_type_s": "Polygon",
   "layer_modified_dt": "2016-10-20T21:07:24Z",
-  "dc_format_s": "GeoJSON",
+  "dc_format_s": "Shapefile",
   "dc_language_s": "English",
   "dc_type_s": "Dataset",
   "dc_publisher_s": "Stanford Digital Repository",
@@ -32,9 +31,8 @@
   "dct_spatial_sm": [
     "Davao (Philippines)"
   ],
-  "georss_box_s": "6.6666 125 7.3333 126",
-  "georss_polygon_s": "6.6666 125 7.3333 125 7.3333 126 6.6666 126 6.6666 125",
   "solr_geom": "ENVELOPE(125, 126, 7.3333, 6.6666)",
   "solr_year_i": 1944,
-  "stanford_rights_metadata_s": "<?xml version=\"1.0\"?>\n<rightsMetadata>\n  <access type=\"discover\">\n    <machine>\n      <world/>\n    </machine>\n  </access>\n  <access type=\"read\">\n    <machine>\n      <world/>\n    </machine>\n  </access>\n  <use>\n    <human type=\"useAndReproduction\">This item is in the public domain.  There are no restrictions on use.</human>\n    <human type=\"creativeCommons\"/>\n    <machine type=\"creativeCommons\"/>\n  </use>\n  <copyright>\n    <human>This work is in the Public Domain, meaning that it is not subject to copyright.</human>\n  </copyright>\n</rightsMetadata>\n"
+  "stanford_rights_metadata_s": "<?xml version=\"1.0\"?>\n<rightsMetadata>\n  <access type=\"discover\">\n    <machine>\n      <world/>\n    </machine>\n  </access>\n  <access type=\"read\">\n    <machine>\n      <world/>\n    </machine>\n  </access>\n  <use>\n    <human type=\"useAndReproduction\">This item is in the public domain.  There are no restrictions on use.</human>\n    <human type=\"creativeCommons\"/>\n    <machine type=\"creativeCommons\"/>\n  </use>\n  <copyright>\n    <human>This work is in the Public Domain, meaning that it is not subject to copyright.</human>\n  </copyright>\n</rightsMetadata>\n",
+  "geoblacklight_version": "1.0"
 }
