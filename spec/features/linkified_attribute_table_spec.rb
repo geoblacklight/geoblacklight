@@ -1,10 +1,9 @@
 require 'spec_helper'
 
 feature 'Attribute table values', js: true do
-  scenario 'are linkified' do
-    pending 'ArcGIS server returning an error'
-    visit solr_document_path 'minnesota-e2f33b52-4039-4bbb-9095-b5cdc0175943'
-    # Wait until SVG elements are added
+  xscenario 'are linkified' do
+    # ArcGIS server returning an error. Wait until SVG elements are added
+    visit solr_document_path 'f406332e63eb4478a9560ad86ae90327_18'
     expect(page).to have_css '.leaflet-overlay-pane svg'
     page.first('svg g path').click
     expect(page).to have_css 'td a[href="http://www.minneapolismn.gov/fire/stations/fire_station28"]', text: 'http://www.minneapolismn.gov/fire/stations/fire_station28'

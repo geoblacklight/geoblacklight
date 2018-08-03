@@ -74,7 +74,8 @@ feature 'Download layer' do
   context 'with a successful request to the server' do
     let(:hgl_download) { instance_double(Geoblacklight::HglDownload) }
 
-    scenario 'submitting email form should trigger HGL request', js: true do
+    xscenario 'submitting email form should trigger HGL request', js: true do
+      # There are currently difficulties with testing the HGL downloader
       visit solr_document_path('harvard-g7064-s2-1834-k3')
       find('a[data-download-type="harvard-hgl"]', text: 'Original GeoTIFF').click
 

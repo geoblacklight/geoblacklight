@@ -7,7 +7,7 @@ describe Geoblacklight::GeoblacklightHelperBehavior do
   let(:presenter) { instance_double(MyPresenter, fake_name: 'druid:abc123') }
 
   before do
-    class MyPresenter < Blacklight::DocumentPresenter
+    class MyPresenter < Blacklight::ShowPresenter
       def fake_name; end
     end
   end
