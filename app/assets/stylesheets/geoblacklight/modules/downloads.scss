@@ -5,24 +5,28 @@
   }
 }
 
+%download-export-links {
+  a {
+    width: 100%;
+    font-weight: 600;
+    background-color: $link-color;
+    color: #ffffff;
+    border-color: darken($link-color, 6.5%);
+    white-space: inherit;
+  }
+}
+
 @mixin download-export {
   &-link {
     &-container {
-      padding: 4px 15px;
       text-align: center;
-
-      a {
-        width: 100%;
-        font-weight: 600;
-        background-color: $link-color;
-        color: #ffffff;
-        border-color: darken($link-color, 6.5%);
-      }
+      @extend %download-export-links;
     }
   }
 }
 
 .downloads {
+  @include sidebar-children;
   @extend %downloads-exports;
 
   .download {
@@ -30,17 +34,23 @@
   }
 }
 
+.authentication {
+  @include sidebar-children;
+  .card-header {
+    background-color: inherit;
+    border-bottom: inherit;
+
+    @extend %download-export-links;
+  }
+}
+
 .exports {
+  @include sidebar-children;
   @extend %downloads-exports;
 
-  .panel-heading {
-    h2 {
-      display: inline;
-    }
-
+  .card-header {
     .fa-spinner {
-      padding-left: 8px;
-      padding-right: 8px;
+      float: right;
     }
   }
 
@@ -50,15 +60,16 @@
     padding-left: 0px;
     padding-right: 0px;
     text-align: center;
+    width: 100%;
 
-    @media (min-width: $screen-lg-min) {
+    @include media-breakpoint-up(xl) {
       text-align: left;
     }
 
     &-label {
-      padding: 10px 12px;
+      padding: 6px 12px;
 
-      @media (min-width: $screen-lg-min) {
+      @include media-breakpoint-up(xl) {
         display: inline-block;
       }
     }
@@ -66,13 +77,13 @@
     &-link {
       &-container {
 
-        @media (min-width: $screen-lg-min) {
+        @include media-breakpoint-up(xl) {
           display: inline-block;
           float: right;
         }
 
         a {
-          @media (min-width: $screen-lg-min) {
+          @include media-breakpoint-up(xl) {
             width: inherit;
           }
         }

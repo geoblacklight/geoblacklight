@@ -5,7 +5,7 @@ module Geoblacklight
   require 'geoblacklight/bounding_box'
   require 'geoblacklight/catalog_helper_override'
   require 'geoblacklight/constants'
-  require 'geoblacklight/controller_override'
+  # require 'geoblacklight/controller_override'
   require 'geoblacklight/exceptions'
   require 'geoblacklight/geoblacklight_helper_behavior'
   require 'geoblacklight/view_helper_override'
@@ -35,15 +35,13 @@ module Geoblacklight
   require 'geoblacklight/relation/relation_response'
 
   def self.inject!
-    CatalogController.send(:include, Geoblacklight::ControllerOverride)
+    # CatalogController.send(:include, Geoblacklight::ControllerOverride)
     CatalogController.send(:include, Geoblacklight::CatalogHelperOverride)
     CatalogController.send(:include, Geoblacklight::ViewHelperOverride)
     CatalogController.send(:helper, Geoblacklight::ViewHelperOverride) unless
       CatalogController.helpers.is_a?(Geoblacklight::ViewHelperOverride)
     SearchHistoryController.send(:helper, Geoblacklight::ViewHelperOverride) unless
       SearchHistoryController.helpers.is_a?(Geoblacklight::ViewHelperOverride)
-    SavedSearchesController.send(:helper, Geoblacklight::ViewHelperOverride) unless
-      SavedSearchesController.helpers.is_a?(Geoblacklight::ViewHelperOverride)
   end
 
   def self.logger

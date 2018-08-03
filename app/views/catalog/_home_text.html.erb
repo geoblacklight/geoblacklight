@@ -1,49 +1,41 @@
-<div class='jumbotron'>
-  <div class='home-search-area'>
-    <%= content_tag :h2, t('geoblacklight.home.headline') %>
-    <%= content_tag :h3, t('geoblacklight.home.search_heading') %>
-    <div class='row'>
-      <div class='col-md-6 col-md-offset-3'>
-        <%= render_search_form_no_navbar %>
-      </div>
-    </div>
-  </div>
-</div>
-
 <div class='container'>
-  <div class='row'>
-    <div class='col-md-6'>
-      <%= content_tag :h3, t('geoblacklight.home.category_heading'), class: 'text-center' %>
-      <div class='category-block'>
-        <div class='category-icon'>
-          <span class='glyphicon glyphicon-home'></span>
+  <div class='row text-center'>
+    <div class='col-sm'>
+      <%= content_tag :h3, t('geoblacklight.home.category_heading') %>
+      <div class='row'>
+        <div class='category-block col-sm'>
+          <div class='category-icon'>
+            <span class='fa fa-home'></span>
+          </div>
+          <%= content_tag :h4, t('geoblacklight.home.institution') %>
+          <%= render_facet_tags [Settings.FIELDS.PROVENANCE] %>
         </div>
-        <%= content_tag :h4, t('geoblacklight.home.institution'), class: 'text-center' %>
-        <%= render_facet_tags [Settings.FIELDS.PROVENANCE] %>
+        <div class='category-block col-sm'>
+          <div class='category-icon'>
+            <span class='fa fa-arrow-circle-down'></span>
+          </div>
+          <%= content_tag :h4, t('geoblacklight.home.data_type') %>
+          <%= render_facet_tags [Settings.FIELDS.GEOM_TYPE] %>
+        </div>
       </div>
-      <div class='category-block'>
-        <div class='category-icon'>
-          <span class='glyphicon glyphicon-download'></span>
+      <div class='row'>
+        <div class='category-block col-sm'>
+          <div class='category-icon'>
+            <span class='fa fa-globe'></span>
+          </div>
+          <%= content_tag :h4, t('geoblacklight.home.placename') %>
+          <%= render_facet_tags [Settings.FIELDS.SPATIAL_COVERAGE] %>
         </div>
-        <%= content_tag :h4, t('geoblacklight.home.data_type'), class: 'text-center' %>
-        <%= render_facet_tags [Settings.FIELDS.GEOM_TYPE] %>
-      </div>
-      <div class='category-block'>
-        <div class='category-icon'>
-          <span class='glyphicon glyphicon-globe'></span>
+        <div class='category-block col-sm'>
+          <div class='category-icon'>
+            <span class='fa fa-tags'></span>
+          </div>
+          <%= content_tag :h4, t('geoblacklight.home.subject') %>
+          <%= render_facet_tags [Settings.FIELDS.SUBJECT] %>
         </div>
-        <%= content_tag :h4, t('geoblacklight.home.placename'), class: 'text-center' %>
-        <%= render_facet_tags [Settings.FIELDS.SPATIAL_COVERAGE] %>
-      </div>
-      <div class='category-block'>
-        <div class='category-icon'>
-          <span class='glyphicon glyphicon-tags'></span>
-        </div>
-        <%= content_tag :h4, t('geoblacklight.home.subject'), class: 'text-center' %>
-        <%= render_facet_tags [Settings.FIELDS.SUBJECT] %>
       </div>
     </div>
-    <div class='col-md-6 text-center'>
+    <div class='col-sm'>
       <%= content_tag :h3, t('geoblacklight.home.map_heading') %>
       <%= content_tag :div, '', id: 'map', data: { map: 'home', 'catalog-path'=> search_catalog_path , 'map-bbox' => params[:bbox], basemap: geoblacklight_basemap, leaflet_options: leaflet_options } %>
     </div>

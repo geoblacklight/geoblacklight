@@ -1,4 +1,6 @@
-<div id="documents" class="docView col-md-6">
-  <%= render documents, :as => :document %>
+<div class='row'>
+  <div id="documents" class="documents-list col-md-6">
+    <%= render documents, :as => :document %>
+  </div>
+  <%= content_tag :div, '', id: 'map', class: 'col-md-6', data: { map: 'index', 'catalog-path'=> search_catalog_path , 'map-bbox' => params[:bbox], basemap: geoblacklight_basemap, leaflet_options: leaflet_options } %>
 </div>
-<%= content_tag :div, '', id: 'map', data: { map: 'index', 'catalog-path'=> search_catalog_path , 'map-bbox' => params[:bbox], basemap: geoblacklight_basemap, leaflet_options: leaflet_options } %>

@@ -38,7 +38,7 @@ Capybara.register_driver(:headless_chrome) do |app|
 end
 
 Capybara.javascript_driver = :headless_chrome
-Capybara.default_max_wait_time = 15
+Capybara.default_max_wait_time = 120
 
 require 'geoblacklight'
 

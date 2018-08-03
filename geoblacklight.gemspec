@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
   spec.required_rubygems_version = '>= 2.5.2'
 
   spec.add_dependency 'rails', '~> 5.0'
-  spec.add_dependency 'blacklight', '~> 6.11'
+  spec.add_dependency 'blacklight', '7.0.0.rc1'
   spec.add_dependency 'leaflet-rails', '~> 1.3.0'
   spec.add_dependency 'font-awesome-rails'
   spec.add_dependency 'config'

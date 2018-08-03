@@ -42,7 +42,7 @@ module GeoblacklightHelper
       download_hgl_path(id: document),
       class: ['btn', 'btn-default', 'download', 'download-original'],
       data: {
-        ajax_modal: 'trigger',
+        blacklight_modal: 'trigger',
         download: 'trigger',
         download_type: 'harvard-hgl',
         download_id: document.id
@@ -98,10 +98,6 @@ module GeoblacklightHelper
                 '',
                 class: "geoblacklight-icon geoblacklight-#{icon_name}",
                 title: name
-  end
-
-  def render_search_form_no_navbar
-    render partial: 'catalog/search_form_no_navbar'
   end
 
   ##
