@@ -27,7 +27,7 @@ module GeoblacklightHelper
       text,
       document.direct_download[:download],
       'contentUrl' => document.direct_download[:download],
-      class: ['btn', 'btn-default', 'download', 'download-original'],
+      class: ['btn', 'btn-primary', 'btn-block', 'download', 'download-original'],
       data: {
         download: 'trigger',
         download_type: 'direct',
@@ -40,7 +40,7 @@ module GeoblacklightHelper
     link_to(
       text,
       download_hgl_path(id: document),
-      class: ['btn', 'btn-default', 'download', 'download-original'],
+      class: ['btn', 'btn-primary', 'btn-block', 'download', 'download-original'],
       data: {
         ajax_modal: 'trigger',
         download: 'trigger',
@@ -57,7 +57,7 @@ module GeoblacklightHelper
       download_text('JPG'),
       iiif_jpg_url,
       'contentUrl' => iiif_jpg_url,
-      class: ['btn', 'btn-default', 'download', 'download-generated'],
+      class: ['btn', 'btn-primary', 'btn-block', 'download', 'download-generated'],
       data: {
         download: 'trigger'
       }
@@ -68,7 +68,7 @@ module GeoblacklightHelper
     link_to(
       t('geoblacklight.download.export_link', download_format: proper_case_format(download_type)),
       '',
-      class: ['btn', 'btn-default', 'download', 'download-generated'],
+      class: ['btn', 'btn-primary', 'btn-block', 'download', 'download-generated'],
       data: {
         download_path: download_path(document.id, type: download_type),
         download: 'trigger',

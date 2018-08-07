@@ -42,7 +42,7 @@ feature 'Download layer' do
   end
   scenario 'clicking jpg download button should redirect to external image' do
     visit solr_document_path('princeton-02870w62c')
-    expect(page).to have_css("a.btn.btn-default[href='https://libimages.princeton.edu/loris/pudl0076/map_pownall/00000001.jp2/full/full/0/default.jpg']", text: 'Original JPG')
+    expect(page).to have_css("a.btn.btn-primary[href='https://libimages.princeton.edu/loris/pudl0076/map_pownall/00000001.jp2/full/full/0/default.jpg']", text: 'Original JPG')
   end
   scenario 'options should be available under toggle' do
     visit solr_document_path('mit-f6rqs4ucovjk2')
