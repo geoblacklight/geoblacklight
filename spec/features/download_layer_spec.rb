@@ -63,9 +63,9 @@ feature 'Download layer' do
   scenario 'layer with direct download and wms/wfs should include all download types' do
     sign_in
     visit solr_document_path('stanford-cg357zz0321')
-    expect(page).to have_css 'h2', text: 'Downloads'
+    expect(page).to have_css 'h3', text: 'Downloads'
     expect(page).to have_css 'a', text: 'Original Shapefile'
-    expect(page).to have_css 'h2', text: 'Export Formats'
+    expect(page).to have_css 'h3', text: 'Export Formats'
     expect(page).to have_css 'a', text: 'Export'
   end
   scenario 'clicking GeoTIFF button for Harvard layer should show email form', js: true do
