@@ -46,12 +46,16 @@ GeoBlacklight.Viewer.Wms = GeoBlacklight.Viewer.Map.extend({
         X: Math.round(e.containerPoint.x),
         Y: Math.round(e.containerPoint.y)
       };
+      
+      // Set a ujs adapter to support both rails-ujs and jquery-ujs
+      var ujs = typeof Rails === 'undefined' ? $.rails : Rails;
+
 
       $.ajax({
         type: 'POST',
         url: '/wms/handle',
         beforeSend: function(xhr) {
-          xhr.setRequestHeader('X-CSRF-Token', Rails.csrfToken());
+          xhr.setRequestHeader('X-CSRF-Token', ujs.csrfToken());
         },
         data: wmsoptions,
         success: function(data) {
