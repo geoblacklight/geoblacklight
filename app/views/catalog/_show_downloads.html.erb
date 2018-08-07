@@ -4,7 +4,7 @@
   <% if document.direct_download.present? || document.hgl_download.present? || document.iiif_download.present? %>
     <div class="panel panel-default downloads">
       <div class="panel-heading">
-        <h2 class="mb-0 h6"><%= t('geoblacklight.download.download').pluralize %></h2>
+        <h3 class="h5"><%= t('geoblacklight.download.download').pluralize %></h3>
       </div>
 
       <ul class="list-group list-group-flush">
@@ -16,7 +16,7 @@
   <% if document.download_types.present? %>
     <div class="panel panel-default exports">
       <div class="panel-heading">
-        <h2 class="mb-0 h6"><%= t('geoblacklight.download.export_formats') %></h2>
+        <h3 class="h5"><%= t('geoblacklight.download.export_formats') %></h3>
       </div>
 
       <ul class="list-group list-group-flush">

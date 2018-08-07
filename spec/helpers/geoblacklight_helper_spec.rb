@@ -82,7 +82,7 @@ describe GeoblacklightHelper, type: :helper do
       allow_any_instance_of(Geoblacklight::Reference).to receive(:to_hash).and_return(download: 'http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip')
     end
     it 'generates a link to download the original file' do
-      expect(download_link_direct(text, document)).to eq '<a contentUrl="http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip" class="btn btn-default download download-original" data-download="trigger" data-download-type="direct" href="http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip">Test Link Text</a>'
+      expect(download_link_direct(text, document)).to eq '<a contentUrl="http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip" class="btn btn-primary btn-block download download-original" data-download="trigger" data-download-type="direct" href="http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip">Test Link Text</a>'
     end
   end
 
@@ -96,7 +96,7 @@ describe GeoblacklightHelper, type: :helper do
     end
 
     it 'generates a link to the HGL route' do
-      expect(download_link_hgl(text, document)).to eq '<a class="btn btn-default download download-original" data-ajax-modal="trigger" data-download="trigger" data-download-type="harvard-hgl" data-download-id="test-id" href="/download/hgl/test-id">Test Link Text</a>'
+      expect(download_link_hgl(text, document)).to eq '<a class="btn btn-primary btn-block download download-original" data-ajax-modal="trigger" data-download="trigger" data-download-type="harvard-hgl" data-download-id="test-id" href="/download/hgl/test-id">Test Link Text</a>'
     end
   end
 
@@ -117,7 +117,7 @@ describe GeoblacklightHelper, type: :helper do
 
     it 'generates a link to download the JPG file from the IIIF server' do
       assign(:document, document)
-      expect(helper.download_link_iiif).to eq '<a contentUrl="https://example.edu/image/full/full/0/default.jpg" class="btn btn-default download download-generated" data-download="trigger" href="https://example.edu/image/full/full/0/default.jpg">Original JPG</a>'
+      expect(helper.download_link_iiif).to eq '<a contentUrl="https://example.edu/image/full/full/0/default.jpg" class="btn btn-primary btn-block download download-generated" data-download="trigger" href="https://example.edu/image/full/full/0/default.jpg">Original JPG</a>'
     end
   end
 
@@ -131,7 +131,7 @@ describe GeoblacklightHelper, type: :helper do
     end
 
     it 'generates a link to download the JPG file from the IIIF server' do
-      expect(download_link_generated(download_type, document)).to eq '<a class="btn btn-default download download-generated" data-download-path="/download/test-id?type=SHAPEFILE" data-download="trigger" data-download-type="SHAPEFILE" data-download-id="test-id" href="">Export</a>'
+      expect(download_link_generated(download_type, document)).to eq '<a class="btn btn-primary btn-block download download-generated" data-download-path="/download/test-id?type=SHAPEFILE" data-download="trigger" data-download-type="SHAPEFILE" data-download-id="test-id" href="">Export</a>'
     end
   end
 
