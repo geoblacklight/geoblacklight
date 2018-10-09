@@ -63,18 +63,18 @@ GeoBlacklight.Viewer.DynamicMapLayer = GeoBlacklight.Viewer.Esri.extend({
           url: layer.options.url,
           useCors: true
       })
-        .tolerance(0)
+        .tolerance(2)
         .returnGeometry(false)
         .on(_this.map)
         .at(e.latlng);
 
       // query specific layer if dynamicLayerId is set
       if (_this.dynamicLayerId) {
-        identify.layers('ID: ' + _this.dynamicLayerId);
+        identify.layers('all: ' + _this.dynamicLayerId);
       }
 
       identify.run(function(error, featureCollection, response){
-        if (error) {
+        if (error || response['results'] < 1) {
           _this.appendErrorMessage();
         } else {
           _this.populateAttributeTable(featureCollection.features[0]);
