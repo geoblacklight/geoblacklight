@@ -134,7 +134,13 @@ class CatalogController < ApplicationController
     config.add_show_field Settings.FIELDS.SUBJECT, label: 'Subject(s)', itemprop: 'keywords', link_to_facet: true
     config.add_show_field Settings.FIELDS.TEMPORAL, label: 'Year', itemprop: 'temporal'
     config.add_show_field Settings.FIELDS.PROVENANCE, label: 'Held by', link_to_facet: true
-    config.add_show_field Settings.FIELDS.REFERENCES, label: I18n.t('geoblacklight.metadata.more_details'), itemprop: 'url', helper_method: :render_references_url
+    config.add_show_field(
+      Settings.FIELDS.REFERENCES,
+      label: I18n.t('geoblacklight.metadata.more_details'),
+      accessor: [:external_url],
+      if: proc { |_, _, doc| doc.external_url },
+      helper_method: :render_references_url
+    )
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields

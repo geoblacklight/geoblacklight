@@ -51,6 +51,10 @@ module Geoblacklight
       references.data_dictionary.to_hash unless references.data_dictionary.blank?
     end
 
+    def external_url
+      references.url.endpoint if references.url
+    end
+
     def item_viewer
       ItemViewer.new(references)
     end
