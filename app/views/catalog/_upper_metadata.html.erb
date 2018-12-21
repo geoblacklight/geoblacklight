@@ -5,7 +5,6 @@
   <%# From https://github.com/projectblacklight/blacklight/blob/master/app/views/catalog/_show_default.html.erb %>
   <%# default partial to display solr document fields in catalog show view -%>
   <dl class="dl-horizontal">
-    <%# render 'abstract_metadata' %>
     <% doc_presenter.fields_to_render.each do |field_name, field| %>
       <% if should_render_show_field? document, field %>
         <dt class="blacklight-<%= field_name.parameterize %>"><%= render_document_show_field_label document, field: field_name %></dt>
