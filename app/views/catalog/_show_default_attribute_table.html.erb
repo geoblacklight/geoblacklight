@@ -1,17 +1,19 @@
 <% if show_attribute_table? %>
-  <div id='table-container' class='col-md-12'>
-    <table id="attribute-table" class="table table-hover table-condensed table-striped table-bordered col-md-12">
-      <thead>
-        <tr>
-          <th><%= t('geoblacklight.show.attribute') %></th>
-          <th><%= t('geoblacklight.show.value') %></th>
-        </tr>
-      </thead>
-      <tbody class='attribute-table-body'>
-        <tr>
-          <td class='default-text' colspan='2'><em><%= t('geoblacklight.show.click_map') %></em></td>
-        </tr>
-      </tbody>
-    </table>
+  <div class='row'>
+    <div id='table-container' class='col-md-12'>
+      <table id="attribute-table" class="table table-hover table-condensed table-striped table-bordered col-md-12">
+        <thead>
+          <tr>
+            <th><%= t('geoblacklight.show.attribute') %></th>
+            <th><%= t('geoblacklight.show.value') %></th>
+          </tr>
+        </thead>
+        <tbody class='attribute-table-body'>
+          <tr>
+            <td class='default-text' colspan='2'><em><%= t('geoblacklight.show.click_map') %></em></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 <% end %>

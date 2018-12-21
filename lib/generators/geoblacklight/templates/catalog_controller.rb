@@ -35,6 +35,9 @@ class CatalogController < ApplicationController
     # solr field configuration for document/show views
 
     config.show.display_type_field = 'format'
+    config.show.partials << 'show_default_viewer_container'
+    config.show.partials << 'show_default_attribute_table'
+    config.show.partials << 'show_default_viewer_information'
 
     ##
     # Configure the index document presenter.
@@ -131,6 +134,7 @@ class CatalogController < ApplicationController
     config.add_show_field Settings.FIELDS.SUBJECT, label: 'Subject(s)', itemprop: 'keywords', link_to_facet: true
     config.add_show_field Settings.FIELDS.TEMPORAL, label: 'Year', itemprop: 'temporal'
     config.add_show_field Settings.FIELDS.PROVENANCE, label: 'Held by', link_to_facet: true
+    config.add_show_field Settings.FIELDS.REFERENCES, label: I18n.t('geoblacklight.metadata.more_details'), itemprop: 'url', helper_method: :render_references_url
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
