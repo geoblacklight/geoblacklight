@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'feature_layer reference', js: true do
   scenario 'displays image map layer' do
-    visit solr_document_path 'princeton-test-oregon-naip-2011'
+    visit solr_document_path '32653ed6-8d83-4692-8a06-bf13ffe2c018'
     expect(page).to have_css '.leaflet-control-zoom', visible: true
     expect(page).to have_css 'img.leaflet-image-layer', visible: true
   end
@@ -24,7 +24,7 @@ feature 'feature_layer reference', js: true do
     fail
   end
   scenario 'displays image map layer' do
-    visit solr_document_path 'princeton-test-oregon-naip-2011'
+    visit solr_document_path '32653ed6-8d83-4692-8a06-bf13ffe2c018'
     expect(page).to have_css '.leaflet-control-zoom', visible: true
     expect(page).to have_css 'img.leaflet-image-layer', visible: true
   end
