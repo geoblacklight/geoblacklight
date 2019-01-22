@@ -34,7 +34,6 @@ jobs:
         key: geoblacklight-solr{{ checksum ".solr_wrapper" }}
         paths:
           - tmp/solr
-      # Run specs
       - run: bundle exec rake ci
       # Store bundle cache
       - type: cache-save
@@ -73,7 +72,6 @@ jobs:
         key: geoblacklight-solr{{ checksum ".solr_wrapper" }}
         paths:
           - tmp/solr
-      # Run specs
       - run: bundle exec rake ci
       # Store bundle cache
       - type: cache-save

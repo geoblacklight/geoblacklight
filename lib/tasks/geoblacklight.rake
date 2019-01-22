@@ -12,7 +12,7 @@ namespace :geoblacklight do
           puts ' '
           begin
             Rake::Task['geoblacklight:solr:seed'].invoke
-            system "bundle exec rails s #{args[:rails_server_args]}"
+            system "foreman start"
           rescue Interrupt
             puts 'Shutting down...'
           end

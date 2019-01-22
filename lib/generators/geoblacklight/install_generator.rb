@@ -91,7 +91,30 @@ module Geoblacklight
     def bundle_install
       Bundler.with_clean_env do
         run 'bundle install'
+        run 'bundle exec rails webpacker:install'
       end
+    end
+
+    def javascript_install
+      # This overrides the default dependencies specified using
+      # webpacker:install
+      copy_file 'package.json', 'package.json'
+      run 'yarn --version'
+      if $CHILD_STATUS.exitstatus.zero?
+        run 'yarn install'
+        run 'yarn upgrade'
+      else
+        run 'npm install'
+        run 'npm update'
+      end
+    end
+
+    def webpacker_config
+      copy_file 'webpacker.yml', 'config/webpacker.yml'
+    end
+
+    def procfile
+      copy_file 'Procfile', 'Procfile'
     end
   end
 end

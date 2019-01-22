@@ -32,6 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'geo_combine', '>= 0.3'
   spec.add_dependency 'mime-types'
   spec.add_dependency 'handlebars_assets'
+  spec.add_dependency 'webpacker', '~> 3.5'
 
   spec.add_development_dependency 'solr_wrapper'
   spec.add_development_dependency 'rails-controller-testing'
@@ -45,4 +46,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bixby'
   spec.add_development_dependency 'coveralls'
   spec.add_development_dependency 'simplecov', '~> 0.16'
+  spec.add_development_dependency 'foreman'
 end

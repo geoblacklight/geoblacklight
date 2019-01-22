@@ -8,6 +8,10 @@ of the Blacklight Solr-powered discovery interface and the
 multi-institutional OpenGeoportal federated metadata sharing
 communities. We're actively looking for community input and development partners.
 
+### Requirements
+GeoBlacklight uses [Webpacker](https://github.com/rails/webpacker) in order to manage JavaScript dependencies and assets, which requires
+that either [Yarn](https://yarnpkg.com/) or the [Node Package Manager](https://www.npmjs.com/) be available on the system where this is deployed.  How Webpacker interacts with Rails is overviewed within its own documentation, including [how best to configure JavaScript processing settings](https://github.com/rails/webpacker/blob/master/docs/webpack.md).  We would please encourage one to review this.
+
 ### [Installation](https://github.com/geoblacklight/geoblacklight/wiki/Installation)
 
 Creating a new GeoBlacklight application from the template

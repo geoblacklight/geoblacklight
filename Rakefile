@@ -38,6 +38,7 @@ task ci: ['geoblacklight:generate'] do
     solr.with_collection(name: 'blacklight-core', dir: File.join(File.expand_path('.', File.dirname(__FILE__)), 'solr', 'conf')) do
       within_test_app do
         system 'RAILS_ENV=test rake geoblacklight:index:seed'
+        system 'RAILS_ENV=test bundle exec rails webpacker:compile'
       end
       Rake::Task['geoblacklight:coverage'].invoke
     end
@@ -67,7 +68,7 @@ namespace :geoblacklight do
   end
 
   desc 'Run Solr and GeoBlacklight for interactive development'
-  task :server, [:rails_server_args] do |_t, args|
+  task :server, [:rails_server_args] do |_t|
     if File.exist? EngineCart.destination
       within_test_app do
         system 'bundle update'
@@ -85,7 +86,7 @@ namespace :geoblacklight do
           puts "\n^C to stop"
           puts ' '
           begin
-            system "bundle exec rails s #{args[:rails_server_args]}"
+            system 'foreman start'
           rescue Interrupt
             puts 'Shutting down...'
           end

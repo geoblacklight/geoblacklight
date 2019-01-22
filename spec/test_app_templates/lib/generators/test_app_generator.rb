@@ -7,6 +7,7 @@ class TestAppGenerator < Rails::Generators::Base
     gem 'blacklight'
     gem 'teaspoon'
     gem 'teaspoon-jasmine'
+    gem 'webpacker', '~> 3.5'
     Bundler.with_clean_env do
       run 'bundle install'
     end
@@ -32,5 +33,15 @@ class TestAppGenerator < Rails::Generators::Base
   def install_teaspoon
     # Implicit copy of GeoBlacklight checked-in teaspoon_env.rb
     copy_file '../teaspoon_env.rb', 'spec/teaspoon_env.rb'
+  end
+
+  # This is necessary in order to avoid the Yarn integrity check error
+  def javascript_install
+    exit_status = system('yarn --version')
+    if !exit_status.nil?
+      run 'yarn install'
+    else
+      run 'npm install'
+    end
   end
 end
