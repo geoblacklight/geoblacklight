@@ -176,14 +176,6 @@ module GeoblacklightHelper
   end
 
   ##
-  # Removes blank space from provider to accomodate CartoDB OneClick
-  # @deprecated Use {#carto_provider} instead.
-  def cartodb_provider
-    carto_provider
-  end
-  deprecation_deprecate cartodb_provider: 'use GeoblacklightHelper#carto_provider instead'
-
-  ##
   # Creates a Carto OneClick link link, using the configuration link
   # @param [String] file_link
   # @return [String]

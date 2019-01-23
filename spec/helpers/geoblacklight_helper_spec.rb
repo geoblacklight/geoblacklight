@@ -219,12 +219,6 @@ describe GeoblacklightHelper, type: :helper do
       allow(helper).to receive(:application_name).and_return('GeoBlacklight')
     end
 
-    describe '#cartodb_provider' do
-      it 'aliases CartoHelper#carto_provider' do
-        expect(helper.cartodb_provider).to eq('GeoBlacklight')
-      end
-    end
-
     describe '#cartodb_link' do
       it 'aliases CartoHelper#carto_link' do
         expect(helper.cartodb_link('http://demo.org/wfs/layer.json')).to eq(helper.carto_link('http://demo.org/wfs/layer.json'))

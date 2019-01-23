@@ -2,7 +2,7 @@
 APPLICATION_LOGO_URL: 'http://geoblacklight.org/images/geoblacklight-logo.png'
 
 # Carto OneClick Service https://carto.com/engine/open-in-carto/
-CARTO_ONECLICK_LINK: 'http://oneclick.cartodb.com/'
+CARTO_ONECLICK_LINK: 'http://oneclick.carto.com/'
 
 # Download path can be configured using this setting
 #DOWNLOAD_PATH: "./tmp/cache/downloads"
