@@ -6,6 +6,12 @@ class CatalogController < ApplicationController
   include Blacklight::Catalog
 
   configure_blacklight do |config|
+
+    # Ensures that JSON representations of Solr Documents can be retrieved using
+    # the path /catalog/:id/raw
+    # Please see https://github.com/projectblacklight/blacklight/pull/2006/
+    config.raw_endpoint.enabled = true
+
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     ## @see https://lucene.apache.org/solr/guide/6_6/common-query-parameters.html
     ## @see https://lucene.apache.org/solr/guide/6_6/the-dismax-query-parser.html#TheDisMaxQueryParser-Theq.altParameter
@@ -25,6 +31,7 @@ class CatalogController < ApplicationController
      :qt => 'document',
      :q => '{!raw f=layer_slug_s v=$id}'
     }
+
 
     # solr field configuration for search results/index views
     # config.index.show_link = 'title_display'

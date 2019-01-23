@@ -63,4 +63,20 @@ describe CatalogController, type: :controller do
       end
     end
   end
+
+  describe '#raw' do
+    it 'returns a JSON representation of a Solr Document' do
+      get :raw, params: { id: 'tufts-cambridgegrid100-04' }
+      expect(response.status).to eq 200
+      expect(response.body).not_to be_empty
+      response_values = JSON.parse(response.body)
+      expect(response_values).to include 'geoblacklight_version' => '1.0'
+      expect(response_values).to include 'dc_title_s' => '100 Foot Grid Cambridge MA 2004'
+      expect(response_values).to include 'dc_identifier_s' => 'urn:geodata.tufts.edu:Tufts.CambridgeGrid100_04'
+      expect(response_values).to include 'dc_rights_s' => 'Public'
+      expect(response_values).to include 'dct_provenance_s' => 'Tufts'
+      expect(response_values).to include 'layer_slug_s' => 'tufts-cambridgegrid100-04'
+      expect(response_values).to include 'solr_geom' => 'ENVELOPE(-71.163984, -71.052581, 42.408316, 42.34757)'
+    end
+  end
 end
