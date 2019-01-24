@@ -1,0 +1,13 @@
+{{#if downloadUrl}}
+  <li class="list-group-item download js-index-map-item">
+    <div class="download-link-container">
+      <a class="btn btn-default download download-original" href="{{downloadUrl}}">
+        {{#if label}}
+          {{label}}
+        {{else}}
+          {{downloadUrl}}
+        {{/if}}
+      </a>
+    </div>
+  </li>
+{{/if}}

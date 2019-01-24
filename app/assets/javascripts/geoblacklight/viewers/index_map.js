@@ -48,6 +48,10 @@ GeoBlacklight.Viewer.IndexMap = GeoBlacklight.Viewer.Map.extend({
                 GeoBlacklight.Util.indexMapTemplate(feature.properties, function(html) {
                   $('.viewer-information').html(html);
                 });
+                GeoBlacklight.Util.indexMapDownloadTemplate(feature.properties, function(html) {
+                  $('.js-index-map-item').remove();
+                  $('.js-download-list').append(html);
+                });
               });
             }
           },
