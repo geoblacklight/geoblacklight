@@ -11,6 +11,7 @@
 | [Schema Version](#schema-version)			| geoblacklight_version| X|
 | [Slug](#slug)								| layer_slug_s| X|
 | [Bounding Box](#bounding-box)				| solr_geom| X|
+| [Solr Year](#solr-year)					| solr_year_i||
 | [Creator](#creator)						| dc_creator_sm||
 | [Description](#description)				| dc_description_s||
 | [Format](#format)							| dc_format_s||
@@ -115,6 +116,18 @@
 | Controlled Vocabulary			| no|
 | Element Set					| GeoBlacklight|
 | Example						| "ENVELOPE(76.76, 84.76, 19.91, 12.62)"|
+
+### Solr Year
+| Label 						| Solr Year|
+|:------------------------------|:---------------------------------------------------------|
+| uri							| `solr_year_i`|
+| Required						| no|
+| Type							| integer|
+| Description					| A four digit integer representing a year of temporal coverage or date issued for the resource. This field is used to populate the Year facet and the optional Blacklight range plugin.|
+| Entry Guidelines				| This field must be an integer.|
+| Controlled Vocabulary			| no|
+| Element Set					| GeoBlacklight|
+| Example						| "1982"|
 
 ### Creator
 | Label							| Creator|
@@ -245,7 +258,7 @@
 | Type							| string|
 | Description					| This element is a hash of key/value pairs for different types of external links. It external services and references using the CatInterOp approach.|
 | Entry Guidelines				| See [External Services](https://github.com/geoblacklight/geoblacklight/wiki/Schema#external-services)|
-| Controlled Vocabulary			| [References URIs](https://github.com/geoblacklight/geoblacklight/wiki/Schema#external-services)|
+| Controlled Vocabulary			| [References URIs](/schema/references.md)|
 | Element Set					| DCMI Metadata Terms|
 | Example						| "dct_references_s": "{\"http://schema.org/url\":\"http://purl.stanford.edu/bm662dm5913\",\"http://schema.org/downloadUrl\":\"http://stacks.stanford.edu/file/druid:bm662dm5913/data.zip\"}"|
 
