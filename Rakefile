@@ -95,34 +95,6 @@ namespace :geoblacklight do
     end
   end
 
-  desc 'Run Solr and GeoBlacklight for interactive development'
-  task :webpack do |_t|
-    if File.exist? EngineCart.destination
-      within_test_app do
-        system 'bundle update'
-      end
-    else
-      Rake::Task['engine_cart:generate'].invoke
-    end
-
-    SolrWrapper.wrap(port: '8983') do |solr|
-      solr.with_collection(name: 'blacklight-core', dir: File.join(File.expand_path('.', File.dirname(__FILE__)), 'solr', 'conf')) do
-        Rake::Task['geoblacklight:internal:seed'].invoke
-
-        within_test_app do
-          puts "\nSolr server running: http://localhost:#{solr.port}/solr/#/blacklight-core"
-          puts "\n^C to stop"
-          puts ' '
-          begin
-            system 'foreman start'
-          rescue Interrupt
-            puts 'Shutting down...'
-          end
-        end
-      end
-    end
-  end
-
   desc 'Run Solr and seed with sample data'
   task :solr do
     if File.exist? EngineCart.destination

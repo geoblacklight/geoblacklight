@@ -23,6 +23,10 @@ class TestAppGenerator < Rails::Generators::Base
     generate 'geoblacklight:install', '-f'
   end
 
+  def integrate_webpacker
+    generate 'geoblacklight:webpacker', '-f'
+  end
+
   def fixtures
     FileUtils.mkdir_p 'spec/fixtures/solr_documents'
     directory 'solr_documents', 'spec/fixtures/solr_documents'
@@ -33,15 +37,5 @@ class TestAppGenerator < Rails::Generators::Base
   def install_teaspoon
     # Implicit copy of GeoBlacklight checked-in teaspoon_env.rb
     copy_file '../teaspoon_env.rb', 'spec/teaspoon_env.rb'
-  end
-
-  # This is necessary in order to avoid the Yarn integrity check error
-  def javascript_install
-    exit_status = system('yarn --version')
-    if !exit_status.nil?
-      run 'yarn install'
-    else
-      run 'npm install'
-    end
   end
 end
