@@ -13,7 +13,7 @@ Full layer description | `http://schema.org/url` | Further descriptive informati
 Metadata in ISO 19139 | `http://www.isotc211.org/schemas/2005/gmd/` | Structured metadata in ISO standard expressed as XML|
 Metadata in FGDC | `http://www.opengis.net/cat/csw/csdgm/` | Structured metadata in FGDC standard expressed as XML|
 Metadata in MODS | `http://www.loc.gov/mods/v3` | Structured metadata in MODS format|
-Metadata in HTML | `http://www.w3.org/1999/xhtml` | Structured metadata in andy standard expressed as HTML|
+Metadata in HTML | `http://www.w3.org/1999/xhtml` | Structured metadata in any standard expressed as HTML|
 ArcGIS FeatureLayer | `urn:x-esri:serviceType:ArcGIS#FeatureLayer` | Previewing of ArcGIS FeatureLayer Service|
 ArcGIS TiledMapLayer | `urn:x-esri:serviceType:ArcGIS#TiledMapLayer` | Previewing of ArcGIS TiledMapLayer Service|
 ArcGIS DynamicMapLayer | `urn:x-esri:serviceType:ArcGIS#DynamicMapLayer` | Previewing of ArcGIS DynamicMapLayer Service|

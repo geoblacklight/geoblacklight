@@ -1,5 +1,5 @@
 ## GeoBlacklight 1.0 Metadata Schema
-
+This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more information on applications of these elements, visit the [Schema Commentary document](/schema/schema-commentary.md).
 ## Brief
 
 | Label 						| uri| Required?|
@@ -27,7 +27,7 @@
 | [Temporal Coverage](#temporal-coverage)	| dct_temporal_sm||
 | [Geometry Type](#geometry-type)			| layer_geom_type_s||
 | [Layer ID](#layer-id)						| layer_id_s||
-| [Modified Date](#modified-date)			| layer_modified_dt||
+| [Modified Date](#modified-date)			| layer_modified_dt|||
 
 
 ## Details
@@ -172,7 +172,7 @@
 | Required						| no|
 | Type							| array|
 | Description					| Indicates the language of the data or map|
-| Entry Guidelines				| Current practice is to spell out language (in English) instead of using a code. Ex “French” instead of “fra”|
+| Entry Guidelines				| Spell out language (in English) instead of using the ISO 639-1 code (e.g.,“French” instead of “fra”).|
 | Controlled Vocabulary			| no|
 | Element Set					| Dublin Core Metadata Element Set|
 | Example						| "English"|
@@ -180,12 +180,12 @@
 ### Publisher
 | Label							| Publisher|
 |:------------------------------|:---------------------------------------------------------|
-| uri							| `dc_publisher_sm`|
+| uri							| `dc_publisher_s`|
 | Required						| no|
 | Type							| array|
 | Description					| The organization that made the original resource available|
 | Entry Guidelines				| This should always be an organization.|
-| Controlled Vocabulary			| If available, it should match with the Library of Congress Name Authority File.|
+| Controlled Vocabulary			| If available, it should match with the [Library of Congress Name Authority File](http://id.loc.gov/authorities/names.html).|
 | Element Set					| Dublin Core Metadata Element Set|
 | Example						| "ML InfoMap"|
 
@@ -195,8 +195,8 @@
 | uri							| `dc_source_sm`|
 | Required						| no|
 | Type							| array|
-| Description					| This is used for parent/child relationships and activates the Data Relations widget in GeoBlacklight.|
-| Entry Guidelines				| This is only added to the child records. Enter the layer_slug_s of the parent record(s) into this field. See https://github.com/geoblacklight/geoblacklight/wiki/Using-data-relations-widget for more information.|
+| Description					| This is used for parent/child relationships between data layers and activates the Data Relations widget in GeoBlacklight.|
+| Entry Guidelines				| This is only added to the child records. Enter the layer_slug_s of the parent record(s) into this field.|
 | Controlled Vocabulary			| no|
 | Element Set					| Dublin Core Metadata Element Set|
 | Example						| "stanford-vr593vj7147"|
@@ -235,7 +235,7 @@
 | Description					| Holding entity for the layer, such as the title of a collection|
 | Entry Guidelines				| Plain text that is indexed in the Collections facet|
 | Controlled Vocabulary			| no|
-| Element Set					| DCMI Metadata Terms|
+| Element Set					| [DCMI Metadata Terms](http://dublincore.org/documents/dcmi-terms/)|
 | Example						| "Village Maps of India"|
 
 ### Date Issued
@@ -247,7 +247,7 @@
 | Description					| This is the publication date for the resource|
 | Entry Guidelines				| Use the XML Schema dateTime format (YYYY-MM-DDThh:mm:ssZ)|
 | Controlled Vocabulary			| no|
-| Element Set					| DCMI Metadata Terms|
+| Element Set					| [DCMI Metadata Terms](http://dublincore.org/documents/dcmi-terms/)|
 | Example						| "2015-01-01T12:00:00Z"|
 
 ### References
@@ -269,7 +269,7 @@
 | Required						| no|
 | Type							| array|
 | Description					| This field is for place name keywords|
-| Entry Guidelines				| If records are shared across institutions, the place name text strings should be specified out to the nation level.|
+| Entry Guidelines				| Place name text strings should be specified out to the nation level. It is typical for the place name to represent the largest extent the data layer represents.|
 | Controlled Vocabulary			| Recommended thesaurus is GeoNames|
 | Element Set					| DCMI Metadata Terms|
 | Example						| "Philadelphia, Pennsylvania, United States"|
@@ -292,7 +292,7 @@
 | uri							| `layer_geom_type_s`|
 | Required						| no|
 | Type							| string|
-| Description					| This shows up as Data type in GeoBlacklight and each value has an associated icon. It differentiates between vector types (point, line, polygon, etc.) and raster types (raster data, image, paper map)|
+| Description					| This element shows up as Data type in GeoBlacklight, and each value has an associated icon. It differentiates between vector types (point, line, polygon, etc.) and raster types (raster data, image, paper map)|
 | Entry Guidelines				| Choose from set values (see Controlled Vocabulary Lists)|
 | Controlled Vocabulary			| [Geometry Type Controlled Vocabulary](/schema/geometry-type-values.md)|
 | Element Set					| GeoBlacklight|
@@ -304,8 +304,8 @@
 | uri							| `layer_id_s`|
 | Required						| no|
 | Type							| string|
-| Description					| This indicates the layer id for any WMS or WFS web services listed in the dct_references_s field|
-| Entry Guidelines				| Only the layer name is added here. The base service endpoint URLs (e.g. "https://maps-public.geo.nyu.edu/geoserver/sdr/wms") are added to References|
+| Description					| Indicates the layer id for any WMS or WFS web services listed in the dct_references_s field|
+| Entry Guidelines				| Only the layer name is added here. The base service endpoint URLs (e.g. "https://maps-public.geo.nyu.edu/geoserver/sdr/wms") are added to the `dct_references_s` field.|
 | Controlled Vocabulary			| no|
 | Element Set					| GeoBlacklight|
 | Example						| "druid:vr593vj7147"|
