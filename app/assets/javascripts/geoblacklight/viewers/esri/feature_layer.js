@@ -56,14 +56,16 @@ GeoBlacklight.Viewer.FeatureLayer = GeoBlacklight.Viewer.Esri.extend({
 
     // inspect on click
     featureLayer.on('click', function(e) {
+      var distance = 3000 / (1 + _this.map.getZoom());
+
       _this.appendLoadingMessage();
 
       // query layer at click location
       featureLayer.query()
       .returnGeometry(false)
-      .intersects(e.latlng)
+      .nearby(e.latlng, distance)
       .run(function(error, featureCollection, response) {
-        if (error) {
+        if (error || response['features'] < 1) {
           _this.appendErrorMessage();
         } else {
           _this.populateAttributeTable(featureCollection.features[0]);
