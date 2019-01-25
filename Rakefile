@@ -38,6 +38,7 @@ task ci: ['geoblacklight:generate'] do
     solr.with_collection(name: 'blacklight-core', dir: File.join(File.expand_path('.', File.dirname(__FILE__)), 'solr', 'conf')) do
       within_test_app do
         system 'RAILS_ENV=test rake geoblacklight:index:seed'
+        system 'RAILS_ENV=test bundle exec rails webpacker:compile'
       end
       Rake::Task['geoblacklight:coverage'].invoke
     end
