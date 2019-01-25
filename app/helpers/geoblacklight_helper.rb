@@ -1,15 +1,4 @@
 module GeoblacklightHelper
-  extend Deprecation
-  self.deprecation_horizon = 'Geoblacklight 2.0.0'
-
-  def sms_helper
-    content_tag(:i, '', class: 'fa fa-mobile fa-fw') + ' ' + t('blacklight.tools.sms')
-  end
-
-  def email_helper
-    content_tag(:i, '', class: 'fa fa-envelope fa-fw') + ' ' + t('blacklight.tools.email')
-  end
-
   def document_available?
     @document.public? || (@document.same_institution? && user_signed_in?)
   end

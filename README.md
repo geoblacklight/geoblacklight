@@ -26,6 +26,9 @@ $ rake geoblacklight:server
 Or install with [Docker](https://github.com/geoblacklight/geoblacklight-docker)
 For more information see the [installation guide](https://github.com/geoblacklight/geoblacklight/wiki/Installation)
 
+### Webpacker
+GeoBlacklight can use [Webpacker](https://github.com/rails/webpacker) in order to manage JavaScript dependencies and assets, which requires that either [Yarn](https://yarnpkg.com/) or the [Node Package Manager](https://www.npmjs.com/) be available on the system where this is deployed.  How Webpacker interacts with Rails is overviewed within its own documentation, including [how best to configure JavaScript processing settings](https://github.com/rails/webpacker/blob/master/docs/webpack.md).  We encourage you to review this.
+
 ### Contributing
 Interested in contributing to GeoBlacklight? Please see our [contributing](CONTRIBUTING.md) guide.
 
