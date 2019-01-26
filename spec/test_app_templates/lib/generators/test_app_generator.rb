@@ -7,6 +7,7 @@ class TestAppGenerator < Rails::Generators::Base
     gem 'blacklight'
     gem 'teaspoon'
     gem 'teaspoon-jasmine'
+    gem 'webpacker', '~> 3.5'
     Bundler.with_clean_env do
       run 'bundle install'
     end
@@ -20,6 +21,10 @@ class TestAppGenerator < Rails::Generators::Base
 
   def install_engine
     generate 'geoblacklight:install', '-f'
+  end
+
+  def integrate_webpacker
+    generate 'geoblacklight:webpacker', '-f'
   end
 
   def fixtures
