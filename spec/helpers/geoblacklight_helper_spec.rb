@@ -64,7 +64,7 @@ describe GeoblacklightHelper, type: :helper do
     end
     let(:document) { SolrDocument.new(document_attributes) }
     before do
-      allow_any_instance_of(Geoblacklight::Reference).to receive(:to_hash).and_return(download: 'http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip')
+      allow_any_instance_of(Geoblacklight::DctReference).to receive(:to_hash).and_return(download: 'http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip')
     end
     it 'generates a link to download the original file' do
       expect(download_link_direct(text, document)).to eq '<a contentUrl="http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip" class="btn btn-default download download-original" data-download="trigger" data-download-type="direct" href="http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip">Test Link Text</a>'
@@ -97,7 +97,7 @@ describe GeoblacklightHelper, type: :helper do
     let(:document) { SolrDocument.new(document_attributes) }
 
     before do
-      allow_any_instance_of(Geoblacklight::Reference).to receive(:to_hash).and_return(iiif: 'https://example.edu/image/info.json')
+      allow_any_instance_of(Geoblacklight::DctReference).to receive(:to_hash).and_return(iiif: 'https://example.edu/image/info.json')
     end
 
     it 'generates a link to download the JPG file from the IIIF server' do
@@ -212,14 +212,14 @@ describe GeoblacklightHelper, type: :helper do
   end
 
   describe '#render_web_services' do
-    let(:reference) { instance_double(Geoblacklight::Reference, type: 'wms') }
+    let(:reference) { instance_double(Geoblacklight::DctReference, type: 'wms') }
     it 'with a reference to a defined partial' do
       expect(helper).to receive(:render)
         .with(partial: 'web_services_wms', locals: { reference: reference })
       helper.render_web_services(reference)
     end
     context 'when the partial is missing' do
-      let(:reference) { instance_double(Geoblacklight::Reference, type: 'iiif') }
+      let(:reference) { instance_double(Geoblacklight::DctReference, type: 'iiif') }
 
       it 'with a reference to a missing partial' do
         expect(helper).to receive(:render)
@@ -287,7 +287,7 @@ describe GeoblacklightHelper, type: :helper do
 
   describe '#first_metadata?' do
     let(:metadata) { instance_double(Geoblacklight::Metadata::Base) }
-    let(:references) { instance_double(Geoblacklight::References) }
+    let(:references) { instance_double(Geoblacklight::DctReferences) }
     let(:document) { instance_double(SolrDocument) }
 
     before do

@@ -6,7 +6,7 @@ describe Geoblacklight::Metadata::Base do
   let(:connection) { instance_double(Faraday::Connection) }
   let(:response) { instance_double(Faraday::Response) }
   let(:reference) do
-    Geoblacklight::Reference.new(['http://www.loc.gov/mods/v3', 'http://purl.stanford.edu/cg357zz0321.mods'])
+    Geoblacklight::DctReference.new(['http://www.loc.gov/mods/v3', 'http://purl.stanford.edu/cg357zz0321.mods'])
   end
 
   before do
@@ -99,7 +99,7 @@ describe Geoblacklight::Metadata::Base do
     let(:ns) { 'http://www.opengis.net/cat/csw/csdgm' }
     let(:url) { 'https://raw.githubusercontent.com/OpenGeoMetadata/edu.tufts/master/165/242/110/132/fgdc.xml' }
     let(:reference) do
-      Geoblacklight::Reference.new([ns, url])
+      Geoblacklight::DctReference.new([ns, url])
     end
     let(:connection) { instance_double(Faraday::Connection) }
     let(:response) { instance_double(Faraday::Response) }

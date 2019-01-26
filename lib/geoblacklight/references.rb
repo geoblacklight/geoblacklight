@@ -1,18 +1,27 @@
 module Geoblacklight
-  # References is a geoblacklight-schema dct:references parser
   class References
-    attr_reader :refs, :reference_field
-    def initialize(document, reference_field = Settings.FIELDS.REFERENCES)
+    attr_reader :download_refs
+    def initialize(document)
       @document = document
-      @reference_field = reference_field
-      @refs = parse_references.map { |ref| Reference.new(ref) }
+    end
+
+    def refs
+      metadata_refs + webservice_refs
+    end
+
+    def metadata_refs
+      @metadata_refs ||= parse_references('metadata_sm').map { |ref| Reference.new(ref) }
+    end
+
+    def webservice_refs
+      @webservice_refs ||= parse_references('webservices_sm').map { |ref| Reference.new(ref) }
     end
 
     ##
     # Return only those metadata references which are exposed within the configuration
     # @return [Geoblacklight::Reference]
     def shown_metadata_refs
-      metadata = @refs.select { |ref| Settings.METADATA_SHOWN.include?(ref.type.to_s) }
+      metadata = metadata_refs.select { |ref| Settings.METADATA_SHOWN.include?(ref.type.to_s) }
       metadata.sort do |u, v|
         Settings.METADATA_SHOWN.index(u.type.to_s) <=> Settings.METADATA_SHOWN.index(v.type.to_s)
       end
@@ -36,36 +45,23 @@ module Geoblacklight
     # @param [String, Symbol] ref_type
     # @return [Geoblacklight::Reference]
     def references(ref_type)
-      @refs.find { |reference| reference.type == ref_type }
+      refs.find { |reference| reference.type == ref_type }
     end
 
     ##
     # Preferred download (should be a file download)
     # @return [Hash, nil]
-    def preferred_download
-      return file_download unless download.blank?
-    end
+    def preferred_download; end
 
     ##
     # Download hash based off of format type
     # @return [Hash, nil]
-    def downloads_by_format
-      case format
-      when 'Shapefile'
-        vector_download_formats
-      when 'GeoTIFF'
-        geotiff_download_formats
-      when 'ArcGRID'
-        arcgrid_download_formats
-      end
-    end
+    def downloads_by_format; end
 
     ##
     # Generated download types from wxs services
     # @return (see #downloads_by_format)
-    def download_types
-      downloads_by_format
-    end
+    def download_types; end
 
     ##
     # Returns all of the Esri webservices for given set of references
@@ -77,56 +73,25 @@ module Geoblacklight
 
     private
 
-    ##
-    # Parses the references field of a document
-    # @return [Hash]
-    def parse_references
-      if @document[reference_field].nil?
-        {}
-      else
-        JSON.parse(@document[reference_field])
+      ##
+      # Parses the references field of a document
+      # @return [Hash]
+      def parse_references(reference_field)
+        if @document[reference_field].nil?
+          []
+        else
+          @document[reference_field].collect { |r| JSON.parse(r) }
+        end
       end
-    end
 
-    ##
-    # Download hash for a static file download
-    # @return (see #downloads_by_format)
-    def file_download
-      { file_download: download.to_hash }
-    end
-
-    ##
-    # Download hash for a Shapefile file (currently only vector) with a wms and wfs reference
-    # present
-    # @return (see #downloads_by_format)
-    def vector_download_formats
-      { shapefile: wfs.to_hash,
-        kmz: wms.to_hash,
-        geojson: wfs.to_hash } if wms.present? && wfs.present?
-    end
-
-    ##
-    # Download hash for a GeoTiff file with a WMS reference present
-    # @return (see #downloads_by_format)
-    def geotiff_download_formats
-      { geotiff: wms.to_hash } if wms.present?
-    end
-
-    ##
-    # Download hash for an ArcGRID file with a WMS reference present
-    # @return (see #downloads_by_format)
-    def arcgrid_download_formats
-      { geotiff: wms.to_hash } if wms.present?
-    end
-
-    ##
-    # Adds a call to references for defined URI keys
-    def method_missing(m, *args, &b)
-      if Geoblacklight::Constants::URI.key?(m)
-        references m
-      else
-        super
+      ##
+      # Adds a call to references for defined URI keys
+      def method_missing(m, *args, &b)
+        if Geoblacklight::Constants::URI.key?(m)
+          references m
+        else
+          super
+        end
       end
-    end
   end
 end

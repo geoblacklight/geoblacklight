@@ -6,10 +6,10 @@ describe Geoblacklight::ItemViewer do
   let(:references) { document.references }
   let(:references_field) { Settings.FIELDS.REFERENCES }
   let(:item_viewer) { described_class.new(references) }
-  describe 'viewer_preference' do
+  describe 'viewer_protocol' do
     describe 'for no references' do
-      it 'returns nil' do
-        expect(item_viewer.viewer_preference).to be_nil
+      it 'returns map' do
+        expect(item_viewer.viewer_protocol).to eq 'map'
       end
     end
     describe 'for wms reference' do
@@ -22,7 +22,7 @@ describe Geoblacklight::ItemViewer do
         }
       end
       it 'wms if wms is present' do
-        expect(item_viewer.viewer_preference).to eq wms: 'http://www.example.com/wms'
+        expect(item_viewer.viewer_protocol).to eq 'wms'
       end
     end
     describe 'for iiif only reference' do
@@ -34,7 +34,7 @@ describe Geoblacklight::ItemViewer do
         }
       end
       it 'returns iiif' do
-        expect(item_viewer.viewer_preference).to eq iiif: 'http://www.example.com/iiif'
+        expect(item_viewer.viewer_protocol).to eq 'iiif'
       end
     end
     describe 'for tiled map layer reference' do
@@ -46,7 +46,7 @@ describe Geoblacklight::ItemViewer do
         }
       end
       it 'returns mapservice' do
-        expect(item_viewer.viewer_preference).to eq tiled_map_layer: 'http://www.example.com/MapServer'
+        expect(item_viewer.viewer_protocol).to eq 'tiled_map_layer'
       end
     end
     context 'index map' do
@@ -57,7 +57,7 @@ describe Geoblacklight::ItemViewer do
           }.to_json
         }
       end
-      it { expect(item_viewer.viewer_preference).to eq index_map: 'http://www.example.com/index_map' }
+      it { expect(item_viewer.viewer_protocol).to eq 'index_map' }
     end
   end
 end

@@ -29,11 +29,21 @@ module Geoblacklight
     end
 
     def references
-      References.new(self)
+      @references ||= begin
+        if use_dct_references?
+          DctReferences.new(self)
+        else
+          References.new(self)
+        end
+      end
+    end
+
+    def downloads
+      Array.wrap(references.download)
     end
 
     def direct_download
-      references.download.to_hash unless references.download.blank?
+      downloads.first.to_hash unless downloads.first.blank?
     end
 
     def hgl_download
@@ -101,6 +111,22 @@ module Geoblacklight
     end
 
     private
+
+    def reference_fields
+      [
+        'downloads_sm',
+        'webservices_sm',
+        'metadata_sm'
+      ]
+    end
+
+    def use_dct_references?
+      reference_fields.each do |field_name|
+        return false if self[field_name].present?
+      end
+
+      true
+    end
 
     def method_missing(method, *args, &block)
       if /.*_url$/ =~ method.to_s

@@ -74,13 +74,13 @@ describe Geoblacklight::SolrDocument do
   describe 'references' do
     let(:document_attributes) { {} }
     it 'generates a new references object' do
-      expect(document.references).to be_an Geoblacklight::References
+      expect(document.references).to be_an Geoblacklight::DctReferences
     end
   end
   describe 'download_types' do
     let(:document_attributes) { {} }
     it 'calls download_types' do
-      expect_any_instance_of(Geoblacklight::References).to receive(:download_types)
+      expect_any_instance_of(Geoblacklight::DctReferences).to receive(:download_types)
       document.download_types
     end
   end
@@ -95,12 +95,12 @@ describe Geoblacklight::SolrDocument do
         }
       end
       it 'returns a direct download hash' do
-        expect_any_instance_of(Geoblacklight::Reference).to receive(:to_hash)
+        expect_any_instance_of(Geoblacklight::DctReference).to receive(:to_hash)
         document.direct_download
       end
     end
     it 'returns nil if no direct download' do
-      expect_any_instance_of(Geoblacklight::Reference).not_to receive(:to_hash)
+      expect_any_instance_of(Geoblacklight::DctReference).not_to receive(:to_hash)
       expect(document.direct_download).to be_nil
     end
   end
@@ -228,13 +228,13 @@ describe Geoblacklight::SolrDocument do
   end
   describe 'checked_endpoint' do
     let(:document_attributes) { {} }
-    let(:reference) { Geoblacklight::Reference.new(['http://www.opengis.net/def/serviceType/ogc/wms', 'http://www.example.com/wms']) }
+    let(:reference) { Geoblacklight::DctReference.new(['http://www.opengis.net/def/serviceType/ogc/wms', 'http://www.example.com/wms']) }
     it 'returns endpoint if available' do
-      expect_any_instance_of(Geoblacklight::References).to receive(:wms).and_return(reference)
+      expect_any_instance_of(Geoblacklight::DctReferences).to receive(:wms).and_return(reference)
       expect(document.checked_endpoint('wms')).to eq 'http://www.example.com/wms'
     end
     it 'return nil if not available' do
-      expect_any_instance_of(Geoblacklight::References).to receive(:wms).and_return(nil)
+      expect_any_instance_of(Geoblacklight::DctReferences).to receive(:wms).and_return(nil)
       expect(document.checked_endpoint('wms')).to be_nil
     end
   end

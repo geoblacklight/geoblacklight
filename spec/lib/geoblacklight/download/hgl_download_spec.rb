@@ -37,7 +37,7 @@ describe Geoblacklight::HglDownload do
     let(:faraday_response) { instance_double(Faraday::Response) }
     let(:faraday_request) { instance_double(Faraday::Request) }
     let(:faraday_request_options) { OpenStruct.new(timeout: nil, open_timeout: nil) }
-    let(:reference) { instance_double(Geoblacklight::Reference) }
+    let(:reference) { instance_double(Geoblacklight::DctReference) }
     # Methods cannot be stubbed which are automatically generated from Hash keys
     let(:references) { double('references') }
     let(:endpoint) { 'http://www.example.com/wms' }

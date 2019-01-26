@@ -98,7 +98,7 @@ RSpec/RepeatedDescription:
   Exclude:
     - 'spec/features/esri_viewer_spec.rb'
     - 'spec/features/search_results_map_spec.rb'
-    - 'spec/lib/geoblacklight/references_spec.rb'
+    - 'spec/lib/geoblacklight/dct_references_spec.rb'
 
 # Offense count: 2
 RSpec/RepeatedExample:

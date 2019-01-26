@@ -1,28 +1,35 @@
 module Geoblacklight
   ##
-  # Parses an array of dct_references to create useful reference information
+  # Parses an array of references to create useful reference information
   class Reference
     attr_reader :reference
 
     ##
     # Initializes a Reference object using an Array
-    # @param [Array] reference
+    # @param [Hash] reference
     def initialize(reference)
-      @reference = reference
+      @reference = reference || {}
     end
 
     ##
     # The endpoint URL for a Geoblacklight::Reference
     # @return [String]
     def endpoint
-      @reference[1]
+      @reference['url']
     end
 
     ##
-    # Lookups the type from the Constants::URI using the reference's URI
-    # @return [Symbol]
-    def type
-      Geoblacklight::Constants::URI.key(uri)
+    # Label for the reference
+    # @return [String]
+    def label
+      @reference['label']
+    end
+
+    ##
+    # The layer id for a web service
+    # @return [String]
+    def layer_id
+      @reference['layerId']
     end
 
     ##
@@ -32,14 +39,11 @@ module Geoblacklight
       { type => endpoint }
     end
 
-    private
-
     ##
-    # The URI used for this instance's creation
-    # Remove any trailing slashes
-    # @return [String]
-    def uri
-      @reference[0].sub(/(\/)+$/, '') if @reference[0].present?
+    # Lookups the type from the Constants::URI using the reference's URI
+    # @return [Symbol]
+    def type
+      @reference['type']&.to_sym
     end
   end
 end
