@@ -15,18 +15,6 @@ describe GeoblacklightHelper, type: :helper do
     end
   end
 
-  describe '#sms_helper' do
-    it 'generates an icon for SMS messaging' do
-      expect(sms_helper).to eq('<i class="fa fa-mobile fa-fw"></i> SMS This')
-    end
-  end
-
-  describe '#email_helper' do
-    it 'generates an icon for e-mail messaging' do
-      expect(email_helper).to eq('<i class="fa fa-envelope fa-fw"></i> Email')
-    end
-  end
-
   describe '#geoblacklight_icon' do
     it 'replaces special characters, lowercases, and subs spaces for hyphens' do
       html = Capybara.string(geoblacklight_icon('TEst & 123'))
