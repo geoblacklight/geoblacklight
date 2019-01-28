@@ -143,7 +143,7 @@ class CatalogController < ApplicationController
     config.add_show_field Settings.FIELDS.PROVENANCE, label: 'Held by', link_to_facet: true
     config.add_show_field(
       Settings.FIELDS.REFERENCES,
-      label: I18n.t('geoblacklight.metadata.more_details'),
+      label: 'More details at',
       accessor: [:external_url],
       if: proc { |_, _, doc| doc.external_url },
       helper_method: :render_references_url
@@ -256,8 +256,8 @@ class CatalogController < ApplicationController
     # 'worldAntique'
     # 'worldEco'
     # 'flatBlue'
-    # 'midnightCommander' 
-    
+    # 'midnightCommander'
+
     config.basemap_provider = 'positron'
 
     # Configuration for autocomplete suggestor
