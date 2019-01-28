@@ -7,6 +7,14 @@ GeoBlacklight.Util = {
     return str.toString().replace(urlRegEx, '<a href=\'$1\'>$1</a>');
   },
   /**
+   * Calls the index map download template
+   * @param {Object} data - GeoJSON feature properties object
+   * @param {requestCallback} cb
+   */
+  indexMapDownloadTemplate: function(data, cb) {
+    cb(HandlebarsTemplates["index_map_download"](data));
+  },
+  /**
    * Calls the index map template
    * @param {Object} data - GeoJSON feature properties object
    * @param {requestCallback} cb
