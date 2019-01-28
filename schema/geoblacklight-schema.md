@@ -76,7 +76,7 @@ This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more 
 | Required						| yes|
 | Type							| string|
 | Description					| The name of the institution that holds the resource or acts as the custodian for the metadata record.|
-| Entry Guidelines				| Each institution should contribute an icon the the GeoBlacklight Icons project. The value for this field should be one of the agreed upon shortened names for each institution (see Provenance list). This will embed the correct icon into the search results and item pages.|
+| Entry Guidelines				| Each institution should contribute an icon the the GeoBlacklight Icons project. The value for this field needs to be one of the agreed upon shortened names for each institution (see Provenance list). This will embed the correct icon into the search results and item pages.|
 | Controlled Vocabulary			| This repository contains the insitutions that have shared icons: https://github.com/geoblacklight/geoblacklight-icons|
 | Element Set					| DCMI Metadata Terms|
 | Example						| "Stanford"|
@@ -100,7 +100,7 @@ This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more 
 | Required						| yes|
 | Type							| string|
 | Description					| This is a string appended to the base URL of a GeoBlacklight installation to create a unique landing page for each resource. It is visible to the user and is used for Permalinks.|
-| Entry Guidelines				| This string must be a globally unique value. The value should be alpha-numeric characters separated by dashes, and is typically of the form institution-keyword1-keyword2.|
+| Entry Guidelines				| This string must be a globally unique value. The value should be alpha-numeric characters separated by dashes.|
 | Controlled Vocabulary			| no|
 | Element Set					| GeoBlacklight|
 | Example						| "stanford-andhra-pradesh-village-boundaries"|
@@ -137,7 +137,7 @@ This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more 
 | Type							| array|
 | Description					| The person(s) or organization that created the resource|
 | Entry Guidelines				| This may be an individual or an organization. If available, it should match with the Library of Congress Name Authority File.|
-| Controlled Vocabulary			| If available, it should match with the Library of Congress Name Authority File.|
+| Controlled Vocabulary			| The suggested controlled vocabulary is the [Library of Congress Name Authority File](http://id.loc.gov/authorities/names.html).|
 | Element Set					| Dublin Core Metadata Element Set|
 | Example						| "George Washington", "Thomas Jefferson"|
 
@@ -185,7 +185,7 @@ This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more 
 | Type							| array|
 | Description					| The organization that made the original resource available|
 | Entry Guidelines				| This should always be an organization.|
-| Controlled Vocabulary			| If available, it should match with the [Library of Congress Name Authority File](http://id.loc.gov/authorities/names.html).|
+| Controlled Vocabulary			| The suggested controlled vocabulary is the [Library of Congress Name Authority File](http://id.loc.gov/authorities/names.html).|
 | Element Set					| Dublin Core Metadata Element Set|
 | Example						| "ML InfoMap"|
 
@@ -208,8 +208,8 @@ This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more 
 | Required						| no|
 | Type							| array|
 | Description					| These are theme or topic keywords|
-| Entry Guidelines				| These should be consistent and chosen from a controlled vocabulary. Place name subject headings should be transferred to Spatial Coverage. Use sentence style capitalization, where only the first word of a phrase is capitalized|
-| Controlled Vocabulary			| Recommended thesauri are ISO Topic Categories and Library of Congress Subject Headings. Library of Congress place name subject headings should be transferred to Spatial Coverage.|
+| Entry Guidelines				| These should be consistent and chosen from a controlled vocabulary. Use sentence style capitalization, where only the first word of a phrase is capitalized|
+| Controlled Vocabulary			| Recommended thesauri are ISO Topic Categories and Library of Congress Subject Headings.|
 | Element Set					| Dublin Core Metadata Element Set|
 | Example						| "Census", "Human settlements"|
 
