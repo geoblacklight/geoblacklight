@@ -1,7 +1,7 @@
 {
     "dc_description_s": "This is a description",
     "solr_geom": "ENVELOPE(-74.783, -74.733, 40.20, 40.166)",
-    "dct_references_s": "{\"https://openindexmaps.org\": \"https://raw.githubusercontent.com/OpenIndexMaps/edu.cornell/master/ny-aerial-photos-1960s.geojson\"}",
+    "dct_references_s": "{\"https://openindexmaps.org\":\"https://raw.githubusercontent.com/OpenIndexMaps/edu.cornell/master/ny-aerial-photos-1960s.geojson\",\"http://schema.org/downloadUrl\":\"https://raw.githubusercontent.com/OpenIndexMaps/edu.cornell/master/ny-aerial-photos-1960s.geojson\"}",
     "dc_rights_s": "Public",
     "dct_provenance_s": "Cornell",
     "dc_subject_sm": [

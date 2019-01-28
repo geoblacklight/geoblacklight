@@ -2,7 +2,7 @@
 
 GeoBlacklight.Basemaps = {
   darkMatter: L.tileLayer(
-    'http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{retina}.png', {
+    'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{retina}.png', {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://carto.com/attributions">Carto</a>',
       maxZoom: 18,
       worldCopyJump: true,
@@ -11,7 +11,7 @@ GeoBlacklight.Basemaps = {
     }
   ),
   positron: L.tileLayer(
-    'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{retina}.png', {
+    'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{retina}.png', {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://carto.com/attributions">Carto</a>',
       maxZoom: 18,
       worldCopyJump: true,
@@ -20,7 +20,7 @@ GeoBlacklight.Basemaps = {
     }
   ),
   positronLite: L.tileLayer(
-    'http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{retina}.png', {
+    'https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{retina}.png', {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://carto.com/attributions">Carto</a>',
       maxZoom: 18,
       worldCopyJump: true,
