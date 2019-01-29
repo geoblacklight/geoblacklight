@@ -34,4 +34,4 @@ If you add a new document, please add it to the table below, and indicate its pu
 | umn_metro_result2.json |  |
 | umn_state_result1.json |  |
 | umn_state_result2.json |  |
-| uva_slug_colon.json |  |
+| uva_slug_colon.json | `layer_slug_s` contains a colon, which is a reserved character which sometimes gets escaped in URLs |
