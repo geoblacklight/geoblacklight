@@ -36,6 +36,9 @@ module Geoblacklight
 
       append_to_file 'config/initializers/assets.rb',
                      "\nRails.application.config.assets.precompile += %w( favicon.ico )\n"
+
+      append_to_file 'config/initializers/assets.rb',
+                     "\nRails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'images')\n"
     end
 
     def create_blacklight_catalog
