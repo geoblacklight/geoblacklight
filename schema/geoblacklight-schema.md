@@ -4,30 +4,30 @@ This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more 
 
 | Label 						| uri| Required?|
 |-------------------						|-----------------------|:----------:|
-| [Identifier](#identifier)					| dc_identifier_s| X|
-| [Rights](#rights)							| dc_rights_s| X|
-| [Title](#title)							| dc_title_s| X|
-| [Provenance](#provenance)					| dct_provenance_s| X|
-| [Schema Version](#schema-version)			| geoblacklight_version| X|
-| [Slug](#slug)								| layer_slug_s| X|
-| [Bounding Box](#bounding-box)				| solr_geom| X|
-| [Solr Year](#solr-year)					| solr_year_i||
-| [Creator](#creator)						| dc_creator_sm||
-| [Description](#description)				| dc_description_s||
-| [Format](#format)							| dc_format_s||
-| [Language](#language)						| dc_language_sm||
-| [Publisher](#publisher)					| dc_publisher_sm||
-| [Source](#source)							| dc_source_sm||
-| [Subject](#subject)						| dc_subject_sm||
-| [Type](#type)								| dc_type_s||
-| [Is Part Of](#is-part-of)					| dct_isPartOf_sm||
-| [Date Issued](#date-issued)				| dct_issued_dt||
-| [References](#references)					| dct_references_s||
-| [Spatial Coverage](#spatial-coverage)		| dct_spatial_sm||
-| [Temporal Coverage](#temporal-coverage)	| dct_temporal_sm||
-| [Geometry Type](#geometry-type)			| layer_geom_type_s||
-| [Layer ID](#layer-id)						| layer_id_s||
-| [Modified Date](#modified-date)			| layer_modified_dt|||
+| [Identifier](#identifier)					| `dc_identifier_s`| X|
+| [Rights](#rights)							| `dc_rights_s`| X|
+| [Title](#title)							| `dc_title_s`| X|
+| [Provenance](#provenance)					| `dct_provenance_s`| X|
+| [Schema Version](#schema-version)			| `geoblacklight_version`| X|
+| [Slug](#slug)								| `layer_slug_s`| X|
+| [Bounding Box](#bounding-box)				| `solr_geom`| X|
+| [Solr Year](#solr-year)					| `solr_year_i`||
+| [Creator](#creator)						| `dc_creator_sm`||
+| [Description](#description)				| `dc_description_s`||
+| [Format](#format)							| `dc_format_s`||
+| [Language](#language)						| `dc_language_sm`||
+| [Publisher](#publisher)					| `dc_publisher_sm`||
+| [Source](#source)							| `dc_source_sm`||
+| [Subject](#subject)						| `dc_subject_sm`||
+| [Type](#type)								| `dc_type_s`||
+| [Is Part Of](#is-part-of)					| `dct_isPartOf_sm`||
+| [Date Issued](#date-issued)				| `dct_issued_dt`||
+| [References](#references)					| `dct_references_s`||
+| [Spatial Coverage](#spatial-coverage)		| `dct_spatial_sm`||
+| [Temporal Coverage](#temporal-coverage)	| `dct_temporal_sm`||
+| [Geometry Type](#geometry-type)			| `layer_geom_type_s`||
+| [Layer ID](#layer-id)						| `layer_id_s`||
+| [Modified Date](#modified-date)			| `layer_modified_dt`|||
 
 
 ## Details
@@ -39,7 +39,7 @@ This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more 
 | Required						| yes|
 | Type							| string|
 | Description					| Unique identifier for layer as a URI. It should be globally unique across all institutions, assumed not to be end-user visible|
-| Entry Guidelines				| This is usually of the form http://institution/id.|
+| Entry Guidelines				| This is usually in the form of http://institution/id.|
 | Controlled Vocabulary			| no|
 | Element Set					| Dublin Core Metadata Element Set|
 | Example						| "http://purl.stanford.edu/vr593vj7147"|
@@ -51,7 +51,7 @@ This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more 
 | uri							| `dc_rights_s`|
 | Required						| yes|
 | Type							| string|
-| Description					| Controls access in the geoportal and is indicated by a padlock icon. Users need to sign in to download restricted items|
+| Description					| Signals access in the geoportal and is indicated by a padlock icon. Users need to sign in to download restricted items|
 | Entry Guidelines				| Choose either Public or Restricted|
 | Controlled Vocabulary			| "Public" or "Restricted"|
 | Element Set					| Dublin Core Metadata Element Set|
@@ -75,7 +75,7 @@ This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more 
 | uri							| `dct_provenance_s`|
 | Required						| yes|
 | Type							| string|
-| Description					| The name of the institution that holds the resource or acts as the custodian for the metadata record.|
+| Description					| The name of the institution that holds the resource or acts as the custodian for the metadata record|
 | Entry Guidelines				| The value for this field should be one of the agreed upon shortened names for each institution. This will embed the correct icon into the search results and item pages.|
 | Controlled Vocabulary			| This repository contains the insitutions that have shared icons: https://github.com/geoblacklight/geoblacklight-icons|
 | Element Set					| DCMI Metadata Terms|
@@ -87,7 +87,7 @@ This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more 
 | uri							| `geoblacklight_version`	|
 | Required						| yes|
 | Type							| string|
-| Description					| Indicates which version of the GeoBlacklight schema is in use.|
+| Description					| Indicates which version of the GeoBlacklight schema is in use|
 | Entry Guidelines				| Only current value is "1.0"|
 | Controlled Vocabulary			| no|
 | Element Set					| GeoBlacklight|
@@ -99,7 +99,7 @@ This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more 
 | uri							| `layer_slug_s`|
 | Required						| yes|
 | Type							| string|
-| Description					| This is a string appended to the base URL of a GeoBlacklight installation to create a unique landing page for each resource. It is visible to the user and is used for Permalinks.|
+| Description					| This is a string appended to the base URL of a GeoBlacklight installation to create a unique landing page for each resource. It is visible to the user and is used for Permalinks|
 | Entry Guidelines				| This string must be a globally unique value. The value should be alpha-numeric characters separated by dashes.|
 | Controlled Vocabulary			| no|
 | Element Set					| GeoBlacklight|
@@ -111,7 +111,7 @@ This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more 
 | uri							| `solr_geom`|
 | Required						| yes|
 | Type							| string|
-| Description					| The rectangular extents of the resource. Note that this field is indexed as a Solr spatial (RPT) field.|
+| Description					| The rectangular extents of the resource. Note that this field is indexed as a Solr spatial (RPT) field|
 | Entry Guidelines				| Bounding box of the layer as a ENVELOPE WKT (from the CQL standard) using coordinates in (West, East, North, South) order. The pattern is: ENVELOPE(.*,.*,.*,.*)|
 | Controlled Vocabulary			| no|
 | Element Set					| GeoBlacklight|
@@ -123,7 +123,7 @@ This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more 
 | uri							| `solr_year_i`|
 | Required						| no|
 | Type							| integer|
-| Description					| A four digit integer representing a year of temporal coverage or date issued for the resource. This field is used to populate the Year facet and the optional Blacklight range plugin.|
+| Description					| A four digit integer representing a year of temporal coverage or date issued for the resource. This field is used to populate the Year facet and the optional [Blacklight Range Limit gem](https://github.com/projectblacklight/blacklight_range_limit)|
 | Entry Guidelines				| This field must be an integer.|
 | Controlled Vocabulary			| no|
 | Element Set					| GeoBlacklight|
@@ -151,7 +151,7 @@ This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more 
 | Entry Guidelines				| This is a plain text field.|
 | Controlled Vocabulary			| no|
 | Element Set					| Dublin Core Metadata Element Set|
-| Example						| "My Description"|
+| Example						| "This polygon shapefile represents boundaries of election districts in New York City. It was harvested from the NYC Open Data Portal."|
 
 ### Format
 | Label							| Format|
@@ -159,7 +159,7 @@ This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more 
 | uri							| `dc_format_s`|
 | Required						| no|
 | Type							| string|
-| Description					| This indicates the file format of the data. If a download link is included, this value shows up on the item page display in the download widget.|
+| Description					| This indicates the file format of the data. If a download link is included, this value shows up on the item page display in the download widget|
 | Entry Guidelines				| Choose from set values (see Format list)|
 | Controlled Vocabulary			| [Format Controlled Vocabulary](/schema/format-values.md)|
 | Element Set					| Dublin Core Metadata Element Set|
@@ -187,7 +187,7 @@ This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more 
 | Entry Guidelines				| This should always be an organization.|
 | Controlled Vocabulary			| The suggested controlled vocabulary is the [Library of Congress Name Authority File](http://id.loc.gov/authorities/names.html).|
 | Element Set					| Dublin Core Metadata Element Set|
-| Example						| "ML InfoMap"|
+| Example						| "ML InfoMap (Firm)"|
 
 ### Source
 | Label							| Source|
@@ -195,7 +195,7 @@ This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more 
 | uri							| `dc_source_sm`|
 | Required						| no|
 | Type							| array|
-| Description					| This is used for parent/child relationships between data layers and activates the Data Relations widget in GeoBlacklight.|
+| Description					| This is used to indicate parent/child relationships between data layers and activates the Data Relations widget in GeoBlacklight|
 | Entry Guidelines				| This is only added to the child records. Enter the layer_slug_s of the parent record(s) into this field.|
 | Controlled Vocabulary			| no|
 | Element Set					| Dublin Core Metadata Element Set|
@@ -209,7 +209,7 @@ This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more 
 | Type							| array|
 | Description					| These are theme or topic keywords|
 | Entry Guidelines				| These should be consistent and chosen from a controlled vocabulary. Use sentence style capitalization, where only the first word of a phrase is capitalized.|
-| Controlled Vocabulary			| Recommended thesauri are ISO Topic Categories and Library of Congress Subject Headings.|
+| Controlled Vocabulary			| Recommended thesauri are [ISO Topic Categories](https://www2.usgs.gov/science/about/thesaurus-full.php?thcode=15) and Library of Congress Subject Headings.|
 | Element Set					| Dublin Core Metadata Element Set|
 | Example						| "Census", "Human settlements"|
 
@@ -220,7 +220,7 @@ This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more 
 | uri							| `dc_type_s`|
 | Required						| no|
 | Type							| string|
-| Description					| This is a general element to indicate the larger genre of the resource.|
+| Description					| This is a general element to indicate the larger genre of the resource|
 | Entry Guidelines				| Choose from Dublin Core Type values|
 | Controlled Vocabulary			| [Type Controlled Vocabulary](/schema/type-values.md)|
 | Element Set					| Dublin Core Metadata Element Set|
@@ -256,7 +256,7 @@ This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more 
 | uri							| `dct_references_s`|
 | Required						| no|
 | Type							| string|
-| Description					| This element is a hash of key/value pairs for different types of external links. It external services and references using the CatInterOp approach.|
+| Description					| This element is a hash of key/value pairs for different types of external links. It integrates external services and references using the CatInterOp approach|
 | Entry Guidelines				| See [External Services](https://github.com/geoblacklight/geoblacklight/wiki/Schema#external-services)|
 | Controlled Vocabulary			| [References URIs](/schema/references.md)|
 | Element Set					| DCMI Metadata Terms|
@@ -270,7 +270,7 @@ This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more 
 | Type							| array|
 | Description					| This field is for place name keywords|
 | Entry Guidelines				| Place name text strings should be specified out to the nation level. It is typical for the place name to represent the largest extent the data layer represents.|
-| Controlled Vocabulary			| Recommended thesaurus is GeoNames|
+| Controlled Vocabulary			| Recommended thesaurus is [GeoNames](https://www.geonames.org/)|
 | Element Set					| DCMI Metadata Terms|
 | Example						| "Philadelphia, Pennsylvania, United States"|
 
@@ -280,7 +280,7 @@ This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more 
 | uri							| `dct_temporal_sm`|
 | Required						| no|
 | Type							| array|
-| Description					| This represents the "Ground Condition" of the resource, meaning the time period data was collected or is intended to represent. Displays on the item page in the Year value.|
+| Description					| This represents the "Ground Condition" of the resource, meaning the time period data was collected or is intended to represent. Displays on the item page in the Year value|
 | Entry Guidelines				| This is a text string and can indicate uncertainty|
 | Controlled Vocabulary			| no|
 | Element Set					| DCMI Metadata Terms|
@@ -292,7 +292,7 @@ This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more 
 | uri							| `layer_geom_type_s`|
 | Required						| no|
 | Type							| string|
-| Description					| This element shows up as Data type in GeoBlacklight, and each value has an associated icon.|
+| Description					| This element shows up as Data type in GeoBlacklight, and each value has an associated icon|
 | Entry Guidelines				| Choose from set values (see Controlled Vocabulary Lists)|
 | Controlled Vocabulary			| [Geometry Type Controlled Vocabulary](/schema/geometry-type-values.md)|
 | Element Set					| GeoBlacklight|
