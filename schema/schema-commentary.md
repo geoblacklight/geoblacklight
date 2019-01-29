@@ -10,7 +10,7 @@ For a profile of the schema, visit
 ### Identifier
 
 This field is required, but it is not displayed in the interface. It may
-be identical to slug or it may be related to the layer ID. This value is
+be identical to the Slug field or it may be related to the layer ID. This value is
 ideally a persistent identifier or permalink (such as a PURL or handle).
 
 ### Rights
@@ -84,8 +84,8 @@ field will show up as text in the Download widget.
 ### Language
 
 This field is intended to indicate the language of the dataset, map,
-and/or supporting documentation. The most common practices is to spell
-the name language out in English. (Ex. "French")
+and/or supporting documentation. The most common practice in this community
+is to spell the name language out in English. (Ex. "French")
 
 ### Publisher
 
@@ -124,8 +124,9 @@ values.
 
 ### Type
 
-This Dublin Core field is optional, but can be useful for categorizing
-between datasets, scanned maps, and collections.
+The `dc_type_s` field is optional, but can be useful for categorizing
+between datasets, scanned maps, and collections. The GeoBlacklight schema
+observes the Dublin Core controlled vocabulary for [Type](/schema/type-values.md).
 
 ### Is Part Of
 
@@ -169,11 +170,13 @@ See the [References controlled vocabulary](/schema/references.md) for the URIs o
 It is recommended to have at least one place name for each layer that
 corresponds to the logical extent of the area of that layer. Adding
 additional place names that fall within the layer should be done only if
-they are topically relevant to the content of the data.
+they are topically relevant to the content of the data. If a long list of
+place names is desired in the metadata for search purposes, a customized
+hidden field is recommended.
 
 ### Temporal Coverage
 
-This field can indicate the time period the resource depicts, when the
+Temporal Coverage can indicate the time period the resource depicts, when the
 data was collected, and/or when the resources was created. It is a
 multivalued string field that can accommodate various characters that
 clarify the time period. Examples: “1910?”, “1800-1805”, “before 2000”.
@@ -183,11 +186,11 @@ clarify the time period. Examples: “1910?”, “1800-1805”, “before 2000�
 This field helps to differentiate between vector (Point, Line, Polygon),
 raster (Raster, Image), nonspatial formats (table), or a combination
 (Mixed). If processing metadata from a geospatial web server, this value
-may be programmatically determined. In many cases, it must be manually
+may be programmatically determined. However, in many cases, it must be manually
 determined. The field is tied to icons for the resource, and provides
 the user with visual clues to the item. However, if the element is
 troublesome or unnecessary for a particular institution, it can be
-omitted.
+omitted. [See the controlled vocabulary.](/schema/geometry-type-values.md)
 
 ### Layer ID
 
