@@ -3,6 +3,30 @@ unless defined?(Rails)
   require File.expand_path('../../config/environment', __FILE__)
 end
 
+# Teaspoon doesn't allow you to pass client driver options to the Selenium WebDriver. This monkey patch
+# is a temporary fix until this PR is merged: https://github.com/jejacks0n/teaspoon/pull/519.
+require 'teaspoon/driver/selenium'
+
+Teaspoon::Driver::Selenium.class_eval do
+  def run_specs(runner, url)
+    driver = ::Selenium::WebDriver.for(
+      driver_options[:client_driver],
+      **driver_options[:selenium_options].to_hash.to_options
+    )
+    driver.navigate.to(url)
+
+    ::Selenium::WebDriver::Wait.new(driver_options).until do
+      done = driver.execute_script('return window.Teaspoon && window.Teaspoon.finished')
+      driver.execute_script('return window.Teaspoon && window.Teaspoon.getMessages() || []').each do |line|
+        runner.process("#{line}\n")
+      end
+      done
+    end
+  ensure
+    driver&.quit
+  end
+end
+
 Teaspoon.configure do |config|
   # Determines where the Teaspoon routes will be mounted. Changing this to "/jasmine" would allow you to browse to
   # `http://localhost:3000/jasmine` to run your tests.
@@ -99,7 +123,13 @@ Teaspoon.configure do |config|
   # PhantomJS: https://github.com/modeset/teaspoon/wiki/Using-PhantomJS
   # Selenium Webdriver: https://github.com/modeset/teaspoon/wiki/Using-Selenium-WebDriver
   # Capybara Webkit: https://github.com/modeset/teaspoon/wiki/Using-Capybara-Webkit
-  # config.driver = :phantomjs
+  config.driver = :selenium
+  config.driver_options = {
+    client_driver: :chrome,
+    selenium_options: {
+      options: Selenium::WebDriver::Chrome::Options.new(args: ['headless', 'disable-gpu'])
+    }
+  }
 
   # Specify additional options for the driver.
   #
