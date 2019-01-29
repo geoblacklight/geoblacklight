@@ -59,9 +59,9 @@ feature 'search results map', js: true do
     # Example bbox for q: East Asia and Oceania.
     # "-298.12500000000006,-89.68308276560911,298.12500000000006,89.68308276560914"
     left, bottom, right, top = bbox.split(',')
-    expect(left.to_f).to be_within(1).of(-298)
+    expect(left.to_f).to be_within(1).of(-299)
     expect(bottom.to_f).to be_within(1).of(-89)
-    expect(right.to_f).to be_within(1).of(298)
+    expect(right.to_f).to be_within(1).of(301)
     expect(top.to_f).to be_within(1).of(89)
   end
   scenario 'longitude crosses the antimeridian - area of Alaska' do
