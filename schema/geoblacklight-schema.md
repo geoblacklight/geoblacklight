@@ -76,7 +76,7 @@ This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more 
 | Required						| yes|
 | Type							| string|
 | Description					| The name of the institution that holds the resource or acts as the custodian for the metadata record.|
-| Entry Guidelines				| The value for this field should be one of the agreed upon shortened names for each institution (see Provenance list). This will embed the correct icon into the search results and item pages.|
+| Entry Guidelines				| The value for this field should be one of the agreed upon shortened names for each institution. This will embed the correct icon into the search results and item pages.|
 | Controlled Vocabulary			| This repository contains the insitutions that have shared icons: https://github.com/geoblacklight/geoblacklight-icons|
 | Element Set					| DCMI Metadata Terms|
 | Example						| "Stanford"|
