@@ -99,7 +99,7 @@ This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more 
 | uri							| `layer_slug_s`|
 | Required						| yes|
 | Type							| string|
-| Description					| This is a string appended to the base URL of a GeoBlacklight installation to create a unique landing page for each resource. It is visible to the user and is used for Permalinks|
+| Description					| This is a string appended to the base URL of a GeoBlacklight installation to create a unique landing page for each resource. It is visible to the user and serves the purpose of forming a persistent URL for each catalog item.|
 | Entry Guidelines				| This string must be a globally unique value. The value should be alpha-numeric characters separated by dashes.|
 | Controlled Vocabulary			| no|
 | Element Set					| GeoBlacklight|

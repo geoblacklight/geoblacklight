@@ -174,10 +174,8 @@ hidden field is recommended.
 
 ### Temporal Coverage
 
-Temporal Coverage can indicate the time period the resource depicts, when the
-data was collected, and/or when the resources was created. It is a
-multivalued string field that can accommodate various characters that
-clarify the time period. Examples: “1910?”, “1800-1805”, “before 2000”.
+The `dct_temporal_sm` field is multi-valued, so multiple strings can be used to indicate the time period the resource depicts, when the
+data was collected, and/or when the resources was created. Examples include: “1910?”, “1800-1805”, “before 2000”. If a single dataset spans multiple years, one can add each intervening year as a discrete value (e.g., 2007,2008,2009,2010). However, a common convention is to include only the first and last year (e.g., 2007,2010 for a dataset encompassing the span of time between 2007 and 2010).
 
 ###  Geometry Type
 
