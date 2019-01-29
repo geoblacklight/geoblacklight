@@ -1,12 +1,19 @@
 require 'spec_helper'
 
 feature 'Index map' do
+  # Colors
+  defaultColor = '#1eb300'
+  selectedColor = '#006bde'
   scenario 'displays index map viewer (polygon)', js: true do
     visit solr_document_path('stanford-fb897vt9938')
     # Wait until SVG elements are added
     expect(page).to have_css '.leaflet-overlay-pane svg'
     within '#map' do
+      expect(page).to have_css "svg g path:nth-child(2)[fill='#{defaultColor}']"
+      find('svg g path:nth-child(2)').click
+      expect(page).to have_css "svg g path:nth-child(2)[fill='#{selectedColor}']"
       first('svg g path').click
+      expect(page).to have_css "svg g path:nth-child(2)[fill='#{defaultColor}']"
     end
     downloadUrl = 'https://embed.stanford.edu/iframe?url=https://purl.stanford.edu/zh828kt2136&hide_title=true#'
     within '.index-map-info' do
@@ -34,7 +41,11 @@ feature 'Index map' do
     # Wait until SVG elements are added
     expect(page).to have_css '.leaflet-overlay-pane svg'
     within '#map' do
+      expect(page).to have_css "svg g path:nth-child(2)[fill='#{defaultColor}']"
+      find('svg g path:nth-child(2)').click
+      expect(page).to have_css "svg g path:nth-child(2)[fill='#{selectedColor}']"
       first('svg g path').click
+      expect(page).to have_css "svg g path:nth-child(2)[fill='#{defaultColor}']"
     end
     downloadUrl = 'http://stor.artstor.org/stor/e6d1510d-de11-436a-9bfd-3dcdfbbc6296.jpg'
     within '.index-map-info' do
