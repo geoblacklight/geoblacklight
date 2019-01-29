@@ -1,5 +1,4 @@
 require 'blacklight'
-require 'leaflet-rails'
 require 'font-awesome-rails'
 require 'coderay'
 require 'config'
