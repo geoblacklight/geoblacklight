@@ -14,6 +14,7 @@ feature 'Index map' do
       expect(page).to have_css "svg g path:nth-child(2)[fill='#{selected_color}']"
       first('svg g path').click
       expect(page).to have_css "svg g path:nth-child(2)[fill='#{default_color}']"
+      first('svg g path').click
     end
     download_url = 'https://embed.stanford.edu/iframe?url=https://purl.stanford.edu/zh828kt2136&hide_title=true#'
     within '.index-map-info' do
