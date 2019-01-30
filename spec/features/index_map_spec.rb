@@ -14,12 +14,11 @@ feature 'Index map' do
       expect(page).to have_css "svg g path:nth-child(2)[fill='#{selected_color}']"
       first('svg g path').click
       expect(page).to have_css "svg g path:nth-child(2)[fill='#{default_color}']"
-      first('svg g path').click
     end
     download_url = 'https://embed.stanford.edu/iframe?url=https://purl.stanford.edu/zh828kt2136&hide_title=true#'
     within '.index-map-info' do
-      expect(page).to have_css 'h3', text: 'Dabao Kinbōzu -- ダバオ近傍圖'
       expect(page).to have_css 'a img[src="https://stacks.stanford.edu/image/iiif/zh828kt2136%2Fzh828kt2136_00_0001/full/!400,400/0/default.jpg"]'
+      expect(page).to have_css 'h3', text: 'Dabao Kinbōzu -- ダバオ近傍圖'
       within 'dl' do
         expect(page).to have_css 'dt', text: 'Website'
         expect(page).to have_css 'dd a', text: 'http://purl.stanford.edu/zh828kt2136'
