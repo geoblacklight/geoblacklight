@@ -78,6 +78,17 @@ LEAFLET:
   MAP:
   LAYERS:
     DETECT_RETINA: true
+    INDEX:
+      DEFAULT: &default
+        color: "#1eb300"
+        weight: "1"
+        radius: "4"
+      UNAVAILABLE:
+        <<: *default
+        color: "#b3001e"
+      SELECTED:
+        <<: *default
+        color: "#006bde"
   VIEWERS:
     WMS:
       <<: *opacity_control

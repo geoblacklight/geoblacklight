@@ -12,25 +12,22 @@ GeoBlacklight.Viewer.IndexMap = GeoBlacklight.Viewer.Map.extend({
     }
   },
   availabilityStyle: function(availability) {
-    var style = {
-      radius: 4,
-      weight: 1,
-    }
-    // Style the colors based on availability
-    if (typeof(availability) === 'undefined') {
-      return style; // default Leaflet style colorings
-    }
+    var style = {};
+    var options = this.data.leafletOptions;
 
-    if (availability) {
-      style.color = '#1eb300';
+    // Style the colors based on availability
+    if (availability || typeof(availability) === 'undefined') {
+      style = options.LAYERS.INDEX.DEFAULT;
     } else {
-      style.color = '#b3001e';
+      style = options.LAYERS.INDEX.UNAVAILABLE;
     }
     return style
   },
   addPreviewLayer: function() {
     var _this = this;
     var geoJSONLayer;
+    var prevLayer = null;
+    var options = this.data.leafletOptions;
     $.getJSON(this.data.url, function(data) {
       geoJSONLayer = L.geoJson(data,
         {
@@ -45,8 +42,19 @@ GeoBlacklight.Viewer.IndexMap = GeoBlacklight.Viewer.Map.extend({
             // If it is available add clickable info
             if (feature.properties.available !== null) {
               layer.on('click', function(e) {
+                // Change currently selected layer color
+                layer.setStyle(options.LAYERS.INDEX.SELECTED);
+                // Change previously selected layer color to original color
+                if (prevLayer !== null) {
+                  geoJSONLayer.resetStyle(prevLayer);
+                }
+                prevLayer = layer;
                 GeoBlacklight.Util.indexMapTemplate(feature.properties, function(html) {
                   $('.viewer-information').html(html);
+                });
+                GeoBlacklight.Util.indexMapDownloadTemplate(feature.properties, function(html) {
+                  $('.js-index-map-feature').remove();
+                  $('.js-download-list').append(html);
                 });
               });
             }

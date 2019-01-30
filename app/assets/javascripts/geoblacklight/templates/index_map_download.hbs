@@ -1,0 +1,19 @@
+{{#if downloadUrl}}
+  <li class="list-group-item download js-index-map-feature">
+    <h3 class="card-subtitle">Selected feature</h3>
+
+    <ul class="list-group list-group-flush list-group-nested">
+      <li class="list-group-item download">
+        <div class="download-link-container">
+          <a class="btn btn-default download download-original" href="{{downloadUrl}}">
+            {{#if label}}
+              {{label}}
+            {{else}}
+              Download
+            {{/if}}
+          </a>
+        </div>
+      </li>
+    </ul>
+  </li>
+{{/if}}

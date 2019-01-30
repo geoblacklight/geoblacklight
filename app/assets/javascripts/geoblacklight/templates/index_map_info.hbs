@@ -1,8 +1,10 @@
 <div class="index-map-info">
   {{#if title}}
-    <h3>{{title}}</h3>
+    <div class="col-sm-12">
+      <h3>{{title}}</h3>
+    </div>
   {{/if}}
-  <div class="">
+  <div class="col-sm-12">
     {{#if thumbnailUrl}}
       {{#if websiteUrl}}
         <a href="{{websiteUrl}}">
@@ -12,26 +14,26 @@
         <img src="{{thumbnailUrl}}">
       {{/if}}
     {{/if}}
-    <dl>
+    <dl class="row dl-invert document-metadata">
       {{#if websiteUrl}}
-        <dt>Website</dt>
-        <dd><a href="{{websiteUrl}}">{{websiteUrl}}</a></dd>
+        <dt class="col-sm-3">Website:</dt>
+        <dd class="col-sm-9"><a href="{{websiteUrl}}">{{websiteUrl}}</a></dd>
       {{/if}}
       {{#if downloadUrl}}
-        <dt>Download</dt>
-        <dd><a href="{{downloadUrl}}">{{downloadUrl}}</a></dd>
+        <dt class="col-sm-3">Download:</dt>
+        <dd class="col-sm-9"><a href="{{downloadUrl}}">{{downloadUrl}}</a></dd>
       {{/if}}
       {{#if recordIdentifier}}
-        <dt>Record Identifier</dt>
-        <dd>{{recordIdentifier}}</dd>
+        <dt class="col-sm-3">Record Identifier:</dt>
+        <dd class="col-sm-9">{{recordIdentifier}}</dd>
       {{/if}}
       {{#if label}}
-        <dt>Label</dt>
-        <dd>{{label}}</dd>
+        <dt class="col-sm-3">Label:</dt>
+        <dd class="col-sm-9">{{label}}</dd>
       {{/if}}
       {{#if note}}
-        <dt>Note</dt>
-        <dd>{{note}}</dd>
+        <dt class="col-sm-3">Note:</dt>
+        <dd class="col-sm-9">{{note}}</dd>
       {{/if}}
     </dl>
   </div>

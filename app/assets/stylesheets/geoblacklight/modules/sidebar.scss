@@ -23,6 +23,13 @@
     }
   }
 
+  .card-subtitle {
+    margin: 1rem 0 .2rem;
+    font-size: .9rem;
+    font-weight: normal;
+    color: $gray-600;
+  }
+
   .list-group {
     padding-top: 24px;
     padding-bottom: 24px;
@@ -39,6 +46,14 @@
         .geoblacklight {
           color: $gray-600;
         }
+      }
+    }
+
+    &-nested {
+      padding: 0;
+
+      .list-group-item {
+        padding: 8px 0;
       }
     }
   }
