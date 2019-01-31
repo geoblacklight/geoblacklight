@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema name="geoblacklight-schema" version="1.6">
+<schema name="geoblacklight-schema" version="1.7">
   <uniqueKey>layer_slug_s</uniqueKey>
   <fields>
     <field name="_version_" type="long"   stored="true" indexed="true"/>
@@ -64,6 +64,8 @@
     <dynamicField name="*_pt"   type="location"     stored="true" indexed="true"/>
     <dynamicField name="*_bbox" type="location_rpt" stored="true" indexed="true"/><!-- deprecated -->
     <dynamicField name="*_geom" type="location_rpt" stored="true" indexed="true"/>
+    <dynamicField name="*_bboxtype" type="bbox" stored="true" indexed="true"/>
+
   </fields>
 
   <types>
@@ -144,6 +146,11 @@
 
     <fieldType name="location_rpt" class="solr.SpatialRecursivePrefixTreeFieldType"
                geo="true" distErrPct="0.025" maxDistErr="0.001" distanceUnits="kilometers"/>
+    <!-- Adding field type for bboxField that enables, among other things, overlap ratio calculations -->
+    <fieldType name="bbox" class="solr.BBoxField"
+           geo="true" distanceUnits="kilometers" numberType="pdouble" />
+    <fieldType name="pdouble" class="solr.DoublePointField" docValues="true"/>   
+   
 
   </types>
 
@@ -187,4 +194,7 @@
   <copyField source="dct_provenance_s" dest="suggest"/>
   <copyField source="dc_subject_sm" dest="suggest"/>
   <copyField source="dct_spatial_sm" dest="suggest"/>
+  
+  <!-- for bbox value -->
+  <copyField source="solr_geom" dest="solr_bboxtype"/>
 </schema>
