@@ -8,3 +8,4 @@
 |Image|[Icon](https://github.com/geoblacklight/geoblacklight-icons/blob/master/graphics/image.svg)|Static born-digital maps and scanned map images|
 |Raster|[Icon](https://github.com/geoblacklight/geoblacklight-icons/blob/master/graphics/raster.svg)|Geospatial dataset that is presented as an array of cells comprised of single or multiple bands|
 |Mixed|[Icon](https://github.com/geoblacklight/geoblacklight-icons/blob/master/graphics/mixed.svg)|Geospatial dataset with multiple geometry types|
+|Table|[Icon](https://github.com/geoblacklight/geoblacklight-icons/blob/master/graphics/table.svg)|Nonspatial dataset as a text file with delimiter separated values|
