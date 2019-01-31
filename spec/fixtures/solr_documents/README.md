@@ -26,6 +26,9 @@ If you add a new document, please add it to the table below, and indicate its pu
 | index_map_polygon-no-downloadurl.json | GeoJSON index map of polygons, but lacking a downloadUrl for the index itself |
 | index-map-stanford.json | old-style (pre-GeoJSON) index map of rectangular polygons |
 | no_spatial.json |  |
+| princeton-child1.json | Child record for testing the `suppressed_b` property |
+| princeton-child2.json | Child record for testing the `suppressed_b` property |
+| princeton-parent.json | Parent record for testing the `suppressed_b` property |
 | public_direct_download.json | includes a tentative `dcat_distribution_sm` property |
 | public_iiif_princeton.json |  |
 | public_polygon_mit.json |  |
