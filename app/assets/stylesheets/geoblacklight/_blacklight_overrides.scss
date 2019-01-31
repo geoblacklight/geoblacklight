@@ -32,3 +32,12 @@
   padding-top:0.5rem;
 }
 // End - Addresses GBL issue #639
+
+
+// Begin - Addresses GBL issue #766 - removes flex from display
+.modal-header {
+  display: block;
+  padding: 15px;
+  border-bottom: 1px solid #e9ecef;
+}
+// End - Addresses GBL issue #766
