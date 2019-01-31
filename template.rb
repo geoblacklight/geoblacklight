@@ -1,5 +1,5 @@
 gem 'blacklight', '~> 7.0'
-gem 'geoblacklight', git: 'https://github.com/geoblacklight/geoblacklight.git'
+gem 'geoblacklight', '~> 2.0'
 gem 'webpacker', '~> 3.5'
 
 run 'bundle install'
