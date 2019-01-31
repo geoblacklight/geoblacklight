@@ -18,5 +18,14 @@
         display: inline-block;
       }
     }
+
+    // Begin - Addresses GBL issue #766 - adds space betwwen the links in the metadata modal
+    .nav>li>a {
+      position: relative;
+      display: block;
+      padding: 10px 15px;
+    }
+    //End - Addresses GBL issue #766
+
   }
 }
