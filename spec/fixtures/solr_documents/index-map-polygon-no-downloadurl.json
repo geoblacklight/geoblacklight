@@ -1,0 +1,37 @@
+{
+  "geoblacklight_version":"1.0",
+  "dc_identifier_s":"http://cugir.library.cornell.edu/catalog/cugir-008186#no-downloadUrl",
+  "dc_title_s":"Index of Digital Elevation Models (DEM), New York",
+  "dc_description_s":"This is an index of all the available DEM (digital elevation model) tiles within New York state. Download links are provided for each tile, but this record doesn't include a downloadUrl for the index map itself.",
+  "dc_rights_s":"Public",
+  "dct_provenance_s":"Cornell",
+  "dct_references_s":"{\"https://openindexmaps.org\":\"https://s3.amazonaws.com/cugir-data/00/81/86/cugir-008186-index.geojson\",\"http://www.opengis.net/cat/csw/csdgm\":\"https://s3.amazonaws.com/cugir-data/00/81/86/fgdc.xml\",\"http://www.w3.org/1999/xhtml\":\"https://s3.amazonaws.com/cugir-data/00/81/86/fgdc.html\"}",
+  "layer_id_s":"cugir008186",
+  "layer_slug_s":"cugir-008186-no-downloadurl",
+  "dc_type_s":"Dataset",
+  "dc_format_s":"GeoTIFF",
+  "layer_geom_type_s":"Raster",
+  "layer_modified_dt":"2018-12-20T00:00:00Z",
+  "dc_creator_sm":[
+    "U.S. Geological Survey"
+  ],
+  "dc_publisher_sm":[
+    "U.S. Geological Survey"
+  ],
+  "dc_subject_sm":[
+    "digital elevation model",
+    "digital terrain model",
+    "hypsography",
+    "altitude",
+    "topography",
+    "Index maps"
+  ],
+  "dct_spatial_sm":[
+    "New York"
+  ],
+  "dct_temporal_sm":[
+    "1995"
+  ],
+  "solr_geom":"ENVELOPE(-79.750232, -71.750494, 44.999963, 40.499893)",
+  "solr_year_i":1995
+}

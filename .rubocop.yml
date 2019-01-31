@@ -41,6 +41,7 @@ Metrics/LineLength:
   - 'Rakefile'
   - 'lib/generators/geoblacklight/install_generator.rb'
   - 'lib/tasks/geoblacklight.rake'
+  - 'app/models/concerns/geoblacklight/spatial_search_behavior.rb'
 
 Metrics/MethodLength:
   Max: 16

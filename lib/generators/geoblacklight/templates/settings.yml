@@ -13,6 +13,9 @@ GEOMETRY_FIELD: 'solr_geom'
 # The bq boost value for spatial search matches within a bounding box
 BBOX_WITHIN_BOOST: '10'
 
+# The bf boost value for overlap ratio
+OVERLAP_RATIO_BOOST: '2'
+
 # Solr field mappings
 FIELDS:
   :FILE_FORMAT: 'dc_format_s'
@@ -78,6 +81,17 @@ LEAFLET:
   MAP:
   LAYERS:
     DETECT_RETINA: true
+    INDEX:
+      DEFAULT: &default
+        color: "#1eb300"
+        weight: "1"
+        radius: "4"
+      UNAVAILABLE:
+        <<: *default
+        color: "#b3001e"
+      SELECTED:
+        <<: *default
+        color: "#006bde"
   VIEWERS:
     WMS:
       <<: *opacity_control

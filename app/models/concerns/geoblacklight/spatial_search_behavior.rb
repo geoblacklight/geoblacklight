@@ -3,7 +3,7 @@ module Geoblacklight
     extend ActiveSupport::Concern
 
     included do
-      self.default_processor_chain += [:add_spatial_params]
+      self.default_processor_chain += [:add_spatial_params, :hide_suppressed_records]
     end
 
     ##
@@ -18,6 +18,12 @@ module Geoblacklight
         solr_params[:bq] << "#{Settings.FIELDS.GEOMETRY}:\"IsWithin(#{envelope_bounds})\"#{boost}"
         solr_params[:fq] ||= []
         solr_params[:fq] << "#{Settings.FIELDS.GEOMETRY}:\"Intersects(#{envelope_bounds})\""
+
+        if Settings.OVERLAP_RATIO_BOOST
+          solr_params[:overlap] =
+            "{!field uf=* defType=lucene f=solr_bboxtype score=overlapRatio}Intersects(#{envelope_bounds})"
+          solr_params[:bf] = "$overlap^#{Settings.OVERLAP_RATIO_BOOST}"
+        end
       end
       solr_params
     rescue Geoblacklight::Exceptions::WrongBoundingBoxFormat
@@ -42,6 +48,17 @@ module Geoblacklight
     # @return [Geoblacklight::BoundingBox]
     def bounding_box
       Geoblacklight::BoundingBox.from_rectangle(blacklight_params[:bbox])
+    end
+
+    ##
+    # Hide suppressed records in search
+    # @param [Blacklight::Solr::Request]
+    # @return [Blacklight::Solr::Request]
+    def hide_suppressed_records(solr_params)
+      # Show child records if searching for a specific source parent
+      return unless blacklight_params.fetch(:f, {})[Settings.FIELDS.SOURCE.to_sym].nil?
+      solr_params[:fq] ||= []
+      solr_params[:fq] << '-suppressed_b: true'
     end
   end
 end

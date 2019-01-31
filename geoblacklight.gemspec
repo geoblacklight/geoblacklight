@@ -21,7 +21,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'rails', '~> 5.0'
   spec.add_dependency 'blacklight', '~> 7.0'
-  spec.add_dependency 'leaflet-rails', '~> 1.3.0'
   spec.add_dependency 'font-awesome-rails'
   spec.add_dependency 'config'
   spec.add_dependency 'faraday'
