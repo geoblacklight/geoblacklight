@@ -4,8 +4,8 @@
   <div class="container-fluid">
     <ul class="nav nav-pills" role="tablist">
       <% document.references.shown_metadata.each do |metadata| %>
-        <li role="presentation" class="<%= first_metadata?(document, metadata) ? 'active' : nil %>">
-          <a class="pill-metadata"
+        <li role="presentation" class="nav-item">
+          <a class="pill-metadata nav-link <%= first_metadata?(document, metadata) ? 'active' : nil %>"
              href="#<%= metadata.type %>"
              aria-controls="<%= metadata.type %>"
              role="tab"
