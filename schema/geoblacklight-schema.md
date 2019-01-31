@@ -21,7 +21,7 @@ This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more 
 | [Subject](#subject)						| `dc_subject_sm`||
 | [Type](#type)								| `dc_type_s`||
 | [Is Part Of](#is-part-of)					| `dct_isPartOf_sm`||
-| [Date Issued](#date-issued)				| `dct_issued_dt`||
+| [Date Issued](#date-issued)				| `dct_issued_s`||
 | [References](#references)					| `dct_references_s`||
 | [Spatial Coverage](#spatial-coverage)		| `dct_spatial_sm`||
 | [Temporal Coverage](#temporal-coverage)	| `dct_temporal_sm`||
@@ -241,14 +241,14 @@ This is an overview of the GeoBlacklight Metadata Schema, Version 1.0. For more 
 ### Date Issued
 | Label							| Date Issued|
 |:------------------------------|:---------------------------------------------------------|
-| uri							| `dct_issued_dt`|
+| uri							| `dct_issued_s`|
 | Required						| no|
-| Type							| date-time|
+| Type							| string|
 | Description					| This is the publication date for the resource|
-| Entry Guidelines				| Use the XML Schema dateTime format (YYYY-MM-DDThh:mm:ssZ)|
+| Entry Guidelines				| Use any date format, such as the XML Schema dateTime format (YYYY-MM-DDThh:mm:ssZ)|
 | Controlled Vocabulary			| no|
 | Element Set					| [DCMI Metadata Terms](http://dublincore.org/documents/dcmi-terms/)|
-| Example						| "2015-01-01T12:00:00Z"|
+| Example						| "2015-01-01"|
 
 ### References
 | Label							| References|

@@ -138,7 +138,7 @@ Open Data portal.
 
 ### Date Issued
 
-Although the `dct_issued_dt` field is optional, it is often useful when
+Although the `dct_issued_s` field is optional, it is often useful when
 a clear Temporal Coverage value is not present. For example, one may
 want to preserve a dataset with an uncertain lineage, but there is an
 indicator on a data portal on the date of last update.
