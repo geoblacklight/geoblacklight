@@ -4,6 +4,9 @@ APPLICATION_LOGO_URL: 'http://geoblacklight.org/images/geoblacklight-logo.png'
 # Carto OneClick Service https://carto.com/engine/open-in-carto/
 CARTO_ONECLICK_LINK: 'http://oneclick.carto.com/'
 
+# ArcGIS Online Base URL
+ARCGIS_BASE_URL: 'https://www.arcgis.com/home/webmap/viewer.html'
+
 # Download path can be configured using this setting
 #DOWNLOAD_PATH: "./tmp/cache/downloads"
 
