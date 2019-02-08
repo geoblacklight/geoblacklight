@@ -90,3 +90,8 @@ Style/StringLiterals:
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#consistent-string-literals
   Enabled: true
   EnforcedStyle: single_quotes
+
+Style/SafeNavigation:
+  Exclude:
+    - 'app/models/concerns/geoblacklight/solr_document/arcgis.rb'
+    - 'app/models/concerns/geoblacklight/solr_document.rb'

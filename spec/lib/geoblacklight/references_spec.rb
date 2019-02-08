@@ -80,6 +80,18 @@ describe Geoblacklight::References do
       )
     )
   end
+  let(:some_esri_services) do
+    described_class.new(
+      SolrDocument.new(
+        references_field => {
+          'urn:x-esri:serviceType:ArcGIS#NotValid' => 'foo',
+          'urn:x-esri:serviceType:ArcGIS#TiledMapLayer' => 'foo',
+          'urn:x-esri:serviceType:ArcGIS#DynamicMapLayer' => 'foo',
+          'urn:x-esri:serviceType:ArcGIS#ImageMapLayer' => 'foo'
+        }.to_json
+      )
+    )
+  end
   let(:custom_fields) do
     described_class.new(
       SolrDocument.new, :new_ref_field
@@ -170,6 +182,11 @@ describe Geoblacklight::References do
       types = typical_ogp_shapefile.download_types
       expect(types.first[1]).to eq wfs: 'http://hgl.harvard.edu:8080/geoserver/wfs'
       expect(types.count).to eq 3
+    end
+  end
+  describe '#esri_webservices' do
+    it 'returns webservices that are esri specific' do
+      expect(some_esri_services.esri_webservices.length).to eq 3
     end
   end
   describe '#method_missing' do

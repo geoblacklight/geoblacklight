@@ -67,6 +67,14 @@ module Geoblacklight
       downloads_by_format
     end
 
+    ##
+    # Returns all of the Esri webservices for given set of references
+    def esri_webservices
+      %w[tiled_map_layer dynamic_map_layer feature_layer image_map_layer].map do |layer_type|
+        send(layer_type)
+      end.compact
+    end
+
     private
 
     ##

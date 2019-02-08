@@ -10,6 +10,14 @@ feature 'Export features' do
       end
     end
   end
+  feature 'when esri web services are available' do
+    feature 'Open in ArcGIS Online' do
+      scenario 'shows up in tools' do
+        visit solr_document_path '90f14ff4-1359-4beb-b931-5cb41d20ab90'
+        expect(page).to have_css 'li.exports a', text: 'Open in ArcGIS Online'
+      end
+    end
+  end
   feature 'when restricted or no wfs' do
     scenario 'is not in tools' do
       visit solr_document_path 'princeton-02870w62c'
