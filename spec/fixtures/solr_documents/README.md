@@ -27,6 +27,8 @@ If you add a new document, please add it to the table below, and indicate its pu
 | no_spatial |File without geometry type or solr_geometry (will cause error)|
 | princeton-child1.json | Child record for testing the `suppressed_b` property |
 | princeton-child2.json | Child record for testing the `suppressed_b` property |
+| princeton-child3.json | Child record for testing the `suppressed_b` property |
+| princeton-child4.json | Child record for testing the `suppressed_b` property |
 | princeton-parent.json | Parent record for testing the `suppressed_b` property |
 | public_direct_download | includes a tentative `dcat_distribution_sm` property |
 | public_iiif_princeton |Scanned map with IIIF|
