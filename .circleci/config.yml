@@ -14,6 +14,8 @@ jobs:
           CI: true
           RAILS_ENV: test
           RAILS_VERSION: 5.2.0
+      - image: solr:7-alpine
+        command: bin/solr -cloud -noprompt -f -p 8983
     steps:
       - checkout
       # Update chrome
@@ -27,20 +29,34 @@ jobs:
         key: geoblacklight-bundle-5-2-0-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-3f5eff
       # Install gems
       - run: bundle check || bundle install
-      # Restore cached Solr
-      - type: cache-restore
-        name: Restore solr cache
-        key: geoblacklight-solr{{ checksum ".solr_wrapper" }}
-      # Run solr wrapper, which downloads correct solr version if not cached
-      - run: bundle exec rake solr:clean
-      # Cache Solr
-      - type: cache-save
-        name: Store solr cache
-        key: geoblacklight-solr{{ checksum ".solr_wrapper" }}
-        paths:
-          - tmp/solr
       # Run the test suites
-      - run: bundle exec rake ci
+      - run: bundle exec rake engine_cart:generate
+      - run:
+          name: Wait for Solr
+          command: dockerize -wait tcp://localhost:8983 -timeout 1m
+      - run:
+          name: Load config into solr
+          command: |
+            cd .internal_test_app/solr/conf
+            zip -1 -r solr_config.zip ./*
+            curl -H "Content-type:application/octet-stream" --data-binary @solr_config.zip "http://localhost:8983/solr/admin/configs?action=UPLOAD&name=solrconfig"
+            curl -H 'Content-type: application/json' http://localhost:8983/api/collections/ -d '{create: {name: blacklight-core, config: solrconfig, numShards: 1}}'
+      - run:
+          name: Seed Solr
+          command: |
+            cd .internal_test_app
+            bundle exec rake geoblacklight:index:seed
+            bundle exec rake geoblacklight:downloads:mkdir
+      - run:
+          name: Compile the assets for Webpack
+          command: |
+            cd .internal_test_app
+            rm config/webpacker.yml
+            bundle exec rails webpacker:install
+            bundle exec rails webpacker:compile
+      - run:
+          name: Run the RSpec test suites
+          command: bundle exec rake geoblacklight:coverage
       # Store bundle cache
       - type: cache-save
         name: Store bundle cache
@@ -58,6 +74,8 @@ jobs:
           BUNDLE_PATH: /home/circleci/geoblacklight/vendor/bundle
           RAILS_ENV: test
           RAILS_VERSION: 5.1.6
+      - image: solr:7-alpine
+        command: bin/solr -cloud -noprompt -f -p 8983
     steps:
       - checkout
       # Restore bundle cache
@@ -66,20 +84,34 @@ jobs:
         key: geoblacklight-bundle-5-1-6-{{ checksum "Gemfile" }}-{{ checksum "geoblacklight.gemspec" }}-3f5eff
       # Install gems and run specs
       - run: bundle check || bundle install
-      # Restore cached Solr
-      - type: cache-restore
-        name: Restore solr cache
-        key: geoblacklight-solr{{ checksum ".solr_wrapper" }}
-      # Run solr wrapper, which downloads correct solr version if not cached
-      - run: bundle exec rake solr:clean
-      # Cache Solr
-      - type: cache-save
-        name: Store solr cache
-        key: geoblacklight-solr{{ checksum ".solr_wrapper" }}
-        paths:
-          - tmp/solr
       # Run the test suites
-      - run: bundle exec rake ci
+      - run: bundle exec rake engine_cart:generate
+      - run:
+          name: Wait for Solr
+          command: dockerize -wait tcp://localhost:8983 -timeout 1m
+      - run:
+          name: Load config into solr
+          command: |
+            cd .internal_test_app/solr/conf
+            zip -1 -r solr_config.zip ./*
+            curl -H "Content-type:application/octet-stream" --data-binary @solr_config.zip "http://localhost:8983/solr/admin/configs?action=UPLOAD&name=solrconfig"
+            curl -H 'Content-type: application/json' http://localhost:8983/api/collections/ -d '{create: {name: blacklight-core, config: solrconfig, numShards: 1}}'
+      - run:
+          name: Seed Solr
+          command: |
+            cd .internal_test_app
+            bundle exec rake geoblacklight:index:seed
+            bundle exec rake geoblacklight:downloads:mkdir
+      - run:
+          name: Compile the assets for Webpack
+          command: |
+            cd .internal_test_app
+            rm config/webpacker.yml
+            bundle exec rails webpacker:install
+            bundle exec rails webpacker:compile
+      - run:
+          name: Run the RSpec test suites
+          command: bundle exec rake geoblacklight:coverage
       # Store bundle cache
       - type: cache-save
         name: Store bundle cache
