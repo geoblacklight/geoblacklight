@@ -1,0 +1,12 @@
+<%# An override of a Blacklight template to provide a stable point to replace pagination https://github.com/projectblacklight/blacklight/blob/8b9041544553ce0dd0d979f9f39f78d94b30b46d/app/views/catalog/_results_pagination.html.erb %>
+<div id="pagination">
+  <% if show_pagination? and @response.total_pages > 1 %>
+   <div class="row record-padding">
+    <div class="col-md-12">
+      <div class="pagination">
+        <%= paginate @response, :outer_window => 2, :theme => 'blacklight' %>
+      </div>
+    </div>
+   </div>
+  <% end %>
+</div>
