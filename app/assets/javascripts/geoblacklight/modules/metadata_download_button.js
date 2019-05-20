@@ -11,13 +11,17 @@
     /**
      * Initialize with the DOM element
      * @param {Element} el - <button>, <a>, or other jQuery selector
+     * @param {Number} i - index of metadata item
      * @param {Object} options - Properties for the new instance
      */
-    initialize: function initialize(el, options) {
+    initialize: function initialize(el, i, options) {
       L.Util.setOptions(this, options);
       this.$el = $(el);
       this.$download = $(this.target || this.$el.data('ref-download'));
-      this.setRefUrl();
+      // On initialization only do this for the first one.
+      if (i === 0) {
+        this.setRefUrl();
+      }
       this.configureHandler();
     },
 
@@ -25,8 +29,7 @@
      * Bind Elements to DOM element event listeners using jQuery
      */
     configureHandler: function configureHandler() {
-      this.$el.on('click',this.onclick);
-      this.$el.on('click',L.Util.bind(this.setRefUrl, this));
+      this.$el.on('click', L.Util.bind(this.setRefUrl, this));
     },
 
     /**
@@ -41,14 +44,6 @@
         this.$download.attr('href', refUrl);
       }
     },
-
-    /**
-     *
-     */
-    onclick: function onclick(e) {
-      e.preventDefault();
-      $(this).tab('show');
-    }
   });
 
   global.GeoBlacklight.MetadataDownloadButton = MetadataDownloadButton;
