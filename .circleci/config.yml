@@ -1,7 +1,7 @@
 ---
 version: 2
 jobs:
-  rails_5_2_0:
+  rails_5_2_3:
     working_directory: ~/geoblacklight
     docker:
       - image: circleci/ruby:2.5.1-node-browsers
@@ -13,7 +13,7 @@ jobs:
           BUNDLE_PATH: /home/circleci/geoblacklight/vendor/bundle
           CI: true
           RAILS_ENV: test
-          RAILS_VERSION: 5.2.0
+          RAILS_VERSION: 5.2.3
       - image: solr:7-alpine
         command: bin/solr -cloud -noprompt -f -p 8983
     steps:
@@ -63,7 +63,7 @@ jobs:
         key: geoblacklight-bundle-5-2-0-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-3f5eff
         paths:
           - /home/circleci/geoblacklight/vendor/bundle
-  rails_5_1_6:
+  rails_5_1_7:
     working_directory: ~/geoblacklight
     docker:
       - image: circleci/ruby:2.4.4-node-browsers
@@ -73,7 +73,7 @@ jobs:
           GEM_HOME: /home/circleci/geoblacklight/vendor/bundle
           BUNDLE_PATH: /home/circleci/geoblacklight/vendor/bundle
           RAILS_ENV: test
-          RAILS_VERSION: 5.1.6
+          RAILS_VERSION: 5.1.7
       - image: solr:7-alpine
         command: bin/solr -cloud -noprompt -f -p 8983
     steps:
@@ -81,7 +81,7 @@ jobs:
       # Restore bundle cache
       - type: cache-restore
         name: Restore bundle cache
-        key: geoblacklight-bundle-5-1-6-{{ checksum "Gemfile" }}-{{ checksum "geoblacklight.gemspec" }}-3f5eff
+        key: geoblacklight-bundle-5-1-7-{{ checksum "Gemfile" }}-{{ checksum "geoblacklight.gemspec" }}-3f5eff
       # Install gems and run specs
       - run: bundle check || bundle install
       # Run the test suites
@@ -115,7 +115,7 @@ jobs:
       # Store bundle cache
       - type: cache-save
         name: Store bundle cache
-        key: geoblacklight-bundle-5-1-6-{{ checksum "Gemfile" }}-{{ checksum "geoblacklight.gemspec" }}-3f5eff
+        key: geoblacklight-bundle-5-1-7-{{ checksum "Gemfile" }}-{{ checksum "geoblacklight.gemspec" }}-3f5eff
         paths:
           - /home/circleci/geoblacklight/vendor/bundle
   rubocop:
@@ -131,7 +131,7 @@ jobs:
       # Restore bundle cache
       - type: cache-restore
         name: Restore bundle cache
-        key: geoblacklight-bundle-5-2-0-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-3f5eff
+        key: geoblacklight-bundle-5-2-3-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-3f5eff
       # Install gems and run rubocop
       - run: bundle check || bundle install
       - run: bundle exec rake rubocop
@@ -139,8 +139,8 @@ workflows:
   version: 2
   build_accept_deploy:
     jobs:
-      - rails_5_2_0
-      - rails_5_1_6
+      - rails_5_2_3
+      - rails_5_1_7
       - rubocop:
           requires:
-            - rails_5_2_0
+            - rails_5_2_3
