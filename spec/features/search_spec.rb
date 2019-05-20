@@ -6,8 +6,9 @@ feature 'Search' do
     expect(page).to have_css '.document', count: 1
   end
 
-  scenario 'When searching child records from a parent record, supressed records are not hidden' do
-    visit '/?f[dc_source_sm][]=princeton-1r66j405w&q='
-    expect(page).to have_css '.document', count: 2
+  scenario 'When searching child records from a parent record, supressed records are not hidden', js: true do
+    visit '/catalog/princeton-1r66j405w'
+    click_link 'Browse all 4 records...'
+    expect(page).to have_css '.document', count: 4
   end
 end
