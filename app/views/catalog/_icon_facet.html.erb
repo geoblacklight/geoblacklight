@@ -9,6 +9,7 @@
     <li class="more_facets">
       <%= link_to t("more_#{field_name}_html", scope: 'blacklight.search.facets', default: :more_html, field_name: facet_field.label), 
         search_facet_path(id: facet_field.key),
+        data: { blacklight_modal: 'trigger' },
         class: 'more_facets_link' %>
     </li>
   <% end %>
