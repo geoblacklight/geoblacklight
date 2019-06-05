@@ -15,7 +15,7 @@ class TestAppGenerator < Rails::Generators::Base
     gem 'blacklight'
     gem 'teaspoon'
     gem 'teaspoon-jasmine'
-    gem 'webpacker', '~> 3.5'
+    gem 'webpacker'
     Bundler.with_clean_env do
       run 'bundle install'
     end

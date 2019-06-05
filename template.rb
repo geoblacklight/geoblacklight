@@ -1,6 +1,6 @@
 gem 'blacklight', '~> 7.0'
 gem 'geoblacklight', '~> 2.0'
-gem 'webpacker', '~> 3.5'
+gem 'webpacker'
 
 # Hack for https://github.com/rails/rails/issues/35153
 # Adapted from https://github.com/projectblacklight/blacklight/pull/2065
