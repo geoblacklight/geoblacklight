@@ -23,7 +23,6 @@ $ cd app-name
 $ rake geoblacklight:server
 ```
 
-Or install with [Docker](https://github.com/geoblacklight/geoblacklight-docker)
 For more information see the [installation guide](https://github.com/geoblacklight/geoblacklight/wiki/Installation)
 
 ### Webpacker
