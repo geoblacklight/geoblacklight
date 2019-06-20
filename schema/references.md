@@ -11,7 +11,7 @@ Direct download file | `http://schema.org/downloadUrl` | Direct file download fe
 Data dictionary / documentation download | `http://lccn.loc.gov/sh85035852` | Direct documentation download link|
 Full layer description | `http://schema.org/url` | Further descriptive information about layer|
 Metadata in ISO 19139 | `http://www.isotc211.org/schemas/2005/gmd/` | Structured metadata in ISO standard expressed as XML|
-Metadata in FGDC | `http://www.opengis.net/cat/csw/csdgm/` | Structured metadata in FGDC standard expressed as XML|
+Metadata in FGDC | `http://www.opengis.net/cat/csw/csdgm` | Structured metadata in FGDC standard expressed as XML|
 Metadata in MODS | `http://www.loc.gov/mods/v3` | Structured metadata in MODS format|
 Metadata in HTML | `http://www.w3.org/1999/xhtml` | Structured metadata in any standard expressed as HTML|
 ArcGIS FeatureLayer | `urn:x-esri:serviceType:ArcGIS#FeatureLayer` | Previewing of ArcGIS FeatureLayer Service|
