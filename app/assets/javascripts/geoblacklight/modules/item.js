@@ -9,7 +9,5 @@ Blacklight.onLoad(function() {
     viewer = new window['GeoBlacklight']['Viewer'][viewerName](element);
   });
 
-  $('.truncate-abstract').readmore({
-    maxHeight: 60
-  });
+  new Readmore( '.truncate-abstract', { maxHeight: 60 } );
 });
