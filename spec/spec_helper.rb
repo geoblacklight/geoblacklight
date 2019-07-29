@@ -28,17 +28,17 @@ require 'capybara/rspec'
 require 'selenium-webdriver'
 
 Capybara.register_driver(:headless_chrome) do |app|
-  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-    chromeOptions: { args: %w(headless disable-gpu window-size=1280,1024) }
-  )
-  browser_options = ::Selenium::WebDriver::Chrome::Options.new
-  browser_options.args << "--headless"
+  Capybara::Selenium::Driver.load_selenium
+  browser_options = ::Selenium::WebDriver::Chrome::Options.new.tap do |opts|
+    opts.args << '--headless'
+    opts.args << '--disable-gpu'
+    opts.args << '--window-size=1280,1024'
+  end
   http_client = Selenium::WebDriver::Remote::Http::Default.new
   http_client.read_timeout = 120
   http_client.open_timeout = 120
   Capybara::Selenium::Driver.new(app,
                                  browser: :chrome,
-                                 desired_capabilities: capabilities,
                                  http_client: http_client,
                                  options: browser_options)
 end
