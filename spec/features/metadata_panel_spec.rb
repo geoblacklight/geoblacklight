@@ -44,18 +44,6 @@ feature 'Metadata tools' do
       end
     end
     context 'when the metadata is in the XML' do
-      let(:mods) { File.read(Rails.root.join('..', 'spec', 'fixtures', 'mods', 'fb897vt9938.mods')) }
-      let(:response) { instance_double(Faraday::Response) }
-      let(:connection) { instance_double(Faraday::Connection) }
-
-      before do
-        allow(response).to receive(:body).and_return(mods)
-        allow(response).to receive(:status).and_return(200)
-        allow(connection).to receive(:get).and_return(response)
-        allow(Faraday).to receive(:new).with(url: 'http://purl.stanford.edu/fb897vt9938.mods').and_return(connection)
-        allow(Faraday).to receive(:new).and_call_original
-      end
-
       scenario 'shows up as XML' do
         visit solr_document_path 'stanford-cg357zz0321'
         expect(page).to have_css 'li.metadata a', text: 'Metadata'

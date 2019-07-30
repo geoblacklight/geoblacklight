@@ -31,14 +31,15 @@ task :teaspoon do
 end
 
 desc 'Run test suite'
-task ci: ['geoblacklight:generate'] do
+task ci: ['engine_cart:generate'] do
   SolrWrapper.wrap do |solr|
     solr.with_collection(name: 'blacklight-core', dir: File.join(File.expand_path('.', File.dirname(__FILE__)), 'solr', 'conf')) do
       within_test_app do
         system 'RAILS_ENV=test rake geoblacklight:index:seed'
         system 'RAILS_ENV=test bundle exec rails webpacker:compile'
       end
-      Rake::Task['geoblacklight:coverage'].invoke
+      ENV['COVERAGE'] = 'true'
+      Rake::Task['spec'].invoke
     end
   end
   # Run JavaScript tests
@@ -46,16 +47,6 @@ task ci: ['geoblacklight:generate'] do
 end
 
 namespace :geoblacklight do
-  desc 'Run tests with coverage'
-  task :coverage do
-    ENV['COVERAGE'] = 'true'
-    Rake::Task['spec'].invoke
-  end
-
-  desc 'Create the test rails app'
-  task generate: ['engine_cart:generate'] do
-  end
-
   namespace :internal do
     task seed: ['engine_cart:generate'] do
       within_test_app do
