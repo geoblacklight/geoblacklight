@@ -15,7 +15,7 @@ feature 'Metadata tools' do
       end
     end
     scenario 'shows up as XML' do
-      visit solr_document_path 'stanford-cg357zz0321'
+      visit solr_document_path 'stanford-fb897vt9938'
       expect(page).to have_css 'li.metadata a', text: 'Metadata'
       click_link 'Metadata'
       using_wait_time 15 do

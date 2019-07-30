@@ -38,6 +38,21 @@ describe Geoblacklight::Metadata::Base do
         expect(subject.children.empty?).to be true
       end
     end
+
+    context 'when attempts to connect to an endpoint URL raise an OpenSSL error' do
+      subject { metadata.document }
+
+      before do
+        allow(Geoblacklight.logger).to receive(:error)
+        expect(Geoblacklight.logger).to receive(:error).with(/dh key too small/)
+        allow(connection).to receive(:get).and_raise(OpenSSL::SSL::SSLError, 'dh key too small')
+      end
+
+      it 'returns nil when a connection error' do
+        expect(subject).to be_a Nokogiri::XML::Document
+        expect(subject.children.empty?).to be true
+      end
+    end
   end
 
   describe '#blank?' do
