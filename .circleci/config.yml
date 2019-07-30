@@ -57,6 +57,9 @@ jobs:
       - run:
           name: Run the RSpec test suites
           command: bundle exec rake geoblacklight:coverage
+      - run:
+          name: Run the Teaspoon test suites
+          command: bundle exec rake teaspoon
       # Store bundle cache
       - type: cache-save
         name: Store bundle cache
