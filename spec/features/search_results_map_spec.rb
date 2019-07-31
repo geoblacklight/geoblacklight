@@ -21,7 +21,7 @@ feature 'search results map', js: true do
     # "-101.90917968749999,38.75408327579141,-83.27636718749999,53.27835301753182"
     left, bottom, right, top = bbox.split(',')
     expect(left.to_f).to be_within(2).of(-101)
-    expect(bottom.to_f).to be_within(2).of(38)
+    expect(bottom.to_f).to be_within(3).of(38)
     expect(right.to_f).to be_within(2).of(-83)
     expect(top.to_f).to be_within(2).of(53)
   end

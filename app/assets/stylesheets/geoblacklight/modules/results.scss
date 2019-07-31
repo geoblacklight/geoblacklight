@@ -44,3 +44,25 @@
     @extend .fa, .fa-caret-down;
   }
 }
+
+#main-container {
+  .category-block {
+    min-height: 240px;
+
+    .category-icon {
+      font-size: 6em;
+    }
+  }
+
+  [data-map="index"] {
+    height: 400px;
+
+    .leaflet-control-container {
+      .search-control {
+        a {
+          color: $white;
+        }
+      }
+    }
+  }
+}
