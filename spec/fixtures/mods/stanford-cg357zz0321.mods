@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" version="3.4" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd">
+  <titleInfo>
+    <title>10 Meter Contours: Russian River Basin, California</title>
+  </titleInfo>
+  <name type="corporate">
+    <namePart>United States. National Oceanic and Atmospheric Administration</namePart>
+    <role>
+      <roleTerm type="text" authority="marcrelator">creator</roleTerm>
+    </role>
+  </name>
+  <name type="corporate">
+    <namePart>Circuit Rider Productions</namePart>
+    <role>
+      <roleTerm type="text" authority="marcrelator">creator</roleTerm>
+    </role>
+  </name>
+  <typeOfResource>cartographic</typeOfResource>
+  <typeOfResource>software, multimedia</typeOfResource>
+  <genre authority="lcgft" valueURI="http://id.loc.gov/authorities/genreForms/gf2011026297">Geospatial data</genre>
+  <genre authority="rdacontent" valueURI="http://rdvocab.info/termList/RDAContentType/1001">cartographic dataset</genre>
+  <originInfo>
+    <publisher>Circuit Rider Productions</publisher>
+    <place>
+      <placeTerm type="text">Windsor, California, US</placeTerm>
+    </place>
+    <dateIssued encoding="w3cdtf" keyDate="yes">2002</dateIssued>
+    <dateValid encoding="w3cdtf">2002</dateValid>
+  </originInfo>
+  <language>
+    <languageTerm authority="iso639-2b">eng</languageTerm>
+  </language>
+  <physicalDescription>
+    <form>Shapefile</form>
+    <extent>74.767</extent>
+    <digitalOrigin>born digital</digitalOrigin>
+  </physicalDescription>
+  <subject>
+    <cartographics>
+      <scale>Scale not given.</scale>
+      <projection>Custom projection</projection>
+      <coordinates>(W 123°23ʹ15ʺ--W 122°31ʹ24ʺ/N 39°23ʹ55ʺ--N 38°18ʹ8ʺ)</coordinates>
+    </cartographics>
+  </subject>
+  <abstract displayLabel="Abstract" lang="eng">This line shapefile contains contours that were derived from a mosiac of 10 meter digital elevation models for the extent of the Russian River basin, located in Sonoma and Mendocino Counties, California.</abstract>
+  <abstract displayLabel="Purpose" lang="eng">This layer can be used for watershed analysis and planning in the Russian River region of California.</abstract>
+  <note displayLabel="Preferred citation" lang="eng">Circuit Rider Productions and  National Oceanic and Atmospheric Administration (2002) 10 Meter Contours: Russian River Basin, California. Circuit Rider Productions.</note>
+  <note displayLabel="Supplemental information">The 7.5-minute digital elevation model (DEM) data are digital representations of cartographic information in a raster form. The DEMs consist of an array of elevations for ground positions at regularly spaced intervals. The data are produced in 7.5- by 7.5-minute blocks from either digitized cartographic map contour overlays of a scanned National Aerial Photography Program (NAPP) photographs. The DEM data are stored as profiles with a 10- or 30-meter square grid spacing along and between each profile. Approximate file sizes are 9.9 megabytes for a 10-meter resolution and 1.1 megabytes for a 30-meter horizontal resolution. Data profiles for this product do not always have the same number of elevations because of the variable angle between true north and grid north in the Universal Transverse Mercator (UTM)
+projection coordinate system. The DEM data for 7.5-minute units correspond to the USGS 7.5-minute topographic quadrangle map series for all of the United States and its territories except Alaska.</note>
+  <subject>
+    <topic authority="lcsh" lang="eng">Contours (Cartography)</topic>
+  </subject>
+  <subject>
+    <geographic lang="eng" valueURI="http://sws.geonames.org/5397100/" authority="geonames" authorityURI="http://www.geonames.org/ontology#">Sonoma County (Calif.)</geographic>
+  </subject>
+  <subject>
+    <geographic lang="eng" valueURI="http://sws.geonames.org/5372163/" authority="geonames" authorityURI="http://www.geonames.org/ontology#">Mendocino County (Calif.)</geographic>
+  </subject>
+  <subject>
+    <temporal encoding="w3cdtf">2002</temporal>
+  </subject>
+  <subject>
+    <topic authority="ISO19115TopicCategory" authorityURI="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_TopicCategoryCode" valueURI="elevation">Elevation</topic>
+  </subject>
+  <subject>
+    <topic authority="ISO19115TopicCategory" authorityURI="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_TopicCategoryCode" valueURI="inlandWaters">Inland Waters</topic>
+  </subject>
+  <location>
+    <url>http://purl.stanford.edu/cg357zz0321</url>
+  </location>
+  <recordInfo>
+    <recordContentSource>Stanford</recordContentSource>
+    <recordIdentifier>edu.stanford.purl:cg357zz0321</recordIdentifier>
+    <recordOrigin>This record was translated from ISO 19139 to MODS v.3 using an xsl transformation.</recordOrigin>
+    <languageOfCataloging>
+      <languageTerm authority="iso639-2b" type="code">eng</languageTerm>
+    </languageOfCataloging>
+  </recordInfo>
+  <extension displayLabel="geo">
+    <rdf:RDF xmlns:gml="http://www.opengis.net/gml/3.2/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+      <rdf:Description rdf:about="http://purl.stanford.edu/cg357zz0321">
+        <dc:format>application/x-esri-shapefile; format=Shapefile</dc:format>
+        <dc:type>Dataset#LineString</dc:type>
+        <gml:boundedBy>
+          <gml:Envelope gml:srsName="EPSG:4326">
+            <gml:lowerCorner>-123.387366 38.302994</gml:lowerCorner>
+            <gml:upperCorner>-122.52958 39.398403</gml:upperCorner>
+          </gml:Envelope>
+        </gml:boundedBy>
+        <dc:coverage rdf:resource="http://sws.geonames.org/5397100/" dc:language="eng" dc:title="Sonoma County (Calif.)"/>
+        <dc:coverage rdf:resource="http://sws.geonames.org/5372163/" dc:language="eng" dc:title="Mendocino County (Calif.)"/>
+      </rdf:Description>
+    </rdf:RDF>
+  </extension>
+  <subject authority="EPSG" valueURI="http://opengis.net/def/crs/EPSG/0/4326" displayLabel="WGS84">
+    <cartographics>
+      <scale>Scale not given.</scale>
+      <projection>EPSG::4326</projection>
+      <coordinates>W 123°23ʹ15ʺ--W 122°31ʹ46ʺ/N 39°23ʹ54ʺ--N 38°18ʹ11ʺ</coordinates>
+    </cartographics>
+  </subject>
+  <note displayLabel="WGS84 Cartographics">This layer is presented in the WGS84 coordinate system for web display purposes. Downloadable data are provided in native coordinate system or projection.</note>
+  <relatedItem type="host">
+    <titleInfo>
+      <title>Russian River watershed GIS</title>
+    </titleInfo>
+    <location>
+      <url>https://purl.stanford.edu/zt526qk7324</url>
+    </location>
+    <typeOfResource collection="yes"/>
+  </relatedItem>
+  <accessCondition type="useAndReproduction">These data are licensed by Stanford Libraries and are available to Stanford University affiliates only. Affiliates are limited to current faculty, staff and students. Non affiliates seeking access should contact the publisher directly. These data may not be reproduced or used for any purpose without permission.</accessCondition>
+</mods>
