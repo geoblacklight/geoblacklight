@@ -39,7 +39,7 @@ module Geoblacklight
     # Remove any trailing slashes
     # @return [String]
     def uri
-      @reference[0].sub(/(\/)+$/,'') if @reference[0].present?
+      @reference[0].sub(/(\/)+$/, '') if @reference[0].present?
     end
   end
 end
