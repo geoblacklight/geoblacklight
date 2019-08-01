@@ -63,6 +63,9 @@ module Geoblacklight
         rescue OpenSSL::SSL::SSLError => error
           Geoblacklight.logger.error error.inspect
           ''
+        rescue StandardError => error
+          Geoblacklight.logger.error error.inspect
+          ''
         end
       end
 
