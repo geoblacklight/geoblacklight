@@ -17,3 +17,5 @@ test/version_tmp
 tmp
 jetty
 .internal_test_app
+# Ignore byebug history
+.byebug_history
