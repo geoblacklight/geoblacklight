@@ -2,7 +2,7 @@
 
 describe('MetadataDownloadButton', function() {
   describe('initialize', function() {
-    fixture.set('<button id="foo" data-ref-endpoint="http://testdomain" data-ref-download="#bar">test element</button><a href="http://test2domain" id="bar">another test element</a>');
+    fixture.set('<button id="foo" data-ref-endpoint="http://testdomain" data-ref-download="#bar">test element</button><a href="http://testdomain" id="bar">another test element</a>');
 
     it('creates a new instance and sets the download button @href value', function() {
       var button = new GeoBlacklight.MetadataDownloadButton('#foo');
