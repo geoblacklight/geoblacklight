@@ -44,7 +44,6 @@ describe Geoblacklight::Metadata::Base do
     subject { metadata.document }
 
     before do
-      allow(Geoblacklight.logger).to receive(:error)
       expect(Geoblacklight.logger).to receive(:error).with(/dh key too small/)
       allow(connection).to receive(:get).and_raise(OpenSSL::SSL::SSLError, 'dh key too small')
     end
