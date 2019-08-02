@@ -45,6 +45,8 @@ Metrics/LineLength:
 
 Metrics/MethodLength:
   Max: 16
+  Exclude:
+    - 'lib/geoblacklight/metadata/base.rb'
 
 Metrics/ModuleLength:
   Exclude:

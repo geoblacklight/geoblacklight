@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" version="3.4" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd">
+  <titleInfo>
+    <title>Dabao Kinbōzu, Maps Index</title>
+  </titleInfo>
+  <titleInfo>
+    <title type="alternative">Davao (Philippines), 1:50000 Maps Index</title>
+  </titleInfo>
+  <titleInfo>
+    <title displayLabel="Alternative title">Davao (Philippines), 1:50000 Maps Index</title>
+  </titleInfo>
+  <name type="corporate">
+    <namePart>Stanford Geospatial Center</namePart>
+    <role>
+      <roleTerm type="text" authority="marcrelator">creator</roleTerm>
+    </role>
+  </name>
+  <typeOfResource>cartographic</typeOfResource>
+  <typeOfResource>software, multimedia</typeOfResource>
+  <genre authority="lcgft" valueURI="http://id.loc.gov/authorities/genreForms/gf2011026297">Geospatial data</genre>
+  <genre authority="rdacontent" valueURI="http://rdvocab.info/termList/RDAContentType/1001">cartographic dataset</genre>
+  <originInfo>
+    <publisher>Stanford Digital Repository</publisher>
+    <place>
+      <placeTerm type="text">Stanford, California,</placeTerm>
+    </place>
+    <dateIssued encoding="w3cdtf" keyDate="yes">2016</dateIssued>
+  </originInfo>
+  <language>
+    <languageTerm authority="iso639-2b">eng</languageTerm>
+  </language>
+  <physicalDescription>
+    <form>Shapefile</form>
+    <extent>0.001</extent>
+    <digitalOrigin>born digital</digitalOrigin>
+  </physicalDescription>
+  <subject authority="EPSG" valueURI="http://opengis.net/def/crs/EPSG/0/4326" displayLabel="WGS84">
+    <cartographics>
+      <scale>Scale not given.</scale>
+      <projection>EPSG::4326</projection>
+      <coordinates>(E 125°--E 126°/N 7°20ʹ--N 6°40ʹ)</coordinates>
+    </cartographics>
+  </subject>
+  <abstract displayLabel="Abstract" lang="eng">This polygon shapefile is an index to 1:50000 scale maps of Davao (Philippines), titled 'Dabao Kinbōzu -- ダバオ近傍圖/Dabao Kinbōzu.’ This map series was originally produced by the Japanese Land Survey Department of the General Staff Headquarters in 1944. Stanford University Libraries holds a large collection of Japanese military and imperial maps, referred to as gaihōzu, or "maps of outer lands." These maps were produced starting in the early Meiji (1868-1912) era and the end of World War II by the Land Survey Department of the General Staff Headquarters, the former Japanese Army. The Library is in the process of scanning and making available all of the maps in the collection. To create this index, footprints were generated using the fishnet tool, and metadata were supplied for the digitized paper maps by Stanford University Libraries. After the footprints were created, the shapefile was trimmed and labeled according to the sources.</abstract>
+  <abstract displayLabel="Purpose" lang="eng">This layer provides an index map that can be used to locate individual scanned map sheets.</abstract>
+  <note displayLabel="Preferred citation" lang="eng">Stanford Geospatial Center. (2016). Dabao Kinbōzu, Maps Index. Stanford Digital Repository. Available at: http://purl.stanford.edu/fb897vt9938.</note>
+  <relatedItem type="isReferencedBy">
+    <titleInfo>
+      <title>Dabao Kinbōzu [cartographic material]</title>
+    </titleInfo>
+  </relatedItem>
+  <subject>
+    <topic authority="lcsh" authorityURI="http://id.loc.gov/authorities/subjects.html" lang="eng">Military maps</topic>
+  </subject>
+  <subject>
+    <topic authority="lcsh" authorityURI="http://id.loc.gov/authorities/subjects.html" lang="eng">Topographic maps</topic>
+  </subject>
+  <subject>
+    <topic authority="lcsh" authorityURI="http://id.loc.gov/authorities/subjects.html" lang="eng">Index maps</topic>
+  </subject>
+  <subject>
+    <topic authority="lcsh" authorityURI="http://id.loc.gov/authorities/subjects.html" lang="eng">Grids (Cartography)</topic>
+  </subject>
+  <subject>
+    <geographic lang="eng">Davao (Philippines)</geographic>
+  </subject>
+  <subject>
+    <temporal encoding="w3cdtf">1944</temporal>
+  </subject>
+  <subject>
+    <topic authority="ISO19115TopicCategory" authorityURI="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_TopicCategoryCode" valueURI="boundaries">Boundaries</topic>
+  </subject>
+  <subject>
+    <topic authority="ISO19115TopicCategory" authorityURI="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_TopicCategoryCode" valueURI="intelligenceMilitary">Military</topic>
+  </subject>
+  <location>
+    <url>http://purl.stanford.edu/fb897vt9938</url>
+  </location>
+  <recordInfo>
+    <recordContentSource>Stanford</recordContentSource>
+    <recordIdentifier>edu.stanford.purl:fb897vt9938</recordIdentifier>
+    <recordOrigin>This record was translated from ISO 19139 to MODS v.3 using an xsl transformation.</recordOrigin>
+    <languageOfCataloging>
+      <languageTerm authority="iso639-2b" type="code">eng</languageTerm>
+    </languageOfCataloging>
+  </recordInfo>
+  <extension displayLabel="geo">
+    <rdf:RDF xmlns:gml="http://www.opengis.net/gml/3.2/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+      <rdf:Description rdf:about="http://purl.stanford.edu/fb897vt9938">
+        <dc:format>application/x-esri-shapefile; format=Shapefile</dc:format>
+        <dc:type>Dataset#Polygon</dc:type>
+        <gml:boundedBy>
+          <gml:Envelope gml:srsName="EPSG:4326">
+            <gml:lowerCorner>125.0 6.6666</gml:lowerCorner>
+            <gml:upperCorner>126.0 7.3333</gml:upperCorner>
+          </gml:Envelope>
+        </gml:boundedBy>
+      </rdf:Description>
+    </rdf:RDF>
+  </extension>
+  <relatedItem type="host">
+    <titleInfo>
+      <title>Topographic Map Indexes</title>
+    </titleInfo>
+    <location>
+      <url>https://purl.stanford.edu/ch237ht4777</url>
+    </location>
+    <typeOfResource collection="yes"/>
+  </relatedItem>
+  <accessCondition type="useAndReproduction">This item is in the public domain.  There are no restrictions on use.</accessCondition>
+</mods>

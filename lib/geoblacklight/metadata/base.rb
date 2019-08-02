@@ -49,16 +49,21 @@ module Geoblacklight
           conn.use FaradayMiddleware::FollowRedirects
           conn.adapter Faraday.default_adapter
         end
-        response = connection.get
-        return response.body unless response.nil? || response.status == 404
-        Geoblacklight.logger.error "Could not reach #{@reference.endpoint}"
-        ''
-      rescue Faraday::Error::ConnectionFailed => error
-        Geoblacklight.logger.error error.inspect
-        ''
-      rescue Faraday::Error::TimeoutError => error
-        Geoblacklight.logger.error error.inspect
-        ''
+        begin
+          response = connection.get
+          return response.body unless response.nil? || response.status == 404
+          Geoblacklight.logger.error "Could not reach #{@reference.endpoint}"
+          ''
+        rescue Faraday::Error::ConnectionFailed => error
+          Geoblacklight.logger.error error.inspect
+          ''
+        rescue Faraday::Error::TimeoutError => error
+          Geoblacklight.logger.error error.inspect
+          ''
+        rescue OpenSSL::SSL::SSLError => error
+          Geoblacklight.logger.error error.inspect
+          ''
+        end
       end
 
       ##
