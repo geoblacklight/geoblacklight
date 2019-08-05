@@ -303,4 +303,30 @@ describe GeoblacklightHelper, type: :helper do
       expect(helper.first_metadata?(document, metadata)).to be true
     end
   end
+
+  describe '#show_help_text?' do
+    let(:feature) { 'viewer_protocol' }
+    let(:translation_key) { 'wms' }
+
+    it 'confirms help text is available' do
+      expect(helper.show_help_text?(feature, translation_key)).to be true
+    end
+  end
+
+  describe '#render_help_text_entry' do
+    let(:feature) { 'viewer_protocol' }
+    let(:translation_key) { 'wms' }
+
+    context 'valid entry' do
+      it 'renders help text entry for the wms viewer protocol' do
+        expect(helper.render_help_text_entry(feature, translation_key)).to eq '<h3 class="help-text viewer_protocol h6"><a data-toggle="popover" data-title="Web Map Service (WMS)" data-content="A Web Map Service displays a geospatial dataset as map images.">Web Map Service (WMS)</a></h3>'
+      end
+    end
+
+    context 'invalid entry' do
+      it 'renders an empty span' do
+        expect(helper.render_help_text_entry('foo', 'bar')).to eq '<span class="help-text translation-missing"></span>'
+      end
+    end
+  end
 end
