@@ -40,6 +40,10 @@ module Geoblacklight
       references.hgl.to_hash unless references.hgl.blank?
     end
 
+    def oembed
+      references.oembed.endpoint unless references.oembed.blank?
+    end
+
     def same_institution?
       fetch(Settings.FIELDS.PROVENANCE).casecmp(Settings.INSTITUTION.downcase).zero?
     end

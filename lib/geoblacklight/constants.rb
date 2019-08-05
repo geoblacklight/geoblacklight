@@ -21,7 +21,8 @@ module Geoblacklight
       dynamic_map_layer: 'urn:x-esri:serviceType:ArcGIS#DynamicMapLayer',
       image_map_layer: 'urn:x-esri:serviceType:ArcGIS#ImageMapLayer',
       data_dictionary: 'http://lccn.loc.gov/sh85035852',
-      index_map: 'https://openindexmaps.org'
+      index_map: 'https://openindexmaps.org',
+      oembed: 'https://oembed.com'
     }.freeze
   end
 end
