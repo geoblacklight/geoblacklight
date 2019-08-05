@@ -81,12 +81,58 @@ module GeoblacklightHelper
                        layout: 'facet_tag_layout')
   end
 
+  ##
+  # Returns an SVG icon or empty HTML span element
+  # @return [SVG or HTML tag]
   def geoblacklight_icon(name)
-    icon_name = name ? name.parameterize : 'none'
-    content_tag :span,
-                '',
-                class: "geoblacklight-icon geoblacklight-#{icon_name}",
-                title: name
+    icon_name = name ? name.to_s.parameterize : 'none'
+    if asset_exists?(icon_name)
+      queue_icon_aria_label(icon_name)
+      blacklight_icon(icon_name)
+    else
+      render_empty_span('icon-missing geoblacklight-none')
+    end
+  end
+
+  ##
+  # Checks if an asset file exists
+  # @return [Boolean]
+  def asset_exists?(path)
+    Rails.application.assets.resolve("blacklight/#{path}").present?
+  end
+
+  ##
+  # Render an empty span
+  # @return [HTML tag]
+  def render_empty_span(classname)
+    tag.span class: classname
+  end
+
+  ##
+  # Capture SVG icon aria labels to describe
+  def queue_icon_aria_label(feature_name)
+    @aria_labels ||= Set.new
+    @aria_labels << feature_name
+  end
+
+  ##
+  # Render a div of divs describing aria-labelledby values
+  # @return [HTML tag]
+  def render_aria_labels(aria_labels)
+    return unless aria_labels
+    content_tag :div, id: 'aria-labels', class: 'sr-only sr-only-focusable' do
+      aria_labels.each do |label|
+        concat(render_aria_label(label))
+      end
+    end
+  end
+
+  # Render a div describing a aria-labelledby value
+  # @return [HTML tag]
+  def render_aria_label(label)
+    content_tag :div, id: "aria-label-#{label}" do
+      I18n.t("geoblacklight.aria-labels.#{label}")
+    end
   end
 
   ##

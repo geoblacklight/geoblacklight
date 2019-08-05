@@ -1,60 +1,50 @@
-// Additional customizations beyond generated FontCustom styles
+// SVG icons via FontAwesome and IcoMoon, see geoblacklight-icons.json for project data
 
-.geoblacklight-icon {
-  color: $gray-600;
-  font-size: 1.2em;
+span.icon-missing {
+  display: inline-block;
+  height: 1em;
+  width: 1em;
 }
 
-.geoblacklight-stanford {
-  color: #8c1515;
+// CatalogController#index - Home
+.category-icon {
+  .blacklight-icons {
+    height: 6rem;
+    width: auto;
+  }
+
+  .blacklight-icons svg {
+    width:  100%;
+    height: 100%;
+    top: 2rem;
+  }
 }
 
-.geoblacklight-public {
-  @extend .fa, .fa-unlock, .text-muted;
+// CatalogController#show
+.document {
+  h2 {
+    .blacklight-icons {
+      height: 1.5rem;
+      width: auto;
+    }
+
+    .blacklight-icons svg {
+      width:  auto;
+      height: 100%;
+    }
+  }
 }
 
-.geoblacklight-restricted {
-  @extend .fa, .fa-lock, .text-muted;
-  width: 17px;
+// CatalogController#index - search results
+.facet-label {
+  .blacklight-icons, span.icon-missing {
+    margin-right:0.5em;
+  }
 }
 
-.geoblacklight-citation {
-  @extend .fa, .fa-bookmark;
-}
-
-.geoblacklight-data-dictionary {
-  @extend .fa, .fa-book;
-}
-
-.geoblacklight-sms {
-  @extend .fa, .fa-mobile;
-}
-
-.geoblacklight-email {
-  @extend .fa, .fa-envelope;
-}
-
-.geoblacklight-relations-ancestor {
-  @extend .fa, .fa-pagelines;
-}
-
-.geoblacklight-relations-descendant {
-  @extend .fa, .fa-leaf;
-}
-
-.geoblacklight-web_services {
-  @extend .fa, .fa-external-link;
-}
-
-.geoblacklight-metadata {
-  @extend .fa, .fa-file-text-o;
-}
-
-.geoblacklight-carto {
-  @extend .fa, .fa-map-marker;
-}
-
-// DEPRECATED: Will be removed in GeoBlacklight v2.0
-.geoblacklight-cartodb {
-  @extend .geoblacklight-cartodb;
+.blacklight-icons {
+  svg * {
+    width:  100%;
+    height: 100%;
+  }
 }
