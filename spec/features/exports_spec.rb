@@ -24,4 +24,14 @@ feature 'Export features' do
       expect(page).not_to have_css 'li.exports a', text: 'Open in Carto'
     end
   end
+  context 'when carto is configured not to display' do
+    let(:CARTO_DISPLAY) { false }
+    before do
+      allow(Settings).to receive(:CARTO_DISPLAY)
+    end
+    it 'will not display the carto link' do
+      visit solr_document_path 'tufts-cambridgegrid100-04'
+      expect(page).not_to have_css 'li.exports a', text: 'Open in Carto'
+    end
+  end
 end
