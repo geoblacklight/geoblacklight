@@ -1,11 +1,3 @@
 <% document ||= @document %>
-<% if document.carto_reference.present? %>
-    <%= link_to(carto_link(document.carto_reference), target: '_blank') do %>
-    <span class='geoblacklight geoblacklight-carto'></span><%= t('geoblacklight.tools.open_carto') %>
-    <% end %>
-<% end %>
-<% if document.arcgis_urls.present? %>
-  <%= link_to(arcgis_link(document.arcgis_urls))  do %>
-    <%= blacklight_icon('esri-globe') %> <%= t('geoblacklight.tools.open_arcgis') %>
-  <% end %>
-<% end %>
+<%= display_carto %>
+<%= display_arcgis %>

@@ -4,6 +4,12 @@ APPLICATION_LOGO_URL: 'http://geoblacklight.org/images/geoblacklight-logo.png'
 # Carto OneClick Service https://carto.com/engine/open-in-carto/
 CARTO_ONECLICK_LINK: 'http://oneclick.carto.com/'
 
+# Display Carto export link
+CARTO_DISPLAY: true
+
+# Display ArcGIS export link
+ARCGIS_DISPLAY: true
+
 # ArcGIS Online Base URL
 ARCGIS_BASE_URL: 'https://www.arcgis.com/home/webmap/viewer.html'
 
