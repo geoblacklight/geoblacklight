@@ -170,7 +170,7 @@ module GeoblacklightHelper
       t('geoblacklight.tools.open_carto'),
       carto_link(@document.carto_reference),
       target: '_blank'
-    ) if @document.carto_reference.present? && Settings.CARTO_DISPLAY
+    ) if @document.carto_reference.present? && !Settings.CARTO_HIDE
   end
 
   def display_arcgis
@@ -178,7 +178,7 @@ module GeoblacklightHelper
       blacklight_icon('esri-globe') + ' ' +
       t('geoblacklight.tools.open_arcgis'),
       arcgis_link(@document.arcgis_urls)
-    ) if @document.arcgis_urls.present? && Settings.ARCGIS_DISPLAY
+    ) if @document.arcgis_urls.present? && !Settings.ARCGIS_HIDE
   end
 
   ##

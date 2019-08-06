@@ -25,9 +25,8 @@ feature 'Export features' do
     end
   end
   context 'when carto is configured not to display' do
-    let(:CARTO_DISPLAY) { false }
     before do
-      allow(Settings).to receive(:CARTO_DISPLAY)
+      allow(Settings).to receive(:CARTO_HIDE).and_return(true)
     end
     it 'will not display the carto link' do
       visit solr_document_path 'tufts-cambridgegrid100-04'
