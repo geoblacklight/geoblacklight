@@ -5,7 +5,7 @@ module Geoblacklight
     end
 
     def refs
-      metadata_refs + webservice_refs + download_refs
+      @refs ||= metadata_refs + webservice_refs + download_refs
     end
 
     def download_refs
@@ -51,20 +51,26 @@ module Geoblacklight
       refs.find { |reference| reference.type == ref_type }
     end
 
-    ##
-    # Preferred download (should be a file download)
-    # @return [Hash, nil]
-    def preferred_download; end
+    def available_export_formats
+      webservice_refs.collect(&:export_formats).compact.flatten.uniq
+    end
 
-    ##
-    # Download hash based off of format type
-    # @return [Hash, nil]
-    def downloads_by_format; end
+    def export_format_values
+      {
+        shapefile: wfs.to_hash,
+        kmz: wms.to_hash,
+        geojson: wfs.to_hash,
+        geotiff: wms.to_hash
+      }
+    end
 
     ##
     # Generated download types from wxs services
-    # @return (see #downloads_by_format)
-    def download_types; end
+    # @return [Hash, nil]
+    def download_types
+      types = available_export_formats.map { |f| [f, export_format_values[f]] }
+      types.to_h.compact
+    end
 
     ##
     # Returns all of the Esri webservices for given set of references

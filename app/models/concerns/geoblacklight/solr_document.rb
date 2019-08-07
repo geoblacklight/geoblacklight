@@ -39,7 +39,11 @@ module Geoblacklight
     end
 
     def downloads
-      Array.wrap(references.download)
+      if use_dct_references?
+        Array.wrap(references.download)
+      else
+        Array.wrap(references.download_refs)
+      end
     end
 
     def direct_download

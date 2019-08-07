@@ -12,10 +12,25 @@ module Geoblacklight
     end
 
     ##
+    # Converts value to parameterized symbol
+    # @return [Symbol]
+    def convert_to_symbol(value)
+      return unless value
+      value.parameterize.underscore.to_sym
+    end
+
+    ##
     # The endpoint URL for a Geoblacklight::Reference
     # @return [String]
     def endpoint
       @reference['url']
+    end
+
+    ##
+    # Export formats available for a web service
+    # @return [String]
+    def export_formats
+      @reference['exportFormats']&.collect { |f| convert_to_symbol(f) }
     end
 
     ##
@@ -43,7 +58,7 @@ module Geoblacklight
     # Lookups the type from the Constants::URI using the reference's URI
     # @return [Symbol]
     def type
-      @reference['type']&.parameterize&.underscore&.to_sym
+      convert_to_symbol(@reference['type'])
     end
   end
 end
