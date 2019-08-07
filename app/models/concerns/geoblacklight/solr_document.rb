@@ -92,8 +92,16 @@ module Geoblacklight
       "#{w} #{s} #{e} #{n}"
     end
 
+    def wfs_identifier
+      references.wfs.layer_id if references.wfs
+    end
+
+    def wms_identifier
+      references.wms.layer_id if references.wms
+    end
+
     def wxs_identifier
-      fetch(Settings.FIELDS.WXS_IDENTIFIER, '')
+      fetch(Settings.FIELDS.WXS_IDENTIFIER, wfs_identifier || wms_identifier || '')
     end
 
     def file_format

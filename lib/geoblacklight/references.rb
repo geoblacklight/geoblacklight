@@ -1,12 +1,15 @@
 module Geoblacklight
   class References
-    attr_reader :download_refs
     def initialize(document)
       @document = document
     end
 
     def refs
-      metadata_refs + webservice_refs
+      metadata_refs + webservice_refs + download_refs
+    end
+
+    def download_refs
+      @download_refs ||= parse_references('downloads_sm').map { |ref| Reference.new(ref) }
     end
 
     def metadata_refs

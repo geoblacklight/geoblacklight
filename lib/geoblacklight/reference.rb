@@ -43,7 +43,7 @@ module Geoblacklight
     # Lookups the type from the Constants::URI using the reference's URI
     # @return [Symbol]
     def type
-      @reference['type']&.to_sym
+      @reference['type']&.parameterize&.underscore&.to_sym
     end
   end
 end
