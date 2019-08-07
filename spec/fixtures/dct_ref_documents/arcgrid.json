@@ -1,0 +1,45 @@
+{
+    "dc_creator_sm": [
+        "California. Division of Mines and Geology"
+    ],
+    "dc_description_s": "This shaded relief map was derived from the digital elevation model (see \"Digital Elevation Model: Albion River Watershed, California, 2004\" raster file) file to more accurately depict landscape within the Albion River watershed predominantly located on the coastal side of the Mendocino Range, the western-most range of the northern California Coast Ranges Geomorphic Province. The Albion River drains 43 square miles of the Mendocino County coastline. The headwaters are approximately 12 miles inland. Data portrays landslides, geomorphic features related to landsliding, relative landslide potential, geology, and stream channel geomorphic conditions. The data is a product of the Department of Conservation, California Geological Survey\u2019s (CGS) investigation of landslides and fluvial geomorphology of the Albion River watershed. The investigation was based on interpretation of 1984 and 2000 aerial photos, findings from CGS\u2019s landslide mapping conducted in the early 1980s (Kilbourne, R.T. 1982-84, Manson, M. W. 1984), as well as other sources (McLaughlin, 1997 and Matthews, 2001).This mapping began as part of the North Coast Watershed Assessment Program (NCWAP) which was de-funded by the Legislature in June 2003, the work was subsequently completed in late 2003 and early 2004. The California Geological Survey (CGS) evaluated the geology, fluvial geomorphic characteristics, relative slope stability and geomorphic characteristics within the watershed, and compiled the digital geospatial data described in this document. This mapping and compilation is geared toward providing baseline geologic and geomorphic data to aid in responsible land management, as well as the development of watershed restoration projects, watershed management strategies, and watershed plans.",
+    "dc_format_s": "ArcGRID",
+    "dc_identifier_s": "http://purl.stanford.edu/vh469wk7989",
+    "dc_language_s": "English",
+    "dc_publisher_s": "California. Division of Mines and Geology",
+    "dc_rights_s": "Public",
+    "dc_subject_sm": [
+        "Watersheds",
+        "Landslides",
+        "Geology",
+        "Geomorphology",
+        "Logging",
+        "Forest management",
+        "Faults (Geology)",
+        "Landslide hazard analysis",
+        "Geoscientific Information",
+        "Inland Waters",
+        "Elevation"
+    ],
+    "dc_title_s": "10-Meter Hillshade Grid: Albion River Watershed, California, 2004",
+    "dc_type_s": "Dataset",
+    "dct_issued_s": "2004",
+    "dct_provenance_s": "Stanford",
+    "dct_references_s": "{\"http://schema.org/url\":\"http://purl.stanford.edu/vh469wk7989\",\"http://schema.org/downloadUrl\":\"http://stacks.stanford.edu/file/druid:vh469wk7989/data.zip\",\"http://www.loc.gov/mods/v3\":\"http://purl.stanford.edu/vh469wk7989.mods\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"https://raw.githubusercontent.com/OpenGeoMetadata/edu.stanford.purl/master/vh/469/wk/7989/iso19139.xml\",\"http://www.opengis.net/def/serviceType/ogc/wcs\":\"https://geowebservices.stanford.edu/geoserver/wcs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://geowebservices.stanford.edu/geoserver/wms\"}",
+    "dct_spatial_sm": [
+        "California, Northern",
+        "Albion River Watershed (Calif.)",
+        "Mendocino County (Calif.)"
+    ],
+    "dct_temporal_sm": [
+        "2000"
+    ],
+    "geoblacklight_version": "1.0",
+    "layer_geom_type_s": "Raster",
+    "layer_id_s": "druid:vh469wk7989",
+    "layer_modified_dt": "2015-08-06T23:07:22Z",
+    "layer_slug_s": "stanford-vh469wk7989",
+    "solr_geom": "ENVELOPE(-123.7787444, -123.5370228, 39.3055103, 39.2053384)",
+    "solr_year_i": 2000,
+    "stanford_rights_metadata_s": "<?xml version=\"1.0\"?>\n<rightsMetadata>\n  <access type=\"discover\">\n    <machine>\n      <world/>\n    </machine>\n  </access>\n  <access type=\"read\">\n    <machine>\n      <world/>\n    </machine>\n  </access>\n  <use>\n    <human type=\"useAndReproduction\">This item is in the public domain.  There are no restrictions on use.</human>\n    <human type=\"creativeCommons\"/>\n    <machine type=\"creativeCommons\"/>\n  </use>\n  <copyright>\n    <human>This work is in the Public Domain, meaning that it is not subject to copyright.</human>\n  </copyright>\n</rightsMetadata>\n"
+}
