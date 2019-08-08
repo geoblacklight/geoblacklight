@@ -8,16 +8,21 @@
   "dc_rights_s": "Public",
   "dc_title_s": "100 Foot Grid Cambridge MA 2004",
   "dc_type_s": "Dataset",
-  "dct_references_s": "{\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"http://geoserver01.uit.tufts.edu/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"http://geoserver01.uit.tufts.edu/wms\",\"http://www.opengis.net/cat/csw/csdgm\":\"https://raw.githubusercontent.com/OpenGeoMetadata/edu.tufts/master/165/242/110/132/fgdc.xml\"}",
   "dct_temporal_sm": [
     "2004"
   ],
   "dct_issued_s": "2005",
   "dct_provenance_s": "Tufts",
   "layer_slug_s": "tufts-cambridgegrid100-04",
-  "layer_id_s": "sde:GISPORTAL.GISOWNER01.CAMBRIDGEGRID100_04",
   "layer_geom_type_s": "Polygon",
   "layer_modified_dt": "2014-12-04T21:33:07Z",
   "solr_geom": "ENVELOPE(-71.163984, -71.052581, 42.408316, 42.34757)",
-  "solr_year_i": 2004
+  "solr_year_i": 2004,
+  "metadata_sm": [
+    "{\"type\":\"FGDC\",\"url\":\"https://raw.githubusercontent.com/OpenGeoMetadata/edu.tufts/master/165/242/110/132/fgdc.xml\"}"
+  ],
+  "webservices_sm": [
+    "{\"type\":\"WFS\",\"url\":\"http://geoserver01.uit.tufts.edu/wfs\",\"layerId\":\"sde:GISPORTAL.GISOWNER01.CAMBRIDGEGRID100_04\",\"exportFormats\":[\"Shapefile\",\"GeoJSON\"]}",
+    "{\"type\":\"WMS\",\"url\":\"http://geoserver01.uit.tufts.edu/wms\",\"layerId\":\"sde:GISPORTAL.GISOWNER01.CAMBRIDGEGRID100_04\",\"exportFormats\":[\"KMZ\"]}"
+  ]
 }

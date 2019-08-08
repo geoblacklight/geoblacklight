@@ -5,9 +5,7 @@
   "dc_description_s": "  This dataset shows the location of each ambient air quality monitoring station currently being operated by the Bureau of Air Quality Surveillance (BAQS), Division of Air Resources, New York State Department of Environmental Conservation.",
   "dc_rights_s": "Public",
   "dct_provenance_s": "Cornell",
-  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://s3.amazonaws.com/cugir-data/00/77/41/cugir-007741.zip\",\"http://www.opengis.net/cat/csw/csdgm\":\"https://s3.amazonaws.com/cugir-data/00/77/41/fgdc.xml\",\"http://www.w3.org/1999/xhtml\":\"https://s3.amazonaws.com/cugir-data/00/77/41/fgdc.html\",\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"https://cugir.library.cornell.edu/geoserver/cugir/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://cugir.library.cornell.edu/geoserver/cugir/wms\"}",
   "cugir_addl_downloads_s": "{}",
-  "layer_id_s": "cugir007741",
   "layer_slug_s": "cugir-007741",
   "dc_type_s": "Dataset",
   "dc_format_s": "Shapefile",
@@ -38,5 +36,16 @@
   "dct_temporal_sm": [
     "-Pres"
   ],
-  "solr_geom": "ENVELOPE(-74.989258, -73.858335, 44.67778, 43.452994)"
+  "solr_geom": "ENVELOPE(-74.989258, -73.858335, 44.67778, 43.452994)",
+  "downloads_sm": [
+    "{\"type\":\"Shapefile\",\"url\":\"https://s3.amazonaws.com/cugir-data/00/77/41/cugir-007741.zip\",\"label\":\"Original Shapefile\"}"
+  ],
+  "metadata_sm": [
+    "{\"type\":\"FGDC\",\"url\":\"https://s3.amazonaws.com/cugir-data/00/77/41/fgdc.xml\"}",
+    "{\"type\":\"HTML\",\"url\":\"https://s3.amazonaws.com/cugir-data/00/77/41/fgdc.html\"}"
+  ],
+  "webservices_sm": [
+    "{\"type\":\"WFS\",\"url\":\"https://cugir.library.cornell.edu/geoserver/cugir/wfs\",\"layerId\":\"cugir007741\",\"exportFormats\":[\"Shapefile\",\"GeoJSON\"]}",
+    "{\"type\":\"WMS\",\"url\":\"https://cugir.library.cornell.edu/geoserver/cugir/wms\",\"layerId\":\"cugir007741\",\"exportFormats\":[\"KMZ\"]}"
+  ]
 }

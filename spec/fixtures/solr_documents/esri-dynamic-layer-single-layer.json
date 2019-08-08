@@ -20,7 +20,6 @@
     "Geology"
   ],
   "dct_provenance_s": "Purdue",
-  "dct_references_s": "{\"http://schema.org/url\":\"http://maps.indiana.edu/previewMaps/Geology/Industrial_Minerals_Quarries_Abandoned.html\",\"http://schema.org/downloadUrl\":\"http://maps.indiana.edu/download/Geology/Industrial_Minerals_Quarries_Abandoned.zip\",\"http://schema.org/image\":\"http://maps.indiana.edu/images/Geology/Industrial_Minerals_Quarries_Abandoned.png\",\"urn:x-esri:serviceType:ArcGIS#DynamicMapLayer\":\"https://maps.indiana.edu/arcgis/rest/services/Geology/Industrial_Minerals_Quarries_Abandoned/MapServer/0\",\"http://www.opengis.net/cat/csw/csdgm\":\"http://maps.indiana.edu/metadata/Geology/Industrial_Minerals_Quarries_Abandoned.xml\"}",
   "dct_isPartOf_sm": [
     "IndianaMAP"
   ],
@@ -36,5 +35,15 @@
   "layer_modified_dt": "2018-08-02T17:05:54Z",
   "solr_geom": "ENVELOPE(-87.9324, -86.2569, 39.8521, 37.8626)",
   "solr_year_i": 2003,
-  "geoblacklight_version": "1.0"
+  "geoblacklight_version": "1.0",
+  "downloads_sm": [
+    "{\"type\":\"Shapefile\",\"url\":\"http://maps.indiana.edu/download/Geology/Industrial_Minerals_Quarries_Abandoned.zip\",\"label\":\"Original Shapefile\"}"
+  ],
+  "metadata_sm": [
+    "{\"type\":\"External URL\",\"url\":\"http://maps.indiana.edu/previewMaps/Geology/Industrial_Minerals_Quarries_Abandoned.html\"}",
+    "{\"type\":\"FGDC\",\"url\":\"http://maps.indiana.edu/metadata/Geology/Industrial_Minerals_Quarries_Abandoned.xml\"}"
+  ],
+  "webservices_sm": [
+    "{\"type\":\"Dynamic Map Layer\",\"url\":\"https://maps.indiana.edu/arcgis/rest/services/Geology/Industrial_Minerals_Quarries_Abandoned/MapServer/0\"}"
+  ]
 }

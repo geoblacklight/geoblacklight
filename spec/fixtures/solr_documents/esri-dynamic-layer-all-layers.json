@@ -18,7 +18,6 @@
     "Geoscientific Information"
   ],
   "dct_provenance_s": "Illinois",
-  "dct_references_s": "{\"urn:x-esri:serviceType:ArcGIS#DynamicMapLayer\":\"http://data.isgs.illinois.edu/arcgis/rest/services/Geology/Glacial_Boundaries/MapServer\",\"http://schema.org/url\":\"https://clearinghouse.isgs.illinois.edu/data/geology/glacial-boundaries\",\"http://schema.org/downloadUrl\":\"https://clearinghouse.isgs.illinois.edu/sites/clearinghouse.isgs/files/Clearinghouse/data/ISGS/Geology/zips/IL_Glacial_Bndys_Py.zip\"}",
   "dct_isPartOf_sm": [
     "Illinois Geospatial Data Clearinghouse"
   ],
@@ -34,5 +33,14 @@
   "layer_modified_dt": "2018-08-02T17:00:40Z",
   "solr_geom": "ENVELOPE(-91.513518, -87.495214, 42.508348,  36.969972)",
   "solr_year_i": 1998,
-  "geoblacklight_version": "1.0"
+  "geoblacklight_version": "1.0",
+  "downloads_sm": [
+    "{\"type\":\"Shapefile\",\"url\":\"https://clearinghouse.isgs.illinois.edu/sites/clearinghouse.isgs/files/Clearinghouse/data/ISGS/Geology/zips/IL_Glacial_Bndys_Py.zip\",\"label\":\"Original Shapefile\"}"
+  ],
+  "metadata_sm": [
+    "{\"type\":\"External URL\",\"url\":\"https://clearinghouse.isgs.illinois.edu/data/geology/glacial-boundaries\"}"
+  ],
+  "webservices_sm": [
+    "{\"type\":\"Dynamic Map Layer\",\"url\":\"http://data.isgs.illinois.edu/arcgis/rest/services/Geology/Glacial_Boundaries/MapServer\"}"
+  ]
 }

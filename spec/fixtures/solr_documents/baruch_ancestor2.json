@@ -4,8 +4,6 @@
   "dc_description_s": "The NYC Geodatabase (nyc_gdb) is a resource designed for basic geographic analysis and thematic mapping within the five boroughs of New York City. It contains geographic features and data compiled from several public sources. Subsets of large features like water, greenspace, and public facilities were created and Census geographies like tracts, ZCTAs, and PUMAs were geoprocessed to create land-based boundaries. Census data from the 2010 Census, American Community Survey (ACS), and ZIP Code Business Patterns are stored in tables that can be easily related to geographic features. Transit and public facility point data were gathered from several city agencies and transformed into spatial data that can be used for reference or analysis for measuring distance, drawing buffers, or counting features within areas. The data is provided in ESRI Geodatabase format.",
   "dc_rights_s": "Public",
   "dct_provenance_s": "Baruch CUNY",
-  "dct_references_s": "{\"http://schema.org/url\":\"http://hdl.handle.net/2451/34636\",\"http://schema.org/downloadUrl\":\"https://archive.nyu.edu/retrieve/74856/nyu_2451_34636.zip\",\"http://lccn.loc.gov/sh85035852\":\"https://archive.nyu.edu/retrieve/74857/nyu_2451_34636_doc.zip\"}",
-  "layer_id_s": "sdr:nyu_2451_34636",
   "layer_slug_s": "nyu_2451_34636",
   "layer_geom_type_s": "Mixed",
   "layer_modified_dt": "2016-5-2T18:21:7Z",
@@ -42,5 +40,12 @@
   ],
   "solr_geom": "ENVELOPE(-74.255895, -73.700272, 40.9152819999998, 40.4959289999998)",
   "solr_year_i": 2016,
-  "geoblacklight_version": "1.0"
+  "geoblacklight_version": "1.0",
+  "downloads_sm": [
+    "{\"type\":\"ESRI Geodatabase\",\"url\":\"https://archive.nyu.edu/retrieve/74856/nyu_2451_34636.zip\",\"label\":\"Original ESRI Geodatabase\"}"
+  ],
+  "metadata_sm": [
+    "{\"type\":\"External URL\",\"url\":\"http://hdl.handle.net/2451/34636\"}",
+    "{\"type\":\"Data Dictionary\",\"url\":\"https://archive.nyu.edu/retrieve/74857/nyu_2451_34636_doc.zip\"}"
+  ]
 }

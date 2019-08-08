@@ -17,11 +17,13 @@
   "dct_spatial_sm": [
     "Massachusetts"
   ],
-  "dct_references_s": "{\"http://www.opengis.net/def/serviceType/ogc/wms\": \"https://geodata.mit.edu/geoserver/wms\", \"http://www.opengis.net/def/serviceType/ogc/wfs\": \"https://geodata.mit.edu/geoserver/wfs\"}",
   "layer_geom_type_s": "Polygon",
-  "layer_id_s": "mit:SDE_DATA_US_MA_E25ZCTA5DCT_2000",
   "layer_modified_dt": "2018-05-15T20:00:25Z",
   "layer_slug_s": "mit-f6rqs4ucovjk2",
   "solr_geom": "ENVELOPE(-73.533237, -69.898565, 42.888068, 41.230345)",
-  "geoblacklight_version": "1.0"
+  "geoblacklight_version": "1.0",
+  "webservices_sm": [
+    "{\"type\":\"WMS\",\"url\":\"https://geodata.mit.edu/geoserver/wms\",\"layerId\":\"mit:SDE_DATA_US_MA_E25ZCTA5DCT_2000\",\"exportFormats\":[\"KMZ\"]}",
+    "{\"type\":\"WFS\",\"url\":\"https://geodata.mit.edu/geoserver/wfs\",\"layerId\":\"mit:SDE_DATA_US_MA_E25ZCTA5DCT_2000\",\"exportFormats\":[\"Shapefile\",\"GeoJSON\"]}"
+  ]
 }

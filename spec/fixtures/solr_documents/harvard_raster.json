@@ -26,7 +26,6 @@
   ],
   "dc_title_s": "Saint Petersburg Region, Russia, 1834 (Raster Image)",
   "dc_type_s": "Dataset",
-  "dct_references_s": "{\"http://schema.org/DownloadAction\":\"http://pelham.lib.harvard.edu:8080/HGL/HGLOpenDelivery\",\"http://www.opengis.net/def/serviceType/ogc/wcs\":\"http://pelham.lib.harvard.edu:8090/geoserver/wcs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"http://pelham.lib.harvard.edu:8090/geoserver/wms\",\"http://www.opengis.net/cat/csw/csdgm\":\"https://raw.githubusercontent.com/OpenGeoMetadata/edu.harvard/master/217/121/227/77/fgdc.xml\"}",
   "dct_spatial_sm": [
     "Russia Saint Petersburg"
   ],
@@ -36,9 +35,18 @@
   "dct_issued_s": "2000",
   "dct_provenance_s": "Harvard",
   "layer_slug_s": "harvard-g7064-s2-1834-k3",
-  "layer_id_s": "cite:G7064_S2_1834_K3",
   "layer_geom_type_s": "Raster",
   "layer_modified_dt": "2014-05-27T18:09:36Z",
   "solr_geom": "ENVELOPE(30.013108, 30.875309, 60.041712, 59.669749)",
-  "solr_year_i": 1834
+  "solr_year_i": 1834,
+  "downloads_sm": [
+    "{\"type\":\"HGL\",\"url\":\"http://pelham.lib.harvard.edu:8080/HGL/HGLOpenDelivery\"}"
+  ],
+  "metadata_sm": [
+    "{\"type\":\"FGDC\",\"url\":\"https://raw.githubusercontent.com/OpenGeoMetadata/edu.harvard/master/217/121/227/77/fgdc.xml\"}"
+  ],
+  "webservices_sm": [
+    "{\"type\":\"WCS\",\"url\":\"http://pelham.lib.harvard.edu:8090/geoserver/wcs\"}",
+    "{\"type\":\"WMS\",\"url\":\"http://pelham.lib.harvard.edu:8090/geoserver/wms\",\"layerId\":\"cite:G7064_S2_1834_K3\",\"exportFormats\":[\"GeoTIFF\"]}"
+  ]
 }

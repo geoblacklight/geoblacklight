@@ -4,8 +4,6 @@
   "dc_description_s": "The subway complexes layer was created to represent ridership data for the NYC subway system (Metropolitan Transportation Authority, or MTA). This layer is a subset of the subway stations layer (nyu_2451_34503) that has been combined with MTA statistics on ridership; it was originally created in August 2012 and has been updated annually. Ridership data is not available for each individual subway station, as many stations are linked via common entrances and passageways where transfers are free, and because ridership data is not collected for the Staten Island Railway stations. This layer was created by choosing an individual station from nyu_2451_34503 to represent the entire complex, and modifying the station name and train fields appropriately. It should be used for mapping ridership data or for analysis that requires this data, and not for specifying actual station locations or measuring distances. There are 421 complexes, and the field station_ct indicates how many stations are part of a complex. Annual, average weekday, and average weekend ridership is provided for 2007 to 2014. The unique ID is complex_id, which was created by alphabetizing the complexes by borough and station name and assigning a sequential number to a borough prefix. This layer does not include the new 34th St - 11 Av station on the 7 line; it will be updated in summer 2016 once ridership data becomes available. This layer was created as part of the NYC Geodatabase (NYC GDB) project, a resource designed for basic geographic analysis and thematic mapping within the five boroughs of New York City.",
   "dc_rights_s": "Public",
   "dct_provenance_s": "Baruch CUNY",
-  "dct_references_s": "{\"http://schema.org/url\":\"http://hdl.handle.net/2451/34502\",\"http://schema.org/downloadUrl\":\"https://archive.nyu.edu/retrieve/74701/nyu_2451_34502.zip\",\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"https://maps-public.geo.nyu.edu/geoserver/sdr/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://maps-public.geo.nyu.edu/geoserver/sdr/wms\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"http://metadata.geo.nyu.edu/records/edu.nyu/handle/2451/34502/iso19139.xml\",\"http://lccn.loc.gov/sh85035852\":\"https://archive.nyu.edu/retrieve/74755/nyu_2451_34502_doc.zip\"}",
-  "layer_id_s": "sdr:nyu_2451_34502",
   "layer_slug_s": "nyu_2451_34502",
   "layer_geom_type_s": "Point",
   "layer_modified_dt": "2016-5-2T18:21:5Z",
@@ -45,5 +43,17 @@
     "nyu_2451_34635",
     "nyu_2451_34636"
   ],
-  "geoblacklight_version": "1.0"
+  "geoblacklight_version": "1.0",
+  "downloads_sm": [
+    "{\"type\":\"Shapefile\",\"url\":\"https://archive.nyu.edu/retrieve/74701/nyu_2451_34502.zip\",\"label\":\"Original Shapefile\"}"
+  ],
+  "metadata_sm": [
+    "{\"type\":\"External URL\",\"url\":\"http://hdl.handle.net/2451/34502\"}",
+    "{\"type\":\"ISO19139\",\"url\":\"http://metadata.geo.nyu.edu/records/edu.nyu/handle/2451/34502/iso19139.xml\"}",
+    "{\"type\":\"Data Dictionary\",\"url\":\"https://archive.nyu.edu/retrieve/74755/nyu_2451_34502_doc.zip\"}"
+  ],
+  "webservices_sm": [
+    "{\"type\":\"WFS\",\"url\":\"https://maps-public.geo.nyu.edu/geoserver/sdr/wfs\",\"layerId\":\"sdr:nyu_2451_34502\",\"exportFormats\":[\"Shapefile\",\"GeoJSON\"]}",
+    "{\"type\":\"WMS\",\"url\":\"https://maps-public.geo.nyu.edu/geoserver/sdr/wms\",\"layerId\":\"sdr:nyu_2451_34502\",\"exportFormats\":[\"KMZ\"]}"
+  ]
 }

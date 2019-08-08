@@ -1,5 +1,6 @@
 {
   "dc_creator_sm": [
+
   ],
   "dc_description_s": "This point shapefile was created as a guide to New York City’s non-neighborhood place locations that appear in “New York: A City of Neighborhoods.” These place locations include parks, cemeteries, and airports. Best estimates of label centroids were established at a 1:1,000 scale, but are ideally viewed at a 1:50,000 scale.",
   "dc_format_s": "Shapefile",
@@ -19,7 +20,6 @@
   ],
   "dct_issued_s": "2014",
   "dct_provenance_s": "NYU",
-  "dct_references_s": "{\"http://schema.org/url\":\"http://hdl.handle.net/2451/34564\",\"http://schema.org/downloadUrl\":\"https://archive.nyu.edu/retrieve/74563/nyu_2451_34564.zip\",\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"https://maps-public.geo.nyu.edu/geoserver/sdr/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://maps-public.geo.nyu.edu/geoserver/sdr/wms\"}",
   "dct_spatial_sm": [
     "New York, New York, United States"
   ],
@@ -28,10 +28,19 @@
   ],
   "geoblacklight_version": "1.0",
   "layer_geom_type_s": "Point",
-  "layer_id_s": "sdr:nyu_2451_34564",
   "layer_modified_dt": "2016-04-20T21:31:14Z",
   "layer_slug_s": "nyu-2451-34564",
   "nyu_addl_dspace_s": "35497",
   "solr_geom": "ENVELOPE(-74.2485646353495, -73.7322869841185, 40.8962098695574, 40.4995658893951)",
-  "solr_year_i": 2014
+  "solr_year_i": 2014,
+  "downloads_sm": [
+    "{\"type\":\"Shapefile\",\"url\":\"https://archive.nyu.edu/retrieve/74563/nyu_2451_34564.zip\",\"label\":\"Original Shapefile\"}"
+  ],
+  "metadata_sm": [
+    "{\"type\":\"External URL\",\"url\":\"http://hdl.handle.net/2451/34564\"}"
+  ],
+  "webservices_sm": [
+    "{\"type\":\"WFS\",\"url\":\"https://maps-public.geo.nyu.edu/geoserver/sdr/wfs\",\"layerId\":\"sdr:nyu_2451_34564\",\"exportFormats\":[\"Shapefile\",\"GeoJSON\"]}",
+    "{\"type\":\"WMS\",\"url\":\"https://maps-public.geo.nyu.edu/geoserver/sdr/wms\",\"layerId\":\"sdr:nyu_2451_34564\",\"exportFormats\":[\"KMZ\"]}"
+  ]
 }

@@ -8,15 +8,16 @@
   "dc_rights_s": "Public",
   "dc_title_s": "Soil Survey Geographic (SSURGO)",
   "dc_type_s": "Dataset",
-  "dct_references_s": "{\"urn:x-esri:serviceType:ArcGIS#TiledMapLayer\": \"http://services.arcgisonline.com/arcgis/rest/services/Specialty/Soil_Survey_Map/MapServer\"}",
   "dct_temporal_sm": [
     "2010"
   ],
   "dct_provenance_s": "NYU",
   "layer_slug_s": "nyu-test-soil-survey-map",
-  "layer_id_s": "test-soil-survey_map",
   "layer_geom_type_s": "Raster",
   "layer_modified_dt": "2015-06-16T00:59:49Z",
   "solr_geom": "ENVELOPE(-129.4956, -64.4393, 48.6336, 21.8079)",
-  "solr_year_i": 2010
+  "solr_year_i": 2010,
+  "webservices_sm": [
+    "{\"type\":\"Tiled Map Layer\",\"url\":\"http://services.arcgisonline.com/arcgis/rest/services/Specialty/Soil_Survey_Map/MapServer\"}"
+  ]
 }

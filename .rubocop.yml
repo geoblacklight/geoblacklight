@@ -51,6 +51,7 @@ Metrics/MethodLength:
 Metrics/ModuleLength:
   Exclude:
   - 'app/helpers/geoblacklight_helper.rb'
+  - 'app/models/concerns/geoblacklight/solr_document.rb'
 
 # TODO: Add top-level class and module documentation.
 Style/Documentation:

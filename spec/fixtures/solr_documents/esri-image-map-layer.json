@@ -22,7 +22,6 @@
     "Topography"
   ],
   "dct_provenance_s": "Purdue",
-  "dct_references_s": "{\"http://schema.org/url\":\"https://mapsweb.lib.purdue.edu/wabashriver/\",\"http://schema.org/downloadUrl\":\"https://mapsweb.lib.purdue.edu/datasets/Wabash1929/wabash_topo_27.tif.zip\",\"urn:x-esri:serviceType:ArcGIS#ImageMapLayer\":\"https://mapsweb.lib.purdue.edu/arcgis/rest/services/Purdue/wabashtopo/ImageServer\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"http://64.90.181.107/geonetwork/srv/api/records/32653ed6-8d83-4692-8a06-bf13ffe2c018/formatters/xml\"}",
   "dct_isPartOf_sm": [
     "Purdue Georeferenced Imagery"
   ],
@@ -38,5 +37,15 @@
   "layer_modified_dt": "2018-07-20T18:08:03Z",
   "solr_geom": "ENVELOPE(-87.324704, -87.174404, 40.310695, 40.233691)",
   "solr_year_i": 1929,
-  "geoblacklight_version": "1.0"
+  "geoblacklight_version": "1.0",
+  "downloads_sm": [
+    "{\"type\":\"GeoTIFF\",\"url\":\"https://mapsweb.lib.purdue.edu/datasets/Wabash1929/wabash_topo_27.tif.zip\",\"label\":\"Original GeoTIFF\"}"
+  ],
+  "metadata_sm": [
+    "{\"type\":\"External URL\",\"url\":\"https://mapsweb.lib.purdue.edu/wabashriver/\"}",
+    "{\"type\":\"ISO19139\",\"url\":\"http://64.90.181.107/geonetwork/srv/api/records/32653ed6-8d83-4692-8a06-bf13ffe2c018/formatters/xml\"}"
+  ],
+  "webservices_sm": [
+    "{\"type\":\"Image Map Layer\",\"url\":\"https://mapsweb.lib.purdue.edu/arcgis/rest/services/Purdue/wabashtopo/ImageServer\"}"
+  ]
 }
