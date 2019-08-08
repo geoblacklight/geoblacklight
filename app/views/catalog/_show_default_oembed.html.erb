@@ -1,5 +1,0 @@
-<% document ||= @document %>
-
-<% if document.oembed.present? %>
-  <%= content_tag :div, '', data: { embed_url: document.oembed } %>
-<% end %>

@@ -42,7 +42,6 @@ class CatalogController < ApplicationController
     # solr field configuration for document/show views
 
     config.show.display_type_field = 'format'
-    config.show.partials << 'show_default_oembed'
     config.show.partials << 'show_default_viewer_container'
     config.show.partials << 'show_default_attribute_table'
     config.show.partials << 'show_default_viewer_information'
