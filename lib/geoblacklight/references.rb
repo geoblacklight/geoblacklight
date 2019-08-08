@@ -4,18 +4,30 @@ module Geoblacklight
       @document = document
     end
 
+    ##
+    # All reference objects
+    # @return [Array<Geoblacklight::Reference>]
     def refs
       @refs ||= metadata_refs + webservice_refs + download_refs
     end
 
+    ##
+    # Download reference objects
+    # @return [Array<Geoblacklight::Reference>]
     def download_refs
       @download_refs ||= parse_references('downloads_sm').map { |ref| Reference.new(ref) }
     end
 
+    ##
+    # Metadata reference objects
+    # @return [Array<Geoblacklight::Reference>]
     def metadata_refs
       @metadata_refs ||= parse_references('metadata_sm').map { |ref| Reference.new(ref) }
     end
 
+    ##
+    # Web service reference objects
+    # @return [Array<Geoblacklight::Reference>]
     def webservice_refs
       @webservice_refs ||= parse_references('webservices_sm').map { |ref| Reference.new(ref) }
     end
@@ -51,10 +63,16 @@ module Geoblacklight
       refs.find { |reference| reference.type == ref_type }
     end
 
+    ##
+    # Available export formats pulled from each webservice
+    # @return [Array]
     def available_export_formats
       webservice_refs.collect(&:export_formats).compact.flatten.uniq
     end
 
+    ##
+    # Hash of export formats and their connection urls
+    # @return [Hash]
     def export_format_values
       {
         shapefile: wfs.to_hash,
@@ -65,7 +83,7 @@ module Geoblacklight
     end
 
     ##
-    # Generated download types from wxs services
+    # Generated download types
     # @return [Hash, nil]
     def download_types
       types = available_export_formats.map { |f| [f, export_format_values[f]] }
