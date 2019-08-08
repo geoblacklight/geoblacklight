@@ -140,6 +140,29 @@ module GeoblacklightHelper
   end
 
   ##
+  # Deteremines if a feature should include help text popover
+  # @return [Boolean]
+  def show_help_text?(feature, key)
+    Settings&.HELP_TEXT&.send(feature)&.include?(key)
+  end
+
+  ##
+  # Render help text popover for a given feature and translation key
+  # @return [HTML tag]
+  def render_help_text_entry(feature, key)
+    if I18n.exists?("geoblacklight.help_text.#{feature}.#{key}", locale)
+      help_text = I18n.t("geoblacklight.help_text.#{feature}.#{key}")
+      content_tag :h3, class: 'help-text viewer_protocol h6' do
+        content_tag :a, 'data': { toggle: 'popover', title: help_text[:title], content: help_text[:content] } do
+          help_text[:title]
+        end
+      end
+    else
+      tag.span class: 'help-text translation-missing'
+    end
+  end
+
+  ##
   # Deteremines if item view should include attribute table
   # @return [Boolean]
   def show_attribute_table?

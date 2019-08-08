@@ -73,3 +73,29 @@ en:
       attribute: 'Attribute'
       value: 'Value'
       click_map: 'Click on map to inspect values'
+    help_text:
+      viewer_protocol:
+        dynamic_map_layer:
+          title: ArcGIS Dynamic Map Layer
+          content: An ArcGIS Dynamic Map Layer represents vector data (points, lines, and polygons). Map image layers are dynamically rendered image tiles.
+        feature_layer:
+          title: ArcGIS Feature Layer
+          content: An ArcGIS Feature Layer Service displays vector data (points, lines, and polygons) as individual or collected features.
+        iiif:
+          title: IIIF Service
+          content: The International Image Interoperability Framework (IIIF) web service API displays an image from a server. This image can be panned and zoomed.
+        iiif_manifest:
+          title: IIIF Service
+          content: The International Image Interoperability Framework (IIIF) web service API displays an image from a server. This image can be panned and zoomed.
+        image_map_layer:
+          title: ArcGIS Image Map Layer
+          content: An ArcGIS Image Map Layer displays raster data (a grid of cells used to store imagery).
+        index_map:
+          title: Index Map
+          content: Index maps are a "table of contents" that allow users to select a specific map or item within a larger set and navigate to it for viewing or downloading.
+        tiled_map_layer:
+          title: ArcGIS Tiled Map Layer
+          content: An ArcGIS Tiled Map Layer Service displays set of web-accessible tiles that reside on a server.
+        wms:
+          title: Web Map Service (WMS)
+          content: A Web Map Service displays a geospatial dataset as map images.
