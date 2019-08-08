@@ -20,3 +20,4 @@ ArcGIS DynamicMapLayer | `urn:x-esri:serviceType:ArcGIS#DynamicMapLayer` | Previ
 ArcGIS ImageMapLayer | `urn:x-esri:serviceType:ArcGIS#ImageMapLayer` | Previewing of ArcGIS ImageMapLayer Service|
 Harvard Geospatial Library Email Download | `http://schema.org/DownloadAction` | Retrieve a file via email from the Harvard Geospatial Library|
 OpenIndexMap | `https://openindexmaps.org` | Provide an index map preview|
+oEmbed | `https://oembed.com` | Provide an object that is embeddable through an oEmbed service

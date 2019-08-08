@@ -124,6 +124,26 @@ describe Geoblacklight::SolrDocument do
       end
     end
   end
+  describe '#oembed' do
+    describe 'with an oembed url' do
+      let(:document_attributes) do
+        {
+          references_field => {
+            'https://oembed.com' => 'http://example.com/oembed?url=oembec.com/id123'
+          }.to_json
+        }
+      end
+      it 'returns a url string' do
+        expect(document.oembed).to eq('http://example.com/oembed?url=oembec.com/id123')
+      end
+    end
+    describe 'without an oembed url' do
+      let(:document_attributes) { {} }
+      it 'returns nil' do
+        expect(document.oembed).to be_nil
+      end
+    end
+  end
   describe 'iiif_download' do
     describe 'with a IIIF download' do
       let(:document_attributes) do
