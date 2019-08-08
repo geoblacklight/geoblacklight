@@ -68,7 +68,8 @@ class MigrateReferencesService
         'urn:x-esri:serviceType:ArcGIS#TiledMapLayer' => 'Tiled Map Layer',
         'urn:x-esri:serviceType:ArcGIS#DynamicMapLayer' => 'Dynamic Map Layer',
         'urn:x-esri:serviceType:ArcGIS#ImageMapLayer' => 'Image Map Layer',
-        'https://openindexmaps.org' => 'Index Map'
+        'https://openindexmaps.org' => 'Index Map',
+        'https://oembed.com' => 'oEmbed'
       }
     end
 

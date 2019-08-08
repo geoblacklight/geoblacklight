@@ -144,6 +144,16 @@ describe MigrateReferencesService do
       end
     end
 
+    context 'with an oEmbed document' do
+      let(:file) { File.read(File.join('spec', 'fixtures', 'dct_ref_documents', 'oembed.json')) }
+
+      it 'migrates oembed service ref' do
+        webservices = output_document['webservices_sm'].map { |s| JSON.parse(s) }
+        expect(webservices[0]['type']).to eq 'oEmbed'
+        expect(webservices[0]['url']).to eq 'https://purl.stanford.edu/embed.json?&hide_title=true&url=https://purl.stanford.edu/dc482zx1528'
+      end
+    end
+
     context 'with a document containing a data dictionary' do
       let(:file) { File.read(File.join('spec', 'fixtures', 'dct_ref_documents', 'baruch_documentation_download.json')) }
 
