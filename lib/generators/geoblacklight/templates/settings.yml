@@ -124,3 +124,4 @@ HELP_TEXT:
       - 'index_map'
       - 'tiled_map_layer'
       - 'wms'
+      - 'oembed'

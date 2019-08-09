@@ -93,6 +93,9 @@ en:
         index_map:
           title: Index Map
           content: Index maps are a "table of contents" that allow users to select a specific map or item within a larger set and navigate to it for viewing or downloading.
+        oembed:
+          title: Embedded Content
+          content: This content is embedded through a third-party viewer.
         tiled_map_layer:
           title: ArcGIS Tiled Map Layer
           content: An ArcGIS Tiled Map Layer Service displays set of web-accessible tiles that reside on a server.
