@@ -89,5 +89,24 @@ feature 'Download layer' do
       expect(page).to have_css('.alert-success')
       expect(page).to have_content('You should receive an email when your download is ready')
     end
+    scenario 'layer with multiple direct downloads should include all download types' do
+      visit solr_document_path('nyu-2451-38625')
+      expect(page).to have_css 'h2', text: 'Downloads'
+      expect(page).to have_css 'a', text: 'LAZ (Point-cloud)'
+      expect(page).to have_css 'a', text: 'LAS (Full-waveform)'
+      expect(page).to have_css 'a', text: 'Pulsewaves (Full-waveform)'
+      expect(page).to have_css 'a', text: 'GeoTIFF (Geo-referenced RGB)'
+      expect(page).to have_css 'a', text: 'GeoTIFF (Geo-referenced CIR)'
+      expect(page).to have_css 'a', text: 'JPG (Oblique photos)'
+    end
+    scenario 'layer with dct references should include original download link and export formats' do
+      visit solr_document_path('princeton-x059cb831')
+      expect(page).to have_css 'h2', text: 'Downloads'
+      expect(page).to have_css 'a', text: 'Original Shapefile'
+      expect(page).to have_css 'h2', text: 'Export Formats'
+      expect(page).to have_css 'div', text: 'Shapefile'
+      expect(page).to have_css 'div', text: 'KMZ'
+      expect(page).to have_css 'div', text: 'GeoJSON'
+    end
   end
 end

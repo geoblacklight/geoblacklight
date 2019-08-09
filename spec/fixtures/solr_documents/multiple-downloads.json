@@ -1,0 +1,60 @@
+{
+  "dc_creator_sm": [
+    "Debra F. Laefer",
+    "Saleh Abuwarda",
+    "Anh-Vu Vo",
+    "Linh Truong-Hong",
+    "Hamid Gharibi"
+  ],
+  "dc_description_s": "This record contains aerial laser scanning (ALS) and photogrammetry data that corresponds to Flight 150326_115601, which is one part of data that was collected over an area of more than 2km² in Dublin, Ireland in 2015 and includes 3D point-cloud (LAZ), 3D full waveform LiDAR (LAS and Pulsewave), and ortho-rectified 2D rasters. Over 1.4 billion laser points were acquired (inclusive of partially covered areas). ALS was carried out by contractors using a TopEye system S/N 443. Imagery data was captured using a Phase One camera system. The average flying altitude was 300m with the total of 41 flight paths. This dataset was collected with funding from European Research Council funded project RETURN - Rethinking Tunnelling in Urban Neighbourhoods [ERC-2012- StG-307836]. For more information on this data, consult the documentation. See the source dataset for a guide to the entire collection. A manifest of SHA-256 checksums is available in the nyu_2451_38625_manifest.json' file, within the preservation record. Users may also find a stable link to this collection at https://doi.org/10.17609/N8MQ0N/. This data is released with an Attribution 4.0 International (CC BY 4.0) license.",
+  "dc_format_s": "LAZ",
+  "dc_identifier_s": "http://hdl.handle.net/2451/38625",
+  "dc_language_s": "English",
+  "dc_publisher_s": "New York University. Center for Urban Science and Progress",
+  "dc_rights_s": "Public",
+  "dc_subject_sm": [
+    "Cities and towns",
+    "Urban density",
+    "Urban development"
+  ],
+  "dc_title_s": "2015 LiDAR Flight 150326_115601 for Dublin City",
+  "dc_type_s": "Dataset",
+  "dct_isPartOf_sm": [
+    "2015 Dublin LiDAR",
+    "NYU Research Data"
+  ],
+  "dct_issued_s": "2017",
+  "dct_provenance_s": "NYU",
+  "dct_source_sm": [
+    "nyu-2451-38684"
+  ],
+  "dct_spatial_sm": [
+    "Dublin City, Leinster, Ireland",
+    "Dublin, Leinster, Ireland"
+  ],
+  "dct_temporal_sm": [
+    "2015"
+  ],
+  "geoblacklight_version": "1.0",
+  "layer_geom_type_s": "Mixed",
+  "layer_modified_dt": "2017-06-06T15:21:27Z",
+  "layer_slug_s": "nyu-2451-38625",
+  "solr_geom": "ENVELOPE(-6.277400481930396, -6.268673079848503, 53.3437844819304, 53.3380250798485)",
+  "solr_year_i": 2015,
+  "downloads_sm": [
+    "{\"type\":\"LAZ\",\"url\":\"https://archive.nyu.edu/retrieve/79993/nyu_2451_38625_pc_F_150326_115601.zip\",\"label\":\"LAZ (Point-cloud)\"}",
+    "{\"type\":\"LAS\",\"url\":\"https://archive.nyu.edu/retrieve/79992/nyu_2451_38625_fwf_las_F_150326_115601.zip\",\"label\":\"LAS (Full-waveform)\"}",
+    "{\"type\":\"PulseWaves\",\"url\":\"https://archive.nyu.edu/retrieve/79995/nyu_2451_38625_fwf_plswvs_F_150326_115601.zip\",\"label\":\"Pulsewaves (Full-waveform)\"}",
+    "{\"type\":\"GeoTIFF\",\"url\":\"https://archive.nyu.edu/retrieve/80238/nyu_2451_38625_rgb_F_150326_115601.zip\",\"label\":\"GeoTIFF (Geo-referenced RGB)\"}",
+    "{\"type\":\"GeoTIFF\",\"url\":\"https://archive.nyu.edu/retrieve/79991/nyu_2451_38625_cir_F_150326_115601.zip\",\"label\":\"GeoTIFF (Geo-referenced CIR)\"}",
+    "{\"type\":\"JPG\",\"url\":\"https://archive.nyu.edu/retrieve/79994/nyu_2451_38625_oblique_F_150326_115601.zip\",\"label\":\"JPG (Oblique photos)\"}"
+  ],
+  "metadata_sm": [
+    "{\"type\":\"URL\",\"url\":\"http://hdl.handle.net/2451/38625\"}",
+    "{\"type\":\"Data Dictionary\",\"url\":\"https://archive.nyu.edu/retrieve/81335/nyu_2451_38684_doc.zip\"}"
+  ],
+  "webservices_sm": [
+    "{\"type\":\"WFS\",\"url\":\"https://maps-public.geo.nyu.edu/geoserver/sdr/wfs\",\"layerId\":\"sdr:nyu_2451_38625\"}",
+    "{\"type\":\"WMS\",\"url\":\"https://maps-public.geo.nyu.edu/geoserver/sdr/wms\",\"layerId\":\"sdr:nyu_2451_38625\"}"
+  ]
+}

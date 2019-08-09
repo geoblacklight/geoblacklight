@@ -2,7 +2,13 @@
 <% document ||= @document %>
 
 <% if document.direct_download.present? %>
-  <%= render partial: 'download_link', locals: { download_link: download_link_direct(download_text(document.file_format), document) } %>
+  <% if document.use_dct_references? %>
+    <%= render partial: 'download_link', locals: { download_link: download_link_direct(download_text(document.file_format), document) } %>
+  <% else %>
+    <% document.downloads.each do |reference| %>
+      <%= render partial: 'download_link', locals: { download_link: download_link_ref(reference, document) } %>
+    <% end %>
+  <% end %>
 <% end %>
 
 <% if document.hgl_download.present? %>

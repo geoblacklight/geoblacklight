@@ -25,6 +25,21 @@ module GeoblacklightHelper
     )
   end
 
+  def download_link_ref(reference, document)
+    text = reference.label || reference.type
+    link_to(
+      text,
+      reference.endpoint,
+      'contentUrl' => reference.endpoint,
+      class: ['btn', 'btn-default', 'download', 'download-original'],
+      data: {
+        download: 'trigger',
+        download_type: 'direct',
+        download_id: document.id
+      }
+    )
+  end
+
   def download_link_hgl(text, document)
     link_to(
       text,

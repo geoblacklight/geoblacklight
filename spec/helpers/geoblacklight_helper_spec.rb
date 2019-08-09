@@ -212,14 +212,14 @@ describe GeoblacklightHelper, type: :helper do
   end
 
   describe '#render_web_services' do
-    let(:reference) { instance_double(Geoblacklight::DctReference, type: 'wms') }
+    let(:reference) { instance_double(Geoblacklight::Reference, type: 'wms') }
     it 'with a reference to a defined partial' do
       expect(helper).to receive(:render)
         .with(partial: 'web_services_wms', locals: { reference: reference })
       helper.render_web_services(reference)
     end
     context 'when the partial is missing' do
-      let(:reference) { instance_double(Geoblacklight::DctReference, type: 'iiif') }
+      let(:reference) { instance_double(Geoblacklight::Reference, type: 'iiif') }
 
       it 'with a reference to a missing partial' do
         expect(helper).to receive(:render)
@@ -287,7 +287,7 @@ describe GeoblacklightHelper, type: :helper do
 
   describe '#first_metadata?' do
     let(:metadata) { instance_double(Geoblacklight::Metadata::Base) }
-    let(:references) { instance_double(Geoblacklight::DctReferences) }
+    let(:references) { instance_double(Geoblacklight::References) }
     let(:document) { instance_double(SolrDocument) }
 
     before do

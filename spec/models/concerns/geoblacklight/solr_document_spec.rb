@@ -4,7 +4,6 @@ describe Geoblacklight::SolrDocument do
   let(:document) { SolrDocument.new(document_attributes) }
   let(:rights_field) { Settings.FIELDS.RIGHTS }
   let(:provenance_field) { Settings.FIELDS.PROVENANCE }
-  let(:references_field) { Settings.FIELDS.REFERENCES }
   describe '#available?' do
     let(:document_attributes) { {} }
     describe 'a public document' do
@@ -41,9 +40,9 @@ describe Geoblacklight::SolrDocument do
       let(:document_attributes) do
         {
           rights_field => 'Public',
-          references_field => {
-            'http://schema.org/downloadUrl' => 'http://example.com/direct/data.zip'
-          }.to_json
+          'downloads_sm' => [
+            { 'type' => 'Shapefile', 'url' => 'http://example.com/direct/data.zip' }.to_json
+          ]
         }
       end
       it 'will be downloadable' do
@@ -74,13 +73,13 @@ describe Geoblacklight::SolrDocument do
   describe 'references' do
     let(:document_attributes) { {} }
     it 'generates a new references object' do
-      expect(document.references).to be_an Geoblacklight::DctReferences
+      expect(document.references).to be_an Geoblacklight::References
     end
   end
   describe 'download_types' do
     let(:document_attributes) { {} }
     it 'calls download_types' do
-      expect_any_instance_of(Geoblacklight::DctReferences).to receive(:download_types)
+      expect_any_instance_of(Geoblacklight::References).to receive(:download_types)
       document.download_types
     end
   end
@@ -89,18 +88,18 @@ describe Geoblacklight::SolrDocument do
     describe 'with a direct download' do
       let(:document_attributes) do
         {
-          references_field => {
-            'http://schema.org/downloadUrl' => 'http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip'
-          }.to_json
+          'downloads_sm' => [
+            { 'type' => 'Shapefile', 'url' => 'http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip' }.to_json
+          ]
         }
       end
       it 'returns a direct download hash' do
-        expect_any_instance_of(Geoblacklight::DctReference).to receive(:to_hash)
+        expect_any_instance_of(Geoblacklight::Reference).to receive(:to_hash)
         document.direct_download
       end
     end
     it 'returns nil if no direct download' do
-      expect_any_instance_of(Geoblacklight::DctReference).not_to receive(:to_hash)
+      expect_any_instance_of(Geoblacklight::Reference).not_to receive(:to_hash)
       expect(document.direct_download).to be_nil
     end
   end
@@ -108,9 +107,9 @@ describe Geoblacklight::SolrDocument do
     describe 'with an hgl download' do
       let(:document_attributes) do
         {
-          references_field => {
-            'http://schema.org/DownloadAction' => 'http://example.com/harvard'
-          }.to_json
+          'downloads_sm' => [
+            { 'type' => 'HGL', 'url' => 'http://example.com/harvard' }.to_json
+          ]
         }
       end
       it 'returns an hgl download hash' do
@@ -128,9 +127,9 @@ describe Geoblacklight::SolrDocument do
     describe 'with an oembed url' do
       let(:document_attributes) do
         {
-          references_field => {
-            'https://oembed.com' => 'http://example.com/oembed?url=oembec.com/id123'
-          }.to_json
+          'downloads_sm' => [
+            { 'type' => 'oEmbed', 'url' => 'http://example.com/oembed?url=oembec.com/id123' }.to_json
+          ]
         }
       end
       it 'returns a url string' do
@@ -148,9 +147,9 @@ describe Geoblacklight::SolrDocument do
     describe 'with a IIIF download' do
       let(:document_attributes) do
         {
-          references_field => {
-            'http://iiif.io/api/image' => 'https://example.edu/images/info.json'
-          }.to_json
+          'webservices_sm' => [
+            { 'type' => 'IIIF', 'url' => 'https://example.edu/images/info.json' }.to_json
+          ]
         }
       end
       it 'returns a IIIF download hash' do
@@ -168,9 +167,9 @@ describe Geoblacklight::SolrDocument do
     describe 'with a data dictionary reference' do
       let(:document_attributes) do
         {
-          references_field => {
-            'http://lccn.loc.gov/sh85035852' => 'https://example.edu/documentation/data_dictionary.zip'
-          }.to_json
+          'downloads_sm' => [
+            { 'type' => 'Data Dictionary', 'url' => 'https://example.edu/documentation/data_dictionary.zip' }.to_json
+          ]
         }
       end
       it 'returns a data dictionary download hash' do
@@ -194,9 +193,9 @@ describe Geoblacklight::SolrDocument do
     describe 'with a wms reference' do
       let(:document_attributes) do
         {
-          references_field => {
-            'http://www.opengis.net/def/serviceType/ogc/wms' => 'http://www.example.com/wms'
-          }.to_json
+          'webservices_sm' => [
+            { 'type' => 'WMS', 'url' => 'http://www.example.com/wms' }.to_json
+          ]
         }
       end
       it 'returns wms protocol' do
@@ -212,9 +211,9 @@ describe Geoblacklight::SolrDocument do
     describe 'with a wms reference' do
       let(:document_attributes) do
         {
-          references_field => {
-            'http://www.opengis.net/def/serviceType/ogc/wms' => 'http://www.example.com/wms'
-          }.to_json
+          'webservices_sm' => [
+            { 'type' => 'WMS', 'url' => 'http://www.example.com/wms' }.to_json
+          ]
         }
       end
       it 'returns wms endpoint' do
@@ -228,13 +227,13 @@ describe Geoblacklight::SolrDocument do
   end
   describe 'checked_endpoint' do
     let(:document_attributes) { {} }
-    let(:reference) { Geoblacklight::DctReference.new(['http://www.opengis.net/def/serviceType/ogc/wms', 'http://www.example.com/wms']) }
+    let(:reference) { Geoblacklight::Reference.new('type' => 'WMS', 'url' => 'http://www.example.com/wms') }
     it 'returns endpoint if available' do
-      expect_any_instance_of(Geoblacklight::DctReferences).to receive(:wms).and_return(reference)
+      expect_any_instance_of(Geoblacklight::References).to receive(:wms).and_return(reference)
       expect(document.checked_endpoint('wms')).to eq 'http://www.example.com/wms'
     end
     it 'return nil if not available' do
-      expect_any_instance_of(Geoblacklight::DctReferences).to receive(:wms).and_return(nil)
+      expect_any_instance_of(Geoblacklight::References).to receive(:wms).and_return(nil)
       expect(document.checked_endpoint('wms')).to be_nil
     end
   end

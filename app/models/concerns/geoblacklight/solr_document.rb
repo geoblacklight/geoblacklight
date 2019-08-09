@@ -105,7 +105,11 @@ module Geoblacklight
     end
 
     def wxs_identifier
-      fetch(Settings.FIELDS.WXS_IDENTIFIER, wfs_identifier || wms_identifier || '')
+      if use_dct_references?
+        fetch(Settings.FIELDS.WXS_IDENTIFIER, '')
+      else
+        wfs_identifier || wms_identifier || ''
+      end
     end
 
     def file_format
@@ -122,23 +126,11 @@ module Geoblacklight
       type.endpoint if type.present?
     end
 
-    private
-
-    def reference_fields
-      [
-        'downloads_sm',
-        'webservices_sm',
-        'metadata_sm'
-      ]
-    end
-
     def use_dct_references?
-      reference_fields.each do |field_name|
-        return false if self[field_name].present?
-      end
-
-      true
+      return true if self[Settings.FIELDS.REFERENCES].present?
     end
+
+    private
 
     def method_missing(method, *args, &block)
       if /.*_url$/ =~ method.to_s

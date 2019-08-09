@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Geoblacklight::Metadata do
   describe '.instance' do
-    let(:reference) { instance_double(Geoblacklight::DctReference) }
+    let(:reference) { instance_double(Geoblacklight::Reference) }
     context 'with an FGDC metadata reference' do
       before do
         allow(reference).to receive(:type).and_return('fgdc')
