@@ -44,7 +44,7 @@ Lint/UnusedBlockArgument:
 # Offense count: 47
 # Configuration parameters: CountComments, ExcludedMethods.
 Metrics/BlockLength:
-  Max: 247
+  Max: 264
 
 # Offense count: 1
 # Cop supports --auto-correct.

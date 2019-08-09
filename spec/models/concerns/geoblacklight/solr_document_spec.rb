@@ -71,13 +71,25 @@ describe Geoblacklight::SolrDocument do
     end
   end
   describe 'references' do
-    let(:document_attributes) { {} }
+    let(:document_attributes) do
+      {
+        'downloads_sm' => [
+          { 'type' => 'Shapefile', 'url' => 'http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip' }.to_json
+        ]
+      }
+    end
     it 'generates a new references object' do
       expect(document.references).to be_an Geoblacklight::References
     end
   end
   describe 'download_types' do
-    let(:document_attributes) { {} }
+    let(:document_attributes) do
+      {
+        'downloads_sm' => [
+          { 'type' => 'Shapefile', 'url' => 'http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip' }.to_json
+        ]
+      }
+    end
     it 'calls download_types' do
       expect_any_instance_of(Geoblacklight::References).to receive(:download_types)
       document.download_types
@@ -226,7 +238,13 @@ describe Geoblacklight::SolrDocument do
     end
   end
   describe 'checked_endpoint' do
-    let(:document_attributes) { {} }
+    let(:document_attributes) do
+      {
+        'webservices_sm' => [
+          { 'type' => 'WMS', 'url' => 'http://www.example.com/wms' }.to_json
+        ]
+      }
+    end
     let(:reference) { Geoblacklight::Reference.new('type' => 'WMS', 'url' => 'http://www.example.com/wms') }
     it 'returns endpoint if available' do
       expect_any_instance_of(Geoblacklight::References).to receive(:wms).and_return(reference)

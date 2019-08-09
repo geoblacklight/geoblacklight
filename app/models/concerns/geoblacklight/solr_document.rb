@@ -127,7 +127,11 @@ module Geoblacklight
     end
 
     def use_dct_references?
-      return true if self[Settings.FIELDS.REFERENCES].present?
+      ['downloads_sm', 'webservices_sm', 'metadata_sm'].each do |field_name|
+        return false if self[field_name].present?
+      end
+
+      true
     end
 
     private
