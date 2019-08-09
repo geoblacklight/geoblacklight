@@ -10,6 +10,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
 )
 SimpleCov.start 'rails' do
   add_filter 'lib/generators/geoblacklight/install_generator.rb'
+  add_filter 'lib/generators/geoblacklight/webpacker_generator.rb'
   add_filter 'lib/geoblacklight/version.rb'
   add_filter 'lib/generators/geoblacklight/templates'
   add_filter '/spec'
