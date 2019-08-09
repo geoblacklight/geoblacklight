@@ -38,7 +38,7 @@
     "{\"type\":\"GeoTIFF\",\"url\":\"ftp://ftp.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_dnr/base_usgs_scanned_topo_250k_drg/fgdb_base_usgs_scanned_topo_250k_drg.zip\",\"label\":\"Original GeoTIFF\"}"
   ],
   "metadata_sm": [
-    "{\"type\":\"External URL\",\"url\":\"https://gisdata.mn.gov/dataset/e9c71086-6b25-4950-8e1c-84c2794e3382\"}",
+    "{\"type\":\"URL\",\"url\":\"https://gisdata.mn.gov/dataset/e9c71086-6b25-4950-8e1c-84c2794e3382\"}",
     "{\"type\":\"FGDC\",\"url\":\"https://btaagdp.org/metadata/05a-01/pub/gdrs/data/pub/us_mn_state_dnr/base_usgs_scanned_topo_250k_drg/metadata/metadata.xml\"}"
   ]
 }

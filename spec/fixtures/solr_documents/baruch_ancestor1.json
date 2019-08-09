@@ -45,7 +45,7 @@
     "{\"type\":\"SQLite Database\",\"url\":\"https://archive.nyu.edu/retrieve/74854/nyu_2451_34635.zip\",\"label\":\"Original SQLite Database\"}"
   ],
   "metadata_sm": [
-    "{\"type\":\"External URL\",\"url\":\"http://hdl.handle.net/2451/34635\"}",
+    "{\"type\":\"URL\",\"url\":\"http://hdl.handle.net/2451/34635\"}",
     "{\"type\":\"Data Dictionary\",\"url\":\"https://archive.nyu.edu/retrieve/74855/nyu_2451_34635_doc.zip\"}"
   ]
 }

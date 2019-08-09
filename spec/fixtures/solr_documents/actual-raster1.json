@@ -37,7 +37,7 @@
     "{\"type\":\"GeoTIFF\",\"url\":\"http://stacks.stanford.edu/file/druid:dp018hs9766/data.zip\",\"label\":\"Original GeoTIFF\"}"
   ],
   "metadata_sm": [
-    "{\"type\":\"External URL\",\"url\":\"http://purl.stanford.edu/dp018hs9766\"}",
+    "{\"type\":\"URL\",\"url\":\"http://purl.stanford.edu/dp018hs9766\"}",
     "{\"type\":\"MODS\",\"url\":\"http://purl.stanford.edu/dp018hs9766.mods\"}",
     "{\"type\":\"ISO19139\",\"url\":\"https://raw.githubusercontent.com/OpenGeoMetadata/edu.stanford.purl/master/dp/018/hs/9766/iso19139.xml\"}"
   ],

@@ -27,7 +27,7 @@
   "solr_year_i": 1750,
   "geoblacklight_version": "1.0",
   "metadata_sm": [
-    "{\"type\":\"External URL\",\"url\":\"http://purl.umn.edu/200804\"}"
+    "{\"type\":\"URL\",\"url\":\"http://purl.umn.edu/200804\"}"
   ],
   "webservices_sm": [
     "{\"type\":\"IIIF\",\"url\":\"https://cdm16022.contentdm.oclc.org/digital/iiif/p16022coll246/224/info.json\"}"

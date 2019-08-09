@@ -19,6 +19,6 @@
   "solr_geom": "ENVELOPE(-13.0, 4.0, 62.0, 49.0)",
   "solr_year_i": 1996,
   "metadata_sm": [
-    "{\"type\":\"External URL\",\"url\":\"http://library.mit.edu/item/001145244\"}"
+    "{\"type\":\"URL\",\"url\":\"http://library.mit.edu/item/001145244\"}"
   ]
 }

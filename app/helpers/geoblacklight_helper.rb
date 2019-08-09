@@ -8,7 +8,7 @@ module GeoblacklightHelper
   end
 
   def iiif_jpg_url
-    @document.references.iiif.endpoint.sub! 'info.json', 'full/full/0/default.jpg'
+    @document.references.iiif.endpoint.sub 'info.json', 'full/full/0/default.jpg'
   end
 
   def download_link_direct(text, document)

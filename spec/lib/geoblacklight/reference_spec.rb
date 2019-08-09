@@ -3,10 +3,10 @@ require 'spec_helper'
 describe Geoblacklight::Reference do
   let(:typical_reference) do
     described_class.new(
-      'type': 'wms',
-      'url': 'http://geoserver01.uit.tufts.edu/wms',
-      'layerId': 'sde:GISPORTAL.GISOWNER01.CAMBRIDGEGRID100_04',
-      'label': 'WMS Service Label'
+      'type' => 'WMS',
+      'url' => 'http://geoserver01.uit.tufts.edu/wms',
+      'layerId' => 'sde:GISPORTAL.GISOWNER01.CAMBRIDGEGRID100_04',
+      'label' => 'WMS Service Label'
     )
   end
   let(:blank_reference) do

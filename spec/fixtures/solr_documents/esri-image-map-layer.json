@@ -42,7 +42,7 @@
     "{\"type\":\"GeoTIFF\",\"url\":\"https://mapsweb.lib.purdue.edu/datasets/Wabash1929/wabash_topo_27.tif.zip\",\"label\":\"Original GeoTIFF\"}"
   ],
   "metadata_sm": [
-    "{\"type\":\"External URL\",\"url\":\"https://mapsweb.lib.purdue.edu/wabashriver/\"}",
+    "{\"type\":\"URL\",\"url\":\"https://mapsweb.lib.purdue.edu/wabashriver/\"}",
     "{\"type\":\"ISO19139\",\"url\":\"http://64.90.181.107/geonetwork/srv/api/records/32653ed6-8d83-4692-8a06-bf13ffe2c018/formatters/xml\"}"
   ],
   "webservices_sm": [

@@ -41,7 +41,7 @@ class MigrateReferencesService
         'http://www.isotc211.org/schemas/2005/gmd/' => 'ISO19139',
         'http://www.loc.gov/mods/v3' => 'MODS',
         'http://lccn.loc.gov/sh85035852' => 'Data Dictionary',
-        'http://schema.org/url' => 'External URL'
+        'http://schema.org/url' => 'URL'
       }
     end
 

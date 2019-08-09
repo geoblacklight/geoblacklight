@@ -32,7 +32,7 @@
     "{\"type\":\"Shapefile\",\"url\":\"http://maps.indiana.edu/download/Environment/Agriculture_Census.zip\",\"label\":\"Original Shapefile\"}"
   ],
   "metadata_sm": [
-    "{\"type\":\"External URL\",\"url\":\"http://indianamap.org/\"}",
+    "{\"type\":\"URL\",\"url\":\"http://indianamap.org/\"}",
     "{\"type\":\"ISO19139\",\"url\":\"https://opengeometadata.github.io/edu.purdue/f0/82/ac/b1b01e4a089126fd62a23fd9aa/iso19139.xml\"}"
   ],
   "webservices_sm": [

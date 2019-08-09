@@ -38,7 +38,7 @@
     "{\"type\":\"Shapefile\",\"url\":\"https://clearinghouse.isgs.illinois.edu/sites/clearinghouse.isgs/files/Clearinghouse/data/ISGS/Geology/zips/IL_Glacial_Bndys_Py.zip\",\"label\":\"Original Shapefile\"}"
   ],
   "metadata_sm": [
-    "{\"type\":\"External URL\",\"url\":\"https://clearinghouse.isgs.illinois.edu/data/geology/glacial-boundaries\"}"
+    "{\"type\":\"URL\",\"url\":\"https://clearinghouse.isgs.illinois.edu/data/geology/glacial-boundaries\"}"
   ],
   "webservices_sm": [
     "{\"type\":\"Dynamic Map Layer\",\"url\":\"http://data.isgs.illinois.edu/arcgis/rest/services/Geology/Glacial_Boundaries/MapServer\"}"

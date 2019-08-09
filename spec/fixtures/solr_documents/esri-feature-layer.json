@@ -48,7 +48,7 @@
     "{\"type\":\"Shapefile\",\"url\":\"http://data.imap.maryland.gov/datasets/f406332e63eb4478a9560ad86ae90327_18.zip\",\"label\":\"Original Shapefile\"}"
   ],
   "metadata_sm": [
-    "{\"type\":\"External URL\",\"url\":\"http://data.imap.maryland.gov/datasets/f406332e63eb4478a9560ad86ae90327_18\"}"
+    "{\"type\":\"URL\",\"url\":\"http://data.imap.maryland.gov/datasets/f406332e63eb4478a9560ad86ae90327_18\"}"
   ],
   "webservices_sm": [
     "{\"type\":\"Feature Layer\",\"url\":\"https://geodata.md.gov/imap/rest/services/Transportation/MD_Transit/FeatureServer/18\"}"

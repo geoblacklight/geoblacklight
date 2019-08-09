@@ -21,7 +21,7 @@
   "solr_geom": "ENVELOPE(138.523426, 138.630362, 36.656354, 36.597519)",
   "geoblacklight_version": "1.0",
   "metadata_sm": [
-    "{\"type\":\"External URL\",\"url\":\"http://purl.stanford.edu/dc482zx1528\"}"
+    "{\"type\":\"URL\",\"url\":\"http://purl.stanford.edu/dc482zx1528\"}"
   ],
   "webservices_sm": [
     "{\"type\":\"oEmbed\",\"url\":\"https://purl.stanford.edu/embed.json?\\u0026hide_title=true\\u0026url=https://purl.stanford.edu/dc482zx1528\"}"

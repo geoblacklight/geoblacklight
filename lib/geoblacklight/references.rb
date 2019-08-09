@@ -50,13 +50,6 @@ module Geoblacklight
     end
 
     ##
-    # Accessor for a document's file format
-    # @return [String] file format for the document
-    def format
-      @document[Settings.FIELDS.FILE_FORMAT]
-    end
-
-    ##
     # @param [String, Symbol] ref_type
     # @return [Geoblacklight::Reference]
     def references(ref_type)
@@ -75,11 +68,21 @@ module Geoblacklight
     # @return [Hash]
     def export_format_values
       {
-        shapefile: wfs.to_hash,
-        kmz: wms.to_hash,
-        geojson: wfs.to_hash,
-        geotiff: wms.to_hash
+        shapefile: wfs_endpoint,
+        kmz: wms_endpoint,
+        geojson: wfs_endpoint,
+        geotiff: wms_endpoint
       }
+    end
+
+    def wms_endpoint
+      return unless wms
+      @wms_endpoint ||= wms.to_hash
+    end
+
+    def wfs_endpoint
+      return unless wfs
+      @wfs_endpoint ||= wfs.to_hash
     end
 
     ##
@@ -112,13 +115,9 @@ module Geoblacklight
       end
 
       ##
-      # Adds a call to references for defined URI keys
-      def method_missing(m, *args, &b)
-        if Geoblacklight::Constants::URI.key?(m)
-          references m
-        else
-          super
-        end
+      # Adds a call to references for defined types
+      def method_missing(m, *_args, &_b)
+        references m
       end
   end
 end

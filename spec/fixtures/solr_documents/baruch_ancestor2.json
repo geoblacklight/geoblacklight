@@ -45,7 +45,7 @@
     "{\"type\":\"ESRI Geodatabase\",\"url\":\"https://archive.nyu.edu/retrieve/74856/nyu_2451_34636.zip\",\"label\":\"Original ESRI Geodatabase\"}"
   ],
   "metadata_sm": [
-    "{\"type\":\"External URL\",\"url\":\"http://hdl.handle.net/2451/34636\"}",
+    "{\"type\":\"URL\",\"url\":\"http://hdl.handle.net/2451/34636\"}",
     "{\"type\":\"Data Dictionary\",\"url\":\"https://archive.nyu.edu/retrieve/74857/nyu_2451_34636_doc.zip\"}"
   ]
 }

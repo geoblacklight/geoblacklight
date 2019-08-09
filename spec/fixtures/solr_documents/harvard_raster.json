@@ -40,13 +40,13 @@
   "solr_geom": "ENVELOPE(30.013108, 30.875309, 60.041712, 59.669749)",
   "solr_year_i": 1834,
   "downloads_sm": [
-    "{\"type\":\"HGL\",\"url\":\"http://pelham.lib.harvard.edu:8080/HGL/HGLOpenDelivery\"}"
+    "{\"type\":\"HGL\",\"url\":\"http://hgl.harvard.edu:8080/HGL/HGLOpenDelivery\"}"
   ],
   "metadata_sm": [
     "{\"type\":\"FGDC\",\"url\":\"https://raw.githubusercontent.com/OpenGeoMetadata/edu.harvard/master/217/121/227/77/fgdc.xml\"}"
   ],
   "webservices_sm": [
-    "{\"type\":\"WCS\",\"url\":\"http://pelham.lib.harvard.edu:8090/geoserver/wcs\"}",
-    "{\"type\":\"WMS\",\"url\":\"http://pelham.lib.harvard.edu:8090/geoserver/wms\",\"layerId\":\"cite:G7064_S2_1834_K3\",\"exportFormats\":[\"GeoTIFF\"]}"
+    "{\"type\":\"WCS\",\"url\":\"http://hgl.harvard.edu:8090/geoserver/wcs\"}",
+    "{\"type\":\"WMS\",\"url\":\"http://hgl.harvard.edu:8090/geoserver/wms\",\"layerId\":\"cite:G7064_S2_1834_K3\",\"exportFormats\":[\"GeoTIFF\"]}"
   ]
 }

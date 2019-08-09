@@ -17,7 +17,7 @@ describe MigrateReferencesService do
 
     it 'migrates metadata references' do
       metadata = output_document['metadata_sm'].map { |m| JSON.parse(m) }
-      expect(metadata[0]['type']).to eq 'External URL'
+      expect(metadata[0]['type']).to eq 'URL'
       expect(metadata[0]['url']).to eq 'http://purl.stanford.edu/cz128vq0535'
       expect(metadata[1]['type']).to eq 'MODS'
       expect(metadata[1]['url']).to eq 'http://purl.stanford.edu/cz128vq0535.mods'

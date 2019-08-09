@@ -21,7 +21,7 @@
   "solr_geom": "ENVELOPE(-74.68, -74.63, 40.37, 40.33)",
   "uuid": "princeton-1r66j405w",
   "metadata_sm": [
-    "{\"type\":\"External URL\",\"url\":\"https://catalog.princeton.edu/catalog/4266648\"}"
+    "{\"type\":\"URL\",\"url\":\"https://catalog.princeton.edu/catalog/4266648\"}"
   ],
   "webservices_sm": [
     "{\"type\":\"IIIF\",\"url\":\"https://libimages1.princeton.edu/loris/figgy_prod/5a%2F20%2F58%2F5a20585db50d44959fe5ae44821fd174%2Fintermediate_file.jp2/info.json\"}",

@@ -41,7 +41,7 @@
     "{\"type\":\"Shapefile\",\"url\":\"ftp://ftp.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_metc/plan_frmwrk2030dev_plan_ar2011/shp_plan_frmwrk2030dev_plan_ar2011.zip\",\"label\":\"Original Shapefile\"}"
   ],
   "metadata_sm": [
-    "{\"type\":\"External URL\",\"url\":\"https://gisdata.mn.gov/dataset/02236876-9c21-42f6-9870-d2562da8e44f\"}",
+    "{\"type\":\"URL\",\"url\":\"https://gisdata.mn.gov/dataset/02236876-9c21-42f6-9870-d2562da8e44f\"}",
     "{\"type\":\"FGDC\",\"url\":\"https://btaagdp.org/metadata/05a-01/pub/gdrs/data/pub/us_mn_state_metc/plan_frmwrk2030dev_plan_ar2011/metadata/metadata.xml\"}"
   ],
   "webservices_sm": [

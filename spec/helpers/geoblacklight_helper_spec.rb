@@ -86,18 +86,18 @@ describe GeoblacklightHelper, type: :helper do
   end
 
   describe '#download_link_iiif' do
-    let(:references_field) { Settings.FIELDS.REFERENCES }
+    let(:references_field) { 'downloads_sm' }
     let(:document_attributes) do
       {
-        references_field => {
-          'http://iiif.io/api/image' => 'https://example.edu/image/info.json'
-        }.to_json
+        'webservices_sm' => [
+          { 'type' => 'IIIF', 'url' => 'https://example.edu/image/info.json' }.to_json
+        ]
       }
     end
     let(:document) { SolrDocument.new(document_attributes) }
 
     before do
-      allow_any_instance_of(Geoblacklight::DctReference).to receive(:to_hash).and_return(iiif: 'https://example.edu/image/info.json')
+      allow_any_instance_of(Geoblacklight::Reference).to receive(:to_hash).and_return(iiif: 'https://example.edu/image/info.json')
     end
 
     it 'generates a link to download the JPG file from the IIIF server' do

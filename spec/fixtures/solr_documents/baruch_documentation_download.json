@@ -48,7 +48,7 @@
     "{\"type\":\"Shapefile\",\"url\":\"https://archive.nyu.edu/retrieve/74701/nyu_2451_34502.zip\",\"label\":\"Original Shapefile\"}"
   ],
   "metadata_sm": [
-    "{\"type\":\"External URL\",\"url\":\"http://hdl.handle.net/2451/34502\"}",
+    "{\"type\":\"URL\",\"url\":\"http://hdl.handle.net/2451/34502\"}",
     "{\"type\":\"ISO19139\",\"url\":\"http://metadata.geo.nyu.edu/records/edu.nyu/handle/2451/34502/iso19139.xml\"}",
     "{\"type\":\"Data Dictionary\",\"url\":\"https://archive.nyu.edu/retrieve/74755/nyu_2451_34502_doc.zip\"}"
   ],
