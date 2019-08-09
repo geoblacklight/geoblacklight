@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe GeoblacklightHelper, type: :helper do
+  include BlacklightHelper
   include ActionView::Helpers::UrlHelper
   include ActionView::Helpers::TranslationHelper
   describe '#render_facet_links' do
@@ -16,24 +17,20 @@ describe GeoblacklightHelper, type: :helper do
   end
 
   describe '#geoblacklight_icon' do
-    it 'replaces special characters, lowercases, and subs spaces for hyphens' do
-      html = Capybara.string(geoblacklight_icon('TEst & 123'))
-      expect(html).to have_css '.geoblacklight-test-123'
-    end
     it 'supports in use cases' do
       {
         'Paper map' => 'paper-map',
         'Michigan State' => 'michigan-state',
         'CD ROM' => 'cd-rom',
         'Lewis & Clark' => 'lewis-clark'
-      }.each do |key, value|
+      }.each_key do |key|
         html = Capybara.string(geoblacklight_icon(key))
-        expect(html).to have_css ".geoblacklight-#{value}"
+        expect(html).to have_xpath "//*[local-name() = 'svg']"
       end
     end
     it 'handles nil values' do
       html = Capybara.string(geoblacklight_icon(nil))
-      expect(html).to have_css '.geoblacklight-none'
+      expect(html).to have_css '.icon-missing'
     end
   end
 

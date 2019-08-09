@@ -4,7 +4,8 @@
 <% @relations.descendants['docs'][0..2].each do |descendant| %>
   <li class="list-group-item">
     <%= link_to solr_document_path(descendant['layer_slug_s']) do %>
-      <span class='geoblacklight geoblacklight-relations-descendant'></span> <%= descendant['dc_title_s'] %>
+      <%= geoblacklight_icon('leaf') %>
+      <%= descendant['dc_title_s'] %>
     <% end %>
   </li>
 <% end %>

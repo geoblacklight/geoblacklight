@@ -4,7 +4,8 @@
 <% @relations.ancestors['docs'].each do |ancestor| %>
   <li class="list-group-item">
     <%= link_to solr_document_path(ancestor['layer_slug_s']) do %>
-      <span class='geoblacklight geoblacklight-relations-ancestor'></span> <%= ancestor['dc_title_s'] %>
+      <%= geoblacklight_icon('pagelines-brands') %>
+      <%= ancestor['dc_title_s'] %>
     <% end %>
   </li>
 <% end %>

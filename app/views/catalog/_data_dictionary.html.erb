@@ -1,5 +1,6 @@
 <% if document.data_dictionary_download.present? %>
     <%= link_to document.data_dictionary_download[:data_dictionary] do %>
-        <span class='geoblacklight geoblacklight-data-dictionary'></span><%= t('geoblacklight.references.data_dictionary') %>
+        <%= geoblacklight_icon('book') %>
+        <%= t('geoblacklight.references.data_dictionary') %>
     <% end %>
 <% end %>
