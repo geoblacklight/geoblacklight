@@ -9,7 +9,7 @@ feature 'search results map', js: true do
     visit root_path
     click_link 'Minnesota, United States'
     results = page.all(:css, 'article.document')
-    expect(results.count).to equal(3)
+    expect(results.count).to equal(4)
   end
   scenario 'view is scoped to Minnesota' do
     visit root_path
