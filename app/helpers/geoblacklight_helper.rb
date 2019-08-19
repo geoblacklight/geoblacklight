@@ -86,19 +86,14 @@ module GeoblacklightHelper
   # @return [SVG or HTML tag]
   def geoblacklight_icon(name)
     icon_name = name ? name.to_s.parameterize : 'none'
-    if asset_exists?(icon_name)
+    begin
+      icon = blacklight_icon(icon_name)
+      # Add icon info to queue after icon instantiated successfully
       queue_icon_aria_label(icon_name)
-      blacklight_icon(icon_name)
-    else
-      render_empty_span('icon-missing geoblacklight-none')
+      icon
+    rescue Blacklight::Exceptions::IconNotFound
+      tag.span class: 'icon-missing geoblacklight-none'
     end
-  end
-
-  ##
-  # Checks if an asset file exists
-  # @return [Boolean]
-  def asset_exists?(path)
-    Rails.application.assets.resolve("blacklight/#{path}").present?
   end
 
   ##
