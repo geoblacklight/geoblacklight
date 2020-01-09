@@ -26,6 +26,29 @@
   "dct_temporal_sm": [
     "2014"
   ],
+  "references": [
+    {
+      "type": "dcat:Distribution",
+      "dcat:accessUrl": "http://hdl.handle.net/2451/34564"
+    },
+    {
+      "type": "dcat:Distribution",
+      "dcat:downloadUrl": "https://archive.nyu.edu/retrieve/74563/nyu_2451_34564.zip",
+      "dct:format": "application/zip"
+    },
+    {
+      "type": "dcat:DataService",
+      "dcat:endPointUrl": "https://maps-public.geo.nyu.edu/geoserver/sdr/wfs",
+      "dcat:servesDataset": "sdr:nyu_2451_34564",
+      "dct:conformsTo": "http://www.opengis.net/def/serviceType/ogc/wfs"
+    },
+    {
+      "type": "dcat:DataService",
+      "dcat:endPointUrl": "https://maps-public.geo.nyu.edu/geoserver/sdr/wms",
+      "dcat:servesDataset": "sdr:nyu_2451_34564",
+      "dct:conformsTo": "http://www.opengis.net/def/serviceType/ogc/wms"
+    }
+  ],
   "geoblacklight_version": "1.0",
   "layer_geom_type_s": "Point",
   "layer_id_s": "sdr:nyu_2451_34564",

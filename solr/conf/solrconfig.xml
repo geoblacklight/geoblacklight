@@ -43,6 +43,20 @@
     <lockType>${solr.lock.type:native}</lockType>
   </indexConfig>
 
+  <updateRequestProcessorChain name="mint-id">
+    <processor class="solr.UUIDUpdateProcessorFactory">
+      <str name="fieldName">layer_slug_s</str>
+    </processor>
+    <processor class="solr.LogUpdateProcessorFactory" />
+    <processor class="solr.RunUpdateProcessorFactory" />
+  </updateRequestProcessorChain>
+  
+  <requestHandler name="/update/**" startup="lazy" class="solr.extraction.ExtractingRequestHandler" >
+    <lst name="defaults">
+      <str name="update.chain">mint-id</str>
+    </lst>
+  </requestHandler>
+
   <!-- The default high-performance update handler -->
   <updateHandler class="solr.DirectUpdateHandler2">
     <updateLog>

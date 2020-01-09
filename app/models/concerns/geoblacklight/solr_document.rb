@@ -29,7 +29,7 @@ module Geoblacklight
     end
 
     def references
-      References.new(self)
+      ReferenceFactory.new(self)
     end
 
     def direct_download
