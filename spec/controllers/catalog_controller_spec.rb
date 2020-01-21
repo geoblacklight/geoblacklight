@@ -7,6 +7,10 @@ describe CatalogController, type: :controller do
       expect(response.status).to eq 200
       expect(assigns(:documents)).not_to be_nil
     end
+
+    it 'returns 404 with a bad id' do
+      expect{ get :web_services, params: { id: 'bad-record-identifier' } }.to raise_error(Blacklight::Exceptions::RecordNotFound)
+    end
   end
 
   describe '.default_solr_params' do

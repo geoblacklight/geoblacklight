@@ -265,6 +265,12 @@ class CatalogController < ApplicationController
     config.autocomplete_path = 'suggest'
   end
 
+  # @return [Array] first value is a Blacklight::Solr::Response and the second
+  #                 is a list of documents
+  def action_documents
+    deprecated_response, @documents = search_service.fetch(Array(params[:id]))
+    raise Blacklight::Exceptions::RecordNotFound unless @documents.present?
 
-
+    return deprecated_response, @documents
+  end
 end
