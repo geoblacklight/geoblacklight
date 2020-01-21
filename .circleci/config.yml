@@ -4,7 +4,7 @@ jobs:
   rails_5_2_3:
     working_directory: ~/geoblacklight
     docker:
-      - image: circleci/ruby:2.5.1-node-browsers
+      - image: circleci/ruby:2.5.7-node-browsers
         environment:
           BUNDLE_JOBS: 3
           BUNDLE_RETRY: 3
@@ -69,7 +69,7 @@ jobs:
   rails_5_1_7:
     working_directory: ~/geoblacklight
     docker:
-      - image: circleci/ruby:2.4.4-node-browsers
+      - image: circleci/ruby:2.4.9-node-browsers
         environment:
           BUNDLE_JOBS: 3
           BUNDLE_RETRY: 3
@@ -127,7 +127,7 @@ jobs:
   rubocop:
     working_directory: ~/geoblacklight
     docker:
-      - image: circleci/ruby:2.5.1-node-browsers
+      - image: circleci/ruby:2.5.7-node-browsers
         environment:
           GEM_HOME: /home/circleci/geoblacklight/vendor/bundle
           BUNDLE_PATH: /home/circleci/geoblacklight/vendor/bundle
