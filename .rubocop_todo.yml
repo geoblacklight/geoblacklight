@@ -46,13 +46,6 @@ Lint/UnusedBlockArgument:
 Metrics/BlockLength:
   Max: 247
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: AutoCorrect.
-Performance/HashEachMethods:
-  Exclude:
-    - 'app/presenters/geoblacklight/document_presenter.rb'
-
 # Offense count: 2
 # Configuration parameters: CustomIncludeMethods.
 RSpec/EmptyExampleGroup:
@@ -160,12 +153,6 @@ Style/FrozenStringLiteralComment:
 Style/HashSyntax:
   Exclude:
     - 'lib/tasks/geoblacklight.rake'
-
-# Offense count: 2
-Style/MethodMissing:
-  Exclude:
-    - 'app/models/concerns/geoblacklight/solr_document.rb'
-    - 'lib/geoblacklight/references.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.

@@ -30,7 +30,7 @@ feature 'Index view', js: true do
       expect(page).to have_css('div.card.facet-limit', text: 'Data type')
       expect(page).to have_css('div.card.facet-limit', text: 'Format')
     end
-    click_link 'Institution'
+    click_button 'Institution'
     using_wait_time 120 do
       expect(page).to have_css('a.facet-select', text: 'Minnesota', visible: true)
       expect(page).to have_css('a.facet-select', text: 'MIT', visible: true)
