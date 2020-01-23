@@ -46,7 +46,6 @@ Lint/UnusedBlockArgument:
 Metrics/BlockLength:
   Max: 247
 
-
 # Offense count: 2
 # Configuration parameters: CustomIncludeMethods.
 RSpec/EmptyExampleGroup:

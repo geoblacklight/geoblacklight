@@ -85,7 +85,7 @@ describe Geoblacklight::WmsLayer do
 
     context 'when the HTTP connection times out' do
       before do
-        allow(Geoblacklight.logger).to receive(:error).with('#<Faraday::Error::TimeoutError #<Faraday::Error::TimeoutError: timeout>>')
+        allow(Geoblacklight.logger).to receive(:error).with('#<Faraday::TimeoutError #<Faraday::TimeoutError: timeout>>')
         allow(connection).to receive(:get).and_raise(Faraday::Error::TimeoutError)
       end
 

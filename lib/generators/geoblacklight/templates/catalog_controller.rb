@@ -258,6 +258,7 @@ class CatalogController < ApplicationController
     # 'flatBlue'
     # 'midnightCommander'
     # 'openstreetmapHot'
+    # 'openstreetmapStandard'
 
     config.basemap_provider = 'positron'
 
