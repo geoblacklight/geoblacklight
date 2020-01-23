@@ -79,7 +79,7 @@ describe Geoblacklight::WmsLayer do
       it 'logs the Faraday error' do
         expect(Geoblacklight.logger).to receive(:error).exactly(3).times
         expect(wms_layer.request_response).to be_a Hash
-        expect(wms_layer.request_response).to include(error: '#<Faraday::ConnectionFailed wrapped=#<StandardError: test connection error>>')
+        expect(wms_layer.request_response).to include(error: '#<Faraday::Error::ConnectionFailed wrapped=#<StandardError: test connection error>>')
       end
     end
 
@@ -92,7 +92,7 @@ describe Geoblacklight::WmsLayer do
       it 'logs the Faraday error' do
         expect(Geoblacklight.logger).to receive(:error).exactly(3).times
         expect(wms_layer.request_response).to be_a Hash
-        expect(wms_layer.request_response).to include(error: '#<Faraday::TimeoutError #<Faraday::TimeoutError: timeout>>')
+        expect(wms_layer.request_response).to include(error: '#<Faraday::Error::TimeoutError #<Faraday::Error::TimeoutError: timeout>>')
       end
     end
   end
