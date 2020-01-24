@@ -23,4 +23,13 @@ feature 'Configurable basemap', js: true do
       expect(page).to have_css "img[src*='dark_all']"
     end
   end
+  feature 'using openstreetmapHot' do
+    before do
+      CatalogController.blacklight_config.basemap_provider = 'openstreetmapHot'
+    end
+    scenario 'has openstreetmapHot map' do
+      visit root_path
+      expect(page).to have_css "img[src*='hot']"
+    end
+  end
 end

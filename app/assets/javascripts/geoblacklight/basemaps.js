@@ -63,5 +63,23 @@ GeoBlacklight.Basemaps = {
       retina: '@2x',
       detectRetina: false
     }
+  ),
+  openstreetmapHot: L.tileLayer(
+    'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>', 
+      maxZoom: 19,
+      worldCopyJump: true,
+      retina: '@2x',
+      detectRetina: false
+    }
+  ),
+  openstreetmapStandard: L.tileLayer(
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom: 19,
+      worldCopyJump: true,
+      retina: '@2x',
+      detectRetina: false
+    }
   )
 };

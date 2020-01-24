@@ -257,6 +257,8 @@ class CatalogController < ApplicationController
     # 'worldEco'
     # 'flatBlue'
     # 'midnightCommander'
+    # 'openstreetmapHot'
+    # 'openstreetmapStandard'
 
     config.basemap_provider = 'positron'
 

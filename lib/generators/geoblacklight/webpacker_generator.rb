@@ -7,7 +7,7 @@ module Geoblacklight
     desc 'Integrate Webpacker for GeoBlacklight'
 
     def webpacker_install
-      run 'bundle exec rails webpacker:install --force'
+      run 'bundle exec rails webpacker:install'
     end
 
     def webpacker_config
