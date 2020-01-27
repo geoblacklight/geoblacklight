@@ -1,0 +1,28 @@
+// Local Application Customizations
+
+// Set Header Logo
+$logo-image: image_url('blacklight/logo.svg') !default;
+
+.navbar-brand {  /* The main logo image for the Blacklight instance */
+  @if $logo-image {
+    background: transparent $logo-image no-repeat top left;
+  }
+}
+
+// Optional
+// Override default Bootstrap variables here
+
+// Example: Bootstrap Colors
+$blue:    #007bff !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #e83e8c !default;
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;
+$green:   #28a745 !default;
+$teal:    #20c997 !default;
+$cyan:    #17a2b8 !default;
+
+// Example: Bootstrap Link color
+$link-color: $blue;
