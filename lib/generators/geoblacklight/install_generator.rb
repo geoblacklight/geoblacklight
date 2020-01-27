@@ -92,6 +92,11 @@ module Geoblacklight
     end
 
     def bundle_install
+      # Override the sass-rails problem
+      if Rails.version =~ /5\.[12]/
+        gsub_file('Gemfile', "gem 'sass-rails', '~> 5.0'", "gem 'sass-rails', '~> 6.0'")
+      end
+
       Bundler.with_clean_env do
         run 'bundle install'
       end
