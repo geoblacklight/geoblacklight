@@ -91,6 +91,11 @@ module Geoblacklight
       gsub_file('config/locales/blacklight.en.yml', 'Blacklight', 'GeoBlacklight')
     end
 
+    # Ensure that assets/images exists
+    def create_image_assets_directory
+      FileUtils.mkdir_p('app/assets/images') unless File.directory?('app/assets/images')
+    end
+
     def bundle_install
       Bundler.with_clean_env do
         run 'bundle install'
