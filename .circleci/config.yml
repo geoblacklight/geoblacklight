@@ -25,6 +25,8 @@ jobs:
       RAILS_ENV: test
       RACK_ENV: test
       RAILS_VERSION: <<parameters.rails_version>>
+      COVERAGE: true
+    parallelism: 4
     steps:
       - checkout
       # Update chrome
@@ -32,13 +34,31 @@ jobs:
       - run: sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
       - run: sudo apt-get update
       - run: sudo apt-get -y install google-chrome-stable
-      # Restore bundle cache
+      # Restore bundle and internal test app from the cache
       - restore_cache:
-          key: geoblacklight-bundle-5-2-0-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-3f5eff
+          keys:
+            - geoblacklight-bundle-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-<< parameters.ruby_version >>-<< parameters.rails_version >>
       # Install gems
       - run: bundle check || bundle install
-      # Run the test suites
-      - run: bundle exec rake engine_cart:generate
+      # Store bundle cache
+      - save_cache:
+          key: geoblacklight-bundle-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-<< parameters.ruby_version >>-<< parameters.rails_version >>
+          paths:
+            - /home/circleci/geoblacklight/vendor/bundle
+        # Restore internal test app from the cache
+      - restore_cache:
+          keys:
+            - geoblacklight-internal-test-app-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-{{ checksum "spec/test_app_templates/Gemfile.extra" }}-<< parameters.ruby_version >>-<< parameters.rails_version >>
+      # Generate the internal test app
+      - run:
+          name: Generate test app
+          command: |
+            [ -e ./.internal_test_app ] || bundle exec rake engine_cart:generate
+      - save_cache:
+          name: Save test app cache
+          key: geoblacklight-internal-test-app-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-{{ checksum "spec/test_app_templates/Gemfile.extra" }}-<< parameters.ruby_version >>-<< parameters.rails_version >>
+          paths:
+            - ./.internal_test_app
       - run:
           name: Wait for Solr
           command: dockerize -wait tcp://localhost:<<parameters.solr_port>> -timeout 1m
@@ -53,6 +73,7 @@ jobs:
           name: Seed Solr
           command: |
             cd .internal_test_app
+            bundle check || bundle install
             bundle exec rake geoblacklight:index:seed
             bundle exec rake geoblacklight:downloads:mkdir
       - run:
@@ -64,15 +85,10 @@ jobs:
             bundle exec rails webpacker:compile
       - run:
           name: Run the RSpec test suites
-          command: bundle exec rake geoblacklight:coverage
+          command: bundle exec rspec $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
       - run:
           name: Run the Teaspoon test suites
           command: bundle exec rake teaspoon
-      # Store bundle cache
-      - save_cache:
-          key: geoblacklight-bundle-5-2-0-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-3f5eff
-          paths:
-            - /home/circleci/geoblacklight/vendor/bundle
 
   rubocop:
     working_directory: ~/geoblacklight
@@ -96,8 +112,9 @@ jobs:
     steps:
       - checkout
       # Restore bundle cache
-      - save_cache:
-          key: geoblacklight-bundle-5-2-3-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-3f5eff
+      - restore_cache:
+          keys:
+            - geoblacklight-bundle-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-<< parameters.ruby_version >>-<< parameters.rails_version >>
           paths:
             - /home/circleci/geoblacklight/vendor/bundle
       # Install gems and run rubocop
