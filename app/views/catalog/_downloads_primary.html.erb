@@ -5,6 +5,23 @@
   <%= render partial: 'download_link', locals: { download_link: download_link_direct(download_text(document.file_format), document) } %>
 <% end %>
 
+<% document.experimental_downloads.each do |download| %>
+  <%= render(
+    partial: 'download_link',
+    locals: { download_link: link_to(
+      download.label,
+      download.url,
+      'contentUrl' => download.url,
+      class: ['btn', 'btn-default', 'download', 'download-original'],
+      data: {
+        download: 'trigger',
+        download_type: 'direct',
+        download_id: document.id
+      }
+    )})
+  %>
+<% end %>
+
 <% if document.hgl_download.present? %>
   <%= render partial: 'download_link', locals: { download_link: download_link_hgl(download_text(document.download_types.first[0]), document) } %>
 <% end %>

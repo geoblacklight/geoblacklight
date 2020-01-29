@@ -32,6 +32,12 @@ module Geoblacklight
       References.new(self)
     end
 
+    ##
+    # Experimental feature
+    def experimental_downloads
+      NestedReferences.new(self).downloads
+    end
+
     def direct_download
       references.download.to_hash unless references.download.blank?
     end

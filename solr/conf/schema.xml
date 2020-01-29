@@ -12,6 +12,14 @@
     <field name="text" type="text_en" stored="false" indexed="true" multiValued="true"
                        termVectors="true" termPositions="true" termOffsets="true" />
 
+
+                       
+    <field name="_root_" type="string" indexed="true" stored="true" docValues="false" />
+    <field name="_nest_parent_" type="string" indexed="true" stored="true"/>
+    <field name="_nest_path_" type="_nest_path_" indexed="true" stored="true"/>
+ 
+    <field name="references" type="_nest_path_" indexed="true" stored="true" multiValued="true"/>
+
     <!-- dynamic field with simple types by suffix -->
     <dynamicField name="*_b"    type="boolean" stored="true"  indexed="true"/>
     <dynamicField name="*_d"    type="double"  stored="true"  indexed="true"/>
@@ -147,7 +155,8 @@
     <!-- Adding field type for bboxField that enables, among other things, overlap ratio calculations -->
     <fieldType name="bbox" class="solr.BBoxField"
            geo="true" distanceUnits="kilometers" numberType="pdouble" />
-    <fieldType name="pdouble" class="solr.DoublePointField" docValues="true"/>   
+    <fieldType name="pdouble" class="solr.DoublePointField" docValues="true"/>
+    <fieldType name="_nest_path_" class="solr.NestPathField" /> 
    
 
   </types>

@@ -26,6 +26,18 @@
   "dct_temporal_sm": [
     "2014"
   ],
+  "references": [
+    {
+      "type": "http://schema.org/downloadUrl",
+      "url": "https://archive.nyu.edu/retrieve/74563/nyu_2451_34564.zip",
+      "label": "Shapefile"
+    },
+    {
+      "type": "http://schema.org/downloadUrl",
+      "url": "https://archive.nyu.edu/retrieve/74563/nyu_2451_34564.zip",
+      "label": "File GeoDatabase"
+    }
+  ],
   "geoblacklight_version": "1.0",
   "layer_geom_type_s": "Point",
   "layer_id_s": "sdr:nyu_2451_34564",

@@ -27,6 +27,7 @@ module Geoblacklight
   require 'geoblacklight/metadata_transformer/base'
   require 'geoblacklight/metadata_transformer/fgdc'
   require 'geoblacklight/metadata_transformer/iso19139'
+  require 'geoblacklight/nested_references'
   require 'geoblacklight/reference'
   require 'geoblacklight/references'
   require 'geoblacklight/routes'
