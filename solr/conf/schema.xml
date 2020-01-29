@@ -147,8 +147,8 @@
     <!-- Adding field type for bboxField that enables, among other things, overlap ratio calculations -->
     <fieldType name="bbox" class="solr.BBoxField"
            geo="true" distanceUnits="kilometers" numberType="pdouble" />
-    <fieldType name="pdouble" class="solr.DoublePointField" docValues="true"/>   
-   
+    <fieldType name="pdouble" class="solr.DoublePointField" docValues="true"/>
+
 
   </types>
 
@@ -169,8 +169,8 @@
   <copyField source="layer_slug_s"       dest="layer_slug_ti"       maxChars="100"/>
 
   <!-- core text search -->
-  <copyField source="*_ti"               dest="text" />
-  <copyField source="*_tmi"              dest="text" />
+  <copyField source="*_s"                dest="text" />
+  <copyField source="*_sm"               dest="text" />
 
   <!-- for sorting text fields -->
   <copyField source="dct_provenance_s"   dest="dct_provenance_sort"/>
@@ -192,7 +192,7 @@
   <copyField source="dct_provenance_s" dest="suggest"/>
   <copyField source="dc_subject_sm" dest="suggest"/>
   <copyField source="dct_spatial_sm" dest="suggest"/>
-  
+
   <!-- for bbox value -->
   <copyField source="solr_geom" dest="solr_bboxtype"/>
 </schema>
