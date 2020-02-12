@@ -50,8 +50,10 @@ Blacklight.onLoad(function() {
     // set hover listeners on map
     $('#content')
       .on('mouseenter', '#documents [data-layer-id]', function() {
-        var bounds = L.bboxToBounds($(this).data('bbox'));
-        geoblacklight.addBoundsOverlay(bounds);
+        if($(this).data('bbox').length > 0) {
+          var bounds = L.bboxToBounds($(this).data('bbox'));
+          geoblacklight.addBoundsOverlay(bounds);
+        }
       })
       .on('mouseleave', '#documents [data-layer-id]', function() {
         geoblacklight.removeBoundsOverlay();

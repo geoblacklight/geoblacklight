@@ -1,0 +1,30 @@
+{
+  "geoblacklight_version": "1.0",
+  "layer_modified_dt": "2019-12-16T15:57:35Z",
+  "layer_slug_s": "99-0001-noProvenance",
+  "dc_identifier_s": "99-0001-noProvenance",
+  "dc_title_s": "Social Explorer",
+  "dct_temporal_sm": [
+    "1790-present"
+  ],
+  "dc_description_s": "Requires creating a free account or logging in through an organization with licensed access. This interactive website includes the entire US census history from 1790 to 2000, the American Community Survey (ACS), and the Religious Congregations and Membership Study (RCMS) from 1980 to 2000? the most complete census available on religion in the U.S. Overall, the site contains 39 billion data points, 200,000 variables, and 15,000 interactive maps",
+  "dc_subject_sm": [
+    "Society"
+  ],
+  "dc_type_sm": [
+    "Interactive Resource"
+  ],
+  "dc_rights_s": "Restricted",
+  "layer_geom_type_s": "Table",
+  "solr_geom": "ENVELOPE(-179.9,-64.4,71.6,-14.8)",
+  "dc_publisher_sm": [
+    "Social Explorer"
+  ],
+  "dc_creator_sm": [
+    "Queens College (New York, N.Y.). Department of Sociology"
+  ],
+  "dct_spatial_sm": [
+    "United States"
+  ],
+  "dct_references_s": "{\"http://schema.org/url\":\"https://www.socialexplorer.com/\"}"
+}

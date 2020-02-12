@@ -45,7 +45,7 @@ module Geoblacklight
     end
 
     def same_institution?
-      fetch(Settings.FIELDS.PROVENANCE).casecmp(Settings.INSTITUTION.downcase).zero?
+      fetch(Settings.FIELDS.PROVENANCE, '').casecmp(Settings.INSTITUTION.downcase).zero?
     end
 
     def iiif_download
