@@ -4,7 +4,7 @@
 
 $logo-image: image_url('blacklight/logo.svg') !default
 
-.navbar-brand {  /* The main logo image for the Blacklight instance */
+.navbar-logo {  /* The main logo image for the Blacklight instance */
   @if $logo-image {
     background: transparent $logo-image no-repeat top left;
   }
