@@ -25,7 +25,7 @@ EngineCart.load_application!
 require 'rails-controller-testing' if Rails::VERSION::MAJOR >= 5
 require 'rspec/rails'
 require 'capybara/rspec'
-require 'selenium-webdriver'
+require 'webdrivers/chromedriver'
 
 Capybara.register_driver(:headless_chrome) do |app|
   Capybara::Selenium::Driver.load_selenium
