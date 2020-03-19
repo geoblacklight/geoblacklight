@@ -127,6 +127,23 @@ workflows:
     jobs:
       - build:
           ruby_version: 2.6.5
+          rails_version: 6.0.2.1
+          name: "ruby2-6_rails6-0"
+      - build:
+          ruby_version: 2.5.7
+          rails_version: 6.0.2.1
+          name: "ruby2-5_rails6-0"
+      - rubocop:
+          ruby_version: 2.6.5
+          rails_version: 6.0.2.1
+          name: "rubocop_ruby2-6_rails6-0"
+      - rubocop:
+          ruby_version: 2.5.7
+          rails_version: 6.0.2.1
+          name: "rubocop_ruby2-5_rails6-0"
+
+      - build:
+          ruby_version: 2.6.5
           rails_version: 5.2.4.1
           name: "ruby2-6_rails5-2"
       - build:
