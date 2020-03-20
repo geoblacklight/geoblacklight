@@ -39,6 +39,10 @@ module Geoblacklight
 
       append_to_file 'config/initializers/assets.rb',
                      "\nRails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'images')\n"
+
+      insert_into_file 'app/assets/javascripts/application.js', after: "//= require blacklight/blacklight\n" do
+        "//= require geoblacklight\n"
+      end unless has_geoblacklight_assets?
     end
 
     def create_blacklight_catalog
@@ -94,6 +98,13 @@ module Geoblacklight
     # Ensure that assets/images exists
     def create_image_assets_directory
       FileUtils.mkdir_p('app/assets/images') unless File.directory?('app/assets/images')
+    end
+
+    ##
+    # Rails 5.x requires_tree while Rails 6 needs us to explicity add the requirement
+    def has_geoblacklight_assets?
+      IO.read('app/assets/javascripts/application.js').include?('//= require geoblacklight') ||
+        IO.read('app/assets/javascripts/application.js').include?('//= require_tree')
     end
 
     def bundle_install
