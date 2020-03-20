@@ -55,8 +55,8 @@ module Geoblacklight
 
     ##
     # Initiates download from a remote source url using the `request_params`.
-    # Will catch Faraday::Error::ConnectionFailed and
-    # Faraday::Error::TimeoutError
+    # Will catch Faraday::ConnectionFailed and
+    # Faraday::TimeoutError
     # @return [Faraday::Request] returns a Faraday::Request object
     def initiate_download
       conn = Faraday.new(url: url)
@@ -65,11 +65,11 @@ module Geoblacklight
         request.options.timeout = timeout
         request.options.open_timeout = timeout
       end
-    rescue Faraday::Error::ConnectionFailed
+    rescue Faraday::ConnectionFailed
       raise Geoblacklight::Exceptions::ExternalDownloadFailed,
             message: 'Download connection failed',
             url: conn.url_prefix.to_s
-    rescue Faraday::Error::TimeoutError
+    rescue Faraday::TimeoutError
       raise Geoblacklight::Exceptions::ExternalDownloadFailed,
             message: 'Download timed out',
             url: conn.url_prefix.to_s
