@@ -141,14 +141,14 @@ describe Geoblacklight::Download do
 
     it 'raises Geoblacklight::Exceptions::ExternalDownloadFailed with a connection failure' do
       expect(faraday_connection).to receive(:url_prefix).and_return 'http://www.example.com/wms'
-      expect(faraday_connection).to receive(:get).and_raise(Faraday::Error::ConnectionFailed.new('Failed'))
+      expect(faraday_connection).to receive(:get).and_raise(Faraday::ConnectionFailed.new('Failed'))
       expect(Faraday).to receive(:new).with(url: 'http://www.example.com/wms').and_return(faraday_connection)
       expect { download.initiate_download }.to raise_error(Geoblacklight::Exceptions::ExternalDownloadFailed)
     end
 
     it 'raises Geoblacklight::Exceptions::ExternalDownloadFailed with a connection timout' do
       expect(faraday_connection).to receive(:url_prefix).and_return 'http://www.example.com/wms'
-      expect(faraday_connection).to receive(:get).and_raise(Faraday::Error::TimeoutError)
+      expect(faraday_connection).to receive(:get).and_raise(Faraday::TimeoutError)
       expect(Faraday).to receive(:new).with(url: 'http://www.example.com/wms').and_return(faraday_connection)
       expect { download.initiate_download }.to raise_error(Geoblacklight::Exceptions::ExternalDownloadFailed)
     end

@@ -30,7 +30,7 @@ describe Geoblacklight::Metadata::Base do
       subject { metadata.document }
 
       before do
-        allow(connection).to receive(:get).and_raise(Faraday::Error::ConnectionFailed, 'test connection failures')
+        allow(connection).to receive(:get).and_raise(Faraday::ConnectionFailed, 'test connection failures')
       end
 
       it 'returns nil when a connection error' do
@@ -73,7 +73,7 @@ describe Geoblacklight::Metadata::Base do
 
     context 'when attempts to connect to an endpoint URL fail' do
       before do
-        allow(connection).to receive(:get).and_raise(Faraday::Error::ConnectionFailed, 'test connection failures')
+        allow(connection).to receive(:get).and_raise(Faraday::ConnectionFailed, 'test connection failures')
       end
 
       it 'returns true' do
@@ -144,7 +144,7 @@ describe Geoblacklight::Metadata::Base do
     context 'when requesting the metadata resource times out' do
       before do
         allow(geocombine_metadata).to receive(:to_html).and_return('')
-        allow(connection).to receive(:get).and_raise(Faraday::Error::TimeoutError)
+        allow(connection).to receive(:get).and_raise(Faraday::TimeoutError)
         allow(Geoblacklight.logger).to receive(:error).with('#<Faraday::TimeoutError #<Faraday::TimeoutError: timeout>>')
       end
 
