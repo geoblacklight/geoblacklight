@@ -14,7 +14,7 @@ jobs:
         type: string
         default: '5.1.7'
     docker:
-      - image: circleci/ruby:<< parameters.ruby_version >>-node-browsers-legacy
+      - image: circleci/ruby:<< parameters.ruby_version >>-node-browsers
       - image: solr:7-alpine
         command: bin/solr -cloud -noprompt -f -p <<parameters.solr_port>>
     environment:
@@ -100,7 +100,7 @@ jobs:
         type: string
         default: '5.1.7'
     docker:
-      - image: circleci/ruby:<< parameters.ruby_version >>-node-browsers-legacy
+      - image: circleci/ruby:<< parameters.ruby_version >>-node-browsers
     environment:
       GEM_HOME: /home/circleci/geoblacklight/vendor/bundle
       BUNDLE_PATH: /home/circleci/geoblacklight/vendor/bundle
