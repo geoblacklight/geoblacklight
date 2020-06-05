@@ -26,7 +26,7 @@ module Geoblacklight
 
     def render_constraints_filters(localized_params = params)
       content = super(localized_params)
-      localized_params = localized_params.to_unsafe_h unless localized_params.is_a?(Hash)
+      localized_params = localized_params.to_unsafe_h if localized_params.respond_to?(:to_unsafe_h)
 
       if localized_params[:bbox]
         path = search_action_path(remove_spatial_filter_group(:bbox, localized_params))
