@@ -17,7 +17,7 @@ module Geoblacklight
     end
 
     def public?
-      fetch(Settings.FIELDS.RIGHTS).casecmp('public').zero?
+      rights_field_data.present? && rights_field_data.casecmp('public').zero?
     end
 
     def restricted?
@@ -101,6 +101,10 @@ module Geoblacklight
     end
 
     private
+
+    def rights_field_data
+      fetch(Settings.FIELDS.RIGHTS, '')
+    end
 
     def method_missing(method, *args, &block)
       if /.*_url$/ =~ method.to_s

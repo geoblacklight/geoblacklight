@@ -35,6 +35,12 @@ describe Geoblacklight::SolrDocument do
         expect(document.public?).to be_falsey
       end
     end
+    describe 'without rights data' do
+      let(:document_attributes) { {} }
+      it 'is not public' do
+        expect(document.public?).to be_falsey
+      end
+    end
   end
   describe '#downloadable?' do
     describe 'available direct download' do
