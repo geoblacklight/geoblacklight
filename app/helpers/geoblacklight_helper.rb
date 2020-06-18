@@ -84,10 +84,10 @@ module GeoblacklightHelper
   ##
   # Returns an SVG icon or empty HTML span element
   # @return [SVG or HTML tag]
-  def geoblacklight_icon(name)
+  def geoblacklight_icon(name, **args)
     icon_name = name ? name.to_s.parameterize : 'none'
     begin
-      icon = blacklight_icon(icon_name)
+      icon = blacklight_icon(icon_name, **args)
       # Add icon info to queue after icon instantiated successfully
       queue_icon_aria_label(icon_name)
       icon
@@ -283,7 +283,7 @@ module GeoblacklightHelper
   def render_facet_item_with_icon(field_name, item)
     doc = Nokogiri::HTML.fragment(render_facet_item(field_name, item))
     doc.at_css('.facet-label').children.first
-       .add_previous_sibling(geoblacklight_icon(item.value))
+       .add_previous_sibling(geoblacklight_icon(item.value, aria_hidden: true))
     doc.to_html.html_safe
   end
 
