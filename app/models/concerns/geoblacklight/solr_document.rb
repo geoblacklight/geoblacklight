@@ -21,7 +21,7 @@ module Geoblacklight
     end
 
     def restricted?
-      fetch(Settings.FIELDS.RIGHTS).casecmp('restricted').zero?
+      rights_field_data.blank? || rights_field_data.casecmp('restricted').zero?
     end
 
     def downloadable?
