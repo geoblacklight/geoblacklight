@@ -1,4 +1,6 @@
 module GeoblacklightHelper
+  extend Deprecation
+
   def document_available?
     @document.public? || (@document.same_institution? && user_signed_in?)
   end
@@ -84,13 +86,10 @@ module GeoblacklightHelper
   ##
   # Returns an SVG icon or empty HTML span element
   # @return [SVG or HTML tag]
-  def geoblacklight_icon(name)
+  def geoblacklight_icon(name, **args)
     icon_name = name ? name.to_s.parameterize : 'none'
     begin
-      icon = blacklight_icon(icon_name)
-      # Add icon info to queue after icon instantiated successfully
-      queue_icon_aria_label(icon_name)
-      icon
+      blacklight_icon(icon_name, **args)
     rescue Blacklight::Exceptions::IconNotFound
       tag.span class: 'icon-missing geoblacklight-none'
     end
@@ -109,18 +108,20 @@ module GeoblacklightHelper
     @aria_labels ||= Set.new
     @aria_labels << feature_name
   end
+  deprecation_deprecate :queue_icon_aria_label
 
   ##
   # Render a div of divs describing aria-labelledby values
   # @return [HTML tag]
   def render_aria_labels(aria_labels)
-    return unless aria_labels
+    return unless aria_labels.present?
     content_tag :div, id: 'aria-labels', class: 'sr-only sr-only-focusable' do
       aria_labels.each do |label|
         concat(render_aria_label(label))
       end
     end
   end
+  deprecation_deprecate :render_aria_labels
 
   # Render a div describing a aria-labelledby value
   # @return [HTML tag]
@@ -129,6 +130,7 @@ module GeoblacklightHelper
       I18n.t("geoblacklight.aria-labels.#{label}")
     end
   end
+  deprecation_deprecate :render_aria_label
 
   ##
   # Renders an unique array of search links based off of terms
@@ -283,7 +285,7 @@ module GeoblacklightHelper
   def render_facet_item_with_icon(field_name, item)
     doc = Nokogiri::HTML.fragment(render_facet_item(field_name, item))
     doc.at_css('.facet-label').children.first
-       .add_previous_sibling(geoblacklight_icon(item.value))
+       .add_previous_sibling(geoblacklight_icon(item.value, aria_hidden: true))
     doc.to_html.html_safe
   end
 
