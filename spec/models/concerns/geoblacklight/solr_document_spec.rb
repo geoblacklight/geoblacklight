@@ -35,6 +35,32 @@ describe Geoblacklight::SolrDocument do
         expect(document.public?).to be_falsey
       end
     end
+    describe 'without rights data' do
+      let(:document_attributes) { {} }
+      it 'is not public' do
+        expect(document.public?).to be_falsey
+      end
+    end
+  end
+  describe '#restricted?' do
+    describe 'a restricted document' do
+      let(:document_attributes) { { rights_field => 'RESTRICTED' } }
+      it 'is restricted' do
+        expect(document.restricted?).to be_truthy
+      end
+    end
+    describe 'a non-restricted resource' do
+      let(:document_attributes) { { rights_field => 'PUBLIC' } }
+      it 'is not restricted' do
+        expect(document.restricted?).to be_falsey
+      end
+    end
+    describe 'without rights data' do
+      let(:document_attributes) { {} }
+      it 'is restricted' do
+        expect(document.restricted?).to be_truthy
+      end
+    end
   end
   describe '#downloadable?' do
     describe 'available direct download' do
