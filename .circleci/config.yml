@@ -12,7 +12,7 @@ jobs:
         default: '8983'
       rails_version:
         type: string
-        default: '5.1.7'
+        default: '5.2.4.3'
     docker:
       - image: circleci/ruby:<< parameters.ruby_version >>-node-browsers
       - image: solr:7-alpine
@@ -93,7 +93,7 @@ jobs:
         default: '2.5.7'
       rails_version:
         type: string
-        default: '5.1.7'
+        default: '5.2.4.3'
     docker:
       - image: circleci/ruby:<< parameters.ruby_version >>-node-browsers
     environment:
@@ -122,33 +122,20 @@ workflows:
     jobs:
       - build:
           ruby_version: 2.6.5
-          rails_version: 5.2.4.1
+          rails_version: 5.2.4.3
           name: "ruby2-6_rails5-2"
       - build:
           ruby_version: 2.5.7
-          rails_version: 5.2.4.1
+          rails_version: 5.2.4.3
           name: "ruby2-5_rails5-2"
       - rubocop:
           ruby_version: 2.6.5
-          rails_version: 5.2.4.1
+          rails_version: 5.2.4.3
           name: "rubocop_ruby2-6_rails5-2"
       - rubocop:
           ruby_version: 2.5.7
-          rails_version: 5.2.4.1
+          rails_version: 5.2.4.3
           name: "rubocop_ruby2-5_rails5-2"
-
-      - build:
-          ruby_version: 2.6.5
-          name: "ruby2-6_rails5-1"
-      - build:
-          ruby_version: 2.5.7
-          name: "ruby2-5_rails5-1"
-      - rubocop:
-          ruby_version: 2.6.5
-          name: "rubocop_ruby2-6_rails5-1"
-      - rubocop:
-          ruby_version: 2.5.7
-          name: "rubocop_ruby2-5_rails5-1"
 
   nightly:
     triggers:
@@ -161,30 +148,17 @@ workflows:
     jobs:
       - build:
           ruby_version: 2.6.5
-          rails_version: 5.2.4.1
+          rails_version: 5.2.4.3
           name: "ruby2-6_rails5-2"
       - build:
           ruby_version: 2.5.7
-          rails_version: 5.2.4.1
+          rails_version: 5.2.4.3
           name: "ruby2-5_rails5-2"
       - rubocop:
           ruby_version: 2.6.5
-          rails_version: 5.2.4.1
+          rails_version: 5.2.4.3
           name: "rubocop_ruby2-6_rails5-2"
       - rubocop:
           ruby_version: 2.5.7
-          rails_version: 5.2.4.1
+          rails_version: 5.2.4.3
           name: "rubocop_ruby2-5_rails5-2"
-
-      - build:
-          ruby_version: 2.6.5
-          name: "ruby2-6_rails5-1"
-      - build:
-          ruby_version: 2.5.7
-          name: "ruby2-5_rails5-1"
-      - rubocop:
-          ruby_version: 2.6.5
-          name: "rubocop_ruby2-6_rails5-1"
-      - rubocop:
-          ruby_version: 2.5.7
-          name: "rubocop_ruby2-5_rails5-1"
