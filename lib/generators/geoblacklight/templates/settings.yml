@@ -61,6 +61,9 @@ TIMEOUT_DOWNLOAD: 16
 # (For WMS inspection) timeout and open_timeout parameters for Faraday
 TIMEOUT_WMS: 4
 
+# Use the geometry type for the data relations icon
+USE_GEOM_FOR_RELATIONS_ICON: false
+
 # Web services shown in tool panel
 WEBSERVICES_SHOWN:
   - 'wms'

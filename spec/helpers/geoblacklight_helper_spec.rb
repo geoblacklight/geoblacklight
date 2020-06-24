@@ -326,4 +326,17 @@ describe GeoblacklightHelper, type: :helper do
       end
     end
   end
+
+  describe '#relations_icon' do
+    it 'renders a goemetry type if configured' do
+      allow(Settings).to receive(:USE_GEOM_FOR_RELATIONS_ICON).and_return(true)
+      html = Capybara.string(helper.relations_icon({ 'layer_geom_type_s' => 'polygon' }, 'leaf'))
+      expect(html.title.strip).to eq 'polygon icon'
+    end
+    it 'renders provided icon if not configured to use geometry' do
+      allow(Settings).to receive(:USE_GEOM_FOR_RELATIONS_ICON).and_return(false)
+      html = Capybara.string(helper.relations_icon({ 'layer_geom_type_s' => 'polygon' }, 'leaf'))
+      expect(html.title.strip).to eq 'leaf icon'
+    end
+  end
 end
