@@ -17,7 +17,8 @@ feature 'Display related documents' do
                     [
                       {
                         'dc_title_s' => '2015 New York City Subway Complexes and Ridership',
-                        'layer_slug_s' => 'nyu_2451_34502'
+                        'layer_slug_s' => 'nyu_2451_34502',
+                        'layer_geom_type_s' => 'Point'
                       }
                     ]
             },

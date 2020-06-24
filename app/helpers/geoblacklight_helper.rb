@@ -322,4 +322,11 @@ module GeoblacklightHelper
       args[:document].references.url.endpoint
     ) if args[:document]&.references&.url
   end
+
+  ## Returns the icon used based off a Settings strategy
+  def relations_icon(document, icon)
+    icon_name = document[Settings.FIELDS.GEOM_TYPE] if Settings.USE_GEOM_FOR_RELATIONS_ICON
+    icon_name = icon if icon_name.blank?
+    geoblacklight_icon(icon_name)
+  end
 end
