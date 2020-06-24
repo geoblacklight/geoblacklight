@@ -2,7 +2,7 @@
 
 <%= render partial: 'web_services_default', locals: { reference: reference } %>
 
-<div class='form-group form-inline'>
-  <label class='control-label'><%= t('geoblacklight.references.wms_abv')%> <code><%= t('geoblacklight.references.wms_label')%></code></label>
-  <input type='text' value='<%= document.wxs_identifier %>' readonly='readonly' class='form-control'>
+<div class="form-group form-inline">
+  <label for="wms_abv_webservice" class="mr-2"><%= t('geoblacklight.references.wms_abv')%> <code><%= t('geoblacklight.references.wms_label')%></code></label>
+  <input id="wms_abv_webservice" type='text' value='<%= document.wxs_identifier %>' readonly='readonly' class="form-control">
 </div>
