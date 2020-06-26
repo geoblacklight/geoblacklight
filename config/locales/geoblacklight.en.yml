@@ -66,9 +66,8 @@ en:
       services_close: 'Close'
     relations:
       ancestor: 'Source Datasets'
-      descendant: 'Derived Datasets (%{count})'
+      descendant: 'Derived Datasets'
       browse_all: "Browse all %{count} records..."
-      title: 'Data Relations'
     metadata:
       view_metadata: 'View Metadata'
       more_details: 'More details at'
