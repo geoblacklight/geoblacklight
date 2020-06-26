@@ -1,5 +1,5 @@
 <% @relations.descendants['docs'][0..2].each do |descendant| %>
-  <li class="list-group-item">
+  <li class="list-group-item border-bottom-0">
     <%= link_to solr_document_path(descendant['layer_slug_s']) do %>
       <%= relations_icon(descendant, 'leaf') %>
       <%= descendant['dc_title_s'] %>
@@ -7,7 +7,7 @@
   </li>
 <% end %>
 <% unless (@relations.descendants['numFound'].to_i <= 3) %>
-  <li class="list-group-item">
+  <li class="list-group-item border-bottom-0">
     <%= link_to search_catalog_path({f: {"#{Settings.FIELDS.SOURCE}" => [@relations.link_id]}}) do %>
       <%= t('geoblacklight.relations.browse_all', count: @relations.descendants['numFound']) %>
     <% end %>

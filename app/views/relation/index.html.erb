@@ -2,7 +2,7 @@
   <% unless @relations.ancestors['numFound'].to_i.zero? %>
     <div class="card relations">
       <div class="card-header">
-        <h2><%= t('geoblacklight.relations.ancestor') %></h2>
+        <h2 class="mb-0 h6"><%= t('geoblacklight.relations.ancestor') %></h2>
       </div>
 
       <ul class="list-group list-group-flush">
@@ -14,7 +14,7 @@
   <% unless @relations.descendants['numFound'].to_i.zero? %>
     <div class="card relations">
       <div class="card-header">
-        <h2><%= t('geoblacklight.relations.descendant') %></h2>
+        <h2 class="mb-0 h6"><%= t('geoblacklight.relations.descendant') %></h2>
       </div>
 
       <ul class="list-group list-group-flush">

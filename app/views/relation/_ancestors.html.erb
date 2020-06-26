@@ -1,5 +1,5 @@
 <% @relations.ancestors['docs'].each do |ancestor| %>
-  <li class="list-group-item">
+  <li class="list-group-item border-bottom-0">
     <%= link_to solr_document_path(ancestor['layer_slug_s']) do %>
       <%= relations_icon(ancestor, 'pagelines-brands') %>
       <%= ancestor['dc_title_s'] %>
