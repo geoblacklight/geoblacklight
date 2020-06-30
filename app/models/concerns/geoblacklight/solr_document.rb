@@ -7,6 +7,7 @@ module Geoblacklight
     include Geoblacklight::SolrDocument::Carto
     include Geoblacklight::SolrDocument::Inspection
     include Geoblacklight::SolrDocument::Arcgis
+    include Geoblacklight::SolrDocument::Citation
 
     delegate :download_types, to: :references
     delegate :viewer_protocol, to: :item_viewer
