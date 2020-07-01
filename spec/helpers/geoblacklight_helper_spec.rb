@@ -52,6 +52,17 @@ describe GeoblacklightHelper, type: :helper do
     end
   end
 
+  describe '#download_link_file' do
+    let(:label) { 'Test Link Text' }
+    let(:id) { 'test-id' }
+    let(:url) { 'http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip' }
+
+    it 'generates a link to download the original file' do
+      puts download_link_file(label, id, url)
+      expect(download_link_file(label, id, url)).to eq '<a contentUrl="http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip" class="btn btn-default download download-original" data-download="trigger" data-download-type="direct" data-download-id="test-id" href="http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip">Test Link Text</a>'
+    end
+  end
+
   describe '#download_link_direct' do
     let(:text) { 'Test Link Text' }
     let(:references_field) { Settings.FIELDS.REFERENCES }

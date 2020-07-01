@@ -13,6 +13,20 @@ module GeoblacklightHelper
     @document.references.iiif.endpoint.sub! 'info.json', 'full/full/0/default.jpg'
   end
 
+  def download_link_file(label, id, url)
+    link_to(
+      label,
+      url,
+      'contentUrl' => url,
+      class: ['btn', 'btn-default', 'download', 'download-original'],
+      data: {
+        download: 'trigger',
+        download_type: 'direct',
+        download_id: id
+      }
+    )
+  end
+
   def download_link_direct(text, document)
     link_to(
       text,
