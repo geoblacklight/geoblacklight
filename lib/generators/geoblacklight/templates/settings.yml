@@ -44,6 +44,7 @@ FIELDS:
   :TEMPORAL: 'dct_temporal_sm'
   :TITLE: 'dc_title_s'
   :SOURCE: 'dc_source_sm'
+  :ISSUED: 'dct_issued_s'
 
 # Institution deployed at
 INSTITUTION: 'Stanford'

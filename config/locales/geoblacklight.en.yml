@@ -1,6 +1,8 @@
 en:
   geoblacklight:
     bbox_label: 'Bounding Box'
+    citation:
+      retrieved_from: 'Retrieved from %{document_url}'
     download:
       download: 'Download'
       download_link: 'Original %{download_format}'

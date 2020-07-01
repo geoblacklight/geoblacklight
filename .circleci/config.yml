@@ -32,18 +32,18 @@ jobs:
       # Restore bundle and internal test app from the cache
       - restore_cache:
           keys:
-            - bust123-geoblacklight-bundle-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-<< parameters.ruby_version >>-<< parameters.rails_version >>
+            - cachebust-2020-06-30-geoblacklight-bundle-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-<< parameters.ruby_version >>-<< parameters.rails_version >>
       # Install gems
       - run: bundle check || bundle install
       # Store bundle cache
       - save_cache:
-          key: bust123-geoblacklight-bundle-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-<< parameters.ruby_version >>-<< parameters.rails_version >>
+          key: cachebust-2020-06-30-geoblacklight-bundle-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-<< parameters.ruby_version >>-<< parameters.rails_version >>
           paths:
             - /home/circleci/geoblacklight/vendor/bundle
         # Restore internal test app from the cache
       - restore_cache:
           keys:
-            - bust123-geoblacklight-internal-test-app-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-{{ checksum "spec/test_app_templates/Gemfile.extra" }}-<< parameters.ruby_version >>-<< parameters.rails_version >>
+            - cachebust-2020-06-30-geoblacklight-internal-test-app-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-{{ checksum "spec/test_app_templates/Gemfile.extra" }}-<< parameters.ruby_version >>-<< parameters.rails_version >>
       # Generate the internal test app
       - run:
           name: Generate test app
@@ -51,7 +51,7 @@ jobs:
             [ -e ./.internal_test_app ] || bundle exec rake engine_cart:generate
       - save_cache:
           name: Save test app cache
-          key: bust123-geoblacklight-internal-test-app-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-{{ checksum "spec/test_app_templates/Gemfile.extra" }}-<< parameters.ruby_version >>-<< parameters.rails_version >>
+          key: cachebust-2020-06-30-geoblacklight-internal-test-app-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-{{ checksum "spec/test_app_templates/Gemfile.extra" }}-<< parameters.ruby_version >>-<< parameters.rails_version >>
           paths:
             - ./.internal_test_app
       - run:
@@ -109,7 +109,7 @@ jobs:
       # Restore bundle cache
       - restore_cache:
           keys:
-            - bust123-geoblacklight-bundle-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-<< parameters.ruby_version >>-<< parameters.rails_version >>
+            - cachebust-2020-06-30-geoblacklight-bundle-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-<< parameters.ruby_version >>-<< parameters.rails_version >>
           paths:
             - /home/circleci/geoblacklight/vendor/bundle
       # Install gems and run rubocop
