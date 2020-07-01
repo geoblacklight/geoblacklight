@@ -1,19 +1,27 @@
 <% # header bar for doc items in index view -%>
 <%= content_tag :div, class: 'documentHeader row', data: { layer_id: document.id, bbox: document.bounding_box_as_wsen } do %>
-  <div class='status-icons'>
-    <%= render partial: 'header_icons', locals: { document: document } %>
-  </div>
-  <h3 class="index_title col-sm-9s cosl-lg-10 text-span">
-    <span class='caret-toggle'></span>
-    <% counter = document_counter_with_offset(document_counter) %>
-    <span class="document-counter">
-      <%= t('blacklight.search.documents.counter', :counter => counter) if counter %>
+  <h3 class="index_title col pl-2">
+    <button
+      class="caret-toggle btn pl-0 py-0 stretched-link"
+      data-toggle="collapse"
+      data-target="#doc-<%= document.id %>-fields-collapse"
+      aria-expanded="false"
+      aria-controls="doc-<%= document.id %>-fields-collapse">
+    </button>
+    <span class="title-wrapper">
+      <% counter = document_counter_with_offset(document_counter) %>
+      <span class="document-counter">
+        <%= t('blacklight.search.documents.counter', :counter => counter) if counter %>
+      </span>
+      <%= link_to_document document, counter: counter, title: document[blacklight_config.index.title_field] %>
     </span>
-    <%= link_to_document document, counter: counter, title: document[blacklight_config.index.title_field] %>
+    <span class='status-icons'>
+      <%= render partial: 'header_icons', locals: { document: document } %>
+    </span>
   </h3>
 
   <div class='col-md-12 more-info-area'>
-    <div class='collapse' data-collapse-target="<%= document.id %>">
+    <div id="doc-<%= document.id %>-fields-collapse" class='collapse'>
       <small>
         <%= geoblacklight_present(:index_fields_display, document) %>
       </small>
