@@ -40,6 +40,7 @@ module GeoblacklightHelper
       }
     )
   end
+  deprecation_deprecate download_link_direct: 'Use download_link_file instead'
 
   def download_link_hgl(text, document)
     link_to(
