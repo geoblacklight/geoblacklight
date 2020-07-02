@@ -13,9 +13,5 @@ describe('GeoBlacklight', function() {
     it('MetadataDownloadButton is defined', function() {
       expect(GeoBlacklight.MetadataDownloadButton).toBeDefined();
     });
-
-    it ('Readmore is defined', function() {
-      expect(Readmore).toBeDefined();
-    });
   });
 });
