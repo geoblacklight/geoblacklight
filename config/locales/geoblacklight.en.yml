@@ -42,6 +42,8 @@ en:
       jpg: 'JPG'
       esri_geodatabase: 'ESRI Geodatabase'
       sqlite_database: 'SQLite Database'
+    map:
+      label: 'Zoomable map'
     references:
       wms: 'Web Mapping Service (WMS)'
       wms_abv: 'WMS'

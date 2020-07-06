@@ -6,7 +6,7 @@
       <%= render_help_text_entry('viewer_protocol', document.viewer_protocol) %>
     <% end %>
 
-    <%= content_tag :div, id: 'map', data: { map: 'item', protocol: document.viewer_protocol.camelize, url: document.viewer_endpoint, 'layer-id' => document.wxs_identifier, 'map-bbox' => document.bounding_box_as_wsen, 'catalog-path'=> search_catalog_path, available: document_available?, inspect: show_attribute_table?, basemap: geoblacklight_basemap, leaflet_options: leaflet_options } do %>
+    <%= content_tag :div, id: 'map', aria: { label: t('geoblacklight.map.label') }, data: { map: 'item', protocol: document.viewer_protocol.camelize, url: document.viewer_endpoint, 'layer-id' => document.wxs_identifier, 'map-bbox' => document.bounding_box_as_wsen, 'catalog-path'=> search_catalog_path, available: document_available?, inspect: show_attribute_table?, basemap: geoblacklight_basemap, leaflet_options: leaflet_options } do %>
     <% end %>
   </div>
 </div>
