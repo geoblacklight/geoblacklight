@@ -78,7 +78,7 @@ namespace :geoblacklight do
     end
     desc 'Create download directory'
     task mkdir: :environment do
-      FileUtils.mkdir_p Dir.glob("#{Rails.root}/tmp/cache/downloads")
+      FileUtils.mkdir_p Rails.root.join('/tmp/cache/downloads')
     end
     desc 'Precaches a download'
     task :precache, [:doc_id, :download_type, :timeout] => [:environment] do |t, args|
