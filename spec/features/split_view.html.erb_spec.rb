@@ -51,7 +51,7 @@ feature 'Index view', js: true do
   end
 
   scenario 'click on a record area to expand collapse' do
-    within('.documentHeader', match: :first) do
+    within('article', match: :first) do
       expect(page).not_to have_css('.collapse')
       find('button').click
       expect(page).to have_css('.collapse', visible: true)
