@@ -37,7 +37,7 @@
     </div>
     <div class='col-sm'>
       <%= content_tag :h3, t('geoblacklight.home.map_heading') %>
-      <%= content_tag :div, '', id: 'map', data: { map: 'home', 'catalog-path'=> search_catalog_path , 'map-bbox' => params[:bbox], basemap: geoblacklight_basemap, leaflet_options: leaflet_options } %>
+      <%= content_tag :div, '', id: 'map', aria: { label: t('geoblacklight.map.label') }, data: { map: 'home', 'catalog-path'=> search_catalog_path , 'map-bbox' => params[:bbox], basemap: geoblacklight_basemap, leaflet_options: leaflet_options } %>
     </div>
   </div>
 </div>
