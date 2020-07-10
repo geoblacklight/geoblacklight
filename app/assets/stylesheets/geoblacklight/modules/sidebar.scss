@@ -1,59 +1,29 @@
 // Mixins and shared properties for sidebar elements
-
 @mixin sidebar-children {
-  %list-group-item-children {
-    padding: 10px 15px;
-  }
+  margin-bottom: 20px;
+  margin-top: 20px;
 
-  %list-group-item-anchors {
-    text-align: center;
-    width: 1.4em;
-  }
-
-  margin-top: 16px;
-  margin-bottom: 16px;
-
-  .card-header {
-    h2 {
-      display: inline-block;
-      padding-top: 8px;
-      padding-bottom: 8px;
-      margin-bottom: 0px;
-      font-size: 1rem;
-    }
+  .card-header h2 {
+    @extend .h6;
+    margin-bottom: 0px;
   }
 
   .card-subtitle {
-    margin: 1rem 0 .2rem;
-    font-size: .9rem;
+    margin: 1rem 0 0;
+    font-size: 1rem;
     font-weight: normal;
-    color: $gray-600;
   }
 
   .list-group {
-    padding-top: 24px;
-    padding-bottom: 24px;
-    padding-left: 4px;
-    padding-right: 4px;
+     border: 0;
+     margin: 8px 0;
 
     .list-group-item {
-      border-color: $white;
-      padding: 8px 16px;
+      border: 0;
+      padding: 0 0 0 20px;
 
       a {
-        @extend %list-group-item-children;
-
-        .geoblacklight {
-          color: $gray-600;
-        }
-      }
-    }
-
-    &-nested {
-      padding: 0;
-
-      .list-group-item {
-        padding: 8px 0;
+        display: block;
       }
     }
   }

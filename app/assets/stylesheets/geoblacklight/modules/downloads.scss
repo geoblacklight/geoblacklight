@@ -1,91 +1,72 @@
-%downloads-exports {
-  .list-group-item {
-    display: inline-block;
-    width: 100%;
-  }
-}
+// Common styling for the Downloads, Export, and Authentication cards
+.downloads,
+.card.exports,
+.authentication {
+  @include sidebar-children;
 
-%download-export-links {
-  a {
-    width: 100%;
-    font-weight: 600;
-    background-color: $link-color;
-    color: #ffffff;
-    border-color: darken($link-color, 6.5%);
-    white-space: inherit;
-  }
-}
+  .list-group {
+    &.list-group-nested .list-group-item:last-child {
+      padding-bottom: 0;
+    }
 
-@mixin download-export {
-  &-link {
-    &-container {
-      text-align: center;
-      @extend %download-export-links;
+    .list-group-item {
+      padding: 8px 20px;
+
+      a {
+        @extend .btn-primary;
+      }
     }
   }
 }
 
-.downloads {
-  @include sidebar-children;
-  @extend %downloads-exports;
-
-  .download {
-    @include download-export;
-  }
-}
-
+// This section could be eliminated if we update the Authentication card
+// to follow the pattern of Dowloads and Exports (put the button in a
+// list-group rather than the card header).
 .authentication {
-  @include sidebar-children;
   .card-header {
     background-color: inherit;
     border-bottom: inherit;
 
-    @extend %download-export-links;
+    a {
+      @extend .btn-primary;
+    }
   }
 }
 
-.exports {
-  @include sidebar-children;
-  @extend %downloads-exports;
-
+// Specific to the Export card (mostly because of the current external
+// label + button approach, which could be mostly eliminated by reworking
+// as suggested in https://github.com/sul-dlss/earthworks/issues/646)
+.card.exports {
   .card-header {
-    .fa-spinner {
+    .fa-spinner { // if this is used, it probably should go in the card body rather than the card header
       float: right;
     }
   }
 
   .export {
-    @include download-export;
-
-    padding-left: 0px;
-    padding-right: 0px;
     text-align: center;
-    width: 100%;
 
     @include media-breakpoint-up(xl) {
       text-align: left;
     }
 
-    &-label {
-      padding: 6px 12px;
+    .export-label {
+      padding: 6px 6px 6px 0;
 
       @include media-breakpoint-up(xl) {
         display: inline-block;
       }
     }
 
-    &-link {
-      &-container {
+    .export-link-container {
+      @include media-breakpoint-up(xl) {
+        display: inline-block;
+        float: right;
+      }
 
+      a {
         @include media-breakpoint-up(xl) {
-          display: inline-block;
-          float: right;
-        }
-
-        a {
-          @include media-breakpoint-up(xl) {
-            width: inherit;
-          }
+          width: inherit;
         }
       }
     }

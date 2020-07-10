@@ -1,70 +1,28 @@
 .show-tools {
   @include sidebar-children;
 
-  .list-group {
-
-    .list-group-item.exports {
-      margin-top:0px;
-    }
-
-    .list-group-item {
-
-      form {
-        @extend %list-group-item-children;
-
-        .checkbox {
-          margin-left: 4px;
-          margin-right: 4px;
-
-          label {
-            margin-bottom: inherit;
-          }
-        }
+  .list-group .list-group-item {
+    // Adjustments to give Bookmark same spacing as other Tools links
+    .checkbox {
+      label {
+        margin-bottom: 0;
       }
 
-      a {
-
-        .geoblacklight {
-
-          &-citation {
-            @extend %list-group-item-anchors;
-          }
-
-          &-data-dictionary {
-            @extend %list-group-item-anchors;
-          }
-
-          &-sms {
-            @extend %list-group-item-anchors;
-          }
-
-          &-email {
-            @extend %list-group-item-anchors;
-          }
-
-          &-web_services {
-            @extend %list-group-item-anchors;
-          }
-
-          &-metadata {
-            @extend %list-group-item-anchors;
-          }
-
-          &-carto {
-            @extend %list-group-item-anchors;
-          }
-
-          // DEPRECATED: Will be removed in GeoBlacklight v2.0
-          &-cartodb {
-            @extend %list-group-item-anchors;
-          }
-        }
+      .toggle-bookmark {
+        margin-right: 4px;
+        padding-bottom: 8px;
+        padding-top: 8px;
       }
     }
 
-    .downloads {
-      margin-left: 4px;
-      margin-right: 4px;
+    // Spacing for Tools links other than Bookmark
+    a {
+      padding: 8px 1rem 8px 0;
     }
+  }
+
+  // Spacing between Tools icons and their labels
+  .blacklight-icons {
+    padding-right: 2px;
   }
 }
