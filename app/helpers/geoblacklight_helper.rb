@@ -285,7 +285,7 @@ module GeoblacklightHelper
   def render_facet_item_with_icon(field_name, item)
     doc = Nokogiri::HTML.fragment(render_facet_item(field_name, item))
     doc.at_css('.facet-label').children.first
-       .add_previous_sibling(geoblacklight_icon(item.value, aria_hidden: true))
+       .add_previous_sibling(geoblacklight_icon(item.value, aria_hidden: true, classes: 'svg_tooltip'))
     doc.to_html.html_safe
   end
 
@@ -327,6 +327,8 @@ module GeoblacklightHelper
   def relations_icon(document, icon)
     icon_name = document[Settings.FIELDS.GEOM_TYPE] if Settings.USE_GEOM_FOR_RELATIONS_ICON
     icon_name = icon if icon_name.blank?
-    geoblacklight_icon(icon_name)
+    icon_options = {}
+    icon_options = { classes: 'svg_tooltip' } if Settings.USE_GEOM_FOR_RELATIONS_ICON
+    geoblacklight_icon(icon_name, icon_options)
   end
 end

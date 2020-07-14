@@ -49,8 +49,10 @@
   }
 
   .status-icons {
+    cursor: pointer;
     margin-left: 0.5rem;
     white-space: nowrap;
+    z-index: 2; // get the icons above the toggle
   }
 }
 

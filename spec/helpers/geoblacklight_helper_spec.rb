@@ -328,15 +328,36 @@ describe GeoblacklightHelper, type: :helper do
   end
 
   describe '#relations_icon' do
-    it 'renders a goemetry type if configured' do
-      allow(Settings).to receive(:USE_GEOM_FOR_RELATIONS_ICON).and_return(true)
-      html = Capybara.string(helper.relations_icon({ 'layer_geom_type_s' => 'polygon' }, 'leaf'))
-      expect(html.title.strip).to eq 'Polygon'
+    context 'when configured to use the geometry type' do
+      before do
+        allow(Settings).to receive(:USE_GEOM_FOR_RELATIONS_ICON).and_return(true)
+      end
+
+      it 'renders a goemetry type as the icon' do
+        html = Capybara.string(helper.relations_icon({ 'layer_geom_type_s' => 'polygon' }, 'leaf'))
+        expect(html.title.strip).to eq 'Polygon'
+      end
+
+      it 'has the svg_tooltip class so that the Bootstrap tooltip is applied' do
+        html = Capybara.string(helper.relations_icon({ 'layer_geom_type_s' => 'polygon' }, 'leaf'))
+        expect(html).to have_css('.blacklight-icons.svg_tooltip')
+      end
     end
-    it 'renders provided icon if not configured to use geometry' do
-      allow(Settings).to receive(:USE_GEOM_FOR_RELATIONS_ICON).and_return(false)
-      html = Capybara.string(helper.relations_icon({ 'layer_geom_type_s' => 'polygon' }, 'leaf'))
-      expect(html.title.strip).to eq 'Leaf'
+
+    context 'when not confiugred to use the geometry type' do
+      before do
+        allow(Settings).to receive(:USE_GEOM_FOR_RELATIONS_ICON).and_return(false)
+      end
+
+      it 'renders the provided icon' do
+        html = Capybara.string(helper.relations_icon({ 'layer_geom_type_s' => 'polygon' }, 'leaf'))
+        expect(html.title.strip).to eq 'Leaf'
+      end
+
+      it 'does not have the svg_tooltip class' do
+        html = Capybara.string(helper.relations_icon({ 'layer_geom_type_s' => 'polygon' }, 'leaf'))
+        expect(html).not_to have_css('.blacklight-icons.svg_tooltip')
+      end
     end
   end
 end
