@@ -72,13 +72,6 @@ jobs:
             bundle exec rake geoblacklight:index:seed
             bundle exec rake geoblacklight:downloads:mkdir
       - run:
-          name: Compile the assets for Webpack
-          command: |
-            cd .internal_test_app
-            rm config/webpacker.yml
-            bundle exec rails webpacker:install
-            bundle exec rails webpacker:compile
-      - run:
           name: Run the RSpec test suites
           command: bundle exec rspec $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
       - run:
