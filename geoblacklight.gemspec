@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
   spec.required_rubygems_version = '>= 2.5.2'
 
-  spec.add_dependency 'rails', '~> 5.0'
+  spec.add_dependency 'rails', '>= 5.2.4', '< 6.1'
   spec.add_dependency 'blacklight', '~> 7.0'
   spec.add_dependency 'font-awesome-rails'
   spec.add_dependency 'config'
@@ -31,11 +31,11 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'geo_combine', '~> 0.4'
   spec.add_dependency 'mime-types'
   spec.add_dependency 'handlebars_assets'
-  spec.add_dependency 'webpacker'
+  spec.add_dependency 'webpacker', '~> 4.0'
 
   spec.add_development_dependency 'solr_wrapper'
   spec.add_development_dependency 'rails-controller-testing'
-  spec.add_development_dependency 'rspec-rails', '~> 3.1'
+  spec.add_development_dependency 'rspec-rails'
   spec.add_development_dependency 'engine_cart', '~> 2.0'
   spec.add_development_dependency 'capybara', '>= 2.5.0'
   spec.add_development_dependency 'webdrivers'
