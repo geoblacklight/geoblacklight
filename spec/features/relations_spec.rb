@@ -1,30 +1,6 @@
 require 'spec_helper'
 
 feature 'Display related documents' do
-  let(:expected_json_resp) do
-    {
-      'ancestors' =>
-        {
-          'numFound' => 0,
-          'start' => 0,
-          'docs' => []
-        },
-      'descendants' =>
-            {
-              'numFound' => 1,
-              'start' => 0,
-              'docs' =>
-                    [
-                      {
-                        'dc_title_s' => '2015 New York City Subway Complexes and Ridership',
-                        'layer_slug_s' => 'nyu_2451_34502',
-                        'layer_geom_type_s' => 'Point'
-                      }
-                    ]
-            },
-      'current_doc' => 'nyu_2451_34635'
-    }
-  end
   scenario 'Record with dc_source_sm value(s) should have parent(s)' do
     visit relations_solr_document_path('nyu_2451_34502')
     expect(page).to have_css('ul b', text: 'Source Datasets')
@@ -37,7 +13,10 @@ feature 'Display related documents' do
 
   scenario 'Relations should respond to json' do
     visit relations_solr_document_path('nyu_2451_34635', format: 'json')
-    expect(page.body).to eq(expected_json_resp.to_json)
+    response = JSON.parse(page.body)
+    expect(response['ancestors']['numFound']).to eq 0
+    expect(response['descendants']['docs'].first['layer_slug_s']).to eq 'nyu_2451_34502'
+    expect(response['current_doc']).to eq 'nyu_2451_34635'
   end
 
   scenario 'Record with relations should render widget in catalog#show', js: true do
