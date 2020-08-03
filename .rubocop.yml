@@ -30,11 +30,7 @@ Layout/DotPosition:
   - leading
   - trailing
 
-Metrics/BlockLength:
-  Exclude:
-  - 'spec/helpers/geoblacklight_helper_spec.rb'
-
-Metrics/LineLength:
+Layout/LineLength:
   Max: 115
   Exclude:
   - 'spec/**/*'
@@ -42,6 +38,10 @@ Metrics/LineLength:
   - 'lib/generators/geoblacklight/install_generator.rb'
   - 'lib/tasks/geoblacklight.rake'
   - 'app/models/concerns/geoblacklight/spatial_search_behavior.rb'
+
+Metrics/BlockLength:
+  Exclude:
+  - 'spec/helpers/geoblacklight_helper_spec.rb'
 
 Metrics/MethodLength:
   Max: 16
