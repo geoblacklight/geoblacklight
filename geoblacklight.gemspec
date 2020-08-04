@@ -42,7 +42,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'factory_bot_rails'
   spec.add_development_dependency 'database_cleaner', '~> 1.3'
   spec.add_development_dependency 'bixby'
-  spec.add_development_dependency 'coveralls'
   spec.add_development_dependency 'simplecov', '~> 0.16'
   spec.add_development_dependency 'foreman'
   spec.add_development_dependency 'teaspoon'
