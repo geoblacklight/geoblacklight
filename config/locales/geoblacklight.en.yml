@@ -29,7 +29,7 @@ en:
       data_type: 'Data type'
       placename: 'Placename'
       subject: 'Subject'
-      version: 'GeoBlacklight version'
+      version: 'GeoBlacklight version %{version}'
     tools:
       login_to_view: 'Login to View and Download'
       open_carto: 'Open in Carto'
