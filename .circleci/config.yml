@@ -26,7 +26,6 @@ jobs:
       RACK_ENV: test
       RAILS_VERSION: <<parameters.rails_version>>
       COVERAGE: true
-    parallelism: 4
     steps:
       - checkout
       # Restore bundle and internal test app from the cache
@@ -133,18 +132,6 @@ workflows:
           ruby_version: 2.7.1
           rails_version: 6.0.3.2
           name: "rubocop_ruby2-7_rails6-0"
-      - rubocop:
-          ruby_version: 2.6.6
-          rails_version: 6.0.3.2
-          name: "rubocop_ruby2-6_rails6-0"
-      - rubocop:
-          ruby_version: 2.7.1
-          rails_version: 5.2.4.3
-          name: "rubocop_ruby2-7_rails5-2"
-      - rubocop:
-          ruby_version: 2.6.6
-          rails_version: 5.2.4.3
-          name: "rubocop_ruby2-6_rails5-2"
 
   nightly:
     triggers:
@@ -175,15 +162,3 @@ workflows:
           ruby_version: 2.7.1
           rails_version: 6.0.3.2
           name: "rubocop_ruby2-7_rails6-0"
-      - rubocop:
-          ruby_version: 2.6.6
-          rails_version: 6.0.3.2
-          name: "rubocop_ruby2-6_rails6-0"
-      - rubocop:
-          ruby_version: 2.7.1
-          rails_version: 5.2.4.3
-          name: "rubocop_ruby2-7_rails5-2"
-      - rubocop:
-          ruby_version: 2.6.6
-          rails_version: 5.2.4.3
-          name: "rubocop_ruby2-6_rails5-2"
