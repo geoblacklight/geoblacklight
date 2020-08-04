@@ -53,6 +53,18 @@ describe Geoblacklight::SpatialSearchBehavior do
         expect(subject.add_spatial_params(solr_params)).not_to have_key(:overlap)
       end
 
+      context "when local boost parameter is present" do
+        before do
+          solr_params[:bf] = ['local_boost^5']
+        end
+
+        it "appends overlap and includes the local boost" do
+          allow(Settings).to receive(:OVERLAP_RATIO_BOOST).and_return 2
+          expect(subject.add_spatial_params(solr_params)[:bf].to_s).to include('$overlap^2')
+          expect(solr_params[:bf].to_s).to include('local_boost^5')
+        end
+      end
+
       context 'when the wrong format for the bounding box is used' do
         before do
           allow(subject).to receive(:bounding_box).and_raise(Geoblacklight::Exceptions::WrongBoundingBoxFormat)
