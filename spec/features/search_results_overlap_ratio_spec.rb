@@ -34,15 +34,15 @@ feature 'spatial search results overlap ratio' do
 
     # NY State result
     # Bigger bbox / result bbox overlaps bbox param best
-    expect(position_in_result_page(page, 'cugir-008186')).to be < 3
+    expect(position_in_result_page(page, 'cugir-008186')).to be < 4
 
     # NY State result
     # Bigger bbox / result bbox overlaps bbox param best (score tie)
-    expect(position_in_result_page(page, 'cugir-008186-no-downloadurl')).to be < 3
+    expect(position_in_result_page(page, 'cugir-008186-no-downloadurl')).to be < 4
 
     # NY Adirondak Region result
     # Smaller bbox / result bbox overlaps bbox param the least
-    expect(position_in_result_page(page, 'cugir-007741')).to eq 3
+    expect(position_in_result_page(page, 'cugir-007741')).to eq 4
   end
 end
 
