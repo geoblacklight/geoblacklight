@@ -5,7 +5,7 @@ feature 'Export features' do
     feature 'Open in Carto' do
       scenario 'shows up in tools' do
         visit solr_document_path 'tufts-cambridgegrid100-04'
-        expect(page).to have_css 'li.exports a', text: 'Open in Carto'
+        expect(page).to have_css 'li.carto a', text: 'Open in Carto'
         click_link 'Open in Carto'
       end
     end
@@ -14,23 +14,14 @@ feature 'Export features' do
     feature 'Open in ArcGIS Online' do
       scenario 'shows up in tools' do
         visit solr_document_path '90f14ff4-1359-4beb-b931-5cb41d20ab90'
-        expect(page).to have_css 'li.exports a', text: 'Open in ArcGIS Online'
+        expect(page).to have_css 'li.arcgis a', text: 'Open in ArcGIS Online'
       end
     end
   end
   feature 'when restricted or no wfs' do
     scenario 'is not in tools' do
       visit solr_document_path 'princeton-02870w62c'
-      expect(page).not_to have_css 'li.exports a', text: 'Open in Carto'
-    end
-  end
-  context 'when carto is configured not to display' do
-    before do
-      allow(Settings).to receive(:CARTO_HIDE).and_return(true)
-    end
-    it 'will not display the carto link' do
-      visit solr_document_path 'tufts-cambridgegrid100-04'
-      expect(page).not_to have_css 'li.exports a', text: 'Open in Carto'
+      expect(page).not_to have_css 'li.carto a', text: 'Open in Carto'
     end
   end
 end

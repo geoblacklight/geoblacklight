@@ -230,23 +230,6 @@ module GeoblacklightHelper
     blacklight_config.basemap_provider || 'positron'
   end
 
-  def display_carto
-    return link_to(
-      content_tag(:span, '', class: 'geoblacklight geoblacklight-carto') +
-      t('geoblacklight.tools.open_carto'),
-      carto_link(@document.carto_reference),
-      target: '_blank'
-    ) if @document.carto_reference.present? && !Settings.CARTO_HIDE
-  end
-
-  def display_arcgis
-    return link_to(
-      blacklight_icon('esri-globe') + ' ' +
-      t('geoblacklight.tools.open_arcgis'),
-      arcgis_link(@document.arcgis_urls)
-    ) if @document.arcgis_urls.present? && !Settings.ARCGIS_HIDE
-  end
-
   ##
   # Creates a Carto OneClick link link, using the configuration link
   # @param [String] file_link

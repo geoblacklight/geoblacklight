@@ -1,0 +1,4 @@
+<% document ||= @document %>
+<%= link_to carto_link(document.carto_reference), target: '_blank' do %>
+  <span class='geoblacklight geoblacklight-carto'></span><%= t('geoblacklight.tools.open_carto') %>
+<% end %>
