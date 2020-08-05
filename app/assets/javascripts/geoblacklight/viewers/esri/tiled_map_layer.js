@@ -30,7 +30,7 @@ GeoBlacklight.Viewer.TiledMapLayer = GeoBlacklight.Viewer.Esri.extend({
       _this.appendLoadingMessage();
 
       // query layer at click location
-      L.esri.Tasks.identifyFeatures({
+      L.esri.identifyFeatures({
         url: layer.options.url,
         useCors: true
       })
