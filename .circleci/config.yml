@@ -1,5 +1,43 @@
 ---
 version: 2.1
+commands:
+  restore_bundle_cache:
+    description: "Restore gems installed by bundler"
+    parameters:
+      # Use this parameter to bust the cache, if needed
+      cache_prefix:
+        type: string
+        default: "8-6-2020"
+      ruby_version:
+        type: string
+        default: '2.7.1'
+      rails_version:
+        type: string
+        default: '6.0.3.2'
+    steps:
+      - restore_cache:
+          keys:
+            - << parameters.cache_prefix >>-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-<< parameters.ruby_version >>-<< parameters.rails_version >>
+          paths:
+            - /home/circleci/geoblacklight/vendor/bundle
+  save_bundle_cache:
+    description: "Save gems installed by bundler"
+    parameters:
+      # Use this parameter to bust the cache, if needed
+      cache_prefix:
+        type: string
+        default: "8-6-2020"
+      ruby_version:
+        type: string
+        default: '2.7.1'
+      rails_version:
+        type: string
+        default: '6.0.3.2'
+    steps:
+      - save_cache:
+          key: << parameters.cache_prefix >>-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-<< parameters.ruby_version >>-<< parameters.rails_version >>
+          paths:
+            - /home/circleci/geoblacklight/vendor/bundle
 jobs:
   build:
     working_directory: ~/geoblacklight
@@ -13,6 +51,9 @@ jobs:
       rails_version:
         type: string
         default: '6.0.3.2'
+      coverage:
+        type: boolean
+        default: false
     docker:
       - image: circleci/ruby:<< parameters.ruby_version >>-node-browsers
       - image: solr:7-alpine
@@ -25,34 +66,21 @@ jobs:
       RAILS_ENV: test
       RACK_ENV: test
       RAILS_VERSION: <<parameters.rails_version>>
-      COVERAGE: true
     steps:
       - checkout
-      # Restore bundle and internal test app from the cache
-      - restore_cache:
-          keys:
-            - cachebust-2020-07-13-geoblacklight-bundle-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-<< parameters.ruby_version >>-<< parameters.rails_version >>
+      - restore_bundle_cache:
+          ruby_version: << parameters.ruby_version >>
+          rails_version: << parameters.rails_version >>
       # Install gems
       - run: bundle check || bundle install
-      # Store bundle cache
-      - save_cache:
-          key: cachebust-2020-07-13-geoblacklight-bundle-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-<< parameters.ruby_version >>-<< parameters.rails_version >>
-          paths:
-            - /home/circleci/geoblacklight/vendor/bundle
-        # Restore internal test app from the cache
-      - restore_cache:
-          keys:
-            - cachebust-2020-07-13-geoblacklight-internal-test-app-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-{{ checksum "spec/test_app_templates/Gemfile.extra" }}-<< parameters.ruby_version >>-<< parameters.rails_version >>
       # Generate the internal test app
       - run:
           name: Generate test app
           command: |
             [ -e ./.internal_test_app ] || bundle exec rake engine_cart:generate
-      - save_cache:
-          name: Save test app cache
-          key: cachebust-2020-07-13-geoblacklight-internal-test-app-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-{{ checksum "spec/test_app_templates/Gemfile.extra" }}-<< parameters.ruby_version >>-<< parameters.rails_version >>
-          paths:
-            - ./.internal_test_app
+      - save_bundle_cache:
+          ruby_version: << parameters.ruby_version >>
+          rails_version: << parameters.rails_version >>
       - run:
           name: Wait for Solr
           command: dockerize -wait tcp://localhost:<<parameters.solr_port>> -timeout 1m
@@ -70,9 +98,31 @@ jobs:
             bundle check || bundle install
             bundle exec rake geoblacklight:index:seed
             bundle exec rake geoblacklight:downloads:mkdir
-      - run:
-          name: Run the RSpec test suites
-          command: bundle exec rspec $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+      - when:
+          condition: <<parameters.coverage>>
+          steps:
+            - run:
+                name: Ensure simplecov is installed
+                command: gem install simplecov
+            - run:
+                name: Run the RSpec test suites
+                command: bundle exec rspec
+            - run:
+                name: Stash Coverage Results
+                command: |
+                  cp -R coverage/ coverage_results/
+                  cp -R coverage/ /tmp/coverage_results/
+            - persist_to_workspace:
+                root: '~/geoblacklight'
+                paths: 'coverage_results'
+            - store_artifacts:
+                path: /tmp/coverage_results/
+      - unless:
+          condition: <<parameters.coverage>>
+          steps:
+            - run:
+                name: Run the RSpec test suites
+                command: bundle exec rspec
       - run:
           name: Run the Teaspoon test suites
           command: bundle exec rake teaspoon
@@ -99,22 +149,55 @@ jobs:
     steps:
       - checkout
       # Restore bundle cache
-      - restore_cache:
-          keys:
-            - cachebust-2020-07-13-geoblacklight-bundle-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-<< parameters.ruby_version >>-<< parameters.rails_version >>
-          paths:
-            - /home/circleci/geoblacklight/vendor/bundle
+      - restore_bundle_cache:
+          ruby_version: << parameters.ruby_version >>
+          rails_version: << parameters.rails_version >>
       # Install gems and run rubocop
       - run: bundle check || bundle install
       - run: bundle exec rake rubocop
 
+  coverage_report:
+    working_directory: ~/geoblacklight
+    parameters:
+      ruby_version:
+        type: string
+        default: '2.7.1'
+      rails_version:
+        type: string
+        default: '6.0.3.2'
+    docker:
+      - image: circleci/ruby:<< parameters.ruby_version >>-node-browsers
+    environment:
+      GEM_HOME: /home/circleci/geoblacklight/vendor/bundle
+      BUNDLE_PATH: /home/circleci/geoblacklight/vendor/bundle
+      BUNDLE_JOBS: 4
+      BUNDLE_RETRY: 3
+      RAILS_ENV: test
+      RACK_ENV: test
+      RAILS_VERSION: <<parameters.rails_version>>
+    steps:
+      - checkout
+      - attach_workspace:
+          at: '~/geoblacklight'
+      - restore_bundle_cache:
+          ruby_version: << parameters.ruby_version >>
+          rails_version: << parameters.rails_version >>
+      - run:
+          name: Merge and check coverage
+          command: |
+            RAILS_ENV=test bundle exec ruby ./bin/coverage.rb
+      - store_artifacts:
+          path: ~/figgy/coverage
+          destination: coverage
+
 workflows:
-  version: 2
+  version: 2.1
   build:
     jobs:
       - build:
           ruby_version: 2.7.1
           rails_version: 6.0.3.2
+          coverage: true
           name: "ruby2-7_rails6-0"
       - build:
           ruby_version: 2.6.6
@@ -129,10 +212,11 @@ workflows:
           rails_version: 5.2.4.3
           name: "ruby2-6_rails5-2"
       - rubocop:
-          ruby_version: 2.7.1
-          rails_version: 6.0.3.2
-          name: "rubocop_ruby2-7_rails6-0"
-
+          requires:
+            - ruby2-7_rails6-0
+      - coverage_report:
+          requires:
+            - ruby2-7_rails6-0
   nightly:
     triggers:
       - schedule:
@@ -145,6 +229,7 @@ workflows:
       - build:
           ruby_version: 2.7.1
           rails_version: 6.0.3.2
+          coverage: true
           name: "ruby2-7_rails6-0"
       - build:
           ruby_version: 2.6.6
@@ -159,6 +244,8 @@ workflows:
           rails_version: 5.2.4.3
           name: "ruby2-6_rails5-2"
       - rubocop:
-          ruby_version: 2.7.1
-          rails_version: 6.0.3.2
-          name: "rubocop_ruby2-7_rails6-0"
+          requires:
+            - ruby2-7_rails6-0
+      - coverage_report:
+          requires:
+            - ruby2-7_rails6-0
