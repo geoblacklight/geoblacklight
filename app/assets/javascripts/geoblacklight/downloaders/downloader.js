@@ -3,7 +3,7 @@
 
   var Downloader = L.Class.extend({
     options: {
-      spinner: $('<i class="fa fa-spinner fa-spin fa-2x fa-align-center"></i>')
+      spinner: $('<div class="spinner-border spinner-border-sm float-right" role="status"><span class="sr-only">Downloading</span></div>')
     },
 
     initialize: function(el, options) {

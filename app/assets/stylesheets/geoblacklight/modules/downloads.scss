@@ -38,8 +38,10 @@
 // as suggested in https://github.com/sul-dlss/earthworks/issues/646)
 .card.exports {
   .card-header {
-    .fa-spinner { // if this is used, it probably should go in the card body rather than the card header
-      float: right;
+    .spinner-border { // if this is used, it probably should go in the card body rather than the card header
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
     }
   }
 

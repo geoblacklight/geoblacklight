@@ -24,11 +24,12 @@
   }
 
   .caret-toggle {
-    @extend .fa, .fa-caret-right;
-    width: 35px;
+    @include caret('right');
+    padding-left: 0;
+    width: 28px;
 
     &[aria-expanded="true"] {
-      @extend .fa, .fa-caret-down;
+      @include caret('down');
     }
   }
 

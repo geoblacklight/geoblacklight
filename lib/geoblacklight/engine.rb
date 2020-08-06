@@ -1,11 +1,9 @@
 require 'blacklight'
-require 'font-awesome-rails'
 require 'coderay'
 require 'config'
 require 'faraday'
 require 'faraday_middleware'
 require 'nokogiri'
-require 'geoblacklight-icons'
 require 'mime/types'
 require 'handlebars_assets'
 
