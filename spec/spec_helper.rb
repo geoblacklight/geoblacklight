@@ -11,7 +11,7 @@ end
 SimpleCov.start 'rails' do
   add_filter 'lib/generators/geoblacklight/install_generator.rb'
   add_filter 'lib/geoblacklight/version.rb'
-  add_filter 'lib/generators/geoblacklight/templates'
+  add_filter 'lib/generators'
   add_filter '/spec'
   add_filter '.internal_test_app/'
 end
