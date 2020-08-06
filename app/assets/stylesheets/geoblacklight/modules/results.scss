@@ -5,52 +5,37 @@
 .more-info-area {
   max-height: 100px;
   overflow:hidden;
+  padding-left: 2ch;
 }
 
-.index_title {
-  @extend h5;
-  display: flex;
-  justify-content: space-between;
-  font-size:1rem;
-  width:80%;
+.documents-list {
+  @extend .mb-4;
+}
 
-  .title-wrapper {
-    @extend .d-flex;
-    @extend .justify-content-start;
-    flex: 1;
-    min-width: 0;
+.index-split {
+  .index_title {
+    display: flex;
+    font-size: 1rem;
+    padding-right: 0;
   }
 
   .document-counter {
     @extend .pr-1;
   }
 
-  a {
-    white-space: nowrap;
-    overflow-x: hidden;
-    min-width: 0;
-    text-overflow: ellipsis;
-    position: relative;
-    z-index: 2; // get the link above the toggle
-  }
-
   .caret-toggle {
     @extend .fa, .fa-caret-right;
-    flex-grow: 0;
-    width: 10px;
+    width: 35px;
 
     &[aria-expanded="true"] {
       @extend .fa, .fa-caret-down;
     }
   }
 
-  .document-counter {
-    flex-grow: 0;
-  }
-
   .status-icons {
     cursor: pointer;
     margin-left: 0.5rem;
+    margin-top: -3px;
     white-space: nowrap;
     z-index: 2; // get the icons above the toggle
   }

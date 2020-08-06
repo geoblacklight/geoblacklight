@@ -69,6 +69,7 @@ en:
       descendant: 'Derived Datasets'
       browse_all: "Browse all %{count} records..."
     metadata:
+      toggle_summary: 'Toggle summary'
       view_metadata: 'View Metadata'
       more_details: 'More details at'
       metadata_error: 'The metadata view for selected schema is not available'
