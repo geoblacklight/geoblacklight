@@ -7,7 +7,7 @@ commands:
       # Use this parameter to bust the cache, if needed
       cache_prefix:
         type: string
-        default: "8-6-2020"
+        default: "8-6-2020-A"
       ruby_version:
         type: string
         default: '2.7.1'
@@ -26,7 +26,7 @@ commands:
       # Use this parameter to bust the cache, if needed
       cache_prefix:
         type: string
-        default: "8-6-2020"
+        default: "8-6-2020-A"
       ruby_version:
         type: string
         default: '2.7.1'
@@ -148,7 +148,6 @@ jobs:
       RAILS_VERSION: <<parameters.rails_version>>
     steps:
       - checkout
-      # Restore bundle cache
       - restore_bundle_cache:
           ruby_version: << parameters.ruby_version >>
           rails_version: << parameters.rails_version >>
@@ -182,6 +181,8 @@ jobs:
       - restore_bundle_cache:
           ruby_version: << parameters.ruby_version >>
           rails_version: << parameters.rails_version >>
+      # Install gems and check coverage
+      - run: bundle check || bundle install
       - run:
           name: Merge and check coverage
           command: |

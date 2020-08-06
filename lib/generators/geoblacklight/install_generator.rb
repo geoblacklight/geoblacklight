@@ -30,20 +30,8 @@ module Geoblacklight
       inject_into_file 'config/routes.rb', routes, before: /^end/
     end
 
-    def assets
-      copy_file 'geoblacklight.scss', 'app/assets/stylesheets/geoblacklight.scss'
-      copy_file 'geoblacklight.js', 'app/assets/javascripts/geoblacklight.js'
-
-      if Rails.version.to_i == 6
-        append_to_file 'app/assets/javascripts/application.js',
-                       "\n// Required by GeoBlacklight\n//= require geoblacklight"
-      end
-
-      append_to_file 'config/initializers/assets.rb',
-                     "\nRails.application.config.assets.precompile += %w( favicon.ico )\n"
-
-      append_to_file 'config/initializers/assets.rb',
-                     "\nRails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'images')\n"
+    def generate_assets
+      generate 'geoblacklight:assets'
     end
 
     def create_blacklight_catalog
