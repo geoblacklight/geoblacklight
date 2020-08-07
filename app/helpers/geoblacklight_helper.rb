@@ -1,5 +1,4 @@
 module GeoblacklightHelper
-  extend Deprecation
 
   def document_available?
     @document.public? || (@document.same_institution? && user_signed_in?)
@@ -103,36 +102,6 @@ module GeoblacklightHelper
   end
 
   ##
-  # Capture SVG icon aria labels to describe
-  def queue_icon_aria_label(feature_name)
-    @aria_labels ||= Set.new
-    @aria_labels << feature_name
-  end
-  deprecation_deprecate :queue_icon_aria_label
-
-  ##
-  # Render a div of divs describing aria-labelledby values
-  # @return [HTML tag]
-  def render_aria_labels(aria_labels)
-    return unless aria_labels.present?
-    content_tag :div, id: 'aria-labels', class: 'sr-only sr-only-focusable' do
-      aria_labels.each do |label|
-        concat(render_aria_label(label))
-      end
-    end
-  end
-  deprecation_deprecate :render_aria_labels
-
-  # Render a div describing a aria-labelledby value
-  # @return [HTML tag]
-  def render_aria_label(label)
-    content_tag :div, id: "aria-label-#{label}" do
-      I18n.t("geoblacklight.aria-labels.#{label}")
-    end
-  end
-  deprecation_deprecate :render_aria_label
-
-  ##
   # Renders an unique array of search links based off of terms
   # passed in using the facet parameter
   #
@@ -229,16 +198,6 @@ module GeoblacklightHelper
   def geoblacklight_basemap
     blacklight_config.basemap_provider || 'positron'
   end
-
-  ##
-  # Creates a Carto OneClick link link, using the configuration link
-  # @param [String] file_link
-  # @return [String]
-  # @deprecated Use {#carto_link} instead.
-  def cartodb_link(file_link)
-    carto_link(file_link)
-  end
-  deprecation_deprecate carto_link: 'use GeoblacklightHelper#carto_link instead'
 
   ##
   # Renders the partials for a Geoblacklight::Reference in the web services
