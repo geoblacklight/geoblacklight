@@ -83,22 +83,20 @@ namespace :geoblacklight do
     end
     desc 'Precaches a download'
     task :precache, [:doc_id, :download_type, :timeout] => [:environment] do |_t, args|
-      begin
-        unless args[:doc_id] && args[:download_type] && args[:timeout]
-          fail 'Please supply required arguments [document_id, download_type and timeout]'
-        end
-        document = Geoblacklight::SolrDocument.find(args[:doc_id])
-        fail Blacklight::Exceptions::RecordNotFound if document[:layer_slug_s] != args[:doc_id]
-        download = "Geoblacklight::#{args[:download_type].capitalize}Download"
-                   .constantize.new(document, timeout: args[:timeout].to_i)
-        download.get
-        Rails.logger.info "Successfully downloaded #{download.file_name}"
-        Rails.logger.info "#{Geoblacklight::ShapefileDownload.file_path}"
-      rescue Geoblacklight::Exceptions::ExternalDownloadFailed => error
-        Rails.logger.error error.message + ' ' + error.url
-      rescue NameError
-        Rails.logger.error "Could not find that download type \"#{args[:download_type]}\""
+      unless args[:doc_id] && args[:download_type] && args[:timeout]
+        fail 'Please supply required arguments [document_id, download_type and timeout]'
       end
+      document = Geoblacklight::SolrDocument.find(args[:doc_id])
+      fail Blacklight::Exceptions::RecordNotFound if document[:layer_slug_s] != args[:doc_id]
+      download = "Geoblacklight::#{args[:download_type].capitalize}Download"
+                 .constantize.new(document, timeout: args[:timeout].to_i)
+      download.get
+      Rails.logger.info "Successfully downloaded #{download.file_name}"
+      Rails.logger.info "#{Geoblacklight::ShapefileDownload.file_path}"
+    rescue Geoblacklight::Exceptions::ExternalDownloadFailed => error
+      Rails.logger.error error.message + ' ' + error.url
+    rescue NameError
+      Rails.logger.error "Could not find that download type \"#{args[:download_type]}\""
     end
   end
 
