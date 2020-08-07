@@ -21,13 +21,6 @@ Layout/IndentationWidth:
   Exclude:
     - 'lib/tasks/geoblacklight.rake'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
-# URISchemes: http, https
-Layout/LineLength:
-  Max: 317
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: AllowForAlignment.
@@ -274,13 +267,3 @@ Style/RedundantInterpolation:
 Style/RedundantPercentQ:
   Exclude:
     - 'geoblacklight.gemspec'
-
-# Offense count: 11
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, ConsistentQuotesInMultiline.
-# SupportedStyles: single_quotes, double_quotes
-Style/StringLiterals:
-  Exclude:
-    - 'lib/tasks/geoblacklight.rake'
-    - 'spec/models/concerns/geoblacklight/spatial_search_behavior_spec.rb'
-    - 'spec/spec_helper.rb'

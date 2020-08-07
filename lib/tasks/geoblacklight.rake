@@ -31,7 +31,7 @@ namespace :geoblacklight do
         puts ' '
         begin
           Rake::Task['geoblacklight:solr:seed'].invoke
-          system "foreman start"
+          system 'foreman start'
         rescue Interrupt
           puts 'Shutting down...'
         end
@@ -40,14 +40,14 @@ namespace :geoblacklight do
   end
 
   namespace :index do
-    desc "Put sample data into solr"
+    desc 'Put sample data into solr'
     task :seed => :environment do
       docs = Dir['spec/fixtures/solr_documents/*.json'].map { |f| JSON.parse File.read(f) }.flatten
       Blacklight.default_index.connection.add docs
       Blacklight.default_index.connection.commit
     end
 
-    desc "Ingests a GeoHydra transformed.json"
+    desc 'Ingests a GeoHydra transformed.json'
     task :ingest_all => :environment do
       docs = JSON::parse(File.read("#{Rails.root}/tmp/transformed.json"))
       docs.each do |doc|
@@ -56,7 +56,7 @@ namespace :geoblacklight do
       end
     end
 
-    desc "Ingests a directory of geoblacklight.json files"
+    desc 'Ingests a directory of geoblacklight.json files'
     task :ingest, [:directory] => :environment do |_t, args|
       args.with_defaults(directory: 'data')
       Dir.glob(File.join(args[:directory], '**', 'geoblacklight.json')).each do |fn|
@@ -67,7 +67,7 @@ namespace :geoblacklight do
           puts "Failed to ingest #{fn}: #{e.inspect}"
         end
       end
-      puts "Committing changes to Solr"
+      puts 'Committing changes to Solr'
       Blacklight.default_index.connection.commit
     end
   end
@@ -101,7 +101,7 @@ namespace :geoblacklight do
   end
 
   namespace :solr do
-    desc "Put sample data into solr"
+    desc 'Put sample data into solr'
     task :seed => :environment do
       Rake::Task['geoblacklight:index:seed'].invoke
     end
