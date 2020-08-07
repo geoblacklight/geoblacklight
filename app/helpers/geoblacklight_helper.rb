@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 module GeoblacklightHelper
-
   def document_available?
     @document.public? || (@document.same_institution? && user_signed_in?)
   end
