@@ -96,18 +96,3 @@ Style/MissingRespondToMissing:
   Exclude:
     - 'app/models/concerns/geoblacklight/solr_document.rb'
     - 'lib/geoblacklight/references.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: AutoCorrect, EnforcedStyle, IgnoredMethods.
-# SupportedStyles: predicate, comparison
-Style/NumericPredicate:
-  Exclude:
-    - 'spec/**/*'
-    - 'lib/geoblacklight/relation/relation_response.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/RedundantPercentQ:
-  Exclude:
-    - 'geoblacklight.gemspec'
