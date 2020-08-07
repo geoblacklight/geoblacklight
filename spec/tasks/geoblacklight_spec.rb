@@ -11,8 +11,8 @@ describe 'geoblacklight.rake' do
 
     it 'creates the tmp/cache/downloads directory' do
       Rake::Task['geoblacklight:downloads:mkdir'].invoke
-      expect(File.directory? Rails.root.join('tmp/cache/downloads')).
-        to be true
+      expect(File.directory? Rails.root.join('tmp/cache/downloads'))
+        .to be true
     end
   end
 end
