@@ -91,12 +91,6 @@ Style/HashSyntax:
   Exclude:
     - 'lib/tasks/geoblacklight.rake'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/IfUnlessModifier:
-  Exclude:
-    - 'lib/tasks/geoblacklight.rake'
-
 # Offense count: 2
 Style/MissingRespondToMissing:
   Exclude:
