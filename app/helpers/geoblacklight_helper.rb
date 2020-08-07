@@ -252,10 +252,11 @@ module GeoblacklightHelper
   # Renders a reference url for a document
   # @param [Hash] document, field_name
   def render_references_url(args)
+    return unless args[:document]&.references&.url
     link_to(
       args[:document].references.url.endpoint,
       args[:document].references.url.endpoint
-    ) if args[:document]&.references&.url
+    )
   end
 
   ## Returns the icon used based off a Settings strategy

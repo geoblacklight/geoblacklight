@@ -97,13 +97,6 @@ Style/MissingRespondToMissing:
     - 'app/models/concerns/geoblacklight/solr_document.rb'
     - 'lib/geoblacklight/references.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/MultilineIfModifier:
-  Exclude:
-    - 'app/helpers/geoblacklight_helper.rb'
-    - 'lib/geoblacklight/references.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: AllowedMethods.
