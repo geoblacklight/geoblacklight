@@ -77,12 +77,6 @@ Rails/RakeEnvironment:
     - 'Rakefile'
     - 'lib/tasks/geoblacklight.rake'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/EmptyLiteral:
-  Exclude:
-    - 'spec/models/concerns/geoblacklight/spatial_search_behavior_spec.rb'
-
 # Offense count: 1
 # Configuration parameters: MinBodyLength.
 Style/GuardClause:
