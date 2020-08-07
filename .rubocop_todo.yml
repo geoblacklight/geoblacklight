@@ -13,14 +13,6 @@ RSpec/EmptyExampleGroup:
     - 'spec/views/catalog/_document_split.html.erb_spec.rb'
     - 'spec/views/catalog/_index_split.html.erb_spec.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: implicit, each, example
-RSpec/HookArgument:
-  Exclude:
-    - 'spec/spec_helper.rb'
-
 # Offense count: 8
 # Cop supports --auto-correct.
 RSpec/LeadingSubject:
