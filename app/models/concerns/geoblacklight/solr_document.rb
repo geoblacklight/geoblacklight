@@ -109,7 +109,7 @@ module Geoblacklight
     end
 
     def method_missing(method, *args, &block)
-      if /.*_url$/ =~ method.to_s
+      if /.*_url$/.match?(method.to_s)
         checked_endpoint(method.to_s.gsub('_url', ''))
       else
         super
