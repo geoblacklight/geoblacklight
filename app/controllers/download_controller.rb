@@ -6,8 +6,7 @@ class DownloadController < ApplicationController
   rescue_from Geoblacklight::Exceptions::ExternalDownloadFailed do |exception|
     Geoblacklight.logger.error exception.message + ' ' + exception.url
     flash[:danger] = view_context
-                     .content_tag(:span,
-                                  flash_error_message(exception),
+                     .tag.span(flash_error_message(exception),
                                   data: {
                                     download: 'error',
                                     download_id: params[:id],

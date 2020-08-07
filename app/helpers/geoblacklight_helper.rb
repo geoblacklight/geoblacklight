@@ -157,8 +157,8 @@ module GeoblacklightHelper
   def render_help_text_entry(feature, key)
     if I18n.exists?("geoblacklight.help_text.#{feature}.#{key}", locale)
       help_text = I18n.t("geoblacklight.help_text.#{feature}.#{key}")
-      content_tag :h3, class: 'help-text viewer_protocol h6' do
-        content_tag :a, 'data': { toggle: 'popover', title: help_text[:title], content: help_text[:content] } do
+      tag.h3 class: 'help-text viewer_protocol h6' do
+        tag.a 'data': { toggle: 'popover', title: help_text[:title], content: help_text[:content] } do
           help_text[:title]
         end
       end
@@ -180,7 +180,7 @@ module GeoblacklightHelper
   # get_field_values method
   # @param [Hash] args from get_field_values
   def render_value_as_truncate_abstract(args)
-    content_tag :div, class: 'truncate-abstract' do
+    tag.div class: 'truncate-abstract' do
       Array(args[:value]).flatten.join(' ')
     end
   end

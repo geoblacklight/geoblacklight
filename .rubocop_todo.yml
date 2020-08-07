@@ -49,14 +49,6 @@ RSpec/SubjectStub:
     - 'spec/models/concerns/geoblacklight/solr_document/inspection_spec.rb'
     - 'spec/models/concerns/geoblacklight/spatial_search_behavior_spec.rb'
 
-# Offense count: 5
-# Cop supports --auto-correct.
-Rails/ContentTag:
-  Exclude:
-    - 'app/controllers/download_controller.rb'
-    - 'app/helpers/geoblacklight_helper.rb'
-    - 'lib/geoblacklight/metadata/html.rb'
-
 # Offense count: 9
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: slashes, arguments
