@@ -11,15 +11,14 @@ Rails:
 AllCops:
   TargetRubyVersion: 2.7
   DisplayCopNames: true
-  Include:
-  - '**/Rakefile'
   Exclude:
-  - 'db/**/*'
-  - 'vendor/**/*'
   - '.internal_test_app/**/*'
-  - 'lib/generators/geoblacklight/templates/**/*'
+  - 'db/**/*'
   - 'geoblacklight.gemspec'
   - 'Gemfile'
+  - 'lib/generators/geoblacklight/templates/**/*'
+  - 'tmp/**/*'
+  - 'vendor/**/*'
 
 Layout/DotPosition:
   Description: Checks the position of the dot in multi-line method calls.
@@ -33,11 +32,12 @@ Layout/DotPosition:
 Layout/LineLength:
   Max: 115
   Exclude:
-  - 'spec/**/*'
-  - 'Rakefile'
+  - 'app/models/concerns/geoblacklight/spatial_search_behavior.rb'
+  - 'bin/coverage.rb'
   - 'lib/generators/geoblacklight/install_generator.rb'
   - 'lib/tasks/geoblacklight.rake'
-  - 'app/models/concerns/geoblacklight/spatial_search_behavior.rb'
+  - 'Rakefile'
+  - 'spec/**/*'
 
 Metrics/BlockLength:
   Exclude:
