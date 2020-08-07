@@ -49,7 +49,7 @@ namespace :geoblacklight do
 
     desc 'Ingests a GeoHydra transformed.json'
     task :ingest_all => :environment do
-      docs = JSON::parse(File.read("#{Rails.root}/tmp/transformed.json"))
+      docs = JSON.parse(File.read("#{Rails.root}/tmp/transformed.json"))
       docs.each do |doc|
         Blacklight.default_index.connection.add doc
         Blacklight.default_index.connection.commit
