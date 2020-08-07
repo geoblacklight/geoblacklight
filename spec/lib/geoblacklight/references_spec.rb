@@ -167,8 +167,6 @@ describe Geoblacklight::References do
     end
     it 'returns nil if there is no direct download' do
       expect(typical_ogp_shapefile.preferred_download).to be_nil
-    end
-    it 'returns nil if there is no direct download' do
       expect(typical_ogp_geotiff.preferred_download).to be_nil
     end
   end

@@ -38,4 +38,9 @@ feature 'Home page', js: true do # use js: true for tests which require js, but 
     end
     expect(page).to have_css '#documents'
   end
+  scenario 'can search by placename' do
+    click_link 'Minnesota, United States'
+    results = page.all(:css, 'article.document')
+    expect(results.count).to equal(3)
+  end
 end

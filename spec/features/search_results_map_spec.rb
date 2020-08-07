@@ -6,12 +6,6 @@ feature 'search results map', js: true do
     visit search_catalog_path(q: 'Minnesota')
     expect(page).to have_css '#map'
   end
-  scenario 'present on a search result page' do
-    visit root_path
-    click_link 'Minnesota, United States'
-    results = page.all(:css, 'article.document')
-    expect(results.count).to equal(3)
-  end
   scenario 'view is scoped to Minnesota' do
     visit root_path
     click_link 'Minnesota, United States'
