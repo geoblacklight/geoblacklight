@@ -13,16 +13,6 @@ RSpec/EmptyExampleGroup:
     - 'spec/views/catalog/_document_split.html.erb_spec.rb'
     - 'spec/views/catalog/_index_split.html.erb_spec.rb'
 
-# Offense count: 8
-# Cop supports --auto-correct.
-RSpec/LeadingSubject:
-  Exclude:
-    - 'spec/lib/geoblacklight/document_presenter_spec.rb'
-    - 'spec/lib/geoblacklight/metadata_transformer/base_spec.rb'
-    - 'spec/lib/geoblacklight/metadata_transformer/fgdc_spec.rb'
-    - 'spec/lib/geoblacklight/metadata_transformer/iso19139_spec.rb'
-    - 'spec/lib/geoblacklight/metadata_transformer_spec.rb'
-
 # Offense count: 48
 # Configuration parameters: .
 # SupportedStyles: have_received, receive
@@ -58,13 +48,6 @@ RSpec/SubjectStub:
   Exclude:
     - 'spec/models/concerns/geoblacklight/solr_document/inspection_spec.rb'
     - 'spec/models/concerns/geoblacklight/spatial_search_behavior_spec.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: NilOrEmpty, NotPresent, UnlessPresent.
-Rails/Blank:
-  Exclude:
-    - 'app/models/concerns/geoblacklight/solr_document/arcgis.rb'
 
 # Offense count: 5
 # Cop supports --auto-correct.

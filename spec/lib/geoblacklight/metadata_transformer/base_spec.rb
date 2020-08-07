@@ -9,8 +9,8 @@ describe Geoblacklight::MetadataTransformer::Base do
   end
 
   context 'with metadata types without XSL Stylesheets' do
-    let(:metadata) { instance_double(GeoCombine::Metadata) }
     subject { described_class.new(metadata) }
+    let(:metadata) { instance_double(GeoCombine::Metadata) }
     describe '#transform' do
       before do
         allow(metadata).to receive(:to_html).and_raise(NoMethodError, 'undefined method `to_html\'')
@@ -22,8 +22,8 @@ describe Geoblacklight::MetadataTransformer::Base do
   end
 
   context 'with metadata types with XSL Stylesheets but invalid HTML' do
-    let(:metadata) { instance_double(GeoCombine::Metadata) }
     subject { described_class.new(metadata) }
+    let(:metadata) { instance_double(GeoCombine::Metadata) }
     describe '#transform' do
       before do
         allow(metadata).to receive(:to_html).and_return('<invalid-html></invalid-html>')

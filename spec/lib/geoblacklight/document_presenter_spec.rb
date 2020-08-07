@@ -3,6 +3,7 @@ require 'spec_helper'
 
 describe Geoblacklight::DocumentPresenter do
   # Please see https://github.com/projectblacklight/blacklight/blob/v6.15.0/spec/presenters/index_presenter_spec.rb#L4
+  subject { presenter }
   let(:request_context) { double(document_index_view_type: 'list') }
   let(:blacklight_config) do
     Blacklight::Configuration.new.configure do |config|
@@ -13,7 +14,6 @@ describe Geoblacklight::DocumentPresenter do
     end
   end
   let(:solr_fields) { Settings.FIELDS }
-  subject { presenter }
   let(:presenter) do
     described_class.new(document, request_context, blacklight_config)
   end
