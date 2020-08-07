@@ -41,7 +41,9 @@ Layout/LineLength:
 
 Metrics/BlockLength:
   Exclude:
-  - 'spec/helpers/geoblacklight_helper_spec.rb'
+    - 'lib/tasks/geoblacklight.rake'
+    - 'Rakefile'
+    - 'spec/**/*'
 
 Metrics/MethodLength:
   Max: 16
