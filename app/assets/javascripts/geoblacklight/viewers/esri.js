@@ -50,8 +50,8 @@ GeoBlacklight.Viewer.Esri = GeoBlacklight.Viewer.Map.extend({
   appendLoadingMessage: function() {
     var spinner = '<tbody class="attribute-table-body"><tr><td colspan="2">' +
       '<span id="attribute-table">' +
-      '<i class="fa fa-spinner fa-spin fa-align-center">' +
-      '</i></span>' +
+      '<div class="spinner-border" role="status"><span class="sr-only">Inspecting</span></div>' +
+      '</span>' +
       '</td></tr></tbody>';
 
     $('.attribute-table-body').html(spinner);

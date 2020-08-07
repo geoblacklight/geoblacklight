@@ -21,12 +21,10 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'rails', '>= 5.2.4', '< 6.1'
   spec.add_dependency 'blacklight', '~> 7.0'
-  spec.add_dependency 'font-awesome-rails'
   spec.add_dependency 'config'
   spec.add_dependency 'faraday', '~> 1.0'
   spec.add_dependency 'faraday_middleware', '~> 1.0.0.rc1'
   spec.add_dependency 'coderay'
-  spec.add_dependency 'geoblacklight-icons', '>= 0.2'
   spec.add_dependency 'deprecation'
   spec.add_dependency 'geo_combine', '~> 0.4'
   spec.add_dependency 'mime-types'
