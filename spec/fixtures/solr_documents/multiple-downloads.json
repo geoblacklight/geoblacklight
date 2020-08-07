@@ -1,0 +1,30 @@
+{
+  "geoblacklight_version": "1.0",
+  "dc_identifier_s": "https://cugir.library.cornell.edu/catalog/cugir-007950",
+  "dc_title_s": "Test record with additional download formats",
+  "dc_description_s": "This is a test record containing new-style references as nested child documents.  In addition to the origianl shapefile download, the references section contains additional PDF and KMZ downloads.",
+  "dc_rights_s": "Public",
+  "dct_provenance_s": "Cornell",
+  "dct_references_s": "{\"http:\/\/schema.org\/downloadUrl\":[{\"url\":\"https:\/\/cugir-data.s3.amazonaws.com\/00\/79\/50\/cugir-007950.zip\",\"label\":\"Shapefile\"},{\"url\":\"https:\/\/cugir-data.s3.amazonaws.com\/00\/79\/50\/agBROO.pdf\",\"label\":\"PDF\"},{\"url\":\"https:\/\/cugir-data.s3.amazonaws.com\/00\/79\/50\/agBROO2011.kmz\",\"label\":\"KMZ\"}],\"http:\/\/www.opengis.net\/cat\/csw\/csdgm\":\"https:\/\/cugir-data.s3.amazonaws.com\/00\/79\/50\/fgdc.xml\",\"http:\/\/www.w3.org\/1999\/xhtml\":\"https:\/\/cugir-data.s3.amazonaws.com\/00\/79\/50\/fgdc.html\",\"http:\/\/www.opengis.net\/def\/serviceType\/ogc\/wfs\":\"https:\/\/cugir.library.cornell.edu\/geoserver\/cugir\/wfs\",\"http:\/\/www.opengis.net\/def\/serviceType\/ogc\/wms\":\"https:\/\/cugir.library.cornell.edu\/geoserver\/cugir\/wms\"}",
+  "layer_id_s": "cugir007950",
+  "layer_slug_s": "cugir-007950",
+  "dc_type_s": "Dataset",
+  "dc_format_s": "Shapefile",
+  "layer_geom_type_s": "Polygon",
+  "layer_modified_dt": "2019-05-24T00:00:00Z",
+  "dc_creator_sm": [
+    "Cornell Institute for Resource Information Sciences (Cornell IRIS)",
+    "NYS Department of Agriculture and Markets"
+  ],
+  "dc_subject_sm": [
+    "New York State Agricultural District boundaries",
+    "Agriculture and Markets",
+    "Agricultural Districts Mapping Program"
+  ],
+  "dct_spatial_sm": ["Broome County NY"],
+  "dct_issued_s": "2011-02-28",
+  "dct_temporal_sm": ["2011"],
+  "dct_isPartOf_sm": ["Agricultural Districts (NYS Ag and Markets)"],
+  "solr_geom": "ENVELOPE(-76.12987, -75.42034, 42.414648, 41.997963)",
+  "solr_year_i": 2011
+}
