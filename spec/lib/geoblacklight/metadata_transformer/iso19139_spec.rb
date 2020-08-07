@@ -5,7 +5,7 @@ describe Geoblacklight::MetadataTransformer::Iso19139 do
   subject do
     described_class.new(metadata)
   end
-  let(:iso_html) { File.read(File.join(Rails.root, 'spec', 'fixtures', 'metadata', 'iso.html')) }
+  let(:iso_html) { File.read(Rails.root.join('spec', 'fixtures', 'metadata', 'iso.html')) }
   let(:metadata) { instance_double('Geoblacklight::Metadata::Iso19139') }
 
   describe '#transform' do

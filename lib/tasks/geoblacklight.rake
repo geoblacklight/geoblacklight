@@ -49,7 +49,7 @@ namespace :geoblacklight do
 
     desc 'Ingests a GeoHydra transformed.json'
     task :ingest_all => :environment do
-      docs = JSON.parse(File.read("#{Rails.root}/tmp/transformed.json"))
+      docs = JSON.parse(File.read(Rails.root.join('tmp', 'transformed.json')))
       docs.each do |doc|
         Blacklight.default_index.connection.add doc
         Blacklight.default_index.connection.commit
@@ -75,11 +75,11 @@ namespace :geoblacklight do
   namespace :downloads do
     desc 'Delete all cached downloads'
     task delete: :environment do
-      FileUtils.rm_rf Dir.glob("#{Rails.root}/tmp/cache/downloads/*")
+      FileUtils.rm_rf Dir.glob(Rails.root.join('tmp', 'cache', 'downloads', '*'))
     end
     desc 'Create download directory'
     task mkdir: :environment do
-      FileUtils.mkdir_p Rails.root.join('tmp/cache/downloads'), verbose: true
+      FileUtils.mkdir_p(Rails.root.join('tmp', 'cache', 'downloads'), verbose: true)
     end
     desc 'Precaches a download'
     task :precache, [:doc_id, :download_type, :timeout] => [:environment] do |_t, args|

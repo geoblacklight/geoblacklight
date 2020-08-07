@@ -15,7 +15,7 @@ module Geoblacklight
     end
 
     def self.file_path
-      Settings.DOWNLOAD_PATH || "#{Rails.root}/tmp/cache/downloads"
+      Settings.DOWNLOAD_PATH || Rails.root.join('tmp', 'cache', 'downloads')
     end
 
     def file_path_and_name

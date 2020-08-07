@@ -40,14 +40,14 @@ RSpec/SubjectStub:
 # Offense count: 9
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: slashes, arguments
-Rails/FilePath:
-  Exclude:
-    - 'lib/geoblacklight/download.rb'
-    - 'lib/tasks/geoblacklight.rake'
-    - 'spec/lib/geoblacklight/download_spec.rb'
-    - 'spec/lib/geoblacklight/metadata_transformer/fgdc_spec.rb'
-    - 'spec/lib/geoblacklight/metadata_transformer/iso19139_spec.rb'
-    - 'spec/tasks/geoblacklight_spec.rb'
+# Rails/FilePath:
+#   Exclude:
+#     - 'lib/geoblacklight/download.rb'
+#     - 'lib/tasks/geoblacklight.rake'
+#     - 'spec/lib/geoblacklight/download_spec.rb'
+#     - 'spec/lib/geoblacklight/metadata_transformer/fgdc_spec.rb'
+#     - 'spec/lib/geoblacklight/metadata_transformer/iso19139_spec.rb'
+#     - 'spec/tasks/geoblacklight_spec.rb'
 
 # Offense count: 6
 Rails/OutputSafety:

@@ -5,7 +5,7 @@ describe Geoblacklight::MetadataTransformer::Fgdc do
   subject do
     described_class.new(metadata)
   end
-  let(:fgdc_html) { File.read(File.join(Rails.root, 'spec', 'fixtures', 'metadata', 'fgdc.html')) }
+  let(:fgdc_html) { File.read(Rails.root.join('spec', 'fixtures', 'metadata', 'fgdc.html')) }
   let(:metadata) { instance_double('Geoblacklight::Metadata::Fgdc') }
 
   describe '#transform' do

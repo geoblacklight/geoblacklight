@@ -32,7 +32,7 @@ describe Geoblacklight::Download do
   end
   describe '#file_path' do
     it 'returns the path with name and extension' do
-      expect(download.class.file_path).to eq "#{Rails.root}/tmp/cache/downloads"
+      expect(download.class.file_path).to eq Rails.root.join('tmp', 'cache', 'downloads')
     end
     it 'is configurable' do
       expect(Settings).to receive(:DOWNLOAD_PATH).and_return('configured/path')
