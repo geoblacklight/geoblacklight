@@ -95,13 +95,6 @@ module GeoblacklightHelper
   end
 
   ##
-  # Render an empty span
-  # @return [HTML tag]
-  def render_empty_span(classname)
-    tag.span class: classname
-  end
-
-  ##
   # Renders an unique array of search links based off of terms
   # passed in using the facet parameter
   #

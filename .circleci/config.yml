@@ -188,7 +188,7 @@ jobs:
           command: |
             RAILS_ENV=test bundle exec ruby ./bin/coverage.rb
       - store_artifacts:
-          path: ~/figgy/coverage
+          path: ~/geoblacklight/coverage
           destination: coverage
 
 workflows:
