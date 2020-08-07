@@ -92,7 +92,7 @@ namespace :geoblacklight do
                  .constantize.new(document, timeout: args[:timeout].to_i)
       download.get
       Rails.logger.info "Successfully downloaded #{download.file_name}"
-      Rails.logger.info "#{Geoblacklight::ShapefileDownload.file_path}"
+      Rails.logger.info Geoblacklight::ShapefileDownload.file_path.to_s
     rescue Geoblacklight::Exceptions::ExternalDownloadFailed => error
       Rails.logger.error error.message + ' ' + error.url
     rescue NameError
