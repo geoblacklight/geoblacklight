@@ -82,7 +82,7 @@ namespace :geoblacklight do
       FileUtils.mkdir_p Rails.root.join('tmp/cache/downloads'), verbose: true
     end
     desc 'Precaches a download'
-    task :precache, [:doc_id, :download_type, :timeout] => [:environment] do |t, args|
+    task :precache, [:doc_id, :download_type, :timeout] => [:environment] do |_t, args|
       begin
         fail 'Please supply required arguments [document_id, download_type and timeout]' unless args[:doc_id] && args[:download_type] && args[:timeout]
         document = Geoblacklight::SolrDocument.find(args[:doc_id])
