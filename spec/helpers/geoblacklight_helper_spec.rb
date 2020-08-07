@@ -9,7 +9,7 @@ describe GeoblacklightHelper, type: :helper do
     let(:subject_field) { Settings.FIELDS.SUBJECT }
     it 'contains unique links' do
       expect(self).to receive(:search_catalog_path).exactly(3).times.and_return("http://example.com/catalog?f[#{subject_field}][]=category")
-      html = Capybara.string(render_facet_links(subject_field, %w(Test Test Earth Science)))
+      html = Capybara.string(render_facet_links(subject_field, %w[Test Test Earth Science]))
       expect(html).to have_css 'a', count: 3
       expect(html).to have_css 'a', text: 'Test', count: 1
       expect(html).to have_css 'a', text: 'Earth', count: 1
@@ -186,7 +186,7 @@ describe GeoblacklightHelper, type: :helper do
     context 'as a multivalued Array' do
       let(:document_attributes) do
         {
-          value: %w(short description)
+          value: %w[short description]
         }
       end
       it 'uses both values' do
@@ -241,7 +241,7 @@ describe GeoblacklightHelper, type: :helper do
 
   describe '#render_value_as_truncate_abstract' do
     context 'with multiple values' do
-      let(:document) { SolrDocument.new(value: %w(short description)) }
+      let(:document) { SolrDocument.new(value: %w[short description]) }
       it 'wraps in correct DIV class' do
         expect(helper.render_value_as_truncate_abstract(document)).to eq '<div class="truncate-abstract">short description</div>'
       end

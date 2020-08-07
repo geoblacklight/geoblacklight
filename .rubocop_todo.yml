@@ -238,18 +238,6 @@ Style/NumericPredicate:
     - 'spec/**/*'
     - 'lib/geoblacklight/relation/relation_response.rb'
 
-# Offense count: 11
-# Cop supports --auto-correct.
-# Configuration parameters: PreferredDelimiters.
-Style/PercentLiteralDelimiters:
-  Exclude:
-    - 'app/models/concerns/geoblacklight/solr_document/inspection.rb'
-    - 'geoblacklight.gemspec'
-    - 'spec/helpers/geoblacklight_helper_spec.rb'
-    - 'spec/lib/geoblacklight/document_presenter_spec.rb'
-    - 'spec/lib/geoblacklight/references_spec.rb'
-    - 'spec/lib/geoblacklight/wms_layer/feature_info_response_spec.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/RedundantBegin:

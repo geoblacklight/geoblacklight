@@ -24,7 +24,7 @@ describe Geoblacklight::DocumentPresenter do
       layer_id_s: 'druid:abc123',
       non_index_field: 'do not render',
       period: 'Ends with period.',
-      multi_display: %w(blue blah)
+      multi_display: %w[blue blah]
     )
   end
 

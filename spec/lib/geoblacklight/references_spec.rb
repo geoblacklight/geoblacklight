@@ -134,7 +134,7 @@ describe Geoblacklight::References do
     context 'with an overridden order for the formats' do
       let(:settings_klass) { class_double('Settings').as_stubbed_const }
       before do
-        allow(settings_klass).to receive(:METADATA_SHOWN).and_return %w(iso19139 mods)
+        allow(settings_klass).to receive(:METADATA_SHOWN).and_return %w[iso19139 mods]
         allow(settings_klass).to receive(:FIELDS).and_return OpenStruct.new(FILE_FORMAT: 'dc_format_s')
       end
       it 'is ordered by the configuration' do
