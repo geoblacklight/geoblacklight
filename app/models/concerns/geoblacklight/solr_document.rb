@@ -35,15 +35,15 @@ module Geoblacklight
     end
 
     def direct_download
-      references.download.to_hash unless references.download.blank?
+      references.download.to_hash if references.download.present?
     end
 
     def hgl_download
-      references.hgl.to_hash unless references.hgl.blank?
+      references.hgl.to_hash if references.hgl.present?
     end
 
     def oembed
-      references.oembed.endpoint unless references.oembed.blank?
+      references.oembed.endpoint if references.oembed.present?
     end
 
     def same_institution?
@@ -51,11 +51,11 @@ module Geoblacklight
     end
 
     def iiif_download
-      references.iiif.to_hash unless references.iiif.blank?
+      references.iiif.to_hash if references.iiif.present?
     end
 
     def data_dictionary_download
-      references.data_dictionary.to_hash unless references.data_dictionary.blank?
+      references.data_dictionary.to_hash if references.data_dictionary.present?
     end
 
     def external_url

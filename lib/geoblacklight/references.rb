@@ -44,7 +44,7 @@ module Geoblacklight
     # Preferred download (should be a file download)
     # @return [Hash, nil]
     def preferred_download
-      return file_download unless download.blank?
+      return file_download if download.present?
     end
 
     ##

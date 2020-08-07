@@ -67,15 +67,6 @@ Rails/OutputSafety:
     - 'app/controllers/download_controller.rb'
     - 'app/helpers/geoblacklight_helper.rb'
 
-# Offense count: 7
-# Cop supports --auto-correct.
-# Configuration parameters: NotNilAndNotEmpty, NotBlank, UnlessBlank.
-Rails/Present:
-  Exclude:
-    - 'app/models/concerns/geoblacklight/solr_document.rb'
-    - 'app/presenters/geoblacklight/document_presenter.rb'
-    - 'lib/geoblacklight/references.rb'
-
 # Offense count: 6
 # Cop supports --auto-correct.
 # Configuration parameters: Include.
