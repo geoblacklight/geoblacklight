@@ -38,11 +38,6 @@ RSpec/RepeatedDescription:
     - 'spec/features/search_results_map_spec.rb'
     - 'spec/lib/geoblacklight/references_spec.rb'
 
-# Offense count: 2
-RSpec/RepeatedExample:
-  Exclude:
-    - 'spec/features/esri_viewer_spec.rb'
-
 # Offense count: 4
 RSpec/SubjectStub:
   Exclude:

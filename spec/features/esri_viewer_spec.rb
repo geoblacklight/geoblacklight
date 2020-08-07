@@ -25,11 +25,6 @@ feature 'feature_layer reference', js: true do
     expect(Nokogiri::HTML.parse(page.body).css('g').length).to eq 23
     fail
   end
-  scenario 'displays image map layer' do
-    visit solr_document_path '32653ed6-8d83-4692-8a06-bf13ffe2c018'
-    expect(page).to have_css '.leaflet-control-zoom', visible: true
-    expect(page).to have_css 'img.leaflet-image-layer', visible: true
-  end
   scenario 'displays tiled map layer' do
     visit solr_document_path 'nyu-test-soil-survey-map'
     expect(page).to have_css '.leaflet-control-zoom', visible: true
