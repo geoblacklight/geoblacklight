@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Geoblacklight
   ##
   # Adds custom functionality for Geoblacklight document presentation

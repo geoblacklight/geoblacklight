@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module ArcgisHelper
   ##
   # Generates an ArcGIS.com viewer url with params that can open content

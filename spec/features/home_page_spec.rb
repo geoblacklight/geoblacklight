@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'spec_helper'
 
 feature 'Home page', js: true do # use js: true for tests which require js, but it slows things down

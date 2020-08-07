@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'blacklight'
 require 'font-awesome-rails'
 require 'coderay'

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Geoblacklight
   # References is a geoblacklight-schema dct:references parser
   class References

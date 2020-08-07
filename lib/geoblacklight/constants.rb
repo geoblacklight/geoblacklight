@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Geoblacklight
   # Module to declare application level constants and lookup hash
   module Constants

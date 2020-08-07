@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Geoblacklight
   # Extends Blacklight::Solr::Document for GeoBlacklight specific functionalit
   module SolrDocument

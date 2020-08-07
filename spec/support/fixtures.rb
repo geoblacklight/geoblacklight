@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 def read_fixture(fname)
   File.read(File.join(fixture_dir, fname))
 end

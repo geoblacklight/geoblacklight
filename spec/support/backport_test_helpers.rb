@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Backport the Rails 5 controller test methods to Rails 4
 module BackportTestHelpers
   def delete(*args)

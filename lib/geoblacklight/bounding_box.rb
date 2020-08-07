@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Geoblacklight
   ##
   # Transforms and parses a bounding box for various formats

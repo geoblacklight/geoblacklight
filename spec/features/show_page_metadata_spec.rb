@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'spec_helper'
 
 feature 'Metadata display on show page' do
