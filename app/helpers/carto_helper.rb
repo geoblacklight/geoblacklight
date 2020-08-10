@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module CartoHelper
   ##
   # Creates a Carto OneClick link, using the configuration link

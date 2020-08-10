@@ -1,5 +1,5 @@
+# frozen_string_literal: true
 module GeoblacklightHelper
-
   def document_available?
     @document.public? || (@document.same_institution? && user_signed_in?)
   end
@@ -172,8 +172,8 @@ module GeoblacklightHelper
   def render_help_text_entry(feature, key)
     if I18n.exists?("geoblacklight.help_text.#{feature}.#{key}", locale)
       help_text = I18n.t("geoblacklight.help_text.#{feature}.#{key}")
-      content_tag :h3, class: 'help-text viewer_protocol h6' do
-        content_tag :a, 'data': { toggle: 'popover', title: help_text[:title], content: help_text[:content] } do
+      tag.h3 class: 'help-text viewer_protocol h6' do
+        tag.a 'data': { toggle: 'popover', title: help_text[:title], content: help_text[:content] } do
           help_text[:title]
         end
       end
@@ -195,7 +195,7 @@ module GeoblacklightHelper
   # get_field_values method
   # @param [Hash] args from get_field_values
   def render_value_as_truncate_abstract(args)
-    content_tag :div, class: 'truncate-abstract' do
+    tag.div class: 'truncate-abstract' do
       Array(args[:value]).flatten.join(' ')
     end
   end
@@ -267,10 +267,11 @@ module GeoblacklightHelper
   # Renders a reference url for a document
   # @param [Hash] document, field_name
   def render_references_url(args)
+    return unless args[:document]&.references&.url
     link_to(
       args[:document].references.url.endpoint,
       args[:document].references.url.endpoint
-    ) if args[:document]&.references&.url
+    )
   end
 
   ## Returns the icon used based off a Settings strategy

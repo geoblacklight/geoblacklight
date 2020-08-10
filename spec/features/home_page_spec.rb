@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'spec_helper'
 
 feature 'Home page', js: true do # use js: true for tests which require js, but it slows things down
@@ -36,5 +37,10 @@ feature 'Home page', js: true do # use js: true for tests which require js, but 
       expect(page.current_url).to match(/bbox=/)
     end
     expect(page).to have_css '#documents'
+  end
+  scenario 'can search by placename' do
+    click_link 'Minnesota, United States'
+    results = page.all(:css, 'article.document')
+    expect(results.count).to equal(3)
   end
 end

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Geoblacklight
   class KmzDownload < Geoblacklight::Download
     KMZ_DOWNLOAD_PARAMS = { service: 'wms',

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Geoblacklight
   module Routes
     require 'geoblacklight/routes/exportable'

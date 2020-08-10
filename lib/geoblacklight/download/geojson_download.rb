@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Geoblacklight
   class GeojsonDownload < Geoblacklight::Download
     GEOJSON_DOWNLOAD_PARAMS = {

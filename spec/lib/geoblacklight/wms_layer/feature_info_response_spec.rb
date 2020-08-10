@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'spec_helper'
 
 describe Geoblacklight::FeatureInfoResponse do
@@ -28,14 +29,14 @@ describe Geoblacklight::FeatureInfoResponse do
     it 'returns a formated response' do
       expect(response.format).not_to be_nil
       expect(response.format[:values].length).to eq 2
-      expect(response.format[:values][0]).to eq %w(Header1 value1)
-      expect(response.format[:values][1]).to eq %w(Header2 value2)
+      expect(response.format[:values][0]).to eq %w[Header1 value1]
+      expect(response.format[:values][1]).to eq %w[Header2 value2]
     end
     it 'returns a formated response when multiple features are retrieved' do
       expect(response_multiple_features.format).not_to be_nil
       expect(response_multiple_features.format[:values].length).to eq 2
-      expect(response_multiple_features.format[:values][0]).to eq %w(Header1 value1)
-      expect(response_multiple_features.format[:values][1]).to eq %w(Header2 value2)
+      expect(response_multiple_features.format[:values][0]).to eq %w[Header1 value1]
+      expect(response_multiple_features.format[:values][1]).to eq %w[Header2 value2]
     end
   end
 

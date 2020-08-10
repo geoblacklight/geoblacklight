@@ -1,11 +1,12 @@
+# frozen_string_literal: true
 require 'spec_helper'
 
 describe Geoblacklight::MetadataTransformer::Iso19139 do
-  let(:iso_html) { File.read(File.join(Rails.root, 'spec', 'fixtures', 'metadata', 'iso.html')) }
-  let(:metadata) { instance_double('Geoblacklight::Metadata::Iso19139') }
   subject do
     described_class.new(metadata)
   end
+  let(:iso_html) { File.read(Rails.root.join('spec', 'fixtures', 'metadata', 'iso.html')) }
+  let(:metadata) { instance_double('Geoblacklight::Metadata::Iso19139') }
 
   describe '#transform' do
     before do

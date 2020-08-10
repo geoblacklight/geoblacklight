@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Geoblacklight
   module Relation
     class RelationResponse
@@ -17,7 +18,7 @@ module Geoblacklight
       end
 
       def empty?
-        !(ancestors['numFound'] > 0 || descendants['numFound'] > 0)
+        !(ancestors['numFound'].positive? || descendants['numFound'].positive?)
       end
     end
   end

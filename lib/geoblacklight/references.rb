@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Geoblacklight
   # References is a geoblacklight-schema dct:references parser
   class References
@@ -43,7 +44,7 @@ module Geoblacklight
     # Preferred download (should be a file download)
     # @return [Hash, nil]
     def preferred_download
-      return file_download unless download.blank?
+      return file_download if download.present?
     end
 
     ##
@@ -100,9 +101,12 @@ module Geoblacklight
     # present
     # @return (see #downloads_by_format)
     def vector_download_formats
-      { shapefile: wfs.to_hash,
+      return unless wms.present? && wfs.present?
+      {
+        shapefile: wfs.to_hash,
         kmz: wms.to_hash,
-        geojson: wfs.to_hash } if wms.present? && wfs.present?
+        geojson: wfs.to_hash
+      }
     end
 
     ##

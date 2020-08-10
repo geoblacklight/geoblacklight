@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'spec_helper'
 
 describe Geoblacklight::MetadataTransformer do
@@ -9,10 +10,10 @@ describe Geoblacklight::MetadataTransformer do
 
   describe '.instance' do
     context 'with FGDC metadata' do
-      let(:metadata) { instance_double(Geoblacklight::Metadata::Fgdc) }
       subject do
         described_class.instance(metadata)
       end
+      let(:metadata) { instance_double(Geoblacklight::Metadata::Fgdc) }
 
       before do
         allow(klass).to receive(:name).and_return('Geoblacklight::Metadata::Fgdc')
@@ -24,10 +25,10 @@ describe Geoblacklight::MetadataTransformer do
     end
 
     context 'with ISO19139 metadata' do
-      let(:metadata) { instance_double(Geoblacklight::Metadata::Iso19139) }
       subject do
         described_class.instance(metadata)
       end
+      let(:metadata) { instance_double(Geoblacklight::Metadata::Iso19139) }
 
       before do
         allow(klass).to receive(:name).and_return('Geoblacklight::Metadata::Iso19139')
@@ -39,10 +40,10 @@ describe Geoblacklight::MetadataTransformer do
     end
 
     context 'without a metadata type' do
-      let(:metadata) { instance_double(Geoblacklight::Metadata::Base) }
       subject do
         described_class.instance(metadata)
       end
+      let(:metadata) { instance_double(Geoblacklight::Metadata::Base) }
 
       before do
         allow(klass).to receive(:name).and_return('Geoblacklight::Metadata::Base')

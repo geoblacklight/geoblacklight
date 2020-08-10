@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Geoblacklight
   ##
   # Parses an array of dct_references to create useful reference information

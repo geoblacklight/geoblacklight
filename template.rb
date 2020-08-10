@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 gem 'blacklight', '~> 7.0'
 gem 'geoblacklight', '~> 2.0'
 gem 'webpacker'

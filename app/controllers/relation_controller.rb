@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class RelationController < ApplicationController
   include Blacklight::Configurable
   # include Blacklight::SearchHelper
