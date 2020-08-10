@@ -23,7 +23,7 @@ GeoBlacklight.Viewer.Wms = GeoBlacklight.Viewer.Map.extend({
       format: 'image/png',
       transparent: true,
       tiled: true,
-      CRS: 'EPSG:900913',
+      CRS: 'EPSG:3857',
       opacity: this.options.opacity,
       detectRetina: _this.detectRetina()
     });
