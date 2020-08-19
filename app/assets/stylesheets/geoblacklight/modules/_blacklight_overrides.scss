@@ -2,7 +2,7 @@
   Stylesheet for overriding styles inherited from Blacklight proper
 **/
 
-$logo-image: image_url('blacklight/logo.svg') !default
+$logo-image: image_url('blacklight/logo.svg') !default;
 
 .navbar-logo {  /* The main logo image for the Blacklight instance */
   @if $logo-image {
