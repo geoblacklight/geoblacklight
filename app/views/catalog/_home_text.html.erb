@@ -40,7 +40,7 @@
       <%= content_tag :div, '', id: 'map', aria: { label: t('geoblacklight.map.label') }, data: { map: 'home', 'catalog-path'=> search_catalog_path , 'map-bbox' => params[:bbox], basemap: geoblacklight_basemap, leaflet_options: leaflet_options } %>
     </div>
   </div>
-  <div class="text-right">
+  <div id="geoblacklight-version" class="text-right">
     <%= t('geoblacklight.home.version', version: Geoblacklight::VERSION ) %>
   </div>
 </div>
