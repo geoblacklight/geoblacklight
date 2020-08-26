@@ -1,25 +1,27 @@
 <div class="modal-header">
-  <button type="button" class="close" data-dismiss="modal">
+  <h1 class="modal-title"><%= t('geoblacklight.download.hgl_request') %></h1>
+  <button type="button" class="blacklight-modal-close close" data-dismiss="modal" aria-label="<%= t('blacklight.modal.close') %>">
     <span aria-hidden="true">&times;</span>
   </button>
- <%= content_tag :h4, t('geoblacklight.download.hgl_request'), class: 'text-center' %>
 </div>
 <div class="modal-body">
   <form class="form-horizontal" role="form" id="hglRequest">
     <p><%= t('geoblacklight.download.hgl_instructions')%></p>
     <div class="form-group">
-      <label for="requestEmail" class="col-sm-2 control-label"><%= t('geoblacklight.download.hgl_email')%></label>
-      <div class="col-sm-6">
-        <input class="form-control" type="email" id="requestEmail" />
-      </div>
-      <input type="hidden" id="requestUrl"
-        value="<%= download_hgl_path(id: @document) %>" />
-      <div class="col-sm-2">
-        <button type="submit" class="btn btn-primary"><%= t('geoblacklight.download.hgl_request_button')%></button>
+      <div class="row">
+        <label for="requestEmail" class="col-sm-2 control-label"><%= t('geoblacklight.download.hgl_email')%></label>
+        <div class="col-sm-6">
+          <input class="form-control" type="email" id="requestEmail" />
+        </div>
+        <input type="hidden" id="requestUrl"
+          value="<%= download_hgl_path(id: @document) %>" />
+        <div class="col-sm-2">
+          <button type="submit" class="btn btn-primary"><%= t('geoblacklight.download.hgl_request_button')%></button>
+        </div>
       </div>
     </div>
   </form>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-default" data-dismiss="modal"><%= t('geoblacklight.download.hgl_close')%></button>
+  <button type="button" class="btn btn-default hide-without-js" data-dismiss="modal"><%= t('geoblacklight.references.services_close')%></button>
 </div>
