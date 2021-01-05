@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
   spec.required_rubygems_version = '>= 2.5.2'
 
   spec.add_dependency 'rails', '>= 5.2.4', '< 6.1'
-  spec.add_dependency 'blacklight', '~> 7.0'
+  spec.add_dependency 'blacklight', '~> 7.0', '< 7.12'
   spec.add_dependency 'config'
   spec.add_dependency 'faraday', '~> 1.0'
   spec.add_dependency 'faraday_middleware', '~> 1.0.0.rc1'
@@ -40,7 +40,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'factory_bot_rails'
   spec.add_development_dependency 'database_cleaner', '~> 1.3'
   spec.add_development_dependency 'bixby'
-  spec.add_development_dependency 'simplecov', '~> 0.16'
+  spec.add_development_dependency 'simplecov', '~> 0.17.1'
   spec.add_development_dependency 'foreman'
   spec.add_development_dependency 'teaspoon'
 end

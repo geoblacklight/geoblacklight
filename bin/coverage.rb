@@ -27,8 +27,8 @@ class SimpleCovHelper
     results = SimpleCov::ResultMerger.merge_results(*results)
     results.format!
     covered_percent = results.covered_percent.round(2)
-    return unless covered_percent < SimpleCov.minimum_coverage[:line]
-    $stderr.printf("Coverage (%.2f%%) is below the expected minimum coverage (%.2f%%).\n", covered_percent, SimpleCov.minimum_coverage[:line])
+    return unless covered_percent < SimpleCov.minimum_coverage
+    $stderr.printf("Coverage (%.2f%%) is below the expected minimum coverage (%.2f%%).\n", covered_percent, SimpleCov.minimum_coverage)
     Kernel.exit SimpleCov::ExitCodes::MINIMUM_COVERAGE
   end
 end
