@@ -10,10 +10,10 @@ commands:
         default: "8-6-2020-A"
       ruby_version:
         type: string
-        default: '2.7.1'
+        default: '2.7.2'
       rails_version:
         type: string
-        default: '6.0.3.2'
+        default: '6.0.3.4'
     steps:
       - restore_cache:
           keys:
@@ -29,10 +29,10 @@ commands:
         default: "8-6-2020-A"
       ruby_version:
         type: string
-        default: '2.7.1'
+        default: '2.7.2'
       rails_version:
         type: string
-        default: '6.0.3.2'
+        default: '6.0.3.4'
     steps:
       - save_cache:
           key: << parameters.cache_prefix >>-{{ checksum "geoblacklight.gemspec" }}-{{ checksum "Gemfile" }}-<< parameters.ruby_version >>-<< parameters.rails_version >>
@@ -44,13 +44,13 @@ jobs:
     parameters:
       ruby_version:
         type: string
-        default: '2.7.1'
+        default: '2.7.2'
       solr_port:
         type: string
         default: '8983'
       rails_version:
         type: string
-        default: '6.0.3.2'
+        default: '6.0.3.4'
       coverage:
         type: boolean
         default: false
@@ -132,10 +132,10 @@ jobs:
     parameters:
       ruby_version:
         type: string
-        default: '2.7.1'
+        default: '2.7.2'
       rails_version:
         type: string
-        default: '6.0.3.2'
+        default: '6.0.3.4'
     docker:
       - image: circleci/ruby:<< parameters.ruby_version >>-node-browsers
     environment:
@@ -160,10 +160,10 @@ jobs:
     parameters:
       ruby_version:
         type: string
-        default: '2.7.1'
+        default: '2.7.2'
       rails_version:
         type: string
-        default: '6.0.3.2'
+        default: '6.0.3.4'
     docker:
       - image: circleci/ruby:<< parameters.ruby_version >>-node-browsers
     environment:
@@ -196,21 +196,21 @@ workflows:
   build:
     jobs:
       - build:
-          ruby_version: 2.7.1
-          rails_version: 6.0.3.2
+          ruby_version: 2.7.2
+          rails_version: 6.0.3.4
           coverage: true
           name: "ruby2-7_rails6-0"
       - build:
           ruby_version: 2.6.6
-          rails_version: 6.0.3.2
+          rails_version: 6.0.3.4
           name: "ruby2-6_rails6-0"
       - build:
-          ruby_version: 2.7.1
-          rails_version: 5.2.4.3
+          ruby_version: 2.7.2
+          rails_version: 5.2.4.4
           name: "ruby2-7_rails5-2"
       - build:
           ruby_version: 2.6.6
-          rails_version: 5.2.4.3
+          rails_version: 5.2.4.4
           name: "ruby2-6_rails5-2"
       - rubocop:
           requires:
@@ -228,21 +228,21 @@ workflows:
                 - master
     jobs:
       - build:
-          ruby_version: 2.7.1
-          rails_version: 6.0.3.2
+          ruby_version: 2.7.2
+          rails_version: 6.0.3.4
           coverage: true
           name: "ruby2-7_rails6-0"
       - build:
           ruby_version: 2.6.6
-          rails_version: 6.0.3.2
+          rails_version: 6.0.3.4
           name: "ruby2-6_rails6-0"
       - build:
-          ruby_version: 2.7.1
-          rails_version: 5.2.4.3
+          ruby_version: 2.7.2
+          rails_version: 5.2.4.4
           name: "ruby2-7_rails5-2"
       - build:
           ruby_version: 2.6.6
-          rails_version: 5.2.4.3
+          rails_version: 5.2.4.4
           name: "ruby2-6_rails5-2"
       - rubocop:
           requires:
