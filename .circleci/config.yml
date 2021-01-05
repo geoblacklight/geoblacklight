@@ -197,6 +197,10 @@ workflows:
     jobs:
       - build:
           ruby_version: 2.7.2
+          rails_version: 6.1.0
+          name: "ruby2-7_rails6-1"
+      - build:
+          ruby_version: 2.7.2
           rails_version: 6.0.3.4
           coverage: true
           name: "ruby2-7_rails6-0"
