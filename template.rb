@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 gem 'blacklight', '~> 7.0'
-gem 'geoblacklight', '~> 2.0'
+gem 'geoblacklight', '~> 3.0'
 gem 'webpacker' unless Rails.version.to_s.start_with? '6.1.'
 
 # Hack for https://github.com/rails/rails/issues/35153
