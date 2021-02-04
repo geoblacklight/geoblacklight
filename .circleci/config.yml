@@ -7,7 +7,7 @@ commands:
       # Use this parameter to bust the cache, if needed
       cache_prefix:
         type: string
-        default: "8-6-2020-A"
+        default: "02-04-2021-A"
       ruby_version:
         type: string
         default: '2.7.2'
