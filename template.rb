@@ -2,6 +2,7 @@
 gem 'blacklight', '~> 7.0'
 gem 'geoblacklight', '~> 3.0'
 gem 'webpacker' unless Rails.version.to_s.start_with? '6.1.'
+gem 'sprockets', '< 4.0' # Use sprockets less than 4.0, let webpacker users set this up themselves
 
 # Hack for https://github.com/rails/rails/issues/35153
 # Adapted from https://github.com/projectblacklight/blacklight/pull/2065
