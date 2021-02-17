@@ -8,7 +8,7 @@ Blacklight.onLoad(function() {
     });
   }
 
-  $('[data-map="index"]').each(function() {
+  $('body.blacklight-catalog [data-map="index"]').each(function() {
     var data = $(this).data(),
     opts = { baseUrl: data.catalogPath },
     world = L.latLngBounds([[-90, -180], [90, 180]]),
