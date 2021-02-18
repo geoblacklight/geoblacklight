@@ -19,3 +19,4 @@ jetty
 .internal_test_app
 # Ignore byebug history
 .byebug_history
+.DS_Store
