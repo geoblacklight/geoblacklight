@@ -38,5 +38,11 @@
 
   // Hash for leaflet controls.
   GeoBlacklight.Controls = {};
+
+  // Basic support of CommonJS module
+  if (typeof exports === "object") {
+    module.exports = GeoBlacklight;
+  }
+
   global.GeoBlacklight = GeoBlacklight;
-}(this);
+}(this || {});
