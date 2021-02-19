@@ -76,7 +76,7 @@ describe Geoblacklight::References do
         file_format_field => 'Raster',
         references_field => {
           'http://schema.org/url' => 'http://arks.princeton.edu/ark:/88435/02870w62c',
-          'http://iiif.io/api/image' => 'http://libimages.princeton.edu/loris2/pudl0076%2Fmap_pownall%2F00000001.jp2/info.json'
+          'http://iiif.io/api/image' => 'https://iiif-cloud.princeton.edu/iiif/2/6c%2F52%2F12%2F6c5212e81bc845f59bb1cdc740a88bad%2Fintermediate_file/info.json'
         }.to_json
       )
     )
