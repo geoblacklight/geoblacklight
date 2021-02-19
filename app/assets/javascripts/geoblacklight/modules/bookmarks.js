@@ -4,13 +4,12 @@ Blacklight.onLoad(function() {
     world = L.latLngBounds([[-90, -180], [90, 180]]),
     geoblacklight, bbox;
 
-    if (typeof data.mapBbox === 'string') {
-      bbox = L.bboxToBounds(data.mapBbox);
+    if (typeof data.mapGeom === 'string') {
+      bbox = L.geoJSONToBounds(data.mapGeom);
     } else {
-      $('.document [data-bbox]').each(function() {
-
+      $('.document [data-geom]').each(function() {
         try {
-          var currentBounds = L.bboxToBounds($(this).data().bbox);
+          var currentBounds = L.geoJSONToBounds($(this).data().geom);
           if (!world.contains(currentBounds)) {
             throw "Invalid bounds";
           }
@@ -32,9 +31,9 @@ Blacklight.onLoad(function() {
     // set hover listeners on map
     $('#content')
       .on('mouseenter', '#documents [data-layer-id]', function() {
-        if($(this).data('bbox').length > 0) {
-          var bounds = L.bboxToBounds($(this).data('bbox'));
-          geoblacklight.addBoundsOverlay(bounds);
+        if($(this).data('bbox') !== "") {
+          var geom = $(this).data('geom')
+          geoblacklight.addGeoJsonOverlay(geom)
         }
       })
       .on('mouseleave', '#documents [data-layer-id]', function() {

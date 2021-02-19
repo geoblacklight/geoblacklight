@@ -14,8 +14,8 @@ GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
   overlay: L.layerGroup(),
 
   load: function() {
-    if (this.data.mapBbox) {
-      this.options.bbox = L.bboxToBounds(this.data.mapBbox);
+    if (this.data.mapGeom) {
+      this.options.bbox = L.geoJSONToBounds(this.data.mapGeom);
     }
     this.map = L.map(this.element).fitBounds(this.options.bbox);
 
@@ -51,6 +51,16 @@ GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
    */
   removeBoundsOverlay: function() {
     this.overlay.clearLayers();
+  },
+
+  /**
+   * Add a GeoJSON overlay to map.
+   * @param {string} geojson GeoJSON string
+   */
+  addGeoJsonOverlay: function(geojson) {
+    var layer = L.geoJSON();
+    layer.addData(geojson);
+    this.overlay.addLayer(layer);
   },
 
   /**

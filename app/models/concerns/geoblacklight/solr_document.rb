@@ -1,6 +1,7 @@
 # frozen_string_literal: true
+
 module Geoblacklight
-  # Extends Blacklight::Solr::Document for GeoBlacklight specific functionalit
+  # Extends Blacklight::Solr::Document for GeoBlacklight specific functionality
   module SolrDocument
     extend Blacklight::Solr::Document
 
@@ -70,18 +71,12 @@ module Geoblacklight
       'http://schema.org/Dataset'
     end
 
-    def bounding_box_as_wsen
-      geom_field = fetch(Settings.FIELDS.GEOMETRY, '')
-      exp = /^\s*ENVELOPE\(
-                  \s*([-\.\d]+)\s*,
-                  \s*([-\.\d]+)\s*,
-                  \s*([-\.\d]+)\s*,
-                  \s*([-\.\d]+)\s*
-                  \)\s*$/x # uses 'x' option for free-spacing mode
-      bbox_match = exp.match(geom_field)
-      return geom_field unless bbox_match # return as-is, not a WKT
-      w, e, n, s = bbox_match.captures
-      "#{w} #{s} #{e} #{n}"
+    def geom_field
+      fetch(Settings.FIELDS.GEOMETRY, '')
+    end
+
+    def geometry
+      @geometry ||= Geoblacklight::Geometry.new(geom_field)
     end
 
     def wxs_identifier

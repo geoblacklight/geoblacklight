@@ -143,13 +143,11 @@
     <fieldType name="location" class="solr.LatLonType" subFieldSuffix="_d"/>
 
     <fieldType name="location_rpt" class="solr.SpatialRecursivePrefixTreeFieldType"
-               geo="true" distErrPct="0.025" maxDistErr="0.001" distanceUnits="kilometers"/>
+               geo="true" distErrPct="0.025" maxDistErr="0.001" distanceUnits="kilometers" />
     <!-- Adding field type for bboxField that enables, among other things, overlap ratio calculations -->
     <fieldType name="bbox" class="solr.BBoxField"
            geo="true" distanceUnits="kilometers" numberType="pdouble" />
     <fieldType name="pdouble" class="solr.DoublePointField" docValues="true"/>
-
-
   </types>
 
   <!-- for scoring formula -->
