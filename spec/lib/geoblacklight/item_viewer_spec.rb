@@ -26,6 +26,18 @@ describe Geoblacklight::ItemViewer do
         expect(item_viewer.viewer_preference).to eq wms: 'http://www.example.com/wms'
       end
     end
+    describe 'for wmts reference' do
+      let(:document_attributes) do
+        {
+          references_field => {
+            'http://www.opengis.net/def/serviceType/ogc/wmts' => 'http://www.example.com/wmts'
+          }.to_json
+        }
+      end
+      it 'wmts if wmts is present' do
+        expect(item_viewer.viewer_preference).to eq wmts: 'http://www.example.com/wmts'
+      end
+    end
     describe 'for iiif only reference' do
       let(:document_attributes) do
         {

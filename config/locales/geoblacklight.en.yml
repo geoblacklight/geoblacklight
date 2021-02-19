@@ -47,6 +47,7 @@ en:
       label: 'Zoomable map'
     references:
       wms: 'Web Mapping Service (WMS)'
+      wmts: 'Web Map Tile Service'
       wms_abv: 'WMS'
       wms_label: 'layers'
       wfs: 'Web Feature Service (WFS)'
@@ -107,6 +108,10 @@ en:
         wms:
           title: Web Map Service (WMS)
           content: A Web Map Service displays a geospatial dataset as map images.
+        wmts:
+          title: Web Map Tile Service (WMTS)
+          content: A Web Map Tile Service displays georeferenced map tiles as an image on a map.
+
   blacklight:
     icon:
       arrow-circle-down: Arrow within a circle, pointing down

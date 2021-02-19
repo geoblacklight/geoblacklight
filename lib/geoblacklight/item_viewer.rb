@@ -19,6 +19,10 @@ module Geoblacklight
       @references.wms
     end
 
+    def wmts
+      @references.wmts
+    end
+
     def iiif
       @references.iiif
     end
@@ -48,7 +52,7 @@ module Geoblacklight
     end
 
     def viewer_preference
-      [oembed, index_map, wms, iiif, tiled_map_layer, dynamic_map_layer,
+      [oembed, index_map, wms, wmts, iiif, tiled_map_layer, dynamic_map_layer,
        image_map_layer, feature_layer].compact.map(&:to_hash).first
     end
   end

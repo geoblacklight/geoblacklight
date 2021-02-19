@@ -16,6 +16,7 @@ module Geoblacklight
       wcs: 'http://www.opengis.net/def/serviceType/ogc/wcs',
       wfs: 'http://www.opengis.net/def/serviceType/ogc/wfs',
       wms: 'http://www.opengis.net/def/serviceType/ogc/wms',
+      wmts: 'http://www.opengis.net/def/serviceType/ogc/wmts',
       hgl: 'http://schema.org/DownloadAction',
       feature_layer: 'urn:x-esri:serviceType:ArcGIS#FeatureLayer',
       tiled_map_layer: 'urn:x-esri:serviceType:ArcGIS#TiledMapLayer',
