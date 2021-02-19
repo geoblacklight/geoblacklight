@@ -31,6 +31,11 @@ task :teaspoon do
   system('teaspoon --require=.internal_test_app/spec/teaspoon_env.rb')
 end
 
+desc 'Run JavaScript unit tests'
+task :javascript_tests do
+  system 'yarn test'
+end
+
 desc 'Run test suite'
 task ci: ['geoblacklight:generate'] do
   SolrWrapper.wrap do |solr|
@@ -43,7 +48,7 @@ task ci: ['geoblacklight:generate'] do
     end
   end
   # Run JavaScript tests
-  Rake::Task['teaspoon'].invoke
+  Rake::Task['javascript_tests'].invoke
 end
 
 namespace :geoblacklight do
@@ -119,6 +124,13 @@ namespace :geoblacklight do
           end
         end
       end
+    end
+  end
+
+  desc 'Stdout output asset paths'
+  task :asset_paths do
+    within_test_app do
+      system 'bundle exec rake geoblacklight:application_asset_paths'
     end
   end
 end

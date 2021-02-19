@@ -124,8 +124,10 @@ jobs:
                 name: Run the RSpec test suites
                 command: bundle exec rspec
       - run:
-          name: Run the Teaspoon test suites
-          command: bundle exec rake teaspoon
+          name: Run the JavaScript test suites
+          command: |
+            yarn install
+            bundle exec rake javascript_tests
 
   rubocop:
     working_directory: ~/geoblacklight

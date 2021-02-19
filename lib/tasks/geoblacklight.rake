@@ -106,4 +106,9 @@ namespace :geoblacklight do
       Rake::Task['geoblacklight:index:seed'].invoke
     end
   end
+
+  desc 'Stdout output asset paths'
+  task application_asset_paths: [:environment] do
+    puts Rails.application.config.assets.paths
+  end
 end
