@@ -20,3 +20,10 @@ jetty
 # Ignore byebug history
 .byebug_history
 .DS_Store
+
+# Setup local GeoBlacklight JavaScript ignores
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+yarn.lock

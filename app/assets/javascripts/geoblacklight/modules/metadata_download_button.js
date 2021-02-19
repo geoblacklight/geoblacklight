@@ -45,9 +45,14 @@
       }
     },
   });
+  
+  // Basic support of CommonJS module
+  if (typeof exports === "object") {
+    module.exports = MetadataDownloadButton;
+  }
 
   global.GeoBlacklight.MetadataDownloadButton = MetadataDownloadButton;
   global.GeoBlacklight.metadataDownloadButton = function metadataDownloadButton(el, options) {
     return new MetadataDownloadButton(el, options);
   };
-})(this);
+})(this || { GeoBlacklight: {}});

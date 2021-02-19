@@ -36,3 +36,8 @@ GeoBlacklight.Util = {
     }
   }
 };
+
+// Basic support of CommonJS module
+if (typeof exports === "object") {
+  module.exports = GeoBlacklight.Util;
+}
