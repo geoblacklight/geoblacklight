@@ -14,8 +14,6 @@ class TestAppGenerator < Rails::Generators::Base
 
   def add_gems
     gem 'blacklight'
-    gem 'teaspoon'
-    gem 'teaspoon-jasmine'
     gem 'webpacker' unless Rails.version.to_s.start_with? '6.1.'
     Bundler.with_clean_env do
       run 'bundle install'
@@ -41,10 +39,5 @@ class TestAppGenerator < Rails::Generators::Base
     directory 'solr_documents', 'spec/fixtures/solr_documents'
     FileUtils.mkdir_p 'spec/fixtures/metadata'
     directory 'metadata', 'spec/fixtures/metadata'
-  end
-
-  def install_teaspoon
-    # Implicit copy of GeoBlacklight checked-in teaspoon_env.rb
-    copy_file '../teaspoon_env.rb', 'spec/teaspoon_env.rb'
   end
 end

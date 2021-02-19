@@ -26,11 +26,6 @@ RSpec::Core::RakeTask.new(:spec) do |t|
   t.verbose = false
 end
 
-desc 'Run Teaspoon JavaScript tests'
-task :teaspoon do
-  system('teaspoon --require=.internal_test_app/spec/teaspoon_env.rb')
-end
-
 desc 'Run JavaScript unit tests'
 task :javascript_tests do
   system 'yarn test'

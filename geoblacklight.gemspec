@@ -41,5 +41,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bixby'
   spec.add_development_dependency 'simplecov', '~> 0.17.1'
   spec.add_development_dependency 'foreman'
-  spec.add_development_dependency 'teaspoon'
 end
