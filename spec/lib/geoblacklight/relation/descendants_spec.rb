@@ -8,7 +8,7 @@ describe Geoblacklight::Relation::Descendants do
 
   describe '#create_search_params' do
     it 'assembles the correct search params for finding descendant documents' do
-      expect(descendants.create_search_params).to eq(fq: "#{Settings.FIELDS.SOURCE}:nyu_2451_34636", fl: [Settings.FIELDS.TITLE.to_s, 'layer_slug_s', 'layer_geom_type_s'])
+      expect(descendants.create_search_params).to eq(fq: "#{Settings.FIELDS.SOURCE}:nyu_2451_34636", fl: [Settings.FIELDS.TITLE.to_s, Settings.FIELDS.UNIQUE_KEY, Settings.FIELDS.GEOM_TYPE])
     end
   end
 

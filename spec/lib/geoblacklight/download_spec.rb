@@ -7,7 +7,7 @@ describe Geoblacklight::Download do
   let(:faraday_connection) { instance_double(Faraday::Connection) }
   let(:faraday_response) { instance_double(Faraday::Response) }
   let(:references_field) { Settings.FIELDS.REFERENCES }
-  let(:document) { SolrDocument.new(layer_slug_s: 'test', references_field => { 'http://www.opengis.net/def/serviceType/ogc/wms' => 'http://www.example.com/wms' }.to_json) }
+  let(:document) { SolrDocument.new("#{Settings.FIELDS.UNIQUE_KEY}": 'test', references_field => { 'http://www.opengis.net/def/serviceType/ogc/wms' => 'http://www.example.com/wms' }.to_json) }
   let(:options) { { type: 'shapefile', extension: 'zip', service_type: 'wms', content_type: 'application/zip' } }
 
   describe '#initialize' do

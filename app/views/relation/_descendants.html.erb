@@ -1,8 +1,8 @@
 <% @relations.descendants['docs'][0..2].each do |descendant| %>
   <li class="list-group-item border-bottom-0">
-    <%= link_to solr_document_path(descendant['layer_slug_s']) do %>
+    <%= link_to solr_document_path(descendant[Settings.FIELDS.UNIQUE_KEY]) do %>
       <%= relations_icon(descendant, 'leaf') %>
-      <%= descendant['dc_title_s'] %>
+      <%= descendant[Settings.FIELDS.TITLE] %>
     <% end %>
   </li>
 <% end %>
