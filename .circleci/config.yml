@@ -229,7 +229,7 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
     jobs:
       - build:
           ruby_version: 2.7.2
