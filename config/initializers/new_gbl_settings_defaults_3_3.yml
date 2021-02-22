@@ -1,0 +1,10 @@
+# New GeoBlacklight v3.3 Solr field mappings
+FIELDS:
+  :IDENTIFIER: 'dc_identifier_s'
+  :LANGUAGE: 'dc_language_s'
+  :LAYER_ID: 'layer_id_s'
+  :LAYER_MODIFIED: 'layer_modified_dt'
+  :SOURCE: 'dc_source_sm'
+  :SUPPRESSED: 'suppressed_b'
+  :TYPE: 'dc_type_s'
+  :UNIQUE_KEY: 'layer_slug_s'
