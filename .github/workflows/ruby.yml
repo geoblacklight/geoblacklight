@@ -1,0 +1,142 @@
+name: CI
+
+on: [push]
+
+env:
+  cache-prefix: '02-24-2021-A'
+
+jobs:
+  rubocop:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+    - name: Install dependencies
+      run: bundle install
+    - name: Run linter
+      run: bundle exec rake rubocop
+
+  coverage:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+
+    - name: Install dependencies
+      run: bundle install
+
+    - name: Download coverage artifacts
+      uses: actions/download-artifact@v2
+      with:
+        name: coverage
+        path: coverage_results
+
+    - name: Run coverage report
+      run: RAILS_ENV=test bundle exec ruby ./bin/coverage.rb
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby: [2.7]
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+
+    - name: Cache solr download
+      uses: actions/cache@v2
+      env:
+        cache-name: cache-solr-download
+      with:
+        path: ./tmp/solr
+        key: ${{ env.cache-name }}-${{ env.cache-prefix }}
+
+    - name: Install dependencies
+      run: bundle install
+
+    - name: Run tests
+      run: bundle exec rake ci
+      env:
+        ENGINE_CART_RAILS_OPTIONS: '--skip-git --skip-listen --skip-spring --skip-keeps --skip-action-cable --skip-coffee --skip-test'
+
+    - name: Upload coverage artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: coverage
+        path: coverage/
+
+  test_rails6_0:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby: [2.6]
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+
+    - name: Cache solr download
+      uses: actions/cache@v2
+      env:
+        cache-name: cache-solr-download
+      with:
+        path: ./tmp/solr
+        key: ${{ env.cache-name }}-${{ env.cache-prefix }}
+
+    - name: Install dependencies
+      run: bundle install
+      env:
+        RAILS_VERSION: 6.0.3.4
+
+    - name: Run tests
+      run: bundle exec rake ci
+      env:
+        RAILS_VERSION: 6.0.3.4
+        ENGINE_CART_RAILS_OPTIONS: '--skip-git --skip-listen --skip-spring --skip-keeps --skip-action-cable --skip-coffee --skip-test'
+
+  test_rails5_2:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby: [2.5]
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+
+    - name: Cache solr download
+      uses: actions/cache@v2
+      env:
+        cache-name: cache-solr-download
+      with:
+        path: ./tmp/solr
+        key: ${{ env.cache-name }}-${{ env.cache-prefix }}
+
+    - name: Install dependencies
+      run: bundle install
+      env:
+        RAILS_VERSION: 5.2.4.2
+
+    - name: Run tests
+      run: bundle exec rake ci
+      env:
+        RAILS_VERSION: 5.2.4.2
+        ENGINE_CART_RAILS_OPTIONS: '--skip-git --skip-listen --skip-spring --skip-keeps --skip-action-cable --skip-coffee --skip-test'
