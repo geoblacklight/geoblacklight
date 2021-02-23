@@ -29,7 +29,6 @@ FIELDS:
   :IDENTIFIER: 'dc_identifier_s'
   :ISSUED: 'dct_issued_s'
   :LANGUAGE: 'dc_language_s'
-  :LAYER_ID: 'layer_id_s'
   :LAYER_MODIFIED: 'layer_modified_dt'
   :PART_OF: 'dct_isPartOf_sm'
   :PUBLISHER: 'dc_publisher_s'

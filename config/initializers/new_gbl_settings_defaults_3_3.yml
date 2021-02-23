@@ -2,7 +2,6 @@
 FIELDS:
   :IDENTIFIER: 'dc_identifier_s'
   :LANGUAGE: 'dc_language_s'
-  :LAYER_ID: 'layer_id_s'
   :LAYER_MODIFIED: 'layer_modified_dt'
   :SOURCE: 'dc_source_sm'
   :SUPPRESSED: 'suppressed_b'
