@@ -372,4 +372,30 @@ describe GeoblacklightHelper, type: :helper do
       end
     end
   end
+
+  describe '#results_js_map_selector' do
+    context 'viewing bookmarks' do
+      let(:controller_name) { 'bookmarks' }
+
+      it 'returns bookmarks data-map selector' do
+        expect(results_js_map_selector(controller_name)).to eq 'bookmarks'
+      end
+    end
+
+    context 'viewing catalog results' do
+      let(:controller_name) { 'catalog' }
+
+      it 'returns index data-map selector' do
+        expect(results_js_map_selector(controller_name)).to eq 'index'
+      end
+    end
+
+    context 'calling outside of intended scope' do
+      let(:controller_name) { 'outside' }
+
+      it 'returns default data-map value' do
+        expect(results_js_map_selector(controller_name)).to eq 'index'
+      end
+    end
+  end
 end
