@@ -55,6 +55,7 @@ namespace :geoblacklight do
 
   desc 'Create the test rails app'
   task generate: ['engine_cart:generate'] do
+    # Intentionally Empty Block
   end
 
   namespace :internal do

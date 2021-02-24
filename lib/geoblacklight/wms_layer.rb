@@ -25,10 +25,7 @@ module Geoblacklight
         request.options.timeout = Settings.TIMEOUT_WMS
         request.options.open_timeout = Settings.TIMEOUT_WMS
       end
-    rescue Faraday::ConnectionFailed => error
-      Geoblacklight.logger.error error.inspect
-      { error: error.inspect }
-    rescue Faraday::TimeoutError => error
+    rescue Faraday::ConnectionFailed, Faraday::TimeoutError => error
       Geoblacklight.logger.error error.inspect
       { error: error.inspect }
     end
