@@ -1,12 +1,13 @@
-require: rubocop-rails
-require: rubocop-rspec
+require:
+  - rubocop-rails
+  - rubocop-rspec
 
 inherit_from: .rubocop_todo.yml
 
 AllCops:
   TargetRubyVersion: 2.7
   DisplayCopNames: true
-  NewCops: enable
+  NewCops: pending
   Exclude:
   - '.internal_test_app/**/*'
   - 'db/**/*'
@@ -15,6 +16,8 @@ AllCops:
   - 'lib/generators/geoblacklight/templates/**/*'
   - 'tmp/**/*'
   - 'vendor/**/*'
+  - 'Rakefile'
+  - 'lib/tasks/geoblacklight.rake'
 
 Layout/DotPosition:
   Description: Checks the position of the dot in multi-line method calls.
