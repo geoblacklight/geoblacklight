@@ -34,6 +34,7 @@ Layout/LineLength:
   - 'app/models/concerns/geoblacklight/spatial_search_behavior.rb'
   - 'bin/coverage.rb'
   - 'lib/generators/geoblacklight/install_generator.rb'
+  - 'lib/geoblacklight/relation/ancestors.rb'
   - 'lib/tasks/geoblacklight.rake'
   - 'Rakefile'
   - 'spec/**/*'

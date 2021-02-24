@@ -62,10 +62,10 @@ module Geoblacklight
 
       # Do not suppress action_documents method calls for individual documents
       # ex. CatalogController#web_services (exportable views)
-      return if solr_params[:q]&.include?('{!lucene}layer_slug_s:')
+      return if solr_params[:q]&.include?("{!lucene}#{Settings.FIELDS.UNIQUE_KEY}:")
 
       solr_params[:fq] ||= []
-      solr_params[:fq] << '-suppressed_b: true'
+      solr_params[:fq] << "-#{Settings.FIELDS.SUPPRESSED}: true"
     end
   end
 end

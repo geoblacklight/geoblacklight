@@ -29,7 +29,7 @@ class CatalogController < ApplicationController
     #
     config.default_document_solr_params = {
      :qt => 'document',
-     :q => '{!raw f=layer_slug_s v=$id}'
+     :q => "{!raw f=#{Settings.FIELDS.UNIQUE_KEY} v=$id}"
     }
 
 

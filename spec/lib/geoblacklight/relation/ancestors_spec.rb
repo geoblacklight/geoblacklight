@@ -8,7 +8,7 @@ describe Geoblacklight::Relation::Ancestors do
 
   describe '#create_search_params' do
     it 'assembles the correct search params for finding ancestor documents' do
-      expect(ancestors.create_search_params).to eq(fq: ["{!join from=#{Settings.FIELDS.SOURCE} to=layer_slug_s}layer_slug_s:nyu_2451_34502"], fl: [Settings.FIELDS.TITLE.to_s, 'layer_slug_s', 'layer_geom_type_s'])
+      expect(ancestors.create_search_params).to eq(fq: ["{!join from=#{Settings.FIELDS.SOURCE} to=#{Settings.FIELDS.UNIQUE_KEY}}#{Settings.FIELDS.UNIQUE_KEY}:nyu_2451_34502"], fl: [Settings.FIELDS.TITLE.to_s, Settings.FIELDS.UNIQUE_KEY, Settings.FIELDS.GEOM_TYPE])
     end
   end
 
