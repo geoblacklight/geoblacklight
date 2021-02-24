@@ -26,6 +26,18 @@ describe Geoblacklight::ItemViewer do
         expect(item_viewer.viewer_preference).to eq wms: 'http://www.example.com/wms'
       end
     end
+    describe 'for tms reference' do
+      let(:document_attributes) do
+        {
+          references_field => {
+            'https://wiki.osgeo.org/wiki/Tile_Map_Service_Specification' => 'http://www.example.com/tms'
+          }.to_json
+        }
+      end
+      it 'tms if tms is present' do
+        expect(item_viewer.viewer_preference).to eq tms: 'http://www.example.com/tms'
+      end
+    end
     describe 'for iiif only reference' do
       let(:document_attributes) do
         {
