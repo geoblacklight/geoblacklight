@@ -55,13 +55,7 @@ module Geoblacklight
           return response.body unless response.nil? || response.status == 404
           Geoblacklight.logger.error "Could not reach #{@reference.endpoint}"
           ''
-        rescue Faraday::ConnectionFailed => error
-          Geoblacklight.logger.error error.inspect
-          ''
-        rescue Faraday::TimeoutError => error
-          Geoblacklight.logger.error error.inspect
-          ''
-        rescue OpenSSL::SSL::SSLError => error
+        rescue Faraday::ConnectionFailed, Faraday::TimeoutError, OpenSSL::SSL::SSLError => error
           Geoblacklight.logger.error error.inspect
           ''
         end
