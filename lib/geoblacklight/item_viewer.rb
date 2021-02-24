@@ -47,8 +47,12 @@ module Geoblacklight
       @references.oembed
     end
 
+    def tms
+      @references.tms
+    end
+
     def viewer_preference
-      [oembed, index_map, wms, iiif, tiled_map_layer, dynamic_map_layer,
+      [oembed, index_map, tms, wms, iiif, tiled_map_layer, dynamic_map_layer,
        image_map_layer, feature_layer].compact.map(&:to_hash).first
     end
   end

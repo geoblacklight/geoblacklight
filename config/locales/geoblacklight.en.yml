@@ -64,6 +64,7 @@ en:
       data_dictionary: 'Documentation'
       services: 'Web services'
       services_close: 'Close'
+      tms: 'Tile Map Service'
     relations:
       ancestor: 'Source Datasets'
       descendant: 'Derived Datasets'
@@ -104,6 +105,9 @@ en:
         tiled_map_layer:
           title: ArcGIS Tiled Map Layer
           content: An ArcGIS Tiled Map Layer Service displays set of web-accessible tiles that reside on a server.
+        tms:
+          title: Tile Map Service
+          content: A Tile Map Service displays georeferenced map tiles as an image on a map.
         wms:
           title: Web Map Service (WMS)
           content: A Web Map Service displays a geospatial dataset as map images.
