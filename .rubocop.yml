@@ -1,16 +1,12 @@
+require: rubocop-rails
 require: rubocop-rspec
 
-inherit_gem:
-  bixby: bixby_default.yml
-
 inherit_from: .rubocop_todo.yml
-
-Rails:
-  Enabled: true
 
 AllCops:
   TargetRubyVersion: 2.7
   DisplayCopNames: true
+  NewCops: enable
   Exclude:
   - '.internal_test_app/**/*'
   - 'db/**/*'
@@ -73,10 +69,9 @@ RSpec/AnyInstance:
     - 'spec/models/concerns/geoblacklight/solr_document/finder_spec.rb'
     - 'spec/features/download_layer_spec.rb'
 
-# Rubocop bug causes view specs to fail.
-#  https://github.com/nevir/rubocop-rspec/issues/47
 RSpec/DescribeClass:
-  Enabled: false
+  Exclude:
+    - spec/tasks/*
 
 RSpec/ExampleLength:
   Enabled: false

@@ -38,7 +38,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'webdrivers'
   spec.add_development_dependency 'factory_bot_rails'
   spec.add_development_dependency 'database_cleaner', '~> 1.3'
-  spec.add_development_dependency 'bixby'
   spec.add_development_dependency 'simplecov', '~> 0.17.1'
   spec.add_development_dependency 'foreman'
+  spec.add_development_dependency 'rubocop', '~> 1.10'
+  spec.add_development_dependency 'rubocop-rails', '~> 2.9'
+  spec.add_development_dependency 'rubocop-rspec', '~> 2.2'
 end
