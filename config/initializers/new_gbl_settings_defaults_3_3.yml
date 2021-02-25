@@ -3,6 +3,7 @@ FIELDS:
   :IDENTIFIER: 'dc_identifier_s'
   :LANGUAGE: 'dc_language_s'
   :LAYER_MODIFIED: 'layer_modified_dt'
+  :OVERLAP_FIELD: 'solr_bboxtype'
   :SOURCE: 'dc_source_sm'
   :SUPPRESSED: 'suppressed_b'
   :TYPE: 'dc_type_s'

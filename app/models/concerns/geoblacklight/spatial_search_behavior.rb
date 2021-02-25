@@ -23,7 +23,7 @@ module Geoblacklight
         if Settings.OVERLAP_RATIO_BOOST
           solr_params[:bf] ||= []
           solr_params[:overlap] =
-            "{!field uf=* defType=lucene f=solr_bboxtype score=overlapRatio}Intersects(#{envelope_bounds})"
+            "{!field uf=* defType=lucene f=#{Settings.FIELDS.OVERLAP_FIELD} score=overlapRatio}Intersects(#{envelope_bounds})"
           solr_params[:bf] << "$overlap^#{Settings.OVERLAP_RATIO_BOOST}"
         end
       end
