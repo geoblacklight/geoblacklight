@@ -28,7 +28,7 @@ end
 
 desc 'Run JavaScript unit tests'
 task :javascript_tests do
-  system 'yarn test'
+  system '/bin/bash -c yarn test'
 end
 
 desc 'Run test suite'
