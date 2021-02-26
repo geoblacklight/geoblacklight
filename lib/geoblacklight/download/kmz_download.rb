@@ -9,7 +9,7 @@ module Geoblacklight
                             width: 2000, height: 2000 }.freeze
 
     def initialize(document, options = {})
-      bbox_wsen = document.bounding_box_as_wsen.split.join(', ')
+      bbox_wsen = document.geometry.bounding_box
       request_params = KMZ_DOWNLOAD_PARAMS.merge(layers: document[:layer_id_s], bbox: bbox_wsen)
       super(document, {
         type: 'kmz',

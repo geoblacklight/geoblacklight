@@ -19,6 +19,17 @@
     }
   };
 
+  /**
+   * Convert GeoJSON string to Leaflet LatLngBounds.
+   * @param {String} geojson GeoJSON string
+   * @return {L.LatLngBounds} Converted Leaflet LatLngBounds object
+   */
+  L.geoJSONToBounds = function(geojson) {
+    var layer = L.geoJSON();
+    layer.addData(geojson);
+    return layer.getBounds();
+  }
+
   var GeoBlacklight = L.Class.extend({
     statics: {
       __version__: '2.0.0',
