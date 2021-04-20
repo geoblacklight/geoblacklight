@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "Schema for GeoBlacklight. See https://github.com/geoblacklight/geoblacklight/wiki/Schema for more details.",
   "id": "http://geoblacklight.org/v1.0/schema",
-  "title": "GeoBlacklight Schema",
+  "title": "GeoBlacklight Schema - v1.0",
   "definitions": {
     "layer": {
       "title": "layer",
