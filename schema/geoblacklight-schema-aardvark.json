@@ -1,0 +1,205 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "description": "Schema for GeoBlacklight. See https://github.com/geoblacklight/geoblacklight/wiki/Aardvark-Metadata-Elements for more details.",
+  "id": "http://geoblacklight.org/schema/aardvark",
+  "title": "GeoBlacklight Schema - Aardvark",
+  "type": "object",
+  "properties": {
+    "dct_title_s": { "type": "string" },
+    "dct_alternative_sm": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dct_description_sm": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dct_language_sm": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dct_creator_sm": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dct_publisher_sm": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "schema_provider_s": { "type": "string" },
+    "gbl_resourceClass_sm": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Datasets",
+          "Maps",
+          "Imagery",
+          "Collections",
+          "Websites",
+          "Web services"
+        ]
+      }
+    },
+    "gbl_resourceType_sm": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dct_subject_sm": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dcat_theme_sm": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Farming",
+          "Biota",
+          "Boundaries",
+          "Climatology, Meteorology and Atmosphere",
+          "Economy",
+          "Elevation",
+          "Environment",
+          "Geoscientific Information",
+          "Health",
+          "Imagery and Base Maps",
+          "Intelligence and Military",
+          "Inland Waters",
+          "Location",
+          "Oceans",
+          "Planning and Cadastral",
+          "Society",
+          "Structure",
+          "Transportation",
+          "Utilities and Communications"
+        ]
+      }
+    },
+    "dcat_keyword_sm": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dct_temporal_sm": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dct_issued_s": { "type": "string" },
+    "gbl_indexYear_i": { "type": "integer" },
+    "gbl_dateRange_drsim": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dct_spatial_sm": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "locn_geometry": { "type": "string" },
+    "dcat_centroid_ss": { "type": "string" },
+    "dct_relation_sm": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "pcdm_memberOf_sm": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dct_isPartOf_sm": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dct_source_sm": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dct_isVersionOf_sm": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dct_replaces_sm": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dct_isReplacedBy_sm": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dct_rights_sm": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dct_rightsHolder_sm": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dct_license_sm": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dct_accessRights_s": { "type": "string" },
+    "dct_format_s": { "type": "string" },
+    "gbl_fileSize_s": { "type": "string" },
+    "gbl_wxsIdentifier_s": { "type": "string" },
+    "dct_references_s": { "type": "string" },
+    "id": { "type": "string" },
+    "dct_identifier_sm": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "gbl_mdModified_dt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "gbl_mdVersion_s": {
+      "type": "string",
+      "const": "Aardvark"
+    },
+    "gbl_suppressed_b": { "type": "boolean" },
+    "gbl_georeferenced_b": { "type": "boolean" }
+  },
+  "required": ["id", "dct_title_s", "gbl_resourceClass_sm", "dct_accessRights_s", "gbl_mdVersion_s"]
+}
