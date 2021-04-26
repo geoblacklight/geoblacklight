@@ -280,7 +280,7 @@ module GeoblacklightHelper
     icon_name = icon if icon_name.blank?
     icon_options = {}
     icon_options = { classes: 'svg_tooltip' } if Settings.USE_GEOM_FOR_RELATIONS_ICON
-    geoblacklight_icon(icon_name, icon_options)
+    geoblacklight_icon(icon_name, **icon_options)
   end
 
   ## Returns the data-map attribute value used as the JS map selector
