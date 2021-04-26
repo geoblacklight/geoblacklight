@@ -66,6 +66,9 @@ jobs:
     - name: Install dependencies
       run: bundle install
 
+    - name: Setup Yarn
+      run: exec "yarnpkg"
+
     - name: Run tests
       run: bundle exec rake ci
       env:
@@ -103,6 +106,9 @@ jobs:
       env:
         RAILS_VERSION: 6.0.3.4
 
+    - name: Setup Yarn
+      run: exec "yarnpkg"
+
     - name: Run tests
       run: bundle exec rake ci
       env:
@@ -134,6 +140,9 @@ jobs:
       run: bundle install
       env:
         RAILS_VERSION: 5.2.4.2
+
+    - name: Setup Yarn
+      run: exec "yarnpkg"
 
     - name: Run tests
       run: bundle exec rake ci

@@ -328,7 +328,6 @@ Rails/OutputSafety:
 Style/ExpandPathArguments:
   Exclude:
     - 'lib/generators/geoblacklight/install_generator.rb'
-    - 'lib/generators/geoblacklight/webpacker_generator.rb'
     - 'spec/spec_helper.rb'
     - 'spec/support/features.rb'
     - 'spec/test_app_templates/lib/generators/test_app_generator.rb'
