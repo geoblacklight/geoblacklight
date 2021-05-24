@@ -17,7 +17,8 @@ module Geoblacklight
     def geojson
       obj = factory.parse_wkt(geometry_as_wkt)
       RGeo::GeoJSON.encode(obj).to_json
-    rescue RGeo::Error::ParseError
+    rescue StandardError
+      Geoblacklight.logger.warn "Geometry is not valid: #{geom}"
       ''
     end
 
