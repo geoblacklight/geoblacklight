@@ -21,8 +21,8 @@ describe Geoblacklight::Geometry do
     end
 
     context 'with an invalid geometry' do
-      it 'returns an empty string' do
-        expect(described_class.new(invalid_geom).geojson).to eq ''
+      it 'returns a default GeoJSON extent' do
+        expect(described_class.new(invalid_geom).geojson).to include('coordinates', '-180.0,90.0')
       end
     end
 
@@ -31,8 +31,8 @@ describe Geoblacklight::Geometry do
         allow(RGeo::GeoJSON).to receive(:encode).and_raise(RGeo::Error::InvalidGeometry)
       end
 
-      it 'returns an empty string' do
-        expect(described_class.new(non_polygon_geom).geojson).to eq ''
+      it 'returns a default GeoJSON extent' do
+        expect(described_class.new(non_polygon_geom).geojson).to include('coordinates', '-180.0,90.0')
       end
     end
   end
@@ -51,8 +51,8 @@ describe Geoblacklight::Geometry do
     end
 
     context 'with an invalid geometry' do
-      it 'returns an empty string' do
-        expect(described_class.new(invalid_geom).bounding_box).to eq ''
+      it 'returns a default GeoJSON extent' do
+        expect(described_class.new(invalid_geom).bounding_box).to include('coordinates', '-180.0,90.0')
       end
     end
   end

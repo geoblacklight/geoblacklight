@@ -19,7 +19,7 @@ module Geoblacklight
       RGeo::GeoJSON.encode(obj).to_json
     rescue StandardError
       Geoblacklight.logger.warn "Geometry is not valid: #{geom}"
-      ''
+      default_extent
     end
 
     # Generate a wsen bounding box from the geometry
@@ -37,10 +37,24 @@ module Geoblacklight
       maxy = bbox.coordinates[0][2][1]
       "#{minx}, #{miny}, #{maxx}, #{maxy}"
     rescue RGeo::Error::ParseError
-      ''
+      Geoblacklight.logger.warn "Error parsing geometry: #{geom}"
+      default_extent
     end
 
     private
+
+    # Default extent as GeoJSON
+    # @return [String]
+    def default_extent
+      {
+        'type' => 'Polygon',
+        'coordinates' => [
+          [
+            [-180.0, 90.0], [-180.0, -90.0], [180.0, -90.0], [180.0, 90.0], [-180.0, 90.0]
+          ]
+        ]
+      }.to_json
+    end
 
     # Convert WKT ENVELOPE string to WKT POLYGON string
     # @return [String]
