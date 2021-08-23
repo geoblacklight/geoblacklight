@@ -5,6 +5,7 @@ describe Geoblacklight::Geometry do
   let(:wkt_geom) { 'MULTIPOLYGON(((-180 81.66, -180 -12.93, -168.35 -12.93, -168.35 81.66, -180 81.66)), ((180 81.66, 25 81.66, 25 -12.93, 180 -12.93, 180 81.66)))' }
   let(:envelope_geom) { 'ENVELOPE(25, -168.35, 81.66, -12.93)' }
   let(:invalid_geom) { 'INVALID' }
+  let(:non_polygon_geom) { 'ENVELOPE(130, 130, 33, 33)' }
 
   describe '#geojson' do
     context 'with standard WKT geometry' do
@@ -20,8 +21,18 @@ describe Geoblacklight::Geometry do
     end
 
     context 'with an invalid geometry' do
-      it 'returns an empty string' do
-        expect(described_class.new(invalid_geom).geojson).to eq ''
+      it 'returns a default GeoJSON extent' do
+        expect(described_class.new(invalid_geom).geojson).to include('coordinates', '-180.0,90.0')
+      end
+    end
+
+    context 'with a non-polygon geometry' do
+      before do
+        allow(RGeo::GeoJSON).to receive(:encode).and_raise(RGeo::Error::InvalidGeometry)
+      end
+
+      it 'returns a default GeoJSON extent' do
+        expect(described_class.new(non_polygon_geom).geojson).to include('coordinates', '-180.0,90.0')
       end
     end
   end
@@ -40,8 +51,8 @@ describe Geoblacklight::Geometry do
     end
 
     context 'with an invalid geometry' do
-      it 'returns an empty string' do
-        expect(described_class.new(invalid_geom).bounding_box).to eq ''
+      it 'returns a default GeoJSON extent' do
+        expect(described_class.new(invalid_geom).bounding_box).to include('coordinates', '-180.0,90.0')
       end
     end
   end
