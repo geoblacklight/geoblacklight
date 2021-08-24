@@ -59,8 +59,7 @@
   "locn_geometry": "ENVELOPE(-74.030876,-73.755405,40.903125,40.576127)",
   "dcat_centroid_ss": "40.739626,-73.8931405",
   "dct_source_sm": [
-    "nyu_2451_34635"
-    "nyu_2451_34636"
+    "nyu_2451_34635, nyu_2451_34636"
   ],
   "dct_accessRights_s": "Public",
   "dct_format_s": "Shapefile",
