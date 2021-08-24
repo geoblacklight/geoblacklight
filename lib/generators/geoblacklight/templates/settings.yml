@@ -45,7 +45,7 @@ FIELDS:
   :TYPE: 'dc_type_s'
   :UNIQUE_KEY: 'id'
   :WXS_IDENTIFIER: 'gbl_wxsIdentifier_s'
-  :YEAR: 'gbl_indexYear_i'
+  :YEAR: 'gbl_indexYear_im'
 
 # Institution deployed at
 INSTITUTION: 'Stanford'
