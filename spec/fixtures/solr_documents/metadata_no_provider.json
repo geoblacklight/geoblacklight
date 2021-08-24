@@ -1,0 +1,39 @@
+{
+  "dct_title_s": "Social Explorer",
+  "dct_alternative_sm": [
+    "metadata_no_provider"
+  ],
+  "dct_description_sm": [
+    "This is a website record that does not have a Provider (aardvark)/ Provenance (GBL Metadata 1.0). ",
+    "Requires creating a free account or logging in through an organization with licensed access. This interactive website includes the entire US census history from 1790 to 2000, the American Community Survey (ACS), and the Religious Congregations and Membership Study (RCMS) from 1980 to 2000? the most complete census available on religion in the U.S. Overall, the site contains 39 billion data points, 200,000 variables, and 15,000 interactive maps"
+  ],
+  "dct_creator_sm": [
+    "Queens College (New York, N.Y.). Department of Sociology"
+  ],
+  "dct_publisher_sm": [
+    "Social Explorer"
+  ],
+  "gbl_resourceClass_sm": [
+    "Websites"
+  ],
+  "dcat_theme_sm": [
+    "Society"
+  ],
+  "dcat_keyword_sm": [
+    "licensed database",
+    "GBL Fixture records"
+  ],
+  "dct_temporal_sm": [
+    "1790-present"
+  ],
+  "dct_spatial_sm": [
+    "United States"
+  ],
+  "locn_geometry": "ENVELOPE(-179.9,-64.4,71.6,-14.8)",
+  "dcat_centroid_ss": "28.4,-122.15",
+  "dct_accessRights_s": "Restricted",
+  "dct_references_s": "{\"http://schema.org/url\":\"https://www.socialexplorer.com/\"}",
+  "id": "99-0001-noProvenance",
+  "gbl_mdModified_dt": "2021-06-11T18:35:25Z",
+  "gbl_mdVersion_s": "Aardvark"
+}

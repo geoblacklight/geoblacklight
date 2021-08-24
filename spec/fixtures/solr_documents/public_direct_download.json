@@ -1,34 +1,61 @@
 {
-  "dc_identifier_s": "http://purl.stanford.edu/cz128vq0535",
-  "dc_title_s": "2005 Rural Poverty GIS Database: Uganda",
-  "dc_description_s": "This polygon shapefile contains 2005 poverty data for 855 rural subcounties in Uganda. These data are intended for researchers, students, policy makers and the general public for reference and mapping purposes, and may be used for basic applications such as viewing, querying, and map output production.",
-  "dc_rights_s": "Public",
-  "dct_provenance_s": "Stanford",
-  "dct_references_s": "{\"http://schema.org/url\":\"http://purl.stanford.edu/cz128vq0535\",\"http://schema.org/downloadUrl\":\"http://stacks.stanford.edu/file/druid:cz128vq0535/data.zip\",\"http://www.loc.gov/mods/v3\":\"http://purl.stanford.edu/cz128vq0535.mods\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"https://raw.githubusercontent.com/OpenGeoMetadata/edu.stanford.purl/master/cz/128/vq/0535/iso19139.xml\",\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"https://geowebservices.stanford.edu/geoserver/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://geowebservices.stanford.edu/geoserver/wms\"}",
-  "layer_id_s": "druid:cz128vq0535",
-  "layer_slug_s": "stanford-cz128vq0535",
-  "layer_geom_type_s": "Polygon",
-  "layer_modified_dt": "2015-07-16T18:28:51Z",
-  "dc_format_s": "Shapefile",
-  "dc_language_s": "English",
-  "dc_type_s": "Dataset",
-  "dc_publisher_s": "Uganda Bureau of Statistics",
-  "dc_creator_sm": [
+  "dct_title_s": "2005 Rural Poverty GIS Database: Uganda",
+  "dct_alternative_sm": [
+    "public_direct_download"
+  ],
+  "dct_description_sm": [
+    "includes a tentative dcat_distribution_sm property. ",
+    "This polygon shapefile contains 2005 poverty data for 855 rural subcounties in Uganda. These data are intended for researchers, students, policy makers and the general public for reference and mapping purposes, and may be used for basic applications such as viewing, querying, and map output production."
+  ],
+  "dct_language_sm": [
+    "eng"
+  ],
+  "dct_creator_sm": [
     "Uganda Bureau of Statistics"
   ],
-  "dc_subject_sm": [
+  "dct_publisher_sm": [
+    "Uganda Bureau of Statistics"
+  ],
+  "schema_provider_s": "Stanford",
+  "gbl_resourceClass_sm": [
+    "Datasets"
+  ],
+  "gbl_resourceType_sm": [
+    "Polygon data"
+  ],
+  "dct_subject_sm": [
     "Poverty",
     "Statistics"
   ],
-  "dct_issued_s": "2005",
+  "dcat_keyword_sm": [
+    "GBL Fixture records"
+  ],
   "dct_temporal_sm": [
     "2005"
+  ],
+  "dct_issued_s": "1905-06-27",
+  "gbl_indexYear_im": [
+    "2005"
+  ],
+  "gbl_dateRange_drsim": [
+    "[2005 TO 2005]"
   ],
   "dct_spatial_sm": [
     "Uganda"
   ],
-  "solr_geom": "ENVELOPE(29.572742, 35.000308, 4.234077, -1.478794)",
-  "solr_year_i": 2005,
-  "stanford_rights_metadata_s": "<?xml version=\"1.0\"?>\n<rightsMetadata>\n  <access type=\"discover\">\n    <machine>\n      <world/>\n    </machine>\n  </access>\n  <access type=\"read\">\n    <machine>\n      <world/>\n    </machine>\n  </access>\n  <use>\n    <human type=\"useAndReproduction\">This item is in the public domain.  There are no restrictions on use.</human>\n    <human type=\"creativeCommons\"/>\n    <machine type=\"creativeCommons\"/>\n  </use>\n  <copyright>\n    <human>This work is in the Public Domain, meaning that it is not subject to copyright.</human>\n  </copyright>\n</rightsMetadata>\n",
-  "geoblacklight_version": "1.0"
+  "locn_geometry": "ENVELOPE(29.572742,35.000308,4.234077,-1.478794)",
+  "dcat_centroid_ss": "1.3776415000000002,32.286525",
+  "dct_rights_sm": [
+    "This item is in the public domain. There are no restrictions on use."
+  ],
+  "dct_accessRights_s": "Public",
+  "dct_format_s": "Shapefile",
+  "gbl_wxsIdentifier_s": "druid:cz128vq0535",
+  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://stacks.stanford.edu/file/druid:cz128vq0535/data.zip\",\"http://schema.org/url\":\"http://purl.stanford.edu/cz128vq0535\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"https://raw.githubusercontent.com/OpenGeoMetadata/edu.stanford.purl/master/cz/128/vq/0535/iso19139.xml\",\"http://www.loc.gov/mods/v3\":\"http://purl.stanford.edu/cz128vq0535.mods\",\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"https://geowebservices.stanford.edu/geoserver/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://geowebservices.stanford.edu/geoserver/wms\"}",
+  "id": "stanford-cz128vq0535",
+  "dct_identifier_sm": [
+    "http://purl.stanford.edu/cz128vq0535"
+  ],
+  "gbl_mdModified_dt": "2021-06-01T22:14:16Z",
+  "gbl_mdVersion_s": "Aardvark"
 }

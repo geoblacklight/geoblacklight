@@ -1,33 +1,58 @@
 {
-  "geoblacklight_version": "1.0",
-  "dc_creator_sm": [
+  "dct_title_s": "Agriculture Census: Indiana, 1997",
+  "dct_alternative_sm": [
+    "esri-wms-layer"
+  ],
+  "dct_description_sm": [
+    "Dataset with ArcGIS Dynamic Map Layer, ArcGIS WMS, and direct download. ",
+    "USGS National Atlas metadata states \"This data set portrays the National Agricultural Statistics Service, U.S. Department of Agriculture's 1997 Census data for the United States, presented by county. There are 25 categories of data which include information about farms, crops, livestock, values of products, and farm operator characteristics.\""
+  ],
+  "dct_creator_sm": [
     "(creation): U.S. Geological Survey",
     "(selection/conversion): Bernardin, Lochmueller and Associates"
   ],
-  "dc_description_s": "USGS National Atlas metadata states NThis data set portrays the National Agricultural Statistics Service, U.S. Department of Agriculture's 1997 Census data for the United States, presented by county. There are 25 categories of data which include information about farms, crops, livestock, values of products, and farm operator characteristics.N",
-  "dc_format_s": "Shapefile",
-  "dc_identifier_s": "urn-f082acb1-b01e-4a08-9126-fd62a23fd9aa",
-  "dc_publisher_sm": [
+  "dct_publisher_sm": [
     "Bernardin, Lochmueller and Associates"
   ],
-  "dc_rights_s": "Public",
-  "dc_subject_sm": [
-    "farming",
-    "agriculture"
+  "schema_provider_s": "Purdue University",
+  "gbl_resourceClass_sm": [
+    "Datasets"
   ],
-  "dc_title_s": "Agriculture Census: Indiana, 1997",
-  "dc_type_s": "Dataset",
+  "gbl_resourceType_sm": [
+    "Mixed data"
+  ],
+  "dct_subject_sm": [
+    "Agriculture"
+  ],
+  "dcat_theme_sm": [
+    "Farming"
+  ],
+  "dcat_keyword_sm": [
+    "GBL Fixture records"
+  ],
+  "dct_temporal_sm": [
+    "1972-1997"
+  ],
   "dct_issued_s": "2003-01-28",
-  "dct_provenance_s": "Purdue",
-  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"http://maps.indiana.edu/download/Environment/Agriculture_Census.zip\",\"http://schema.org/url\":\"http://indianamap.org/\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"https://opengeometadata.github.io/edu.purdue/f0/82/ac/b1b01e4a089126fd62a23fd9aa/iso19139.xml\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://maps.indiana.edu/arcgis/services/Environment/Agriculture_Census/MapServer/WMSServer\",\"urn:x-esri:serviceType:ArcGIS#DynamicMapLayer\":\"https://maps.indiana.edu/arcgis/rest/services/Environment/Agriculture_Census/MapServer\"}",
+  "gbl_indexYear_im": [
+    "1972"
+  ],
+  "gbl_dateRange_drsim": [
+    "[1972 TO 1997]"
+  ],
   "dct_spatial_sm": [
     "Indiana"
   ],
-  "dct_temporal_sm": "1972-1997",
-  "layer_geom_type_s": "Mixed",
-  "layer_id_s": "0",
-  "layer_modified_dt": "2016-06-20T16:17:36Z",
-  "layer_slug_s": "purdue-urn-f082acb1-b01e-4a08-9126-fd62a23fd9aa",
-  "solr_geom": "ENVELOPE(-88.1607, -84.6882, 41.7753, 37.7554)",
-  "solr_year_i": 1972
+  "locn_geometry": "ENVELOPE(-88.1607,-84.6882,41.7753,37.7554)",
+  "dcat_centroid_ss": "39.76,-86.42",
+  "dct_accessRights_s": "Public",
+  "dct_format_s": "Shapefile",
+  "gbl_wxsIdentifier_s": "0",
+  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://schema.org/downloadUrl:https://maps.indiana.edu/download/Environment/Agriculture_Census.zip\",\"http://schema.org/url\":\"http://indianamap.org/\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"https://opengeometadata.github.io/edu.purdue/f0/82/ac/b1b01e4a089126fd62a23fd9aa/iso19139.xml\",\"urn:x-esri:serviceType:ArcGIS#DynamicMapLayer\":\"https://maps.indiana.edu/arcgis/rest/services/Environment/Agriculture_Census/MapServer\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://maps.indiana.edu/arcgis/services/Environment/Agriculture_Census/MapServer/WMSServer\"}",
+  "id": "purdue-urn-f082acb1-b01e-4a08-9126-fd62a23fd9aa",
+  "dct_identifier_sm": [
+    "urn-f082acb1-b01e-4a08-9126-fd62a23fd9aa"
+  ],
+  "gbl_mdModified_dt": "2021-06-01T22:14:15Z",
+  "gbl_mdVersion_s": "Aardvark"
 }
