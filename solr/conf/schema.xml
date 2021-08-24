@@ -200,5 +200,5 @@
   <copyField source="dct_spatial_sm" dest="suggest"/>
 
   <!-- for bbox value -->
-  <copyField source="dcat_bbox_geom" dest="solr_bboxtype"/>
+  <copyField source="locn_geometry" dest="solr_bboxtype"/>
 </schema>
