@@ -42,5 +42,6 @@
     "HMC04 (Princeton)"
   ],
   "gbl_mdModified_dt": "2021-06-01T22:14:16Z",
-  "gbl_mdVersion_s": "Aardvark"
+  "gbl_mdVersion_s": "Aardvark",
+  "gbl_suppressed_b": true
 }
