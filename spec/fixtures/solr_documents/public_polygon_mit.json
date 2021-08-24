@@ -1,27 +1,43 @@
 {
-  "dc_creator_sm": [
+  "dct_title_s": "Massachusetts (ZCTA - 5 digit zip code tabulation area, 2000)",
+  "dct_alternative_sm": [
+    "public_polygon_mit"
+  ],
+  "dct_description_sm": [
+    "Polygon shapefile with WMS and WFS"
+  ],
+  "dct_creator_sm": [
     "United States. Bureau of the Census"
   ],
-  "dc_format_s": "Shapefile",
-  "dc_publisher_s": "United States. Bureau of the Census",
-  "dc_rights_s": "Public",
-  "dc_subject_sm": [
+  "dct_publisher_sm": [
+    "United States. Bureau of the Census"
+  ],
+  "schema_provider_s": "MIT",
+  "gbl_resourceClass_sm": [
+    "Maps"
+  ],
+  "gbl_resourceType_sm": [
+    "Polygon data"
+  ],
+  "dct_subject_sm": [
     "Zip codes",
     "Census data",
     "Demographic surveys",
     "Population"
   ],
-  "dc_title_s": "Massachusetts (ZCTA - 5 digit zip code tabulation area, 2000)",
-  "dc_type_s": "Dataset",
-  "dct_provenance_s": "MIT",
+  "dcat_keyword_sm": [
+    "GBL Fixture records"
+  ],
   "dct_spatial_sm": [
     "Massachusetts"
   ],
-  "dct_references_s": "{\"http://www.opengis.net/def/serviceType/ogc/wms\": \"https://geodata.mit.edu/geoserver/wms\", \"http://www.opengis.net/def/serviceType/ogc/wfs\": \"https://geodata.mit.edu/geoserver/wfs\"}",
-  "layer_geom_type_s": "Polygon",
-  "layer_id_s": "mit:SDE_DATA_US_MA_E25ZCTA5DCT_2000",
-  "layer_modified_dt": "2018-05-15T20:00:25Z",
-  "layer_slug_s": "mit-f6rqs4ucovjk2",
-  "solr_geom": "ENVELOPE(-73.533237, -69.898565, 42.888068, 41.230345)",
-  "geoblacklight_version": "1.0"
+  "locn_geometry": "ENVELOPE(-73.533237,-69.898565,42.888068,41.230345)",
+  "dcat_centroid_ss": "42.0592065,-71.715901",
+  "dct_accessRights_s": "Public",
+  "dct_format_s": "Shapefile",
+  "gbl_wxsIdentifier_s": "mit:SDE_DATA_US_MA_E25ZCTA5DCT_2000",
+  "dct_references_s": "{\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"https://geodata.mit.edu/geoserver/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://geodata.mit.edu/geoserver/wms\"}",
+  "id": "mit-f6rqs4ucovjk2",
+  "gbl_mdModified_dt": "2021-06-11T18:42:45Z",
+  "gbl_mdVersion_s": "Aardvark"
 }

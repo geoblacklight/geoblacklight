@@ -1,36 +1,61 @@
 {
-  "geoblacklight_version": "1.0",
-  "dc_description_s": "Partly colored. Relief shown pictorially. Shows administrative divisions. From Thomas Jefferys's The American atlas, or, A geographical description of the whole continent of America (London : Printed by R. Sayer and Bennett, 1778). Insets: A chart of the mouth of Hudson's River, from Sandy Hook to New York. A plan of the city of New York. Plan of Amboy, with its environs, from an actual survey.",
-  "dc_format_s": "Raster",
-  "dc_identifier_s": "http://arks.princeton.edu/ark:/88435/02870w62c",
-  "dc_language_s": "English",
-  "dc_publisher_s": "London, Robt. Sayer & John Bennett",
-  "dc_rights_s": "Public",
-  "dc_subject_sm": [
-    "New York (State)‒Maps",
-    "New Jersey‒Maps"
+  "dct_title_s": "The provinces of New York and New Jersey, with part of Pensilvania, and the Province of Quebec : drawn by Major Holland, Surveyor General, of the Northern District in America. Corrected and improved, from the original materials, by Governr. Pownall, Member of Parliament, 1776",
+  "dct_alternative_sm": [
+    "public_iiif_princeton"
   ],
-  "dc_title_s": "The provinces of New York and New Jersey, with part of Pensilvania, and the Province of Quebec : drawn by Major Holland, Surveyor General, of the Northern District in America. Corrected and improved, from the original materials, by Governr. Pownall, Member of Parliament, 1776",
-  "dc_type_s": "Dataset",
-  "dc_creator_sm": [
+  "dct_description_sm": [
+    "Scanned map with IIIF. ",
+    "Partly colored. Relief shown pictorially. Shows administrative divisions. From Thomas Jefferys's The American atlas, or, A geographical description of the whole continent of America (London : Printed by R. Sayer and Bennett, 1778). Insets: A chart of the mouth of Hudson's River, from Sandy Hook to New York. A plan of the city of New York. Plan of Amboy, with its environs, from an actual survey."
+  ],
+  "dct_language_sm": [
+    "eng"
+  ],
+  "dct_creator_sm": [
     "Rogers, Henry Darwin",
     "Pownall, Thomas"
   ],
-  "dct_references_s": "{\"http://schema.org/url\":\"http://arks.princeton.edu/ark:/88435/02870w62c\",\"http://schema.org/thumbnailUrl\":\"https://iiif-cloud.princeton.edu/iiif/2/6c%2F52%2F12%2F6c5212e81bc845f59bb1cdc740a88bad%2Fintermediate_file/full/!200,150/0/default.jpg\",\"http://iiif.io/api/image\":\"https://iiif-cloud.princeton.edu/iiif/2/6c%2F52%2F12%2F6c5212e81bc845f59bb1cdc740a88bad%2Fintermediate_file/info.json\"}",
+  "dct_publisher_sm": [
+    "London, Robt. Sayer & John Bennett"
+  ],
+  "schema_provider_s": "Princeton",
+  "gbl_resourceClass_sm": [
+    "Maps"
+  ],
+  "gbl_resourceType_sm": [
+    "Raster data"
+  ],
+  "dct_subject_sm": [
+    "New York (State)‒Maps",
+    "New Jersey‒Maps"
+  ],
+  "dcat_keyword_sm": [
+    "GBL Fixture records"
+  ],
+  "dct_temporal_sm": [
+    "1778"
+  ],
+  "dct_issued_s": "1904-11-12",
+  "gbl_indexYear_im": [
+    "1778"
+  ],
+  "gbl_dateRange_drsim": [
+    "[1778 TO 1778]"
+  ],
   "dct_spatial_sm": [
     "New York (State)",
     "New Jersey",
     "Pennsylvania"
   ],
-  "dct_temporal_sm": [
-    "1778"
+  "locn_geometry": "ENVELOPE(-76.3394,-72.1916,46.5798,38.6693)",
+  "dcat_centroid_ss": "42.62455,-74.2655",
+  "dct_accessRights_s": "Public",
+  "dct_format_s": "Raster",
+  "gbl_wxsIdentifier_s": "02870w62c",
+  "dct_references_s": "{\"http://iiif.io/api/image\":\"https://libimages.princeton.edu/loris/pudl0076/map_pownall/00000001.jp2/info.json\",\"http://schema.org/url\":\"http://arks.princeton.edu/ark:/88435/02870w62c\"}",
+  "id": "princeton-02870w62c",
+  "dct_identifier_sm": [
+    "http://arks.princeton.edu/ark:/88435/02870w62c"
   ],
-  "dct_issued_s": "1778",
-  "dct_provenance_s": "Princeton",
-  "layer_slug_s": "princeton-02870w62c",
-  "layer_id_s": "02870w62c",
-  "layer_geom_type_s": "Raster",
-  "layer_modified_dt": "2014-10-09T18:00:18Z",
-  "solr_geom": "ENVELOPE(-76.3394, -72.1916, 46.5798, 38.6693)",
-  "solr_year_i": 1778
+  "gbl_mdModified_dt": "2021-06-01T22:14:16Z",
+  "gbl_mdVersion_s": "Aardvark"
 }

@@ -1,46 +1,71 @@
 {
-  "dc_identifier_s": "http://hdl.handle.net/2451/34635",
-  "dc_title_s": "2016 NYC Geodatabase, Open Source Version (jan2016)",
-  "dc_description_s": "The NYC Geodatabase (nyc_gdb) is a resource designed for basic geographic analysis and thematic mapping within the five boroughs of New York City. It contains geographic features and data compiled from several public sources. Subsets of large features like water, greenspace, and public facilities were created and Census geographies like tracts, ZCTAs, and PUMAs were geoprocessed to create land-based boundaries. Census data from the 2010 Census, American Community Survey (ACS), and ZIP Code Business Patterns are stored in tables that can be easily related to geographic features. Transit and public facility point data were gathered from several city agencies and transformed into spatial data that can be used for reference or analysis for measuring distance, drawing buffers, or counting features within areas. The data is provided in SQLite format.",
-  "dc_rights_s": "Public",
-  "dct_provenance_s": "Baruch CUNY",
-  "dct_references_s": "{\"http://schema.org/url\":\"http://hdl.handle.net/2451/34635\",\"http://schema.org/downloadUrl\":\"https://archive.nyu.edu/retrieve/74854/nyu_2451_34635.zip\",\"http://lccn.loc.gov/sh85035852\":\"https://archive.nyu.edu/retrieve/74855/nyu_2451_34635_doc.zip\"}",
-  "layer_id_s": "sdr:nyu_2451_34635",
-  "layer_slug_s": "nyu_2451_34635",
-  "layer_geom_type_s": "Mixed",
-  "layer_modified_dt": "2016-5-2T18:21:7Z",
-  "dc_format_s": "SQLite Database",
-  "dc_language_s": "English",
-  "dc_type_s": "Dataset",
-  "dc_publisher_s": [
+  "dct_title_s": "2016 NYC Geodatabase, Open Source Version (jan2016)",
+  "dct_alternative_sm": [
+    "baruch_ancestor1"
+  ],
+  "dct_description_sm": [
+    "SQLite Database with documentation download. Referenced as parent. ",
+    "The NYC Geodatabase (nyc_gdb) is a resource designed for basic geographic analysis and thematic mapping within the five boroughs of New York City. It contains geographic features and data compiled from several public sources. Subsets of large features like water, greenspace, and public facilities were created and Census geographies like tracts, ZCTAs, and PUMAs were geoprocessed to create land-based boundaries. Census data from the 2010 Census, American Community Survey (ACS), and ZIP Code Business Patterns are stored in tables that can be easily related to geographic features. Transit and public facility point data were gathered from several city agencies and transformed into spatial data that can be used for reference or analysis for measuring distance, drawing buffers, or counting features within areas. The data is provided in SQLite format."
+  ],
+  "dct_language_sm": [
+    "eng"
+  ],
+  "dct_creator_sm": [
+    "GIS Lab, Newman Library, Baruch CUNY"
+  ],
+  "dct_publisher_sm": [
     "Newman Library (Bernard M. Baruch College)"
   ],
-  "dc_creator_sm": "GIS Lab, Newman Library, Baruch CUNY",
-  "dc_subject_sm": [
+  "schema_provider_s": "Baruch CUNY",
+  "gbl_resourceClass_sm": [
+    "Datasets"
+  ],
+  "gbl_resourceType_sm": [
+    "Mixed data"
+  ],
+  "dct_subject_sm": [
     "Boroughs",
-    "Boundaries",
     "Counties"
   ],
-  "dct_isPartOf_sm": "NYC Geodatabase (version jan2016)",
-  "dct_issued_s": "1/15/2016",
+  "dcat_theme_sm": [
+    "Boundaries"
+  ],
+  "dcat_keyword_sm": [
+    "GBL Fixture records"
+  ],
   "dct_temporal_sm": [
-    "2010",
-    "2016"
+    "2010, 2016"
+  ],
+  "dct_issued_s": "2016-01-15",
+  "gbl_indexYear_im": [
+    "2010"
+  ],
+  "gbl_dateRange_drsim": [
+    "[2010 TO 2016]"
   ],
   "dct_spatial_sm": [
-    "New York, New York, United States",
-    "Bronx County, New York, United States",
-    "Kings County, New York, United States",
-    "New York County, New York, United States",
-    "Queens County, New York, United States",
-    "Richmond County, New York, United States",
-    "Borough of Bronx, New York, United States",
-    "Borough of Brooklyn, New York, United States",
-    "Borough of Manhattan, New York, United States",
-    "Borough of Queens, New York, United States",
-    "Borough of Staten Island, New York, United States"
+    "New York, New York",
+    "Bronx County, New York",
+    "Kings County, New York",
+    "New York County, New York",
+    "Queens County, New York",
+    "Richmond County, New York",
+    "Borough of Bronx, New York",
+    "Borough of Brooklyn, New York",
+    "Borough of Manhattan, New York",
+    "Borough of Queens, New York",
+    "Borough of Staten Island, New York"
   ],
-  "solr_geom": "ENVELOPE(-74.255895, -73.700272, 40.9152819999998, 40.4959289999998)",
-  "solr_year_i": 2016,
-  "geoblacklight_version": "1.0"
+  "locn_geometry": "ENVELOPE(-74.255895,-73.700272,40.915282,40.495929)",
+  "dcat_centroid_ss": "40.7056055,-73.9780835",
+  "dct_accessRights_s": "Public",
+  "dct_format_s": "SQLite Database",
+  "gbl_wxsIdentifier_s": "sdr:nyu_2451_34635",
+  "dct_references_s": "{\"http://lccn.loc.gov/sh85035852\":\"https://archive.nyu.edu/retrieve/74855/nyu_2451_34635_doc.zip\",\"http://schema.org/downloadUrl\":\"https://archive.nyu.edu/retrieve/74854/nyu_2451_34635.zip\",\"http://schema.org/url\":\"http://hdl.handle.net/2451/34635\"}",
+  "id": "nyu_2451_34635",
+  "dct_identifier_sm": [
+    "http://hdl.handle.net/2451/34635"
+  ],
+  "gbl_mdModified_dt": "2021-06-01T22:14:15Z",
+  "gbl_mdVersion_s": "Aardvark"
 }

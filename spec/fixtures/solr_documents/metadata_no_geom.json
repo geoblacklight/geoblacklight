@@ -1,0 +1,27 @@
+{
+  "dct_title_s": "Ames Library of South Asia Maps",
+  "dct_alternative_sm": [
+    "metadata_no_geom"
+  ],
+  "dct_description_sm": [
+    "This is a collection level record without spatial coordinates. ",
+    "A collection of maps covering Asia held by the University of Minnesota's Ames Library of South Asia."
+  ],
+  "dct_publisher_sm": [
+    "University of Minnesota"
+  ],
+  "schema_provider_s": "University of Minnesota",
+  "gbl_resourceClass_sm": [
+    "Collections"
+  ],
+  "dct_spatial_sm": [
+    "Asia",
+    "India",
+    "Afghanistan"
+  ],
+  "dct_accessRights_s": "Public",
+  "dct_references_s": "{\"http://schema.org/url\":\"https://umedia.lib.umn.edu/search?facets[collection_name_s][]=Ames+Library+of+South+Asia+Maps\"}",
+  "id": "05d-p16022coll246-noGeo",
+  "gbl_mdModified_dt": "2021-06-11T18:38:42Z",
+  "gbl_mdVersion_s": "Aardvark"
+}

@@ -1,38 +1,56 @@
 {
-  "dc_identifier_s": "2eddde2f-c222-41ca-bd07-2fd74a21f4de",
-  "dc_title_s": "1:100k Digital Raster Graphic - Collars Removed: Minnesota",
-  "dc_description_s": "A digital raster graphic (DRG) is a scanned image of an U.S. Geological Survey (USGS) standard series topographic map, including all map collar information. The image inside the map neatline is georeferenced to the surface of the earth and fit to the Universal Transverse Mercator projection. The horizontal positional accuracy and datum of the DRG matches the accuracy and datum of the source map. The map is scanned at a minimum resolution of 250 dots per inch.  DRG's are created by scanning published paper maps on high-resolution scanners.  The raster image is georeferenced and fit to the UTM projection.  Colors are standardized to remove scanner limitations and artifacts.  The average data set size is about 6 megabytes in Tagged Image File Format (TIFF) with PackBits compression. DRG's can be easily combined with other digital cartographic products such as digital elevation models (DEM) and digital orthophoto quadrangles (DOQ).  DRG's are stored as rectified TIFF files in geoTIFF format. GeoTIFF is a relatively new TIFF image storage format that incorporates georeferencing information in the header. This allows software, such as ArcView, ARC/INFO, or EPPL7 to reference the image without an additional header or world file.  Within the Minnesota Department of Natural Resources Core GIS data set the DRG's have been processed to be in compliance with departmental data standards (UTM Extended Zone 15, NAD83 datum) and the map collar information has been removed to facilitate the display of the DRG's in a seamless fashion.  These DRG's were clipped and transformed to UTM Zone 15 using EPPL7 Raster GIS.",
-  "dc_rights_s": "Public",
-  "dc_format_s": "ArcGRID",
-  "dc_language_sm": "English",
-  "dc_type_sm": [
-    "Dataset"
+  "dct_title_s": "1:100k Digital Raster Graphic - Collars Removed: Minnesota",
+  "dct_alternative_sm": [
+    "umn_state_result1"
   ],
-  "dc_publisher_sm": [
-    "Minnesota Department of Natural Resources (DNR)"
+  "dct_description_sm": [
+    "Bounding box of state area and static image in references. ",
+    "A digital raster graphic (DRG) is a scanned image of an U.S. Geological Survey (USGS) standard series topographic map, including all map collar information. The image inside the map neatline is georeferenced to the surface of the earth and fit to the Universal Transverse Mercator projection. The horizontal positional accuracy and datum of the DRG matches the accuracy and datum of the source map. The map is scanned at a minimum resolution of 250 dots per inch.  DRG's are created by scanning published paper maps on high-resolution scanners.  The raster image is georeferenced and fit to the UTM projection.  Colors are standardized to remove scanner limitations and artifacts.  The average data set size is about 6 megabytes in Tagged Image File Format (TIFF) with PackBits compression. DRG's can be easily combined with other digital cartographic products such as digital elevation models (DEM) and digital orthophoto quadrangles (DOQ).  DRG's are stored as rectified TIFF files in geoTIFF format. GeoTIFF is a relatively new TIFF image storage format that incorporates georeferencing information in the header. This allows software, such as ArcView, ARC/INFO, or EPPL7 to reference the image without an additional header or world file.  Within the Minnesota Department of Natural Resources Core GIS data set the DRG's have been processed to be in compliance with departmental data standards (UTM Extended Zone 15, NAD83 datum) and the map collar information has been removed to facilitate the display of the DRG's in a seamless fashion.  These DRG's were clipped and transformed to UTM Zone 15 using EPPL7 Raster GIS."
   ],
-  "dc_creator_sm": [
+  "dct_language_sm": [
+    "eng"
+  ],
+  "dct_creator_sm": [
     "U.S. Geological Survey (USGS) and Minnesota Department of Natural Resources (DNR)"
   ],
-  "dc_subject_sm": [
+  "dct_publisher_sm": [
+    "Minnesota Department of Natural Resources (DNR)"
+  ],
+  "schema_provider_s": "University of Minnesota",
+  "gbl_resourceClass_sm": [
+    "Datasets"
+  ],
+  "gbl_resourceType_sm": [
+    "Raster data"
+  ],
+  "dcat_theme_sm": [
     "Imagery and Base Maps"
   ],
-  "dct_provenance_s": "University of Minnesota",
-  "dct_references_s": "{\"http://schema.org/url\":\"https://gisdata.mn.gov/dataset/2eddde2f-c222-41ca-bd07-2fd74a21f4de\",\"http://schema.org/downloadUrl\":\"ftp://gdrs.dnr.state.mn.us/gdrs/data/pub/us_mn_state_dnr/fgdb_base_usgs_scanned_topo_100k_drg.zip\",\"http://schema.org/image\":\"https://btaagdp.org/thumbnails/05a-01/pub/gdrs/data/pub/us_mn_state_dnr/base_usgs_scanned_topo_100k_drg/metadata/preview.jpg\",\"http://www.opengis.net/cat/csw/csdgm\":\"https://btaagdp.org/metadata/05a-01/pub/gdrs/data/pub/us_mn_state_dnr/base_usgs_scanned_topo_100k_drg/metadata/metadata.xml\"}",
-  "dct_isPartOf_sm": [
-    "Minnesota Geospatial Commons"
+  "dcat_keyword_sm": [
+    "GBL Fixture records"
   ],
-  "dct_issued_s": "2015-11-18T11:02:15.705119",
   "dct_temporal_sm": [
     "2015"
   ],
-  "dct_spatial_sm": [
-    "Minnesota, United States"
+  "dct_issued_s": "2015-11-18",
+  "gbl_indexYear_im": [
+    "2015"
   ],
-  "layer_slug_s": "2eddde2f-c222-41ca-bd07-2fd74a21f4de",
-  "layer_geom_type_s": "Raster",
-  "layer_modified_dt": "2018-08-02T17:47:58Z",
-  "solr_geom": "ENVELOPE(-97.612501, -88.842351, 49.464145, 42.906949)",
-  "solr_year_i": 2015,
-  "geoblacklight_version": "1.0"
+  "gbl_dateRange_drsim": [
+    "[2015 TO 2015]"
+  ],
+  "dct_spatial_sm": [
+    "Minnesota"
+  ],
+  "locn_geometry": "ENVELOPE(-97.612501,-88.842351,49.464145,42.906949)",
+  "dcat_centroid_ss": "46.185547,-93.227426",
+  "dct_accessRights_s": "Public",
+  "dct_format_s": "ArcGRID",
+  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"ftp://gdrs.dnr.state.mn.us/gdrs/data/pub/us_mn_state_dnr/fgdb_base_usgs_scanned_topo_100k_drg.zip\",\"http://schema.org/url\":\"https://gisdata.mn.gov/dataset/2eddde2f-c222-41ca-bd07-2fd74a21f4de\"}",
+  "id": "2eddde2f-c222-41ca-bd07-2fd74a21f4de",
+  "dct_identifier_sm": [
+    "2eddde2f-c222-41ca-bd07-2fd74a21f4de"
+  ],
+  "gbl_mdModified_dt": "2021-06-01T22:14:16Z",
+  "gbl_mdVersion_s": "Aardvark"
 }

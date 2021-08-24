@@ -1,37 +1,58 @@
 {
-  "geoblacklight_version":"1.0",
-  "dc_identifier_s":"http://cugir.library.cornell.edu/catalog/cugir-008186#no-downloadUrl",
-  "dc_title_s":"Index of Digital Elevation Models (DEM), New York",
-  "dc_description_s":"This is an index of all the available DEM (digital elevation model) tiles within New York state. Download links are provided for each tile, but this record doesn't include a downloadUrl for the index map itself.",
-  "dc_rights_s":"Public",
-  "dct_provenance_s":"Cornell",
-  "dct_references_s":"{\"https://openindexmaps.org\":\"https://s3.amazonaws.com/cugir-data/00/81/86/cugir-008186-index.geojson\",\"http://www.opengis.net/cat/csw/csdgm\":\"https://s3.amazonaws.com/cugir-data/00/81/86/fgdc.xml\",\"http://www.w3.org/1999/xhtml\":\"https://s3.amazonaws.com/cugir-data/00/81/86/fgdc.html\"}",
-  "layer_id_s":"cugir008186",
-  "layer_slug_s":"cugir-008186-no-downloadurl",
-  "dc_type_s":"Dataset",
-  "dc_format_s":"GeoTIFF",
-  "layer_geom_type_s":"Raster",
-  "layer_modified_dt":"2018-12-20T00:00:00Z",
-  "dc_creator_sm":[
+  "dct_title_s": "Index of Digital Elevation Models (DEM), New York",
+  "dct_alternative_sm": [
+    "index-map-polygon-no-downloadurl"
+  ],
+  "dct_description_sm": [
+    "GeoJSON index map of polygons, but lacking a downloadUrl for the index itself. ",
+    "This is an index of all the available DEM (digital elevation model) tiles within New York state. Download links are provided for each tile. Each DEM raster has a pixel resolution of approximately 10 meters. Elevation values were derived from USGS contour lines mapped at a scale of 1:24,000.  DEMs can be used as source data for digital orthophotos and as layers in geographic information systems for earth science analysis. DEMs can also serve as tools for volumetric analysis, for site location of towers, or for drainage basin delineation. These data are collected as part of the National Mapping Program."
+  ],
+  "dct_creator_sm": [
     "U.S. Geological Survey"
   ],
-  "dc_publisher_sm":[
+  "dct_publisher_sm": [
     "U.S. Geological Survey"
   ],
-  "dc_subject_sm":[
-    "digital elevation model",
-    "digital terrain model",
-    "hypsography",
-    "altitude",
-    "topography",
-    "Index maps"
+  "schema_provider_s": "Cornell",
+  "gbl_resourceClass_sm": [
+    "Datasets"
   ],
-  "dct_spatial_sm":[
-    "New York"
+  "gbl_resourceType_sm": [
+    "Raster data",
+    "Index maps",
+    "Digital elevation models",
+    "Digital terrain models"
   ],
-  "dct_temporal_sm":[
+  "dct_subject_sm": [
+    "Hypsography",
+    "Altitude",
+    "Topography"
+  ],
+  "dcat_keyword_sm": [
+    "GBL Fixture records"
+  ],
+  "dct_temporal_sm": [
     "1995"
   ],
-  "solr_geom":"ENVELOPE(-79.750232, -71.750494, 44.999963, 40.499893)",
-  "solr_year_i":1995
+  "gbl_indexYear_im": [
+    "1995"
+  ],
+  "gbl_dateRange_drsim": [
+    "[1995 TO 1995]"
+  ],
+  "dct_spatial_sm": [
+    "New York"
+  ],
+  "locn_geometry": "ENVELOPE(-79.750232,-71.750494,44.999963,40.499893)",
+  "dcat_centroid_ss": "42.749928,-75.750363",
+  "dct_accessRights_s": "Public",
+  "dct_format_s": "GeoTIFF",
+  "gbl_wxsIdentifier_s": "cugir008186",
+  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://s3.amazonaws.com/cugir-data/00/81/86/cugir-008186-index.geojson\",\"http://www.opengis.net/cat/csw/csdgm\":\"https://s3.amazonaws.com/cugir-data/00/81/86/fgdc.xml\",\"http://www.w3.org/1999/xhtml\":\"https://s3.amazonaws.com/cugir-data/00/81/86/fgdc.html\",\"https://openindexmaps.org\":\"https://s3.amazonaws.com/cugir-data/00/81/86/cugir-008186-index.geojson\"}",
+  "id": "cugir-008186",
+  "dct_identifier_sm": [
+    "http://cugir.library.cornell.edu/catalog/cugir-008186"
+  ],
+  "gbl_mdModified_dt": "2021-06-01T22:14:16Z",
+  "gbl_mdVersion_s": "Aardvark"
 }
