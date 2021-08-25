@@ -30,11 +30,15 @@ FIELDS:
   :ISSUED: 'dct_issued_s'
   :LANGUAGE: 'dct_language_sm'
   :LAYER_MODIFIED: 'gbl_mdModified_dt'
+  :MEMBER_OF: 'pcdm_memberOf_sm'
   :OVERLAP_FIELD: 'solr_bboxtype'
   :PART_OF: 'dct_isPartOf_sm'
   :PUBLISHER: 'dct_publisher_sm'
   :PROVENANCE: 'schema_provider_s'
   :REFERENCES: 'dct_references_s'
+  :RELATION: 'dct_relation_sm'
+  :REPLACES: 'dct_replaces_sm'
+  :REPLACED_BY: 'dct_isReplacedBy_sm'
   :RIGHTS: 'dct_accessRights_s'
   :SPATIAL_COVERAGE: 'dct_spatial_sm'
   :SUBJECT: 'dct_subject_sm'
@@ -44,6 +48,7 @@ FIELDS:
   :TITLE: 'dct_title_s'
   :TYPE: 'dc_type_s'
   :UNIQUE_KEY: 'id'
+  :VERSION_OF: 'dct_isVersionOf_sm'
   :WXS_IDENTIFIER: 'gbl_wxsIdentifier_s'
   :YEAR: 'gbl_indexYear_im'
 
@@ -76,6 +81,16 @@ WEBSERVICES_SHOWN:
   - 'tiled_map_layer'
   - 'dynamic_map_layer'
   - 'image_map_layer'
+
+# Relationships to display and method of retrieval
+RELATIONSHIPS_SHOWN:
+  :MEMBER_OF: 'ancestors'
+  :PART_OF: 'ancestors'
+  :RELATION: 'ancestors'
+  :REPLACES: 'ancestors'
+  :REPLACED_BY: 'descendants'
+  :SOURCE: 'ancestors'
+  :VERSION_OF: 'descendants'
 
 # WMS Parameters
 WMS_PARAMS:
