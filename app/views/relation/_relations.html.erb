@@ -1,0 +1,14 @@
+<% @relations.send(method_name)['docs'][0..2].each do |relation| %>
+  <li class="list-group-item border-bottom-0">
+    <%= link_to solr_document_path(relation[Settings.FIELDS.UNIQUE_KEY]) do %>
+      <%= relation[Settings.FIELDS.TITLE] %>
+    <% end %>
+  </li>
+<% end %>
+<% unless (@relations.send(method_name)['numFound'].to_i <= 3) %>
+  <li class="list-group-item border-bottom-0">
+    <%= link_to search_catalog_path({f: {"#{Settings.FIELDS.SOURCE}" => [@relations.link_id]}}) do %>
+      <%= t('geoblacklight.relations.browse_all', count: @relations.send(method_name)['numFound']) %>
+    <% end %>
+  </li>
+<% end %>
