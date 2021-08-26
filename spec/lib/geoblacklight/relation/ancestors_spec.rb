@@ -3,8 +3,8 @@ require 'spec_helper'
 
 describe Geoblacklight::Relation::Ancestors do
   let(:repository) { Blacklight::Solr::Repository.new(CatalogController.blacklight_config) }
-  let(:ancestors) { described_class.new('nyu_2451_34502', repository) }
-  let(:empty_ancestors) { described_class.new('harvard-g7064-s2-1834-k3', repository) }
+  let(:ancestors) { described_class.new('nyu_2451_34502', Settings.FIELDS.SOURCE, repository) }
+  let(:empty_ancestors) { described_class.new('harvard-g7064-s2-1834-k3', Settings.FIELDS.SOURCE, repository) }
 
   describe '#create_search_params' do
     it 'assembles the correct search params for finding ancestor documents' do

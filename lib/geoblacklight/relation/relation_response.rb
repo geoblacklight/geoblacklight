@@ -19,8 +19,9 @@ module Geoblacklight
 
       def method_missing(method, *args, &block)
         if Settings.RELATIONSHIPS_SHOWN.key?(method)
-          field = Settings.FIELDS.send(method)
-          @results ||= query_type(Settings.RELATIONSHIPS_SHOWN[method]).new(@search_id, field, @repository).results
+          field = Settings.RELATIONSHIPS_SHOWN[method].field
+          query_type = query_type(Settings.RELATIONSHIPS_SHOWN[method])
+          @results = query_type.new(@search_id, field, @repository).results
         else
           super
         end
@@ -37,7 +38,7 @@ module Geoblacklight
       private
 
       def query_type(option)
-        case option
+        case option.query_type
         when 'ancestors'
           Geoblacklight::Relation::Ancestors
         when 'descendants'
