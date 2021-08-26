@@ -99,8 +99,7 @@ WEBSERVICES_SHOWN:
   - 'dynamic_map_layer'
   - 'image_map_layer'
 
-# Relationships to display and method of retrieval
-# FIELD: 'query_type'
+# Relationships to display
 RELATIONSHIPS_SHOWN:
   MEMBER_OF:
     field: pcdm_memberOf_sm
