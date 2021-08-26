@@ -110,12 +110,12 @@ RELATIONSHIPS_SHOWN:
     query_type: descendants
     icon: nil
     label: geoblacklight.relations.replaced_by
-  SOURCE_A:
+  SOURCE_ANCESTORS:
     field: dct_source_sm
     query_type: ancestors
     icon: pagelines-brands
     label: geoblacklight.relations.ancestor
-  SOURCE_D:
+  SOURCE_DESCENDANTS:
     field: dct_source_sm
     query_type: descendants
     icon: leaf
