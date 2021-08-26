@@ -24,15 +24,15 @@
   <% end %>
 
   <!-- Aardvark Relations -->
-  <%- Settings.RELATIONSHIPS_SHOWN.each do |relationship, _query| %>
-    <% unless @relations.send(relationship)['numFound'].to_i.zero? %>
+  <%- Settings.RELATIONSHIPS_SHOWN.each do |rel, value| %>
+    <% unless @relations.send(rel)['numFound'].to_i.zero? %>
       <div class="card relations">
         <div class="card-header">
-          <h2 class="mb-0 h6"><%= t("geoblacklight.relations.#{relationship.downcase}") %></h2>
+          <h2 class="mb-0 h6"><%= t("#{value.label}") %></h2>
         </div>
 
         <ul class="list-group list-group-flush">
-          <%= render partial: 'relations', locals: {method_name: relationship} %>
+          <%= render partial: 'relations', locals: { rel: rel, value: value } %>
         </ul>
       </div>
     <% end %>
