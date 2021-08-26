@@ -33,7 +33,7 @@ FIELDS:
   :OVERLAP_FIELD: 'solr_bboxtype'
   :PART_OF: 'dct_isPartOf_sm'
   :PUBLISHER: 'dct_publisher_sm'
-  :PROVENANCE: 'schema_provider_s'
+  :PROVIDER: 'schema_provider_s'
   :REFERENCES: 'dct_references_s'
   :RIGHTS: 'dct_accessRights_s'
   :SPATIAL_COVERAGE: 'dct_spatial_sm'

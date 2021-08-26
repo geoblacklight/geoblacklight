@@ -8,7 +8,7 @@ feature 'spatial search results overlap ratio' do
     # BBox param is the US upper midwest and Canada, roughly centered on the state of Minnesota
     visit search_catalog_path(
       bbox: '-103.196521 39.21962 -84.431873 53.63497',
-      "f[#{Settings.FIELDS.PROVENANCE}][]": 'University of Minnesota'
+      "f[#{Settings.FIELDS.PROVIDER}][]": 'University of Minnesota'
     )
 
     # MN State result
@@ -30,7 +30,7 @@ feature 'spatial search results overlap ratio' do
     # BBox param is the center to western edge of New York state and Canada, roughly centered on Lake Ontario
     visit search_catalog_path(
       bbox: '-83.750499 40.41709 -74.368175 47.963663',
-      "f[#{Settings.FIELDS.PROVENANCE}][]": 'Cornell'
+      "f[#{Settings.FIELDS.PROVIDER}][]": 'Cornell'
     )
 
     # NY State result
