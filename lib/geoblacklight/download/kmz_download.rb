@@ -10,7 +10,7 @@ module Geoblacklight
 
     def initialize(document, options = {})
       bbox_wsen = document.geometry.bounding_box
-      request_params = KMZ_DOWNLOAD_PARAMS.merge(layers: document[:layer_id_s], bbox: bbox_wsen)
+      request_params = KMZ_DOWNLOAD_PARAMS.merge(layers: document[Settings.FIELDS.WXS_IDENTIFIER], bbox: bbox_wsen)
       super(document, {
         type: 'kmz',
         extension: 'kmz',

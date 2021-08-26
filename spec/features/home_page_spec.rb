@@ -21,9 +21,9 @@ feature 'Home page', js: true do # use js: true for tests which require js, but 
     expect(page).to have_css '.category-block', count: 4
     expect(page).to have_css '.home-facet-link', count: 36
     expect(page).to have_css 'a.more_facets_link', count: 4
-    click_link 'Elevation'
+    click_link 'Topography'
     expect(page).to have_css '.filter-name', text: 'Subject'
-    expect(page).to have_css '.filter-value', text: 'Elevation'
+    expect(page).to have_css '.filter-value', text: 'Topography'
   end
   scenario 'map should be visible' do
     within '#main-container' do
@@ -39,8 +39,8 @@ feature 'Home page', js: true do # use js: true for tests which require js, but 
     expect(page).to have_css '#documents'
   end
   scenario 'can search by placename' do
-    click_link 'Minnesota, United States'
+    click_link 'New York, New York'
     results = page.all(:css, 'article.document')
-    expect(results.count).to equal(3)
+    expect(results.count).to equal(4)
   end
 end

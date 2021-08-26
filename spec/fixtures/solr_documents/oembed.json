@@ -1,24 +1,41 @@
 {
-  "dc_identifier_s": "http://purl.stanford.edu/dc482zx1528",
-  "dc_title_s": "Jōshū Kusatsu Onsenzu",
-  "dc_description_s": "Publication date estimate from dealer description.",
-  "dc_rights_s": "Public",
-  "dct_provenance_s": "Stanford",
-  "dct_references_s": "{\"http://schema.org/url\":\"http://purl.stanford.edu/dc482zx1528\",\"https://oembed.com\":\"https://purl.stanford.edu/embed.json?&hide_title=true&url=https://purl.stanford.edu/dc482zx1528\"}",
-  "layer_slug_s": "stanford-dc482zx1528",
-  "layer_geom_type_s": "Image",
-  "dc_format_s": "JPEG",
-  "dc_language_s": "Japanese",
-  "dc_type_s": "Image",
-  "dc_publisher_s": "Kikyōya Genkichi han",
-  "dc_subject_sm": [
-    "Hot springs",
-    "Kusatsu-machi",
+  "dct_title_s": "Jōshū Kusatsu Onsenzu",
+  "dct_alternative_sm": [
+    "oembed"
+  ],
+  "dct_description_sm": [
+    "This record has an Oembed reference link. ",
+    "Publication date estimate from dealer description."
+  ],
+  "dct_language_sm": [
+    "jpn"
+  ],
+  "dct_publisher_sm": [
+    "Kikyōya Genkichi han"
+  ],
+  "schema_provider_s": "Stanford",
+  "gbl_resourceClass_sm": [
     "Maps"
+  ],
+  "dct_subject_sm": [
+    "Hot springs",
+    "Kusatsu-machi"
+  ],
+  "dcat_keyword_sm": [
+    "GBL Fixture records"
   ],
   "dct_spatial_sm": [
     "Japan"
   ],
-  "solr_geom": "ENVELOPE(138.523426, 138.630362, 36.656354, 36.597519)",
-  "geoblacklight_version": "1.0"
+  "locn_geometry": "ENVELOPE(138.523426,138.630362,36.656354,36.597519)",
+  "dcat_centroid_ss": "36.6269365,138.57689399999998",
+  "dct_accessRights_s": "Public",
+  "dct_format_s": "JPEG",
+  "dct_references_s": "{\"http://schema.org/url\":\"http://purl.stanford.edu/dc482zx1528\",\"https://oembed.com\":\"https://purl.stanford.edu/embed.json?&hide_title=true&url=https://purl.stanford.edu/dc482zx1528\"}",
+  "id": "stanford-dc482zx1528",
+  "dct_identifier_sm": [
+    "http://purl.stanford.edu/dc482zx1528"
+  ],
+  "gbl_mdModified_dt": "2021-06-01T22:14:16Z",
+  "gbl_mdVersion_s": "Aardvark"
 }
