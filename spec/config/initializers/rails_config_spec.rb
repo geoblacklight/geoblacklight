@@ -11,4 +11,11 @@ describe 'Config' do
     expect(Settings.FIELDS.TYPE).to eq 'dc_type_s'
     expect(Settings.FIELDS.UNIQUE_KEY).to eq 'id'
   end
+
+  it 'Loads new Aardvark relationships' do
+    expect(Settings).to respond_to('RELATIONSHIPS_SHOWN')
+    [:field, :query_type, :icon, :label].each do |method|
+      expect(Settings.RELATIONSHIPS_SHOWN.MEMBER_OF).to respond_to(method)
+    end
+  end
 end

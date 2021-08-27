@@ -37,13 +37,16 @@ FIELDS:
   :KEYWORD: 'dcat_keyword_sm'
   :LANGUAGE: 'dct_language_sm'
   :LAYER_MODIFIED: 'gbl_mdModified_dt'
+  :MEMBER_OF: 'pcdm_memberOf_sm'
   :OVERLAP_FIELD: 'solr_bboxtype'
   :PART_OF: 'dct_isPartOf_sm'
   :PUBLISHER: 'dct_publisher_sm'
   :PROVIDER: 'schema_provider_s'
   :REFERENCES: 'dct_references_s'
-  :RIGHTS: 'dct_rights_sm'
-  :RIGHTS_HOLDER: 'dct_rightsHolder_sm'
+  :RELATION: 'dct_relation_sm'
+  :REPLACES: 'dct_replaces_sm'
+  :REPLACED_BY: 'dct_isReplacedBy_sm'
+  :RIGHTS: 'dct_accessRights_s'
   :SPATIAL_COVERAGE: 'dct_spatial_sm'
   :SUBJECT: 'dct_subject_sm'
   :SOURCE: 'dct_source_sm'
@@ -53,6 +56,7 @@ FIELDS:
   :TITLE: 'dct_title_s'
   :TYPE: 'gbl_resourceType_sm'
   :UNIQUE_KEY: 'id'
+  :VERSION_OF: 'dct_isVersionOf_sm'
   :WXS_IDENTIFIER: 'gbl_wxsIdentifier_s'
   :YEAR: 'gbl_indexYear_im'
 
@@ -85,6 +89,49 @@ WEBSERVICES_SHOWN:
   - 'tiled_map_layer'
   - 'dynamic_map_layer'
   - 'image_map_layer'
+
+# Relationships to display
+RELATIONSHIPS_SHOWN:
+  MEMBER_OF:
+    field: pcdm_memberOf_sm
+    query_type: ancestors
+    icon: nil
+    label: geoblacklight.relations.member_of
+  PART_OF:
+    field: dct_isPartOf_sm
+    query_type: ancestors
+    icon: nil
+    label: geoblacklight.relations.part_of
+  RELATION:
+    field: dct_relation_sm
+    query_type: ancestors
+    icon: nil
+    label: geoblacklight.relations.relation
+  REPLACES:
+    field: dct_replaces_sm
+    query_type: ancestors
+    icon: nil
+    label: geoblacklight.relations.replaces
+  REPLACED_BY:
+    field: dct_isReplacedBy_sm
+    query_type: descendants
+    icon: nil
+    label: geoblacklight.relations.replaced_by
+  SOURCE_ANCESTORS:
+    field: dct_source_sm
+    query_type: ancestors
+    icon: pagelines-brands
+    label: geoblacklight.relations.ancestor
+  SOURCE_DESCENDANTS:
+    field: dct_source_sm
+    query_type: descendants
+    icon: leaf
+    label: geoblacklight.relations.descendant
+  VERSION_OF:
+    field: dct_isVersionOf_sm
+    query_type: descendants
+    icon: nil
+    label: geoblacklight.relations.version_of
 
 # WMS Parameters
 WMS_PARAMS:
