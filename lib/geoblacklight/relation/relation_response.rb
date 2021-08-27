@@ -32,7 +32,7 @@ module Geoblacklight
         when 'descendants'
           Geoblacklight::Relation::Descendants
         else
-          fail NoMethodError
+          fail ArgumentError, "Bad RelationResponse query_type: #{option.query_type}. Only 'ancestors' or 'descendants' is allowed."
         end
       end
     end
