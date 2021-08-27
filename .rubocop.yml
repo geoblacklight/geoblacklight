@@ -35,6 +35,7 @@ Layout/LineLength:
   - 'bin/coverage.rb'
   - 'lib/generators/geoblacklight/install_generator.rb'
   - 'lib/geoblacklight/relation/ancestors.rb'
+  - 'lib/geoblacklight/relation/relation_response.rb'
   - 'lib/tasks/geoblacklight.rake'
   - 'Rakefile'
   - 'spec/**/*'
