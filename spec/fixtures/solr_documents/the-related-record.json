@@ -1,0 +1,27 @@
+{
+  "id": "the-related-record",
+  "gbl_mdVersion_s": "Aardvark",
+  "dct_title_s": "The Related Record",
+  "dct_description_sm": [
+    "This record serves as the ID for each item relation in the record titled \"All Relationships\""
+  ],
+  "dct_creator_sm": [
+    "GeoBlacklight Community"
+  ],
+  "gbl_resourceClass_sm": [
+    "Other"
+  ],
+  "dct_temporal_sm": [
+    "1900"
+  ],
+  "dct_spatial_sm": [
+    "United States"
+  ],
+  "dct_format_s": "Shapefile",
+  "gbl_georeferenced_b": false,
+  "dct_references_s": "{\"http://schema.org/url\":\"https://example.com\"}",
+  "schema_provider_s": "GeoBlacklight Community",
+  "dct_accessRights_s": "Public",
+  "gbl_suppressed_b": false,
+  "gbl_mdModified_dt": "2021-08-25T15:30:09Z"
+}

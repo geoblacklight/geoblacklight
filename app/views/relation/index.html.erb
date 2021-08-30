@@ -1,24 +1,12 @@
-<% unless @relations.empty? %>
-  <% unless @relations.ancestors['numFound'].to_i.zero? %>
+<%- Settings.RELATIONSHIPS_SHOWN.each do |rel, value| %>
+  <% unless @relations.send(rel)['numFound'].to_i.zero? %>
     <div class="card relations">
       <div class="card-header">
-        <h2 class="mb-0 h6"><%= t('geoblacklight.relations.ancestor') %></h2>
+        <h2 class="mb-0 h6"><%= t("#{value.label}") %></h2>
       </div>
 
       <ul class="list-group list-group-flush">
-        <%= render 'ancestors' %>
-      </ul>
-    </div>
-  <% end %>
-
-  <% unless @relations.descendants['numFound'].to_i.zero? %>
-    <div class="card relations">
-      <div class="card-header">
-        <h2 class="mb-0 h6"><%= t('geoblacklight.relations.descendant') %></h2>
-      </div>
-
-      <ul class="list-group list-group-flush">
-        <%= render 'descendants' %>
+        <%= render partial: 'relations', locals: { rel: rel, value: value } %>
       </ul>
     </div>
   <% end %>

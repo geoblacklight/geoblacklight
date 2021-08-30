@@ -68,6 +68,14 @@ en:
     relations:
       ancestor: 'Source Datasets'
       descendant: 'Derived Datasets'
+      member_of: 'Belongs to collection...'
+      part_of: 'Is part of...'
+      relation: 'Related Records'
+      replaces: 'Item replaces...'
+      replaced_by: 'Item replaced by...'
+      source: 'Source Datasets'
+      version_of: 'Version of...'
+
       browse_all: "Browse all %{count} records..."
     metadata:
       toggle_summary: 'Toggle summary'

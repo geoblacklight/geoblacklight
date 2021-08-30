@@ -9,16 +9,31 @@ module Geoblacklight
         @repository = repository
       end
 
-      def ancestors
-        @ancestors ||= Geoblacklight::Relation::Ancestors.new(@search_id, @repository).results
+      def method_missing(method, *args, &block)
+        if Settings.RELATIONSHIPS_SHOWN.key?(method)
+          field = Settings.RELATIONSHIPS_SHOWN[method].field
+          query_type = query_type(Settings.RELATIONSHIPS_SHOWN[method])
+          @results = query_type.new(@search_id, field, @repository).results
+        else
+          super
+        end
       end
 
-      def descendants
-        @descendants ||= Geoblacklight::Relation::Descendants.new(@search_id, @repository).results
+      def respond_to_missing?(method_name, *args)
+        Settings.RELATIONSHIPS_SHOWN.key?(method_name) or super
       end
 
-      def empty?
-        !(ancestors['numFound'].positive? || descendants['numFound'].positive?)
+      private
+
+      def query_type(option)
+        case option.query_type
+        when 'ancestors'
+          Geoblacklight::Relation::Ancestors
+        when 'descendants'
+          Geoblacklight::Relation::Descendants
+        else
+          fail ArgumentError, "Bad RelationResponse query_type: #{option.query_type}. Only 'ancestors' or 'descendants' is allowed."
+        end
       end
     end
   end
