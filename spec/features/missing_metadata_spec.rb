@@ -14,8 +14,8 @@ feature 'Missing metadata', js: true do
     visit solr_document_path('05d-03-noGeomType')
     expect(page).to have_css('#map')
   end
-  scenario 'Yields error free show page for no dct_provenance_s' do
-    visit solr_document_path('99-0001-noProvenance')
+  scenario 'Yields error free show page for no dct_provider_s' do
+    visit solr_document_path('99-0001-noprovider')
     expect(page).to have_css('#map')
   end
   scenario 'Yields error free show page for no solr_geom' do
