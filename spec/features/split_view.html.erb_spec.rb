@@ -8,14 +8,14 @@ feature 'Index view', js: true do
   end
 
   scenario 'should have documents and map on page' do
-    visit search_catalog_path(f: { Settings.FIELDS.PROVENANCE => ['Stanford'] })
+    visit search_catalog_path(f: { Settings.FIELDS.PROVIDER => ['Stanford'] })
     expect(page).to have_css('#documents')
     expect(page).to have_css('.document', count: 7)
     expect(page).to have_css('#map')
   end
 
   scenario 'should have sort and per_page on page' do
-    visit search_catalog_path(f: { Settings.FIELDS.PROVENANCE => ['Stanford'] })
+    visit search_catalog_path(f: { Settings.FIELDS.PROVIDER => ['Stanford'] })
     expect(page).to have_css('#sort-dropdown')
     expect(page).to have_css('#per_page-dropdown')
   end
@@ -42,7 +42,7 @@ feature 'Index view', js: true do
 
   scenario 'hover on record should produce bounding box on map' do
     # Needed to find an svg element on the page
-    visit search_catalog_path(f: { Settings.FIELDS.PROVENANCE => ['Stanford'] })
+    visit search_catalog_path(f: { Settings.FIELDS.PROVIDER => ['Stanford'] })
     # BL7 has svg icons, so sniffing for SVG path won't return false
     # expect(Nokogiri::HTML.parse(page.body).css('path').length).to eq 0
     find('.documentHeader', match: :first).hover

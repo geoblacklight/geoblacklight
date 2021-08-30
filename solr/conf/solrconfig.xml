@@ -126,7 +126,7 @@
         dct_temporal_tmi^5
         dc_title_ti^6
         dc_rights_ti^7
-        dct_provenance_ti^8
+        dct_provider_ti^8
         layer_geom_type_ti^9
         layer_slug_ti^10
         dc_identifier_ti^10
@@ -142,7 +142,7 @@
         dct_temporal_tmi^5
         dc_title_ti^6
         dc_rights_ti^7
-        dct_provenance_ti^8
+        dct_provider_ti^8
         layer_geom_type_ti^9
         layer_slug_ti^10
         dc_identifier_ti^10
@@ -151,7 +151,7 @@
       <int name="facet.mincount">1</int>
       <int name="facet.limit">10</int>
       <str name="facet.field">dct_isPartOf_sm</str>
-      <str name="facet.field">dct_provenance_s</str>
+      <str name="facet.field">schema_provider_s</str>
       <str name="facet.field">dct_spatial_sm</str>
       <str name="facet.field">dct_creator_sm</str>
       <str name="facet.field">dct_format_s</str>
