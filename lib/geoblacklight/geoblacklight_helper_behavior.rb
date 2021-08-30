@@ -9,7 +9,7 @@ module Geoblacklight
     # @param [Symbol, String] presenting_method
     # @return [String]
     def geoblacklight_present(presenting_method, document = @document)
-      presenter(document).try(presenting_method.to_sym) || ''
+      document_presenter(document).try(presenting_method.to_sym) || ''
     end
   end
 end
