@@ -8,14 +8,14 @@
             <%= geoblacklight_icon('home') %>
           </div>
           <%= content_tag :h4, t('geoblacklight.home.institution') %>
-          <%= render_facet_tags [Settings.FIELDS.PROVENANCE] %>
+          <%= render_facet_tags [Settings.FIELDS.PROVIDER] %>
         </div>
         <div class='category-block col-sm'>
           <div class='category-icon'>
             <%= geoblacklight_icon('arrow-circle-down') %>
           </div>
           <%= content_tag :h4, t('geoblacklight.home.data_type') %>
-          <%= render_facet_tags [Settings.FIELDS.GEOM_TYPE] %>
+          <%= render_facet_tags [Settings.FIELDS.TYPE] %>
         </div>
       </div>
       <div class='row'>

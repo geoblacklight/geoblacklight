@@ -85,7 +85,7 @@ class CatalogController < ApplicationController
     #    :years_25 => { :label => 'within 25 Years', :fq => "pub_date:[#{Time.now.year - 25 } TO *]" }
     # }
 
-    config.add_facet_field Settings.FIELDS.PROVENANCE, label: 'Institution', limit: 8, partial: "icon_facet"
+    config.add_facet_field Settings.FIELDS.PROVIDER, label: 'Institution', limit: 8, partial: "icon_facet"
     config.add_facet_field Settings.FIELDS.CREATOR, :label => 'Author', :limit => 8
     config.add_facet_field Settings.FIELDS.PUBLISHER, :label => 'Publisher', :limit => 8
     config.add_facet_field Settings.FIELDS.SUBJECT, :label => 'Subject', :limit => 8
@@ -95,7 +95,7 @@ class CatalogController < ApplicationController
     config.add_facet_field Settings.FIELDS.YEAR, :label => 'Year', :limit => 10
 
     config.add_facet_field Settings.FIELDS.RIGHTS, label: 'Access', limit: 8, partial: "icon_facet"
-    config.add_facet_field Settings.FIELDS.GEOM_TYPE, label: 'Data type', limit: 8, partial: "icon_facet"
+    config.add_facet_field Settings.FIELDS.TYPE, label: 'Data type', limit: 8, partial: "icon_facet"
     config.add_facet_field Settings.FIELDS.FILE_FORMAT, :label => 'Format', :limit => 8
     config.add_facet_field Settings.FIELDS.SOURCE, show: false
 
@@ -117,7 +117,7 @@ class CatalogController < ApplicationController
     # config.add_index_field 'lc_callnum_display', :label => 'Call number:'
 
     # config.add_index_field 'dc_title_t', :label => 'Display Name:'
-    # config.add_index_field Settings.FIELDS.PROVENANCE, :label => 'Institution:'
+    # config.add_index_field Settings.FIELDS.PROVIDER, :label => 'Institution:'
     # config.add_index_field Settings.FIELDS.RIGHTS, :label => 'Access:'
     # # config.add_index_field 'Area', :label => 'Area:'
     # config.add_index_field Settings.FIELDS.SUBJECT, :label => 'Keywords:'
@@ -149,41 +149,37 @@ class CatalogController < ApplicationController
       helper_method: :render_references_url
     )
 
-   # all fields
-# 	config.add_show_field Settings.FIELDS.ACCESS_RIGHTS, label: 'Access Rights', itemprop: 'access_rights'
-# 	config.add_show_field Settings.FIELDS.ALT_TITLE, label: 'Alternative Title', itemprop: 'alt_title'
-# 	config.add_show_field Settings.FIELDS.CENTROID, label: 'Centroid', itemprop: 'crentroid'
-# 	config.add_show_field Settings.FIELDS.CLASS, label: 'Resource Class', itemprop: 'class'
-# 	config.add_show_field Settings.FIELDS.CREATOR, label: 'Creator(s)', itemprop: 'creator'
-# 	config.add_show_field Settings.FIELDS.DATE_RANGE, label: 'Date Range', itemprop: 'date_range'
-# 	config.add_show_field Settings.FIELDS.DESCRIPTION, label: 'Description', itemprop: 'description', helper_method: :render_value_as_truncate_abstract
-# 	config.add_show_field Settings.FIELDS.FILE_FORMAT, label: 'Format', itemprop: 'file_format'
-# 	config.add_show_field Settings.FIELDS.FILE_SIZE, label: 'File Size', itemprop: 'file_size'
-# 	config.add_show_field Settings.FIELDS.GEOMETRY, label: 'Spatial Extent', itemprop: 'geometry'
-# 	config.add_show_field Settings.FIELDS.GEOREFERENCED, label: 'Georeferenced', itemprop: 'georeferenced'
-# 	config.add_show_field Settings.FIELDS.IDENTIFIER, label: 'Identifier', itemprop: 'identifier'
-# 	config.add_show_field Settings.FIELDS.ISSUED, label: 'Date Issued', itemprop: 'issued'
-# 	config.add_show_field Settings.FIELDS.KEYWORD, label: 'Keyword(s)', itemprop: 'keyword'
-# 	config.add_show_field Settings.FIELDS.LANGUAGE, label: 'Language', itemprop: 'language'
-# 	config.add_show_field Settings.FIELDS.LAYER_MODIFIED, label: 'Date Modified', itemprop: 'layer_modified'
-# 	config.add_show_field Settings.FIELDS.METADATA_VERSION, label: 'Metadata Version', itemprop: 'metadata_version'
-# 	config.add_show_field Settings.FIELDS.PUBLISHER, label: 'Publisher', itemprop: 'publisher'
-# 	config.add_show_field Settings.FIELDS.PROVIDER, label: 'Provider', itemprop: 'provider'
-# 	config.add_show_field Settings.FIELDS.RIGHTS, label: 'Rights', itemprop: 'rights'
-# 	config.add_show_field Settings.FIELDS.RIGHTS_HOLDER, label: 'Rights Holder', itemprop: 'rights_holder'
-# 	config.add_show_field Settings.FIELDS.SPATIAL_COVERAGE, label: 'Place(s)', itemprop: 'spatial_coverage'
-# 	config.add_show_field Settings.FIELDS.SUBJECT, label: 'Subject', itemprop: 'subject'
-# 	config.add_show_field Settings.FIELDS.TEMPORAL, label: 'Temporal Coverage', itemprop: 'temporal'
-# 	config.add_show_field Settings.FIELDS.THEME, label: 'Theme', itemprop: 'theme'
-# 	config.add_show_field Settings.FIELDS.TITLE, label: 'Title', itemprop: 'title'
-# 	config.add_show_field Settings.FIELDS.TYPE, label: 'Resource Type', itemprop: 'type'
-# 	config.add_show_field Settings.FIELDS.UNIQUE_KEY, label: 'ID', itemprop: 'unique_key'
-# 	config.add_show_field Settings.FIELDS.WXS_IDENTIFIER, label: 'Web Service Layer', itemprop: 'wxs_identifier'
-# 	config.add_show_field Settings.FIELDS.YEAR, label: 'Year', itemprop: 'year'
-
-
-
-
+    # ALL FIELDS
+    # config.add_show_field Settings.FIELDS.ACCESS_RIGHTS, label: 'Access Rights', itemprop: 'access_rights'
+    # config.add_show_field Settings.FIELDS.ALT_TITLE, label: 'Alternative Title', itemprop: 'alt_title'
+    # config.add_show_field Settings.FIELDS.CENTROID, label: 'Centroid', itemprop: 'crentroid'
+    # config.add_show_field Settings.FIELDS.CLASS, label: 'Resource Class', itemprop: 'class'
+    # config.add_show_field Settings.FIELDS.CREATOR, label: 'Creator(s)', itemprop: 'creator'
+    # config.add_show_field Settings.FIELDS.DATE_RANGE, label: 'Date Range', itemprop: 'date_range'
+    # config.add_show_field Settings.FIELDS.DESCRIPTION, label: 'Description', itemprop: 'description', helper_method: :render_value_as_truncate_abstract
+    # config.add_show_field Settings.FIELDS.FILE_FORMAT, label: 'Format', itemprop: 'file_format'
+    # config.add_show_field Settings.FIELDS.FILE_SIZE, label: 'File Size', itemprop: 'file_size'
+    # config.add_show_field Settings.FIELDS.GEOMETRY, label: 'Spatial Extent', itemprop: 'geometry'
+    # config.add_show_field Settings.FIELDS.GEOREFERENCED, label: 'Georeferenced', itemprop: 'georeferenced'
+    # config.add_show_field Settings.FIELDS.IDENTIFIER, label: 'Identifier', itemprop: 'identifier'
+    # config.add_show_field Settings.FIELDS.ISSUED, label: 'Date Issued', itemprop: 'issued'
+    # config.add_show_field Settings.FIELDS.KEYWORD, label: 'Keyword(s)', itemprop: 'keyword'
+    # config.add_show_field Settings.FIELDS.LANGUAGE, label: 'Language', itemprop: 'language'
+    # config.add_show_field Settings.FIELDS.LAYER_MODIFIED, label: 'Date Modified', itemprop: 'layer_modified'
+    # config.add_show_field Settings.FIELDS.METADATA_VERSION, label: 'Metadata Version', itemprop: 'metadata_version'
+    # config.add_show_field Settings.FIELDS.PUBLISHER, label: 'Publisher', itemprop: 'publisher'
+    # config.add_show_field Settings.FIELDS.PROVIDER, label: 'Provider', itemprop: 'provider'
+    # config.add_show_field Settings.FIELDS.RIGHTS, label: 'Rights', itemprop: 'rights'
+    # config.add_show_field Settings.FIELDS.RIGHTS_HOLDER, label: 'Rights Holder', itemprop: 'rights_holder'
+    # config.add_show_field Settings.FIELDS.SPATIAL_COVERAGE, label: 'Place(s)', itemprop: 'spatial_coverage'
+    # config.add_show_field Settings.FIELDS.SUBJECT, label: 'Subject', itemprop: 'subject'
+    # config.add_show_field Settings.FIELDS.TEMPORAL, label: 'Temporal Coverage', itemprop: 'temporal'
+    # config.add_show_field Settings.FIELDS.THEME, label: 'Theme', itemprop: 'theme'
+    # config.add_show_field Settings.FIELDS.TITLE, label: 'Title', itemprop: 'title'
+    # config.add_show_field Settings.FIELDS.TYPE, label: 'Resource Type', itemprop: 'type'
+    # config.add_show_field Settings.FIELDS.UNIQUE_KEY, label: 'ID', itemprop: 'unique_key'
+    # config.add_show_field Settings.FIELDS.WXS_IDENTIFIER, label: 'Web Service Layer', itemprop: 'wxs_identifier'
+    # config.add_show_field Settings.FIELDS.YEAR, label: 'Year', itemprop: 'year'
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields

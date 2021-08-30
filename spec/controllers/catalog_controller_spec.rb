@@ -75,7 +75,7 @@ describe CatalogController, type: :controller do
       expect(response_values).to include Settings.FIELDS.TITLE => '100 Foot Grid Cambridge MA 2004'
       expect(response_values).to include Settings.FIELDS.IDENTIFIER => ['urn:geodata.tufts.edu:Tufts.CambridgeGrid100_04']
       expect(response_values).to include Settings.FIELDS.RIGHTS => 'Public'
-      expect(response_values).to include Settings.FIELDS.PROVENANCE => 'Tufts'
+      expect(response_values).to include Settings.FIELDS.PROVIDER => 'Tufts'
       expect(response_values).to include Settings.FIELDS.UNIQUE_KEY => 'tufts-cambridgegrid100-04'
       expect(response_values).to include Settings.FIELDS.GEOMETRY => 'ENVELOPE(-71.163984,-71.052581,42.408316,42.34757)'
     end
