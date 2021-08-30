@@ -18,11 +18,11 @@ module Geoblacklight
       private
 
       def issued
-        fetch(Settings.FIELDS.ISSUED, nil)
+        fetch(Settings.FIELDS.DATE_ISSUED, nil)
       end
 
       def format
-        fetch(Settings.FIELDS.FILE_FORMAT, nil)
+        fetch(Settings.FIELDS.FORMAT, nil)
       end
     end
   end

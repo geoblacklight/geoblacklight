@@ -45,10 +45,7 @@ FIELDS:
   :ISO_TOPIC_CATEGORY: 'dcat_theme_sm'
   :KEYWORD: 'dcat_keyword_sm'
   :LANGUAGE: 'dct_language_sm'
-<<<<<<< HEAD
-=======
   :LAYER_MODIFIED: 'gbl_mdModified_dt'
->>>>>>> Adds License field
   :LICENSE: 'dct_license_sm'
   :MEMBER_OF: 'pcdm_memberOf_sm'
   :METADATA_VERSION: 'gbl_mdVersion_s'

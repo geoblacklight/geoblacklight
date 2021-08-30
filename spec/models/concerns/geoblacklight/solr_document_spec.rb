@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe Geoblacklight::SolrDocument do
   let(:document) { SolrDocument.new(document_attributes) }
-  let(:rights_field) { Settings.FIELDS.RIGHTS }
+  let(:rights_field) { Settings.FIELDS.ACCESS_RIGHTS }
   let(:provider_field) { Settings.FIELDS.PROVIDER }
   let(:references_field) { Settings.FIELDS.REFERENCES }
   describe '#available?' do
