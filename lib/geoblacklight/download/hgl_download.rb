@@ -3,7 +3,7 @@ module Geoblacklight
   class HglDownload < Geoblacklight::Download
     def initialize(document, email, options = {})
       request_params = {
-        'LayerName' => document[:layer_id_s].sub(/^cite:/, ''),
+        'LayerName' => document[Settings.FIELDS.WXS_IDENTIFIER].sub(/^cite:/, ''),
         'UserEmail' => email
       }
       super(document, {

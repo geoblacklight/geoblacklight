@@ -16,9 +16,9 @@ module Geoblacklight
     def add_spatial_params(solr_params)
       if blacklight_params[:bbox]
         solr_params[:bq] ||= []
-        solr_params[:bq] << "#{Settings.FIELDS.GEOMETRY}:\"IsWithin(#{envelope_bounds})\"#{boost}"
+        solr_params[:bq] << "#{Settings.FIELDS.SPATIAL_EXTENT}:\"IsWithin(#{envelope_bounds})\"#{boost}"
         solr_params[:fq] ||= []
-        solr_params[:fq] << "#{Settings.FIELDS.GEOMETRY}:\"Intersects(#{envelope_bounds})\""
+        solr_params[:fq] << "#{Settings.FIELDS.SPATIAL_EXTENT}:\"Intersects(#{envelope_bounds})\""
 
         if Settings.OVERLAP_RATIO_BOOST
           solr_params[:bf] ||= []
@@ -62,7 +62,7 @@ module Geoblacklight
 
       # Do not suppress action_documents method calls for individual documents
       # ex. CatalogController#web_services (exportable views)
-      return if solr_params[:q]&.include?("{!lucene}#{Settings.FIELDS.UNIQUE_KEY}:")
+      return if solr_params[:q]&.include?("{!lucene}#{Settings.FIELDS.ID}:")
 
       solr_params[:fq] ||= []
       solr_params[:fq] << "-#{Settings.FIELDS.SUPPRESSED}: true"

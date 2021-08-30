@@ -92,11 +92,11 @@ class CatalogController < ApplicationController
     config.add_facet_field Settings.FIELDS.SPATIAL_COVERAGE, :label => 'Place', :limit => 8
     config.add_facet_field Settings.FIELDS.IS_PART_OF, :label => 'Collection', :limit => 8
 
-    config.add_facet_field Settings.FIELDS.YEAR, :label => 'Year', :limit => 10
+    config.add_facet_field Settings.FIELDS.INDEX_YEAR, :label => 'Year', :limit => 10
 
     config.add_facet_field Settings.FIELDS.RIGHTS, label: 'Access', limit: 8, partial: "icon_facet"
     config.add_facet_field Settings.FIELDS.RESOURCE_TYPE, label: 'Data type', limit: 8, partial: "icon_facet"
-    config.add_facet_field Settings.FIELDS.FILE_FORMAT, :label => 'Format', :limit => 8
+    config.add_facet_field Settings.FIELDS.FORMAT, :label => 'Format', :limit => 8
     config.add_facet_field Settings.FIELDS.SOURCE, show: false
 
     # Have BL send all facet field names to Solr, which has been the default
@@ -255,7 +255,7 @@ class CatalogController < ApplicationController
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case).
     config.add_sort_field 'score desc, dc_title_sort asc', :label => 'relevance'
-    config.add_sort_field "#{Settings.FIELDS.YEAR} desc, dc_title_sort asc", :label => 'year'
+    config.add_sort_field "#{Settings.FIELDS.INDEX_YEAR} desc, dc_title_sort asc", :label => 'year'
     config.add_sort_field "#{Settings.FIELDS.PUBLISHER} asc, dc_title_sort asc", :label => 'publisher'
     config.add_sort_field 'dc_title_sort asc', :label => 'title'
 

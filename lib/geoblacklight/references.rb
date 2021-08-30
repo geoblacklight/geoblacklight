@@ -30,7 +30,7 @@ module Geoblacklight
     # Accessor for a document's file format
     # @return [String] file format for the document
     def format
-      @document[Settings.FIELDS.FILE_FORMAT]
+      @document[Settings.FIELDS.FORMAT]
     end
 
     ##
