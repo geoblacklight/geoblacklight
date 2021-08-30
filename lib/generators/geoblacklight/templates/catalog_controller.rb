@@ -29,7 +29,7 @@ class CatalogController < ApplicationController
     #
     config.default_document_solr_params = {
      :qt => 'document',
-     :q => "{!raw f=#{Settings.FIELDS.UNIQUE_KEY} v=$id}"
+     :q => "{!raw f=#{Settings.FIELDS.ID} v=$id}"
     }
 
 
@@ -90,12 +90,12 @@ class CatalogController < ApplicationController
     config.add_facet_field Settings.FIELDS.PUBLISHER, :label => 'Publisher', :limit => 8
     config.add_facet_field Settings.FIELDS.SUBJECT, :label => 'Subject', :limit => 8
     config.add_facet_field Settings.FIELDS.SPATIAL_COVERAGE, :label => 'Place', :limit => 8
-    config.add_facet_field Settings.FIELDS.PART_OF, :label => 'Collection', :limit => 8
+    config.add_facet_field Settings.FIELDS.IS_PART_OF, :label => 'Collection', :limit => 8
 
     config.add_facet_field Settings.FIELDS.YEAR, :label => 'Year', :limit => 10
 
     config.add_facet_field Settings.FIELDS.RIGHTS, label: 'Access', limit: 8, partial: "icon_facet"
-    config.add_facet_field Settings.FIELDS.TYPE, label: 'Data type', limit: 8, partial: "icon_facet"
+    config.add_facet_field Settings.FIELDS.RESOURCE_TYPE, label: 'Data type', limit: 8, partial: "icon_facet"
     config.add_facet_field Settings.FIELDS.FILE_FORMAT, :label => 'Format', :limit => 8
     config.add_facet_field Settings.FIELDS.SOURCE, show: false
 
@@ -121,7 +121,7 @@ class CatalogController < ApplicationController
     # config.add_index_field Settings.FIELDS.RIGHTS, :label => 'Access:'
     # # config.add_index_field 'Area', :label => 'Area:'
     # config.add_index_field Settings.FIELDS.SUBJECT, :label => 'Keywords:'
-    config.add_index_field Settings.FIELDS.YEAR
+    config.add_index_field Settings.FIELDS.INDEX_YEAR
     config.add_index_field Settings.FIELDS.CREATOR
     config.add_index_field Settings.FIELDS.DESCRIPTION, helper_method: :snippit
     config.add_index_field Settings.FIELDS.PUBLISHER
@@ -139,8 +139,8 @@ class CatalogController < ApplicationController
     config.add_show_field Settings.FIELDS.PUBLISHER, label: 'Publisher', itemprop: 'publisher'
     config.add_show_field Settings.FIELDS.SPATIAL_COVERAGE, label: 'Place(s)', itemprop: 'spatial', link_to_facet: true
     config.add_show_field Settings.FIELDS.SUBJECT, label: 'Subject(s)', itemprop: 'keywords', link_to_facet: true
-    config.add_show_field Settings.FIELDS.TEMPORAL, label: 'Year', itemprop: 'temporal'
-    config.add_show_field Settings.FIELDS.PROVIDER, label: 'Held by', link_to_facet: true
+    config.add_show_field Settings.FIELDS.TEMPORAL_COVERAGE, label: 'Year', itemprop: 'temporal'
+    config.add_show_field Settings.FIELDS.PROVIDER, label: 'Provider', link_to_facet: true
     config.add_show_field(
       Settings.FIELDS.REFERENCES,
       label: 'More details at',
@@ -151,9 +151,9 @@ class CatalogController < ApplicationController
 
     # ALL FIELDS
     # config.add_show_field Settings.FIELDS.ACCESS_RIGHTS, label: 'Access Rights', itemprop: 'access_rights'
-    # config.add_show_field Settings.FIELDS.ALT_TITLE, label: 'Alternative Title', itemprop: 'alt_title'
+    # config.add_show_field Settings.FIELDS.ALTERNATIVE_TITLE, label: 'Alternative Title', itemprop: 'alt_title'
     # config.add_show_field Settings.FIELDS.CENTROID, label: 'Centroid', itemprop: 'crentroid'
-    # config.add_show_field Settings.FIELDS.CLASS, label: 'Resource Class', itemprop: 'class'
+    # config.add_show_field Settings.FIELDS.RESOURCE_CLASS, label: 'Resource Class', itemprop: 'class'
     # config.add_show_field Settings.FIELDS.CREATOR, label: 'Creator(s)', itemprop: 'creator'
     # config.add_show_field Settings.FIELDS.DATE_RANGE, label: 'Date Range', itemprop: 'date_range'
     # config.add_show_field Settings.FIELDS.DESCRIPTION, label: 'Description', itemprop: 'description', helper_method: :render_value_as_truncate_abstract
@@ -176,10 +176,10 @@ class CatalogController < ApplicationController
     # config.add_show_field Settings.FIELDS.TEMPORAL, label: 'Temporal Coverage', itemprop: 'temporal'
     # config.add_show_field Settings.FIELDS.THEME, label: 'Theme', itemprop: 'theme'
     # config.add_show_field Settings.FIELDS.TITLE, label: 'Title', itemprop: 'title'
-    # config.add_show_field Settings.FIELDS.TYPE, label: 'Resource Type', itemprop: 'type'
+    # config.add_show_field Settings.FIELDS.RESOURCE_TYPE, label: 'Resource Type', itemprop: 'type'
     # config.add_show_field Settings.FIELDS.UNIQUE_KEY, label: 'ID', itemprop: 'unique_key'
     # config.add_show_field Settings.FIELDS.WXS_IDENTIFIER, label: 'Web Service Layer', itemprop: 'wxs_identifier'
-    # config.add_show_field Settings.FIELDS.YEAR, label: 'Year', itemprop: 'year'
+    # config.add_show_field Settings.FIELDS.INDEX_YEAR, label: 'Year', itemprop: 'year'
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
