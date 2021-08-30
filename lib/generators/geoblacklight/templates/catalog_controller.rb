@@ -166,6 +166,7 @@ class CatalogController < ApplicationController
     # config.add_show_field Settings.FIELDS.KEYWORD, label: 'Keyword(s)', itemprop: 'keyword'
     # config.add_show_field Settings.FIELDS.LANGUAGE, label: 'Language', itemprop: 'language'
     # config.add_show_field Settings.FIELDS.LAYER_MODIFIED, label: 'Date Modified', itemprop: 'layer_modified'
+    # config.add_show_field Settings.FIELDS.LICENSE, label: 'License', itemprop: 'license'
     # config.add_show_field Settings.FIELDS.METADATA_VERSION, label: 'Metadata Version', itemprop: 'metadata_version'
     # config.add_show_field Settings.FIELDS.PUBLISHER, label: 'Publisher', itemprop: 'publisher'
     # config.add_show_field Settings.FIELDS.PROVIDER, label: 'Provider', itemprop: 'provider'
