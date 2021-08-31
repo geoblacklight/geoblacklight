@@ -1,9 +1,11 @@
 # frozen_string_literal: true
+##
+# Adds helper behavior logic for GeoBlacklight, to used alongside
+# BlacklightHelperBehavior
 module Geoblacklight
-  ##
-  # Adds helper behavior logic for GeoBlacklight, to used alongside
-  # BlacklightHelperBehavior
   module GeoblacklightHelperBehavior
+    include Blacklight::BlacklightHelperBehavior
+
     ##
     # Calls the presenter on the requested method
     # @param [Symbol, String] presenting_method

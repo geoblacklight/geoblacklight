@@ -65,7 +65,7 @@ Lint/BooleanSymbol:
 # AllowedMethods: enums
 Lint/ConstantDefinitionInBlock:
   Exclude:
-    - 'spec/lib/geoblacklight/geoblacklight_helper_behavior_spec.rb'
+    - 'spec/helpers/geoblacklight/geoblacklight_helper_behavior_spec.rb'
     - 'spec/lib/geoblacklight/view_helper_override_spec.rb'
     - 'spec/models/concerns/geoblacklight/solr_document/carto_spec.rb'
     - 'spec/models/concerns/geoblacklight/solr_document/finder_spec.rb'
@@ -131,7 +131,7 @@ RSpec/Capybara/VisibilityMatcher:
 RSpec/ContextWording:
   Exclude:
     - 'spec/helpers/geoblacklight_helper_spec.rb'
-    - 'spec/lib/geoblacklight/geoblacklight_helper_behavior_spec.rb'
+    - 'spec/helpers/geoblacklight/geoblacklight_helper_behavior_spec.rb'
     - 'spec/lib/geoblacklight/item_viewer_spec.rb'
     - 'spec/lib/geoblacklight/reference_spec.rb'
     - 'spec/views/catalog/_show_downloads.html.erb_spec.rb'
@@ -167,7 +167,7 @@ RSpec/EmptyLineAfterHook:
     - 'spec/features/home_page_spec.rb'
     - 'spec/helpers/geoblacklight_helper_spec.rb'
     - 'spec/lib/geoblacklight/download_spec.rb'
-    - 'spec/lib/geoblacklight/geoblacklight_helper_behavior_spec.rb'
+    - 'spec/helpers/geoblacklight/geoblacklight_helper_behavior_spec.rb'
     - 'spec/lib/geoblacklight/metadata_spec.rb'
     - 'spec/lib/geoblacklight/metadata_transformer/base_spec.rb'
     - 'spec/lib/geoblacklight/references_spec.rb'
@@ -188,7 +188,7 @@ RSpec/EmptyLineAfterSubject:
 # Offense count: 5
 RSpec/ExpectInHook:
   Exclude:
-    - 'spec/lib/geoblacklight/geoblacklight_helper_behavior_spec.rb'
+    - 'spec/helpers/geoblacklight/geoblacklight_helper_behavior_spec.rb'
     - 'spec/lib/geoblacklight/metadata/base_spec.rb'
     - 'spec/lib/geoblacklight/metadata_transformer/iso19139_spec.rb'
     - 'spec/views/catalog/_show_downloads.html.erb_spec.rb'
@@ -213,7 +213,7 @@ RSpec/IteratedExpectation:
 # Offense count: 4
 RSpec/LeakyConstantDeclaration:
   Exclude:
-    - 'spec/lib/geoblacklight/geoblacklight_helper_behavior_spec.rb'
+    - 'spec/helpers/geoblacklight/geoblacklight_helper_behavior_spec.rb'
     - 'spec/lib/geoblacklight/view_helper_override_spec.rb'
     - 'spec/models/concerns/geoblacklight/solr_document/carto_spec.rb'
     - 'spec/models/concerns/geoblacklight/solr_document/finder_spec.rb'
@@ -283,7 +283,7 @@ RSpec/StubbedMock:
     - 'spec/features/download_layer_spec.rb'
     - 'spec/helpers/geoblacklight_helper_spec.rb'
     - 'spec/lib/geoblacklight/download_spec.rb'
-    - 'spec/lib/geoblacklight/geoblacklight_helper_behavior_spec.rb'
+    - 'spec/helpers/geoblacklight/geoblacklight_helper_behavior_spec.rb'
     - 'spec/lib/geoblacklight/metadata_transformer/iso19139_spec.rb'
     - 'spec/models/concerns/geoblacklight/solr_document/carto_spec.rb'
     - 'spec/models/concerns/geoblacklight/solr_document/inspection_spec.rb'
@@ -316,6 +316,7 @@ Rails/HelperInstanceVariable:
   Exclude:
     - 'app/helpers/blacklight_helper.rb'
     - 'app/helpers/geoblacklight_helper.rb'
+    - 'app/helpers/geoblacklight/geoblacklight_helper_behavior.rb'
 
 # Offense count: 6
 Rails/OutputSafety:

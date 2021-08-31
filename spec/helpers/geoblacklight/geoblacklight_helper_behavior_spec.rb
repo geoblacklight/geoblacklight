@@ -17,6 +17,7 @@ describe Geoblacklight::GeoblacklightHelperBehavior do
     before do
       expect(dummy_class).to receive(:presenter).and_return(presenter)
     end
+
     context 'as a Symbol' do
       it 'calls defined presenter class' do
         expect(dummy_class.geoblacklight_present(:fake_name)).to eq 'druid:abc123'
