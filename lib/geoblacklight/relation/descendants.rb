@@ -10,7 +10,7 @@ module Geoblacklight
 
       def create_search_params
         { fq: "#{@field}:#{@search_id}",
-          fl: [Settings.FIELDS.TITLE, Settings.FIELDS.UNIQUE_KEY, Settings.FIELDS.GEOM_TYPE] }
+          fl: [Settings.FIELDS.TITLE, Settings.FIELDS.ID, Settings.FIELDS.RESOURCE_TYPE] }
       end
 
       def execute_query

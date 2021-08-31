@@ -1,6 +1,6 @@
 <% @relations.send(rel)['docs'][0..2].each do |entry| %>
   <li class="list-group-item border-bottom-0">
-    <%= link_to solr_document_path(entry[Settings.FIELDS.UNIQUE_KEY]) do %>
+    <%= link_to solr_document_path(entry[Settings.FIELDS.ID]) do %>
       <%= relations_icon(entry, value.icon) unless value.icon.nil? %>
       <%= entry[Settings.FIELDS.TITLE] %>
     <% end %>

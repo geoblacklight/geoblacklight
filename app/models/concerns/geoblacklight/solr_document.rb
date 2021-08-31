@@ -72,7 +72,7 @@ module Geoblacklight
     end
 
     def geom_field
-      fetch(Settings.FIELDS.GEOMETRY, '')
+      fetch(Settings.FIELDS.SPATIAL_EXTENT, '')
     end
 
     def geometry
@@ -84,7 +84,7 @@ module Geoblacklight
     end
 
     def file_format
-      fetch(Settings.FIELDS.FILE_FORMAT)
+      fetch(Settings.FIELDS.FORMAT)
     end
 
     ##
@@ -100,7 +100,7 @@ module Geoblacklight
     private
 
     def rights_field_data
-      fetch(Settings.FIELDS.RIGHTS, '')
+      fetch(Settings.FIELDS.ACCESS_RIGHTS, '')
     end
 
     def method_missing(method, *args, &block)
