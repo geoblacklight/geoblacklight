@@ -79,4 +79,6 @@ RSpec.configure do |config|
   end
 
   config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include ViewComponent::TestHelpers, type: :component
+  config.include ViewComponentCapybaraTestHelpers, type: :component
 end

@@ -1,3 +1,0 @@
-<% display_facet.items.each do |item| %>
-  <%= link_to item.value, search_catalog_path({f: {"#{facet_field.field}" => [item.value]}}), class: 'home-facet-link' %><%= "," %>
-<% end %>
