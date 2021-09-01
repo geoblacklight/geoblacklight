@@ -15,7 +15,7 @@ RSpec.describe Geoblacklight::HomepageFeatureFacetComponent, type: :component do
   let(:copy_of_catalog_config) { ::CatalogController.blacklight_config.deep_copy }
   let(:blacklight_solr) { RSolr.connect(Blacklight.connection_config.except(:adapter)) }
 
-  describe "homepage" do
+  describe 'homepage' do
     before do
       (@response, @document_list) = service.search_results
     end
@@ -29,11 +29,11 @@ RSpec.describe Geoblacklight::HomepageFeatureFacetComponent, type: :component do
       }
     end
 
-    it "includes facet links" do
-      expect(rendered).to have_selector("div.category-block")
-      expect(rendered).to have_selector("div.category-icon")
-      expect(rendered).to have_selector("a.home-facet-link")
-      expect(rendered).to have_selector("a.more_facets_link")
+    it 'includes facet links' do
+      expect(rendered).to have_selector('div.category-block')
+      expect(rendered).to have_selector('div.category-icon')
+      expect(rendered).to have_selector('a.home-facet-link')
+      expect(rendered).to have_selector('a.more_facets_link')
     end
   end
 end
