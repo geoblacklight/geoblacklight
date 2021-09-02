@@ -61,7 +61,7 @@ FIELDS:
   :SUBJECT: 'dc_subject_sm'
   :SUPPRESSED: 'suppressed_b'
   :TEMPORAL_COVERAGE: 'dct_temporal_sm'
-  :TITLE: 'dct_title_s'
+  :TITLE: 'dc_title_s'
   #:VERSION: 'dct_isVersionOf_sm'
   :WXS_IDENTIFIER: 'layer_id_s'
 
