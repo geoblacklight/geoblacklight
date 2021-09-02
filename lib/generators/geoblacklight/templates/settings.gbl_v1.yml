@@ -97,7 +97,7 @@ WEBSERVICES_SHOWN:
 
 # Relationships to display
 RELATIONSHIPS_SHOWN:
- # MEMBER_OF:
+# MEMBER_OF:
 #    field: pcdm_memberOf_sm
 #    query_type: ancestors
 #    icon: nil
