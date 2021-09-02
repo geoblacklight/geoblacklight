@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
   spec.required_rubygems_version = '>= 2.5.2'
 
   spec.add_dependency 'rails', '>= 5.2.4', '< 6.2'
-  spec.add_dependency 'blacklight', '~> 7.0'
+  spec.add_dependency 'blacklight', '~> 7.8'
   spec.add_dependency 'config'
   spec.add_dependency 'faraday', '~> 1.0'
   spec.add_dependency 'faraday_middleware', '~> 1.0.0.rc1'
@@ -30,7 +30,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'mime-types'
   spec.add_dependency 'handlebars_assets'
   spec.add_dependency 'rgeo-geojson'
-  spec.add_dependency 'view_component', '>= 2.28.0'
 
   spec.add_development_dependency 'solr_wrapper'
   spec.add_development_dependency 'rails-controller-testing'
