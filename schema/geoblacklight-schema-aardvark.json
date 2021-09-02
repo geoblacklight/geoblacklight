@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema#",
-  "description": "Schema for GeoBlacklight. See https://github.com/geoblacklight/geoblacklight/wiki/Aardvark-Metadata-Elements for more details.",
+  "description": "Schema for GeoBlacklight. See https://opengeometadata.github.io/aardvark/aardvarkMetadata.html for more details.",
   "id": "http://geoblacklight.org/schema/aardvark",
   "title": "GeoBlacklight Schema - Aardvark",
   "type": "object",
@@ -47,7 +47,8 @@
           "Imagery",
           "Collections",
           "Websites",
-          "Web services"
+          "Web services",
+          "Other"
         ]
       }
     },
@@ -103,7 +104,12 @@
       }
     },
     "dct_issued_s": { "type": "string" },
-    "gbl_indexYear_i": { "type": "integer" },
+    "gbl_indexYear_im": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
     "gbl_dateRange_drsim": {
       "type": "array",
       "items": {
