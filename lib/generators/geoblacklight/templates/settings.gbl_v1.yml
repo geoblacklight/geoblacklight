@@ -97,31 +97,31 @@ WEBSERVICES_SHOWN:
 
 # Relationships to display
 RELATIONSHIPS_SHOWN:
-  MEMBER_OF:
-    field: pcdm_memberOf_sm
-    query_type: ancestors
-    icon: nil
-    label: geoblacklight.relations.member_of
-  PART_OF:
-    field: dct_isPartOf_sm
-    query_type: ancestors
-    icon: nil
-    label: geoblacklight.relations.part_of
-  RELATION:
-    field: dct_relation_sm
-    query_type: ancestors
-    icon: nil
-    label: geoblacklight.relations.relation
-  REPLACES:
-    field: dct_replaces_sm
-    query_type: ancestors
-    icon: nil
-    label: geoblacklight.relations.replaces
-  REPLACED_BY:
-    field: dct_isReplacedBy_sm
-    query_type: descendants
-    icon: nil
-    label: geoblacklight.relations.replaced_by
+ # MEMBER_OF:
+#    field: pcdm_memberOf_sm
+#    query_type: ancestors
+#    icon: nil
+#    label: geoblacklight.relations.member_of
+#  PART_OF:
+#    field: dct_isPartOf_sm
+#    query_type: ancestors
+#    icon: nil
+#    label: geoblacklight.relations.part_of
+#  RELATION:
+#    field: dct_relation_sm
+#    query_type: ancestors
+#    icon: nil
+#    label: geoblacklight.relations.relation
+#  REPLACES:
+#    field: dct_replaces_sm
+#    query_type: ancestors
+#    icon: nil
+#    label: geoblacklight.relations.replaces
+#  REPLACED_BY:
+#    field: dct_isReplacedBy_sm
+#    query_type: descendants
+#    icon: nil
+#    label: geoblacklight.relations.replaced_by
   SOURCE_ANCESTORS:
     field: dct_source_sm
     query_type: ancestors
@@ -132,11 +132,11 @@ RELATIONSHIPS_SHOWN:
     query_type: descendants
     icon: leaf
     label: geoblacklight.relations.descendant
-  VERSION_OF:
-    field: dct_isVersionOf_sm
-    query_type: descendants
-    icon: nil
-    label: geoblacklight.relations.version_of
+#  VERSION_OF:
+#    field: dct_isVersionOf_sm
+#    query_type: descendants
+#    icon: nil
+#    label: geoblacklight.relations.version_of
 
 # WMS Parameters
 WMS_PARAMS:
