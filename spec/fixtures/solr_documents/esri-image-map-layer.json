@@ -21,7 +21,7 @@
     "Imagery and Base Maps",
     "Topography"
   ],
-  "dct_provenance_s": "Purdue",
+  "dct_provenance_s": "Purdue University",
   "dct_references_s": "{\"http://schema.org/url\":\"https://mapsweb.lib.purdue.edu/wabashriver/\",\"http://schema.org/downloadUrl\":\"https://mapsweb.lib.purdue.edu/datasets/Wabash1929/wabash_topo_27.tif.zip\",\"urn:x-esri:serviceType:ArcGIS#ImageMapLayer\":\"https://mapsweb.lib.purdue.edu/arcgis/rest/services/Purdue/wabashtopo/ImageServer\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"http://64.90.181.107/geonetwork/srv/api/records/32653ed6-8d83-4692-8a06-bf13ffe2c018/formatters/xml\"}",
   "dct_isPartOf_sm": [
     "Purdue Georeferenced Imagery"

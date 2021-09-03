@@ -18,7 +18,7 @@
   "dc_title_s": "Agriculture Census: Indiana, 1997",
   "dc_type_s": "Dataset",
   "dct_issued_s": "2003-01-28",
-  "dct_provenance_s": "Purdue",
+  "dct_provenance_s": "Purdue University",
   "dct_references_s": "{\"http://schema.org/downloadUrl\":\"http://maps.indiana.edu/download/Environment/Agriculture_Census.zip\",\"http://schema.org/url\":\"http://indianamap.org/\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"https://opengeometadata.github.io/edu.purdue/f0/82/ac/b1b01e4a089126fd62a23fd9aa/iso19139.xml\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://maps.indiana.edu/arcgis/services/Environment/Agriculture_Census/MapServer/WMSServer\",\"urn:x-esri:serviceType:ArcGIS#DynamicMapLayer\":\"https://maps.indiana.edu/arcgis/rest/services/Environment/Agriculture_Census/MapServer\"}",
   "dct_spatial_sm": [
     "Indiana"

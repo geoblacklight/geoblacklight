@@ -19,7 +19,7 @@
     "Geoscientific Information",
     "Geology"
   ],
-  "dct_provenance_s": "Purdue",
+  "dct_provenance_s": "Purdue University",
   "dct_references_s": "{\"http://schema.org/url\":\"http://maps.indiana.edu/previewMaps/Geology/Industrial_Minerals_Quarries_Abandoned.html\",\"http://schema.org/downloadUrl\":\"http://maps.indiana.edu/download/Geology/Industrial_Minerals_Quarries_Abandoned.zip\",\"http://schema.org/image\":\"http://maps.indiana.edu/images/Geology/Industrial_Minerals_Quarries_Abandoned.png\",\"urn:x-esri:serviceType:ArcGIS#DynamicMapLayer\":\"https://maps.indiana.edu/arcgis/rest/services/Geology/Industrial_Minerals_Quarries_Abandoned/MapServer/0\",\"http://www.opengis.net/cat/csw/csdgm\":\"http://maps.indiana.edu/metadata/Geology/Industrial_Minerals_Quarries_Abandoned.xml\"}",
   "dct_isPartOf_sm": [
     "IndianaMAP"
