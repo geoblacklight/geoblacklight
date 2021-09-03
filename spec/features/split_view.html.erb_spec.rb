@@ -37,7 +37,7 @@ feature 'Index view', js: true do
     end
     click_button 'Provider'
     using_wait_time 120 do
-      expect(page).to have_css('a.facet-select', text: 'Minnesota', visible: true)
+      expect(page).to have_css('a.facet-select', text: 'University of Minnesota', visible: true)
       expect(page).to have_css('a.facet-select', text: 'MIT', visible: true)
       expect(page).to have_css('a.facet-select', text: 'Stanford', visible: true)
       expect(page).to have_css('a.more_facets_link', text: /more\sProvider\s»/, visible: true)
