@@ -181,7 +181,7 @@
   <!-- for sorting text fields -->
   <copyField source="schema_provider_s"   dest="schema_provider_sort"/>
   <copyField source="dct_publisher_sm"     dest="dc_publisher_sort"/>
-  <copyField source="dct_title_s"         dest="dc_title_sort"/>
+  <copyField source="dct_title_s"         dest="dct_title_sort"/>
 
   <!-- for spell checking -->
   <copyField source="dct_title_s" dest="spell"/>
