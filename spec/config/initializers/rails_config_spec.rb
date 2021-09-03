@@ -11,4 +11,8 @@ describe 'Config' do
     expect(Settings.FIELDS.TYPE).to eq 'dc_type_s'
     expect(Settings.FIELDS.UNIQUE_KEY).to eq 'layer_slug_s'
   end
+
+  it 'Loads new v3.4 Settings.FIELDS defaults' do
+    expect(Settings.HOMEPAGE_MAP_GEOM).to eq nil
+  end
 end
