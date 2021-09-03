@@ -17,7 +17,7 @@
   "dc_subject_sm": [
     "Imagery and Base Maps"
   ],
-  "dct_provenance_s": "Minnesota",
+  "dct_provenance_s": "University of Minnesota",
   "dct_references_s": "{\"http://schema.org/url\":\"https://gisdata.mn.gov/dataset/2eddde2f-c222-41ca-bd07-2fd74a21f4de\",\"http://schema.org/downloadUrl\":\"ftp://gdrs.dnr.state.mn.us/gdrs/data/pub/us_mn_state_dnr/fgdb_base_usgs_scanned_topo_100k_drg.zip\",\"http://schema.org/image\":\"https://btaagdp.org/thumbnails/05a-01/pub/gdrs/data/pub/us_mn_state_dnr/base_usgs_scanned_topo_100k_drg/metadata/preview.jpg\",\"http://www.opengis.net/cat/csw/csdgm\":\"https://btaagdp.org/metadata/05a-01/pub/gdrs/data/pub/us_mn_state_dnr/base_usgs_scanned_topo_100k_drg/metadata/metadata.xml\"}",
   "dct_isPartOf_sm": [
     "Minnesota Geospatial Commons"
