@@ -85,7 +85,7 @@ class CatalogController < ApplicationController
     # }
 
 
-#FACETS
+	#FACETS
 
 	#DEFAULT FACETS
 	#to add additional facets, use the keys defined in the settings.yml file
@@ -100,7 +100,7 @@ class CatalogController < ApplicationController
     config.add_facet_field Settings.FIELDS.RESOURCE_TYPE, label: 'Resource Type', :limit => 8
     config.add_facet_field Settings.FIELDS.SUBJECT, :label => 'Subject', :limit => 8
     config.add_facet_field Settings.FIELDS.ISO_TOPIC_CATEGORY, :label => 'Theme', :limit => 8
-    config.add_facet_field Settings.FIELDS.SOURCE, :label => 'Collection', :limit => 8
+    config.add_facet_field Settings.FIELDS.SOURCE, :label => 'Collection', :limit => 8, :show => false
     config.add_facet_field Settings.FIELDS.GEOREFERENCED, :label => 'Georeferenced', :limit => 3
 
 
@@ -110,7 +110,7 @@ class CatalogController < ApplicationController
     config.add_facet_fields_to_solr_request!
 
 
-#SEARCH RESULTS FIELDS
+	#SEARCH RESULTS FIELDS
 
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
@@ -123,7 +123,7 @@ class CatalogController < ApplicationController
     config.add_index_field Settings.FIELDS.DESCRIPTION, helper_method: :snippit
     config.add_index_field Settings.FIELDS.PUBLISHER
 
-#ITEM VIEW FIELDS
+	#ITEM VIEW FIELDS
 
     # solr fields to be displayed in the show (single result) view
     #  The ordering of the field names is the order of the display
