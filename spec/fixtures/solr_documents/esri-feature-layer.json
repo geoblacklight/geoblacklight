@@ -18,7 +18,7 @@
   "dc_subject_sm": [
     "Transportation"
   ],
-  "dct_provenance_s": "Maryland",
+  "dct_provenance_s": "University of Maryland",
   "dct_references_s": "{\"http://schema.org/url\":\"http://data.imap.maryland.gov/datasets/f406332e63eb4478a9560ad86ae90327_18\",\"http://schema.org/downloadUrl\":\"http://data.imap.maryland.gov/datasets/f406332e63eb4478a9560ad86ae90327_18.zip\",\"urn:x-esri:serviceType:ArcGIS#FeatureLayer\":\"https://geodata.md.gov/imap/rest/services/Transportation/MD_Transit/FeatureServer/18\"}",
   "dct_isPartOf_sm": [
     "ArcGIS Open Data"
