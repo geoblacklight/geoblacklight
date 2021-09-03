@@ -97,7 +97,7 @@ class CatalogController < ApplicationController
     config.add_facet_field Settings.FIELDS.FORMAT, :label => 'Format', :limit => 8
     config.add_facet_field Settings.FIELDS.SUBJECT, :label => 'Subject', :limit => 8
     config.add_facet_field Settings.FIELDS.ISO_TOPIC_CATEGORY, :label => 'Theme', :limit => 8
-    config.add_facet_field Settings.FIELDS.CREATOR, :label => 'Creator(s)', :limit => 8
+    config.add_facet_field Settings.FIELDS.CREATOR, :label => 'Creator', :limit => 8
     config.add_facet_field Settings.FIELDS.PUBLISHER, :label => 'Publisher', :limit => 8
     config.add_facet_field Settings.FIELDS.PROVIDER, label: 'Provider', limit: 8, partial: "icon_facet"
     config.add_facet_field Settings.FIELDS.GEOREFERENCED, :label => 'Georeferenced', :limit => 3
