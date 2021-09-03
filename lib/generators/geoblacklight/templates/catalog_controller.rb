@@ -76,7 +76,6 @@ class CatalogController < ApplicationController
     # config.add_facet_field 'lc_1letter_facet', :label => 'Call Number'
     # config.add_facet_field 'subject_geo_facet', :label => 'Region'
     # config.add_facet_field 'solr_bbox', :fq => "solr_bbox:IsWithin(-88,26,-79,36)", :label => 'Spatial'
-
     # config.add_facet_field 'example_pivot_field', :label => 'Pivot Field', :pivot => ['format', 'language_facet']
 
     # config.add_facet_field 'example_query_facet_field', :label => 'Publish Date', :query => {
@@ -85,38 +84,37 @@ class CatalogController < ApplicationController
     #    :years_25 => { :label => 'within 25 Years', :fq => "pub_date:[#{Time.now.year - 25 } TO *]" }
     # }
 
-    config.add_facet_field Settings.FIELDS.PROVIDER, label: 'Institution', limit: 8, partial: "icon_facet"
-    config.add_facet_field Settings.FIELDS.CREATOR, :label => 'Author', :limit => 8
-    config.add_facet_field Settings.FIELDS.PUBLISHER, :label => 'Publisher', :limit => 8
-    config.add_facet_field Settings.FIELDS.SUBJECT, :label => 'Subject', :limit => 8
-    config.add_facet_field Settings.FIELDS.SPATIAL_COVERAGE, :label => 'Place', :limit => 8
-    config.add_facet_field Settings.FIELDS.IS_PART_OF, :label => 'Collection', :limit => 8
 
+	#FACETS
+
+	#DEFAULT FACETS
+	#to add additional facets, use the keys defined in the settings.yml file
     config.add_facet_field Settings.FIELDS.INDEX_YEAR, :label => 'Year', :limit => 10
-
-    config.add_facet_field Settings.FIELDS.RIGHTS, label: 'Access', limit: 8, partial: "icon_facet"
-    config.add_facet_field Settings.FIELDS.RESOURCE_TYPE, label: 'Data type', limit: 8, partial: "icon_facet"
+    config.add_facet_field Settings.FIELDS.SPATIAL_COVERAGE, :label => 'Place', :limit => 8
+    config.add_facet_field Settings.FIELDS.ACCESS_RIGHTS, label: 'Access', limit: 8, partial: "icon_facet"
+    config.add_facet_field Settings.FIELDS.RESOURCE_CLASS, label: 'Resource Class', :limit => 8  
+    config.add_facet_field Settings.FIELDS.RESOURCE_TYPE, label: 'Resource Type', :limit => 8
     config.add_facet_field Settings.FIELDS.FORMAT, :label => 'Format', :limit => 8
-    config.add_facet_field Settings.FIELDS.SOURCE, show: false
+    config.add_facet_field Settings.FIELDS.SUBJECT, :label => 'Subject', :limit => 8
+    config.add_facet_field Settings.FIELDS.ISO_TOPIC_CATEGORY, :label => 'Theme', :limit => 8
+    config.add_facet_field Settings.FIELDS.CREATOR, :label => 'Creator', :limit => 8
+    config.add_facet_field Settings.FIELDS.PUBLISHER, :label => 'Publisher', :limit => 8
+    config.add_facet_field Settings.FIELDS.PROVIDER, label: 'Provider', limit: 8, partial: "icon_facet"
+    config.add_facet_field Settings.FIELDS.GEOREFERENCED, :label => 'Georeferenced', :limit => 3
+    config.add_facet_field Settings.FIELDS.SOURCE, :label => 'Collection', :limit => 8, :show => false
+
+
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
     # handler defaults, or have no facets.
     config.add_facet_fields_to_solr_request!
 
+
+	#SEARCH RESULTS FIELDS
+
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
-    # config.add_index_field 'title_display', :label => 'Title:'
-    # config.add_index_field 'title_vern_display', :label => 'Title:'
-    # config.add_index_field 'author_display', :label => 'Author:'
-    # config.add_index_field 'author_vern_display', :label => 'Author:'
-    # config.add_index_field 'format', :label => 'Format:'
-    # config.add_index_field 'language_facet', :label => 'Language:'
-    # config.add_index_field 'published_display', :label => 'Published:'
-    # config.add_index_field 'published_vern_display', :label => 'Published:'
-    # config.add_index_field 'lc_callnum_display', :label => 'Call number:'
-
-    # config.add_index_field 'dc_title_t', :label => 'Display Name:'
     # config.add_index_field Settings.FIELDS.PROVIDER, :label => 'Institution:'
     # config.add_index_field Settings.FIELDS.RIGHTS, :label => 'Access:'
     # # config.add_index_field 'Area', :label => 'Area:'
@@ -126,14 +124,15 @@ class CatalogController < ApplicationController
     config.add_index_field Settings.FIELDS.DESCRIPTION, helper_method: :snippit
     config.add_index_field Settings.FIELDS.PUBLISHER
 
-
+	#ITEM VIEW FIELDS
 
     # solr fields to be displayed in the show (single result) view
     #  The ordering of the field names is the order of the display
-    #
     # item_prop: [String] property given to span with Schema.org item property
     # link_to_search: [Boolean] that can be passed to link to a facet search
     # helper_method: [Symbol] method that can be used to render the value
+
+    #DEFAULT FIELDS
     config.add_show_field Settings.FIELDS.CREATOR, label: 'Creator(s)', itemprop: 'creator'
     config.add_show_field Settings.FIELDS.DESCRIPTION, label: 'Description', itemprop: 'description', helper_method: :render_value_as_truncate_abstract
     config.add_show_field Settings.FIELDS.PUBLISHER, label: 'Publisher', itemprop: 'publisher'
@@ -149,7 +148,9 @@ class CatalogController < ApplicationController
       helper_method: :render_references_url
     )
 
-    # ALL FIELDS
+    # OPTIONAL FIELDS
+    #optional fields to add to the item view display
+
     # config.add_show_field Settings.FIELDS.ACCESS_RIGHTS, label: 'Access Rights', itemprop: 'access_rights'
     # config.add_show_field Settings.FIELDS.ALTERNATIVE_TITLE, label: 'Alternative Title', itemprop: 'alt_title'
     # config.add_show_field Settings.FIELDS.CENTROID, label: 'Centroid', itemprop: 'centroid'
@@ -263,11 +264,11 @@ class CatalogController < ApplicationController
     # label in pulldown is followed by the name of the SOLR field to sort by and
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case).
-    config.add_sort_field 'score desc, dc_title_sort asc', :label => 'Relevance'
-    config.add_sort_field "#{Settings.FIELDS.YEAR} desc, dc_title_sort asc", :label => 'Year (Newest first)'
-    config.add_sort_field "#{Settings.FIELDS.YEAR} asc, dc_title_sort asc", :label => 'Year (Oldest first)'
-    config.add_sort_field 'dc_title_sort asc', :label => 'Title (A-Z)'
-    config.add_sort_field 'dc_title_sort desc', :label => 'Title (Z-A)'
+    config.add_sort_field 'score desc, dct_title_sort asc', :label => 'Relevance'
+    config.add_sort_field "#{Settings.FIELDS.INDEX_YEAR} desc, dct_title_sort asc", :label => 'Year (Newest first)'
+    config.add_sort_field "#{Settings.FIELDS.INDEX_YEAR} asc, dct_title_sort asc", :label => 'Year (Oldest first)'
+    config.add_sort_field 'dct_title_sort asc', :label => 'Title (A-Z)'
+    config.add_sort_field 'dct_title_sort desc', :label => 'Title (Z-A)'
 
     # If there are more than this many search results, no spelling ("did you
     # mean") suggestion is offered.

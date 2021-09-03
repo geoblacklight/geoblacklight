@@ -81,6 +81,10 @@ RSpec/DescribeClass:
 RSpec/ExampleLength:
   Enabled: false
 
+RSpec/MultipleExpectations:
+  Exclude:
+    - 'spec/features/split_view.html.erb_spec.rb'
+
 RSpec/VerifiedDoubles:
   Exclude:
     - 'spec/lib/geoblacklight/download/hgl_download_spec.rb'
