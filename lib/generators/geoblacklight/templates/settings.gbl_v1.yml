@@ -1,0 +1,195 @@
+#Solr field mappings for GeoBlacklight Metadata Schema version 1.0
+
+# Configurable Logo Used for CartoDB export
+APPLICATION_LOGO_URL: 'http://geoblacklight.org/images/geoblacklight-logo.png'
+
+# Carto OneClick Service https://carto.com/engine/open-in-carto/
+CARTO_ONECLICK_LINK: 'http://oneclick.carto.com/'
+
+# ArcGIS Online Base URL
+ARCGIS_BASE_URL: 'https://www.arcgis.com/home/webmap/viewer.html'
+
+# Download path can be configured using this setting
+#DOWNLOAD_PATH: "./tmp/cache/downloads"
+
+# DEPRECATED Main Solr geometry field used for spatial search and bounding box. Should be type 'rpt'
+GEOMETRY_FIELD: 'solr_geom'
+
+# The bq boost value for spatial search matches within a bounding box
+BBOX_WITHIN_BOOST: '10'
+
+# The bf boost value for overlap ratio
+OVERLAP_RATIO_BOOST: '2'
+
+# Solr field mappings
+FIELDS:
+  :ACCESS_RIGHTS: 'dc_rights_s'
+  #:ALTERNATIVE_TITLE: 'dct_alternative_sm'
+  #:CENTROID: 'dcat_centroid_ss'
+  :CREATOR: 'dc_creator_sm'
+  :DATE_ISSUED: 'dct_issued_s'
+  #:DATE_RANGE: 'gbl_dateRange_drsim'
+  :DESCRIPTION: 'dc_description_sm'
+  :FORMAT: 'dc_format_s'
+  #:FILE_SIZE: 'gbl_fileSize_s'
+  #:GEOREFERENCED: 'gbl_georeferenced_b'
+  :ID: 'layer_slug_s'
+  :IDENTIFIER: 'dc_identifier_s'
+  :INDEX_YEAR: 'solr_year_i'
+  #:IS_PART_OF: 'dct_isPartOf_sm'
+  #:IS_REPLACED_BY: 'dct_isReplacedBy_sm'
+  #:ISO_TOPIC_CATEGORY: 'dcat_theme_sm'
+  #:KEYWORD: 'dcat_keyword_sm'
+  :LANGUAGE: 'dc_language_sm'
+  #:LICENSE: 'dct_license_sm'
+  #:MEMBER_OF: 'pcdm_memberOf_sm'
+  :METADATA_VERSION: 'geoblacklight_version'
+  :MODIFIED: 'layer_modified_dt'
+  :OVERLAP_FIELD: 'solr_bboxtype'
+  :PUBLISHER: 'dc_publisher_s'
+  :PROVIDER: 'dct_provenance_s'
+  :REFERENCES: 'dct_references_s'
+  #:RELATION: 'dct_relation_sm'
+  #:REPLACES: 'dct_replaces_sm'
+  #:RESOURCE_CLASS: 'gbl_resourceClass_sm'
+  :RESOURCE_TYPE: 'layer_geom_type_s'
+  #:RIGHTS: 'dct_rights_sm'
+  #:RIGHTS_HOLDER: 'dct_rightsHolder_sm'
+  :SOURCE: 'dc_source_sm'
+  :SPATIAL_COVERAGE: 'dct_spatial_sm'
+  :SPATIAL_EXTENT: 'solr_geom'
+  :SUBJECT: 'dc_subject_sm'
+  :SUPPRESSED: 'suppressed_b'
+  :TEMPORAL_COVERAGE: 'dct_temporal_sm'
+  :TITLE: 'dc_title_s'
+  #:VERSION: 'dct_isVersionOf_sm'
+  :WXS_IDENTIFIER: 'layer_id_s'
+
+# Institution deployed at
+INSTITUTION: 'Stanford'
+
+# Metadata shown in tool panel
+METADATA_SHOWN:
+  - 'mods'
+  - 'fgdc'
+  - 'iso19139'
+  - 'html'
+
+# (For external Download) timeout and open_timeout parameters for Faraday
+TIMEOUT_DOWNLOAD: 16
+
+# (For WMS inspection) timeout and open_timeout parameters for Faraday
+TIMEOUT_WMS: 4
+
+# Use the geometry type for the data relations icon
+USE_GEOM_FOR_RELATIONS_ICON: false
+
+# Web services shown in tool panel
+WEBSERVICES_SHOWN:
+  - 'wms'
+  - 'tms'
+  - 'wfs'
+  - 'iiif'
+  - 'feature_layer'
+  - 'tiled_map_layer'
+  - 'dynamic_map_layer'
+  - 'image_map_layer'
+
+# Relationships to display
+RELATIONSHIPS_SHOWN:
+# MEMBER_OF:
+#    field: pcdm_memberOf_sm
+#    query_type: ancestors
+#    icon: nil
+#    label: geoblacklight.relations.member_of
+#  PART_OF:
+#    field: dct_isPartOf_sm
+#    query_type: ancestors
+#    icon: nil
+#    label: geoblacklight.relations.part_of
+#  RELATION:
+#    field: dct_relation_sm
+#    query_type: ancestors
+#    icon: nil
+#    label: geoblacklight.relations.relation
+#  REPLACES:
+#    field: dct_replaces_sm
+#    query_type: ancestors
+#    icon: nil
+#    label: geoblacklight.relations.replaces
+#  REPLACED_BY:
+#    field: dct_isReplacedBy_sm
+#    query_type: descendants
+#    icon: nil
+#    label: geoblacklight.relations.replaced_by
+  SOURCE_ANCESTORS:
+    field: dct_source_sm
+    query_type: ancestors
+    icon: pagelines-brands
+    label: geoblacklight.relations.ancestor
+  SOURCE_DESCENDANTS:
+    field: dct_source_sm
+    query_type: descendants
+    icon: leaf
+    label: geoblacklight.relations.descendant
+#  VERSION_OF:
+#    field: dct_isVersionOf_sm
+#    query_type: descendants
+#    icon: nil
+#    label: geoblacklight.relations.version_of
+
+# WMS Parameters
+WMS_PARAMS:
+  :SERVICE: 'WMS'
+  :VERSION: '1.1.1'
+  :REQUEST: 'GetFeatureInfo'
+  :STYLES: ''
+  :SRS: 'EPSG:4326'
+  :EXCEPTIONS: 'application/json'
+  :INFO_FORMAT: 'text/html'
+
+# Settings for leaflet
+OPACITY_CONTROL: &opacity_control
+  CONTROLS:
+    - 'Opacity'
+
+LEAFLET:
+  MAP:
+  LAYERS:
+    DETECT_RETINA: true
+    INDEX:
+      DEFAULT: &default
+        color: "#1eb300"
+        weight: "1"
+        radius: "4"
+      UNAVAILABLE:
+        <<: *default
+        color: "#b3001e"
+      SELECTED:
+        <<: *default
+        color: "#006bde"
+  VIEWERS:
+    WMS:
+      <<: *opacity_control
+    TILEDMAPLAYER:
+      <<: *opacity_control
+    FEATURELAYER:
+      <<: *opacity_control
+    DYNAMICMAPLAYER:
+      <<: *opacity_control
+    IMAGEMAPLAYER:
+      <<: *opacity_control
+
+# Toggle the help text feature that offers users context
+HELP_TEXT:
+  viewer_protocol:
+      - 'dynamic_map_layer'
+      - 'feature_layer'
+      - 'iiif'
+      - 'iiif_manifest'
+      - 'image_map_layer'
+      - 'index_map'
+      - 'tiled_map_layer'
+      - 'wms'
+      - 'tms'
+      - 'oembed'
