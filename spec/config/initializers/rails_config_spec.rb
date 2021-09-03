@@ -8,4 +8,8 @@ describe 'Config' do
       expect(Settings.RELATIONSHIPS_SHOWN.MEMBER_OF).to respond_to(method)
     end
   end
+
+  it 'Loads new v3.4 Settings.FIELDS defaults' do
+    expect(Settings.HOMEPAGE_MAP_GEOM).to eq nil
+  end
 end

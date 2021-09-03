@@ -29,6 +29,9 @@
   "dcat_keyword_sm": [
     "GBL Fixture records"
   ],
+  "dct_isPartOf_sm": [
+    "Minnesota Geospatial Commons"
+  ],
   "dct_temporal_sm": [
     "1998"
   ],
