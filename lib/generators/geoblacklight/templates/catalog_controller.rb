@@ -89,19 +89,20 @@ class CatalogController < ApplicationController
 
 	#DEFAULT FACETS
 	#to add additional facets, use the keys defined in the settings.yml file
-    config.add_facet_field Settings.FIELDS.RESOURCE_CLASS, label: 'Resource Class', :limit => 8    
-    config.add_facet_field Settings.FIELDS.ACCESS_RIGHTS, label: 'Access', limit: 8, partial: "icon_facet"
     config.add_facet_field Settings.FIELDS.INDEX_YEAR, :label => 'Year', :limit => 10
     config.add_facet_field Settings.FIELDS.SPATIAL_COVERAGE, :label => 'Place', :limit => 8
+    config.add_facet_field Settings.FIELDS.ACCESS_RIGHTS, label: 'Access', limit: 8, partial: "icon_facet"
+    config.add_facet_field Settings.FIELDS.RESOURCE_CLASS, label: 'Resource Class', :limit => 8  
+    config.add_facet_field Settings.FIELDS.RESOURCE_TYPE, label: 'Resource Type', :limit => 8
+    config.add_facet_field Settings.FIELDS.FORMAT, :label => 'Format', :limit => 8
+    config.add_facet_field Settings.FIELDS.SUBJECT, :label => 'Subject', :limit => 8
+    config.add_facet_field Settings.FIELDS.ISO_TOPIC_CATEGORY, :label => 'Theme', :limit => 8
     config.add_facet_field Settings.FIELDS.CREATOR, :label => 'Creator(s)', :limit => 8
     config.add_facet_field Settings.FIELDS.PUBLISHER, :label => 'Publisher', :limit => 8
     config.add_facet_field Settings.FIELDS.PROVIDER, label: 'Provider', limit: 8, partial: "icon_facet"
-    config.add_facet_field Settings.FIELDS.FORMAT, :label => 'Format', :limit => 8
-    config.add_facet_field Settings.FIELDS.RESOURCE_TYPE, label: 'Resource Type', :limit => 8
-    config.add_facet_field Settings.FIELDS.SUBJECT, :label => 'Subject', :limit => 8
-    config.add_facet_field Settings.FIELDS.ISO_TOPIC_CATEGORY, :label => 'Theme', :limit => 8
-    config.add_facet_field Settings.FIELDS.SOURCE, :label => 'Collection', :limit => 8, :show => false
     config.add_facet_field Settings.FIELDS.GEOREFERENCED, :label => 'Georeferenced', :limit => 3
+    config.add_facet_field Settings.FIELDS.SOURCE, :label => 'Collection', :limit => 8, :show => false
+
 
 
     # Have BL send all facet field names to Solr, which has been the default
@@ -263,10 +264,11 @@ class CatalogController < ApplicationController
     # label in pulldown is followed by the name of the SOLR field to sort by and
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case).
-    config.add_sort_field 'score desc, dc_title_sort asc', :label => 'relevance'
-    config.add_sort_field "#{Settings.FIELDS.INDEX_YEAR} desc, dc_title_sort asc", :label => 'year'
-    config.add_sort_field "#{Settings.FIELDS.PUBLISHER} asc, dc_title_sort asc", :label => 'publisher'
-    config.add_sort_field 'dc_title_sort asc', :label => 'title'
+    config.add_sort_field 'score desc, dct_title_sort asc', :label => 'Relevance'
+    config.add_sort_field "#{Settings.FIELDS.INDEX_YEAR} desc, dct_title_sort asc", :label => 'Year (Newest first)'
+    config.add_sort_field "#{Settings.FIELDS.INDEX_YEAR} asc, dct_title_sort asc", :label => 'Year (Oldest first)'
+    config.add_sort_field 'dct_title_sort asc', :label => 'Title (A-Z)'
+    config.add_sort_field 'dct_title_sort desc', :label => 'Title (Z-A)'
 
     # If there are more than this many search results, no spelling ("did you
     # mean") suggestion is offered.
