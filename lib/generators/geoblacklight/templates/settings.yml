@@ -19,6 +19,12 @@ BBOX_WITHIN_BOOST: '10'
 # The bf boost value for overlap ratio
 OVERLAP_RATIO_BOOST: '2'
 
+# Homepage Map Geometry
+# Leave null to default to entire world
+# Add a stringified GeoJSON object to scope initial render (example from UMass)
+HOMEPAGE_MAP_GEOM: null
+# HOMEPAGE_MAP_GEOM: '{"type":"Polygon","coordinates":[[[-73.58,42.93],[-73.58,41.20],[-69.90,41.20],[-69.90,42.93]]]}'
+
 # Solr field mappings
 FIELDS:
   :CREATOR: 'dc_creator_sm'
