@@ -113,7 +113,7 @@
       <int name="ps">0</int>
       <float name="tie">0.01</float>
       <str name="fl">*,score</str>
-      <str name="sort">score desc, dc_title_sort asc</str>
+      <str name="sort">score desc, dct_title_sort asc</str>
       <str name="q.alt">*:*</str>
       <str name="qf">
         text^1
