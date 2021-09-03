@@ -22,18 +22,18 @@ feature 'Index view', js: true do
 
   scenario 'should have facets listed correctly' do
     within '#facet-panel-collapse' do
-      expect(page).to have_css('div.card.facet-limit', text: 'Access')
-      expect(page).to have_css('div.card.facet-limit', text: 'Creator(s)')
-      expect(page).to have_css('div.card.facet-limit', text: 'Format')
-      expect(page).to have_css('div.card.facet-limit', text: 'Georeferenced')
       expect(page).to have_css('div.card.facet-limit', text: 'Year')
-      expect(page).to have_css('div.card.facet-limit', text: 'Theme')
-      expect(page).to have_css('div.card.facet-limit', text: 'Publisher')
-      expect(page).to have_css('div.card.facet-limit', text: 'Provider')
+      expect(page).to have_css('div.card.facet-limit', text: 'Place')
+      expect(page).to have_css('div.card.facet-limit', text: 'Access')
       expect(page).to have_css('div.card.facet-limit', text: 'Resource Class')
       expect(page).to have_css('div.card.facet-limit', text: 'Resource Type')
-      expect(page).to have_css('div.card.facet-limit', text: 'Place')
+      expect(page).to have_css('div.card.facet-limit', text: 'Format')
       expect(page).to have_css('div.card.facet-limit', text: 'Subject')
+      expect(page).to have_css('div.card.facet-limit', text: 'Theme')
+      expect(page).to have_css('div.card.facet-limit', text: 'Creator')
+      expect(page).to have_css('div.card.facet-limit', text: 'Publisher')
+      expect(page).to have_css('div.card.facet-limit', text: 'Provider')
+      expect(page).to have_css('div.card.facet-limit', text: 'Georeferenced')
     end
     click_button 'Provider'
     using_wait_time 120 do
