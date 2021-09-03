@@ -33,15 +33,14 @@ end
 
 desc 'Run test suite'
 task ci: ['geoblacklight:generate'] do
-  SolrWrapper.wrap do |solr|
-    solr.with_collection(name: 'blacklight-core', dir: File.join(File.expand_path('.', File.dirname(__FILE__)), 'solr', 'conf')) do
-      within_test_app do
-        system 'RAILS_ENV=test rake geoblacklight:index:seed'
-        system 'RAILS_ENV=test bundle exec rails webpacker:compile'
-      end
-      Rake::Task['geoblacklight:coverage'].invoke
-    end
+  within_test_app do
+    system 'RAILS_ENV=test rake geoblacklight:index:seed'
+    system 'RAILS_ENV=test bundle exec rails webpacker:compile'
   end
+
+  # Run RSpec tests with Coverage
+  Rake::Task['geoblacklight:coverage'].invoke
+
   # Run JavaScript tests
   Rake::Task['javascript_tests'].invoke
 end

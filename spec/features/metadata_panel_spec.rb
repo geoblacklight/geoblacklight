@@ -29,7 +29,7 @@ feature 'Metadata tools' do
       allow(connection).to receive(:get).and_return(response)
       allow(Faraday).to receive(:new).with(url: 'http://purl.stanford.edu/cg357zz0321.mods').and_return(connection)
 
-      allow(Faraday).to receive(:new).with(hash_including(url: 'http://127.0.0.1:8983/solr/blacklight-core/')).and_call_original
+      allow(Faraday).to receive(:new).with(hash_including(url: %r{solr/blacklight-core})).and_call_original
     end
 
     scenario 'shows up as HTML' do

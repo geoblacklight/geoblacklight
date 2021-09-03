@@ -1,0 +1,11 @@
+<div class='category-block col-sm'>
+  <div class='category-icon'>
+    <%= geoblacklight_icon(@icon) %>
+  </div>
+  <%= content_tag :h4, t(@label) %>
+  <%- facets = @response.aggregations[@facet_field].items.map { |item|
+    link_to(item.value, search_catalog_path("f[#{@facet_field}][]": item.value), class: 'home-facet-link')
+  } %>
+  <%- facets << link_to('more »', facet_catalog_path(@facet_field), class: 'more_facets_link') %>
+  <%= facets.join(', ').html_safe %>
+</div>

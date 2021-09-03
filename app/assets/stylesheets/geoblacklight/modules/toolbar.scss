@@ -19,10 +19,16 @@
     a {
       padding: 8px 1rem 8px 0;
     }
+
+    a:hover {
+      text-decoration: underline;
+    }
   }
 
   // Spacing between Tools icons and their labels
   .blacklight-icons {
     padding-right: 2px;
+    margin-right: 0.5rem;
+    margin-left: 0.1rem;
   }
 }
