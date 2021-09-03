@@ -206,6 +206,10 @@ RSpec/FilePath:
     - 'spec/lib/geoblacklight/wms_layer/feature_info_response_spec.rb'
 
 # Offense count: 1
+RSpec/InstanceVariable:
+  Enabled: false
+
+# Offense count: 1
 RSpec/IteratedExpectation:
   Exclude:
     - 'spec/lib/geoblacklight/references_spec.rb'

@@ -91,12 +91,6 @@ module GeoblacklightHelper
     truncate(Array(args[:value]).flatten.join(' '), length: 150)
   end
 
-  def render_facet_tags(facet)
-    render_facet_limit(facets_from_request(facet).first,
-                       partial: 'facet_tag_item',
-                       layout: 'facet_tag_layout')
-  end
-
   ##
   # Returns an SVG icon or empty HTML span element
   # @return [SVG or HTML tag]
