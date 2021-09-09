@@ -1,0 +1,239 @@
+fr:
+  views:
+    pagination:
+      first: "&laquo; Première"
+      last: "Dernière &raquo;"
+      previous: "&laquo; Précédente"
+      next: "Suivante &raquo;"
+      truncate: "…"
+      aria:
+        container_label: "liens de pagination"
+        current_page: "Page actuelle, Page %{page}"
+        go_to_first_page: "Aller à la première page"
+        go_to_last_page: "Aller à la dernière page"
+        go_to_next_page: "Aller à la page suivante"
+        go_to_page: "Aller à la page %{page}"
+        go_to_previous_page: "Aller à la page précédente"
+
+    pagination_compact:
+      previous: "&laquo; Précédente"
+      next: "Suivante &raquo;"
+
+  blacklight:
+    application_name: "Geodisy"
+    skip_links:
+      label: "Sauter les liens"
+      main_content: "Aller au contenu principal"
+      search_field: "Aller à la recherche"
+      first_result: "Aller au premier résultat de recherche"
+    header_links:
+      login: "Connexion"
+      logout: "Déconnexion"
+      bookmarks: "Favoris"
+      search_history: "Historique de recherche"
+
+    welcome: "Bienvenue!"
+    and: "et"
+    or: "ou"
+
+    modal:
+      close: "Fermer"
+
+    bookmarks:
+      title: "Favoris"
+      page_title: "Favoris - %{application_name}"
+      no_bookmarks: "Accédez à votre compte pour conserver des références dans vos favoris"
+      add:
+        button: "Favoris"
+        success:
+          one: "Favori bien enregistré."
+          other: "Favoris bien enregistrés."
+        failure: "Désolé, un problème est survenu lors de l'ajout."
+      remove:
+        button: "Supprimer"
+        success: "Favori supprimé."
+        failure: "Désolé, un problème est survenu lors de la suppression."
+        action_confirm: "Supprimer ce favori ?"
+      clear:
+        action_title: "Effacer tout"
+        action_confirm: "Effacer tous vos favoris ?"
+        success: "Favoris effacés."
+        failure: "Désolé, un problème est survenu lors de la suppression."
+      need_login: "Veuillez vous connecter pour accéder à vos favoris."
+      list_title: "Vos favoris"
+      delete: "Supprimer"
+
+    search_history:
+      clear:
+        action_title: "Effacer l'historique"
+        action_confirm: "Effacer votre historique de recherche ?"
+        success: "Votre historique de recherche a bien été effacée."
+        failure: "Un problème est survenu lors de la suppression."
+      title: "Historique de recherche"
+      page_title: "Historique de recherche - %{application_name}"
+      no_history: "Il n'y a aucune historique."
+      recent: "Dernières recherches"
+      forget: "Supprimer"
+      save: "Sauvegarder"
+
+    tools:
+      title: "Outils"
+      citation: "Citer"
+      email: "Envoyer par courriel"
+      sms: "SMS"
+      clear: "Effacer"
+
+    citation:
+      mla: "MLA"
+      apa: "APA"
+      chicago: "Chicago"
+
+    email:
+      form:
+        title: "Envoyer par courriel"
+        to: "Courriel :"
+        message: "Message :"
+        submit: "Envoyer"
+      text:
+        default_title: "N/A"
+        title: "Titre : %{value}"
+        author: "Auteur : %{value}"
+        format: "Format : %{value}"
+        language: "Langue : %{value}"
+        subject:
+          one: "Une référence : %{title}"
+          other: "Des références bibliographiques"
+        url: "URL : %{url}"
+        message: "Message : %{message}"
+
+      success: "Message envoyé"
+
+      errors:
+        to:
+          invalid: "Vous devez saisir une adresse correcte."
+          blank: "Vous devez saisir l'adresse de votre destinataire."
+    sms:
+      form:
+        title: "Envoyer par SMS"
+        to: "Numéro de téléphone :"
+        carrier: "Opérateur téléphonique"
+        carrier_prompt: "Veuillez choisir votre opérateur"
+        submit: "Envoyer"
+        text:
+          title: "%{value}"
+        author: " par %{value}"
+        url: "Lien : %{url}"
+      success: "SMS envoyé"
+      errors:
+        to:
+          invalid: "Vous devez saisir un numéro de téléphone à 10 chiffres."
+          blank: "Vous devez saisir le numéro de téléphone de votre destinataire."
+        carrier:
+          blank: "Vous devez choisir un opérateur."
+          invalid: "Vous devez choisir le opérateur valide."
+
+    back_to_search: "Retour aux résultats"
+    back_to_bookmarks: "Retour aux favoris"
+
+    search:
+      page_title:
+        title: "%{constraints} - %{application_name} Résultats de recherche"
+        constraint: "%{label}: %{value}"
+        many_constraint_values: "%{values} sélectionné"
+      header: "Recherche"
+      search_constraints_header: "Recherche"
+      search_results: "Résultats de recherche"
+      errors:
+        request_error: "Désolé, nous n'avons pas compris votre recherche."
+        invalid_solr_id: "Vous avez demandé une notice qui n'existe pas."
+      per_page:
+        label: "%{count}<span class=\"sr-only\"> par page</span>"
+        button_label: "%{count} par page" # TODO: Remove during major release
+        button_label_html: "%{count}<span class=\"d-none d-sm-inline\"> par page</span>"
+        title: "Nombre de résultats à afficher par page"
+        submit: "mettre à jour"
+        aria_label: "Navigation dans les résultats"
+      sort:
+        label: "Trier par %{field}" # TODO: Remove during major release
+        label_html: "Trier<span class=\"d-none d-sm-inline\"> par %{field}</span>"
+        submit: "trier par pertinence"
+      form:
+        search_field:
+          label: "dans"
+          title: "Options de recherche"
+          post_label: "pour"
+        search:
+          label: "Rechercher"
+          placeholder: "Rechercher"
+        submit: "Chercher"
+      pagination:
+        title: "Navigation dans les résultats"
+      pagination_info:
+        no_items_found: "Pas de %{entry_name}"
+        single_item_found: "<b>1</b> de <b>1</b> sur <b>1</b>"
+        pages:
+          one: "<b>%{start_num}</b> - <b>%{end_num}</b> sur <b>%{total_num}</b>"
+          other: "<b>%{start_num}</b> - <b>%{end_num}</b> sur <b>%{total_num}</b>"
+      entry_pagination_info:
+        one: "<b>1 sur 1</b>"
+        other: "<b>%{current}</b> sur <b>%{total}</b>"
+      documents:
+        aria:
+          search_results: "Résultats de recherche"
+          limit_search: "Limiter votre recherche"
+        counter: "%{counter}. "
+      facets:
+        title: "Limiter votre recherche"
+        clear: "Effacer"
+        all: "Tout"
+        sort:
+          count: "Du + au - fréquent"
+          index: "Tri de A à Z"
+        count: "%{number}"
+        more_html: "plus <span class=\"sr-only\">%{field_name}</span> »"
+        selected:
+          remove: "[ X ]"
+        missing: "[manquante]"
+        pivot:
+          show: "Ouvrir"
+          hide: "Fermer"
+      group:
+        more: "plus »"
+      filters:
+        title: "Vous avez demandé :"
+        label: "%{label}:"
+        remove:
+          value: "Supprimer la restriction %{value}"
+          label_value: "Supprimer la restriction %{label}: %{value}"
+      start_over: "Accueil"
+      index:
+        label: "%{label}:"
+      show:
+        title: "%{document_title} - %{application_name}"
+        label: "%{label}:"
+      rss_feed: "RSS pour les résultats"
+      atom_feed: "Atom pour les résultats"
+      bookmarks:
+        present: "Dans les favoris"
+        absent: "Ajouter aux favoris"
+        inprogress: "En cours"
+      zero_results:
+        title: "Votre recherche ne correspond à aucune ressource."
+        modify_search: "Essayez de modifier votre requête de recherche"
+        use_fewer_keywords: "Utilisez moins de mots-clés pour commencer, puis affiner votre recherche."
+        search_fields: "vous avez cherché par %{search_fields}"
+        search_everything: "essayez de rechercher tout"
+      view_title: "Affichage: "
+      view:
+        list: "Liste"
+
+    entry_name:
+      default: "résultat"
+      grouped:
+        default: "résultats groupés"
+
+    did_you_mean: "Essayez peut-être avec : %{options}"
+
+    main:
+      aria:
+        main_container: 'Contenu principal'

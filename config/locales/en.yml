@@ -1,0 +1,96 @@
+## Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  blacklight:
+    application_name: 'Geodisy'
+    search_fields:
+        all_fields: 'All fields'
+        title: 'Title'
+        author: 'Author'
+        subject: 'Subject'
+        sort:
+          relevancy: 'relevance'
+          solr_year_i: 'publication year'
+          dc_title_s: 'title'
+          dc_publisher_s: 'institution'
+        title_display: 'Title'
+        title_vern_display: 'Title'
+        author_display: 'Author'
+        author_vern_display: 'Author'
+        format: 'Format'
+        language_facet: 'Language'
+        published_display: 'Published'
+        published_vern_display: 'Published'
+        lc_callnum_display: 'Call number'
+        subtitle_display: 'Subtitle'
+        subtitle_vern_display: 'Subtitle'
+        url_fulltext_display: 'URL'
+        url_suppl_display: 'More Information'
+        isbn_t: 'ISBN'
+        pub_date: 'Publication Year'
+        subject_topic_facet: 'Topic'
+        lc_1letter_facet: 'Call Number'
+        subject_geo_facet: 'Region'
+        subject_era_facet: 'Era'
+
+        example_query_facet_field: 'Publish Date'
+    search:
+      fields:
+        dc_creator_sm: 'Author(s)'
+        dc_publisher_sm: 'Institution(s)'
+        dct_issued_s: 'Year(s)'
+        layer_geom_type_s: 'Data Type'
+        dc_rights_s: 'Access'
+        dc_subject_sm: 'Subject(s)'
+        dc_format_s: 'Format'
+        dct_isPartOf_sm: 'Collection'
+        dc_description_s: 'Description'
+        dct_spatial_sm: 'Place'
+        dct_provenance_s: 'Institution'
+        dc_identifier_s: 'Data Source'
+        dct_references_s: 'Data Source'
+
+        dc_title_s: 'title'
+        sort:
+          score desc, dc_title_sort asc: 'relevance'
+          solr_year_i desc, dc_title_sort asc: 'year'
+          dc_publisher_s asc, dc_title_sort asc: 'publisher'
+          dc_title_sort asc: title
+
+  map:
+    move_map_search: 'Search when I move the map'
+    redo_search: 'Redo search here'
+    search_here: 'Search Here'
+    zoom_in: 'Zoom in'
+    zoom_out: 'Zoom out'
+  item:
+    read_more: 'Read more'
+    close: 'Close'
+  facets:
+    authors: 'Author(s)'
+    description: 'Description'
+    publisher: 'Publisher'
+    collection: 'Collection'
+    places: 'Place(s)'
+    subjects: 'Subject(s)'
+    held_by: 'Held by'
+    data_source: 'Data source'

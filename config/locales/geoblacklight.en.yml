@@ -1,5 +1,7 @@
 en:
   geoblacklight:
+    solr_facets:
+      authors: 'Author(s)'
     bbox_label: 'Bounding Box'
     citation:
       retrieved_from: 'Retrieved from %{document_url}'
@@ -29,7 +31,26 @@ en:
       data_type: 'Data type'
       placename: 'Placename'
       subject: 'Subject'
+      language: 'EN'
+      search_here: 'Search Here'
+      left_quote: '"'
+      right_quote: '"'
+      use_map: 'To use the map search:'
+      move_map: 'Move the map to display your area of interest. You can also hold the shift key and click to draw a box for the map to zoom toward'
+      click: 'Click'
+      results: 'to see the results'
+      colon: ': '
       version: 'GeoBlacklight version %{version}'
+    facets:
+      author: 'Author'
+      publisher: 'Publisher'
+      place: 'Place'
+      collection: 'Collection'
+      access: 'Access'
+      format: 'Format'
+      data_type: 'Data type'
+      institution: 'Institution'
+      subject: 'Subject'
     tools:
       login_to_view: 'Login to View and Download'
       open_carto: 'Open in Carto'
@@ -113,40 +134,63 @@ en:
           content: A Web Map Service displays a geospatial dataset as map images.
   blacklight:
     icon:
-      arrow-circle-down: Arrow within a circle, pointing down
-      baruch-cuny: Baruch College
-      berkeley: University of California, Berkeley
-      cd-rom: CD-Rom
-      chicago: The University of Chicago
-      columbia: Columbia University
-      cornell: Cornell University
-      dvd-rom: DVD-Rom
-      esri-globe: Esri Global
-      harvard: Harvard University
-      illinois: University of Illinois
-      indiana: Indiana University
-      iowa: University of Iowa
-      lewis-clark: Lewis & Clark
-      maryland: University of Maryland
-      massgis: MassGIS
-      michigan-state: Michigan State University
-      michigan: University of Michigan
-      minnesota: University of Minnesota
-      mit: Massachusetts Institute of Technology
-      multilinestring: Multi-line string
-      multipoint: Multi-point
-      multipolygon: Multi-polygon
-      nyu: New York University
-      ohio-state: The Ohio State University
-      penn-state: Penn State University
-      princeton: Princeton University
-      public: Public content
-      purdue: Purdue University
-      restricted: Restricted content
-      sms: SMS
-      stanford: Stanford University
-      texas: The University of Texas at Austin
-      tufts: Tufts University
-      ucla: University of California, Los Angeles
-      uva: University of Virginia
-      wisconsin: University of Wisconsin
+      arrow-circle-down: Arrow within a circle, pointing down (icon)
+      baruch-cuny: Baruch College (logo)
+      berkeley: University of California, Berkeley (logo)
+      book: Book (icon)
+      bookmark: Bookmark (icon)
+      cd-rom: CD-Rom (icon)
+      chicago: The University of Chicago (logo)
+      columbia: Columbia University (logo)
+      cornell: Cornell University (logo)
+      dvd-rom: DVD-Rom (icon)
+      email: Email (icon)
+      esri-globe: Esri Global (logo)
+      geodisy: Geodisy (logo)
+      globe: Globe (icon)
+      harvard: Harvard University (logo)
+      home: Home (icon)
+      illinois: University of Illinois (logo)
+      image: Image (icon)
+      indiana: Indiana University (logo)
+      iowa: University of Iowa (logo)
+      leaf: Leaf (icon)
+      lewis-clark: Lewis & Clark (logo)
+      line: Line (icon)
+      map-marker: Map marker (icon)
+      map: Map (icon)
+      maryland: University of Maryland (logo)
+      massgis: MassGIS (logo)
+      metadata: Metadata (icon)
+      michigan-state: Michigan State University (logo)
+      michigan: University of Michigan (logo)
+      minnesota: University of Minnesota (logo)
+      mit: Massachusetts Institute of Technology (logo)
+      mixed: Mixed (icon)
+      multilinestring: Multi-line string  (icon)
+      multipoint: Multi-point (icon)
+      multipolygon: Multi-polygon (icon)
+      nyu: New York University (logo)
+      ohio-state: The Ohio State University (logo)
+      pagelines-brands: Pagelines brands (icon)
+      paper-map: Paper map (icon)
+      penn-state: Penn State University (logo)
+      point: Point (icon)
+      polygon: Polygon (icon)
+      polyline: Polyline (icon)
+      princeton: Princeton University (logo)
+      public: Public (icon)
+      purdue: Purdue University (logo)
+      raster: Raster (icon)
+      restricted: Restricted content (icon)
+      sms: SMS (icon)
+      stanford: Stanford University (logo)
+      table: Table (icon)
+      tags: Tags (icon)
+      texas: The University of Texas at Austin (logo)
+      tufts: Tufts University (logo)
+      ubc: University of British Columbia (logo)
+      ucla: University of California, Los Angeles (logo)
+      uva: University of Virginia (logo)
+      web_services: Web services (icon)
+      wisconsin: University of Wisconsin (logo)
