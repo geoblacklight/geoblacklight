@@ -26,21 +26,6 @@ module GeoblacklightHelper
     )
   end
 
-  def download_link_direct(text, document)
-    link_to(
-      text,
-      document.direct_download[:download],
-      'contentUrl' => document.direct_download[:download],
-      class: ['btn', 'btn-default', 'download', 'download-original'],
-      data: {
-        download: 'trigger',
-        download_type: 'direct',
-        download_id: document.id
-      }
-    )
-  end
-  deprecation_deprecate download_link_direct: 'Use download_link_file instead'
-
   def download_link_hgl(text, document)
     link_to(
       text,
