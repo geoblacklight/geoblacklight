@@ -32,6 +32,10 @@ class CatalogController < ApplicationController
      :q => "{!raw f=#{Settings.FIELDS.ID} v=$id}"
     }
 
+    # GeoBlacklight Defaults
+    # * Adds the "map" split view for catalog#index
+    config.view.split(partials: ['index'])
+    config.view.delete_field('list')
 
     # solr field configuration for search results/index views
     # config.index.show_link = 'title_display'
@@ -92,7 +96,7 @@ class CatalogController < ApplicationController
     config.add_facet_field Settings.FIELDS.INDEX_YEAR, :label => 'Year', :limit => 10
     config.add_facet_field Settings.FIELDS.SPATIAL_COVERAGE, :label => 'Place', :limit => 8
     config.add_facet_field Settings.FIELDS.ACCESS_RIGHTS, label: 'Access', limit: 8, partial: "icon_facet"
-    config.add_facet_field Settings.FIELDS.RESOURCE_CLASS, label: 'Resource Class', :limit => 8  
+    config.add_facet_field Settings.FIELDS.RESOURCE_CLASS, label: 'Resource Class', :limit => 8
     config.add_facet_field Settings.FIELDS.RESOURCE_TYPE, label: 'Resource Type', :limit => 8
     config.add_facet_field Settings.FIELDS.FORMAT, :label => 'Format', :limit => 8
     config.add_facet_field Settings.FIELDS.SUBJECT, :label => 'Subject', :limit => 8
