@@ -64,25 +64,6 @@ describe GeoblacklightHelper, type: :helper do
     end
   end
 
-  describe '#download_link_direct' do
-    let(:text) { 'Test Link Text' }
-    let(:references_field) { Settings.FIELDS.REFERENCES }
-    let(:document_attributes) do
-      {
-        references_field => {
-          'http://schema.org/downloadUrl' => 'http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip'
-        }.to_json
-      }
-    end
-    let(:document) { SolrDocument.new(document_attributes) }
-    before do
-      allow_any_instance_of(Geoblacklight::Reference).to receive(:to_hash).and_return(download: 'http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip')
-    end
-    it 'generates a link to download the original file' do
-      expect(download_link_direct(text, document)).to eq '<a contentUrl="http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip" class="btn btn-default download download-original" data-download="trigger" data-download-type="direct" href="http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip">Test Link Text</a>'
-    end
-  end
-
   describe '#download_link_hgl' do
     let(:text) { 'Test Link Text' }
     let(:document) { instance_double(SolrDocument) }

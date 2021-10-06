@@ -8,7 +8,7 @@
     <% end %>
   <% end %>
   <% if document.direct_download[:download].is_a? String %>
-    <%= render partial: 'download_link', locals: { download_link: download_link_direct(download_text(document.file_format), document) } %>
+    <%= render partial: 'download_link', locals: { download_link: download_link_file(download_text(document.file_format), document.id, document.direct_download[:download]['url']) } %>
   <% end %>
 <% end %>
 
