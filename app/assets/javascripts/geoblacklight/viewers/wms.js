@@ -40,8 +40,8 @@ GeoBlacklight.Viewer.Wms = GeoBlacklight.Viewer.Map.extend({
         URL: _this.data.url,
         LAYERS: _this.data.layerId,
         BBOX: _this.map.getBounds().toBBoxString(),
-        WIDTH: $('#map').width(),
-        HEIGHT: $('#map').height(),
+        WIDTH: Math.round($('#map').width()),
+        HEIGHT: Math.round($('#map').height()),
         QUERY_LAYERS: _this.data.layerId,
         X: Math.round(e.containerPoint.x),
         Y: Math.round(e.containerPoint.y)
