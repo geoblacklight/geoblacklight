@@ -23,4 +23,15 @@ feature 'web services tools' do
       expect(page).not_to have_css 'li.web_services a', text: 'Web services'
     end
   end
+  feature 'when xyz tile reference is provided', js: true do
+    scenario 'shows up in tools' do
+      visit solr_document_path '6f47b103-9955-4bbe-a364-387039623106'
+      expect(page).to have_css 'li.web_services a', text: 'Web services'
+      click_link 'Web services'
+      within '.modal-body' do
+        expect(page).to have_css 'label', text: 'XYZ Tiles'
+        expect(page).to have_css 'input[value="https://earthquake.usgs.gov/basemap/tiles/faults/{z}/{x}/{y}.png"]'
+      end
+    end
+  end
 end

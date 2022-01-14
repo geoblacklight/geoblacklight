@@ -4,7 +4,7 @@ GeoBlacklight.Viewer.Tms = GeoBlacklight.Viewer.Wms.extend({
 
   addPreviewLayer: function() {
     var _this = this;
-    var wmtsLayer = L.tileLayer(this.data.url);
-    this.overlay.addLayer(wmtsLayer);
+    var tmsLayer = L.tileLayer(this.data.url, { tms: true });
+    this.overlay.addLayer(tmsLayer);
   }
 });
