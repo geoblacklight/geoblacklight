@@ -75,7 +75,6 @@ USE_GEOM_FOR_RELATIONS_ICON: false
 # Web services shown in tool panel
 WEBSERVICES_SHOWN:
   - 'wms'
-  - 'tms'
   - 'wfs'
   - 'xyz'
   - 'iiif'
@@ -137,5 +136,5 @@ HELP_TEXT:
       - 'index_map'
       - 'tiled_map_layer'
       - 'wms'
-      - 'tms'
+      - 'xyz'
       - 'oembed'

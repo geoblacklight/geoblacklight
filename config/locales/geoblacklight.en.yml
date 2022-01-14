@@ -64,7 +64,6 @@ en:
       data_dictionary: 'Documentation'
       services: 'Web services'
       services_close: 'Close'
-      tms: 'Tile Map Service'
       xyz: 'XYZ Tiles'
     relations:
       ancestor: 'Source Datasets'
