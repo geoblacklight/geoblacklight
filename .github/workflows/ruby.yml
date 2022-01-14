@@ -27,8 +27,11 @@ jobs:
       with:
         ruby-version: 2.7
 
+    - name: Install bundler
+      run: gem install bundler -v 2.1.1
+
     - name: Install dependencies
-      run: bundle install
+      run: bundle _2.1.1_ install
 
     - name: Download coverage artifacts
       uses: actions/download-artifact@v2
@@ -55,8 +58,11 @@ jobs:
     - name: Create Solr container
       run: docker run -d -p 8983:8983 geoblacklight/solr:8.9-v1.0.0 server/scripts/ci-start.sh
 
+    - name: Install bundler
+      run: gem install bundler -v 2.1.1
+
     - name: Install dependencies
-      run: bundle install
+      run: bundle _2.1.1_ install
 
     - name: Load config into solr
       run: |
@@ -93,8 +99,11 @@ jobs:
     - name: Create Solr container
       run: docker run -d -p 8983:8983 geoblacklight/solr:8.9-v1.0.0 server/scripts/ci-start.sh
 
+    - name: Install bundler
+      run: gem install bundler -v 2.1.1
+
     - name: Install dependencies
-      run: bundle install
+      run: bundle _2.1.1_ install
       env:
         RAILS_VERSION: 6.0.3.4
 
@@ -128,8 +137,11 @@ jobs:
     - name: Create Solr container
       run: docker run -d -p 8983:8983 geoblacklight/solr:8.9-v1.0.0 server/scripts/ci-start.sh
 
+    - name: Install bundler
+      run: gem install bundler -v 2.1.1
+
     - name: Install dependencies
-      run: bundle install
+      run: bundle _2.1.1_ install
       env:
         RAILS_VERSION: 5.2.6
 
