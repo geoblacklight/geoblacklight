@@ -70,9 +70,9 @@
        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
   <query>
     <maxBooleanClauses>1024</maxBooleanClauses>
-    <filterCache class="solr.FastLRUCache" size="512" initialSize="512" autowarmCount="0"/>
-    <queryResultCache class="solr.LRUCache" size="512" initialSize="512" autowarmCount="0"/>
-    <documentCache class="solr.LRUCache" size="512" initialSize="512" autowarmCount="0"/>
+    <filterCache class="solr.CaffeineCache" size="512" initialSize="512" autowarmCount="0" async="true"/>
+    <queryResultCache class="solr.CaffeineCache" size="512" initialSize="512" autowarmCount="0" async="true"/>
+    <documentCache class="solr.CaffeineCache" size="512" initialSize="512" autowarmCount="0" async="true"/>
     <enableLazyFieldLoading>true</enableLazyFieldLoading>
     <queryResultWindowSize>20</queryResultWindowSize>
     <queryResultMaxDocsCached>200</queryResultMaxDocsCached>
