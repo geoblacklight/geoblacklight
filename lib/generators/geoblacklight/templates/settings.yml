@@ -77,6 +77,7 @@ WEBSERVICES_SHOWN:
   - 'wms'
   - 'tms'
   - 'wfs'
+  - 'xyz'
   - 'iiif'
   - 'feature_layer'
   - 'tiled_map_layer'
