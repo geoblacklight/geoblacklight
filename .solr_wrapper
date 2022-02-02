@@ -1,4 +1,5 @@
 validate: false
+instance_dir: tmp/solr
 download_dir: tmp/solr
 collection:
   dir: solr/conf/
