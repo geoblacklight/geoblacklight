@@ -17,6 +17,7 @@ test/version_tmp
 tmp
 jetty
 .internal_test_app
+.tool-versions
 # Ignore byebug history
 .byebug_history
 .DS_Store
