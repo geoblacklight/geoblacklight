@@ -66,6 +66,7 @@ en:
       services_close: 'Close'
       tms: 'Tile Map Service'
       xyz: 'XYZ Tiles'
+      wmts: 'Web Map Tile Service'
     relations:
       ancestor: 'Source Datasets'
       descendant: 'Derived Datasets'
