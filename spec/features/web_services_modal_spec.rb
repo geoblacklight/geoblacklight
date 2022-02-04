@@ -47,7 +47,7 @@ feature 'web services tools' do
   end
   feature 'when tilejson reference is provided', js: true do
     scenario 'shows up in tools' do
-      visit solr_document_path 'princeton-fk4544658v'
+      visit solr_document_path 'princeton-fk4544658v-tilejson'
       expect(page).to have_css 'li.web_services a', text: 'Web services'
       click_link 'Web services'
       within '.modal-body' do
