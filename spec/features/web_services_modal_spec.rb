@@ -45,4 +45,15 @@ feature 'web services tools' do
       end
     end
   end
+  feature 'when tilejson reference is provided', js: true do
+    scenario 'shows up in tools' do
+      visit solr_document_path 'princeton-fk4544658v'
+      expect(page).to have_css 'li.web_services a', text: 'Web services'
+      click_link 'Web services'
+      within '.modal-body' do
+        expect(page).to have_css 'label', text: 'TileJSON Document'
+        expect(page).to have_css 'input[value="https://map-tiles-staging.princeton.edu/mosaicjson/tilejson.json?id=2a91d82c541c426cb787cc62afe8f248"]'
+      end
+    end
+  end
 end
