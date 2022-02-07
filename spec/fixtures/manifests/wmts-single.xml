@@ -1,0 +1,126 @@
+<Capabilities xmlns="http://www.opengis.net/wmts/1.0" xmlns:ows="http://www.opengis.net/ows/1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gml="http://www.opengis.net/gml" xsi:schemaLocation="http://www.opengis.net/wmts/1.0 http://schemas.opengis.net/wmts/1.0/wmtsGetCapabilities_response.xsd" version="1.0.0">
+    <ows:ServiceIdentification>
+        <ows:Title>"Mosaic"</ows:Title>
+        <ows:ServiceType>OGC WMTS</ows:ServiceType>
+        <ows:ServiceTypeVersion>1.0.0</ows:ServiceTypeVersion>
+    </ows:ServiceIdentification>
+    <ows:OperationsMetadata>
+        <ows:Operation name="GetCapabilities">
+            <ows:DCP>
+                <ows:HTTP>
+                    <ows:Get xlink:href="https://map-tiles-staging.princeton.edu/mosaicjson/WMTSCapabilities.xml?url=s3%3A%2F%2Ffiggy-geo-staging%2F2a%2F91%2Fd8%2F2a91d82c541c426cb787cc62afe8f248%2Fmosaic-6c5b32bfe4cb8e4fb07d32cd6656d024.json&amp;rescale=0%2C255">
+                        <ows:Constraint name="GetEncoding">
+                            <ows:AllowedValues>
+                                <ows:Value>RESTful</ows:Value>
+                            </ows:AllowedValues>
+                        </ows:Constraint>
+                    </ows:Get>
+                </ows:HTTP>
+            </ows:DCP>
+        </ows:Operation>
+        <ows:Operation name="GetTile">
+            <ows:DCP>
+                <ows:HTTP>
+                    <ows:Get xlink:href="https://map-tiles-staging.princeton.edu/mosaicjson/WMTSCapabilities.xml?url=s3%3A%2F%2Ffiggy-geo-staging%2F2a%2F91%2Fd8%2F2a91d82c541c426cb787cc62afe8f248%2Fmosaic-6c5b32bfe4cb8e4fb07d32cd6656d024.json&amp;rescale=0%2C255">
+                        <ows:Constraint name="GetEncoding">
+                            <ows:AllowedValues>
+                                <ows:Value>RESTful</ows:Value>
+                            </ows:AllowedValues>
+                        </ows:Constraint>
+                    </ows:Get>
+                </ows:HTTP>
+            </ows:DCP>
+        </ows:Operation>
+    </ows:OperationsMetadata>
+    <Contents>
+        <Layer>
+            <ows:Title>Mosaic</ows:Title>
+            <ows:Identifier>mosaic</ows:Identifier>
+            <ows:Abstract>Mosaic</ows:Abstract>
+            <ows:WGS84BoundingBox crs="urn:ogc:def:crs:OGC:2:84">
+                <ows:LowerCorner>19.22222222200001 39.74997750505241</ows:LowerCorner>
+                <ows:UpperCorner>29.356941715411907 43.083333000050004</ows:UpperCorner>
+            </ows:WGS84BoundingBox>
+            <Style isDefault="true">
+                <ows:Identifier>default</ows:Identifier>
+            </Style>
+            <Format>image/png</Format>
+            <TileMatrixSetLink>
+                <TileMatrixSet>WebMercatorQuad</TileMatrixSet>
+            </TileMatrixSetLink>
+            <ResourceURL format="image/png" resourceType="tile" template="https://map-tiles-staging.princeton.edu/mosaicjson/tiles/WebMercatorQuad/{TileMatrix}/{TileCol}/{TileRow}@1x.png?url=s3%3A%2F%2Ffiggy-geo-staging%2F2a%2F91%2Fd8%2F2a91d82c541c426cb787cc62afe8f248%2Fmosaic-6c5b32bfe4cb8e4fb07d32cd6656d024.json&amp;rescale=0%2C255"/>
+        </Layer>
+        <TileMatrixSet>
+            <ows:Identifier>WebMercatorQuad</ows:Identifier>
+            <ows:SupportedCRS>EPSG:3857</ows:SupportedCRS>
+            
+            
+                        <TileMatrix>
+                            <ows:Identifier>8</ows:Identifier>
+                            <ScaleDenominator>2183915.09386217</ScaleDenominator>
+                            <TopLeftCorner>-20037508.3427892 20037508.3427892</TopLeftCorner>
+                            <TileWidth>256</TileWidth>
+                            <TileHeight>256</TileHeight>
+                            <MatrixWidth>256</MatrixWidth>
+                            <MatrixHeight>256</MatrixHeight>
+                        </TileMatrix>
+            
+            
+                        <TileMatrix>
+                            <ows:Identifier>9</ows:Identifier>
+                            <ScaleDenominator>1091957.54693108</ScaleDenominator>
+                            <TopLeftCorner>-20037508.3427892 20037508.3427892</TopLeftCorner>
+                            <TileWidth>256</TileWidth>
+                            <TileHeight>256</TileHeight>
+                            <MatrixWidth>512</MatrixWidth>
+                            <MatrixHeight>512</MatrixHeight>
+                        </TileMatrix>
+            
+            
+                        <TileMatrix>
+                            <ows:Identifier>10</ows:Identifier>
+                            <ScaleDenominator>545978.773465544</ScaleDenominator>
+                            <TopLeftCorner>-20037508.3427892 20037508.3427892</TopLeftCorner>
+                            <TileWidth>256</TileWidth>
+                            <TileHeight>256</TileHeight>
+                            <MatrixWidth>1024</MatrixWidth>
+                            <MatrixHeight>1024</MatrixHeight>
+                        </TileMatrix>
+            
+            
+                        <TileMatrix>
+                            <ows:Identifier>11</ows:Identifier>
+                            <ScaleDenominator>272989.386732772</ScaleDenominator>
+                            <TopLeftCorner>-20037508.3427892 20037508.3427892</TopLeftCorner>
+                            <TileWidth>256</TileWidth>
+                            <TileHeight>256</TileHeight>
+                            <MatrixWidth>2048</MatrixWidth>
+                            <MatrixHeight>2048</MatrixHeight>
+                        </TileMatrix>
+            
+            
+                        <TileMatrix>
+                            <ows:Identifier>12</ows:Identifier>
+                            <ScaleDenominator>136494.693366386</ScaleDenominator>
+                            <TopLeftCorner>-20037508.3427892 20037508.3427892</TopLeftCorner>
+                            <TileWidth>256</TileWidth>
+                            <TileHeight>256</TileHeight>
+                            <MatrixWidth>4096</MatrixWidth>
+                            <MatrixHeight>4096</MatrixHeight>
+                        </TileMatrix>
+            
+            
+                        <TileMatrix>
+                            <ows:Identifier>13</ows:Identifier>
+                            <ScaleDenominator>68247.346683193</ScaleDenominator>
+                            <TopLeftCorner>-20037508.3427892 20037508.3427892</TopLeftCorner>
+                            <TileWidth>256</TileWidth>
+                            <TileHeight>256</TileHeight>
+                            <MatrixWidth>8192</MatrixWidth>
+                            <MatrixHeight>8192</MatrixHeight>
+                        </TileMatrix>
+            
+        </TileMatrixSet>
+    </Contents>
+    <ServiceMetadataURL xlink:href="https://map-tiles-staging.princeton.edu/mosaicjson/WMTSCapabilities.xml?url=s3%3A%2F%2Ffiggy-geo-staging%2F2a%2F91%2Fd8%2F2a91d82c541c426cb787cc62afe8f248%2Fmosaic-6c5b32bfe4cb8e4fb07d32cd6656d024.json&amp;rescale=0%2C255"/>
+</Capabilities>

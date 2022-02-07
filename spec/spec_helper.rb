@@ -30,6 +30,10 @@ require 'capybara/rspec'
 require 'selenium-webdriver'
 require 'webdrivers'
 
+# Setup webmock for specific tests
+require 'webmock/rspec'
+WebMock.allow_net_connect!
+
 Capybara.register_driver(:headless_chrome) do |app|
   Capybara::Selenium::Driver.load_selenium
   browser_options = ::Selenium::WebDriver::Chrome::Options.new.tap do |opts|
