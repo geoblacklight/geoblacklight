@@ -34,4 +34,15 @@ feature 'web services tools' do
       end
     end
   end
+  feature 'when wmts tile reference is provided', js: true do
+    scenario 'shows up in tools' do
+      visit solr_document_path '6f47b103-9955-4bbe-a364-387039623106-tms'
+      expect(page).to have_css 'li.web_services a', text: 'Web services'
+      click_link 'Web services'
+      within '.modal-body' do
+        expect(page).to have_css 'label', text: 'Web Map Tile Service'
+        expect(page).to have_css 'input[value="https://example.com/WMTSCapabilities.xml"]'
+      end
+    end
+  end
 end
