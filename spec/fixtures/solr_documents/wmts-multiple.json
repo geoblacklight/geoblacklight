@@ -1,0 +1,32 @@
+{
+    "geoblacklight_version": "1.0",
+    "dc_identifier_s": "ark:/99999/fk4db9hn29",
+    "layer_slug_s": "princeton-fk4db9hn29",
+    "uuid": "princeton-fk4db9hn29",
+    "dc_title_s": "Orthofoto 2016 Wien (WMTS)",
+    "solr_geom": "ENVELOPE(16.133423, 16.626434, 48.3348, 48.106056)",
+    "dct_provenance_s": "Princeton",
+    "dc_rights_s": "Public",
+    "dc_description_s": "The Vienna orthophoto from the year 2016 covers the entire city area with a pixel size of 15 centimeters. The aerial images were taken on 18th and 27th of March and 5th of April 2016.",
+    "dc_creator_sm": [
+        "Magistrat Wien - Magistratsabteilung 41 - Stadtvermessung"
+    ],
+    "all_subject_sm": [
+        "Orthophoto"
+    ],
+    "dct_spatial_sm": [
+        "Vienna",
+        "Austria"
+    ],
+    "dct_temporal_sm": [
+        "2016"
+    ],
+    "solr_year_i": 2022,
+    "layer_modified_dt": "2022-02-04T22:13:37Z",
+    "layer_id_s": "lb2016",
+    "dct_references_s": "{\"http://www.opengis.net/def/serviceType/ogc/wmts\":\"https://maps.wien.gv.at/wmts/1.0.0/WMTSCapabilities.xml\"}",
+    "layer_geom_type_s": "Raster",
+    "dc_format_s": "GeoTIFF",
+    "dct_issued_dt": "2016-01-01T00:00:00Z",
+    "suppressed_b": false
+}

@@ -1,0 +1,38 @@
+{
+    "geoblacklight_version": "1.0",
+    "dc_identifier_s": "ark:/99999/fk4544658v",
+    "layer_slug_s": "princeton-fk4544658v-tilejson",
+    "uuid": "princeton-fk4544658v",
+    "dc_title_s": "The Balkans [and] Turkey : G.S.G.S. no. 2097 / War Office. General Staff. Geographical Section (TileJSON Fixture)",
+    "solr_geom": "ENVELOPE(19.333333, 29.333333, 43.083333, 39.75)",
+    "dct_provenance_s": "Princeton",
+    "dc_rights_s": "Public",
+    "dc_description_s": "Relief shown by contours approximately 100 feet interval, spot heights, and shading. Title varies; some sheets are titled \"Turkey\". Shows international boundaries, railways, 2 categories of roads, telegraph lines, places of worship, ruins. Constantinople latest edition map has a glossary.",
+    "dc_creator_sm": [
+        "Great Britain. War Office. General Staff. Geographical Section"
+    ],
+    "dc_language_s": "eng",
+    "dc_publisher_s": "[London] : War Office. General Staff. Geographical Section. General Staff, 1908-25.",
+    "dc_subject_sm": [
+        "Maps,Topographic",
+        "Balkan Peninsula\u2014Maps",
+        "Turkey\u2014Maps",
+        "Topographic maps"
+    ],
+    "all_subject_sm": [
+        "Maps,Topographic",
+        "Balkan Peninsula\u2014Maps",
+        "Turkey\u2014Maps",
+        "Topographic maps"
+    ],
+    "dct_spatial_sm": [
+        "Balkan Peninsula",
+        "Turkey"
+    ],
+    "solr_year_i": 1908,
+    "layer_modified_dt": "2022-02-03T22:13:40Z",
+    "layer_id_s": "ark:/99999/fk4544658v",
+    "dct_references_s": "{\"http://schema.org/url\":\"https://catalog.princeton.edu/catalog/99125413918506421\",\"http://schema.org/thumbnailUrl\":\"https://figgy-staging.princeton.edu/downloads/6b55d939-7188-4bce-9550-0ac535441f22/file/9042b887-da2e-4aa9-9ca5-d3ba77f440c4\",\"http://iiif.io/api/image\":\"https://iiif-cloud-staging.princeton.edu/iiif/2/05%2F71%2F04%2F0571046f9c7149a3b950899323f70788%2Fintermediate_file/info.json\",\"http://iiif.io/api/presentation#manifest\":\"https://figgy-staging.princeton.edu/concern/scanned_maps/2a91d82c-541c-426c-b787-cc62afe8f248/manifest\",\"https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames\":\"https://map-tiles-staging.princeton.edu/mosaicjson/tiles/WebMercatorQuad/{z}/{x}/{y}@1x.png?id=2a91d82c541c426cb787cc62afe8f248\",\"https://github.com/mapbox/tilejson-spec\":\"https://map-tiles-staging.princeton.edu/mosaicjson/tilejson.json?id=2a91d82c541c426cb787cc62afe8f248\"}",
+    "layer_geom_type_s": "Image",
+    "suppressed_b": false
+}

@@ -65,6 +65,7 @@ en:
       services: 'Web services'
       services_close: 'Close'
       tms: 'Tile Map Service'
+      tilejson: 'TileJSON Document'
       xyz: 'XYZ Tiles'
       wmts: 'Web Map Tile Service'
     relations:

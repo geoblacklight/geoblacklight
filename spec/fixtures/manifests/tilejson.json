@@ -1,0 +1,21 @@
+{
+    "tilejson": "2.2.0",
+    "version": "1.0.0",
+    "scheme": "xyz",
+    "tiles": [
+        "https://map-tiles-staging.princeton.edu/mosaicjson/tiles/WebMercatorQuad/{z}/{x}/{y}@1x?url=s3%3A%2F%2Ffiggy-geo-staging%2F2a%2F91%2Fd8%2F2a91d82c541c426cb787cc62afe8f248%2Fmosaic-6c5b32bfe4cb8e4fb07d32cd6656d024.json&rescale=0%2C255"
+    ],
+    "minzoom": 8,
+    "maxzoom": 13,
+    "bounds": [
+        19.22222222200001,
+        39.74997750505241,
+        29.356941715411907,
+        43.083333000050004
+    ],
+    "center": [
+        24.28958196870596,
+        41.41665525255121,
+        8
+    ]
+}

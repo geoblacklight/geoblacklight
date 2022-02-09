@@ -18,6 +18,7 @@ module Geoblacklight
       wms: 'http://www.opengis.net/def/serviceType/ogc/wms',
       wmts: 'http://www.opengis.net/def/serviceType/ogc/wmts',
       tms: 'https://wiki.osgeo.org/wiki/Tile_Map_Service_Specification',
+      tilejson: 'https://github.com/mapbox/tilejson-spec',
       xyz: 'https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames',
       hgl: 'http://schema.org/DownloadAction',
       feature_layer: 'urn:x-esri:serviceType:ArcGIS#FeatureLayer',
