@@ -39,7 +39,7 @@
   "dct_accessRights_s": "Public",
   "dct_format_s": "Shapefile",
   "dct_references_s": "{\"http://schema.org/url\":\"https://www.usgs.gov/natural-hazards/earthquake-hazards/faults\",\"https://wiki.osgeo.org/wiki/Tile_Map_Service_Specification\":\"https://earthquake.usgs.gov/basemap/tiles/faults/{z}/{x}/{y}.png\",\"http://schema.org/downloadUrl\":\"https://earthquake.usgs.gov/static/lfs/nshm/qfaults/Qfaults_GIS.zip\"}",
-  "id": "6f47b103-9955-4bbe-a364-387039623106",
+  "id": "6f47b103-9955-4bbe-a364-387039623106-tms",
   "gbl_mdModified_dt": "2021-06-11T18:44:16Z",
   "gbl_mdVersion_s": "Aardvark"
 }
