@@ -41,6 +41,8 @@ describe Geoblacklight::Relation::RelationResponse do
 
   describe '#query_type' do
     it 'fails for a bad query type request' do
+      # Cache the existing relationship values and add a test value
+      relationships = Settings.RELATIONSHIPS_SHOWN
       Settings.add_source!({
                              RELATIONSHIPS_SHOWN: {
                                BAD: {
@@ -54,6 +56,9 @@ describe Geoblacklight::Relation::RelationResponse do
       Settings.reload!
 
       expect { relation_resp.BAD }.to raise_error(ArgumentError)
+
+      # Restore relationship values
+      Settings.RELATIONSHIPS_SHOWN = relationships
     end
   end
 end
