@@ -71,13 +71,13 @@ describe CatalogController, type: :controller do
       expect(response.status).to eq 200
       expect(response.body).not_to be_empty
       response_values = JSON.parse(response.body)
-      expect(response_values).to include 'geoblacklight_version' => '1.0'
+      expect(response_values).to include 'gbl_mdVersion_s' => 'Aardvark'
       expect(response_values).to include Settings.FIELDS.TITLE => '100 Foot Grid Cambridge MA 2004'
-      expect(response_values).to include Settings.FIELDS.IDENTIFIER => 'urn:geodata.tufts.edu:Tufts.CambridgeGrid100_04'
-      expect(response_values).to include Settings.FIELDS.RIGHTS => 'Public'
-      expect(response_values).to include Settings.FIELDS.PROVENANCE => 'Tufts'
-      expect(response_values).to include Settings.FIELDS.UNIQUE_KEY => 'tufts-cambridgegrid100-04'
-      expect(response_values).to include Settings.FIELDS.GEOMETRY => 'ENVELOPE(-71.163984, -71.052581, 42.408316, 42.34757)'
+      expect(response_values).to include Settings.FIELDS.IDENTIFIER => ['urn:geodata.tufts.edu:Tufts.CambridgeGrid100_04']
+      expect(response_values).to include Settings.FIELDS.ACCESS_RIGHTS => 'Public'
+      expect(response_values).to include Settings.FIELDS.PROVIDER => 'Tufts'
+      expect(response_values).to include Settings.FIELDS.ID => 'tufts-cambridgegrid100-04'
+      expect(response_values).to include Settings.FIELDS.SPATIAL_EXTENT => 'ENVELOPE(-71.163984,-71.052581,42.408316,42.34757)'
     end
   end
 end

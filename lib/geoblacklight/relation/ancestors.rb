@@ -2,14 +2,15 @@
 module Geoblacklight
   module Relation
     class Ancestors
-      def initialize(id, repository)
+      def initialize(id, field, repository)
         @search_id = id
+        @field = field
         @repository = repository
       end
 
       def create_search_params
-        { fq: ["{!join from=#{Settings.FIELDS.SOURCE} to=#{Settings.FIELDS.UNIQUE_KEY}}#{Settings.FIELDS.UNIQUE_KEY}:#{@search_id}"],
-          fl: [Settings.FIELDS.TITLE, Settings.FIELDS.UNIQUE_KEY, Settings.FIELDS.GEOM_TYPE] }
+        { fq: ["{!join from=#{@field} to=#{Settings.FIELDS.ID}}#{Settings.FIELDS.ID}:#{@search_id}"],
+          fl: [Settings.FIELDS.TITLE, Settings.FIELDS.ID, Settings.FIELDS.RESOURCE_TYPE] }
       end
 
       def execute_query

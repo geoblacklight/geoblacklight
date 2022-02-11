@@ -11,34 +11,54 @@ describe Geoblacklight::Relation::RelationResponse do
     end
   end
 
-  describe '#ancestors' do
+  describe '#method_missing' do
     it 'returns a hash of ancestor documents' do
-      expect(relation_resp.ancestors).to include('numFound')
-      expect(relation_resp.ancestors).to include('docs')
+      expect(relation_resp.SOURCE_ANCESTORS).to include('numFound')
+      expect(relation_resp.SOURCE_ANCESTORS).to include('docs')
     end
-  end
 
-  describe '#descendants' do
     it 'returns a hash of descendant documents' do
-      expect(relation_resp.ancestors).to include('numFound')
-      expect(relation_resp.ancestors).to include('docs')
+      expect(relation_resp.SOURCE_DESCENDANTS).to include('numFound')
+      expect(relation_resp.SOURCE_DESCENDANTS).to include('docs')
+    end
+
+    it 'raises no method error' do
+      expect { relation_resp.FAIL }.to raise_error NoMethodError
     end
   end
 
-  describe '#empty?' do
-    it 'returns false if document has ancestors or descendants' do
-      expect(relation_resp.empty?).to be false
-    end
-    it 'returns true if document has neither ancestors nor descendants' do
-      expect(empty_relation_resp.empty?).to be true
-    end
-
-    context 'with a layer slug containing a colon' do
-      let(:empty_relation_resp) { described_class.new('uva-Norfolk:police_point', repository) }
-
-      it 'returns true if document has neither ancestors nor descendants' do
-        expect(empty_relation_resp.empty?).to be true
+  describe '#respond_to_missing?' do
+    it 'returns true for configured relationships' do
+      Settings.RELATIONSHIPS_SHOWN.each_key do |key|
+        expect(relation_resp).to respond_to(key)
       end
+    end
+
+    it 'returns false for non-configured options' do
+      expect(relation_resp).not_to respond_to('fail')
+    end
+  end
+
+  describe '#query_type' do
+    it 'fails for a bad query type request' do
+      # Cache the existing relationship values and add a test value
+      relationships = Settings.RELATIONSHIPS_SHOWN
+      Settings.add_source!({
+                             RELATIONSHIPS_SHOWN: {
+                               BAD: {
+                                 field: 'dct_source_sm',
+                                 query_type: 'bad_query_type',
+                                 icon: 'pagelines-brands',
+                                 label: 'geoblacklight.relations.ancestor'
+                               }
+                             }
+                           })
+      Settings.reload!
+
+      expect { relation_resp.BAD }.to raise_error(ArgumentError)
+
+      # Restore relationship values
+      Settings.RELATIONSHIPS_SHOWN = relationships
     end
   end
 end

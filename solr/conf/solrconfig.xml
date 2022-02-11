@@ -20,7 +20,7 @@
      this file, see http://wiki.apache.org/solr/SolrConfigXml.
 -->
 <config>
-  
+
   <!-- Controls what version of Lucene various components of Solr
        adhere to.  Generally, you want to use the latest version to
        get all bug fixes and improvements. It is highly recommended
@@ -28,7 +28,7 @@
        affect both how text is indexed and queried.
   -->
   <luceneMatchVersion>7.6</luceneMatchVersion>
-  
+
   <lib dir="${solr.install.dir:../../../..}/contrib/analysis-extras/lib" />
   <lib dir="${solr.install.dir:../../../..}/contrib/analysis-extras/lucene-libs" />
 
@@ -38,7 +38,7 @@
   <schemaFactory class="ClassicIndexSchemaFactory"/>
 
   <dataDir>${solr.blacklight-core.data.dir:}</dataDir>
-    
+
   <indexConfig>
     <lockType>${solr.lock.type:native}</lockType>
   </indexConfig>
@@ -113,7 +113,7 @@
       <int name="ps">0</int>
       <float name="tie">0.01</float>
       <str name="fl">*,score</str>
-      <str name="sort">score desc, dc_title_sort asc</str>
+      <str name="sort">score desc, dct_title_sort asc</str>
       <str name="q.alt">*:*</str>
       <str name="qf">
         text^1
@@ -126,7 +126,7 @@
         dct_temporal_tmi^5
         dc_title_ti^6
         dc_rights_ti^7
-        dct_provenance_ti^8
+        dct_provider_ti^8
         layer_geom_type_ti^9
         layer_slug_ti^10
         dc_identifier_ti^10
@@ -142,7 +142,7 @@
         dct_temporal_tmi^5
         dc_title_ti^6
         dc_rights_ti^7
-        dct_provenance_ti^8
+        dct_provider_ti^8
         layer_geom_type_ti^9
         layer_slug_ti^10
         dc_identifier_ti^10
@@ -151,16 +151,16 @@
       <int name="facet.mincount">1</int>
       <int name="facet.limit">10</int>
       <str name="facet.field">dct_isPartOf_sm</str>
-      <str name="facet.field">dct_provenance_s</str>
+      <str name="facet.field">schema_provider_s</str>
       <str name="facet.field">dct_spatial_sm</str>
-      <str name="facet.field">dc_creator_sm</str>
-      <str name="facet.field">dc_format_s</str>
-      <str name="facet.field">dc_language_s</str>
-      <str name="facet.field">dc_publisher_s</str>
-      <str name="facet.field">dc_rights_s</str>
-      <str name="facet.field">dc_subject_sm</str>
-      <str name="facet.field">layer_geom_type_s</str>
-      <str name="facet.field">solr_year_i</str>
+      <str name="facet.field">dct_creator_sm</str>
+      <str name="facet.field">dct_format_s</str>
+      <str name="facet.field">dct_language_sm</str>
+      <str name="facet.field">dct_publisher_sm</str>
+      <str name="facet.field">dct_accessRights_s</str>
+      <str name="facet.field">dct_subject_sm</str>
+      <str name="facet.field">locn_geometry_s</str>
+      <str name="facet.field">gbl_indexYear_im</str>
 
       <str name="spellcheck">true</str>
     </lst>

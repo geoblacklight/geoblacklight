@@ -24,7 +24,7 @@ RSpec.describe Geoblacklight::HomepageFeatureFacetComponent, type: :component do
       {
         icon: 'home',
         label: 'geoblacklight.home.institution',
-        facet_field: Settings.FIELDS.PROVENANCE,
+        facet_field: Settings.FIELDS.PROVIDER,
         response: @response
       }
     end

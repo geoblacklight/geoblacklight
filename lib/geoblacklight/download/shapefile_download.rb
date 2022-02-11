@@ -8,7 +8,7 @@ module Geoblacklight
                                   outputformat: 'SHAPE-ZIP' }.freeze
 
     def initialize(document, options = {})
-      request_params = SHAPEFILE_DOWNLOAD_PARAMS.merge(typeName: document[:layer_id_s])
+      request_params = SHAPEFILE_DOWNLOAD_PARAMS.merge(typeName: document[Settings.FIELDS.WXS_IDENTIFIER])
       super(document, {
         type: 'shapefile',
         extension: 'zip',

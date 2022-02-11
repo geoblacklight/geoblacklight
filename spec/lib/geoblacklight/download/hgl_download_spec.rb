@@ -4,7 +4,7 @@ require 'spec_helper'
 describe Geoblacklight::HglDownload do
   subject(:download) { described_class.new(document, options) }
 
-  let(:document) { SolrDocument.new(layer_slug_s: 'test', layer_id_s: 'cite:harvard-test') }
+  let(:document) { SolrDocument.new(Settings.FIELDS.ID => 'test', Settings.FIELDS.WXS_IDENTIFIER => 'cite:harvard-test') }
   let(:options) { 'foo@example.com' }
 
   describe '#initialize' do

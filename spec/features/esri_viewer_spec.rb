@@ -9,7 +9,6 @@ feature 'feature_layer reference', js: true do
     expect(page).to have_css 'img.leaflet-image-layer', visible: true
   end
   scenario 'displays dynamic layer (all layers)' do
-    pending 'external service disabled cors access'
     visit solr_document_path '90f14ff4-1359-4beb-b931-5cb41d20ab90'
     expect(page).to have_css '.leaflet-control-zoom', visible: true
     expect(page).to have_css 'img.leaflet-image-layer', visible: true

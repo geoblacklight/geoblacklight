@@ -1,8 +1,0 @@
-<% @relations.ancestors['docs'].each do |ancestor| %>
-  <li class="list-group-item border-bottom-0">
-    <%= link_to solr_document_path(ancestor[Settings.FIELDS.UNIQUE_KEY]) do %>
-      <%= relations_icon(ancestor, 'pagelines-brands') %>
-      <%= ancestor[Settings.FIELDS.TITLE] %>
-    <% end %>
-  </li>
-<% end %>

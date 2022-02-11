@@ -3,9 +3,9 @@
     <div class='col-sm'>
       <%= content_tag :h3, t('geoblacklight.home.category_heading') %>
       <div class='row'>
-        <%= render(Geoblacklight::HomepageFeatureFacetComponent.new(icon: 'home', label: 'geoblacklight.home.institution', facet_field: Settings.FIELDS.PROVENANCE, response: @response)) %>
+        <%= render(Geoblacklight::HomepageFeatureFacetComponent.new(icon: 'home', label: 'geoblacklight.home.institution', facet_field: Settings.FIELDS.PROVIDER, response: @response)) %>
 
-        <%= render(Geoblacklight::HomepageFeatureFacetComponent.new(icon: 'arrow-circle-down', label: 'geoblacklight.home.data_type', facet_field: Settings.FIELDS.GEOM_TYPE, response: @response)) %>
+        <%= render(Geoblacklight::HomepageFeatureFacetComponent.new(icon: 'arrow-circle-down', label: 'geoblacklight.home.data_type', facet_field: Settings.FIELDS.RESOURCE_TYPE, response: @response)) %>
       </div>
       <div class='row'>
         <%= render(Geoblacklight::HomepageFeatureFacetComponent.new(icon: 'globe', label: 'geoblacklight.home.placename', facet_field: Settings.FIELDS.SPATIAL_COVERAGE, response: @response)) %>

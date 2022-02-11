@@ -1,3 +1,5 @@
+#Solr field mappings for GeoBlacklight Metadata Schema version 1.0
+
 # Configurable Logo Used for CartoDB export
 APPLICATION_LOGO_URL: 'http://geoblacklight.org/images/geoblacklight-logo.png'
 
@@ -19,56 +21,49 @@ BBOX_WITHIN_BOOST: '10'
 # The bf boost value for overlap ratio
 OVERLAP_RATIO_BOOST: '2'
 
-# Homepage Map Geometry
-# Leave null to default to entire world
-# Add a stringified GeoJSON object to scope initial render (example from UMass)
-HOMEPAGE_MAP_GEOM: null
-# HOMEPAGE_MAP_GEOM: '{"type":"Polygon","coordinates":[[[-73.58,42.93],[-73.58,41.20],[-69.90,41.20],[-69.90,42.93]]]}'
-
 # Solr field mappings
 FIELDS:
-  :ACCESS_RIGHTS: 'dct_accessRights_s'
-  :ALTERNATIVE_TITLE: 'dct_alternative_sm'
-  :CENTROID: 'dcat_centroid_ss'
-  :CREATOR: 'dct_creator_sm'
+  :ACCESS_RIGHTS: 'dc_rights_s'
+  #:ALTERNATIVE_TITLE: 'dct_alternative_sm'
+  #:CENTROID: 'dcat_centroid_ss'
+  :CREATOR: 'dc_creator_sm'
   :DATE_ISSUED: 'dct_issued_s'
-  :DATE_RANGE: 'gbl_dateRange_drsim'
-  :DESCRIPTION: 'dct_description_sm'
-  :FORMAT: 'dct_format_s'
-  :FILE_SIZE: 'gbl_fileSize_s'
-  :GEOREFERENCED: 'gbl_georeferenced_b'
-  :ID: 'id'
-  :IDENTIFIER: 'dct_identifier_sm'
-  :INDEX_YEAR: 'gbl_indexYear_im'
-  :IS_PART_OF: 'dct_isPartOf_sm'
-  :IS_REPLACED_BY: 'dct_isReplacedBy_sm'
-  :ISO_TOPIC_CATEGORY: 'dcat_theme_sm'
-  :KEYWORD: 'dcat_keyword_sm'
-  :LANGUAGE: 'dct_language_sm'
-  :LAYER_MODIFIED: 'gbl_mdModified_dt'
-  :LICENSE: 'dct_license_sm'
-  :MEMBER_OF: 'pcdm_memberOf_sm'
-  :METADATA_VERSION: 'gbl_mdVersion_s'
-  :MODIFIED: 'gbl_mdModified_dt'
+  #:DATE_RANGE: 'gbl_dateRange_drsim'
+  :DESCRIPTION: 'dc_description_sm'
+  :FORMAT: 'dc_format_s'
+  #:FILE_SIZE: 'gbl_fileSize_s'
+  #:GEOREFERENCED: 'gbl_georeferenced_b'
+  :ID: 'layer_slug_s'
+  :IDENTIFIER: 'dc_identifier_s'
+  :INDEX_YEAR: 'solr_year_i'
+  #:IS_PART_OF: 'dct_isPartOf_sm'
+  #:IS_REPLACED_BY: 'dct_isReplacedBy_sm'
+  #:ISO_TOPIC_CATEGORY: 'dcat_theme_sm'
+  #:KEYWORD: 'dcat_keyword_sm'
+  :LANGUAGE: 'dc_language_sm'
+  #:LICENSE: 'dct_license_sm'
+  #:MEMBER_OF: 'pcdm_memberOf_sm'
+  :METADATA_VERSION: 'geoblacklight_version'
+  :MODIFIED: 'layer_modified_dt'
   :OVERLAP_FIELD: 'solr_bboxtype'
-  :PUBLISHER: 'dct_publisher_sm'
-  :PROVIDER: 'schema_provider_s'
+  :PUBLISHER: 'dc_publisher_s'
+  :PROVIDER: 'dct_provenance_s'
   :REFERENCES: 'dct_references_s'
-  :RELATION: 'dct_relation_sm'
-  :REPLACES: 'dct_replaces_sm'
-  :RESOURCE_CLASS: 'gbl_resourceClass_sm'
-  :RESOURCE_TYPE: 'gbl_resourceType_sm'
-  :RIGHTS: 'dct_rights_sm'
-  :RIGHTS_HOLDER: 'dct_rightsHolder_sm'
-  :SOURCE: 'dct_source_sm'
+  #:RELATION: 'dct_relation_sm'
+  #:REPLACES: 'dct_replaces_sm'
+  #:RESOURCE_CLASS: 'gbl_resourceClass_sm'
+  :RESOURCE_TYPE: 'layer_geom_type_s'
+  #:RIGHTS: 'dct_rights_sm'
+  #:RIGHTS_HOLDER: 'dct_rightsHolder_sm'
+  :SOURCE: 'dc_source_sm'
   :SPATIAL_COVERAGE: 'dct_spatial_sm'
-  :SPATIAL_EXTENT: 'locn_geometry'
-  :SUBJECT: 'dct_subject_sm'
-  :SUPPRESSED: 'gbl_suppressed_b'
+  :SPATIAL_EXTENT: 'solr_geom'
+  :SUBJECT: 'dc_subject_sm'
+  :SUPPRESSED: 'suppressed_b'
   :TEMPORAL_COVERAGE: 'dct_temporal_sm'
-  :TITLE: 'dct_title_s'
-  :VERSION: 'dct_isVersionOf_sm'
-  :WXS_IDENTIFIER: 'gbl_wxsIdentifier_s'
+  :TITLE: 'dc_title_s'
+  #:VERSION: 'dct_isVersionOf_sm'
+  :WXS_IDENTIFIER: 'layer_id_s'
 
 # Institution deployed at
 INSTITUTION: 'Stanford'
@@ -94,9 +89,6 @@ WEBSERVICES_SHOWN:
   - 'wms'
   - 'tms'
   - 'wfs'
-  - 'xyz'
-  - 'wmts'
-  - 'tilejson'
   - 'iiif'
   - 'feature_layer'
   - 'tiled_map_layer'
@@ -105,31 +97,31 @@ WEBSERVICES_SHOWN:
 
 # Relationships to display
 RELATIONSHIPS_SHOWN:
-  MEMBER_OF:
-    field: pcdm_memberOf_sm
-    query_type: ancestors
-    icon: nil
-    label: geoblacklight.relations.member_of
-  PART_OF:
-    field: dct_isPartOf_sm
-    query_type: ancestors
-    icon: nil
-    label: geoblacklight.relations.part_of
-  RELATION:
-    field: dct_relation_sm
-    query_type: ancestors
-    icon: nil
-    label: geoblacklight.relations.relation
-  REPLACES:
-    field: dct_replaces_sm
-    query_type: ancestors
-    icon: nil
-    label: geoblacklight.relations.replaces
-  REPLACED_BY:
-    field: dct_isReplacedBy_sm
-    query_type: descendants
-    icon: nil
-    label: geoblacklight.relations.replaced_by
+# MEMBER_OF:
+#    field: pcdm_memberOf_sm
+#    query_type: ancestors
+#    icon: nil
+#    label: geoblacklight.relations.member_of
+#  PART_OF:
+#    field: dct_isPartOf_sm
+#    query_type: ancestors
+#    icon: nil
+#    label: geoblacklight.relations.part_of
+#  RELATION:
+#    field: dct_relation_sm
+#    query_type: ancestors
+#    icon: nil
+#    label: geoblacklight.relations.relation
+#  REPLACES:
+#    field: dct_replaces_sm
+#    query_type: ancestors
+#    icon: nil
+#    label: geoblacklight.relations.replaces
+#  REPLACED_BY:
+#    field: dct_isReplacedBy_sm
+#    query_type: descendants
+#    icon: nil
+#    label: geoblacklight.relations.replaced_by
   SOURCE_ANCESTORS:
     field: dct_source_sm
     query_type: ancestors
@@ -140,11 +132,11 @@ RELATIONSHIPS_SHOWN:
     query_type: descendants
     icon: leaf
     label: geoblacklight.relations.descendant
-  VERSION_OF:
-    field: dct_isVersionOf_sm
-    query_type: descendants
-    icon: nil
-    label: geoblacklight.relations.version_of
+#  VERSION_OF:
+#    field: dct_isVersionOf_sm
+#    query_type: descendants
+#    icon: nil
+#    label: geoblacklight.relations.version_of
 
 # WMS Parameters
 WMS_PARAMS:

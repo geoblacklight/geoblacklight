@@ -15,8 +15,8 @@ feature 'Display related documents' do
   scenario 'Relations should respond to json' do
     visit relations_solr_document_path('nyu_2451_34635', format: 'json')
     response = JSON.parse(page.body)
-    expect(response['ancestors']['numFound']).to eq 0
-    expect(response['descendants']['docs'].first[Settings.FIELDS.UNIQUE_KEY]).to eq 'nyu_2451_34502'
+    expect(response['relations']).not_to respond_to('source_ancestors')
+    expect(response['relations']['source_descendants']['docs'].first[Settings.FIELDS.ID]).to eq 'nyu_2451_34502'
     expect(response['current_doc']).to eq 'nyu_2451_34635'
   end
 
