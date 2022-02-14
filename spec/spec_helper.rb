@@ -16,6 +16,7 @@ SimpleCov.start 'rails' do
   add_filter 'lib/tasks/geoblacklight.rake'
   add_filter '/spec'
   add_filter '.internal_test_app/'
+  minimum_coverage 100
 end
 
 require 'factory_bot'
