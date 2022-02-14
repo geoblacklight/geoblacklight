@@ -267,8 +267,6 @@ module GeoblacklightHelper
     case controller_name
     when 'bookmarks'
       'bookmarks'
-    when 'catalog'
-      'index'
     else
       'index'
     end

@@ -149,8 +149,8 @@ describe GeoblacklightHelper, type: :helper do
       let(:document_attributes) do
         {
           value: 'This is a really long string that should get truncated when it gets rendered'\
-          'in the index view to give a brief description of the contents of a particular document'\
-          'indexed into Solr'
+                 'in the index view to give a brief description of the contents of a particular document'\
+                 'indexed into Solr'
         }
       end
       it 'truncates longer strings to 150 characters' do
@@ -164,8 +164,8 @@ describe GeoblacklightHelper, type: :helper do
       let(:document_attributes) do
         {
           value: ['This is a really long string that should get truncated when it gets rendered'\
-          'in the index view to give a brief description of the contents of a particular document'\
-          'indexed into Solr']
+                  'in the index view to give a brief description of the contents of a particular document'\
+                  'indexed into Solr']
         }
       end
       it 'truncates longer strings to 150 characters' do
@@ -186,20 +186,6 @@ describe GeoblacklightHelper, type: :helper do
       end
       it 'does not truncate' do
         expect(helper.snippit(document)[-3..-1]).not_to eq '...'
-      end
-    end
-  end
-
-  context 'when CartoHelper methods are within scope' do
-    include CartoHelper
-
-    before do
-      allow(helper).to receive(:application_name).and_return('GeoBlacklight')
-    end
-
-    describe '#carto_link' do
-      it 'aliases CartoHelper#carto_link' do
-        expect(helper.carto_link('http://demo.org/wfs/layer.json')).to eq(helper.carto_link('http://demo.org/wfs/layer.json'))
       end
     end
   end

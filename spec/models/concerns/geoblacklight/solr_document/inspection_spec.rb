@@ -2,7 +2,8 @@
 require 'spec_helper'
 
 describe Geoblacklight::SolrDocument::Inspection do
-  let(:subject) { SolrDocument.new }
+  subject { SolrDocument.new }
+
   describe '#inspectable?' do
     it 'returns true for wms viewer protocol' do
       expect(subject).to receive(:viewer_protocol).and_return('wms')
