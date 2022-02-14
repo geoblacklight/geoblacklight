@@ -3,17 +3,19 @@ require 'spec_helper'
 
 feature 'feature_layer reference', js: true do
   scenario 'displays image map layer' do
-    skip 'CORS error - Purdue web services are down'
+    skip 'spec depend on potentially flaky external services'
     visit solr_document_path '32653ed6-8d83-4692-8a06-bf13ffe2c018'
     expect(page).to have_css '.leaflet-control-zoom', visible: true
     expect(page).to have_css 'img.leaflet-image-layer', visible: true
   end
   scenario 'displays dynamic layer (all layers)' do
+    skip 'spec depend on potentially flaky external services'
     visit solr_document_path '90f14ff4-1359-4beb-b931-5cb41d20ab90'
     expect(page).to have_css '.leaflet-control-zoom', visible: true
     expect(page).to have_css 'img.leaflet-image-layer', visible: true
   end
   scenario 'displays dynamic layer (single layer)' do
+    skip 'spec depend on potentially flaky external services'
     visit solr_document_path '4669301e-b4b2-4c8b-bf40-01b968a2865b'
     expect(page).to have_css '.leaflet-control-zoom', visible: true
     expect(page).to have_css 'img.leaflet-image-layer', visible: true
@@ -26,11 +28,13 @@ feature 'feature_layer reference', js: true do
     fail
   end
   scenario 'displays tiled map layer' do
+    skip 'spec depend on potentially flaky external services'
     visit solr_document_path 'nyu-test-soil-survey-map'
     expect(page).to have_css '.leaflet-control-zoom', visible: true
     expect(page).to have_css 'img.leaflet-tile.leaflet-tile-loaded', visible: true
   end
   scenario 'displays Esri WMS layer' do
+    skip 'spec depend on potentially flaky external services'
     visit solr_document_path 'purdue-urn-f082acb1-b01e-4a08-9126-fd62a23fd9aa'
     expect(page).to have_css '.leaflet-control-zoom', visible: true
     expect(page).to have_css 'img.leaflet-tile.leaflet-tile-loaded', visible: true
