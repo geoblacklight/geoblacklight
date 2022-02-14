@@ -77,4 +77,13 @@ feature 'Index view', js: true do
       expect(page).to have_css 'span.filter-name', text: 'Bounding Box'
     end
   end
+
+  scenario 'should have schema.org props listed' do
+    visit search_catalog_path(f: { Settings.FIELDS.PROVIDER => ['Stanford'] })
+    expect(page).to have_css("a[itemprop='name']")
+    within('.documentHeader', match: :first) do
+      find('.caret-toggle').click
+      expect(page).to have_css("small[itemprop='description']")
+    end
+  end
 end
