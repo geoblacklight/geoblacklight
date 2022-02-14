@@ -90,6 +90,10 @@ RSpec/VerifiedDoubles:
     - 'spec/lib/geoblacklight/download/hgl_download_spec.rb'
     - 'spec/lib/geoblacklight/document_presenter_spec.rb'
 
+# TODO: Investigate use of OpenStruct in specs
+Style/OpenStructUse:
+  Enabled: false
+
 Style/SignalException:
   EnforcedStyle: semantic
 
