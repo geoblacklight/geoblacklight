@@ -171,8 +171,8 @@ describe Geoblacklight::Download do
 
     it 'creates a download url with params' do
       expect(download.url_with_params).to eq 'http://www.example.com/wms/?ser' \
-        'vice=wfs&version=2.0.0&request=GetFeature&srsName=EPSG%3A4326&output' \
-        'format=SHAPE-ZIP&typeName='
+                                             'vice=wfs&version=2.0.0&request=GetFeature&srsName=EPSG%3A4326&output' \
+                                             'format=SHAPE-ZIP&typeName='
     end
   end
 end

@@ -119,7 +119,7 @@ describe Geoblacklight::Metadata::Base do
       allow(response).to receive(:body).and_return('<?xml version="1.0" encoding="utf-8" ?><!DOCTYPE metadata SYSTEM "http://www.fgdc.gov/metadata/fgdc-std-001-1998.dtd"><metadata></metadata>')
     end
 
-    it 'retrieves the metadata and transforms it into  the HTML' do
+    it 'retrieves the metadata and transforms it into the HTML' do
       allow(geocombine_metadata).to receive(:to_html).and_return(html)
       allow(connection).to receive(:get).and_return(response)
 
