@@ -190,20 +190,6 @@ describe GeoblacklightHelper, type: :helper do
     end
   end
 
-  context 'when CartoHelper methods are within scope' do
-    include CartoHelper
-
-    before do
-      allow(helper).to receive(:application_name).and_return('GeoBlacklight')
-    end
-
-    describe '#carto_link' do
-      it 'aliases CartoHelper#carto_link' do
-        expect(helper.carto_link('http://demo.org/wfs/layer.json')).to eq(helper.carto_link('http://demo.org/wfs/layer.json'))
-      end
-    end
-  end
-
   describe '#render_web_services' do
     let(:reference) { instance_double(Geoblacklight::Reference, type: 'wms') }
     it 'with a reference to a defined partial' do
