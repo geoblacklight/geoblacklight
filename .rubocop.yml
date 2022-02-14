@@ -7,7 +7,7 @@ inherit_from: .rubocop_todo.yml
 AllCops:
   TargetRubyVersion: 2.7
   DisplayCopNames: true
-  NewCops: pending
+  NewCops: enable
   Exclude:
   - '.internal_test_app/**/*'
   - 'db/**/*'
