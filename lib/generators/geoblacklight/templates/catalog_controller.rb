@@ -100,7 +100,7 @@ class CatalogController < ApplicationController
     config.add_facet_field Settings.FIELDS.RESOURCE_TYPE, label: 'Resource Type', :limit => 8
     config.add_facet_field Settings.FIELDS.FORMAT, :label => 'Format', :limit => 8
     config.add_facet_field Settings.FIELDS.SUBJECT, :label => 'Subject', :limit => 8
-    config.add_facet_field Settings.FIELDS.ISO_TOPIC_CATEGORY, :label => 'Theme', :limit => 8
+    config.add_facet_field Settings.FIELDS.THEME, :label => 'Theme', :limit => 8
     config.add_facet_field Settings.FIELDS.CREATOR, :label => 'Creator', :limit => 8
     config.add_facet_field Settings.FIELDS.PUBLISHER, :label => 'Publisher', :limit => 8
     config.add_facet_field Settings.FIELDS.PROVIDER, label: 'Provider', limit: 8, partial: "icon_facet"
@@ -168,7 +168,7 @@ class CatalogController < ApplicationController
     # config.add_show_field Settings.FIELDS.INDEX_YEAR, label: 'Year', itemprop: 'year'
     # config.add_show_field Settings.FIELDS.IS_PART_OF, label: 'Is Part Of', itemprop: 'is_part_of'
     # config.add_show_field Settings.FIELDS.IS_REPLACED_BY, label: 'Is Replaced By', itemprop: 'is_replaced_by'
-    # config.add_show_field Settings.FIELDS.ISO_TOPIC_CATEGORY, label: 'Theme', itemprop: 'theme'
+    # config.add_show_field Settings.FIELDS.THEME, label: 'Theme', itemprop: 'theme'
     # config.add_show_field Settings.FIELDS.KEYWORD, label: 'Keyword(s)', itemprop: 'keyword'
     # config.add_show_field Settings.FIELDS.LANGUAGE, label: 'Language', itemprop: 'language'
     # config.add_show_field Settings.FIELDS.LICENSE, label: 'License', itemprop: 'license'
