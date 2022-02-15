@@ -6,8 +6,8 @@ feature 'search results map', js: true do
     visit search_catalog_path(q: 'Minnesota')
     expect(page).to have_css '#map'
   end
-  scenario 'view is scoped to Minnesota' do
-    pending 'Minnesota fixtures have changed.'
+  xscenario 'view is scoped to Minnesota' do
+    # pending 'Minnesota fixtures have changed.'
     visit root_path
     click_link 'Minnesota, United States'
     expect(page).to have_css '#map'
