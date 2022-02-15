@@ -20,35 +20,6 @@ jobs:
     - name: Run linter
       run: bundle exec rake rubocop
 
-  coverage:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        ruby: [2.7, '3.0']
-        faraday_version: ['']
-        include:
-          - ruby: 2.7
-            faraday_version: '~> 1.0'
-    steps:
-    - uses: actions/checkout@v2
-
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.7
-
-    - name: Install dependencies
-      run: bundle install
-
-    - name: Download coverage artifacts
-      uses: actions/download-artifact@v2
-      with:
-        name: coverage
-        path: coverage_results
-
-    - name: Run coverage report
-      run: RAILS_ENV=test bundle exec ruby ./bin/coverage.rb
-
   test:
     runs-on: ubuntu-latest
     strategy:
