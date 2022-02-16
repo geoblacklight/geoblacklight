@@ -80,9 +80,11 @@ feature 'Index view', js: true do
 
   scenario 'should have schema.org props listed' do
     visit search_catalog_path(f: { Settings.FIELDS.PROVIDER => ['Stanford'] })
-    expect(page).to have_css("a[itemprop='name']")
     within('.documentHeader', match: :first) do
+      expect(page).to have_css("a[itemprop='name']")
       find('.caret-toggle').click
+    end
+    within('.more-info-area', match: :first) do
       expect(page).to have_css("small[itemprop='description']")
     end
   end
