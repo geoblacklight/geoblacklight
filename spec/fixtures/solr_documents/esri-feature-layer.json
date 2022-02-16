@@ -43,6 +43,7 @@
     "Maryland"
   ],
   "locn_geometry": "ENVELOPE(-79.4539,-75.124,39.7194,37.9667)",
+  "dcat_bbox": "ENVELOPE(-79.4539,-75.124,39.7194,37.9667)",
   "dcat_centroid_ss": "38.843050000000005,-77.28895",
   "dct_accessRights_s": "Public",
   "dct_format_s": "Shapefile",

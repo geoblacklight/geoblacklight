@@ -35,6 +35,7 @@
     "[1885 TO 1885]"
   ],
   "locn_geometry": "ENVELOPE(-74.68,-74.63,40.37,40.33)",
+  "dcat_bbox": "ENVELOPE(-74.68,-74.63,40.37,40.33)",
   "dcat_centroid_ss": "40.350,-74.655",
   "dct_accessRights_s": "Public",
   "gbl_wxsIdentifier_s": "ark:/88435/1r66j405w",

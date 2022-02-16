@@ -49,6 +49,7 @@
     "Russia Saint Petersburg"
   ],
   "locn_geometry": "ENVELOPE(30.013108,30.875309,60.041712,59.669749)",
+  "dcat_bbox": "ENVELOPE(30.013108,30.875309,60.041712,59.669749)",
   "dcat_centroid_ss": "59.8557305,30.444208500000002",
   "dct_accessRights_s": "Public",
   "dct_format_s": "GeoTIFF",

@@ -33,6 +33,7 @@
     "Broome County NY"
   ],
   "locn_geometry": "ENVELOPE(-76.12987,-75.42034,42.414648,41.997963)",
+  "dcat_bbox": "ENVELOPE(-76.12987,-75.42034,42.414648,41.997963)",
   "dcat_centroid_ss": "42.2063055,-75.775105",
   "dct_accessRights_s": "Public",
   "dct_format_s": "Shapefile",

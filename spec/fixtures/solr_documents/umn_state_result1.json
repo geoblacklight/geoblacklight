@@ -43,6 +43,7 @@
     "Minnesota"
   ],
   "locn_geometry": "ENVELOPE(-97.612501,-88.842351,49.464145,42.906949)",
+  "dcat_bbox": "ENVELOPE(-97.612501,-88.842351,49.464145,42.906949)",
   "dcat_centroid_ss": "46.185547,-93.227426",
   "dct_accessRights_s": "Public",
   "dct_format_s": "ArcGRID",

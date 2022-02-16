@@ -44,6 +44,7 @@
     "Indiana"
   ],
   "locn_geometry": "ENVELOPE(-87.9324,-86.2569,39.8521,37.8626)",
+  "dcat_bbox": "ENVELOPE(-87.9324,-86.2569,39.8521,37.8626)",
   "dcat_centroid_ss": "38.85735,-87.09465",
   "dct_accessRights_s": "Public",
   "dct_format_s": "Shapefile",

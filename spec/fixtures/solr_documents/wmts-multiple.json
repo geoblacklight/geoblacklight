@@ -6,6 +6,7 @@
     "id": "princeton-fk4db9hn29",
     "dct_title_s": "Orthofoto 2016 Wien (WMTS)",
     "locn_geometry": "ENVELOPE(16.133423, 16.626434, 48.3348, 48.106056)",
+    "dcat_bbox": "ENVELOPE(16.133423, 16.626434, 48.3348, 48.106056)",
     "schema_provider_s": "Princeton",
     "dct_accessRights_s": "Public",
     "dct_description_sm": [

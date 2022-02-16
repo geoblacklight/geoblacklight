@@ -124,6 +124,7 @@
     },
     "locn_geometry": { "type": "string" },
     "dcat_centroid_ss": { "type": "string" },
+    "dcat_bbox": { "type": "string" },
     "dct_relation_sm": {
       "type": "array",
       "items": {

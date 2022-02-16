@@ -29,7 +29,8 @@
   "gbl_dateRange_drsim": [
     "[1750 TO 1750]"
   ],
-  "locn_geometry": "ENVELOPE(25,-168.35,81.66,-12.93)",
+  "locn_geometry": "MULTIPOLYGON (((-180 81.66,-168.35 81.66,-168.35 -12.93, -180 -12.93, -180 81.66),(25 81.66,25 -12.93,180 -12.93,180 81.66, 25 81.66)))",
+  "dcat_bbox": "ENVELOPE(25,-168.35,81.66,-12.93)",
   "dcat_centroid_ss": "34.365,-71.675",
   "dct_accessRights_s": "Public",
   "dct_format_s": "JPEG",

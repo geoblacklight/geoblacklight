@@ -6,6 +6,7 @@
     "id": "princeton-fk4544658v-tilejson",
     "dct_title_s": "The Balkans [and] Turkey : G.S.G.S. no. 2097 / War Office. General Staff. Geographical Section (TileJSON Fixture)",
     "locn_geometry": "ENVELOPE(19.333333, 29.333333, 43.083333, 39.75)",
+    "dcat_bbox": "ENVELOPE(19.333333, 29.333333, 43.083333, 39.75)",
     "schema_provider_s": "Princeton",
     "dct_accessRights_s": "Public",
     "dct_description_sm": [

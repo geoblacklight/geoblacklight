@@ -40,6 +40,7 @@
     "North America"
   ],
   "locn_geometry": "ENVELOPE(-156.02, -70.80, 65.59, 18.93)",
+  "dcat_bbox": "ENVELOPE(-156.02, -70.80, 65.59, 18.93)",
   "gbl_mdModified_dt": "2021-06-11T17:55:01Z",
   "gbl_mdVersion_s": "Aardvark"
 }

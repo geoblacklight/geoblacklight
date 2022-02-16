@@ -24,6 +24,7 @@
     "GBL Fixture records"
   ],
   "locn_geometry": "ENVELOPE(-124.7333333,68,62.45,-53.23333333)",
+  "dcat_bbox": "ENVELOPE(-124.7333333,68,62.45,-53.23333333)",
   "dcat_centroid_ss": "4.608,-28.366",
   "dct_accessRights_s": "Public",
   "dct_format_s": "TIFF",

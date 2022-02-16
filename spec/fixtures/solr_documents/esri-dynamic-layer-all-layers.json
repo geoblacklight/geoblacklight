@@ -43,6 +43,7 @@
     "Illinois"
   ],
   "locn_geometry": "ENVELOPE(-91.513518,-87.495214,42.508348,36.969972)",
+  "dcat_bbox": "ENVELOPE(-91.513518,-87.495214,42.508348,36.969972)",
   "dcat_centroid_ss": "39.73916,-89.504366",
   "dct_accessRights_s": "Public",
   "dct_format_s": "Shapefile",

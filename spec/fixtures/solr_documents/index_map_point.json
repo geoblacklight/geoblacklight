@@ -42,6 +42,7 @@
     "New York"
   ],
   "locn_geometry": "ENVELOPE(-74.783,-74.733,40.2,40.166)",
+  "dcat_bbox": "ENVELOPE(-74.783,-74.733,40.2,40.166)",
   "dcat_centroid_ss": "40.183,-74.75800000000001",
   "dct_accessRights_s": "Public",
   "dct_format_s": "GeoJSON",

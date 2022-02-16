@@ -35,6 +35,7 @@
     "North America"
   ],
   "locn_geometry": "ENVELOPE(-156.02,-70.8,65.59,18.93)",
+  "dcat_bbox": "ENVELOPE(-156.02,-70.8,65.59,18.93)",
   "dcat_centroid_ss": "42.260000000000005,-113.41",
   "dct_accessRights_s": "Public",
   "dct_format_s": "Shapefile",

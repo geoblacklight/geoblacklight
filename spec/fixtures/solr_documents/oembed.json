@@ -28,6 +28,7 @@
     "Japan"
   ],
   "locn_geometry": "ENVELOPE(138.523426,138.630362,36.656354,36.597519)",
+  "dcat_bbox": "ENVELOPE(138.523426,138.630362,36.656354,36.597519)",
   "dcat_centroid_ss": "36.6269365,138.57689399999998",
   "dct_accessRights_s": "Public",
   "dct_format_s": "JPEG",

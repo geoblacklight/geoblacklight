@@ -50,6 +50,7 @@
     "Monterey Bay (Calif.)"
   ],
   "locn_geometry": "ENVELOPE(-121.7948738,-121.7389503,36.8606925,36.8085911)",
+  "dcat_bbox": "ENVELOPE(-121.7948738,-121.7389503,36.8606925,36.8085911)",
   "dcat_centroid_ss": "36.8346418,-121.76691205",
   "dct_rights_sm": [
     "These data are licensed by Stanford Libraries and are available to Stanford University affiliates only. Affiliates are limited to current faculty, staff and students. These data may not be reproduced or used for any purpose without permission. For more information please contact brannerlibrary@stanford.edu"

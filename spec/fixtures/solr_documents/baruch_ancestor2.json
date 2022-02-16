@@ -57,6 +57,7 @@
     "Borough of Staten Island, New York"
   ],
   "locn_geometry": "ENVELOPE(-74.255895,-73.700272,40.915282,40.495929)",
+  "dcat_bbox": "ENVELOPE(-74.255895,-73.700272,40.915282,40.495929)",
   "dcat_centroid_ss": "40.7056055,-73.9780835",
   "dct_accessRights_s": "Public",
   "dct_format_s": "Geodatabase",

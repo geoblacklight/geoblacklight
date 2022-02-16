@@ -47,6 +47,7 @@
     "Pennsylvania"
   ],
   "locn_geometry": "ENVELOPE(-76.3394,-72.1916,46.5798,38.6693)",
+  "dcat_bbox": "ENVELOPE(-76.3394,-72.1916,46.5798,38.6693)",
   "dcat_centroid_ss": "42.62455,-74.2655",
   "dct_accessRights_s": "Public",
   "dct_format_s": "Raster",
