@@ -1,6 +1,6 @@
 ### Descriptive summary
 
-Include what version of GeoBlacklight related to this issue (1.3.0, master, etc.) if appropriate, and any relevant tracebacks if you're reporting a bug.
+Include what version of GeoBlacklight related to this issue (1.3.0, main, etc.) if appropriate, and any relevant tracebacks if you're reporting a bug.
 
 ### Expected behavior
 
