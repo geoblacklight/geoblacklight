@@ -33,7 +33,7 @@ require 'webdrivers'
 
 # Setup webmock for specific tests
 require 'webmock/rspec'
-WebMock.allow_net_connect!
+WebMock.allow_net_connect!(net_http_connect_on_start: true)
 
 Capybara.register_driver(:headless_chrome) do |app|
   Capybara::Selenium::Driver.load_selenium
