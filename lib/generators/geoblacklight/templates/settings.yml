@@ -167,15 +167,15 @@ LEAFLET:
     DETECT_RETINA: true
     INDEX:
       DEFAULT: &default
-        color: "#1eb300"
+        color: "#7FCDBB"
         weight: "1"
         radius: "4"
       UNAVAILABLE:
         <<: *default
-        color: "#b3001e"
+        color: "#EDF8B1"
       SELECTED:
         <<: *default
-        color: "#006bde"
+        color: "#2C7FB8"
   VIEWERS:
     WMS:
       <<: *opacity_control
