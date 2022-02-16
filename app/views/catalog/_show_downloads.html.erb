@@ -1,7 +1,7 @@
 <% document ||= @document %>
 
 <% if document_downloadable? %>
-  <% if document.direct_download.present? || document.hgl_download.present? || document.iiif_download.present? %>
+  <% if document.direct_download.present? || document.hgl_download.present? || document.iiif_download.present? || document.download_types.present? %>
     <div class="card downloads">
       <div class="card-header">
         <h2><%= t('geoblacklight.download.download').pluralize %></h2>
@@ -9,6 +9,7 @@
 
       <ul class="list-group list-group-flush js-download-list">
         <%= render 'downloads_primary' %>
+        <%= render 'downloads_generated' %>
       </ul>
     </div>
   <% end %>

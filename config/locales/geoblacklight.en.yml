@@ -16,7 +16,7 @@ en:
       error: 'Sorry, the requested file could not be downloaded'
       error_with_url: 'Sorry, the requested file could not be downloaded. Try downloading it directly from: %{link}'
       export_formats: 'Export Formats'
-      export_link: 'Export'
+      export_link: 'Export %{download_format}'
       export_shapefile_link: 'Shapefile'
       export_kmz_link: 'KMZ'
       export_geojson_link: 'GeoJSON'
