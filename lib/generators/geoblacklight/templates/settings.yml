@@ -42,7 +42,7 @@ FIELDS:
   :INDEX_YEAR: 'gbl_indexYear_im'
   :IS_PART_OF: 'dct_isPartOf_sm'
   :IS_REPLACED_BY: 'dct_isReplacedBy_sm'
-  :ISO_TOPIC_CATEGORY: 'dcat_theme_sm'
+  :THEME: 'dcat_theme_sm'
   :KEYWORD: 'dcat_keyword_sm'
   :LANGUAGE: 'dct_language_sm'
   :LAYER_MODIFIED: 'gbl_mdModified_dt'
