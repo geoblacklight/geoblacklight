@@ -25,9 +25,6 @@ $ rake geoblacklight:server
 
 Note that this method launches an application that does not have any fixture records to be examined. You may want to launch a test application that has fixture data loaded into a Solr core. If so, refer to the [development guide](https://github.com/geoblacklight/geoblacklight/wiki/Development). For further information on installing a blank app, see the [installation guide](https://github.com/geoblacklight/geoblacklight/wiki/Installation)
 
-### Webpacker
-GeoBlacklight can use [Webpacker](https://github.com/rails/webpacker) in order to manage JavaScript dependencies and assets, which requires that either [Yarn](https://yarnpkg.com/) or the [Node Package Manager](https://www.npmjs.com/) be available on the system where this is deployed.  How Webpacker interacts with Rails is overviewed within its own documentation, including [how best to configure JavaScript processing settings](https://github.com/rails/webpacker). We encourage you to review this.
-
 ### Contributing
 Interested in contributing to GeoBlacklight? Please see our [contributing](CONTRIBUTING.md) guide.
 

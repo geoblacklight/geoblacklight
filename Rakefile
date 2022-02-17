@@ -35,7 +35,6 @@ desc 'Run test suite'
 task ci: ['geoblacklight:generate'] do
   within_test_app do
     system 'RAILS_ENV=test rake geoblacklight:index:seed'
-    system 'RAILS_ENV=test bundle exec rails webpacker:compile'
   end
 
   # Run RSpec tests with Coverage
