@@ -133,12 +133,12 @@ RELATIONSHIPS_SHOWN:
   SOURCE_ANCESTORS:
     field: dct_source_sm
     query_type: ancestors
-    icon: pagelines-brands
+    icon: parent-item
     label: geoblacklight.relations.ancestor
   SOURCE_DESCENDANTS:
     field: dct_source_sm
     query_type: descendants
-    icon: leaf
+    icon: child-item
     label: geoblacklight.relations.descendant
   VERSION_OF:
     field: dct_isVersionOf_sm
