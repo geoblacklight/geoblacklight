@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 feature 'Display related documents' do
-  scenario 'Record with dc_source_sm value(s) should have parent(s)' do
+  scenario 'Record with dct_source_sm value(s) should have parent(s)' do
     visit relations_solr_document_path('nyu_2451_34502')
     expect(page).to have_css('.relations .card-header h2', text: 'Source Datasets')
   end

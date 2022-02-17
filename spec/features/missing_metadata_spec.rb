@@ -18,7 +18,7 @@ feature 'Missing metadata', js: true do
     visit solr_document_path('99-0001-noprovider')
     expect(page).to have_css('#map')
   end
-  scenario 'Yields error free show page for no solr_geom' do
+  scenario 'Yields error free show page for no locn_geometry' do
     visit solr_document_path('05d-p16022coll246-noGeo')
     expect(page).to have_css('#map')
   end

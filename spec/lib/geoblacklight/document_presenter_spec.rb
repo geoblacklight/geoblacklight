@@ -7,7 +7,7 @@ describe Geoblacklight::DocumentPresenter do
   let(:request_context) { double(document_index_view_type: 'list') }
   let(:blacklight_config) do
     Blacklight::Configuration.new.configure do |config|
-      config.add_index_field 'layer_id_s'
+      config.add_index_field 'gbl_wxsIdentifier_s'
       config.add_index_field 'index_display'
       config.add_index_field 'period'
       config.add_index_field 'multi_display'
@@ -21,7 +21,7 @@ describe Geoblacklight::DocumentPresenter do
   let(:document) do
     SolrDocument.new(
       id: 1,
-      layer_id_s: 'druid:abc123',
+      gbl_wxsIdentifier_s: 'druid:abc123',
       non_index_field: 'do not render',
       period: 'Ends with period.',
       multi_display: %w[blue blah]
@@ -31,7 +31,7 @@ describe Geoblacklight::DocumentPresenter do
   describe '#index_fields_display' do
     let(:rendered_index_text) { subject.index_fields_display }
     let(:multi_valued_text) { document['multi_display'].join(' and ') }
-    let(:combined_fields) { document['layer_id_s'] + '. ' + document['period'] }
+    let(:combined_fields) { document['gbl_wxsIdentifier_s'] + '. ' + document['period'] }
 
     context 'with multi-valued field' do
       it 'each value is separated by comma' do
