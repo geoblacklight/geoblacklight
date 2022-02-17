@@ -3,8 +3,8 @@ require 'spec_helper'
 
 feature 'Index map' do
   # Colors
-  default_color = '#1eb300'
-  selected_color = '#006bde'
+  default_color = '#7FCDBB'
+  selected_color = '#2C7FB8'
   scenario 'displays index map viewer (polygon)', js: true do
     visit solr_document_path('stanford-fb897vt9938')
     # Wait until SVG elements are added

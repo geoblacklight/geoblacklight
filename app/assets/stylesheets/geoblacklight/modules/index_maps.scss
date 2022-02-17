@@ -5,3 +5,11 @@
     margin: 5px 0;
   }
 }
+
+
+#map[data-protocol="IndexMap"] {
+  .leaflet-interactive {
+    stroke: black;
+    fill-opacity: 0.65;
+  }
+}
