@@ -27,6 +27,24 @@ describe Geoblacklight::Metadata::Base do
       end
     end
 
+    context "when there's a redirect" do
+      before do
+        allow(Faraday).to receive(:new).and_call_original
+        WebMock.disable_net_connect!(allow_localhost: true, allow: 'chromedriver.storage.googleapis.com')
+        stub_request(:get, 'http://purl.stanford.edu/cg357zz0321.mods').to_return(status: 301, headers: { location: 'https://purl.stanford.edu/cg357zz0321.mods' })
+        stub_request(:get, 'https://purl.stanford.edu/cg357zz0321.mods').to_return(status: 200, headers: { 'content-type' => 'application/xml' }, body: '<test>data</test>')
+      end
+
+      after do
+        WebMock.allow_net_connect!(net_http_connect_on_start: true)
+      end
+
+      it 'follows the redirect' do
+        expect(metadata.document).to be_a Nokogiri::XML::Document
+        expect(metadata.document.text).to eq 'data'
+      end
+    end
+
     context 'when attempts to connect to an endpoint URL fail' do
       subject { metadata.document }
 
