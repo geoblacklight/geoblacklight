@@ -6,10 +6,67 @@
   }
 }
 
-
 #map[data-protocol="IndexMap"] {
   .leaflet-interactive {
     stroke: black;
     fill-opacity: 0.65;
+  }
+}
+
+.index-map-legend {
+  font-size: 15px;
+  display: flex;
+  position: absolute;
+  right: 15px;
+  top: -2px;
+  left: 90px;
+
+  &-info {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-left: 15px;
+  }
+
+  span {
+    display: inline-block;
+    border: 1px solid black;
+    margin-right: 10px;
+    height: 24px;
+    width: 24px;
+    min-height: 24px;
+    min-width: 24px;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  &-default {
+    background: #7FCDBB;
+  }
+  &-unavailable {
+    background: #EDF8B1;
+  }
+  &-selected {
+    background: #2C7FB8;
+  }
+
+  @media(max-width: 768px){
+    position: revert;
+    margin-bottom: 1.25rem;
+
+    :first-child {
+      margin-left: 0;
+    }
+  }
+
+  @media(max-width: 480px){
+    display: block;
+
+    .index-map-legend-info {
+      margin-left: 0;
+      margin-bottom: 10px;
+    }
   }
 }
