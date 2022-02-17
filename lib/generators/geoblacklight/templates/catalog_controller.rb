@@ -44,11 +44,15 @@ class CatalogController < ApplicationController
     config.index.title_field = Settings.FIELDS.TITLE
 
     # solr field configuration for document/show views
-
+    # This sets the metadata to display below the map viewer.
+    # To move metadata above the map viewer,
+    # remove the lines deleting and re-adding the :show partial
     config.show.display_type_field = 'format'
+    config.show.partials.delete(:show)
     config.show.partials << 'show_default_viewer_container'
     config.show.partials << 'show_default_attribute_table'
     config.show.partials << 'show_default_viewer_information'
+    config.show.partials << :show
 
     ##
     # Configure the index document presenter.

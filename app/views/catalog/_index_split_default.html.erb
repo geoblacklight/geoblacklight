@@ -5,7 +5,7 @@
     <span class="document-counter">
       <%= t('blacklight.search.documents.counter', :counter => counter) if counter %>
     </span>
-    <%= link_to_document document, counter: counter %>
+    <%= link_to_document document, counter: counter, itemprop: "name" %>
   </h3>
   <span class='status-icons'>
     <%= render partial: 'header_icons', locals: { document: document } %>
@@ -23,7 +23,7 @@
 
 <div class='more-info-area'>
   <div id="doc-<%= document.id %>-fields-collapse" class='collapse'>
-    <small>
+    <small itemprop="description">
       <%= geoblacklight_present(:index_fields_display, document) %>
     </small>
   </div>

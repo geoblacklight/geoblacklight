@@ -19,6 +19,7 @@
         cursor: crosshair;
       }
     }
+    margin-bottom: 1rem;
   }
 
   .help-text {
@@ -35,5 +36,15 @@
     overflow-y: hidden;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 8;
+  }
+
+  #table-container{
+    overflow:scroll;
+    max-height: 450px;
+    margin-bottom: 1rem;
+
+    table {
+      margin-bottom: 0px;
+    }
   }
 }
