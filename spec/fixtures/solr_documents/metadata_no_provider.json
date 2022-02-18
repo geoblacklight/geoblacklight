@@ -30,7 +30,8 @@
     "United States"
   ],
   "locn_geometry": "ENVELOPE(-179.9,-64.4,71.6,-14.8)",
-  "dcat_centroid_ss": "28.4,-122.15",
+  "dcat_bbox": "ENVELOPE(-179.9,-64.4,71.6,-14.8)",
+  "dcat_centroid": "28.4,-122.15",
   "dct_accessRights_s": "Restricted",
   "dct_references_s": "{\"http://schema.org/url\":\"https://www.socialexplorer.com/\"}",
   "id": "99-0001-noprovider",

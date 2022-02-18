@@ -49,7 +49,8 @@
     "Davao (Philippines)"
   ],
   "locn_geometry": "ENVELOPE(125,126,7.3333,6.6666)",
-  "dcat_centroid_ss": "6.99995,125.5",
+  "dcat_bbox": "ENVELOPE(125,126,7.3333,6.6666)",
+  "dcat_centroid": "6.99995,125.5",
   "dct_rights_sm": [
     "These data are licensed by Stanford Libraries and are available to Stanford University affiliates only. Affiliates are limited to current faculty, staff and students. These data may not be reproduced or used for any purpose without permission. For more information please contact brannerlibrary@stanford.edu"
   ],

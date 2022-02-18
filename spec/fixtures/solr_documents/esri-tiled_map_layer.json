@@ -33,7 +33,8 @@
     "[2010 TO 2010]"
   ],
   "locn_geometry": "ENVELOPE(-129.4956,-64.4393,48.6336,21.8079)",
-  "dcat_centroid_ss": "35.22075,-96.96745",
+  "dcat_bbox": "ENVELOPE(-129.4956,-64.4393,48.6336,21.8079)",
+  "dcat_centroid": "35.22075,-96.96745",
   "dct_accessRights_s": "Public",
   "dct_format_s": "GeoTIFF",
   "gbl_wxsIdentifier_s": "test-soil-survey_map",

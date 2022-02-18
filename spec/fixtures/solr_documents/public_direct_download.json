@@ -44,7 +44,8 @@
     "Uganda"
   ],
   "locn_geometry": "ENVELOPE(29.572742,35.000308,4.234077,-1.478794)",
-  "dcat_centroid_ss": "1.3776415000000002,32.286525",
+  "dcat_bbox": "ENVELOPE(29.572742,35.000308,4.234077,-1.478794)",
+  "dcat_centroid": "1.3776415000000002,32.286525",
   "dct_rights_sm": [
     "This item is in the public domain. There are no restrictions on use."
   ],

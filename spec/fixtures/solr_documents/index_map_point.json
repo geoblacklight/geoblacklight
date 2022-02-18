@@ -42,7 +42,8 @@
     "New York"
   ],
   "locn_geometry": "ENVELOPE(-74.783,-74.733,40.2,40.166)",
-  "dcat_centroid_ss": "40.183,-74.75800000000001",
+  "dcat_bbox": "ENVELOPE(-74.783,-74.733,40.2,40.166)",
+  "dcat_centroid": "40.183,-74.75800000000001",
   "dct_accessRights_s": "Public",
   "dct_format_s": "GeoJSON",
   "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://raw.githubusercontent.com/OpenIndexMaps/edu.cornell/master/ny-aerial-photos-1960s.geojson\",\"https://openindexmaps.org\":\"https://raw.githubusercontent.com/OpenIndexMaps/edu.cornell/master/ny-aerial-photos-1960s.geojson\"}",

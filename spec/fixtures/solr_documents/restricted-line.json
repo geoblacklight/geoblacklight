@@ -51,7 +51,8 @@
     "Mendocino County (Calif.)"
   ],
   "locn_geometry": "ENVELOPE(-123.387366,-122.52958,39.398403,38.302994)",
-  "dcat_centroid_ss": "38.8506985,-122.958473",
+  "dcat_bbox": "ENVELOPE(-123.387366,-122.52958,39.398403,38.302994)",
+  "dcat_centroid": "38.8506985,-122.958473",
   "dct_rights_sm": [
     "These data are licensed by Stanford Libraries and are available to Stanford University affiliates only. Affiliates are limited to current faculty, staff and students. These data may not be reproduced or used for any purpose without permission. For more information please contact brannerlibrary@stanford.edu"
   ],

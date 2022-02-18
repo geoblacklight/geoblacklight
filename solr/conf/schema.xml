@@ -4,11 +4,28 @@
   <fields>
     <field name="_version_" type="long"   stored="true" indexed="true"/>
     <field name="timestamp" type="date"   stored="true" indexed="true" default="NOW"/>
-    <field name="id"      type="string" stored="true" indexed="true" required="true"/>
+    <field name="id"        type="string" stored="true" indexed="true" required="true"/>
 
     <!-- core generated fields -->
     <field name="text" type="text_en" stored="false" indexed="true" multiValued="true"
                        termVectors="true" termPositions="true" termOffsets="true" />
+
+    <!-- Spatial Field Type: Represents the exent of the resource and powers map search functionality.
+      Value can be any valid WKT or ENVELOPE String:
+        <field name="locn_geometry">POLYGON((1 8, 1 9, 2 9, 2 8, 1 8))</field>
+        <field name="locn_geometry">ENVELOPE(-117.312, -115.39, 84.31, 83.1)</field> -->
+    <field name="locn_geometry" type="location_geo3d" stored="true" indexed="true"/>
+
+    <!-- Spatial Field Type: The bounding box of the resource. Used in overlap ratio boosting.
+      Value must be an ENVELOPE String:
+        <field name="dcat_bbox">ENVELOPE(-117.312, -115.39, 84.31, 83.1)</field> -->
+    <field name="dcat_bbox" type="location_rpt" stored="true" indexed="true"/>
+
+    <!-- Spatial Field Type: Used to display the center point of a resource. -->
+    <field name="dcat_centroid" type="location" stored="true" indexed="true"/>
+
+    <!-- Spatial Field Type: Internal field used for overlap ratio boosting. -->
+    <field name="solr_bboxtype" type="bbox" stored="true" indexed="true"/>
 
     <!-- dynamic field with simple types by suffix -->
     <dynamicField name="*_b"    type="boolean" stored="true"  indexed="true"/>
@@ -43,31 +60,6 @@
 
     <!-- date range (_drsim) -->
     <dynamicField name="*_drsim" type="dateRange" stored="true" indexed="true" multiValued="true"/>
-
-    <!-- Spatial field types:
-
-         Solr3:
-           <field name="my_pt">83.1,-117.312</field>
-             as (y,x)
-
-         Solr4:
-
-           <field name="my_bbox">-117.312 83.1 -115.39 84.31</field>
-             as (W S E N)
-
-           <field name="my_geom">ENVELOPE(-117.312, -115.39, 84.31, 83.1)</field>
-             as (W E N S)
-
-           <field name="my_jts">POLYGON((1 8, 1 9, 2 9, 2 8, 1 8))</field>
-             as WKT for point, linestring, polygon
-
-      -->
-    <dynamicField name="*_pt"   type="location"     stored="true" indexed="true"/>
-    <dynamicField name="*_bbox" type="location_rpt" stored="true" indexed="true"/><!-- deprecated -->
-    <dynamicField name="*_geom" type="location_rpt" stored="true" indexed="true"/>
-    <dynamicField name="*_geometry" type="location_rpt" stored="true" indexed="true"/>
-    <dynamicField name="*_bboxtype" type="bbox" stored="true" indexed="true"/>
-
   </fields>
 
   <types>
@@ -145,16 +137,21 @@
     </fieldType>
 
     <!-- Spatial field types -->
-    <fieldType name="location" class="solr.LatLonType" subFieldSuffix="_d"/>
-
+    <fieldType name="location" class="solr.LatLonPointSpatialField" docValues="true"/>
     <fieldType name="location_rpt" class="solr.SpatialRecursivePrefixTreeFieldType"
                geo="true" distErrPct="0.025" maxDistErr="0.001" distanceUnits="kilometers"/>
+    <fieldType name="location_geo3d"
+      class="solr.SpatialRecursivePrefixTreeFieldType"
+      spatialContextFactory="Geo3D"
+      prefixTree="s2"
+      geo="true"
+      maxDistErr="0.001"
+      planetModel="WGS84"/>
+
     <!-- Adding field type for bboxField that enables, among other things, overlap ratio calculations -->
     <fieldType name="bbox" class="solr.BBoxField"
            geo="true" distanceUnits="kilometers" numberType="pdouble" />
     <fieldType name="pdouble" class="solr.DoublePointField" docValues="true"/>
-
-
   </types>
 
   <!-- for scoring formula -->
@@ -170,7 +167,6 @@
   <copyField source="dct_subject_sm"      dest="dct_subject_tmi"      maxChars="10000"/>
   <copyField source="dct_title_s"         dest="dct_title_ti"         maxChars="1000"/>
   <copyField source="dct_isPartOf_sm"    dest="dct_isPartOf_tmi"    maxChars="1000"/>
-  <copyField source="locn_geometry_s"  dest="layer_geom_type_ti"  maxChars="100"/>
   <copyField source="id"       dest="layer_slug_ti"       maxChars="100"/>
 
   <!-- core text search -->
@@ -198,5 +194,5 @@
   <copyField source="dct_spatial_sm" dest="suggest"/>
 
   <!-- for bbox value -->
-  <copyField source="locn_geometry" dest="solr_bboxtype"/>
+  <copyField source="dcat_bbox" dest="solr_bboxtype"/>
 </schema>

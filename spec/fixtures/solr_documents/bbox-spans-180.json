@@ -24,7 +24,8 @@
     "GBL Fixture records"
   ],
   "locn_geometry": "ENVELOPE(-124.7333333,68,62.45,-53.23333333)",
-  "dcat_centroid_ss": "4.608,-28.366",
+  "dcat_bbox": "ENVELOPE(-124.7333333,68,62.45,-53.23333333)",
+  "dcat_centroid": "4.608,-28.366",
   "dct_accessRights_s": "Public",
   "dct_format_s": "TIFF",
   "gbl_wxsIdentifier_s": "public-figgy:a990e1b4-7f0e-44b8-ae2a-de7e93cdd74a",

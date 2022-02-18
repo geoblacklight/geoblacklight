@@ -34,7 +34,8 @@
     "[2004 TO 2004]"
   ],
   "locn_geometry": "ENVELOPE(-71.163984,-71.052581,42.408316,42.34757)",
-  "dcat_centroid_ss": "42.377943,-71.1082825",
+  "dcat_bbox": "ENVELOPE(-71.163984,-71.052581,42.408316,42.34757)",
+  "dcat_centroid": "42.377943,-71.1082825",
   "dct_accessRights_s": "Public",
   "dct_format_s": "Shapefile",
   "gbl_wxsIdentifier_s": "sde:GISPORTAL.GISOWNER01.CAMBRIDGEGRID100_04",

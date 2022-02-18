@@ -47,7 +47,8 @@
     "New York"
   ],
   "locn_geometry": "ENVELOPE(-74.989258,-73.858335,44.67778,43.452994)",
-  "dcat_centroid_ss": "44.065387,-74.42379650000001",
+  "dcat_bbox": "ENVELOPE(-74.989258,-73.858335,44.67778,43.452994)",
+  "dcat_centroid": "44.065387,-74.42379650000001",
   "dct_accessRights_s": "Public",
   "dct_format_s": "Shapefile",
   "gbl_fileSize_s": "0.07 MB",

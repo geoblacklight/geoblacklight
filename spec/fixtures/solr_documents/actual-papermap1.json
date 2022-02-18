@@ -32,7 +32,8 @@
     "[1996 TO 1996]"
   ],
   "locn_geometry": "ENVELOPE(-13,4,62,49)",
-  "dcat_centroid_ss": "55.5,-4.5",
+  "dcat_bbox": "ENVELOPE(-13,4,62,49)",
+  "dcat_centroid": "55.5,-4.5",
   "dct_accessRights_s": "Public",
   "dct_format_s": "Paper",
   "gbl_wxsIdentifier_s": "MIT:001145244",

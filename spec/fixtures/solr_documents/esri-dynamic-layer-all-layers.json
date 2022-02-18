@@ -43,7 +43,8 @@
     "Illinois"
   ],
   "locn_geometry": "ENVELOPE(-91.513518,-87.495214,42.508348,36.969972)",
-  "dcat_centroid_ss": "39.73916,-89.504366",
+  "dcat_bbox": "ENVELOPE(-91.513518,-87.495214,42.508348,36.969972)",
+  "dcat_centroid": "39.73916,-89.504366",
   "dct_accessRights_s": "Public",
   "dct_format_s": "Shapefile",
   "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://clearinghouse.isgs.illinois.edu/sites/clearinghouse.isgs/files/Clearinghouse/data/ISGS/Geology/zips/IL_Glacial_Bndys_Py.zip\",\"http://schema.org/url\":\"https://clearinghouse.isgs.illinois.edu/data/geology/glacial-boundaries\",\"urn:x-esri:serviceType:ArcGIS#DynamicMapLayer\":\"https://data.isgs.illinois.edu/arcgis/rest/services/Geology/Glacial_Boundaries/MapServer\"}",

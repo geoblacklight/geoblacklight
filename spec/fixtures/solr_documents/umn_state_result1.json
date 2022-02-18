@@ -43,7 +43,8 @@
     "Minnesota"
   ],
   "locn_geometry": "ENVELOPE(-97.612501,-88.842351,49.464145,42.906949)",
-  "dcat_centroid_ss": "46.185547,-93.227426",
+  "dcat_bbox": "ENVELOPE(-97.612501,-88.842351,49.464145,42.906949)",
+  "dcat_centroid": "46.185547,-93.227426",
   "dct_accessRights_s": "Public",
   "dct_format_s": "ArcGRID",
   "dct_references_s": "{\"http://schema.org/downloadUrl\":\"ftp://gdrs.dnr.state.mn.us/gdrs/data/pub/us_mn_state_dnr/fgdb_base_usgs_scanned_topo_100k_drg.zip\",\"http://schema.org/url\":\"https://gisdata.mn.gov/dataset/2eddde2f-c222-41ca-bd07-2fd74a21f4de\"}",

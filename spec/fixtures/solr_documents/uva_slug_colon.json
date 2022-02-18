@@ -34,7 +34,8 @@
     "[2015 TO 2018]"
   ],
   "locn_geometry": "ENVELOPE(-76.346,-76.176,36.971,36.82)",
-  "dcat_centroid_ss": "36.8955,-76.261",
+  "dcat_bbox": "ENVELOPE(-76.346,-76.176,36.971,36.82)",
+  "dcat_centroid": "36.8955,-76.261",
   "dct_accessRights_s": "Public",
   "dct_format_s": "Shapefile",
   "gbl_wxsIdentifier_s": "Norfolk:police_point",

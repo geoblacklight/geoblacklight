@@ -32,7 +32,8 @@
     "Massachusetts"
   ],
   "locn_geometry": "ENVELOPE(-73.533237,-69.898565,42.888068,41.230345)",
-  "dcat_centroid_ss": "42.0592065,-71.715901",
+  "dcat_bbox": "ENVELOPE(-73.533237,-69.898565,42.888068,41.230345)",
+  "dcat_centroid": "42.0592065,-71.715901",
   "dct_accessRights_s": "Public",
   "dct_format_s": "Shapefile",
   "gbl_wxsIdentifier_s": "mit:SDE_DATA_US_MA_E25ZCTA5DCT_2000",

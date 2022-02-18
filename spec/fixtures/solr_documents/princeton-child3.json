@@ -28,7 +28,8 @@
     "GBL Fixture records"
   ],
   "locn_geometry": "ENVELOPE(-74.68,-74.63,40.37,40.33)",
-  "dcat_centroid_ss": "40.349999999999994,-74.655",
+  "dcat_bbox": "ENVELOPE(-74.68,-74.63,40.37,40.33)",
+  "dcat_centroid": "40.349999999999994,-74.655",
   "dct_source_sm": [
     "princeton-1r66j405w"
   ],

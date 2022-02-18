@@ -42,7 +42,8 @@
     "New York, New York"
   ],
   "locn_geometry": "ENVELOPE(-74.24856464,-73.73228698,40.89620987,40.49956589)",
-  "dcat_centroid_ss": "40.697887879999996,-73.99042581",
+  "dcat_bbox": "ENVELOPE(-74.24856464,-73.73228698,40.89620987,40.49956589)",
+  "dcat_centroid": "40.697887879999996,-73.99042581",
   "dct_accessRights_s": "Public",
   "dct_format_s": "Shapefile",
   "gbl_wxsIdentifier_s": "sdr:nyu_2451_34564",

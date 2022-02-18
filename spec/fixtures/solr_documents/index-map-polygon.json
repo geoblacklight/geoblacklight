@@ -44,7 +44,8 @@
     "New York"
   ],
   "locn_geometry": "ENVELOPE(-79.750232,-71.750494,44.999963,40.499893)",
-  "dcat_centroid_ss": "42.749928,-75.750363",
+  "dcat_bbox": "ENVELOPE(-79.750232,-71.750494,44.999963,40.499893)",
+  "dcat_centroid": "42.749928,-75.750363",
   "dct_accessRights_s": "Public",
   "dct_format_s": "GeoTIFF",
   "gbl_wxsIdentifier_s": "cugir008186",

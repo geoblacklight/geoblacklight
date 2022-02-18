@@ -43,7 +43,8 @@
     "Maryland"
   ],
   "locn_geometry": "ENVELOPE(-79.4539,-75.124,39.7194,37.9667)",
-  "dcat_centroid_ss": "38.843050000000005,-77.28895",
+  "dcat_bbox": "ENVELOPE(-79.4539,-75.124,39.7194,37.9667)",
+  "dcat_centroid": "38.843050000000005,-77.28895",
   "dct_accessRights_s": "Public",
   "dct_format_s": "Shapefile",
   "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://data.imap.maryland.gov/datasets/f406332e63eb4478a9560ad86ae90327_18.zip\",\"urn:x-esri:serviceType:ArcGIS#FeatureLayer\":\"https://geodata.md.gov/imap/rest/services/Transportation/MD_Transit/FeatureServer/18\",\"http://schema.org/url\":\"http://data.imap.maryland.gov/datasets/f406332e63eb4478a9560ad86ae90327_18\"}",
