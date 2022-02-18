@@ -9,6 +9,6 @@ feature 'saved searches' do
       expect(page.current_url).to match(/bbox=/)
     end
     visit blacklight.search_history_path
-    expect(page).to have_css 'td.query a', text: /#{I18n.t('geoblacklight.bbox_label')}:/
+    expect(page).to have_css 'td.query a', text: /#{I18n.t('geoblacklight.bbox_label')}/
   end
 end

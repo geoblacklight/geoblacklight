@@ -60,11 +60,6 @@ Metrics/ModuleLength:
 Style/Documentation:
   Enabled: false
 
-# Overrides method in blacklight. Must use method name.
-Naming/PredicateName:
-  Exclude:
-    - 'lib/geoblacklight/view_helper_override.rb'
-
 # geoblacklight references in solr_document_spec are
 # difficult to mock because of the use of 'method_missing'.
 # https://relishapp.com/rspec/rspec-mocks/docs/verifying-doubles/dynamic-classes
