@@ -10,6 +10,23 @@
     <field name="text" type="text_en" stored="false" indexed="true" multiValued="true"
                        termVectors="true" termPositions="true" termOffsets="true" />
 
+    <!-- Spatial Field Type: Represents the exent of the resource and powers map search functionality.
+      Value can be any valid WKT or ENVELOPE String:
+        <field name="locn_geometry">POLYGON((1 8, 1 9, 2 9, 2 8, 1 8))</field>
+        <field name="locn_geometry">ENVELOPE(-117.312, -115.39, 84.31, 83.1)</field> -->
+    <field name="locn_geometry" type="location_geo3d" stored="true" indexed="true"/>
+
+    <!-- Spatial Field Type: The bounding box of the resource. Used in overlap ratio boosting.
+      Value must be an ENVELOPE String:
+        <field name="dcat_bbox">ENVELOPE(-117.312, -115.39, 84.31, 83.1)</field> -->
+    <field name="dcat_bbox" type="location_rpt" stored="true" indexed="true"/>
+
+    <!-- Spatial Field Type: Used to display the center point of a resource. -->
+    <field name="dcat_centroid" type="location" stored="true" indexed="true"/>
+
+    <!-- Spatial Field Type: Internal field used for overlap ratio boosting. -->
+    <field name="solr_bboxtype" type="bbox" stored="true" indexed="true"/>
+
     <!-- dynamic field with simple types by suffix -->
     <dynamicField name="*_b"    type="boolean" stored="true"  indexed="true"/>
     <dynamicField name="*_d"    type="double"  stored="true"  indexed="true"/>
@@ -43,18 +60,6 @@
 
     <!-- date range (_drsim) -->
     <dynamicField name="*_drsim" type="dateRange" stored="true" indexed="true" multiValued="true"/>
-
-    <!-- Spatial field types:
-          <field name="my_geometry">ENVELOPE(-117.312, -115.39, 84.31, 83.1)</field>
-            as (W E N S)
-
-          <field name="my_geometry">POLYGON((1 8, 1 9, 2 9, 2 8, 1 8))</field>
-            as WKT for point, linestring, polygon
-      -->
-    <dynamicField name="*_centroid" type="location" stored="true" indexed="true"/>
-    <dynamicField name="*_geometry" type="location_geo3d" stored="true" indexed="true"/>
-    <dynamicField name="*_bboxtype" type="bbox" stored="true" indexed="true"/>
-    <field name="dcat_bbox" type="location_rpt" stored="true" indexed="true"/>
   </fields>
 
   <types>
