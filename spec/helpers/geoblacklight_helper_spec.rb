@@ -5,17 +5,6 @@ describe GeoblacklightHelper, type: :helper do
   include BlacklightHelper
   include ActionView::Helpers::UrlHelper
   include ActionView::Helpers::TranslationHelper
-  describe '#render_facet_links' do
-    let(:subject_field) { Settings.FIELDS.SUBJECT }
-    it 'contains unique links' do
-      expect(self).to receive(:search_catalog_path).exactly(3).times.and_return("http://example.com/catalog?f[#{subject_field}][]=category")
-      html = Capybara.string(render_facet_links(subject_field, %w[Test Test Earth Science]))
-      expect(html).to have_css 'a', count: 3
-      expect(html).to have_css 'a', text: 'Test', count: 1
-      expect(html).to have_css 'a', text: 'Earth', count: 1
-      expect(html).to have_css 'a', text: 'Science', count: 1
-    end
-  end
 
   describe '#geoblacklight_icon' do
     it 'supports in use cases' do

@@ -89,16 +89,6 @@ module GeoblacklightHelper
   end
 
   ##
-  # Renders an unique array of search links based off of terms
-  # passed in using the facet parameter
-  #
-  def render_facet_links(facet, items)
-    items.uniq.map do |item|
-      link_to item, search_catalog_path(f: { facet => [item] })
-    end.join(', ').html_safe
-  end
-
-  ##
   # Looks up properly formatted names for formats
   #
   def proper_case_format(format)
