@@ -36,7 +36,7 @@
   ],
   "locn_geometry": "ENVELOPE(-74.68,-74.63,40.37,40.33)",
   "dcat_bbox": "ENVELOPE(-74.68,-74.63,40.37,40.33)",
-  "dcat_centroid_ss": "40.350,-74.655",
+  "dcat_centroid": "40.350,-74.655",
   "dct_accessRights_s": "Public",
   "gbl_wxsIdentifier_s": "ark:/88435/1r66j405w",
   "dct_references_s": "{\"http://iiif.io/api/image\":\"https://libimages1.princeton.edu/loris/figgy_prod/5a%2F20%2F58%2F5a20585db50d44959fe5ae44821fd174%2Fintermediate_file.jp2/info.json\",\"http://schema.org/url\":\"https://catalog.princeton.edu/catalog/4266648\",\"http://iiif.io/api/presentation#manifest\":\"https://figgy.princeton.edu/concern/scanned_maps/9a193476-5f2e-4f82-95a5-6db472e39b7b/manifest\"}",

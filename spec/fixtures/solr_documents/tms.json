@@ -36,7 +36,7 @@
   ],
   "locn_geometry": "ENVELOPE(-156.02,-70.8,65.59,18.93)",
   "dcat_bbox": "ENVELOPE(-156.02,-70.8,65.59,18.93)",
-  "dcat_centroid_ss": "42.260000000000005,-113.41",
+  "dcat_centroid": "42.260000000000005,-113.41",
   "dct_accessRights_s": "Public",
   "dct_format_s": "Shapefile",
   "dct_references_s": "{\"http://schema.org/url\":\"https://www.usgs.gov/natural-hazards/earthquake-hazards/faults\",\"https://wiki.osgeo.org/wiki/Tile_Map_Service_Specification\":\"https://earthquake.usgs.gov/basemap/tiles/faults/{z}/{x}/{y}.png\",\"http://schema.org/downloadUrl\":\"https://earthquake.usgs.gov/static/lfs/nshm/qfaults/Qfaults_GIS.zip\"}",

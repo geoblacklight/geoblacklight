@@ -45,7 +45,7 @@
   ],
   "locn_geometry": "ENVELOPE(-87.9324,-86.2569,39.8521,37.8626)",
   "dcat_bbox": "ENVELOPE(-87.9324,-86.2569,39.8521,37.8626)",
-  "dcat_centroid_ss": "38.85735,-87.09465",
+  "dcat_centroid": "38.85735,-87.09465",
   "dct_accessRights_s": "Public",
   "dct_format_s": "Shapefile",
   "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://maps.indiana.edu/download/Geology/Industrial_Minerals_Quarries_Abandoned.zip\",\"http://www.opengis.net/cat/csw/csdgm\":\"https://maps.indiana.edu/metadata/Geology/Industrial_Minerals_Quarries_Abandoned.xml\",\"http://schema.org/url\":\"http://maps.indiana.edu/previewMaps/Geology/Industrial_Minerals_Quarries_Abandoned.html\",\"urn:x-esri:serviceType:ArcGIS#DynamicMapLayer\":\"https://maps.indiana.edu/arcgis/rest/services/Geology/Industrial_Minerals_Quarries_Abandoned/MapServer/0\"}",

@@ -51,6 +51,7 @@
           <field name="my_geometry">POLYGON((1 8, 1 9, 2 9, 2 8, 1 8))</field>
             as WKT for point, linestring, polygon
       -->
+    <dynamicField name="*_centroid" type="location" stored="true" indexed="true"/>
     <dynamicField name="*_geometry" type="location_geo3d" stored="true" indexed="true"/>
     <dynamicField name="*_bboxtype" type="bbox" stored="true" indexed="true"/>
     <field name="dcat_bbox" type="location_rpt" stored="true" indexed="true"/>
@@ -131,9 +132,9 @@
     </fieldType>
 
     <!-- Spatial field types -->
+    <fieldType name="location" class="solr.LatLonPointSpatialField" docValues="true"/>
     <fieldType name="location_rpt" class="solr.SpatialRecursivePrefixTreeFieldType"
                geo="true" distErrPct="0.025" maxDistErr="0.001" distanceUnits="kilometers"/>
-
     <fieldType name="location_geo3d"
       class="solr.SpatialRecursivePrefixTreeFieldType"
       spatialContextFactory="Geo3D"
