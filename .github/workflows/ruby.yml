@@ -59,6 +59,7 @@ jobs:
 
     - name: Upload coverage artifacts
       uses: actions/upload-artifact@v2
+      if: always()
       with:
         name: coverage
         path: coverage/
