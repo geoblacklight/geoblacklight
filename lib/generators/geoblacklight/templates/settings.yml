@@ -160,6 +160,7 @@ OPACITY_CONTROL: &opacity_control
 
 LEAFLET:
   MAP:
+  ICON_DEFAULT_IMAGEPATH: ".."
   LAYERS:
     DETECT_RETINA: true
     INDEX:

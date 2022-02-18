@@ -10,6 +10,9 @@ GeoBlacklight.Viewer = L.Class.extend({
 
     L.Util.setOptions(this, options);
 
+    var leafletOptions = this.data.leafletOptions;
+    L.Icon.Default.imagePath = leafletOptions.ICON_DEFAULT_IMAGEPATH;
+
     // trigger viewer load functions
     this.load();
   },
