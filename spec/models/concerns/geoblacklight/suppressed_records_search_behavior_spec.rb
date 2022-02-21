@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 describe Geoblacklight::SuppressedRecordsSearchBehavior do
-  subject { search_builder.with(user_params) }
+  subject(:searcher) { search_builder.with(user_params) }
 
   let(:user_params) { {} }
   let(:solr_params) { { q: 'water' } }
@@ -18,14 +18,14 @@ describe Geoblacklight::SuppressedRecordsSearchBehavior do
 
   describe '#hide_suppressed_records' do
     it 'hides/filters suppressed records' do
-      expect(subject.hide_suppressed_records(solr_params)).to include('-gbl_suppressed_b: true')
+      expect(searcher.hide_suppressed_records(solr_params)).to include('-gbl_suppressed_b: true')
     end
   end
 
-  context 'document action call like CatalogController#web_services' do
+  context 'when document action call like CatalogController#web_services' do
     it 'does not hide/filter suppressed records' do
       solr_params[:q] = "{!lucene}#{Settings.FIELDS.ID}:"
-      expect(subject.hide_suppressed_records(solr_params)).to be_nil
+      expect(searcher.hide_suppressed_records(solr_params)).to be_nil
     end
   end
 end
