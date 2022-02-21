@@ -19,7 +19,6 @@ module Geoblacklight
     def remove(_item)
       new_state = search_state.reset_search
       params = new_state.params
-      # value = as_url_parameter(item)
 
       params.delete(:bbox)
       new_state.reset(params)
