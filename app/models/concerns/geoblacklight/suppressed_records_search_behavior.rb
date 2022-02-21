@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 module Geoblacklight
-  module SpatialSearchBehavior
+  module SuppressedRecordsSearchBehavior
     extend ActiveSupport::Concern
 
     included do
