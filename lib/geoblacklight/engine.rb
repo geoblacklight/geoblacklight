@@ -18,7 +18,9 @@ module Geoblacklight
     end
 
     config.to_prepare do
-      Geoblacklight.inject!
+      unless SearchHistoryController.helpers.is_a?(Geoblacklight::ViewHelperOverride)
+        SearchHistoryController.send(:helper, Geoblacklight::ViewHelperOverride)
+      end
     end
   end
 end
