@@ -31,6 +31,7 @@ Layout/DotPosition:
 Layout/LineLength:
   Max: 115
   Exclude:
+  - 'app/models/concerns/geoblacklight/bbox_filter_query.rb'
   - 'app/models/concerns/geoblacklight/spatial_search_behavior.rb'
   - 'bin/coverage.rb'
   - 'lib/generators/geoblacklight/install_generator.rb'
@@ -58,11 +59,6 @@ Metrics/ModuleLength:
 # TODO: Add top-level class and module documentation.
 Style/Documentation:
   Enabled: false
-
-# Overrides method in blacklight. Must use method name.
-Naming/PredicateName:
-  Exclude:
-    - 'lib/geoblacklight/view_helper_override.rb'
 
 # geoblacklight references in solr_document_spec are
 # difficult to mock because of the use of 'method_missing'.
