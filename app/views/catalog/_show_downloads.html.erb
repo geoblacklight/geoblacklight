@@ -2,28 +2,16 @@
 
 <% if document_downloadable? %>
   <% if document.direct_download.present? || document.hgl_download.present? || document.iiif_download.present? || document.download_types.present? %>
-    <div class="card downloads">
-      <div class="card-header">
-        <h2><%= t('geoblacklight.download.download').pluralize %></h2>
+    <div class="dropdown">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Download
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <% if document.direct_download.present? || document.hgl_download.present? || document.iiif_download.present? %>
+          <%= render 'downloads_primary' %>
+        <% end %>
+        <%= render 'downloads_generated' if document.download_types.present? %>
       </div>
-
-      <ul class="list-group list-group-flush js-download-list">
-        <%= render 'downloads_primary' %>
-        <%= render 'downloads_generated' %>
-      </ul>
-    </div>
-  <% end %>
-
-  <% if document.download_types.present? %>
-    <div class="card exports">
-      <div class="card-header">
-
-        <h2><%= t('geoblacklight.download.export_formats') %></h2>
-      </div>
-
-      <ul class="list-group list-group-flush">
-        <%= render 'downloads_generated' %>
-      </ul>
     </div>
   <% end %>
 <% elsif document.restricted? && document.same_institution? %>
