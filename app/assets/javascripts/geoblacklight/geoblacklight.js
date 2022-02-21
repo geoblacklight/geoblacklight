@@ -1,4 +1,5 @@
 //= require leaflet
+//= require Leaflet.fullscreen
 //= require native.history
 //= require_tree ./templates
 

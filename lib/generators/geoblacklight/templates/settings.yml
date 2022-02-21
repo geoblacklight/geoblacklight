@@ -174,16 +174,32 @@ LEAFLET:
         <<: *default
         color: "#2C7FB8"
   VIEWERS:
-    WMS:
-      <<: *opacity_control
-    TILEDMAPLAYER:
-      <<: *opacity_control
-    FEATURELAYER:
-      <<: *opacity_control
     DYNAMICMAPLAYER:
-      <<: *opacity_control
+      CONTROLS:
+        - 'Opacity'
+        - 'Fullscreen'
+    FEATURELAYER:
+      CONTROLS:
+        - 'Opacity'
+        - 'Fullscreen'
+    IIIF:
+      CONTROLS:
+        - 'Fullscreen'
     IMAGEMAPLAYER:
-      <<: *opacity_control
+      CONTROLS:
+        - 'Opacity'
+        - 'Fullscreen'
+    INDEXMAP:
+      CONTROLS:
+        - 'Fullscreen'
+    TILEDMAPLAYER:
+      CONTROLS:
+        - 'Opacity'
+        - 'Fullscreen'
+    WMS:
+      CONTROLS:
+        - 'Opacity'
+        - 'Fullscreen'
 
 # Toggle the help text feature that offers users context
 HELP_TEXT:
