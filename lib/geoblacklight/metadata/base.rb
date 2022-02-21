@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'geoblacklight/faraday_middleware/follow_redirects'
 module Geoblacklight
   module Metadata
     ##
@@ -47,7 +48,7 @@ module Geoblacklight
       # connection error
       def retrieve_metadata
         connection = Faraday.new(url: @reference.endpoint) do |conn|
-          conn.use FaradayMiddleware::FollowRedirects
+          conn.use Geoblacklight::FaradayMiddleware::FollowRedirects
           conn.adapter Faraday.default_adapter
         end
         begin

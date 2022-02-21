@@ -21,6 +21,10 @@ jobs:
     strategy:
       matrix:
         ruby: [2.7, '3.0']
+        faraday_version: ['']
+        include:
+          - ruby: 2.7
+            faraday_version: '~> 1.0'
     steps:
     - uses: actions/checkout@v2
 
@@ -39,6 +43,7 @@ jobs:
       run: bundle _2.1.1_ install
       env:
         rails_version: 7.0.1
+        FARADAY_VERSION: ${{ matrix.faraday_version }}
 
     - name: Setup Yarn
       run: exec "yarnpkg"
@@ -56,6 +61,7 @@ jobs:
         rails_version: 7.0.1
         ENGINE_CART_RAILS_OPTIONS: '--skip-git --skip-listen --skip-spring --skip-keeps --skip-action-cable --skip-coffee --skip-test'
         SOLR_URL: http://solr:SolrRocks@localhost:8983/solr/blacklight-core
+        FARADAY_VERSION: ${{ matrix.faraday_version }}
 
     - name: Upload coverage artifacts
       uses: actions/upload-artifact@v2
