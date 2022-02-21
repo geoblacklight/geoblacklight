@@ -11,7 +11,9 @@ GeoBlacklight.Viewer = L.Class.extend({
     L.Util.setOptions(this, options);
 
     var leafletOptions = this.data.leafletOptions;
-    L.Icon.Default.imagePath = leafletOptions.ICON_DEFAULT_IMAGEPATH;
+
+    // Sets leaflet icon paths to ex. /assets/marker-icon-2x-rails-fingerprint
+    L.Icon.Default.imagePath = '..';
 
     // trigger viewer load functions
     this.load();
