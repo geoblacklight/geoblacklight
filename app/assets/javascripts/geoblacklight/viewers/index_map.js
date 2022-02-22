@@ -7,6 +7,7 @@ GeoBlacklight.Viewer.IndexMap = GeoBlacklight.Viewer.Map.extend({
 
     if (this.data.available) {
       this.addPreviewLayer();
+      this.loadControls();
     } else {
       this.addBoundsOverlay(this.options.bbox);
     }
