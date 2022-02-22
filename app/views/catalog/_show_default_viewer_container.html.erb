@@ -6,6 +6,23 @@
       <%= render_help_text_entry('viewer_protocol', document.viewer_protocol) %>
     <% end %>
 
+    <% if document.item_viewer.index_map %>
+      <div class="index-map-legend">
+        <div class="index-map-legend-info">
+          <span class="index-map-legend-default"></span>
+          <p><span class="sr-only">Green tile indicates </span>Map held by collection</p>
+        </div>
+        <div class="index-map-legend-info">
+          <span class="index-map-legend-unavailable"></span>
+          <p><span class="sr-only">Yellow tile indicates </span>Map not held by collection</p>
+        </div>
+        <div class="index-map-legend-info">
+          <span class="index-map-legend-selected"></span>
+          <p><span class="sr-only">Blue tile indicates </span>Selected map tile</p>
+        </div>
+      </div>
+    <% end %>
+
     <%= content_tag :div, id: 'map', aria: { label: t('geoblacklight.map.label') }, data: { map: 'item', protocol: document.viewer_protocol.camelize, url: document.viewer_endpoint, 'layer-id' => document.wxs_identifier, 'map-geom' => document.geometry.geojson, 'catalog-path'=> search_catalog_path, available: document_available?, inspect: show_attribute_table?, basemap: geoblacklight_basemap, leaflet_options: leaflet_options } do %>
     <% end %>
   </div>
