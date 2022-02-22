@@ -67,28 +67,7 @@
     "dcat_theme_sm": {
       "type": "array",
       "items": {
-        "type": "string",
-        "enum": [
-          "Farming",
-          "Biota",
-          "Boundaries",
-          "Climatology, Meteorology and Atmosphere",
-          "Economy",
-          "Elevation",
-          "Environment",
-          "Geoscientific Information",
-          "Health",
-          "Imagery and Base Maps",
-          "Intelligence and Military",
-          "Inland Waters",
-          "Location",
-          "Oceans",
-          "Planning and Cadastral",
-          "Society",
-          "Structure",
-          "Transportation",
-          "Utilities and Communications"
-        ]
+        "type": "string"
       }
     },
     "dcat_keyword_sm": {
