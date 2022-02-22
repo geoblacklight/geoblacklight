@@ -51,6 +51,9 @@
   &-selected {
     background: #2C7FB8;
   }
+  &-default, &-unavailable, &-selected {
+    opacity: 0.65;
+  }
 
   @media(max-width: 768px){
     position: revert;
