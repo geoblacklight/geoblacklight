@@ -154,10 +154,6 @@ WMS_PARAMS:
   :INFO_FORMAT: 'text/html'
 
 # Settings for leaflet
-OPACITY_CONTROL: &opacity_control
-  CONTROLS:
-    - 'Opacity'
-
 LEAFLET:
   MAP:
   LAYERS:
