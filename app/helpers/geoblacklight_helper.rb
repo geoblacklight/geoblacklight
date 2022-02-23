@@ -112,22 +112,6 @@ module GeoblacklightHelper
     value.html_safe
   end
 
-  def download_generated_body(format)
-    value = proper_case_format(format)
-    value = case value
-            when t('geoblacklight.formats.shapefile')
-              t('geoblacklight.download.export_shapefile_link')
-            when t('geoblacklight.formats.kmz')
-              t('geoblacklight.download.export_kmz_link')
-            when t('geoblacklight.formats.geojson')
-              t('geoblacklight.download.export_geojson_link')
-            else
-              value
-            end
-
-    value.html_safe
-  end
-
   ##
   # Deteremines if a feature should include help text popover
   # @return [Boolean]
