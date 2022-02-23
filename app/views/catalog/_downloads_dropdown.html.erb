@@ -1,4 +1,4 @@
-<%# Renders the primary download that is shown first %>
+<%# Renders the options of the downloads dropdown button %>
 <% document ||= @document %>
 
 <% if document.direct_download.present? %>
@@ -18,4 +18,10 @@
 
 <% if document.iiif_download.present? %>
   <%= download_link_iiif %>
+<% end %>
+
+<% if document.download_types.present? %>
+  <% document.download_types.each do |type| %>
+    <%= download_link_generated(type.first, document) %>
+  <% end %>
 <% end %>

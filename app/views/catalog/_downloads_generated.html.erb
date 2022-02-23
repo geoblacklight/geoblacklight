@@ -1,6 +1,0 @@
-<%# Renders the secondary downloads displayed in the split dropdown %>
-<% document ||= @document %>
-
-<% document.download_types.each do |type| %>
-  <%= download_link_generated(type.first, document) %>
-<% end %>

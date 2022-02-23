@@ -7,10 +7,7 @@
         Download
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <% if document.direct_download.present? || document.hgl_download.present? || document.iiif_download.present? %>
-          <%= render 'downloads_primary' %>
-        <% end %>
-        <%= render 'downloads_generated' if document.download_types.present? %>
+        <%= render 'downloads_dropdown' %>
       </div>
     </div>
   <% end %>
