@@ -2,8 +2,8 @@
 
 <% if document_downloadable? %>
   <% if document.direct_download.present? || document.hgl_download.present? || document.iiif_download.present? || document.download_types.present? %>
-    <div class="dropdown">
-      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <div class="dropdown downloads">
+      <button type="button" class="btn btn-primary dropdown-toggle sidebar-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Download
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

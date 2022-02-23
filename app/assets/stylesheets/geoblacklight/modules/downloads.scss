@@ -1,3 +1,12 @@
+// Styling for Download dropdown button
+.sidebar-btn {
+  width: 100%;
+
+  + .dropdown-menu {
+    width: 100%;
+  }
+}
+
 // Styling for the Authentication card
 .authentication {
   @include sidebar-children;
@@ -18,8 +27,7 @@
 }
 
 // This section could be eliminated if we update the Authentication card
-// to follow the pattern of Dowloads and Exports (put the button in a
-// list-group rather than the card header).
+// by putting the button in a list-group rather than the card header.
 .authentication {
   .card-header {
     background-color: inherit;
