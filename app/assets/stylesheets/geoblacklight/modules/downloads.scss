@@ -1,4 +1,4 @@
-// Styling for Download dropdown button
+// Styling for Download and Web services buttons
 .sidebar-btn {
   width: 100%;
 
@@ -7,7 +7,8 @@
   }
 }
 
-.downloads-sidebar {
+/* match bottom margin on tools card */
+.downloads-sidebar, .web-services-sidebar {
   margin-bottom: 20px;
 }
 
