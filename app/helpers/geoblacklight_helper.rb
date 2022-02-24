@@ -53,7 +53,7 @@ module GeoblacklightHelper
 
   def download_link_generated(download_type, document)
     link_to(
-      t('geoblacklight.download.export_link', download_format: proper_case_format(download_type)),
+      t('geoblacklight.download.export_link', download_format: export_format_label(download_type)),
       '',
       data: {
         download_path: download_path(document.id, type: download_type),
@@ -89,6 +89,11 @@ module GeoblacklightHelper
   #
   def proper_case_format(format)
     t("geoblacklight.formats.#{format.to_s.parameterize(separator: '_')}")
+  end
+
+  # Format labels are customized for exports - look up the appropriate key.
+  def export_format_label(format)
+    t("geoblacklight.download.export_#{format.to_s.parameterize(separator: '_')}_link")
   end
 
   ##
