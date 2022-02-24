@@ -39,7 +39,7 @@
     "dct_references_s": "{\"http://schema.org/url\":\"https://catalog.princeton.edu/catalog/99125413918506421\",\"http://schema.org/thumbnailUrl\":\"https://figgy-staging.princeton.edu/downloads/6b55d939-7188-4bce-9550-0ac535441f22/file/9042b887-da2e-4aa9-9ca5-d3ba77f440c4\",\"http://iiif.io/api/image\":\"https://iiif-cloud-staging.princeton.edu/iiif/2/05%2F71%2F04%2F0571046f9c7149a3b950899323f70788%2Fintermediate_file/info.json\",\"http://iiif.io/api/presentation#manifest\":\"https://figgy-staging.princeton.edu/concern/scanned_maps/2a91d82c-541c-426c-b787-cc62afe8f248/manifest\",\"http://www.opengis.net/def/serviceType/ogc/wmts\":\"https://map-tiles-staging.princeton.edu/mosaicjson/WMTSCapabilities.xml?id=2a91d82c541c426cb787cc62afe8f248\"}",
     "gbl_resourceClass_sm": [
         "Maps",
-        "Web Services"
+        "Web services"
     ],
     "gbl_resourceType_sm": [
         "Military maps",
