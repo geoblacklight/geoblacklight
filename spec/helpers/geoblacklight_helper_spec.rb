@@ -97,7 +97,10 @@ describe GeoblacklightHelper, type: :helper do
     end
 
     it 'generates a link to download the JPG file from the IIIF server' do
-      expect(download_link_generated(download_type, document)).to eq '<a data-download-path="/download/test-id?type=SHAPEFILE" data-download="trigger" data-download-type="SHAPEFILE" data-download-id="test-id" href="">Export Shapefile</a>'
+      # Stub I18n to ensure the link can be customized via `export_` labels.
+      allow(helper).to receive(:t).and_call_original
+      allow(helper).to receive(:t).with('geoblacklight.download.export_shapefile_link').and_return('Shapefile Export Customization')
+      expect(helper.download_link_generated(download_type, document)).to eq '<a data-download-path="/download/test-id?type=SHAPEFILE" data-download="trigger" data-download-type="SHAPEFILE" data-download-id="test-id" href="">Export Shapefile Export Customization</a>'
     end
   end
 
