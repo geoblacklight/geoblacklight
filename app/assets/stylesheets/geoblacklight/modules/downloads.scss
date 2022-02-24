@@ -1,6 +1,17 @@
-// Common styling for the Downloads, Export, and Authentication cards
-.downloads,
-.card.exports,
+// Styling for Download dropdown button
+.sidebar-btn {
+  width: 100%;
+
+  + #downloads-collapse {
+    width: 100%;
+  }
+}
+
+.downloads-sidebar {
+  margin-bottom: 20px;
+}
+
+// Styling for the Authentication card
 .authentication {
   @include sidebar-children;
 
@@ -20,8 +31,7 @@
 }
 
 // This section could be eliminated if we update the Authentication card
-// to follow the pattern of Dowloads and Exports (put the button in a
-// list-group rather than the card header).
+// by putting the button in a list-group rather than the card header.
 .authentication {
   .card-header {
     background-color: inherit;
@@ -29,48 +39,6 @@
 
     a {
       @extend .btn-primary;
-    }
-  }
-}
-
-// Specific to the Export card (mostly because of the current external
-// label + button approach, which could be mostly eliminated by reworking
-// as suggested in https://github.com/sul-dlss/earthworks/issues/646)
-.card.exports {
-  .card-header {
-    .spinner-border { // if this is used, it probably should go in the card body rather than the card header
-      position: absolute;
-      right: 1rem;
-      top: 1rem;
-    }
-  }
-
-  .export {
-    text-align: center;
-
-    @include media-breakpoint-up(xl) {
-      text-align: left;
-    }
-
-    .export-label {
-      padding: 6px 6px 6px 0;
-
-      @include media-breakpoint-up(xl) {
-        display: inline-block;
-      }
-    }
-
-    .export-link-container {
-      @include media-breakpoint-up(xl) {
-        display: inline-block;
-        float: right;
-      }
-
-      a {
-        @include media-breakpoint-up(xl) {
-          width: inherit;
-        }
-      }
     }
   }
 }

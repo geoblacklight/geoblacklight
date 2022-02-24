@@ -1,28 +1,17 @@
 <% document ||= @document %>
 
 <% if document_downloadable? %>
-  <% if document.direct_download.present? || document.hgl_download.present? || document.iiif_download.present? %>
-    <div class="card downloads">
-      <div class="card-header">
-        <h2><%= t('geoblacklight.download.download').pluralize %></h2>
+  <% if document.direct_download.present? || document.hgl_download.present? || document.iiif_download.present? || document.download_types.present? %>
+    <div class="downloads-sidebar">
+      <%# the dropdown-toggle class gives us the little arrow %>
+      <button type="button" class="btn btn-primary dropdown-toggle sidebar-btn" id="downloads-button" data-toggle="collapse" data-target="#downloads-collapse" aria-expanded="false" aria-controls="downloads-collapse">
+        Download
+      </button>
+      <div class="collapse" id="downloads-collapse">
+        <div class="card card-body">
+          <%= render 'downloads_collapse' %>
+        </div>
       </div>
-
-      <ul class="list-group list-group-flush js-download-list">
-        <%= render 'downloads_primary' %>
-      </ul>
-    </div>
-  <% end %>
-
-  <% if document.download_types.present? %>
-    <div class="card exports">
-      <div class="card-header">
-
-        <h2><%= t('geoblacklight.download.export_formats') %></h2>
-      </div>
-
-      <ul class="list-group list-group-flush">
-        <%= render 'downloads_generated' %>
-      </ul>
     </div>
   <% end %>
 <% elsif document.restricted? && document.same_institution? %>
