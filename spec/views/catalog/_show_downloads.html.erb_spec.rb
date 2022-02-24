@@ -14,14 +14,14 @@ describe 'catalog/_show_downloads.html.erb', type: :view do
       allow(document).to receive(:download_types).and_return(shapefile: {})
     end
 
-    it 'renders the downloads dropdown partial' do
+    it 'renders the downloads collapse partial' do
       expect(view).to receive(:document_downloadable?).and_return(true)
 
-      stub_template 'catalog/_downloads_dropdown.html.erb' => 'stubbed_downloads_dropdown'
+      stub_template 'catalog/_downloads_collapse.html.erb' => 'stubbed_downloads_collapse'
 
       render
 
-      expect(rendered).to have_content 'stubbed_downloads_dropdown'
+      expect(rendered).to have_content 'stubbed_downloads_collapse'
     end
   end
 

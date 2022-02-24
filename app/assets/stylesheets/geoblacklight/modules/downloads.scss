@@ -2,9 +2,13 @@
 .sidebar-btn {
   width: 100%;
 
-  + .dropdown-menu {
+  + #downloads-collapse {
     width: 100%;
   }
+}
+
+.downloads-sidebar {
+  margin-bottom: 20px;
 }
 
 // Styling for the Authentication card
