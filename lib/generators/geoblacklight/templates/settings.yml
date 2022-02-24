@@ -59,7 +59,7 @@ FIELDS:
   :RIGHTS_HOLDER: 'dct_rightsHolder_sm'
   :SOURCE: 'dct_source_sm'
   :SPATIAL_COVERAGE: 'dct_spatial_sm'
-  :SPATIAL_EXTENT: 'locn_geometry'
+  :GEOMETRY: 'locn_geometry'
   :SUBJECT: 'dct_subject_sm'
   :SUPPRESSED: 'gbl_suppressed_b'
   :TEMPORAL_COVERAGE: 'dct_temporal_sm'

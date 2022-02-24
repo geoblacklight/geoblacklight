@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 describe Geoblacklight::ShapefileDownload do
-  let(:document) { SolrDocument.new(Settings.FIELDS.ID => 'test', solr_wfs_url: 'http://www.example.com/wfs', Settings.FIELDS.WXS_IDENTIFIER => 'stanford-test', Settings.FIELDS.SPATIAL_EXTENT => 'ENVELOPE(-180, 180, 90, -90)') }
+  let(:document) { SolrDocument.new(Settings.FIELDS.ID => 'test', solr_wfs_url: 'http://www.example.com/wfs', Settings.FIELDS.WXS_IDENTIFIER => 'stanford-test', Settings.FIELDS.GEOMETRY => 'ENVELOPE(-180, 180, 90, -90)') }
   let(:download) { described_class.new(document) }
   describe '#initialize' do
     it 'initializes as a ShapefileDownload object with specific options' do

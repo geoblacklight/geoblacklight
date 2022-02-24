@@ -57,7 +57,7 @@ FIELDS:
   #:RIGHTS_HOLDER: 'dct_rightsHolder_sm'
   :SOURCE: 'dc_source_sm'
   :SPATIAL_COVERAGE: 'dct_spatial_sm'
-  :SPATIAL_EXTENT: 'solr_geom'
+  :GEOMETRY: 'solr_geom'
   :SUBJECT: 'dc_subject_sm'
   :SUPPRESSED: 'suppressed_b'
   :TEMPORAL_COVERAGE: 'dct_temporal_sm'
