@@ -72,7 +72,7 @@ module Geoblacklight
     end
 
     def geom_field
-      fetch(Settings.FIELDS.SPATIAL_EXTENT, '')
+      fetch(Settings.FIELDS.GEOMETRY, '')
     end
 
     def geometry
