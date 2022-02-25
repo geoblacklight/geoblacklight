@@ -1,6 +1,9 @@
 <%= render :partial => 'show_tools' %>
 
+<div class="sidebar-buttons">
+<%= render :partial => "show_web_services" %>
 <%= render :partial => "show_downloads" %>
+</div>
 
 <% unless @document.more_like_this.empty? %>
   <div class="card">

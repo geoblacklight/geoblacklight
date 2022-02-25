@@ -1,0 +1,11 @@
+<% document ||= @document %>
+
+<% if (Settings.WEBSERVICES_SHOWN & document.references.refs.map(&:type).map(&:to_s)).any? %>
+  <div class="web-services-sidebar">
+    <%= link_to "Web services",
+      web_services_solr_document_path(id: document.id),
+      class: ['btn', 'btn-primary', 'sidebar-btn'],
+      id: "web-services-button",
+      data: {blacklight_modal: "trigger"} %>
+  </div>
+<% end %>
