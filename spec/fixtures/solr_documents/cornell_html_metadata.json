@@ -53,7 +53,7 @@
   "dct_format_s": "Shapefile",
   "gbl_fileSize_s": "0.07 MB",
   "gbl_wxsIdentifier_s": "cugir007741",
-  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://schema.org/downloadUrl:https://s3.amazonaws.com/cugir-data/00/77/41/cugir-007741.zip\",\"http://www.opengis.net/cat/csw/csdgm\":\"https://s3.amazonaws.com/cugir-data/00/77/41/fgdc.xml\",\"http://www.w3.org/1999/xhtml\":\"https://s3.amazonaws.com/cugir-data/00/77/41/fgdc.html\",\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"https://cugir.library.cornell.edu/geoserver/cugir/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://cugir.library.cornell.edu/geoserver/cugir/wms\"}",
+  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://s3.amazonaws.com/cugir-data/00/77/41/cugir-007741.zip\",\"http://www.opengis.net/cat/csw/csdgm\":\"https://s3.amazonaws.com/cugir-data/00/77/41/fgdc.xml\",\"http://www.w3.org/1999/xhtml\":\"https://s3.amazonaws.com/cugir-data/00/77/41/fgdc.html\",\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"https://cugir.library.cornell.edu/geoserver/cugir/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://cugir.library.cornell.edu/geoserver/cugir/wms\"}",
   "id": "cugir-007741",
   "dct_identifier_sm": [
     "https://cugir.library.cornell.edu/catalog/cugir-007741"
