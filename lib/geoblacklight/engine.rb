@@ -13,8 +13,10 @@ module Geoblacklight
     # GeoblacklightHelper is needed by all helpers, so we inject it
     # into action view base here.
     initializer 'geoblacklight.helpers' do
-      ActionView::Base.send :include, GeoblacklightHelper
-      ActionView::Base.send :include, CartoHelper
+      config.after_initialize do
+        ActionView::Base.send :include, GeoblacklightHelper
+        ActionView::Base.send :include, CartoHelper
+      end
     end
 
     config.to_prepare do

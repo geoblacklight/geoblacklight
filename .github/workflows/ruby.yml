@@ -33,6 +33,11 @@ jobs:
             rails_version: 6.1
             bundler_version: 2.1.1
             faraday_version: '~> 1.0'
+          - ruby_version: '3.0'
+            rails_version: '7.0.2.2'
+            bundler_version: 2.1.1
+            faraday_version: '>= 2'
+
     name: test ruby ${{ matrix.ruby_version }} / rails ${{ matrix.rails_version }} / faraday ${{ matrix.faraday_version }}
     steps:
     - uses: actions/checkout@v2
