@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
   spec.required_rubygems_version = '>= 2.5.2'
 
-  spec.add_dependency 'rails', '>= 5.2.4', '< 6.2'
+  spec.add_dependency 'rails', '>= 5.2.4', '< 7.1'
   spec.add_dependency 'blacklight', '~> 7.8'
   spec.add_dependency 'config'
   spec.add_dependency 'faraday', '~> 1.0'
