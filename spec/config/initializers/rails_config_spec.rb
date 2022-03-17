@@ -10,6 +10,6 @@ describe 'Config' do
   end
 
   it 'Loads new v3.4 Settings.FIELDS defaults' do
-    expect(Settings.HOMEPAGE_MAP_GEOM).to eq nil
+    expect(Settings.HOMEPAGE_MAP_GEOM).to be_nil
   end
 end
