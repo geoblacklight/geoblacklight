@@ -73,6 +73,7 @@ en:
       descendant: 'Derived Datasets'
       member_of: 'Belongs to collection...'
       part_of: 'Is part of...'
+      part_of_descendants: 'Has part...'
       relation: 'Related Records'
       replaces: 'Item replaces...'
       replaced_by: 'Item replaced by...'

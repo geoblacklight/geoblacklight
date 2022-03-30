@@ -109,7 +109,6 @@ class CatalogController < ApplicationController
     config.add_facet_field Settings.FIELDS.PUBLISHER, :label => 'Publisher', :limit => 8
     config.add_facet_field Settings.FIELDS.PROVIDER, label: 'Provider', limit: 8, item_component: Geoblacklight::IconFacetItemComponent
     config.add_facet_field Settings.FIELDS.GEOREFERENCED, :label => 'Georeferenced', :limit => 3
-    config.add_facet_field Settings.FIELDS.SOURCE, :label => 'Collection', :limit => 8, :show => false
 
     # GEOBLACKLIGHT APPLICATION FACETS
 
@@ -119,6 +118,18 @@ class CatalogController < ApplicationController
     # filter_class         - Defines how to add/remove facet from query
     # label                - Defines the label used in contstraints container
     config.add_facet_field Settings.FIELDS.GEOMETRY, item_presenter: Geoblacklight::BboxItemPresenter, filter_class: Geoblacklight::BboxFilterField, filter_query_builder: Geoblacklight::BboxFilterQuery, within_boost: Settings.BBOX_WITHIN_BOOST, overlap_boost: Settings.OVERLAP_RATIO_BOOST, overlap_field: Settings.FIELDS.OVERLAP_FIELD, label: 'Bounding Box'
+
+    # Item Relationship Facets
+    # * Not displayed to end user (show: false)
+    # * Must be present for relationship "Browse all 4 records" links to work
+    # * Label value becomes the search contraint filter name
+    config.add_facet_field Settings.FIELDS.MEMBER_OF, label: 'Member Of', show: false
+    config.add_facet_field Settings.FIELDS.IS_PART_OF, label: 'Is Part Of', show: false
+    config.add_facet_field Settings.FIELDS.RELATION, label: 'Related', show: false
+    config.add_facet_field Settings.FIELDS.REPLACES, label: 'Replaces', show: false
+    config.add_facet_field Settings.FIELDS.IS_REPLACED_BY, label: 'Is Replaced By', show: false
+    config.add_facet_field Settings.FIELDS.SOURCE, label: 'Source', show: false
+    config.add_facet_field Settings.FIELDS.VERSION, label: 'Is Version Of', show: false
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
@@ -150,7 +161,7 @@ class CatalogController < ApplicationController
     # DEFAULT FIELDS
     # The following fields all feature string values. If there is a value present in the metadata, they fields will show up on the item show page.
     # The labels and order can be customed. Comment out fields to hide them.
-    
+
     config.add_show_field Settings.FIELDS.ALTERNATIVE_TITLE, label: 'Alternative Title', itemprop: 'alt_title'
     config.add_show_field Settings.FIELDS.DESCRIPTION, label: 'Description', itemprop: 'description', helper_method: :render_value_as_truncate_abstract
     config.add_show_field Settings.FIELDS.CREATOR, label: 'Creator', itemprop: 'creator'
@@ -169,7 +180,7 @@ class CatalogController < ApplicationController
     config.add_show_field Settings.FIELDS.ACCESS_RIGHTS, label: 'Access Rights', itemprop: 'access_rights'
     config.add_show_field Settings.FIELDS.FORMAT, label: 'Format', itemprop: 'format'
     config.add_show_field Settings.FIELDS.FILE_SIZE, label: 'File Size', itemprop: 'file_size'
-    config.add_show_field Settings.FIELDS.GEOREFERENCED, label: 'Georeferenced', itemprop: 'georeferenced'    
+    config.add_show_field Settings.FIELDS.GEOREFERENCED, label: 'Georeferenced', itemprop: 'georeferenced'
     config.add_show_field(
       Settings.FIELDS.REFERENCES,
       label: 'More details at',
@@ -181,23 +192,23 @@ class CatalogController < ApplicationController
     # ADDITIONAL FIELDS
     # The following fields are not user friendly and are not set to appear on the item show page. They contain non-literal values, codes, URIs, or are otherwise designed to power features in the interface.
     # These values might need a translations to be readable by users.
-    
+
     # config.add_show_field Settings.FIELDS.LANGUAGE, label: 'Language', itemprop: 'language'
     # config.add_show_field Settings.FIELDS.KEYWORD, label: 'Keyword(s)', itemprop: 'keyword'
-    
+
     # config.add_show_field Settings.FIELDS.INDEX_YEAR, label: 'Year', itemprop: 'year'
     # config.add_show_field Settings.FIELDS.DATE_RANGE, label: 'Date Range', itemprop: 'date_range'
-    
+
     # config.add_show_field Settings.FIELDS.CENTROID, label: 'Centroid', itemprop: 'centroid'
     # config.add_show_field Settings.FIELDS.OVERLAP_FIELD, label: 'Overlap BBox', itemprop: 'overlap_field'
-    
+
     # config.add_show_field Settings.FIELDS.RELATION, label: 'Relation', itemprop: 'relation'
     # config.add_show_field Settings.FIELDS.MEMBER_OF, label: 'Member Of', itemprop: 'member_of'
     # config.add_show_field Settings.FIELDS.IS_PART_OF, label: 'Is Part Of', itemprop: 'is_part_of'
     # config.add_show_field Settings.FIELDS.VERSION, label: 'Version', itemprop: 'version'
     # config.add_show_field Settings.FIELDS.REPLACES, label: 'Replaces', itemprop: 'replaces'
     # config.add_show_field Settings.FIELDS.IS_REPLACED_BY, label: 'Is Replaced By', itemprop: 'is_replaced_by'
-    
+
     # config.add_show_field Settings.FIELDS.WXS_IDENTIFIER, label: 'Web Service Layer', itemprop: 'wxs_identifier'
     # config.add_show_field Settings.FIELDS.ID, label: 'ID', itemprop: 'id'
     # config.add_show_field Settings.FIELDS.IDENTIFIER, label: 'Identifier', itemprop: 'identifier'
@@ -205,8 +216,8 @@ class CatalogController < ApplicationController
     # config.add_show_field Settings.FIELDS.MODIFIED, label: 'Date Modified', itemprop: 'modified'
     # config.add_show_field Settings.FIELDS.METADATA_VERSION, label: 'Metadata Version', itemprop: 'metadata_version'
     # config.add_show_field Settings.FIELDS.SUPPRESSED, label: 'Suppressed', itemprop: 'suppresed'
-    
-    
+
+
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
     #

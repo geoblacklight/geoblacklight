@@ -30,4 +30,15 @@ feature 'Display related documents' do
     visit solr_document_path('harvard-g7064-s2-1834-k3')
     expect(page).to have_no_css('.card.relations')
   end
+
+  scenario 'Relationship browse link returns relationship-scoped results', js: true do
+    # Wabash Topo parent record
+    visit solr_document_path('88cc9b19-3294-4da9-9edd-775c81fb1c59')
+
+    expect(page).to have_content('Has part...')
+    expect(page).to have_link('Browse all 4 records...')
+    click_link('Browse all 4 records...')
+
+    expect(page).not_to have_content('No results found for your search')
+  end
 end
