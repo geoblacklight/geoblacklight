@@ -12,8 +12,13 @@ module Geoblacklight
     # @param [Blacklight::Solr::Request]
     # @return [Blacklight::Solr::Request]
     def hide_suppressed_records(solr_params)
-      # Show child records if searching for a specific source parent
-      return unless blacklight_params.fetch(:f, {})[Settings.FIELDS.SOURCE.to_sym].nil?
+      # Show suppressed records when searching relationships
+      return if blacklight_params.fetch(:f,
+                                        {}).keys.any? do |field|
+                  Settings.RELATIONSHIPS_SHOWN.map do |_key, value|
+                    value.field
+                  end.include?(field)
+                end
 
       # Do not suppress action_documents method calls for individual documents
       # ex. CatalogController#web_services (exportable views)

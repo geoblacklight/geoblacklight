@@ -107,11 +107,16 @@ RELATIONSHIPS_SHOWN:
     query_type: ancestors
     icon: nil
     label: geoblacklight.relations.member_of
-  PART_OF:
+  PART_OF_ANCESTORS:
     field: dct_isPartOf_sm
     query_type: ancestors
     icon: nil
-    label: geoblacklight.relations.part_of
+    label: geoblacklight.relations.part_of_ancestors
+  PART_OF_DESCENDANTS:
+    field: dct_isPartOf_sm
+    query_type: descendants
+    icon: child-item
+    label: geoblacklight.relations.part_of_descendants
   RELATION:
     field: dct_relation_sm
     query_type: ancestors
