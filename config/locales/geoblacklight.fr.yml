@@ -1,0 +1,196 @@
+en:
+  geoblacklight:
+    solr_facets:
+      authors: 'Auteur(s)'
+    bbox_label: 'Cadre englobant'
+    citation:
+      retrieved_from: 'Récupéré de %{document_url}'
+    download:
+      download: 'Télécharger'
+      download_link: 'Original %{download_format}'
+      success: 'Votre fichier %{title} est prêt à être téléchargé'
+      hgl_success: 'Vous devriez recevoir un message par courriel lorsque votre téléchargement sera prêt .'
+      hgl_request: 'Demander une couche'
+      hgl_request_button: 'Demander'
+      hgl_close: 'Fermer'
+      hgl_instructions: 'Veuillez inscrire votre adresse courriel. vous recevrez un lien de téléchargement de la couche lorsqu’elle sera prête.' ## nouvelle variable
+      hgl_email: 'Courriel'
+      error: 'Désolé, le fichier demandé ne peut pas être téléchargé'
+      error_with_url: 'Désolé, le fichier demandé ne peut pas être téléchargé. Essayez de le télécharger directement de : %{link}'
+      export_formats: 'Formats d’exportation'
+      export_link: 'Exporter'
+      export_shapefile_link: 'Shapefile'
+      export_kmz_link: 'KMZ'
+      export_geojson_link: 'GeoJSON'
+    home:
+      headline: 'Explorer et découvrir...'
+      search_heading: "Téléchargez les cartes et les données qu’il vous faut"
+      category_heading: 'Chercher par ...'
+      map_heading: 'Cherchez par lieu'
+      institution: 'Établissement'
+      data_type: 'Type de données'
+      placename: 'Nom de lieu'
+      subject: 'Sujet'
+      language: 'FR'
+      search_here: 'Faire une recherche ici'
+      left_quote: '« '
+      right_quote: ' »'
+      use_map: 'Pour utiliser la recherche cartographique :'
+      move_map: "Déplacez la carte pour afficher votre région d’intérêt. Vous pouvez également tenir la touche Majuscule enfoncée et cliquer pour encadrer une région sur la carte afin de l’agrandir."
+      click: 'Cliquez sur'
+      results: 'pour voir les résultats'
+      colon: ' : '
+      version: 'GeoBlacklight version %{version}'
+    facets:
+      author: "Auteur"
+      publisher: "Éditeur"
+      place: 'Lieu'
+      collection: 'Collection'
+      access: 'Accès'
+      format: 'Format'
+      institution: 'Établissement'
+      data_type: 'Type de données'
+      subject: 'Sujet'
+    tools:
+      login_to_view: 'Connectez-vous pour afficher et télécharger'
+      open_carto: 'Ouvrir dans Carto'
+      open_arcgis: 'Ouvrir dans ArcGIS Online'
+    formats:
+      arcgrid: 'ArcGRID'
+      geojson: 'GeoJSON'
+      geotiff: 'GeoTIFF'
+      kmz: 'KMZ'
+      shapefile: 'Shapefile'
+      jpg: 'JPG'
+      esri_geodatabase: 'ESRI Geodatabase'
+      sqlite_database: 'SQLite Database'
+    map:
+      label: 'Zoomable map'
+    references:
+      wms: 'Service de carte web (WMS)'
+      wms_abv: 'WMS'
+      wms_label: 'layers'
+      wfs: 'Service de caractéristiques web  (WFS)'
+      wfs_abv: 'WFS'
+      wfs_label: 'Noms de type'
+      iiif: 'International Image Interoperability Framework (IIIF)'
+      iso19139: 'ISO 19139'
+      mods: 'MODS'
+      fgdc: 'FGDC'
+      html: 'HTML'
+      feature_layer: 'Couche de caractéristique ArcGIS'
+      tiled_map_layer: 'Couche de carte en carreaux ArcGIS'
+      dynamic_map_layer: 'Couche de carte dynamique ArcGIS'
+      image_map_layer: 'Couche de carte imagée ArcGIS'
+      data_dictionary: 'Métadonnées ISO 19139'
+      services: 'Services web'
+      services_close: 'Fermer'
+      tms: 'Tile Map Service'
+    relations:
+      ancestor: 'Ensembles de données sources'
+      descendant: 'Ensembles de données dérivés'
+      browse_all: "Naviguer tous les enregistrements %{count}..."
+    metadata:
+      toggle_summary: 'Toggle summary'
+      view_metadata: 'Afficher les métadonnées'
+      more_details: 'Plus de détails à'
+      metadata_error: "L’affichage de métadonnées pour le schéma choisi n’est pas disponible"
+      metadata_trace: "Veuillez choisir un autre affichage de métadonnées. Autrement, essayez de télécharger le fichier ou communiquer avec l’établissement titulaire."
+    show:
+      attribute: 'Attribute'
+      value: 'Value'
+      click_map: 'Click on map to inspect values'
+    help_text:
+      viewer_protocol:
+        dynamic_map_layer:
+          title: Couche de carte dynamique ArcGIS
+          content: Une couche de carte dynamique ArcGIS représente les données vectorielles (points, lignes et polygones). Les couches d’images de la carte sont des carreaux d’image à rendu dynamique.
+        feature_layer:
+          title: Couche de caractéristique ArcGIS
+          content: Une couche de caractéristique ArcGIS affiche les données vectorielles (points, lignes et polygones) individuellement ou par caractéristiques recueillies.
+        iiif:
+          title: Service IIIF
+          content: L’API du service web de l’International Image Interoperability Framework (IIIF) affiche une image d’un serveur. Cette image peut être réduite ou agrandie.
+        iiif_manifest:
+          title: IIIF Service
+          content: L’API du service web de l’International Image Interoperability Framework (IIIF) affiche une image d’un serveur. Cette image peut être réduite ou agrandie.
+        image_map_layer:
+          title: Couche de carte imagée ArcGIS
+          content: Une ouche de carte imagée ArcGIS affiche les données de trame (une grille de cellules utilisées pour stocker des images).
+        index_map:
+          title: Carte d’index
+          content: Une carte d’index est une "table des matières" qui permet aux utilisateurs de sélectionner une carte ou un élément spécifique dans un ensemble plus grand et de s’y rendre pour l’affichag$
+        oembed:
+          title: Contenu intégré
+          content: Ce contenu est intégré par l’intermédiaire d’un visualiseur indépendant.
+        tiled_map_layer:
+          title: Couche de carte en carreaux ArcGIS
+          content: Un service de couche de carte en carreaux ArcGIS affiche un ensemble de carreaux accessible par le web et hébergé sur un serveur.
+        tms:
+          title: Couche de carte
+          content: Un service de couche de carte affiche un ensemble de carreaux accessible par le web et hébergé sur un serveur.
+        wms:
+          title: Service de carte web (WMS)
+          content: Un Service de carte web affiche un ensemble de données géospatial sous forme d’images cartographiques.
+  blacklight:
+    icon:
+      arrow-circle-down: Flèche dans un cercle pointée vers le bas
+      baruch-cuny: Collège Baruch
+      berkeley: Université de la California, Berkeley
+      book: Livre (icon)
+      bookmark: Signet (icon)
+      cd-rom: CD-Rom
+      chicago: Université de Chicago
+      columbia: Université Columbia
+      cornell: Université Cornell
+      dvd-rom: DVD-Rom
+      email: Courriel (icon)
+      esri-globe: Esri Global
+      geodisy: Geodisy (logo)
+      globe: Globe (icon)
+      harvard: Université Harvard
+      home: Accueil (icon)
+      illinois: Université de l’Illinois
+      image: Image (icon)
+      indiana: Université de l’Indiana
+      iowa: Université de l’Iowa
+      leaf: feuille (icon)
+      lewis-clark: Lewis & Clark
+      line: Ligne (icon)
+      map-marker: Marqueur cartographique (icon)
+      map: Carte (icon)
+      maryland: Université du Maryland
+      massgis: MassGIS
+      metadata: Métadonnées (icon)
+      michigan-state: Université de l’État du Michigan
+      michigan: Université du Michigan
+      minnesota: Université du Minnesota
+      mit: Institut de technologie du Massachusetts
+      mixed: Mixte (icon)
+      multilinestring: Chaîne multiligne
+      multipoint: Multipoint
+      multipolygon: Multipolygone
+      nyu: Université de New York
+      ohio-state: Université de l’État de l’Ohio
+      pagelines-brands: Marques de lignes de page (icon)
+      paper-map: Carte papier (icon)
+      penn-state: Université de l’État de la Pennsylvanie
+      point: Point (icon)
+      polygon: Polygone (icon)
+      polyline: Polyligne (icon)
+      princeton: Université Princeton
+      public: Contenu public (icon)
+      purdue: Université Purdue
+      raster: Trame (icon)
+      restricted: Contenu restreint
+      sms: SMS
+      stanford: Université Stanford
+      table: Tableau (icon)
+      tags: Onglets (icon)
+      texas: Université du Texas à Austin
+      tufts: Université Tufts
+      ubc: Université de la Colombie-Britannique (logo)
+      ucla: Université de la Californie à Los Angeles
+      uva: Université de la Virginie
+      web_services: Services Web (icon)
+      wisconsin: Université du Wisconsin
