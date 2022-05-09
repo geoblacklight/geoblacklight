@@ -9,18 +9,18 @@ RSpec.describe Geoblacklight::BboxFilterQuery do
   let(:solr_params) { {} }
 
   # Search State
-  let(:search_state) { Blacklight::SearchState.new(params.with_indifferent_access, {}) }
+  let(:search_state) { Blacklight::SearchState.new(params.with_indifferent_access, blacklight_config) }
 
   let(:params) do
     { bbox: '-180 -80 120 80' }
   end
 
-  let(:facet_config) do
-    Blacklight::Configuration::FacetField.new(
-      key: 'bbox',
-      filter_class: Geoblacklight::BboxFilterField
-    )
+  let(:blacklight_config) do
+    Blacklight::Configuration.new.configure do |config|
+      config.add_facet_field 'bbox', filter_class: Geoblacklight::BboxFilterField
+    end
   end
+  let(:facet_config) { blacklight_config.facet_fields['bbox'] }
 
   # Filter
   let(:filter) { Geoblacklight::BboxFilterField.new(facet_config, search_state) }
