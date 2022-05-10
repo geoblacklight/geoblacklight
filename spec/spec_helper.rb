@@ -4,8 +4,8 @@ ENV['RAILS_ENV'] ||= 'test'
 require 'simplecov'
 SimpleCov.formatter = SimpleCov::Formatter::HTMLFormatter
 
-if ENV['CIRCLE_ARTIFACTS']
-  dir = File.join(ENV['CIRCLE_ARTIFACTS'], 'coverage')
+if ENV.fetch('CIRCLE_ARTIFACTS', false)
+  dir = File.join(ENV.fetch('CIRCLE_ARTIFACTS'), 'coverage')
   SimpleCov.coverage_dir(dir)
 end
 

@@ -4,7 +4,7 @@ require 'spec_helper'
 describe Geoblacklight::WmsLayer do
   let(:wms_layer) { described_class.new(params) }
   let(:rails_4_params) { { 'URL' => 'http://www.example.com/', 'X' => '277' } }
-  let(:rails_5_params) { instance_double('ActionController::Parameters') }
+  let(:rails_5_params) { instance_double(ActionController::Parameters) }
 
   before do
     allow(rails_5_params).to receive(:to_h).and_return('URL' => 'http://www.example.com/', 'X' => '277')

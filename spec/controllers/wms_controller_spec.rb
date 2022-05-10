@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 describe WmsController, type: :controller do
-  let(:wms_layer) { instance_double('Geoblacklight::WmsLayer') }
+  let(:wms_layer) { instance_double(Geoblacklight::WmsLayer) }
   let(:feature_info) { { values: ['fid', 'layer:example'] } }
   let(:params) do
     { format: 'json', 'URL' => 'http://www.example.com/', 'LAYERS' => 'layer:example',
