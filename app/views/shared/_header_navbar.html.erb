@@ -10,11 +10,16 @@
     </div>
   </div>
 </nav>
-
+<%- renderable_fields = blacklight_config.search_fields.values.collect { |field_def| [label_for_search_field(field_def.key), field_def.key] if should_render_field?(field_def)}.compact %>
 <% if controller_name == 'catalog' && (has_search_parameters? || params[:action] == 'show') %>
   <div class="navbar-search navbar navbar-light bg-faded" role="navigation">
     <div class="<%= container_classes %> stuff">
-      <%= render_search_bar  %>
+      <%= render((blacklight_config&.view_config(document_index_view_type)&.search_bar_component ||Blacklight::SearchBarComponent).new(
+          url: search_action_url,
+          advanced_search_url: search_action_url(action: 'advanced_search'),
+          search_fields: renderable_fields,
+          params: search_state.params_for_search.except(:qt),
+          autocomplete_path: search_action_path(action: :suggest)))  %>
     </div>
   </div>
 <% else %>
@@ -28,7 +33,12 @@
     <div class='row justify-content-md-center'>
       <div class='col-md-6 col-sm-12'>
         <div class='navbar-search'>
-          <%= render_search_bar %>
+          <%= render((blacklight_config&.view_config(document_index_view_type)&.search_bar_component ||Blacklight::SearchBarComponent).new(
+          url: search_action_url,
+          advanced_search_url: search_action_url(action: 'advanced_search'),
+          search_fields: renderable_fields,
+          params: search_state.params_for_search.except(:qt),
+          autocomplete_path: search_action_path(action: :suggest))) %>
         </div>
       </div>
     </div>
