@@ -18,13 +18,13 @@ describe Geoblacklight::SuppressedRecordsSearchBehavior do
 
   describe '#hide_suppressed_records' do
     it 'hides/filters suppressed records' do
-      expect(searcher.hide_suppressed_records(solr_params)).to include('-gbl_suppressed_b: true')
+      expect(searcher.hide_suppressed_records(solr_params)).to include('-suppressed_b: true')
     end
   end
 
   context 'when document action call like CatalogController#web_services' do
     it 'does not hide/filter suppressed records' do
-      solr_params[:q] = "{!lucene}#{Settings.FIELDS.ID}:"
+      solr_params[:q] = "{!lucene}#{Settings.FIELDS.UNIQUE_KEY}:"
       expect(searcher.hide_suppressed_records(solr_params)).to be_nil
     end
   end
