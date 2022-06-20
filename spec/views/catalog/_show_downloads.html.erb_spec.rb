@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe 'catalog/_show_downloads.html.erb', type: :view do
+describe 'catalog/_show_downloads', type: :view do
   context 'document is downloadable' do
     let(:document) { instance_double(SolrDocument) }
     before do
