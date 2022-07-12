@@ -5,7 +5,7 @@ describe WmsController, type: :controller do
   let(:wms_layer) { instance_double(Geoblacklight::WmsLayer) }
   let(:feature_info) { { values: ['fid', 'layer:example'] } }
   let(:params) do
-    { format: 'json', 'URL' => 'http://www.example.com/', 'LAYERS' => 'layer:example',
+    { 'format' => 'json', 'URL' => 'http://www.example.com/', 'LAYERS' => 'layer:example',
       'BBOX' => '-74, 40, -68, 43', 'WIDTH' => '500', 'HEIGHT' => '400',
       'QUERY_LAYERS' => 'layer:example', 'X' => '277', 'Y' => '195' }
   end
@@ -27,8 +27,6 @@ describe WmsController, type: :controller do
 
     it 'returns only permitted params' do
       get :handle, params: params
-      expect(wms_params.to_h).not_to eq(params)
-      params.delete(:format)
       expect(wms_params.to_h).to eq(params)
     end
   end

@@ -22,6 +22,25 @@ OVERLAP_RATIO_BOOST: '2'
 HOMEPAGE_MAP_GEOM: null
 # HOMEPAGE_MAP_GEOM: '{"type":"Polygon","coordinates":[[[-73.58,42.93],[-73.58,41.20],[-69.90,41.20],[-69.90,42.93]]]}'
 
+# Non-search-field GeoBlacklight application permitted params
+GBL_PARAMS:
+  - :bbox
+  - :email
+  - :file
+  - :format
+  - :id
+  - :logo
+  - :provider
+  - :type
+  - :BBOX
+  - :HEIGHT
+  - :LAYERS
+  - :QUERY_LAYERS
+  - :URL
+  - :WIDTH
+  - :X
+  - :Y
+
 # Solr field mappings
 FIELDS:
   :ACCESS_RIGHTS: 'dct_accessRights_s'

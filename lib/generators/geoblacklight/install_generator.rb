@@ -7,6 +7,23 @@ module Geoblacklight
 
     desc 'Install Geoblacklight'
 
+    def allow_geoblacklight_params
+      gbl_params = <<-"PARAMS"
+        before_action :allow_geoblacklight_params
+
+        def allow_geoblacklight_params
+          # Blacklight::Parameters will pass these to params.permit
+          blacklight_config.search_state_fields.append(Settings.GBL_PARAMS)
+        end
+      PARAMS
+
+      inject_into_file 'app/controllers/application_controller.rb', gbl_params, before: /^end/
+    end
+
+    def raise_unpermitted_params
+      inject_into_file 'config/environments/test.rb', "config.action_controller.action_on_unpermitted_parameters = :raise\n", before: /^end/
+    end
+
     def mount_geoblacklight_engine
       inject_into_file 'config/routes.rb', "mount Geoblacklight::Engine => 'geoblacklight'\n", before: /^end/
     end

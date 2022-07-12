@@ -11,6 +11,6 @@ class WmsController < ApplicationController
   private
 
   def wms_params
-    params.permit('URL', 'LAYERS', 'BBOX', 'WIDTH', 'HEIGHT', 'QUERY_LAYERS', 'X', 'Y')
+    params.permit(Settings.GBL_PARAMS)
   end
 end
