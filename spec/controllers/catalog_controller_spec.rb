@@ -5,7 +5,7 @@ describe CatalogController, type: :controller do
   describe '#web_services' do
     it 'returns a document based off an id' do
       get :web_services, params: { id: 'mit-f6rqs4ucovjk2' }
-      expect(response.status).to eq 200
+      expect(response).to have_http_status :ok
       expect(assigns(:documents)).not_to be_nil
     end
   end
@@ -13,14 +13,14 @@ describe CatalogController, type: :controller do
   describe '.default_solr_params' do
     it 'sets the number of rows returned by Solr to 10 and does not filter the results' do
       get :index
-      expect(response.status).to eq 200
+      expect(response).to have_http_status :ok
       expect(assigns(:response).docs).not_to be_empty
       expect(assigns(:response).docs.length).to eq 10
     end
 
     it 'sets the starting document index to 0' do
       get :index
-      expect(response.status).to eq 200
+      expect(response).to have_http_status :ok
       expect(assigns(:response).docs).not_to be_empty
       expect(assigns(:response).docs.first.id).to eq 'stanford-cg357zz0321'
     end
@@ -35,7 +35,7 @@ describe CatalogController, type: :controller do
       it 'sets the starting document index' do
         blacklight_config.default_solr_params = { start: 2, 'q.alt' => '*:*' }
         get :index
-        expect(response.status).to eq 200
+        expect(response).to have_http_status :ok
         expect(assigns(:response).docs).not_to be_empty
         expect(assigns(:response).docs.first.id).to eq 'mit-001145244'
       end
@@ -43,7 +43,7 @@ describe CatalogController, type: :controller do
       it 'filters using a default DisMax query when no query is provided by the client' do
         blacklight_config.default_solr_params = { start: 10, 'q.alt' => '{!dismax}id:nyu' }
         get :index
-        expect(response.status).to eq 200
+        expect(response).to have_http_status :ok
         expect(assigns(:response).docs).to be_empty
       end
     end
@@ -58,7 +58,7 @@ describe CatalogController, type: :controller do
       it 'alters the number of documents returned from Solr' do
         blacklight_config.default_per_page = 20
         get :index
-        expect(response.status).to eq 200
+        expect(response).to have_http_status :ok
         expect(assigns(:response).docs).not_to be_empty
         expect(assigns(:response).docs.length).to eq 20
       end
@@ -68,7 +68,7 @@ describe CatalogController, type: :controller do
   describe '#raw' do
     it 'returns a JSON representation of a Solr Document' do
       get :raw, params: { id: 'tufts-cambridgegrid100-04' }
-      expect(response.status).to eq 200
+      expect(response).to have_http_status :ok
       expect(response.body).not_to be_empty
       response_values = JSON.parse(response.body)
       expect(response_values).to include 'gbl_mdVersion_s' => 'Aardvark'

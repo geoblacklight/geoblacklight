@@ -70,6 +70,11 @@ RSpec/AnyInstance:
     - 'spec/models/concerns/geoblacklight/solr_document/finder_spec.rb'
     - 'spec/features/download_layer_spec.rb'
 
+RSpec/Capybara/SpecificMatcher:
+  Exclude:
+    - spec/components/geoblacklight/*
+    - spec/features/*
+
 RSpec/DescribeClass:
   Exclude:
     - spec/tasks/*

@@ -139,8 +139,8 @@ describe GeoblacklightHelper, type: :helper do
     context 'as a String' do
       let(:document_attributes) do
         {
-          value: 'This is a really long string that should get truncated when it gets rendered'\
-                 'in the index view to give a brief description of the contents of a particular document'\
+          value: 'This is a really long string that should get truncated when it gets rendered' \
+                 'in the index view to give a brief description of the contents of a particular document' \
                  'indexed into Solr'
         }
       end
@@ -154,8 +154,8 @@ describe GeoblacklightHelper, type: :helper do
     context 'as an Array' do
       let(:document_attributes) do
         {
-          value: ['This is a really long string that should get truncated when it gets rendered'\
-                  'in the index view to give a brief description of the contents of a particular document'\
+          value: ['This is a really long string that should get truncated when it gets rendered' \
+                  'in the index view to give a brief description of the contents of a particular document' \
                   'indexed into Solr']
         }
       end
