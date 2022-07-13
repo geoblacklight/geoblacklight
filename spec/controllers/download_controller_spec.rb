@@ -6,7 +6,7 @@ describe DownloadController, type: :controller do
     describe 'restricted file' do
       it 'redirects to login for authentication' do
         get :file, params: { id: 'stanford-cg357zz0321-shapefile', format: 'zip' }
-        expect(response.status).to eq 401
+        expect(response).to have_http_status :unauthorized
       end
     end
     describe 'public file' do
@@ -21,7 +21,7 @@ describe DownloadController, type: :controller do
     describe 'restricted file' do
       it 'redirects to login for authentication' do
         get :show, params: { id: 'stanford-cg357zz0321', format: 'json' }
-        expect(response.status).to eq 401
+        expect(response).to have_http_status :unauthorized
       end
     end
     describe 'public file' do
@@ -34,7 +34,7 @@ describe DownloadController, type: :controller do
       it 'initiates download creation' do
         allow(shapefile_download).to receive(:get).and_return('success')
         get :show, params: { id: 'mit-f6rqs4ucovjk2', type: 'shapefile' }
-        expect(response.status).to eq 200
+        expect(response).to have_http_status :ok
       end
     end
 
@@ -85,7 +85,7 @@ describe DownloadController, type: :controller do
       allow(Geoblacklight::HglDownload).to receive(:new).and_return(hgl_download)
 
       get :hgl, params: { id: 'harvard-g7064-s2-1834-k3', email: 'foo@example.com' }
-      expect(response.status).to eq 200
+      expect(response).to have_http_status :ok
     end
 
     it 'renders form' do

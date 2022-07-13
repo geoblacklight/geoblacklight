@@ -20,6 +20,7 @@ en:
       export_shapefile_link: 'Shapefile'
       export_kmz_link: 'KMZ'
       export_geojson_link: 'GeoJSON'
+      export_geotiff_link: 'GeoTIFF'
     home:
       headline: 'Explore and discover...'
       search_heading: 'Find the maps and data you need'
