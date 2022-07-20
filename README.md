@@ -8,7 +8,7 @@ of the Blacklight Solr-powered discovery interface and the
 multi-institutional [OpenGeoportal](http://opengeoportal.io/) and [OpenGeoMetadata](https://github.com/opengeometadata) federated metadata sharing
 communities. We're actively looking for community input and development partners.
 
-### [Installation](https://github.com/geoblacklight/geoblacklight/wiki/Installation)
+### Installation
 
 In order to create a new GeoBlacklight application from the template, run the following:
 
@@ -23,14 +23,14 @@ $ cd app-name
 $ rake geoblacklight:server
 ```
 
-Note that this method launches an application that does not have any fixture records to be examined. You may want to launch a test application that has fixture data loaded into a Solr core. If so, refer to the [development guide](https://github.com/geoblacklight/geoblacklight/wiki/Development). For further information on installing a blank app, see the [installation guide](https://github.com/geoblacklight/geoblacklight/wiki/Installation)
+Note that this method launches an application that does not have any fixture records to be examined. You may want to launch a test application that has fixture data loaded into a Solr core. If so, refer to the [development guide](https://geoblacklight.org/guides.html#getting-started-for-developers). For further information on installing and configuring a blank app, see the [installation guide](https://geoblacklight.org/guides.html#geoblacklight-quick-start)
 
 ### Contributing
 Interested in contributing to GeoBlacklight? Please see our [contributing](CONTRIBUTING.md) guide.
 
-### [Development](https://github.com/geoblacklight/geoblacklight/wiki/Development)
+### Development
 
-See the [development guide](https://github.com/geoblacklight/geoblacklight/wiki/Development) on our wiki for more information about setting up your development environment.
+See the [Getting Started for Developers guide](https://geoblacklight.org/guides.html#getting-started-for-developers) for more information about setting up your development environment.
 
 
-Please see the full documentation hosted on our [Wiki](https://github.com/geoblacklight/geoblacklight/wiki)
+For more information, see our [GeoBlacklight Guides](https://geoblacklight.org/guides.html).

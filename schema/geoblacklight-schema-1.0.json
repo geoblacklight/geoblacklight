@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "description": "Schema for GeoBlacklight. See https://github.com/geoblacklight/geoblacklight/wiki/Schema for more details.",
+  "description": "Schema for GeoBlacklight. See https://opengeometadata.org/docs/gbl-1.0 for more details.",
   "id": "http://geoblacklight.org/v1.0/schema",
   "title": "GeoBlacklight Schema - v1.0",
   "definitions": {
@@ -24,7 +24,7 @@
         },
         "dc_identifier_s": {
           "type": "string",
-          "description": "Unique identifier for layer as a URI. It should be globally unique across all institutions, assumed not to be end-user visible, and is usually of the form `http://institution/id`. See https://github.com/geoblacklight/geoblacklight/wiki/Schema for more detailed documentation.",
+          "description": "Unique identifier for layer as a URI. It should be globally unique across all institutions, assumed not to be end-user visible, and is usually of the form `http://institution/id`. See https://opengeometadata.org/docs/gbl-1.0#identifier for more detailed documentation.",
           "example": "http://purl.stanford.edu/vr593vj7147"
         },
         "dc_title_s": {
@@ -86,7 +86,7 @@
         },
         "layer_slug_s": {
           "type": "string",
-          "description": "Identifies a layer in human-readable keywords. Note this value is visible to the user, and used for Permalinks. The value should be alpha-numeric characters separated by dashes, and is typically of the form `institution-keyword1-keyword2`. It should also be globally unique across all institutions in *your* GeoBlacklight index. See https://github.com/geoblacklight/geoblacklight/wiki/Schema for more detailed documentation.",
+          "description": "Identifies a layer in human-readable keywords. Note this value is visible to the user, and used for Permalinks. The value should be alpha-numeric characters separated by dashes, and is typically of the form `institution-keyword1-keyword2`. It should also be globally unique across all institutions in *your* GeoBlacklight index. See https://opengeometadata.org/docs/gbl-1.0#slug for more detailed documentation.",
           "pattern": "^[-a-zA-Z0-9]+$",
           "example": "stanford-andhra-pradesh-village-boundaries"
         },
