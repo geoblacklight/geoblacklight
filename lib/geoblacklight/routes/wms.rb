@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Geoblacklight
   module Routes
     class Wms
@@ -7,7 +8,7 @@ module Geoblacklight
       end
 
       def call(mapper, _options = {})
-        mapper.post 'handle'
+        mapper.post "handle"
       end
     end
   end

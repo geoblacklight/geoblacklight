@@ -1,38 +1,39 @@
 # frozen_string_literal: true
-require 'spec_helper'
+
+require "spec_helper"
 
 describe Geoblacklight::FeatureInfoResponse do
-  let(:response) { described_class.new(OpenStruct.new(body: '<html><body><table><th>Header1</th><th>Header2</th><td>value1</td><td>value2</td></body></html>', headers: { 'content-type' => 'all good' })) }
-  let(:response_multiple_features) { described_class.new(OpenStruct.new(body: '<html><body><table><th>Header1</th><th>Header2</th><tr><td>value1</td><td>value2</td></tr><tr><td>value3</td><td>value4</td></tr></body></html>', headers: { 'content-type' => 'all good' })) }
-  let(:error_response) { described_class.new(error: 'bad stuff') }
-  let(:content_response) { described_class.new(OpenStruct.new(headers: { 'content-type' => 'text/xml' })) }
+  let(:response) { described_class.new(OpenStruct.new(body: "<html><body><table><th>Header1</th><th>Header2</th><td>value1</td><td>value2</td></body></html>", headers: {"content-type" => "all good"})) }
+  let(:response_multiple_features) { described_class.new(OpenStruct.new(body: "<html><body><table><th>Header1</th><th>Header2</th><tr><td>value1</td><td>value2</td></tr><tr><td>value3</td><td>value4</td></tr></body></html>", headers: {"content-type" => "all good"})) }
+  let(:error_response) { described_class.new(error: "bad stuff") }
+  let(:content_response) { described_class.new(OpenStruct.new(headers: {"content-type" => "text/xml"})) }
 
-  describe '#initialize' do
-    it 'initializes as a FeatureInfoResponse type' do
+  describe "#initialize" do
+    it "initializes as a FeatureInfoResponse type" do
       expect(response).to be_an described_class
     end
   end
 
-  describe '#error?' do
-    it 'if no error' do
+  describe "#error?" do
+    it "if no error" do
       expect(response.error?).to be_falsey
     end
-    it 'if error key is present' do
+    it "if error key is present" do
       expect(error_response.error?).to be_truthy
     end
-    it 'if content-type header is text/xml' do
+    it "if content-type header is text/xml" do
       expect(content_response.error?).to be_truthy
     end
   end
 
-  describe '#format' do
-    it 'returns a formated response' do
+  describe "#format" do
+    it "returns a formated response" do
       expect(response.format).not_to be_nil
       expect(response.format[:values].length).to eq 2
       expect(response.format[:values][0]).to eq %w[Header1 value1]
       expect(response.format[:values][1]).to eq %w[Header2 value2]
     end
-    it 'returns a formated response when multiple features are retrieved' do
+    it "returns a formated response when multiple features are retrieved" do
       expect(response_multiple_features.format).not_to be_nil
       expect(response_multiple_features.format[:values].length).to eq 2
       expect(response_multiple_features.format[:values][0]).to eq %w[Header1 value1]
@@ -40,12 +41,12 @@ describe Geoblacklight::FeatureInfoResponse do
     end
   end
 
-  describe '#check' do
-    it 'returns a formated response if no errors' do
+  describe "#check" do
+    it "returns a formated response if no errors" do
       expect(response.check).to eq response.format
     end
-    it 'returns the unformated response if there are errors' do
-      expect(error_response.check).to eq error_response.instance_variable_get('@response')
+    it "returns the unformated response if there are errors" do
+      expect(error_response.check).to eq error_response.instance_variable_get(:@response)
     end
   end
 end

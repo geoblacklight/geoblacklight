@@ -1,19 +1,20 @@
 # frozen_string_literal: true
+
 module Geoblacklight
   class GeotiffDownload < Geoblacklight::Download
     GEOTIFF_DOWNLOAD_PARAMS = {
-      format: 'image/geotiff',
+      format: "image/geotiff",
       width: 4096
     }.freeze
 
     def initialize(document, options = {})
       request_params = GEOTIFF_DOWNLOAD_PARAMS.merge(layers: document[Settings.FIELDS.WXS_IDENTIFIER])
       super(document, {
-        type: 'geotiff',
-        extension: 'tif',
+        type: "geotiff",
+        extension: "tif",
         request_params: request_params,
-        content_type: 'image/geotiff',
-        service_type: 'wms',
+        content_type: "image/geotiff",
+        service_type: "wms",
         reflect: true
       }.merge(options))
     end

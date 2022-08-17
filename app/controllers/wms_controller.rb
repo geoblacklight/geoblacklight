@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class WmsController < ApplicationController
   def handle
     response = Geoblacklight::WmsLayer.new(wms_params).feature_info

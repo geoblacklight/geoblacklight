@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Geoblacklight
   module SolrDocument
     module Citation
@@ -11,8 +12,8 @@ module Geoblacklight
           fetch(Settings.FIELDS.TITLE, nil),
           ("[#{format}]" if format),
           fetch(Settings.FIELDS.PUBLISHER, nil),
-          I18n.t('geoblacklight.citation.retrieved_from', document_url: solr_document_url)
-        ].flatten.compact.join('. ')
+          I18n.t("geoblacklight.citation.retrieved_from", document_url: solr_document_url)
+        ].flatten.compact.join(". ")
       end
 
       private

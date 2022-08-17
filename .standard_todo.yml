@@ -1,0 +1,21 @@
+# Auto generated files with errors to ignore.
+# Remove from this list as you refactor files.
+---
+ignore:
+- Gemfile:
+  - Security/Eval
+- app/models/concerns/geoblacklight/solr_document.rb:
+  - Style/MissingRespondToMissing
+- lib/geoblacklight/references.rb:
+  - Style/MissingRespondToMissing
+- lib/tasks/geoblacklight.rake:
+  - Security/JSONLoad
+  - Security/Open
+- spec/helpers/geoblacklight/geoblacklight_helper_behavior_spec.rb:
+  - Lint/ConstantDefinitionInBlock
+- spec/lib/geoblacklight/view_helper_override_spec.rb:
+  - Lint/ConstantDefinitionInBlock
+- spec/models/concerns/geoblacklight/solr_document/carto_spec.rb:
+  - Lint/ConstantDefinitionInBlock
+- spec/models/concerns/geoblacklight/solr_document/finder_spec.rb:
+  - Lint/ConstantDefinitionInBlock

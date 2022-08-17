@@ -1,7 +1,8 @@
 # frozen_string_literal: true
+
 # :nocov:
-require 'faraday'
-require 'set'
+require "faraday"
+require "set"
 
 module Geoblacklight
   # NOTE: We copied this class from faraday_middleware in order to support
@@ -15,7 +16,7 @@ module Geoblacklight
       attr_reader :response
 
       def initialize(response)
-        super "too many redirects; last one to: #{response['location']}"
+        super "too many redirects; last one to: #{response["location"]}"
         @response = response
       end
     end
@@ -43,9 +44,9 @@ module Geoblacklight
       # HTTP methods for which 30x redirects can be followed
       ALLOWED_METHODS = Set.new [:head, :options, :get, :post, :put, :patch, :delete]
       # HTTP redirect status codes that this middleware implements
-      REDIRECT_CODES  = Set.new [301, 302, 303, 307, 308]
+      REDIRECT_CODES = Set.new [301, 302, 303, 307, 308]
       # Keys in env hash which will get cleared between requests
-      ENV_TO_CLEAR    = Set.new [:status, :response, :response_headers]
+      ENV_TO_CLEAR = Set.new [:status, :response, :response_headers]
 
       # Default value for max redirects followed
       FOLLOW_LIMIT = 3
@@ -54,7 +55,7 @@ module Geoblacklight
       # the "%" character which we assume already represents an escaped sequence.
       URI_UNSAFE = %r{[^\-_.!~*'()a-zA-Z\d;/?:@&=+$,\[\]%]}.freeze
 
-      AUTH_HEADER = 'Authorization'
+      AUTH_HEADER = "Authorization"
 
       # Public: Initialize the middleware.
       #
@@ -109,7 +110,7 @@ module Geoblacklight
 
       def update_env(env, request_body, response)
         redirect_from_url = env[:url].to_s
-        redirect_to_url = safe_escape(response['location'] || '')
+        redirect_to_url = safe_escape(response["location"] || "")
         env[:url] += redirect_to_url
 
         ENV_TO_CLEAR.each { |key| env.delete key }
@@ -148,9 +149,9 @@ module Geoblacklight
       # URI:HTTP using the `+` operator. Doesn't escape "%" characters so to not
       # risk double-escaping.
       def safe_escape(uri)
-        uri = uri.split('#')[0] # we want to remove the fragment if present
+        uri = uri.split("#")[0] # we want to remove the fragment if present
         uri.to_s.gsub(URI_UNSAFE) do |match|
-          "%#{match.unpack('H2' * match.bytesize).join('%').upcase}"
+          "%#{match.unpack("H2" * match.bytesize).join("%").upcase}"
         end
       end
 
@@ -162,7 +163,7 @@ module Geoblacklight
       end
 
       def redirect_to_same_host?(from_url, to_url)
-        return true if to_url.start_with?('/')
+        return true if to_url.start_with?("/")
 
         from_uri = URI.parse(from_url)
         to_uri = URI.parse(to_url)

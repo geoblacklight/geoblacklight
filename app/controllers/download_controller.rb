@@ -1,17 +1,18 @@
 # frozen_string_literal: true
+
 class DownloadController < ApplicationController
   # include Blacklight::SearchHelper
   include Blacklight::Catalog
 
   rescue_from Geoblacklight::Exceptions::ExternalDownloadFailed do |exception|
-    Geoblacklight.logger.error exception.message + ' ' + exception.url
+    Geoblacklight.logger.error exception.message + " " + exception.url
     flash[:danger] = view_context
-                     .tag.span(flash_error_message(exception),
-                                  data: {
-                                    download: 'error',
-                                    download_id: params[:id],
-                                    download_type: "generated-#{params[:type]}"
-                                  })
+      .tag.span(flash_error_message(exception),
+        data: {
+          download: "error",
+          download_id: params[:id],
+          download_type: "generated-#{params[:type]}"
+        })
     respond_to do |format|
       format.json { render json: flash, response: response }
       format.html { render json: flash, response: response }
@@ -41,9 +42,9 @@ class DownloadController < ApplicationController
     if params[:email]
       response = Geoblacklight::HglDownload.new(@document, params[:email]).get
       if response.nil?
-        flash[:danger] = t 'geoblacklight.download.error'
+        flash[:danger] = t "geoblacklight.download.error"
       else
-        flash[:success] = t 'geoblacklight.download.hgl_success'
+        flash[:success] = t "geoblacklight.download.hgl_success"
       end
       respond_to do |format|
         format.json { render json: flash, response: response }
@@ -62,17 +63,16 @@ class DownloadController < ApplicationController
   # exception
   # @return [String] error message to display in flash
   def flash_error_message(exception)
-    message = if exception.url.present?
-                t('geoblacklight.download.error_with_url',
-                            link: view_context
-                                  .link_to(exception.url,
-                                           exception.url,
-                                           target: 'blank'))
-                  .html_safe
-              else
-                t('geoblacklight.download.error')
-              end
-    message
+    if exception.url.present?
+      t("geoblacklight.download.error_with_url",
+        link: view_context
+                        .link_to(exception.url,
+                          exception.url,
+                          target: "blank"))
+        .html_safe
+    else
+      t("geoblacklight.download.error")
+    end
   end
 
   private
@@ -82,25 +82,24 @@ class DownloadController < ApplicationController
   end
 
   def check_type
-    response = case params[:type]
-               when 'shapefile'
-                 Geoblacklight::ShapefileDownload.new(@document).get
-               when 'kmz'
-                 Geoblacklight::KmzDownload.new(@document).get
-               when 'geojson'
-                 Geoblacklight::GeojsonDownload.new(@document).get
-               when 'geotiff'
-                 Geoblacklight::GeotiffDownload.new(@document).get
-               end
-    response
+    case params[:type]
+    when "shapefile"
+      Geoblacklight::ShapefileDownload.new(@document).get
+    when "kmz"
+      Geoblacklight::KmzDownload.new(@document).get
+    when "geojson"
+      Geoblacklight::GeojsonDownload.new(@document).get
+    when "geotiff"
+      Geoblacklight::GeotiffDownload.new(@document).get
+    end
   end
 
   def validate(response)
-    flash[:success] = view_context.link_to(t('geoblacklight.download.success', title: response),
-                                           download_file_path(response),
-                                           data: { download: 'trigger',
-                                                   download_id: params[:id],
-                                                   download_type: "generated-#{params[:type]}" })
+    flash[:success] = view_context.link_to(t("geoblacklight.download.success", title: response),
+      download_file_path(response),
+      data: {download: "trigger",
+             download_id: params[:id],
+             download_type: "generated-#{params[:type]}"})
   end
 
   # Checks whether a document is public, if not require user to authenticate
@@ -109,6 +108,6 @@ class DownloadController < ApplicationController
   end
 
   def file_name_to_id(file_name)
-    file_name.split('-')[0..-2].join('-')
+    file_name.split("-")[0..-2].join("-")
   end
 end

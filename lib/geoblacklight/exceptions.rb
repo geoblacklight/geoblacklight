@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Geoblacklight
   module Exceptions
     class ExternalDownloadFailed < StandardError
@@ -20,8 +21,10 @@ module Geoblacklight
         @options[:message].to_s
       end
     end
+
     class WrongDownloadFormat < StandardError
     end
+
     class WrongBoundingBoxFormat < StandardError
     end
   end

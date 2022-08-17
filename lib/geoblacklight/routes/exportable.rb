@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Geoblacklight
   module Routes
     class Exportable
@@ -8,9 +9,9 @@ module Geoblacklight
 
       def call(mapper, _options = {})
         mapper.member do
-          mapper.get 'web_services'
-          mapper.get 'metadata'
-          mapper.get 'relations' => 'relation#index'
+          mapper.get "web_services"
+          mapper.get "metadata"
+          mapper.get "relations" => "relation#index"
         end
       end
     end

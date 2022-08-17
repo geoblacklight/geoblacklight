@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Geoblacklight
   module Relation
     class RelationResponse
@@ -27,9 +28,9 @@ module Geoblacklight
 
       def query_type(option)
         case option.query_type
-        when 'ancestors'
+        when "ancestors"
           Geoblacklight::Relation::Ancestors
-        when 'descendants'
+        when "descendants"
           Geoblacklight::Relation::Descendants
         else
           fail ArgumentError, "Bad RelationResponse query_type: #{option.query_type}. Only 'ancestors' or 'descendants' is allowed."

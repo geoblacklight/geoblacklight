@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module CartoHelper
   ##
   # Creates a Carto OneClick link, using the configuration link
@@ -10,14 +11,14 @@ module CartoHelper
       provider: carto_provider,
       logo: Settings.APPLICATION_LOGO_URL
     )
-    carto_oneclick_host + '?' + params
+    carto_oneclick_host + "?" + params
   end
 
   ##
   # Removes blank space from provider to accomodate Carto OneClick
   #
   def carto_provider
-    application_name.delete(' ')
+    application_name.delete(" ")
   end
 
   private

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Geoblacklight
   class ItemViewer
     def initialize(references)
@@ -6,12 +7,12 @@ module Geoblacklight
     end
 
     def viewer_protocol
-      return 'map' if viewer_preference.nil?
+      return "map" if viewer_preference.nil?
       viewer_preference.keys.first.to_s
     end
 
     def viewer_endpoint
-      return '' if viewer_preference.nil?
+      return "" if viewer_preference.nil?
       viewer_preference.values.first.to_s
     end
 
@@ -65,7 +66,7 @@ module Geoblacklight
 
     def viewer_preference
       [oembed, index_map, tilejson, xyz, wmts, tms, wms, iiif, tiled_map_layer, dynamic_map_layer,
-       image_map_layer, feature_layer].compact.map(&:to_hash).first
+        image_map_layer, feature_layer].compact.map(&:to_hash).first
     end
   end
 end

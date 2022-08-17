@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Geoblacklight
   ##
   # Adds custom functionality for Geoblacklight document presentation
@@ -14,11 +15,11 @@ module Geoblacklight
       @configuration.index_fields.each do |_field_name, field_config|
         val = field_value(field_config)
         if val.present?
-          val += '.' unless val.end_with?('.')
+          val += "." unless val.end_with?(".")
           fields_values << val
         end
       end
-      safe_join(fields_values, ' ')
+      safe_join(fields_values, " ")
     end
   end
 end

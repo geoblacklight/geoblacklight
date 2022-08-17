@@ -25,9 +25,9 @@ module Geoblacklight
     private
 
     def decorated_label
-      icon = geoblacklight_icon(@facet_item.value, aria_hidden: true, classes: 'svg_tooltip')
+      icon = geoblacklight_icon(@facet_item.value, aria_hidden: true, classes: "svg_tooltip")
 
-      safe_join([icon, @undecorated_label], ' ')
+      safe_join([icon, @undecorated_label], " ")
     end
   end
 end

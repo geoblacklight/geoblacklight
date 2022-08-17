@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Geoblacklight
   class Download
     def initialize(document, options = {})
@@ -15,7 +16,7 @@ module Geoblacklight
     end
 
     def self.file_path
-      Settings.DOWNLOAD_PATH || Rails.root.join('tmp', 'cache', 'downloads')
+      Settings.DOWNLOAD_PATH || Rails.root.join("tmp", "cache", "downloads")
     end
 
     def file_path_and_name
@@ -41,7 +42,7 @@ module Geoblacklight
     def create_download_file
       download = initiate_download
 
-      File.open("#{file_path_and_name}.tmp", 'wb') do |file|
+      File.open("#{file_path_and_name}.tmp", "wb") do |file|
         fail Geoblacklight::Exceptions::WrongDownloadFormat unless matches_mimetype?(download)
         file.write download.body
       end
@@ -49,9 +50,9 @@ module Geoblacklight
       file_name
     rescue Geoblacklight::Exceptions::WrongDownloadFormat => error
       Geoblacklight.logger.error "#{error} expected #{@options[:content_type]} " \
-                                 "received #{download.headers['content-type']}"
+                                 "received #{download.headers["content-type"]}"
       File.delete("#{file_path_and_name}.tmp")
-      raise Geoblacklight::Exceptions::ExternalDownloadFailed, message: 'Wrong download type'
+      raise Geoblacklight::Exceptions::ExternalDownloadFailed, message: "Wrong download type"
     end
 
     ##
@@ -68,25 +69,25 @@ module Geoblacklight
       end
     rescue Faraday::ConnectionFailed
       raise Geoblacklight::Exceptions::ExternalDownloadFailed,
-            message: 'Download connection failed',
-            url: conn.url_prefix.to_s
+        message: "Download connection failed",
+        url: conn.url_prefix.to_s
     rescue Faraday::TimeoutError
       raise Geoblacklight::Exceptions::ExternalDownloadFailed,
-            message: 'Download timed out',
-            url: conn.url_prefix.to_s
+        message: "Download timed out",
+        url: conn.url_prefix.to_s
     end
 
     ##
     # Creates a download url for the object
     # @return [String]
     def url_with_params
-      url + '/?' + URI.encode_www_form(@options[:request_params])
+      url + "/?" + URI.encode_www_form(@options[:request_params])
     end
 
     private
 
     def matches_mimetype?(download)
-      MIME::Type.simplified(download.headers['content-type']) == @options[:content_type]
+      MIME::Type.simplified(download.headers["content-type"]) == @options[:content_type]
     end
 
     ##
@@ -102,7 +103,7 @@ module Geoblacklight
     # @return [String] URL that is checked in download
     def url
       url = @document.references.send(@options[:service_type]).endpoint
-      url += '/reflect' if @options[:reflect]
+      url += "/reflect" if @options[:reflect]
       url
     end
   end

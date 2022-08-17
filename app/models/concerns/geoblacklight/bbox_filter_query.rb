@@ -38,7 +38,7 @@ module Geoblacklight
     end
 
     def boost
-      "^#{field_config.within_boost || '10'}"
+      "^#{field_config.within_boost || "10"}"
     end
 
     private

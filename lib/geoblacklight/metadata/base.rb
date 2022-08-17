@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-require 'geoblacklight/faraday_middleware/follow_redirects'
+
+require "geoblacklight/faraday_middleware/follow_redirects"
 module Geoblacklight
   module Metadata
     ##
@@ -55,10 +56,10 @@ module Geoblacklight
           response = connection.get
           return response.body unless response.nil? || response.status == 404
           Geoblacklight.logger.error "Could not reach #{@reference.endpoint}"
-          ''
+          ""
         rescue Faraday::ConnectionFailed, Faraday::TimeoutError, OpenSSL::SSL::SSLError => error
           Geoblacklight.logger.error error.inspect
-          ''
+          ""
         end
       end
 

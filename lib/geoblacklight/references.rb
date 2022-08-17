@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Geoblacklight
   # References is a geoblacklight-schema dct:references parser
   class References
@@ -52,11 +53,11 @@ module Geoblacklight
     # @return [Hash, nil]
     def downloads_by_format
       case format
-      when 'Shapefile'
+      when "Shapefile"
         vector_download_formats
-      when 'GeoTIFF'
+      when "GeoTIFF"
         geotiff_download_formats
-      when 'ArcGRID'
+      when "ArcGRID"
         arcgrid_download_formats
       end
     end
@@ -93,7 +94,7 @@ module Geoblacklight
     # Download hash for a static file download
     # @return (see #downloads_by_format)
     def file_download
-      { file_download: download.to_hash }
+      {file_download: download.to_hash}
     end
 
     ##
@@ -113,14 +114,14 @@ module Geoblacklight
     # Download hash for a GeoTiff file with a WMS reference present
     # @return (see #downloads_by_format)
     def geotiff_download_formats
-      { geotiff: wms.to_hash } if wms.present?
+      {geotiff: wms.to_hash} if wms.present?
     end
 
     ##
     # Download hash for an ArcGRID file with a WMS reference present
     # @return (see #downloads_by_format)
     def arcgrid_download_formats
-      { geotiff: wms.to_hash } if wms.present?
+      {geotiff: wms.to_hash} if wms.present?
     end
 
     ##

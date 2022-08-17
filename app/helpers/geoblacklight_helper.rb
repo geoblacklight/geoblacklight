@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module GeoblacklightHelper
   def document_available?
     @document.public? || (@document.same_institution? && user_signed_in?)
@@ -9,17 +10,17 @@ module GeoblacklightHelper
   end
 
   def iiif_jpg_url
-    @document.references.iiif.endpoint.sub! 'info.json', 'full/full/0/default.jpg'
+    @document.references.iiif.endpoint.sub! "info.json", "full/full/0/default.jpg"
   end
 
   def download_link_file(label, id, url)
     link_to(
       label,
       url,
-      'contentUrl' => url,
-      data: {
-        download: 'trigger',
-        download_type: 'direct',
+      "contentUrl" => url,
+      :data => {
+        download: "trigger",
+        download_type: "direct",
         download_id: id
       }
     )
@@ -30,9 +31,9 @@ module GeoblacklightHelper
       text,
       download_hgl_path(id: document),
       data: {
-        blacklight_modal: 'trigger',
-        download: 'trigger',
-        download_type: 'harvard-hgl',
+        blacklight_modal: "trigger",
+        download: "trigger",
+        download_type: "harvard-hgl",
         download_id: document.id
       }
     )
@@ -42,22 +43,22 @@ module GeoblacklightHelper
   # @return [String]
   def download_link_iiif
     link_to(
-      download_text('JPG'),
+      download_text("JPG"),
       iiif_jpg_url,
-      'contentUrl' => iiif_jpg_url,
-      data: {
-        download: 'trigger'
+      "contentUrl" => iiif_jpg_url,
+      :data => {
+        download: "trigger"
       }
     )
   end
 
   def download_link_generated(download_type, document)
     link_to(
-      t('geoblacklight.download.export_link', download_format: export_format_label(download_type)),
-      '',
+      t("geoblacklight.download.export_link", download_format: export_format_label(download_type)),
+      "",
       data: {
         download_path: download_path(document.id, type: download_type),
-        download: 'trigger',
+        download: "trigger",
         download_type: download_type,
         download_id: document.id
       }
@@ -69,18 +70,18 @@ module GeoblacklightHelper
   # @param [SolrDocument] args
   # @return [String]
   def snippit(args)
-    truncate(Array(args[:value]).flatten.join(' '), length: 150)
+    truncate(Array(args[:value]).flatten.join(" "), length: 150)
   end
 
   ##
   # Returns an SVG icon or empty HTML span element
   # @return [SVG or HTML tag]
   def geoblacklight_icon(name, **args)
-    icon_name = name ? name.to_s.parameterize : 'none'
+    icon_name = name ? name.to_s.parameterize : "none"
     begin
       blacklight_icon(icon_name, **args)
     rescue Blacklight::Exceptions::IconNotFound
-      tag.span class: 'icon-missing geoblacklight-none'
+      tag.span class: "icon-missing geoblacklight-none"
     end
   end
 
@@ -88,12 +89,12 @@ module GeoblacklightHelper
   # Looks up properly formatted names for formats
   #
   def proper_case_format(format)
-    t("geoblacklight.formats.#{format.to_s.parameterize(separator: '_')}")
+    t("geoblacklight.formats.#{format.to_s.parameterize(separator: "_")}")
   end
 
   # Format labels are customized for exports - look up the appropriate key.
   def export_format_label(format)
-    t("geoblacklight.download.export_#{format.to_s.parameterize(separator: '_')}_link")
+    t("geoblacklight.download.export_#{format.to_s.parameterize(separator: "_")}_link")
   end
 
   ##
@@ -109,7 +110,7 @@ module GeoblacklightHelper
   #
   def download_text(format)
     download_format = proper_case_format(format)
-    value = t('geoblacklight.download.download_link', download_format: download_format)
+    value = t("geoblacklight.download.download_link", download_format: download_format)
     value.html_safe
   end
 
@@ -126,13 +127,13 @@ module GeoblacklightHelper
   def render_help_text_entry(feature, key)
     if I18n.exists?("geoblacklight.help_text.#{feature}.#{key}", locale)
       help_text = I18n.t("geoblacklight.help_text.#{feature}.#{key}")
-      tag.h3 class: 'help-text viewer_protocol h6' do
-        tag.a data: { toggle: 'popover', title: help_text[:title], content: help_text[:content] } do
+      tag.h3 class: "help-text viewer_protocol h6" do
+        tag.a data: {toggle: "popover", title: help_text[:title], content: help_text[:content]} do
           help_text[:title]
         end
       end
     else
-      tag.span class: 'help-text translation-missing'
+      tag.span class: "help-text translation-missing"
     end
   end
 
@@ -149,8 +150,8 @@ module GeoblacklightHelper
   # get_field_values method
   # @param [Hash] args from get_field_values
   def render_value_as_truncate_abstract(args)
-    tag.div class: 'truncate-abstract' do
-      Array(args[:value]).flatten.join(' ')
+    tag.div class: "truncate-abstract" do
+      Array(args[:value]).flatten.join(" ")
     end
   end
 
@@ -158,7 +159,7 @@ module GeoblacklightHelper
   # Selects the basemap used for map displays
   # @return [String]
   def geoblacklight_basemap
-    blacklight_config.basemap_provider || 'positron'
+    blacklight_config.basemap_provider || "positron"
   end
 
   ##
@@ -168,10 +169,10 @@ module GeoblacklightHelper
   def render_web_services(reference)
     render(
       partial: "web_services_#{reference.type}",
-      locals: { reference: reference }
+      locals: {reference: reference}
     )
   rescue ActionView::MissingTemplate
-    render partial: 'web_services_default', locals: { reference: reference }
+    render partial: "web_services_default", locals: {reference: reference}
   end
 
   ##
@@ -187,13 +188,13 @@ module GeoblacklightHelper
   # @param [Geoblacklight::Metadata::Base] metadata the metadata object
   # @return [String]
   def render_transformed_metadata(metadata)
-    render partial: 'catalog/metadata/content', locals: { content: metadata.transform.html_safe }
+    render partial: "catalog/metadata/content", locals: {content: metadata.transform.html_safe}
   rescue Geoblacklight::MetadataTransformer::TransformError => transform_err
     Geoblacklight.logger.warn transform_err.message
-    render partial: 'catalog/metadata/markup', locals: { content: metadata.to_xml }
+    render partial: "catalog/metadata/markup", locals: {content: metadata.to_xml}
   rescue => err
     Geoblacklight.logger.warn err.message
-    render partial: 'catalog/metadata/missing'
+    render partial: "catalog/metadata/missing"
   end
 
   ##
@@ -221,17 +222,17 @@ module GeoblacklightHelper
     icon_name = document[Settings.FIELDS.GEOM_TYPE] if Settings.USE_GEOM_FOR_RELATIONS_ICON
     icon_name = icon if icon_name.blank?
     icon_options = {}
-    icon_options = { classes: 'svg_tooltip' } if Settings.USE_GEOM_FOR_RELATIONS_ICON
+    icon_options = {classes: "svg_tooltip"} if Settings.USE_GEOM_FOR_RELATIONS_ICON
     geoblacklight_icon(icon_name, **icon_options)
   end
 
   ## Returns the data-map attribute value used as the JS map selector
   def results_js_map_selector(controller_name)
     case controller_name
-    when 'bookmarks'
-      'bookmarks'
+    when "bookmarks"
+      "bookmarks"
     else
-      'index'
+      "index"
     end
   end
 end
