@@ -40,9 +40,24 @@ namespace :geoblacklight do
   end
 
   namespace :index do
-    desc 'Put sample data into solr'
-    task :seed => :environment do
-      docs = Dir['spec/fixtures/solr_documents/*.json'].map { |f| JSON.parse File.read(f) }.flatten
+    desc 'Index GBL test fixture metadata into Solr'
+    task :seed, [:remote] => :environment do |t, args|
+      docs = []
+
+      if args.remote
+        puts 'Indexing - Remote test fixtures'
+        JSON.load(
+          URI.open("https://api.github.com/repos/geoblacklight/geoblacklight/contents/spec/fixtures/solr_documents")
+        ).each do |fixture|
+          if fixture['name'].include?('.json')
+            docs << JSON.load(URI.open(fixture['download_url']))
+          end
+        end
+      else
+        puts 'Indexing - Local test fixtures'
+        docs = Dir['spec/fixtures/solr_documents/*.json'].map { |f| JSON.parse File.read(f) }.flatten
+      end
+
       Blacklight.default_index.connection.add docs
       Blacklight.default_index.connection.commit
     end
