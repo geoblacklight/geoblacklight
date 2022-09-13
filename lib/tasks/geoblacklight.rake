@@ -39,6 +39,8 @@ namespace :geoblacklight do
     end
   end
 
+  # Local fixtures: bundle exec rake "geoblacklight:index:seed"
+  # Remote fixtures: bundle exec rake "geoblacklight:index:seed[:remote]"
   namespace :index do
     desc 'Index GBL test fixture metadata into Solr'
     task :seed, [:remote] => :environment do |t, args|
