@@ -10,27 +10,35 @@ communities. We're actively looking for community input and development partners
 
 ### Installation
 
-In order to create a new GeoBlacklight application from the template, run the following:
+  Bootstrap a new GeoBlacklight Ruby on Rails application using the template script:
 
+```bash
+DISABLE_SPRING=1 rails new app-name -m https://raw.githubusercontent.com/geoblacklight/geoblacklight/main/template.rb
 ```
-$ DISABLE_SPRING=1 rails new app-name -m https://raw.githubusercontent.com/geoblacklight/geoblacklight/main/template.rb
-```
+  Then run the `geoblacklight:server` rake task to run the application:
 
-To launch app:
-
-```
+```bash
 $ cd app-name
-$ rake geoblacklight:server
+$ bundle exec rake geoblacklight:server
 ```
 
-Note that this method launches an application that does not have any fixture records to be examined. You may want to launch a test application that has fixture data loaded into a Solr core. If so, refer to the [development guide](https://geoblacklight.org/guides.html#getting-started-for-developers). For further information on installing and configuring a blank app, see the [installation guide](https://geoblacklight.org/guides.html#geoblacklight-quick-start)
+* Visit your GeoBlacklight application at: [http://localhost:3000](http://localhost:3000)
+* Visit the Solr admin panel at: [http://localhost:8983/solr/#/blacklight-core](http://localhost:8983/solr/#/blacklight-core)
+
+#### Index Example Data
+
+Index the GeoBlacklight project's test fixtures via:
+
+```bash
+$ bundle exec rake "geoblacklight:index:seed[:remote]"
+```
 
 ### Contributing
+
 Interested in contributing to GeoBlacklight? Please see our [contributing](CONTRIBUTING.md) guide.
 
 ### Development
 
 See the [Getting Started for Developers guide](https://geoblacklight.org/guides.html#getting-started-for-developers) for more information about setting up your development environment.
-
 
 For more information, see our [GeoBlacklight Guides](https://geoblacklight.org/guides.html).
