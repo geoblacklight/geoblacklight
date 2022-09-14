@@ -35,10 +35,10 @@ $ bundle exec rake "geoblacklight:index:seed[:remote]"
 
 ### Contributing
 
-Interested in contributing to GeoBlacklight? Please see our [contributing](CONTRIBUTING.md) guide.
+Interested in contributing to GeoBlacklight? Please see our [contributing](https://geoblacklight.org/docs/overview/contributing/) guide.
 
 ### Development
 
-See the [Getting Started for Developers guide](https://geoblacklight.org/guides.html#getting-started-for-developers) for more information about setting up your development environment.
+See the [Getting Started for Developers guide](https://geoblacklight.org/docs/installation/getting_started_developers/) for more information about setting up your development environment.
 
-For more information, see our [GeoBlacklight Guides](https://geoblacklight.org/guides.html).
+For more information, please see the [GeoBlacklight Documentation](https://geoblacklight.org/docs/) site.
