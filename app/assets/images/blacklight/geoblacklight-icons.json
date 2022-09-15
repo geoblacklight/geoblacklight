@@ -1,270 +1,298 @@
 {
   "selection": [
     {
-      "order": 0,
+      "order": 7,
+      "name": "george-mason"
+    },
+    {
+      "order": 8,
       "name": "university-of-colorado-boulder"
     },
     {
-      "order": 0,
+      "order": 9,
       "name": "wisconsin"
     },
     {
-      "order": 0,
+      "order": 10,
       "name": "web_services"
     },
     {
-      "order": 0,
+      "order": 11,
       "name": "uva"
     },
     {
-      "order": 0,
+      "order": 12,
       "name": "ucla"
     },
     {
-      "order": 0,
+      "order": 13,
       "name": "tufts"
     },
     {
-      "order": 0,
+      "order": 14,
       "name": "texas"
     },
     {
-      "order": 0,
+      "order": 15,
       "name": "tags"
     },
     {
-      "order": 0,
+      "order": 16,
       "name": "table"
     },
     {
-      "order": 0,
+      "order": 17,
       "name": "stanford"
     },
     {
-      "order": 0,
+      "order": 18,
       "name": "sms"
     },
     {
-      "order": 0,
+      "order": 19,
       "name": "restricted"
     },
     {
-      "order": 0,
+      "order": 20,
       "name": "raster"
     },
     {
-      "order": 0,
+      "order": 21,
       "name": "purdue"
     },
     {
-      "order": 0,
+      "order": 22,
       "name": "public"
     },
     {
-      "order": 0,
+      "order": 23,
       "name": "princeton"
     },
     {
-      "order": 0,
+      "order": 24,
       "name": "polyline"
     },
     {
-      "order": 0,
+      "order": 25,
       "name": "polygon"
     },
     {
-      "order": 0,
+      "order": 26,
       "name": "point"
     },
     {
-      "order": 0,
+      "order": 27,
       "name": "penn-state"
     },
     {
-      "order": 0,
+      "order": 28,
       "name": "paper-map"
     },
     {
-      "order": 0,
+      "order": 29,
       "name": "pagelines-brands"
     },
     {
-      "order": 0,
+      "order": 30,
       "name": "ohio-state"
     },
     {
-      "order": 0,
+      "order": 31,
       "name": "nyu"
     },
     {
-      "order": 0,
+      "order": 32,
       "name": "multipolygon"
     },
     {
-      "order": 0,
+      "order": 33,
       "name": "multipoint"
     },
     {
-      "order": 0,
+      "order": 34,
       "name": "multilinestring"
     },
     {
-      "order": 0,
+      "order": 35,
       "name": "mixed"
     },
     {
-      "order": 0,
+      "order": 36,
       "name": "mit"
     },
     {
-      "order": 0,
+      "order": 37,
       "name": "minnesota"
     },
     {
-      "order": 0,
+      "order": 38,
       "name": "michigan"
     },
     {
-      "order": 0,
+      "order": 39,
       "name": "michigan-state"
     },
     {
-      "order": 0,
+      "order": 40,
       "name": "metadata"
     },
     {
-      "order": 0,
+      "order": 41,
       "name": "massgis"
     },
     {
-      "order": 0,
+      "order": 42,
       "name": "maryland"
     },
     {
-      "order": 0,
+      "order": 43,
       "name": "map"
     },
     {
-      "order": 0,
+      "order": 44,
       "name": "map-marker"
     },
     {
-      "order": 0,
+      "order": 45,
       "name": "line"
     },
     {
-      "order": 0,
+      "order": 46,
       "name": "lewis-clark"
     },
     {
-      "order": 0,
+      "order": 47,
       "name": "leaf"
     },
     {
-      "order": 0,
+      "order": 48,
       "name": "iowa"
     },
     {
-      "order": 0,
+      "order": 49,
       "name": "indiana"
     },
     {
-      "order": 0,
+      "order": 50,
       "name": "image"
     },
     {
-      "order": 0,
+      "order": 51,
       "name": "illinois"
     },
     {
-      "order": 0,
+      "order": 52,
       "name": "harvard"
     },
     {
-      "order": 0,
+      "order": 53,
       "name": "globe"
     },
     {
-      "order": 0,
+      "order": 54,
       "name": "esri-globe"
     },
     {
-      "order": 0,
+      "order": 55,
       "name": "email"
     },
     {
-      "order": 0,
+      "order": 56,
       "name": "dvd-rom"
     },
     {
-      "order": 0,
+      "order": 57,
       "name": "cornell"
     },
     {
-      "order": 0,
+      "order": 58,
       "name": "columbia"
     },
     {
-      "order": 0,
+      "order": 59,
       "name": "chicago"
     },
     {
-      "order": 0,
+      "order": 60,
       "name": "cd-rom"
     },
     {
-      "order": 0,
+      "order": 61,
       "name": "bookmark"
     },
     {
-      "order": 0,
+      "order": 62,
       "name": "book"
     },
     {
-      "order": 0,
+      "order": 63,
       "name": "baruch-cuny"
     },
     {
-      "order": 0,
+      "order": 64,
       "name": "berkeley"
     },
     {
-      "order": 0,
+      "order": 65,
       "name": "logo"
     },
     {
-      "order": 0,
+      "order": 66,
       "name": "arrow-circle-down"
     },
     {
-      "order": 0,
+      "order": 67,
       "name": "home"
     }
   ],
   "metadata": {
     "name": "geoblacklight-icons",
     "importSize": {
-      "width": 60,
-      "height": 58
+      "width": 1024,
+      "height": 1024
     },
-    "iconsHash": 673880221
+    "iconsHash": 2136029298
   },
   "height": 1024,
   "prevSize": 32,
   "icons": [
     {
       "paths": [
-        "M842.667 1024h-408.889l-145.778-144v-108.444h-144l-144-144v-483.556l144-144h483.556l144 144v108.444h288v266.667h-71.111v360.889l-145.778 144zM442.667 1000.889h391.111l131.556-129.778v-373.333h71.111v-222.222h-288v-122.667l-129.778-129.778h-465.778l-129.778 129.778v464l131.556 129.778h156.444v124.444l131.556 129.778zM782.222 312.889v504.889h-288v-108.444h108.444l108.444-108.444v-144h-144v106.667h-71.111v-250.667h-218.667v144h71.111v106.667h-144v-359.111h360.889v108.444h145.778v-144l-108.444-108.444h-433.778l-108.444 108.444v432l108.444 108.444h179.556v144l110.222 108.444h359.111l110.222-108.444v-394.667h71.111v-144c-1.778-1.778-216.889-1.778-216.889-1.778z"
+        "M1026.803 19.195l81.437-147.195c-19.359 18.143-28.799 23.839-47.039 36.159-98.461 67.582-219.641 83.677-341.365 183.802-82.557 67.966-120.732 166.459-120.732 166.459s110.845-124.796 278.487-186.618c67.614-25.055 114.78-38.815 149.211-52.222z",
+        "M983.349 98.297c-88.253 28.159-193.338 54.91-301.015 127.58-83.837 56.638-132.572 153.179-132.572 153.179s118.268-118.268 290.167-158.651l87.997-20.543 55.486-101.565zM885.112 281.459c-42.239 3.84-130.492 11.712-233.689 69.182-67.902 37.759-121.436 89.501-121.436 89.501l-0.16 0.32-0.096-0.064c-20.159 37.823-48.062 100.701-75.422 168.315l-136.092-248.408h-178.458l57.022 57.086v420.339l-57.022 56.958h195.194l-57.982-57.022v-326.39l127.452 228.153-40.223 132.316 41.055-47.999s33.279-158.555 164.539-314.23v332.566l-57.054 53.886h226.041l-49.15-57.086v-444.146c118.844-94.205 195.674-113.276 195.194-113.276z"
       ],
       "attrs": [
         {
           "fill": "rgb(108, 117, 125)"
+        },
+        {
+          "fill": "rgb(108, 117, 125)"
         }
       ],
-      "width": 1060,
       "grid": 0,
       "tags": [
-        "university-of-colorado-boulder"
+        "george-mason"
+      ],
+      "colorPermutations": {
+        "110811712512052052051255255255177186109189791": [
+          {
+            "f": 2
+          },
+          {
+            "f": 2
+          }
+        ]
+      }
+    },
+    {
+      "paths": [
+        "M842.667 1024h-408.889l-145.778-144v-108.444h-144l-144-144v-483.556l144-144h483.556l144 144v108.444h288v266.667h-71.111v360.889l-145.778 144zM442.667 1000.889h391.111l131.556-129.778v-373.333h71.111v-222.222h-288v-122.667l-129.778-129.778h-465.778l-129.778 129.778v464l131.556 129.778h156.444v124.444l131.556 129.778zM782.222 312.889v504.889h-288v-108.444h108.444l108.444-108.444v-144h-144v106.667h-71.111v-250.667h-218.667v144h71.111v106.667h-144v-359.111h360.889v108.444h145.778v-144l-108.444-108.444h-433.778l-108.444 108.444v432l108.444 108.444h179.556v144l110.222 108.444h359.111l110.222-108.444v-394.667h71.111v-144c-1.778-1.778-216.889-1.778-216.889-1.778z"
+      ],
+      "width": 1060,
+      "attrs": [
+        {
+          "fill": "rgb(108, 117, 125)"
+        }
       ],
       "colorPermutations": {
         "110811712512052052051255255255177186109189791": [
@@ -272,7 +300,11 @@
             "f": 2
           }
         ]
-      }
+      },
+      "tags": [
+        "university-of-colorado-boulder"
+      ],
+      "grid": 0
     },
     {
       "paths": [
