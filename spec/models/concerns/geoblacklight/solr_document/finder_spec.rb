@@ -2,15 +2,13 @@
 
 require "spec_helper"
 
+class MyDocument
+  extend Blacklight::Solr::Document
+  include Geoblacklight::SolrDocument::Finder
+end
+
 describe Geoblacklight::SolrDocument::Finder do
   let(:document_klass) { MyDocument }
-
-  before do
-    class MyDocument
-      extend Blacklight::Solr::Document
-      include Geoblacklight::SolrDocument::Finder
-    end
-  end
 
   describe "#find" do
     let(:documents) { ["first", "second"] }

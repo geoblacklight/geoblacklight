@@ -2,12 +2,12 @@
 
 require "spec_helper"
 
-describe Geoblacklight::ViewHelperOverride do
-  class GeoblacklightControllerTestClass
-    include AbstractController::Translation
-    attr_accessor :params
-  end
+class GeoblacklightControllerTestClass
+  include AbstractController::Translation
+  attr_accessor :params
+end
 
+describe Geoblacklight::ViewHelperOverride do
   let(:fake_controller) do
     GeoblacklightControllerTestClass.new
       .extend(described_class)

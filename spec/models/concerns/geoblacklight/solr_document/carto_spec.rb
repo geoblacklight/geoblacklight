@@ -2,16 +2,16 @@
 
 require "spec_helper"
 
+class MyDocument
+  extend Blacklight::Solr::Document
+  include Geoblacklight::SolrDocument::Carto
+end
+
 describe Geoblacklight::SolrDocument::Carto do
   let(:document) { MyDocument.new }
   let(:geojson_download) { instance_double(Geoblacklight::GeojsonDownload) }
 
   before do
-    class MyDocument
-      extend Blacklight::Solr::Document
-      include Geoblacklight::SolrDocument::Carto
-    end
-
     allow(Geoblacklight::GeojsonDownload).to receive(:new).and_return(geojson_download)
   end
 

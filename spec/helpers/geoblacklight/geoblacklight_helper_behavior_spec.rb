@@ -6,14 +6,7 @@ describe Geoblacklight::GeoblacklightHelperBehavior do
   let(:dummy_class) do
     Class.new.extend(described_class)
   end
-  let(:presenter) { instance_double(MyPresenter, fake_name: "druid:abc123") }
-
-  before do
-    class MyPresenter < Blacklight::ShowPresenter
-      def fake_name
-      end
-    end
-  end
+  let(:presenter) { instance_double(Geoblacklight::DocumentPresenter, index_fields_display: "druid:abc123") }
 
   describe "#geoblacklight_present" do
     before do
@@ -22,12 +15,12 @@ describe Geoblacklight::GeoblacklightHelperBehavior do
 
     context "as a Symbol" do
       it "calls defined presenter class" do
-        expect(dummy_class.geoblacklight_present(:fake_name)).to eq "druid:abc123"
+        expect(dummy_class.geoblacklight_present(:index_fields_display)).to eq "druid:abc123"
       end
     end
     context "as a String" do
       it "calls defined presenter class" do
-        expect(dummy_class.geoblacklight_present("fake_name")).to eq "druid:abc123"
+        expect(dummy_class.geoblacklight_present("index_fields_display")).to eq "druid:abc123"
       end
     end
   end
