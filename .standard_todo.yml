@@ -8,6 +8,3 @@ ignore:
   - Style/MissingRespondToMissing
 - lib/geoblacklight/references.rb:
   - Style/MissingRespondToMissing
-- lib/tasks/geoblacklight.rake:
-  - Security/JSONLoad
-  - Security/Open

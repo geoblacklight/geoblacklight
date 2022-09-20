@@ -49,11 +49,11 @@ namespace :geoblacklight do
 
       if args.remote
         puts "Indexing - Remote test fixtures"
-        JSON.load(
-          URI.open("https://api.github.com/repos/geoblacklight/geoblacklight/contents/spec/fixtures/solr_documents")
+        JSON.parse(
+          URI.parse("https://api.github.com/repos/geoblacklight/geoblacklight/contents/spec/fixtures/solr_documents").open.read
         ).each do |fixture|
           if fixture["name"].include?(".json")
-            docs << JSON.load(URI.open(fixture["download_url"]))
+            docs << JSON.parse(URI.parse(fixture["download_url"]).open.read)
           end
         end
       else
