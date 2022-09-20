@@ -34,6 +34,8 @@ else
 end
 
 if File.exist?("spec/test_app_templates/Gemfile.extra")
+  # rubocop:disable Security/Eval
   eval File.read("spec/test_app_templates/Gemfile.extra"), nil, "spec/test_app_templates/Gemfile.extra"
+  # rubocop:enable Security/Eval
 end
 # END ENGINE_CART BLOCK
