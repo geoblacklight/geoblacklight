@@ -276,4 +276,17 @@ describe Geoblacklight::SolrDocument do
       expect { document.wms_urlz }.to raise_error NoMethodError
     end
   end
+  describe "#respond_to_missing?" do
+    let(:document_attributes) { {} }
+    context "with a valid method" do
+      it "returns true" do
+        expect(document.respond_to?(:wms_url)).to be true
+      end
+    end
+    context "with a invalid method" do
+      it "returns true" do
+        expect(document.respond_to?(:wms_urlz)).to be false
+      end
+    end
+  end
 end

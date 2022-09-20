@@ -4,7 +4,3 @@
 ignore:
 - Gemfile:
   - Security/Eval
-- app/models/concerns/geoblacklight/solr_document.rb:
-  - Style/MissingRespondToMissing
-- lib/geoblacklight/references.rb:
-  - Style/MissingRespondToMissing

@@ -196,6 +196,18 @@ describe Geoblacklight::References do
       expect { typical_ogp_shapefile.invalid }.to raise_error(NoMethodError)
     end
   end
+  describe "#respond_to_missing?" do
+    context "with a valid method" do
+      it "returns true" do
+        expect(typical_ogp_shapefile.respond_to?(:download_types)).to be true
+      end
+    end
+    context "with a invalid method" do
+      it "returns false" do
+        expect(typical_ogp_shapefile.respond_to?(:invalid)).to be false
+      end
+    end
+  end
   describe "downloads_by_format" do
     it "returns shapefile" do
       expect(typical_ogp_shapefile.downloads_by_format.count).to eq 3

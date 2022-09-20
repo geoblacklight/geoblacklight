@@ -110,5 +110,9 @@ module Geoblacklight
         super
       end
     end
+
+    def respond_to_missing?(method, *args, &block)
+      /.*_url$/.match?(method.to_s) || super
+    end
   end
 end

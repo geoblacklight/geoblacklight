@@ -133,5 +133,9 @@ module Geoblacklight
         super
       end
     end
+
+    def respond_to_missing?(m, *args, &b)
+      Geoblacklight::Constants::URI.key?(m) || super
+    end
   end
 end
