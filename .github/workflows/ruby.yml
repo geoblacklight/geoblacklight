@@ -7,7 +7,7 @@ on:
   pull_request:
 
 jobs:
-  rubocop:
+  linter:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -18,7 +18,7 @@ jobs:
     - name: Install dependencies
       run: bundle install
     - name: Run linter
-      run: bundle exec rake rubocop
+      run: bundle exec standardrb
 
   test:
     runs-on: ubuntu-latest

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Geoblacklight
   class WmsLayer
     def initialize(params)
@@ -7,11 +8,11 @@ module Geoblacklight
     end
 
     def url
-      @params['URL']
+      @params["URL"]
     end
 
     def search_params
-      @params.except('URL')
+      @params.except("URL")
     end
 
     def feature_info
@@ -27,7 +28,7 @@ module Geoblacklight
       end
     rescue Faraday::ConnectionFailed, Faraday::TimeoutError => error
       Geoblacklight.logger.error error.inspect
-      { error: error.inspect }
+      {error: error.inspect}
     end
   end
 end

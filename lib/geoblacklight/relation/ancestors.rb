@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Geoblacklight
   module Relation
     class Ancestors
@@ -9,8 +10,8 @@ module Geoblacklight
       end
 
       def create_search_params
-        { fq: ["{!join from=#{@field} to=#{Settings.FIELDS.ID}}#{Settings.FIELDS.ID}:#{@search_id}"],
-          fl: [Settings.FIELDS.TITLE, Settings.FIELDS.ID, Settings.FIELDS.RESOURCE_TYPE] }
+        {fq: ["{!join from=#{@field} to=#{Settings.FIELDS.ID}}#{Settings.FIELDS.ID}:#{@search_id}"],
+         fl: [Settings.FIELDS.TITLE, Settings.FIELDS.ID, Settings.FIELDS.RESOURCE_TYPE]}
       end
 
       def execute_query
@@ -22,7 +23,7 @@ module Geoblacklight
 
       def results
         response = execute_query
-        response['response']
+        response["response"]
       end
     end
   end

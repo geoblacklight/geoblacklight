@@ -1,18 +1,19 @@
 # frozen_string_literal: true
-require 'blacklight'
-require 'coderay'
-require 'config'
-require 'faraday'
-require 'geoblacklight/version'
-require 'nokogiri'
-require 'mime/types'
-require 'handlebars_assets'
+
+require "blacklight"
+require "coderay"
+require "config"
+require "faraday"
+require "geoblacklight/version"
+require "nokogiri"
+require "mime/types"
+require "handlebars_assets"
 
 module Geoblacklight
   class Engine < ::Rails::Engine
     # GeoblacklightHelper is needed by all helpers, so we inject it
     # into action view base here.
-    initializer 'geoblacklight.helpers' do
+    initializer "geoblacklight.helpers" do
       config.after_initialize do
         ActionView::Base.send :include, GeoblacklightHelper
         ActionView::Base.send :include, CartoHelper

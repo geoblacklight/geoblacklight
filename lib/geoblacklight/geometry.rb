@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-require 'rgeo'
-require 'rgeo-geojson'
+
+require "rgeo"
+require "rgeo-geojson"
 
 module Geoblacklight
   # Transforms and parses geometry expressed in WKT or CSW WKT ENVELOPE syntax
@@ -17,7 +18,7 @@ module Geoblacklight
     def geojson
       obj = factory.parse_wkt(geometry_as_wkt)
       RGeo::GeoJSON.encode(obj).to_json
-    rescue StandardError
+    rescue
       Geoblacklight.logger.warn "Geometry is not valid: #{geom}"
       default_extent
     end
@@ -47,8 +48,8 @@ module Geoblacklight
     # @return [String]
     def default_extent
       {
-        'type' => 'Polygon',
-        'coordinates' => [
+        "type" => "Polygon",
+        "coordinates" => [
           [
             [-180.0, 90.0], [-180.0, -90.0], [180.0, -90.0], [180.0, 90.0], [-180.0, 90.0]
           ]

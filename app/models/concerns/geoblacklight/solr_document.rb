@@ -20,11 +20,11 @@ module Geoblacklight
     end
 
     def public?
-      rights_field_data.present? && rights_field_data.casecmp('public').zero?
+      rights_field_data.present? && rights_field_data.casecmp("public").zero?
     end
 
     def restricted?
-      rights_field_data.blank? || rights_field_data.casecmp('restricted').zero?
+      rights_field_data.blank? || rights_field_data.casecmp("restricted").zero?
     end
 
     def downloadable?
@@ -48,7 +48,7 @@ module Geoblacklight
     end
 
     def same_institution?
-      fetch(Settings.FIELDS.PROVIDER, '').casecmp(Settings.INSTITUTION.downcase).zero?
+      fetch(Settings.FIELDS.PROVIDER, "").casecmp(Settings.INSTITUTION.downcase).zero?
     end
 
     def iiif_download
@@ -60,7 +60,7 @@ module Geoblacklight
     end
 
     def external_url
-      references.url.endpoint if references.url
+      references.url&.endpoint
     end
 
     def item_viewer
@@ -68,11 +68,11 @@ module Geoblacklight
     end
 
     def itemtype
-      'http://schema.org/Dataset'
+      "http://schema.org/Dataset"
     end
 
     def geom_field
-      fetch(Settings.FIELDS.GEOMETRY, '')
+      fetch(Settings.FIELDS.GEOMETRY, "")
     end
 
     def geometry
@@ -80,7 +80,7 @@ module Geoblacklight
     end
 
     def wxs_identifier
-      fetch(Settings.FIELDS.WXS_IDENTIFIER, '')
+      fetch(Settings.FIELDS.WXS_IDENTIFIER, "")
     end
 
     def file_format
@@ -100,15 +100,19 @@ module Geoblacklight
     private
 
     def rights_field_data
-      fetch(Settings.FIELDS.ACCESS_RIGHTS, '')
+      fetch(Settings.FIELDS.ACCESS_RIGHTS, "")
     end
 
     def method_missing(method, *args, &block)
       if /.*_url$/.match?(method.to_s)
-        checked_endpoint(method.to_s.gsub('_url', ''))
+        checked_endpoint(method.to_s.gsub("_url", ""))
       else
         super
       end
+    end
+
+    def respond_to_missing?(method, *args, &block)
+      /.*_url$/.match?(method.to_s) || super
     end
   end
 end

@@ -1,39 +1,40 @@
 # frozen_string_literal: true
-require 'rails/generators'
-require 'generators/geoblacklight/install_generator'
+
+require "rails/generators"
+require "generators/geoblacklight/install_generator"
 
 namespace :geoblacklight do
-  desc 'Run Solr and GeoBlacklight for interactive development'
+  desc "Run Solr and GeoBlacklight for interactive development"
   task :server, [:rails_server_args] do |_t, args|
-    require 'solr_wrapper'
-    SolrWrapper.wrap(port: '8983') do |solr|
-      solr.with_collection(name: 'blacklight-core', dir: File.join(File.expand_path('../../', File.dirname(__FILE__)), 'solr', 'conf')) do
+    require "solr_wrapper"
+    SolrWrapper.wrap(port: "8983") do |solr|
+      solr.with_collection(name: "blacklight-core", dir: File.join(File.expand_path("../../", File.dirname(__FILE__)), "solr", "conf")) do
         puts "\nSolr server running: http://localhost:#{solr.port}/solr/#/blacklight-core"
         puts "\n^C to stop"
-        puts ' '
+        puts " "
         begin
-          Rake::Task['geoblacklight:solr:seed'].invoke
+          Rake::Task["geoblacklight:solr:seed"].invoke
           system "bundle exec rails s #{args[:rails_server_args]}"
         rescue Interrupt
-          puts 'Shutting down...'
+          puts "Shutting down..."
         end
       end
     end
   end
 
-  desc 'Run Solr and GeoBlacklight for interactive development with Webpack enabled'
+  desc "Run Solr and GeoBlacklight for interactive development with Webpack enabled"
   task :webpack do |_t|
-    require 'solr_wrapper'
-    SolrWrapper.wrap(port: '8983') do |solr|
-      solr.with_collection(name: 'blacklight-core', dir: File.join(File.expand_path('../../', File.dirname(__FILE__)), 'solr', 'conf')) do
+    require "solr_wrapper"
+    SolrWrapper.wrap(port: "8983") do |solr|
+      solr.with_collection(name: "blacklight-core", dir: File.join(File.expand_path("../../", File.dirname(__FILE__)), "solr", "conf")) do
         puts "\nSolr server running: http://localhost:#{solr.port}/solr/#/blacklight-core"
         puts "\n^C to stop"
-        puts ' '
+        puts " "
         begin
-          Rake::Task['geoblacklight:solr:seed'].invoke
-          system 'foreman start'
+          Rake::Task["geoblacklight:solr:seed"].invoke
+          system "foreman start"
         rescue Interrupt
-          puts 'Shutting down...'
+          puts "Shutting down..."
         end
       end
     end
@@ -42,41 +43,41 @@ namespace :geoblacklight do
   # Local fixtures: bundle exec rake "geoblacklight:index:seed"
   # Remote fixtures: bundle exec rake "geoblacklight:index:seed[:remote]"
   namespace :index do
-    desc 'Index GBL test fixture metadata into Solr'
+    desc "Index GBL test fixture metadata into Solr"
     task :seed, [:remote] => :environment do |t, args|
       docs = []
 
       if args.remote
-        puts 'Indexing - Remote test fixtures'
-        JSON.load(
-          URI.open("https://api.github.com/repos/geoblacklight/geoblacklight/contents/spec/fixtures/solr_documents")
+        puts "Indexing - Remote test fixtures"
+        JSON.parse(
+          URI.parse("https://api.github.com/repos/geoblacklight/geoblacklight/contents/spec/fixtures/solr_documents").open.read
         ).each do |fixture|
-          if fixture['name'].include?('.json')
-            docs << JSON.load(URI.open(fixture['download_url']))
+          if fixture["name"].include?(".json")
+            docs << JSON.parse(URI.parse(fixture["download_url"]).open.read)
           end
         end
       else
-        puts 'Indexing - Local test fixtures'
-        docs = Dir['spec/fixtures/solr_documents/*.json'].map { |f| JSON.parse File.read(f) }.flatten
+        puts "Indexing - Local test fixtures"
+        docs = Dir["spec/fixtures/solr_documents/*.json"].map { |f| JSON.parse File.read(f) }.flatten
       end
 
       Blacklight.default_index.connection.add docs
       Blacklight.default_index.connection.commit
     end
 
-    desc 'Ingests a GeoHydra transformed.json'
-    task :ingest_all => :environment do
-      docs = JSON.parse(File.read(Rails.root.join('tmp', 'transformed.json')))
+    desc "Ingests a GeoHydra transformed.json"
+    task ingest_all: :environment do
+      docs = JSON.parse(File.read(Rails.root.join("tmp", "transformed.json")))
       docs.each do |doc|
         Blacklight.default_index.connection.add doc
         Blacklight.default_index.connection.commit
       end
     end
 
-    desc 'Ingests a directory of geoblacklight.json files'
+    desc "Ingests a directory of geoblacklight.json files"
     task :ingest, [:directory] => :environment do |_t, args|
-      args.with_defaults(directory: 'data')
-      Dir.glob(File.join(args[:directory], '**', 'geoblacklight.json')).each do |fn|
+      args.with_defaults(directory: "data")
+      Dir.glob(File.join(args[:directory], "**", "geoblacklight.json")).each do |fn|
         puts "Ingesting #{fn}"
         begin
           Blacklight.default_index.connection.add(JSON.parse(File.read(fn)))
@@ -84,47 +85,47 @@ namespace :geoblacklight do
           puts "Failed to ingest #{fn}: #{e.inspect}"
         end
       end
-      puts 'Committing changes to Solr'
+      puts "Committing changes to Solr"
       Blacklight.default_index.connection.commit
     end
   end
 
   namespace :downloads do
-    desc 'Delete all cached downloads'
+    desc "Delete all cached downloads"
     task delete: :environment do
-      FileUtils.rm_rf Dir.glob(Rails.root.join('tmp', 'cache', 'downloads', '*'))
+      FileUtils.rm_rf Dir.glob(Rails.root.join("tmp", "cache", "downloads", "*"))
     end
-    desc 'Create download directory'
+    desc "Create download directory"
     task mkdir: :environment do
-      FileUtils.mkdir_p(Rails.root.join('tmp', 'cache', 'downloads'), verbose: true)
+      FileUtils.mkdir_p(Rails.root.join("tmp", "cache", "downloads"), verbose: true)
     end
-    desc 'Precaches a download'
+    desc "Precaches a download"
     task :precache, [:doc_id, :download_type, :timeout] => [:environment] do |_t, args|
       unless args[:doc_id] && args[:download_type] && args[:timeout]
-        fail 'Please supply required arguments [document_id, download_type and timeout]'
+        fail "Please supply required arguments [document_id, download_type and timeout]"
       end
       document = Geoblacklight::SolrDocument.find(args[:doc_id])
       fail Blacklight::Exceptions::RecordNotFound if document[:id] != args[:doc_id]
       download = "Geoblacklight::#{args[:download_type].capitalize}Download"
-                 .constantize.new(document, timeout: args[:timeout].to_i)
+        .constantize.new(document, timeout: args[:timeout].to_i)
       download.get
       Rails.logger.info "Successfully downloaded #{download.file_name}"
       Rails.logger.info Geoblacklight::ShapefileDownload.file_path.to_s
     rescue Geoblacklight::Exceptions::ExternalDownloadFailed => error
-      Rails.logger.error error.message + ' ' + error.url
+      Rails.logger.error error.message + " " + error.url
     rescue NameError
       Rails.logger.error "Could not find that download type \"#{args[:download_type]}\""
     end
   end
 
   namespace :solr do
-    desc 'Put sample data into solr'
-    task :seed => :environment do
-      Rake::Task['geoblacklight:index:seed'].invoke
+    desc "Put sample data into solr"
+    task seed: :environment do
+      Rake::Task["geoblacklight:index:seed"].invoke
     end
   end
 
-  desc 'Stdout output asset paths'
+  desc "Stdout output asset paths"
   task application_asset_paths: [:environment] do
     puts Rails.application.config.assets.paths
   end

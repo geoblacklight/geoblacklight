@@ -1,11 +1,12 @@
 # frozen_string_literal: true
-require 'rails/generators'
+
+require "rails/generators"
 
 module Geoblacklight
   class Install < Rails::Generators::Base
-    source_root File.expand_path('../templates', __FILE__)
+    source_root File.expand_path("../templates", __FILE__)
 
-    desc 'Install Geoblacklight'
+    desc "Install Geoblacklight"
 
     def allow_geoblacklight_params
       gbl_params = <<-"PARAMS"
@@ -17,15 +18,15 @@ module Geoblacklight
         end
       PARAMS
 
-      inject_into_file 'app/controllers/application_controller.rb', gbl_params, before: /^end/
+      inject_into_file "app/controllers/application_controller.rb", gbl_params, before: /^end/
     end
 
     def raise_unpermitted_params
-      inject_into_file 'config/environments/test.rb', "config.action_controller.action_on_unpermitted_parameters = :raise\n", before: /^end/
+      inject_into_file "config/environments/test.rb", "config.action_controller.action_on_unpermitted_parameters = :raise\n", before: /^end/
     end
 
     def mount_geoblacklight_engine
-      inject_into_file 'config/routes.rb', "mount Geoblacklight::Engine => 'geoblacklight'\n", before: /^end/
+      inject_into_file "config/routes.rb", "mount Geoblacklight::Engine => 'geoblacklight'\n", before: /^end/
     end
 
     def inject_geoblacklight_routes
@@ -45,71 +46,71 @@ module Geoblacklight
         resources :download, only: [:show]
       ROUTES
 
-      inject_into_file 'config/routes.rb', routes, before: /^end/
+      inject_into_file "config/routes.rb", routes, before: /^end/
     end
 
     def generate_assets
-      generate 'geoblacklight:assets'
+      generate "geoblacklight:assets"
     end
 
     def create_blacklight_catalog
-      remove_file 'app/controllers/catalog_controller.rb'
-      copy_file 'catalog_controller.rb', 'app/controllers/catalog_controller.rb'
+      remove_file "app/controllers/catalog_controller.rb"
+      copy_file "catalog_controller.rb", "app/controllers/catalog_controller.rb"
     end
 
     def rails_config
-      copy_file 'settings.yml', 'config/settings.yml'
+      copy_file "settings.yml", "config/settings.yml"
     end
 
     def solr_config
-      directory '../../../../solr', 'solr'
+      directory "../../../../solr", "solr"
     end
 
     def include_geoblacklight_solrdocument
-      inject_into_file 'app/models/solr_document.rb', after: 'include Blacklight::Solr::Document' do
+      inject_into_file "app/models/solr_document.rb", after: "include Blacklight::Solr::Document" do
         "\n include Geoblacklight::SolrDocument"
       end
     end
 
     def add_unique_key
-      inject_into_file 'app/models/solr_document.rb', after: "# self.unique_key = 'id'" do
+      inject_into_file "app/models/solr_document.rb", after: "# self.unique_key = 'id'" do
         "\n  self.unique_key = Settings.FIELDS.UNIQUE_KEY"
       end
     end
 
     def add_spatial_search_behavior
-      inject_into_file 'app/models/search_builder.rb', after: 'include Blacklight::Solr::SearchBuilderBehavior' do
+      inject_into_file "app/models/search_builder.rb", after: "include Blacklight::Solr::SearchBuilderBehavior" do
         "\n  include Geoblacklight::SuppressedRecordsSearchBehavior"
       end
     end
 
     # Turn off JQuery animations during testing
     def inject_disable_jquery_animations
-      inject_into_file 'app/views/layouts/application.html.erb', before: '</head>' do
+      inject_into_file "app/views/layouts/application.html.erb", before: "</head>" do
         "  <%= javascript_tag '$.fx.off = true;' if Rails.env.test? %>\n"
       end
     end
 
     def create_downloads_directory
-      FileUtils.mkdir_p('tmp/cache/downloads') unless File.directory?('tmp/cache/downloads')
+      FileUtils.mkdir_p("tmp/cache/downloads") unless File.directory?("tmp/cache/downloads")
     end
 
     def disable_turbolinks
-      gsub_file('app/assets/javascripts/application.js', %r{\/\/= require turbolinks}, '')
+      gsub_file("app/assets/javascripts/application.js", %r{//= require turbolinks}, "")
     end
 
     def update_application_name
-      gsub_file('config/locales/blacklight.en.yml', 'Blacklight', 'GeoBlacklight')
+      gsub_file("config/locales/blacklight.en.yml", "Blacklight", "GeoBlacklight")
     end
 
     # Ensure that assets/images exists
     def create_image_assets_directory
-      FileUtils.mkdir_p('app/assets/images') unless File.directory?('app/assets/images')
+      FileUtils.mkdir_p("app/assets/images") unless File.directory?("app/assets/images")
     end
 
     def bundle_install
       Bundler.with_clean_env do
-        run 'bundle install'
+        run "bundle install"
       end
     end
   end

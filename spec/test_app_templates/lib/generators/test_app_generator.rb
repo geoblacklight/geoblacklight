@@ -1,43 +1,44 @@
 # frozen_string_literal: true
-require 'rails/generators'
+
+require "rails/generators"
 
 class TestAppGenerator < Rails::Generators::Base
-  source_root File.expand_path('../../../../spec/test_app_templates', __FILE__)
+  source_root File.expand_path("../../../../spec/test_app_templates", __FILE__)
 
   def fix_sqlite3_version_requirement
-    return unless Gem.loaded_specs['rails'].version.to_s <= '5.2.2'
+    return unless Gem.loaded_specs["rails"].version.to_s <= "5.2.2"
 
     # Hack for https://github.com/rails/rails/issues/35153
     # Adapted from https://github.com/projectblacklight/blacklight/pull/2065
-    gsub_file('Gemfile', /^gem 'sqlite3'$/, 'gem "sqlite3", "~> 1.3.6"')
+    gsub_file("Gemfile", /^gem 'sqlite3'$/, 'gem "sqlite3", "~> 1.3.6"')
   end
 
   def add_gems
-    gem 'blacklight'
-    gem 'webpacker' unless Rails.version.to_s.start_with? '6.1.'
+    gem "blacklight"
+    gem "webpacker" unless Rails.version.to_s.start_with? "6.1."
     Bundler.with_clean_env do
-      run 'bundle install'
+      run "bundle install"
     end
   end
 
   def install_webpacker
-    run 'bundle exec rails webpacker:install'
+    run "bundle exec rails webpacker:install"
   end
 
   def run_blacklight_generator
-    say_status('warning', 'GENERATING BL', :yellow)
+    say_status("warning", "GENERATING BL", :yellow)
 
-    generate 'blacklight:install', '--devise'
+    generate "blacklight:install", "--devise"
   end
 
   def install_engine
-    generate 'geoblacklight:install', '-f'
+    generate "geoblacklight:install", "-f"
   end
 
   def fixtures
-    FileUtils.mkdir_p 'spec/fixtures/solr_documents'
-    directory 'solr_documents', 'spec/fixtures/solr_documents'
-    FileUtils.mkdir_p 'spec/fixtures/metadata'
-    directory 'metadata', 'spec/fixtures/metadata'
+    FileUtils.mkdir_p "spec/fixtures/solr_documents"
+    directory "solr_documents", "spec/fixtures/solr_documents"
+    FileUtils.mkdir_p "spec/fixtures/metadata"
+    directory "metadata", "spec/fixtures/metadata"
   end
 end

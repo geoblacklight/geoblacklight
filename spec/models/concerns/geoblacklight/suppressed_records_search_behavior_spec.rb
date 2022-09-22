@@ -1,11 +1,12 @@
 # frozen_string_literal: true
-require 'spec_helper'
+
+require "spec_helper"
 
 describe Geoblacklight::SuppressedRecordsSearchBehavior do
   subject(:searcher) { search_builder.with(user_params) }
 
   let(:user_params) { {} }
-  let(:solr_params) { { q: 'water' } }
+  let(:solr_params) { {q: "water"} }
   let(:blacklight_config) { CatalogController.blacklight_config.deep_copy }
   let(:context) { CatalogController.new }
   let(:search_builder_class) do
@@ -16,14 +17,14 @@ describe Geoblacklight::SuppressedRecordsSearchBehavior do
   end
   let(:search_builder) { search_builder_class.new(context) }
 
-  describe '#hide_suppressed_records' do
-    it 'hides/filters suppressed records' do
-      expect(searcher.hide_suppressed_records(solr_params)).to include('-gbl_suppressed_b: true')
+  describe "#hide_suppressed_records" do
+    it "hides/filters suppressed records" do
+      expect(searcher.hide_suppressed_records(solr_params)).to include("-gbl_suppressed_b: true")
     end
   end
 
-  context 'when document action call like CatalogController#web_services' do
-    it 'does not hide/filter suppressed records' do
+  context "when document action call like CatalogController#web_services" do
+    it "does not hide/filter suppressed records" do
       solr_params[:q] = "{!lucene}#{Settings.FIELDS.ID}:"
       expect(searcher.hide_suppressed_records(solr_params)).to be_nil
     end

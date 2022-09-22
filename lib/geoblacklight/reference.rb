@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Geoblacklight
   ##
   # Parses an array of dct_references to create useful reference information
@@ -30,7 +31,7 @@ module Geoblacklight
     # Creates a hash, using its type as key and endpoint as value
     # @return [Hash]
     def to_hash
-      { type => endpoint }
+      {type => endpoint}
     end
 
     private
@@ -40,7 +41,7 @@ module Geoblacklight
     # Remove any trailing slashes
     # @return [String]
     def uri
-      @reference[0].sub(/(\/)+$/, '') if @reference[0].present?
+      @reference[0].sub(/(\/)+$/, "") if @reference[0].present?
     end
   end
 end
