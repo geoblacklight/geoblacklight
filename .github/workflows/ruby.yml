@@ -20,6 +20,19 @@ jobs:
     - name: Run linter
       run: bundle exec standardrb
 
+  aardvark-fixture-linter:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+    - name: Install json schema validator
+      run: gem install json_schemer
+    - name: Run json_schemer against aarkvark fixtures
+      run: find spec/fixtures/solr_documents -type f -name "*.json" | xargs json_schemer schema/geoblacklight-schema-aardvark.json
+
   test:
     runs-on: ubuntu-latest
     strategy:
