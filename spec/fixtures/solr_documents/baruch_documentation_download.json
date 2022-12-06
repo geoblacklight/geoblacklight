@@ -40,7 +40,7 @@
   ],
   "dct_issued_s": "2016-01-15",
   "gbl_indexYear_im": [
-    "2015"
+    2015
   ],
   "gbl_dateRange_drsim": [
     "[2015 TO 2015]"
@@ -59,7 +59,7 @@
   "locn_geometry": "ENVELOPE(-74.030876,-73.755405,40.903125,40.576127)",
   "dcat_centroid": "40.739626,-73.8931405",
   "dct_source_sm": [
-    "nyu_2451_34635", 
+    "nyu_2451_34635",
     "nyu_2451_34636"
   ],
   "dct_accessRights_s": "Public",

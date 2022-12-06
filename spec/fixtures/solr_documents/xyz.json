@@ -3,7 +3,7 @@
     "6f47b103-9955-4bbe-a364-387039623106"
   ],
   "dct_title_s": "Quaternary Fault and Fold Database of the United States (XYZ)",
-  "dct_description_sm":[
+  "dct_description_sm": [
     "Quaternary Fault and Fold Database of the United States"
   ],
   "dct_accessRights_s": "Public",
@@ -28,9 +28,9 @@
     "Earthquakes",
     "Faults"
   ],
-  "dct_issued_s": 2020,
+  "dct_issued_s": "2020",
   "gbl_indexYear_im": [
-    "2020"
+    2020
   ],
   "dct_temporal_sm": [
     "2020"
