@@ -14,7 +14,6 @@ class TestAppGenerator < Rails::Generators::Base
   end
 
   def add_gems
-    gem "blacklight"
     gem "webpacker" unless Rails.version.to_s.start_with? "6.1."
     Bundler.with_clean_env do
       run "bundle install"

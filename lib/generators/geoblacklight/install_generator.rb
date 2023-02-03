@@ -96,7 +96,9 @@ module Geoblacklight
     end
 
     def disable_turbolinks
-      gsub_file("app/assets/javascripts/application.js", %r{//= require turbolinks}, "")
+      if File.file?("app/assets/javascripts/application.js")
+        gsub_file("app/assets/javascripts/application.js", %r{//= require turbolinks}, "")
+      end
     end
 
     def update_application_name
