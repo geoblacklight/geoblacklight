@@ -95,6 +95,12 @@ module Geoblacklight
       FileUtils.mkdir_p("tmp/cache/downloads") unless File.directory?("tmp/cache/downloads")
     end
 
+    def disable_turbolinks
+      if File.file?("app/assets/javascripts/application.js")
+        gsub_file("app/assets/javascripts/application.js", %r{//= require turbolinks}, "")
+      end
+    end
+
     def update_application_name
       gsub_file("config/locales/blacklight.en.yml", "Blacklight", "GeoBlacklight")
     end
