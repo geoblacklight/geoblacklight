@@ -79,7 +79,7 @@ module GeoblacklightHelper
   def geoblacklight_icon(name, **args)
     icon_name = name ? name.to_s.parameterize : "none"
     begin
-      blacklight_icon(icon_name, **args)
+      ApplicationController.helpers.blacklight_icon(icon_name, **args)
     rescue Blacklight::Exceptions::IconNotFound
       tag.span class: "icon-missing geoblacklight-none"
     end
