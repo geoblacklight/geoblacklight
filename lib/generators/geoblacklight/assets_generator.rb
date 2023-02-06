@@ -17,10 +17,11 @@ module Geoblacklight
     def add_javascript
       copy_file "assets/geoblacklight.js", "app/assets/javascripts/geoblacklight.js"
 
-      if Rails.version.to_i >= 6
-        append_to_file "app/assets/javascripts/application.js",
-          "\n// Required by GeoBlacklight\n//= require geoblacklight"
-      end
+      # @TODO: The app/assets/javascripts/application.js file doesn't exist in Rails7 / BL8
+      # if Rails.version.to_i >= 6
+      #  append_to_file "app/assets/javascripts/application.js",
+      #    "\n// Required by GeoBlacklight\n//= require geoblacklight"
+      # end
     end
 
     def remove_stylesheets
@@ -41,6 +42,9 @@ module Geoblacklight
 
       append_to_file "config/initializers/assets.rb",
         "\nRails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'images')\n"
+
+      append_to_file "config/initializers/assets.rb",
+        "\nRails.application.config.assets.precompile += %w( geoblacklight.js controllers/hello_controller.js controllers/index.js )\n"
     end
   end
 end
