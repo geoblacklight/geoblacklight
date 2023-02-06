@@ -17,8 +17,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
   spec.required_rubygems_version = ">= 2.5.2"
 
-  spec.add_dependency "rails", ">= 6.1", "< 7.1"
-  spec.add_dependency "blacklight", "~> 7.12"
+  spec.add_dependency "rails", ">= 6.1", "< 8"
+  spec.add_dependency "blacklight", "8.0.0.beta5"
   spec.add_dependency "config"
   spec.add_dependency "faraday", ">= 1.0"
   spec.add_dependency "coderay"
