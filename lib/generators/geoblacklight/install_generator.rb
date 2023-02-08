@@ -53,6 +53,11 @@ module Geoblacklight
       generate "geoblacklight:assets"
     end
 
+    # @TODO: remove this GBL layout if/when possible
+    def generate_gbl_base_layout
+      copy_file "base.html.erb", "app/views/layouts/blacklight/base.html.erb"
+    end
+
     def create_blacklight_catalog
       remove_file "app/controllers/catalog_controller.rb"
       copy_file "catalog_controller.rb", "app/controllers/catalog_controller.rb"
