@@ -1,5 +1,3 @@
-//= require bootstrap/tab
-
 !(function(global) {
 
   /** Download button for the metadata Bootstrap Modal dialog */
