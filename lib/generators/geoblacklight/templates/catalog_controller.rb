@@ -333,7 +333,7 @@ class CatalogController < ApplicationController
   end
 
   def web_services
-    @response, @documents = action_documents
+    @documents = action_documents
 
     respond_to do |format|
       format.html do
