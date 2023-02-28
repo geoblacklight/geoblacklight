@@ -30,6 +30,11 @@ class CatalogController < ApplicationController
     }
 
     # GeoBlacklight Defaults
+    
+    ##
+    # GBL Components
+    config.index.document_component = Geoblacklight::ResultComponent
+
     # * Adds the "map" split view for catalog#index
     config.view.split(partials: ["index"])
     config.view.delete_field("list")
