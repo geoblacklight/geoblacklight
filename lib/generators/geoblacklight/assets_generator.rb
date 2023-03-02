@@ -37,6 +37,9 @@ module Geoblacklight
     end
 
     def add_initializers
+      append_to_file "app/assets/config/manifest.js", 
+        "\n//= link application.css\n"
+        
       append_to_file "config/initializers/assets.rb",
         "\nRails.application.config.assets.precompile += %w( favicon.ico )\n"
 
@@ -44,7 +47,7 @@ module Geoblacklight
         "\nRails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'images')\n"
 
       append_to_file "config/initializers/assets.rb",
-        "\nRails.application.config.assets.precompile += %w( blacklight/bookmark_toggle.js blacklight/button_focus.js blacklight/checkbox_submit.js blacklight/core.js blacklight/index.js blacklight/modal.js blacklight/modalForm.js blacklight/search_context.js geoblacklight.js controllers/hello_controller.js controllers/index.js )\n"
+        "\nRails.application.config.assets.precompile += %w( application.css geoblacklight.js controllers/hello_controller.js controllers/index.js )\n"
     end
   end
 end
