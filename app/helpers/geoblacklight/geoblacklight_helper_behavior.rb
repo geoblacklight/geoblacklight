@@ -5,7 +5,7 @@
 # BlacklightHelperBehavior
 module Geoblacklight
   module GeoblacklightHelperBehavior
-    include Blacklight::BlacklightHelperBehavior
+    include Blacklight::DocumentHelperBehavior
 
     ##
     # Calls the presenter on the requested method

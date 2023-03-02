@@ -80,12 +80,11 @@ module GeoblacklightHelper
   # TODO: Remove linter disable after lowest supported Ruby version >= 3.2
   def geoblacklight_icon(name, **args)
     icon_name = name ? name.to_s.parameterize : "none"
-    tag.span class: "icon-missing geoblacklight-none"
-    # begin
-    #   blacklight_icon(icon_name, **args)
-    # rescue Blacklight::Exceptions::IconNotFound
-    #   tag.span class: "icon-missing geoblacklight-none"
-    # end
+    begin
+      ApplicationController.helpers.blacklight_icon(icon_name, **args)
+    rescue Blacklight::Exceptions::IconNotFound
+      tag.span class: "icon-missing geoblacklight-none"
+    end
   end
   # standard:enable Style/ArgumentsForwarding
 
