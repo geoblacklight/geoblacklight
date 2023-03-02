@@ -37,9 +37,9 @@ module Geoblacklight
     end
 
     def add_initializers
-      append_to_file "app/assets/config/manifest.js", 
+      append_to_file "app/assets/config/manifest.js",
         "\n//= link application.css\n"
-        
+
       append_to_file "config/initializers/assets.rb",
         "\nRails.application.config.assets.precompile += %w( favicon.ico )\n"
 
