@@ -77,12 +77,10 @@ module GeoblacklightHelper
   # Returns an SVG icon or empty HTML span element
   # @return [SVG or HTML tag]
   def geoblacklight_icon(name, **args)
+    return tag.span class: "icon-missing geoblacklight-none" if name.nil?
+
     icon_name = name ? name.to_s.parameterize : "none"
-    begin
-      ApplicationController.helpers.blacklight_icon(icon_name, **args)
-    rescue Blacklight::Exceptions::IconNotFound
-      tag.span class: "icon-missing geoblacklight-none"
-    end
+    ApplicationController.helpers.blacklight_icon(icon_name, **args)
   end
 
   ##
