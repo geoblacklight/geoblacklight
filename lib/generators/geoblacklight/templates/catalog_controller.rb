@@ -30,7 +30,7 @@ class CatalogController < ApplicationController
     }
 
     # GeoBlacklight Defaults
-    
+
     ##
     # GBL Components
     config.index.document_component = Geoblacklight::SearchResultComponent
