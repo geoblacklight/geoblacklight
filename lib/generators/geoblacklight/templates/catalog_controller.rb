@@ -33,7 +33,7 @@ class CatalogController < ApplicationController
     
     ##
     # GBL Components
-    config.index.document_component = Geoblacklight::ResultComponent
+    config.index.document_component = Geoblacklight::SearchResultComponent
 
     # * Adds the "map" split view for catalog#index
     config.view.split(partials: ["index"])

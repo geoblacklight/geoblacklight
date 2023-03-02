@@ -19,7 +19,7 @@ module Geoblacklight
   #      ... custom code ...
   #    end
   #  end
-  class ResultComponent < Blacklight::Component
+  class SearchResultComponent < Blacklight::Component
     with_collection_parameter :document
 
     # ViewComponent 3 changes iteration counters to begin at 0 rather than 1
