@@ -11,9 +11,12 @@
     <%= render partial: 'header_icons', locals: { document: document } %>
 
     <button
+      type="button"
       class="caret-toggle btn"
       data-toggle="collapse"
+      data-bs-toggle="collapse"
       data-target="#doc-<%= document.id %>-fields-collapse"
+      data-bs-target="#doc-<%= document.id %>-fields-collapse"
       aria-label="<%= t('geoblacklight.metadata.toggle_summary') %>"
       aria-expanded="false"
       aria-controls="doc-<%= document.id %>-fields-collapse">

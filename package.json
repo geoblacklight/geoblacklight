@@ -3,7 +3,6 @@
   "version": "2.1.2",
   "private": true,
   "license": "Apache-2.0",
-  "private": true,
   "scripts": {
     "test": "jest -c jest.config.js"
   },
@@ -15,6 +14,12 @@
     "@testing-library/dom": "^7.29.4",
     "@testing-library/jest-dom": "^5.11.9",
     "jest": "^26.6.3",
-    "jest-fixtures": "^0.6.0"
+    "jest-fixtures": "^0.6.0",
+    "webpack-dev-server": "^3"
+  },
+  "dependencies": {
+    "@rails/webpacker": "5.4.4",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12"
   }
 }

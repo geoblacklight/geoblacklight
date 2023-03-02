@@ -39,6 +39,8 @@ feature "search results map", js: true do
     visit root_path
     click_link "New York, New York"
     expect(page).to have_css "#map"
+
+    sleep(1)
     bbox = page.find("#map")["data-js-map-render-bbox"]
 
     # Example bbox for Place > New York, New York, United States

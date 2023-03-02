@@ -53,6 +53,11 @@ module Geoblacklight
       generate "geoblacklight:assets"
     end
 
+    # @TODO: remove this GBL layout if/when possible
+    def generate_gbl_base_layout
+      copy_file "base.html.erb", "app/views/layouts/blacklight/base.html.erb"
+    end
+
     def create_blacklight_catalog
       remove_file "app/controllers/catalog_controller.rb"
       copy_file "catalog_controller.rb", "app/controllers/catalog_controller.rb"
@@ -95,11 +100,10 @@ module Geoblacklight
       FileUtils.mkdir_p("tmp/cache/downloads") unless File.directory?("tmp/cache/downloads")
     end
 
-    def disable_turbolinks
-      if File.file?("app/assets/javascripts/application.js")
-        gsub_file("app/assets/javascripts/application.js", %r{//= require turbolinks}, "")
-      end
-    end
+    # @TODO: The app/assets/javascripts/application.js file doesn't exist in Rails7 / BL8
+    # def disable_turbolinks
+    #  gsub_file("app/assets/javascripts/application.js", %r{//= require turbolinks}, "")
+    # end
 
     def update_application_name
       gsub_file("config/locales/blacklight.en.yml", "Blacklight", "GeoBlacklight")
