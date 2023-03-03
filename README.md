@@ -8,17 +8,9 @@ of the Blacklight Solr-powered discovery interface and the
 multi-institutional [OpenGeoportal](http://opengeoportal.io/) and [OpenGeoMetadata](https://github.com/opengeometadata) federated metadata sharing
 communities. We're actively looking for community input and development partners.
 
-### Dependencies
-
-We recommend using:
-* [Ruby](https://www.ruby-lang.org/) 3+
-* [Ruby on Rails](https://rubyonrails.org/) 7+
-
-It is possible to run GeoBlacklight with Ruby 2.7 and Rails 6, but both are approaching EoL, so we highly encourage new adopters to use Ruby 3 and Rails 7.
-
 ### Installation
 
-  Bootstrap a new GeoBlacklight Ruby on Rails application using the template script:
+  Use Ruby v3.2 and Rails v7 to bootstrap a new GeoBlacklight application using the template script:
 
 ```bash
 DISABLE_SPRING=1 rails new app-name -m https://raw.githubusercontent.com/geoblacklight/geoblacklight/main/template.rb
