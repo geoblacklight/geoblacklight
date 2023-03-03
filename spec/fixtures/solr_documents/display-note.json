@@ -1,0 +1,51 @@
+{
+  "dct_title_s": "Building Footprints, Frobozz Headquarters, 781 GUE",
+  "dct_description_sm": [
+    "This is just a test record that has a couple of display notes."
+  ],
+  "dct_language_sm": [
+    "eng"
+  ],
+  "gbl_displayNote_sm": [
+    "This is a generic note about the resource that may be useful to users of this data.",
+    "Info: This dataset represents the buildings before they were destroyed by the Curse of Megaboz.",
+    "Tip: Be sure to look in the mailbox outside the white house.",
+    "Warning: This data is fictional."
+  ],
+  "dct_creator_sm": [
+    "FrobozzCo International"
+  ],
+  "dct_publisher_sm": [
+    "FrobozzCo International"
+  ],
+  "schema_provider_s": "Cornell",
+  "gbl_resourceClass_sm": [
+    "Datasets"
+  ],
+  "gbl_resourceType_sm": [
+    "Polygon data"
+  ],
+  "dct_subject_sm": [
+    "Buildings"
+  ],
+  "dcat_keyword_sm": [
+    "GBL Fixture records"
+  ],
+  "dct_temporal_sm": [
+    "781 GUE"
+  ],
+  "dct_issued_s": "1983-01-01",
+  "gbl_indexYear_im": [
+    1983
+  ],
+  "dct_spatial_sm": [
+    "Flatheadia, Great Underground Empire"
+  ],
+  "locn_geometry": "ENVELOPE(-71.118450,-71.074848,42.381246,42.354612)",
+  "dcat_bbox": "ENVELOPE(-71.118450,-71.074848,42.381246,42.354612)",
+  "dct_accessRights_s": "Public",
+  "dct_format_s": "Shapefile",
+  "id": "frobozz-111",
+  "gbl_mdModified_dt": "2023-03-03T18:29:16Z",
+  "gbl_mdVersion_s": "Aardvark"
+}
