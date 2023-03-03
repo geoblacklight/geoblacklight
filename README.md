@@ -10,7 +10,7 @@ communities. We're actively looking for community input and development partners
 
 ### Installation
 
-  Bootstrap a new GeoBlacklight Ruby on Rails application using the template script:
+  Use Ruby v3.2 and Rails v7 to bootstrap a new GeoBlacklight application using the template script:
 
 ```bash
 DISABLE_SPRING=1 rails new app-name -m https://raw.githubusercontent.com/geoblacklight/geoblacklight/main/template.rb
