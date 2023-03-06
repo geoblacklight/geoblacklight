@@ -126,6 +126,7 @@ en:
           content: A Web Map Service displays a geospatial dataset as map images.
   blacklight:
     icon:
+      american-geographical-society-library-uwm-libraries: American Geographical Society Library - UWM Libraries
       arizona: The University of Arizona
       arrow-circle-down: Arrow within a circle, pointing down
       baruch-cuny: Baruch College
