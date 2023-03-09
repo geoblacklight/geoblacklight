@@ -24,6 +24,12 @@
         "type": "string"
       }
     },
+    "gbl_displayNote_sm": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "dct_creator_sm": {
       "type": "array",
       "items": {
