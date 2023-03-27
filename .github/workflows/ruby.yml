@@ -47,60 +47,44 @@ jobs:
     strategy:
       matrix:
         ruby_version: ['3.0', 2.7]
-        rails_version: [6.1]
+        rails_version: [7.0.2.2, 6.1]
         bundler_version: [2.1.1]
         faraday_version: ['>= 2', '~> 1.0']
-        include:
-          - ruby_version: 2.6
-            rails_version: 6.1
-            bundler_version: 2.1.1
-            faraday_version: '~> 1.0'
-          - ruby_version: '3.0'
-            rails_version: '7.0.2.2'
-            bundler_version: 2.1.1
-            faraday_version: '>= 2'
 
     name: test ruby ${{ matrix.ruby_version }} / rails ${{ matrix.rails_version }} / faraday ${{ matrix.faraday_version }}
     steps:
     - uses: actions/checkout@v2
-
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby_version }}
-
     - name: Create Solr container
       run: docker run -d -p 8983:8983 geoblacklight/solr:8.9-v1.0.0 server/scripts/ci-start.sh
-
     - name: Install bundler
-      run: gem install bundler -v 2.1.1
-
+      run: gem install bundler -v ${{ matrix.bundler_version }}
     - name: Install dependencies
-      run: bundle _2.1.1_ install
+      run: bundle _${{ matrix.bundler_version }}_ install
       env:
-        rails_version: 7.0.1
+        RAILS_VERSION: ${{ matrix.rails_version }}
         FARADAY_VERSION: ${{ matrix.faraday_version }}
-
     - name: Setup Yarn
       run: exec "yarnpkg"
-
     - name: Load config into solr
       run: |
           cd solr/conf
           zip -1 -r solr_config.zip ./*
           curl -H "Content-type:application/octet-stream" --data-binary @solr_config.zip "http://solr:SolrRocks@127.0.0.1:8983/solr/admin/configs?action=UPLOAD&name=blacklight"
           curl -H 'Content-type: application/json' http://solr:SolrRocks@127.0.0.1:8983/api/collections/  -d '{create: {name: blacklight-core, config: blacklight, numShards: 1}}'
-
     - name: Run tests
       run: bundle exec rake ci
       env:
-        rails_version: ${{ matrix.rails_version }}
+        RAILS_VERSION: ${{ matrix.rails_version }}
+        FARADAY_VERSION: ${{ matrix.faraday_version }}
         ENGINE_CART_RAILS_OPTIONS: '--skip-git --skip-listen --skip-spring --skip-keeps --skip-action-cable --skip-coffee --skip-test'
         SOLR_URL: http://solr:SolrRocks@localhost:8983/solr/blacklight-core
-        FARADAY_VERSION: ${{ matrix.faraday_version }}
-
     - name: Upload coverage artifacts
       uses: actions/upload-artifact@v2
+      if: always()
       with:
         name: coverage
         path: coverage/
