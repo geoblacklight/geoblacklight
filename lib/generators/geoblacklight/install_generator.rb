@@ -9,7 +9,7 @@ module Geoblacklight
     desc "Install Geoblacklight"
 
     def allow_geoblacklight_params
-      gbl_params = <<-"PARAMS"
+      gbl_params = <<-PARAMS
         before_action :allow_geoblacklight_params
 
         def allow_geoblacklight_params
@@ -30,7 +30,7 @@ module Geoblacklight
     end
 
     def inject_geoblacklight_routes
-      routes = <<-"ROUTES"
+      routes = <<-ROUTES
         concern :gbl_exportable, Geoblacklight::Routes::Exportable.new
         resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog' do
           concerns :gbl_exportable
