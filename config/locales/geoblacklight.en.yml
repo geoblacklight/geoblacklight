@@ -116,6 +116,8 @@ en:
           content: A Web Map Service displays a geospatial dataset as map images.
   blacklight:
     icon:
+      american-geographical-society-library-uwm-libraries: American Geographical Society Library - UWM Libraries
+      arizona: The University of Arizona
       arrow-circle-down: Arrow within a circle, pointing down
       baruch-cuny: Baruch College
       berkeley: University of California, Berkeley
@@ -125,6 +127,7 @@ en:
       cornell: Cornell University
       dvd-rom: DVD-Rom
       esri-globe: Esri Global
+      george-mason: George Mason University
       harvard: Harvard University
       illinois: University of Illinois
       indiana: Indiana University
@@ -139,6 +142,7 @@ en:
       multilinestring: Multi-line string
       multipoint: Multi-point
       multipolygon: Multi-polygon
+      nebraska: University of Nebraska
       nyu: New York University
       ohio-state: The Ohio State University
       penn-state: Penn State University
@@ -146,6 +150,7 @@ en:
       public: Public content
       purdue: Purdue University
       restricted: Restricted content
+      rutgers: Rutgers University
       sms: SMS
       stanford: Stanford University
       texas: The University of Texas at Austin
