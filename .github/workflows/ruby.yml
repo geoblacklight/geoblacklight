@@ -27,11 +27,8 @@ jobs:
       with:
         ruby-version: 2.7
 
-    - name: Install bundler
-      run: gem install bundler -v 2.1.1
-
     - name: Install dependencies
-      run: bundle _2.1.1_ install
+      run: bundle install
 
     - name: Download coverage artifacts
       uses: actions/download-artifact@v2
@@ -47,8 +44,7 @@ jobs:
     strategy:
       matrix:
         ruby_version: ['3.0', 2.7]
-        rails_version: [6.1]
-        bundler_version: [2.1.1]
+        rails_version: [7.0.2.2, 6.1]
         faraday_version: ['>= 2', '~> 1.0']
         include:
           - ruby_version: 2.6
@@ -75,12 +71,8 @@ jobs:
       if: matrix.faraday_version == '~> 1.0'
     - name: Create Solr container
       run: docker run -d -p 8983:8983 geoblacklight/solr:8.9-v1.0.0 server/scripts/ci-start.sh
-
-    - name: Install bundler
-      run: gem install bundler -v 2.1.1
-
     - name: Install dependencies
-      run: bundle _2.1.1_ install
+      run: bundle install
       env:
         rails_version: ${{ matrix.rails_version }}
 
