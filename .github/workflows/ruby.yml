@@ -68,7 +68,11 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby_version }}
-
+    # required to avoid https://github.com/actions/runner-images/issues/37
+    # because faraday depends on patron, which requires curl headers to build
+    - name: Install cURL Headers
+      run: sudo apt-get update && sudo apt-get install libcurl4-openssl-dev
+      if: matrix.faraday_version == '~> 1.0'
     - name: Create Solr container
       run: docker run -d -p 8983:8983 geoblacklight/solr:8.9-v1.0.0 server/scripts/ci-start.sh
 
