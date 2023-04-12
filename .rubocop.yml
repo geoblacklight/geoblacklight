@@ -31,6 +31,7 @@ Layout/DotPosition:
 Layout/LineLength:
   Max: 115
   Exclude:
+  - 'app/models/concerns/geoblacklight/bbox_filter_query.rb'
   - 'app/models/concerns/geoblacklight/spatial_search_behavior.rb'
   - 'bin/coverage.rb'
   - 'lib/generators/geoblacklight/install_generator.rb'

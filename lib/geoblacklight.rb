@@ -4,7 +4,6 @@ require 'geoblacklight/engine'
 
 module Geoblacklight
   require 'geoblacklight/bounding_box'
-  require 'geoblacklight/catalog_helper_override'
   require 'geoblacklight/constants'
   require 'geoblacklight/exceptions'
   require 'geoblacklight/geometry'
@@ -35,7 +34,6 @@ module Geoblacklight
   require 'geoblacklight/relation/relation_response'
 
   def self.inject!
-    CatalogController.send(:include, Geoblacklight::CatalogHelperOverride)
     CatalogController.send(:include, Geoblacklight::ViewHelperOverride)
     CatalogController.send(:helper, Geoblacklight::ViewHelperOverride) unless
       CatalogController.helpers.is_a?(Geoblacklight::ViewHelperOverride)

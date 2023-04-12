@@ -62,7 +62,7 @@ module Geoblacklight
 
     def add_spatial_search_behavior
       inject_into_file 'app/models/search_builder.rb', after: 'include Blacklight::Solr::SearchBuilderBehavior' do
-        "\n  include Geoblacklight::SpatialSearchBehavior"
+        "\n  include Geoblacklight::SuppressedRecordsSearchBehavior"
       end
     end
 

@@ -23,12 +23,16 @@ module Geoblacklight
       "ENVELOPE(#{west}, #{east}, #{north}, #{south})"
     end
 
+    def to_param
+      "#{west} #{south} #{east} #{north}"
+    end
+
     ##
     # Create a Geoblacklight::BoundingBox from a Solr rectangle syntax
     # @param [String] bbox as "W S E N"
     # @return [Geoblacklight::BoundingBox]
     def self.from_rectangle(rectangle)
-      rectangle_array = rectangle.split
+      rectangle_array = rectangle.is_a?(String) ? rectangle.split : []
       message = 'Bounding box should be a string in Solr rectangle syntax e.g."W S E N"'
       fail Geoblacklight::Exceptions::WrongBoundingBoxFormat, message if rectangle_array.count != 4
       new(
