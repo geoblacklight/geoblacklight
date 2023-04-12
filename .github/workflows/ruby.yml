@@ -39,7 +39,6 @@ jobs:
       matrix:
         ruby_version: ['3.0', 2.7]
         rails_version: [7.0.2.2, 6.1]
-        bundler_version: [2.1.1]
         faraday_version: ['>= 2', '~> 1.0']
 
     name: test ruby ${{ matrix.ruby_version }} / rails ${{ matrix.rails_version }} / faraday ${{ matrix.faraday_version }}
@@ -49,12 +48,15 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby_version }}
+    # required to avoid https://github.com/actions/runner-images/issues/37
+    # because faraday depends on patron, which requires curl headers to build
+    - name: Install cURL Headers
+      run: sudo apt-get update && sudo apt-get install libcurl4-openssl-dev
+      if: matrix.faraday_version == '~> 1.0'
     - name: Create Solr container
       run: docker run -d -p 8983:8983 geoblacklight/solr:8.9-v1.0.0 server/scripts/ci-start.sh
-    - name: Install bundler
-      run: gem install bundler -v ${{ matrix.bundler_version }}
     - name: Install dependencies
-      run: bundle _${{ matrix.bundler_version }}_ install
+      run: bundle install
       env:
         RAILS_VERSION: ${{ matrix.rails_version }}
         FARADAY_VERSION: ${{ matrix.faraday_version }}
