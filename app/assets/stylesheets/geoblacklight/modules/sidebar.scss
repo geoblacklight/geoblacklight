@@ -32,3 +32,11 @@
 .card.relations {
   margin-bottom: 20px;
 }
+
+.page-sidebar [data-map="item"] {
+  height: 280px;
+  
+  .leaflet-control-attribution {
+    display: none;
+  }
+}
