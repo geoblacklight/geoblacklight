@@ -141,11 +141,16 @@ DISPLAY_NOTES_SHOWN:
 
 # Relationships to display
 RELATIONSHIPS_SHOWN:
-  MEMBER_OF:
+  MEMBER_OF_ANCESTORS:
     field: pcdm_memberOf_sm
     query_type: ancestors
     icon: nil
-    label: geoblacklight.relations.member_of
+    label: geoblacklight.relations.member_of_ancestors
+  MEMBER_OF_DESCENDANTS:
+    field: pcdm_memberOf_sm
+    query_type: descendants
+    icon: child-item
+    label: geoblacklight.relations.member_of_descendants
   PART_OF_ANCESTORS:
     field: dct_isPartOf_sm
     query_type: ancestors
@@ -181,11 +186,16 @@ RELATIONSHIPS_SHOWN:
     query_type: descendants
     icon: child-item
     label: geoblacklight.relations.descendant
-  VERSION_OF:
+  VERSION_OF_ANCESTORS:
+    field: dct_isVersionOf_sm
+    query_type: ancestors
+    icon: parent-item
+    label: geoblacklight.relations.version_of_ancestors
+  VERSION_OF_DESCENDANTS:
     field: dct_isVersionOf_sm
     query_type: descendants
-    icon: nil
-    label: geoblacklight.relations.version_of
+    icon: child-item
+    label: geoblacklight.relations.version_of_descendants
 
 # WMS Parameters
 WMS_PARAMS:
