@@ -1,22 +1,7 @@
 <% document ||= @document %>
 
 <% if document.display_note.present? %>
-  <% note_prefixes = Settings.DISPLAY_NOTES_SHOWN.map{ |key, value| [value.note_prefix, [value.bootstrap_alert_class, value.icon]] }.to_h %>
   <% document.display_note.each do |display_note| %>
-    <% prefixed = false %>
-    <% note_prefixes.each do |prefix, value| %>
-      <% if display_note.include?(prefix) %>
-        <% prefixed = true %>
-        <div class="gbl-display-note alert <%= value.first %>" role="alert">
-          <%= blacklight_icon(value.second) if value.second.present? %>
-          <%= display_note %>
-        </div>
-      <% end %>
-    <% end %>
-    <% if prefixed == false %>
-      <div class="gbl-display-note alert alert-secondary" role="alert">
-        <%= display_note %>
-      </div>
-    <% end %>
+    <%= render(Geoblacklight::DisplayNoteComponent.new(display_note: display_note)) %>
   <% end %>
 <% end %>
