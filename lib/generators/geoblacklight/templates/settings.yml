@@ -50,6 +50,7 @@ FIELDS:
   :DATE_ISSUED: 'dct_issued_s'
   :DATE_RANGE: 'gbl_dateRange_drsim'
   :DESCRIPTION: 'dct_description_sm'
+  :DISPLAY_NOTE: 'gbl_displayNote_sm'
   :FORMAT: 'dct_format_s'
   :FILE_SIZE: 'gbl_fileSize_s'
   :GEOREFERENCED: 'gbl_georeferenced_b'
@@ -118,6 +119,25 @@ WEBSERVICES_SHOWN:
   - 'tiled_map_layer'
   - 'dynamic_map_layer'
   - 'image_map_layer'
+
+# Display Notes to display / Non-prefixed default bootstrap class is alert-secondary
+DISPLAY_NOTES_SHOWN:
+  danger:
+    bootstrap_alert_class: alert-danger
+    icon: fire-solid
+    note_prefix: "Danger: "
+  info:
+    bootstrap_alert_class: alert-info
+    icon: circle-info-solid
+    note_prefix: "Info: "
+  tip:
+    bootstrap_alert_class: alert-success
+    icon: lightbulb-solid
+    note_prefix: "Tip: "
+  warning:
+    bootstrap_alert_class: alert-warning
+    icon: triangle-exclamation-solid
+    note_prefix: "Warning: "
 
 # Relationships to display
 RELATIONSHIPS_SHOWN:

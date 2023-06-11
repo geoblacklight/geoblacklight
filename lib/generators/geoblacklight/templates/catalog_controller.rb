@@ -46,6 +46,7 @@ class CatalogController < ApplicationController
     # remove the lines deleting and re-adding the :show partial
     config.show.display_type_field = "format"
     config.show.partials.delete(:show)
+    config.show.partials << "show_default_display_note"
     config.show.partials << "show_default_viewer_container"
     config.show.partials << "show_default_attribute_table"
     config.show.partials << "show_default_viewer_information"
