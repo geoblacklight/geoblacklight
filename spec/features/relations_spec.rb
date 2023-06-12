@@ -42,4 +42,28 @@ feature "Display related documents" do
 
     expect(page).not_to have_content("No results found for your search")
   end
+
+  scenario "Record with dct_isPartOf_sm value(s) should link to relations", js: true do
+    # All Relationships
+    visit solr_document_path("all-relationships")
+    expect(page).to have_content("Is part of...")
+  end
+
+  scenario "Record pointed at by a parent with dct_isPartOf_sm value(s) should link back", js: true do
+    # The Related Record
+    visit solr_document_path("the-related-record")
+    expect(page).to have_content("Has part...")
+  end
+
+  scenario "Record with pcdm_memberOf_sm value(s) should link to relations", js: true do
+    # All Relationships
+    visit solr_document_path("all-relationships")
+    expect(page).to have_content("Belongs to collection...")
+  end
+
+  scenario "Record pointed at by a parent with pcdm_memberOf_sm value(s) should link back", js: true do
+    # The Related Record
+    visit solr_document_path("the-related-record")
+    expect(page).to have_content("Collection records...")
+  end
 end
