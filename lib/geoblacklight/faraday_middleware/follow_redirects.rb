@@ -53,7 +53,7 @@ module Geoblacklight
 
       # Regex that matches characters that need to be escaped in URLs, sans
       # the "%" character which we assume already represents an escaped sequence.
-      URI_UNSAFE = %r{[^\-_.!~*'()a-zA-Z\d;/?:@&=+$,\[\]%]}.freeze
+      URI_UNSAFE = %r{[^\-_.!~*'()a-zA-Z\d;/?:@&=+$,\[\]%]}
 
       AUTH_HEADER = "Authorization"
 
