@@ -166,13 +166,13 @@ RELATIONSHIPS_SHOWN:
     query_type: ancestors
     icon: nil
     label: geoblacklight.relations.relation
-  REPLACES:
+  REPLACES_ANCESTORS:
     field: dct_replaces_sm
     query_type: ancestors
     icon: nil
     label: geoblacklight.relations.replaces
-  REPLACED_BY:
-    field: dct_isReplacedBy_sm
+  REPLACES_DESCENDANTS:
+    field: dct_replaces_sm
     query_type: descendants
     icon: nil
     label: geoblacklight.relations.replaced_by
