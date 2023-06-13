@@ -138,6 +138,13 @@ module GeoblacklightHelper
   end
 
   ##
+  # Determines if item view should render the sidebar static map
+  # @return [Boolean]
+  def render_sidebar_map?(document)
+    Settings.SIDEBAR_STATIC_MAP&.any? { |vp| document.viewer_protocol == vp }
+  end
+
+  ##
   # Deteremines if item view should include attribute table
   # @return [Boolean]
   def show_attribute_table?
