@@ -141,52 +141,79 @@ DISPLAY_NOTES_SHOWN:
 
 # Relationships to display
 RELATIONSHIPS_SHOWN:
-  MEMBER_OF:
+  MEMBER_OF_ANCESTORS:
     field: pcdm_memberOf_sm
+    icon: parent-item
+    inverse: :MEMBER_OF_DESCENDANTS
+    label: geoblacklight.relations.member_of_ancestors
     query_type: ancestors
-    icon: nil
-    label: geoblacklight.relations.member_of
+  MEMBER_OF_DESCENDANTS:
+    field: pcdm_memberOf_sm
+    icon: child-item
+    inverse: :MEMBER_OF_ANCESTORS
+    label: geoblacklight.relations.member_of_descendants
+    query_type: descendants
   PART_OF_ANCESTORS:
     field: dct_isPartOf_sm
-    query_type: ancestors
-    icon: nil
+    icon: parent-item
+    inverse: :PART_OF_DESCENDANTS
     label: geoblacklight.relations.part_of_ancestors
+    query_type: ancestors
   PART_OF_DESCENDANTS:
     field: dct_isPartOf_sm
-    query_type: descendants
     icon: child-item
+    inverse: :PART_OF_ANCESTORS
     label: geoblacklight.relations.part_of_descendants
-  RELATION:
-    field: dct_relation_sm
-    query_type: ancestors
-    icon: nil
-    label: geoblacklight.relations.relation
-  REPLACES:
-    field: dct_replaces_sm
-    query_type: ancestors
-    icon: nil
-    label: geoblacklight.relations.replaces
-  REPLACED_BY:
-    field: dct_isReplacedBy_sm
     query_type: descendants
+  RELATION_ANCESTORS:
+    field: dct_relation_sm
     icon: nil
-    label: geoblacklight.relations.replaced_by
+    inverse: :RELATION_DESCENDANTS
+    label: geoblacklight.relations.relation_ancestors
+    query_type: ancestors
+  RELATION_DESCENDANTS:
+    field: dct_relation_sm
+    icon: nil
+    inverse: :RELATION_ANCESTORS
+    label: geoblacklight.relations.relation_descendants
+    query_type: descendants
+  REPLACES_ANCESTORS:
+    field: dct_replaces_sm
+    icon: nil
+    inverse: :REPLACES_DESCENDANTS
+    label: geoblacklight.relations.replaces_ancestors
+    query_type: ancestors
+  REPLACES_DESCENDANTS:
+    field: dct_replaces_sm
+    icon: nil
+    inverse: :REPLACES_ANCESTORS
+    label: geoblacklight.relations.replaces_descendants
+    query_type: descendants
   SOURCE_ANCESTORS:
     field: dct_source_sm
-    query_type: ancestors
     icon: parent-item
-    label: geoblacklight.relations.ancestor
+    inverse: :SOURCE_DESCENDANTS
+    label: geoblacklight.relations.source_ancestors
+    query_type: ancestors
   SOURCE_DESCENDANTS:
     field: dct_source_sm
-    query_type: descendants
     icon: child-item
-    label: geoblacklight.relations.descendant
-  VERSION_OF:
-    field: dct_isVersionOf_sm
+    inverse: :SOURCE_ANCESTORS
+    label: geoblacklight.relations.source_descendants
     query_type: descendants
-    icon: nil
-    label: geoblacklight.relations.version_of
-
+  VERSION_OF_ANCESTORS:
+    field: dct_isVersionOf_sm
+    icon: parent-item
+    inverse: :VERSION_OF_DESCENDANTS
+    label: geoblacklight.relations.version_of_ancestors
+    query_type: ancestors
+  VERSION_OF_DESCENDANTS:
+    field: dct_isVersionOf_sm
+    icon: child-item
+    inverse: :VERSION_OF_ANCESTORS
+    label: geoblacklight.relations.version_of_descendants
+    query_type: descendants
+    
 # WMS Parameters
 WMS_PARAMS:
   :SERVICE: 'WMS'

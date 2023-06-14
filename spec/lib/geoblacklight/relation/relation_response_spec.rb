@@ -50,7 +50,7 @@ describe Geoblacklight::Relation::RelationResponse do
             field: "dct_source_sm",
             query_type: "bad_query_type",
             icon: "pagelines-brands",
-            label: "geoblacklight.relations.ancestor"
+            label: "geoblacklight.relations.source_ancestor"
           }
         }
       })
