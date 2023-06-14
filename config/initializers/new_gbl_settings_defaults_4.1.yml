@@ -1,6 +1,25 @@
 # New GeoBlacklight v4.1 Settings
 
-# Solr field mappings
+# Display Notes to display / Non-prefixed default bootstrap class is alert-secondary
+DISPLAY_NOTES_SHOWN:
+  danger:
+    bootstrap_alert_class: alert-danger
+    icon: fire-solid
+    note_prefix: "Danger: "
+  info:
+    bootstrap_alert_class: alert-info
+    icon: circle-info-solid
+    note_prefix: "Info: "
+  tip:
+    bootstrap_alert_class: alert-success
+    icon: lightbulb-solid
+    note_prefix: "Tip: "
+  warning:
+    bootstrap_alert_class: alert-warning
+    icon: triangle-exclamation-solid
+    note_prefix: "Warning: "
+
+# Solr field mappings (Added DISPLAY_NOTE)
 FIELDS:
   :ACCESS_RIGHTS: 'dct_accessRights_s'
   :ALTERNATIVE_TITLE: 'dct_alternative_sm'
@@ -46,84 +65,82 @@ FIELDS:
   :VERSION: 'dct_isVersionOf_sm'
   :WXS_IDENTIFIER: 'gbl_wxsIdentifier_s'
 
-# Enable catalog#show sidebar static map for items with the following viewer protocols
-SIDEBAR_STATIC_MAP:
-  - 'iiif'
-  - 'iiif_manifest'
-
 # Relationships to display
 RELATIONSHIPS_SHOWN:
   MEMBER_OF_ANCESTORS:
     field: pcdm_memberOf_sm
-    query_type: ancestors
     icon: nil
+    inverse: :MEMBER_OF_DESCENDANTS
     label: geoblacklight.relations.member_of_ancestors
+    query_type: ancestors
   MEMBER_OF_DESCENDANTS:
     field: pcdm_memberOf_sm
-    query_type: descendants
     icon: child-item
+    inverse: :MEMBER_OF_ANCESTORS
     label: geoblacklight.relations.member_of_descendants
+    query_type: descendants
   PART_OF_ANCESTORS:
     field: dct_isPartOf_sm
-    query_type: ancestors
     icon: nil
+    inverse: :PART_OF_DESCENDANTS
     label: geoblacklight.relations.part_of_ancestors
+    query_type: ancestors
   PART_OF_DESCENDANTS:
     field: dct_isPartOf_sm
-    query_type: descendants
     icon: child-item
+    inverse: :PART_OF_ANCESTORS
     label: geoblacklight.relations.part_of_descendants
-  RELATION:
+    query_type: descendants
+  RELATION_ANCESTORS:
     field: dct_relation_sm
-    query_type: ancestors
     icon: nil
-    label: geoblacklight.relations.relation
+    inverse: :RELATION_DESCENDANTS
+    label: geoblacklight.relations.relation_ancestors
+    query_type: ancestors
+  RELATION_DESCENDANTS:
+    field: dct_relation_sm
+    icon: nil
+    inverse: :RELATION_ANCESTORS
+    label: geoblacklight.relations.relation_descendants
+    query_type: descendants
   REPLACES_ANCESTORS:
     field: dct_replaces_sm
-    query_type: ancestors
     icon: nil
-    label: geoblacklight.relations.replaces
+    inverse: :REPLACES_DESCENDANTS
+    label: geoblacklight.relations.replaces_ancestors
+    query_type: ancestors
   REPLACES_DESCENDANTS:
     field: dct_replaces_sm
-    query_type: descendants
     icon: nil
-    label: geoblacklight.relations.replaced_by
+    inverse: :REPLACES_ANCESTORS
+    label: geoblacklight.relations.replaces_descendants
+    query_type: descendants
   SOURCE_ANCESTORS:
     field: dct_source_sm
-    query_type: ancestors
     icon: parent-item
-    label: geoblacklight.relations.ancestor
+    inverse: :SOURCE_DESCENDANTS
+    label: geoblacklight.relations.source_ancestors
+    query_type: ancestors
   SOURCE_DESCENDANTS:
     field: dct_source_sm
-    query_type: descendants
     icon: child-item
-    label: geoblacklight.relations.descendant
+    inverse: :SOURCE_ANCESTORS
+    label: geoblacklight.relations.source_descendants
+    query_type: descendants
   VERSION_OF_ANCESTORS:
     field: dct_isVersionOf_sm
-    query_type: ancestors
     icon: parent-item
+    inverse: :VERSION_OF_DESCENDANTS
     label: geoblacklight.relations.version_of_ancestors
+    query_type: ancestors
   VERSION_OF_DESCENDANTS:
     field: dct_isVersionOf_sm
-    query_type: descendants
     icon: child-item
+    inverse: :VERSION_OF_ANCESTORS
     label: geoblacklight.relations.version_of_descendants
+    query_type: descendants
 
-# Display Notes to display / Non-prefixed default bootstrap class is alert-secondary
-DISPLAY_NOTES_SHOWN:
-  danger:
-    bootstrap_alert_class: alert-danger
-    icon: fire-solid
-    note_prefix: "Danger: "
-  info:
-    bootstrap_alert_class: alert-info
-    icon: circle-info-solid
-    note_prefix: "Info: "
-  tip:
-    bootstrap_alert_class: alert-success
-    icon: lightbulb-solid
-    note_prefix: "Tip: "
-  warning:
-    bootstrap_alert_class: alert-warning
-    icon: triangle-exclamation-solid
-    note_prefix: "Warning: "
+# Enable catalog#show sidebar static map for items with the following viewer protocols
+SIDEBAR_STATIC_MAP:
+  - 'iiif'
+  - 'iiif_manifest'
