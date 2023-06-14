@@ -79,8 +79,8 @@ en:
       relation_descendants: 'Related records...'
       replaces_ancestors: 'Replaces...'
       replaces_descendants: 'Is replaced by...'
-      source_ancestor: 'Source records...'
-      source_descendant: 'Derived records...'
+      source_ancestors: 'Source records...'
+      source_descendants: 'Derived records...'
       version_of_ancestors: 'Is version of...'
       version_of_descendants: 'Has version...'
       browse_all_no_count: "Browse all records..."
