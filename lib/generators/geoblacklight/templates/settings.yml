@@ -143,7 +143,7 @@ DISPLAY_NOTES_SHOWN:
 RELATIONSHIPS_SHOWN:
   MEMBER_OF_ANCESTORS:
     field: pcdm_memberOf_sm
-    icon: nil
+    icon: parent-item
     inverse: :MEMBER_OF_DESCENDANTS
     label: geoblacklight.relations.member_of_ancestors
     query_type: ancestors
@@ -155,7 +155,7 @@ RELATIONSHIPS_SHOWN:
     query_type: descendants
   PART_OF_ANCESTORS:
     field: dct_isPartOf_sm
-    icon: nil
+    icon: parent-item
     inverse: :PART_OF_DESCENDANTS
     label: geoblacklight.relations.part_of_ancestors
     query_type: ancestors
