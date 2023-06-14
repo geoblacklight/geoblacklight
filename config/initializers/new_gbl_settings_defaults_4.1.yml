@@ -1,0 +1,104 @@
+# New GeoBlacklight v4.1 Settings
+
+# Display Notes to display / Non-prefixed default bootstrap class is alert-secondary
+DISPLAY_NOTES_SHOWN:
+  danger:
+    bootstrap_alert_class: alert-danger
+    icon: fire-solid
+    note_prefix: "Danger: "
+  info:
+    bootstrap_alert_class: alert-info
+    icon: circle-info-solid
+    note_prefix: "Info: "
+  tip:
+    bootstrap_alert_class: alert-success
+    icon: lightbulb-solid
+    note_prefix: "Tip: "
+  warning:
+    bootstrap_alert_class: alert-warning
+    icon: triangle-exclamation-solid
+    note_prefix: "Warning: "
+
+# Solr field mappings (Added DISPLAY_NOTE)
+FIELDS:
+  :DISPLAY_NOTE: 'gbl_displayNote_sm'
+
+# Relationships to display
+RELATIONSHIPS_SHOWN:
+  MEMBER_OF_ANCESTORS:
+    field: pcdm_memberOf_sm
+    icon: parent-item
+    inverse: :MEMBER_OF_DESCENDANTS
+    label: geoblacklight.relations.member_of_ancestors
+    query_type: ancestors
+  MEMBER_OF_DESCENDANTS:
+    field: pcdm_memberOf_sm
+    icon: child-item
+    inverse: :MEMBER_OF_ANCESTORS
+    label: geoblacklight.relations.member_of_descendants
+    query_type: descendants
+  PART_OF_ANCESTORS:
+    field: dct_isPartOf_sm
+    icon: parent-item
+    inverse: :PART_OF_DESCENDANTS
+    label: geoblacklight.relations.part_of_ancestors
+    query_type: ancestors
+  PART_OF_DESCENDANTS:
+    field: dct_isPartOf_sm
+    icon: child-item
+    inverse: :PART_OF_ANCESTORS
+    label: geoblacklight.relations.part_of_descendants
+    query_type: descendants
+  RELATION_ANCESTORS:
+    field: dct_relation_sm
+    icon: nil
+    inverse: :RELATION_DESCENDANTS
+    label: geoblacklight.relations.relation_ancestors
+    query_type: ancestors
+  RELATION_DESCENDANTS:
+    field: dct_relation_sm
+    icon: nil
+    inverse: :RELATION_ANCESTORS
+    label: geoblacklight.relations.relation_descendants
+    query_type: descendants
+  REPLACES_ANCESTORS:
+    field: dct_replaces_sm
+    icon: nil
+    inverse: :REPLACES_DESCENDANTS
+    label: geoblacklight.relations.replaces_ancestors
+    query_type: ancestors
+  REPLACES_DESCENDANTS:
+    field: dct_replaces_sm
+    icon: nil
+    inverse: :REPLACES_ANCESTORS
+    label: geoblacklight.relations.replaces_descendants
+    query_type: descendants
+  SOURCE_ANCESTORS:
+    field: dct_source_sm
+    icon: parent-item
+    inverse: :SOURCE_DESCENDANTS
+    label: geoblacklight.relations.source_ancestors
+    query_type: ancestors
+  SOURCE_DESCENDANTS:
+    field: dct_source_sm
+    icon: child-item
+    inverse: :SOURCE_ANCESTORS
+    label: geoblacklight.relations.source_descendants
+    query_type: descendants
+  VERSION_OF_ANCESTORS:
+    field: dct_isVersionOf_sm
+    icon: parent-item
+    inverse: :VERSION_OF_DESCENDANTS
+    label: geoblacklight.relations.version_of_ancestors
+    query_type: ancestors
+  VERSION_OF_DESCENDANTS:
+    field: dct_isVersionOf_sm
+    icon: child-item
+    inverse: :VERSION_OF_ANCESTORS
+    label: geoblacklight.relations.version_of_descendants
+    query_type: descendants
+
+# Enable catalog#show sidebar static map for items with the following viewer protocols
+SIDEBAR_STATIC_MAP:
+  - 'iiif'
+  - 'iiif_manifest'
