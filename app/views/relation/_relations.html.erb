@@ -1,8 +1,16 @@
 <% @relations.send(rel)['docs'][0..2].each do |entry| %>
   <li class="list-group-item border-bottom-0">
     <%= link_to solr_document_path(entry[Settings.FIELDS.ID]) do %>
-      <%= relations_icon(entry, value.icon) unless value.icon.nil? %>
+      <%= relations_icon(entry, value.icon) unless value.icon.nil? || value.icon == "nil" %>
       <%= entry[Settings.FIELDS.TITLE] %>
+    <% end %>
+  
+    <% if value.query_type == "ancestors" %>
+      <p class="mt-2 mb-0">
+        <%= link_to search_catalog_path({f: {"#{value.field}" => [entry[Settings.FIELDS.ID]]}}) do %>
+          <%= t('geoblacklight.relations.browse_all_no_count') %>
+        <% end %>
+      </p>
     <% end %>
   </li>
 <% end %>
