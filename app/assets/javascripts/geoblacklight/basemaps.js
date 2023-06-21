@@ -74,7 +74,7 @@ GeoBlacklight.Basemaps = {
     }
   ),
   openstreetmapStandard: L.tileLayer(
-    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    'https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       maxZoom: 19,
       worldCopyJump: true,
