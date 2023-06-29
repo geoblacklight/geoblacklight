@@ -1,11 +1,37 @@
-<div class="modal-header">
-  <h1><%= t('blacklight.tools.citation') %></h1>
-  <button type="button" class="blacklight-modal-close close" data-dismiss="modal" aria-label="<%= t('blacklight.modal.close') %>">
-    <span aria-hidden="true">&times;</span>
-  </button>
+<div data-controller="clipboard">
+  <div class="modal-header">
+    <h1><%= t('blacklight.tools.citation') %></h1>
+    <button type="button" class="blacklight-modal-close close" data-dismiss="modal" aria-label="<%= t('blacklight.modal.close') %>">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" data-clipboard-target="source">
+    <div class="alert alert-info d-none" role="alert">
+      Citation copied to clipboard
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+      <%= t('blacklight.tools.citation_info') %>
+    <% @documents&.each do |document| %>
+      <%= document.geoblacklight_citation(solr_document_url(document)) %>
+    <% end %>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" data-action="copyToClipboard"><%= t('blacklight.modal.copy-citation') %></button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= t('blacklight.modal.close') %></button>
+  </div>
 </div>
-<div class="modal-body">
-  <% @documents&.each do |document| %>
-    <%= document.geoblacklight_citation(solr_document_url(document)) %>
-  <% end %>
-</div>
+
+<!--If there is an alternative to this to get a JS function called in a modal, please advise.-->
+<script>
+    $('[data-action="copyToClipboard"]').on('click', function() {
+        let text = $('.modal-body').text().trim()
+        navigator.clipboard.writeText(text)
+            .then(() => {
+                $('.alert').removeClass('d-none');
+            })
+    });
+</script>
+
