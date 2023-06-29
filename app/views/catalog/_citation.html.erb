@@ -27,7 +27,7 @@
 <!--If there is an alternative to this to get a JS function called in a modal, please advise.-->
 <script>
     $('[data-action="copyToClipboard"]').on('click', function() {
-        let text = $('.modal-body').text().trim()
+        let text = $('[data-clipboard-target="source"]').text().trim()
         navigator.clipboard.writeText(text)
             .then(() => {
                 $('.alert').removeClass('d-none');
