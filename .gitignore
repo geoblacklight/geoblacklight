@@ -28,3 +28,6 @@ jetty
 yarn-debug.log*
 .yarn-integrity
 yarn.lock
+
+# Ignore IDE files
+.idea
