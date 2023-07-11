@@ -14,8 +14,7 @@ en:
       hgl_close: 'Close'
       hgl_instructions: 'Please enter your email address. You will receive a link to download the layer when it is ready.' ## new variable
       hgl_email: 'Email'
-      error: 'Sorry, the requested file could not be downloaded'
-      error_with_url: 'Sorry, the requested file could not be downloaded. Try downloading it directly from: %{link}'
+      error: 'Sorry, the requested file could not be downloaded.'
       export_formats: 'Export Formats'
       export_link: 'Export %{download_format}'
       export_shapefile_link: 'Shapefile'
