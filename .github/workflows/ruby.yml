@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby_version: ['3.0', 2.7]
+        ruby_version: ['3.2', 2.7]
         rails_version: [7.0.2.2, 6.1]
         faraday_version: ['>= 2', '~> 1.0']
 
