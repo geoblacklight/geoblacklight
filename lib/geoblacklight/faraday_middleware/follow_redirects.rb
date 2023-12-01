@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 # :nocov:
+# standard:disable Lint/RedundantRequireStatement
 require "faraday"
 require "set"
+# standard:enable Lint/RedundantRequireStatement
 
 module Geoblacklight
   # NOTE: We copied this class from faraday_middleware in order to support

@@ -36,23 +36,19 @@ require "webdrivers"
 require "webmock/rspec"
 WebMock.allow_net_connect!(net_http_connect_on_start: true)
 
-Capybara.register_driver(:headless_chrome) do |app|
-  Capybara::Selenium::Driver.load_selenium
-  browser_options = ::Selenium::WebDriver::Chrome::Options.new.tap do |opts|
-    opts.args << "--headless"
-    opts.args << "--disable-gpu"
-    opts.args << "--window-size=1280,1024"
-  end
+Capybara.register_driver(:selenium) do |app|
+  browser_options = ::Selenium::WebDriver::Chrome::Options.new(args: %w[headless disable-gpu disable-setuid-sandbox window-size=7680,4320])
+
   http_client = Selenium::WebDriver::Remote::Http::Default.new
   http_client.read_timeout = 120
   http_client.open_timeout = 120
   Capybara::Selenium::Driver.new(app,
     browser: :chrome,
-    http_client: http_client,
-    capabilities: [browser_options])
+    options: browser_options,
+    http_client: http_client)
 end
 
-Capybara.javascript_driver = :headless_chrome
+Capybara.javascript_driver = :selenium
 Capybara.default_max_wait_time = 120
 
 require "geoblacklight"

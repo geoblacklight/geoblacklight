@@ -8,7 +8,7 @@
         <ows:Operation name="GetCapabilities">
             <ows:DCP>
                 <ows:HTTP>
-                    <ows:Get xlink:href="https://map-tiles-staging.princeton.edu/mosaicjson/WMTSCapabilities.xml?url=s3%3A%2F%2Ffiggy-geo-staging%2F2a%2F91%2Fd8%2F2a91d82c541c426cb787cc62afe8f248%2Fmosaic-6c5b32bfe4cb8e4fb07d32cd6656d024.json&amp;rescale=0%2C255">
+                  <ows:Get xlink:href="https://map-tiles-staging.princeton.edu/2a91d82c541c426cb787cc62afe8f248/mosaicjson/WMTSCapabilities.xml">
                         <ows:Constraint name="GetEncoding">
                             <ows:AllowedValues>
                                 <ows:Value>RESTful</ows:Value>
@@ -21,7 +21,7 @@
         <ows:Operation name="GetTile">
             <ows:DCP>
                 <ows:HTTP>
-                    <ows:Get xlink:href="https://map-tiles-staging.princeton.edu/mosaicjson/WMTSCapabilities.xml?url=s3%3A%2F%2Ffiggy-geo-staging%2F2a%2F91%2Fd8%2F2a91d82c541c426cb787cc62afe8f248%2Fmosaic-6c5b32bfe4cb8e4fb07d32cd6656d024.json&amp;rescale=0%2C255">
+                    <ows:Get xlink:href="https://map-tiles-staging.princeton.edu/2a91d82c541c426cb787cc62afe8f248/mosaicjson/WMTSCapabilities.xml">
                         <ows:Constraint name="GetEncoding">
                             <ows:AllowedValues>
                                 <ows:Value>RESTful</ows:Value>
@@ -48,7 +48,7 @@
             <TileMatrixSetLink>
                 <TileMatrixSet>WebMercatorQuad</TileMatrixSet>
             </TileMatrixSetLink>
-            <ResourceURL format="image/png" resourceType="tile" template="https://map-tiles-staging.princeton.edu/mosaicjson/tiles/WebMercatorQuad/{TileMatrix}/{TileCol}/{TileRow}@1x.png?url=s3%3A%2F%2Ffiggy-geo-staging%2F2a%2F91%2Fd8%2F2a91d82c541c426cb787cc62afe8f248%2Fmosaic-6c5b32bfe4cb8e4fb07d32cd6656d024.json&amp;rescale=0%2C255"/>
+            <ResourceURL format="image/png" resourceType="tile" template="https://map-tiles-staging.princeton.edu/2a91d82c541c426cb787cc62afe8f248/mosaicjson/tiles/WebMercatorQuad/{TileMatrix}/{TileCol}/{TileRow}@1x.png"/>
         </Layer>
         <TileMatrixSet>
             <ows:Identifier>WebMercatorQuad</ows:Identifier>
@@ -122,5 +122,5 @@
             
         </TileMatrixSet>
     </Contents>
-    <ServiceMetadataURL xlink:href="https://map-tiles-staging.princeton.edu/mosaicjson/WMTSCapabilities.xml?url=s3%3A%2F%2Ffiggy-geo-staging%2F2a%2F91%2Fd8%2F2a91d82c541c426cb787cc62afe8f248%2Fmosaic-6c5b32bfe4cb8e4fb07d32cd6656d024.json&amp;rescale=0%2C255"/>
+    <ServiceMetadataURL xlink:href="https://map-tiles-staging.princeton.edu/2a91d82c541c426cb787cc62afe8f248/mosaicjson/WMTSCapabilities.xml"/>
 </Capabilities>

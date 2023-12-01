@@ -42,7 +42,7 @@ feature "web services tools" do
       click_link "Web services"
       within ".modal-body" do
         expect(page).to have_css "label", text: "Web Map Tile Service"
-        expect(page).to have_css 'input[value="https://map-tiles-staging.princeton.edu/mosaicjson/WMTSCapabilities.xml?id=2a91d82c541c426cb787cc62afe8f248"]'
+        expect(page).to have_css 'input[value="https://map-tiles-staging.princeton.edu/2a91d82c541c426cb787cc62afe8f248/mosaicjson/WMTSCapabilities.xml"]'
       end
     end
   end
@@ -53,7 +53,7 @@ feature "web services tools" do
       click_link "Web services"
       within ".modal-body" do
         expect(page).to have_css "label", text: "TileJSON Document"
-        expect(page).to have_css 'input[value="https://map-tiles-staging.princeton.edu/mosaicjson/tilejson.json?id=2a91d82c541c426cb787cc62afe8f248"]'
+        expect(page).to have_css 'input[value="https://map-tiles-staging.princeton.edu/2a91d82c541c426cb787cc62afe8f248/mosaicjson/tilejson.json"]'
       end
     end
   end

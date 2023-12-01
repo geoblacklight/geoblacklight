@@ -14,12 +14,13 @@ feature "wmts layer" do
   context "when referencing a WMTSCapabilities document with a single layer" do
     scenario "displays the layer", js: true do
       # Mock wmts manifest url
-      stub_request(:get, "https://map-tiles-staging.princeton.edu/mosaicjson/WMTSCapabilities.xml?id=2a91d82c541c426cb787cc62afe8f248")
+      stub_request(:get, "https://map-tiles-staging.princeton.edu/2a91d82c541c426cb787cc62afe8f248/mosaicjson/WMTSCapabilities.xml")
         .to_return(status: 200, body: read_fixture("manifests/wmts-single.xml"))
 
       visit solr_document_path("princeton-fk4544658v-wmts")
       expect(page).to have_css ".leaflet-control-zoom", visible: :visible
-      expect(page).to have_css "img[src*='map-tiles-staging.princeton.edu/mosaicjson/tiles/WebMercatorQuad']"
+      expect(page).to have_css "div[data-protocol='Wmts']"
+      expect(page).to have_css "div[data-url='https://map-tiles-staging.princeton.edu/2a91d82c541c426cb787cc62afe8f248/mosaicjson/WMTSCapabilities.xml']"
     end
   end
   context "when referencing a WMTSCapabilities document with a multiple layers" do
@@ -29,7 +30,8 @@ feature "wmts layer" do
         .to_return(status: 200, body: read_fixture("manifests/wmts-multiple.xml"))
       visit solr_document_path("princeton-fk4db9hn29")
       expect(page).to have_css ".leaflet-control-zoom", visible: :visible
-      expect(page).to have_css "img[src*='http://maps1.wien.gv.at/wmts/lb2016/farbe/google3857']"
+      expect(page).to have_css "div[data-protocol='Wmts']"
+      expect(page).to have_css "div[data-url='https://maps.wien.gv.at/wmts/1.0.0/WMTSCapabilities.xml']"
     end
   end
 end
