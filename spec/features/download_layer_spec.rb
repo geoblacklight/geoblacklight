@@ -27,8 +27,7 @@ feature "Download layer" do
     visit solr_document_path("mit-f6rqs4ucovjk2")
     find("#downloads-button").click
     find('#downloads-collapse a[data-download-type="shapefile"]', text: "Export Shapefile").click
-    expect(page).to have_css "div.alert.alert-danger", text: "Sorry, the requested file could not be downloaded. Try downloading it directly from:"
-    expect(page).to have_css "a", text: "http://www.example.com/failed"
+    expect(page).to have_css "div.alert.alert-danger", text: "Sorry, the requested file could not be downloaded."
   end
 
   scenario "clicking kmz download button should trigger download", js: true do
