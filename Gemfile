@@ -9,11 +9,17 @@ group :development, :test do
 end
 
 group :test do
-  gem "simplecov", require: false
-  gem "factory_bot_rails", require: false
+  gem "capybara", require: false
   gem "database_cleaner", require: false
   gem "engine_cart", require: false
+  gem "factory_bot_rails", require: false
+  gem "foreman", require: false
   gem "rails-controller-testing", require: false
+  gem "rspec-rails", require: false
+  gem "simplecov", require: false
+  gem "standardrb", require: false
+  gem "webdrivers", require: false
+  gem "webmock", require: false
 end
 
 # BEGIN ENGINE_CART BLOCK
