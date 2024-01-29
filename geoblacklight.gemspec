@@ -37,7 +37,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "webdrivers"
   spec.add_development_dependency "factory_bot_rails"
   spec.add_development_dependency "database_cleaner", "~> 2.0"
-  spec.add_development_dependency "simplecov", "~> 0.17.1"
+  spec.add_development_dependency "simplecov", "~> 0.22"
   spec.add_development_dependency "foreman"
   spec.add_development_dependency "standardrb", "1.0.1"
   spec.add_development_dependency "webmock", "~> 3.14"
