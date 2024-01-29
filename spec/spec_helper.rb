@@ -22,7 +22,7 @@ end
 
 require "factory_bot"
 require "database_cleaner"
-
+require "action_cable/engine"
 require "engine_cart"
 EngineCart.load_application!
 
