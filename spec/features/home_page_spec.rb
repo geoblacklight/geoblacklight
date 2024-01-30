@@ -42,6 +42,6 @@ feature "Home page", js: true do # use js: true for tests which require js, but 
   scenario "can search by placename" do
     click_link "New York, New York"
     results = page.all(:css, "article.document")
-    expect(results.count).to equal(4)
+    expect(results.count).to equal(5)
   end
 end
