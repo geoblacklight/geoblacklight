@@ -1,0 +1,14 @@
+{
+  "all": {
+    "sourceCodeDir": "app/frontend",
+    "publicOutputDir": "geoblacklight-vite",
+    "watchAdditionalPaths": []
+  },
+  "development": {
+    "autoBuild": true,
+    "port": 3037
+  },
+  "test": {
+    "autoBuild": true
+  }
+}

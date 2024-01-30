@@ -116,6 +116,11 @@ module Geoblacklight
       copy_file "base.html.erb", "app/views/layouts/blacklight/base.html.erb"
     end
 
+    # Vite - Copy config file
+    def copy_config_vite_json
+      copy_file "vite.json", "config/vite.json"
+    end
+
     # Run bundle with vite install
     def bundle_install
       Bundler.with_clean_env do

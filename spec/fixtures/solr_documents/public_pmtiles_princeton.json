@@ -1,0 +1,58 @@
+{
+  "dct_title_s": "2014 New York City Places - PMTiles",
+  "dct_alternative_sm": [
+    "actual-point1"
+  ],
+  "dct_description_sm": [
+    "Point dataset with WMS and WFS. ",
+    "This point shapefile was created as a guide to New York City’s non-neighborhood place locations that appear in “New York: A City of Neighborhoods.” These place locations include parks, cemeteries, and airports. Best estimates of label centroids were established at a 1:1,000 scale, but are ideally viewed at a 1:50,000 scale."
+  ],
+  "dct_language_sm": [
+    "eng"
+  ],
+  "dct_publisher_sm": [
+    "New York (City). Department of City Planning"
+  ],
+  "schema_provider_s": "NYU",
+  "gbl_resourceClass_sm": [
+    "Datasets"
+  ],
+  "gbl_resourceType_sm": [
+    "Point data"
+  ],
+  "dct_subject_sm": [
+    "Airports",
+    "Parks",
+    "Public spaces"
+  ],
+  "dcat_keyword_sm": [
+    "GBL Fixture records"
+  ],
+  "dct_temporal_sm": [
+    "2014"
+  ],
+  "dct_issued_s": "1905-07-06",
+  "gbl_indexYear_im": [
+    1905
+  ],
+  "gbl_dateRange_drsim": [
+    "[1905 TO 2014]"
+  ],
+  "dct_spatial_sm": [
+    "New York, New York"
+  ],
+  "locn_geometry": "ENVELOPE(-74.24856464,-73.73228698,40.89620987,40.49956589)",
+  "dcat_bbox": "ENVELOPE(-74.24856464,-73.73228698,40.89620987,40.49956589)",
+  "dcat_centroid": "40.697887879999996,-73.99042581",
+  "dct_accessRights_s": "Public",
+  "dct_format_s": "Shapefile",
+  "gbl_wxsIdentifier_s": "sdr:nyu_2451_34564",
+  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://archive.nyu.edu/retrieve/74563/nyu_2451_34564.zip\",\"http://schema.org/url\":\"http://hdl.handle.net/2451/34564\",\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"https://maps-public.geo.nyu.edu/geoserver/sdr/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://maps-public.geo.nyu.edu/geoserver/sdr/wms\",\"https://github.com/protomaps/PMTiles\":\"https://test-data.cloudgbl.org/nyu_2451_34564.pmtiles\"}",
+  "id": "nyu-2451-34564-pmtiles",
+  "dct_identifier_sm": [
+    "http://hdl.handle.net/2451/34564",
+    "35497"
+  ],
+  "gbl_mdModified_dt": "2021-06-01T22:14:15Z",
+  "gbl_mdVersion_s": "Aardvark"
+}

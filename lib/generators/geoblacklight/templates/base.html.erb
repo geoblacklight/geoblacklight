@@ -18,7 +18,9 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
 
     <%= vite_client_tag %>
-    <%= vite_javascript_tag 'application' %>
+    <% if openlayers_container? %>
+      <%= vite_javascript_tag 'ol' %>
+    <% end %>
 
     <%= csrf_meta_tags %>
     <%= content_for(:head) %>
