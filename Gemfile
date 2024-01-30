@@ -8,6 +8,20 @@ group :development, :test do
   gem "thor", ">= 0.19.0"
 end
 
+group :test do
+  gem "capybara", require: false
+  gem "database_cleaner", require: false
+  gem "engine_cart", require: false
+  gem "factory_bot_rails", require: false
+  gem "foreman", require: false
+  gem "rails-controller-testing", require: false
+  gem "rspec-rails", require: false
+  gem "simplecov", require: false
+  gem "standardrb", require: false
+  gem "webdrivers", require: false
+  gem "webmock", require: false
+end
+
 # BEGIN ENGINE_CART BLOCK
 # engine_cart: 0.10.0
 # engine_cart stanza: 0.10.0

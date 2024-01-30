@@ -32,7 +32,7 @@ module Geoblacklight
       def cleaned_metadata
         transformed_doc = Nokogiri::XML(@metadata.to_html)
         if transformed_doc.xpath("//body").children.empty?
-          fail TransformError, \
+          fail TransformError,
             "Failed to extract the <body> child elements from the transformed metadata"
         end
         transformed_doc.xpath("//body").children
