@@ -368,7 +368,7 @@ describe GeoblacklightHelper, type: :helper do
       let(:document_attributes) do
         {
           references_field => {
-            "https://github.com/protomaps/PMTiles" => "https://test-data.cloudgbl.org/tufts-cambridgegrid100-04.pmtiles"
+            "https://github.com/protomaps/PMTiles" => "https://geodata.lib.princeton.edu/fe/d2/80/fed28076eaa04506b7956f10f61a2f77/display_vector.pmtiles"
           }.to_json
         }
       end
