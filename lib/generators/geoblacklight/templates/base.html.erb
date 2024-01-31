@@ -20,6 +20,8 @@
     <%= vite_client_tag %>
     <% if openlayers_container? %>
       <%= vite_javascript_tag 'ol' %>
+    <% elsif iiif_manifest_container? %>
+      <script src="https://www.unpkg.com/@samvera/clover-iiif@latest/dist/web-components/index.umd.js"></script>
     <% end %>
 
     <%= csrf_meta_tags %>
