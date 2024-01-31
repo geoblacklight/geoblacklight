@@ -357,4 +357,29 @@ describe GeoblacklightHelper, type: :helper do
       end
     end
   end
+
+  describe "#viewer_container" do
+    let(:document) { SolrDocument.new(document_attributes) }
+    let(:references_field) { Settings.FIELDS.REFERENCES }
+    let(:rights_field) { Settings.FIELDS.RIGHTS }
+
+    context "with pmtiles layer" do
+      let(:ol_viewer) { double }
+      let(:document_attributes) do
+        {
+          references_field => {
+            "https://github.com/protomaps/PMTiles" => "https://test-data.cloudgbl.org/tufts-cambridgegrid100-04.pmtiles"
+          }.to_json
+        }
+      end
+
+      it "renders an OpenLayers container" do
+        allow(helper).to receive(:geoblacklight_basemap).and_return("esri")
+        assign(:document, document)
+        node = Capybara.string(helper.viewer_container)
+        div = node.first("div")
+        expect(div[:id]).to eq "ol-map"
+      end
+    end
+  end
 end
