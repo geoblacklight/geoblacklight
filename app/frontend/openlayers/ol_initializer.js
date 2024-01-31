@@ -12,6 +12,7 @@ import GeoTIFF from 'ol/source/GeoTIFF'
 import WebGLTileLayer from 'ol/layer/WebGLTile'
 import { FullScreen, defaults as defaultControls } from 'ol/control'
 import { PMTilesVectorSource } from 'ol-pmtiles'
+import { openLayersBasemaps }  from './basemaps'
 
 export default class OlInitializer {
   constructor () {
@@ -32,11 +33,12 @@ export default class OlInitializer {
   }
 
   baseLayer () {
+    const basemap = openLayersBasemaps[this.data.basemap]
     const layer = new TileLayer({
       source: new XYZ({
-        attributions:
-          'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012',
-        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}'
+        attributions: basemap["attribution"],
+        url: basemap["url"],
+        maxZoom: basemap["maxZoom"]
       })
     })
     return layer
