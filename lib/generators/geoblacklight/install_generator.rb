@@ -104,9 +104,28 @@ module Geoblacklight
       FileUtils.mkdir_p("app/assets/images") unless File.directory?("app/assets/images")
     end
 
+    # Vite - Required for successful installation
+    def install_vite_rails
+      append_to_file "Gemfile" do
+        "gem \"vite_rails\", \"~> 3.0\""
+      end
+    end
+
+    # Vite - GBL Base Layout with Vite Helper Tags
+    def geoblacklight_base_layout
+      copy_file "base.html.erb", "app/views/layouts/blacklight/base.html.erb"
+    end
+
+    # Vite - Copy config file
+    def copy_config_vite_json
+      copy_file "vite.json", "config/vite.json"
+    end
+
+    # Run bundle with vite install
     def bundle_install
       Bundler.with_clean_env do
         run "bundle install"
+        run "bundle exec vite install"
       end
     end
   end

@@ -23,7 +23,6 @@
       </div>
     <% end %>
 
-    <%= content_tag :div, id: 'map', aria: { label: t('geoblacklight.map.label') }, data: { map: 'item', protocol: document.viewer_protocol.camelize, url: document.viewer_endpoint, 'layer-id' => document.wxs_identifier, 'map-geom' => document.geometry.geojson, 'catalog-path'=> search_catalog_path, available: document_available?, inspect: show_attribute_table?, basemap: geoblacklight_basemap, leaflet_options: leaflet_options } do %>
-    <% end %>
+    <%= viewer_container %>
   </div>
 </div>

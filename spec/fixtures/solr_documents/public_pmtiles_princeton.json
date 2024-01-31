@@ -1,0 +1,41 @@
+{
+    "gbl_mdVersion_s": "Aardvark",
+    "dct_identifier_sm": ["ark:/88435/t722hd30j"],
+    "id": "princeton-t722hd30j",
+    "dct_title_s": "Louisiana voting districts from 2010 Census",
+    "locn_geometry": "ENVELOPE(-94.043352, -88.758388, 33.019543, 28.855127)",
+    "dcat_bbox": "ENVELOPE(-94.043352, -88.758388, 33.019543, 28.855127)",
+    "schema_provider_s": "Princeton",
+    "dct_accessRights_s": "Public",
+    "dct_description_sm": ["Voting districts in Louisiana based on the US decennial Census of 2010. The TIGER/Line shapefiles and related database files (.dbf) are an extract of selected geographic and cartographic information from the U.S. Census Bureau's Master Address File / Topologically Integrated Geographic Encoding and Referencing (MAF/TIGER) Database (MTDB). The MTDB represents a seamless national file with no overlaps or gaps between parts, however, each TIGER/Line shapefile is designed to stand alone as an independent data set, or they can be combined to cover the entire nation. Voting district is the generic name for geographic entities such as precincts, wards, and election districts established by State governments for the purpose of conducting elections. States participating in the 2010 Census Redistricting Data Program as part of Public Law 94-171 (1975) provided the Census Bureau with boundaries, codes, and names for their VTDs. Each VTD is identified by a 1- to 6-character alphanumeric census code that is unique within county. For the 2010 Census, Rhode Island is the only State that did not participate in Phase 2 (the Voting District Project) of the Redistricting Data Program and no VTDs exist for this State in the 2010 Census data products. Note that only Montana and Oregon do not have complete coverage of VTDs for the 2010 Census."],
+    "dct_creator_sm": [
+        "US Census Bureau, Geography Division"
+    ],
+    "dct_subject_sm": [
+        "Census",
+        "voting districts",
+        "electoral districts",
+        "electoral boundaries",
+        "state legislative district",
+        "Boundaries"
+    ],
+    "dct_spatial_sm": [
+        "Louisiana"
+    ],
+    "dct_temporal_sm": [
+        "2010",
+        "2012",
+        "2012"
+    ],
+    "gbl_resourceType_sm": [
+      "Polygon data"
+    ],
+    "gbl_resourceClass_sm": [
+      "Datasets"
+    ],
+    "gbl_indexYear_im": [2010],
+    "gbl_mdModified_dt": "2020-05-20T23:57:56Z",
+    "dct_references_s": "{\"http://www.opengis.net/cat/csw/csdgm\":\"https://figgy.princeton.edu/downloads/75bc7983-c0fa-4d54-8422-490bc63185dc/file/0c4e793f-d149-44e1-8d46-59e695441420\",\"http://schema.org/downloadUrl\":\"https://figgy.princeton.edu/downloads/a287cc33-3c2b-4cca-bdd2-525bc18ece49/file/7f5a693a-617e-4fe8-88ce-5f3b2c24a017\",\"http://schema.org/thumbnailUrl\":\"https://figgy.princeton.edu/downloads/a287cc33-3c2b-4cca-bdd2-525bc18ece49/file/6b6a9b1e-50a9-47bd-8395-0bd697e1f9c5\",\"https://github.com/protomaps/PMTiles\":\"https://geodata.lib.princeton.edu/fe/d2/80/fed28076eaa04506b7956f10f61a2f77/display_vector.pmtiles\"}",
+    "dct_format_s": "Shapefile",
+    "dct_issued_dt": "2012-01-01T00:00:00Z"
+}

@@ -1,0 +1,57 @@
+{
+  "id": "princeton-dc7h14b252v",
+  "dct_identifier_sm": [
+    "ark:/88435/dc7h14b252v"
+  ],
+  "dct_title_s": "Map illustrating the journey of the Pundit Nain Singh through Great Tibet from Ladákh to Assam [cartographic material] : to accompany the paper by Captn. H. Trotter R.E. / [engraved by] Edwd. Weller. (geotiff)",
+  "dct_description_sm": [
+    "Relief shown by hachures and spot heights. The Pundit's route is colored red. Routes of previous explorers and major roads are also shown. Romanized name of Indian explorer: Nain Singh Rawat. British boundaries and approximate boundary between Nepal and Tibet are shown. Includes glossary of local terms for geographic features. From: The Journal of the Royal Geographical Society of London. Vol. 47, (1877), pp. 86-136; held in Firestone Library. Call number: G7 .J687 v.47 1877"
+  ],
+  "dct_language_sm": [
+    "en"
+  ],
+  "dct_publisher_sm": [
+    "London: published for the Journal of the Royal Geographical Society by J. Murray, Albemarle Street, 1877."
+  ],
+  "gbl_resourceClass_sm": [
+    "Maps"
+  ],
+  "gbl_resourceType_sm": [
+    "Raster data"
+  ],
+  "gbl_resourceClass_sm": [
+    "Maps"
+  ],
+  "gbl_indexYear_im": [
+    1877
+  ],
+  "dct_spatial_sm": [
+    "Himalaya Mountains"
+  ],
+  "locn_geometry": "ENVELOPE(79.257732, 92.742268, 34.178571, 26.339286)",
+  "dcat_bbox": "ENVELOPE(79.257732, 92.742268, 34.178571, 26.339286)",
+  "dct_source_sm": [
+    "princeton-j098zd574"
+  ],
+  "dct_accessRights_s": "Public",
+  "dct_format_s": "GeoTIFF",
+  "dct_references_s": "{\"http://schema.org/url\":\"https://catalog.princeton.edu/catalog/9971226563506421\",\"http://schema.org/downloadUrl\":[{\"label\":\"GeoTIFF\",\"url\":\"https://figgy.princeton.edu/downloads/67d9ca18-49ee-44a6-8d87-3d4cbc70b0c5/file/a95c7f34-d4a8-49a5-a51a-ad782e43b37a\"}],\"http://schema.org/thumbnailUrl\":\"https://figgy.princeton.edu/downloads/67d9ca18-49ee-44a6-8d87-3d4cbc70b0c5/file/8b9b0834-0f3e-48ef-95d0-e065b30cd231\",\"https://github.com/cogeotiff/cog-spec\":\"https://geodata.lib.princeton.edu/13/f5/58/13f5582c32a54be98fc2982077d0456e/display_raster.tif\"}",
+  "schema_provider_s": "Princeton",
+  "gbl_mdModified_dt": "2024-01-30T21:42:24Z",
+  "gbl_mdVersion_s": "Aardvark",
+  "gbl_suppressed_b": false,
+  "gbl_resourceType_sm": [
+    "Raster data"
+  ],
+  "dct_subject_sm": [
+    "Himalaya Mountains—Discovery and exploration—Maps",
+    "Tibet—Discovery and exploration—Maps",
+    "Physical geography—Himalaya Mountains—Maps",
+    "Great Trigonometrical Survey of India",
+    "Himalaya Mountains—Maps",
+    "Tibet Autonomous Region (China)—Maps",
+    "India, Northeastern—Maps",
+    "Physical maps",
+    "Maps"
+  ]
+}

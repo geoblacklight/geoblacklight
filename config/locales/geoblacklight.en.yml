@@ -69,6 +69,8 @@ en:
       tilejson: 'TileJSON Document'
       xyz: 'XYZ Tiles'
       wmts: 'Web Map Tile Service'
+      pmtiles: 'PMTiles Layer'
+      cog: 'COG Layer'
     relations:
       member_of_ancestors: 'Belongs to collection...'
       member_of_descendants: 'Collection records...'
@@ -97,6 +99,9 @@ en:
       click_map: 'Click on map to inspect values'
     help_text:
       viewer_protocol:
+        cog:
+          title: COG Layer
+          content: A Cloud Optimized GeoTIFF
         dynamic_map_layer:
           title: ArcGIS Dynamic Map Layer
           content: An ArcGIS Dynamic Map Layer represents vector data (points, lines, and polygons). Map image layers are dynamically rendered image tiles.
@@ -118,6 +123,9 @@ en:
         oembed:
           title: Embedded Content
           content: This content is embedded through a third-party viewer.
+        pmtiles:
+          title: PMTiles Layer
+          content: A PMTiles layer is a single-file archive format for tiled data.
         tiled_map_layer:
           title: ArcGIS Tiled Map Layer
           content: An ArcGIS Tiled Map Layer Service displays set of web-accessible tiles that reside on a server.

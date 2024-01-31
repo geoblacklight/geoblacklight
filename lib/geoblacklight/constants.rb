@@ -28,7 +28,9 @@ module Geoblacklight
       image_map_layer: "urn:x-esri:serviceType:ArcGIS#ImageMapLayer",
       data_dictionary: "http://lccn.loc.gov/sh85035852",
       index_map: "https://openindexmaps.org",
-      oembed: "https://oembed.com"
+      oembed: "https://oembed.com",
+      cog: "https://github.com/cogeotiff/cog-spec",
+      pmtiles: "https://github.com/protomaps/PMTiles"
     }.freeze
   end
 end

@@ -64,8 +64,16 @@ module Geoblacklight
       @references.wmts
     end
 
+    def cog
+      @references.cog
+    end
+
+    def pmtiles
+      @references.pmtiles
+    end
+
     def viewer_preference
-      [oembed, index_map, tilejson, xyz, wmts, tms, wms, iiif, tiled_map_layer, dynamic_map_layer,
+      [cog, pmtiles, oembed, index_map, tilejson, xyz, wmts, tms, wms, iiif, tiled_map_layer, dynamic_map_layer,
         image_map_layer, feature_layer].compact.map(&:to_hash).first
     end
   end
