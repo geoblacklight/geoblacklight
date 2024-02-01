@@ -26,9 +26,14 @@ GeoBlacklight.Util = {
     });
     if (data.iiifUrl && !data.thumbnailUrl) {
       var manifest = $.getJSON(data.iiifUrl, function(manifestResponse) {
-        if (manifestResponse.thumbnail['@id'] !== null) {
-          data.thumbnailUrl = manifestResponse.thumbnail['@id'];
-          thumbDeferred.resolve();
+        try {
+          if (manifestResponse.thumbnail['@id'] !== null) {
+            data.thumbnailUrl = manifestResponse.thumbnail['@id'];
+            thumbDeferred.resolve();
+          }
+        }
+        catch(err) {
+          cb(HandlebarsTemplates["index_map_info"](data));
         }
       });
     } else {

@@ -14,6 +14,15 @@
         <img src="{{thumbnailUrl}}">
       {{/if}}
     {{/if}}
+    {{#if thumbURL}}
+      {{#if websiteUrl}}
+        <a href="{{websiteUrl}}">
+          <img src="{{thumbURL}}" class="img-responsive">
+        </a>
+      {{else}}
+        <img src="{{thumbURL}}">
+      {{/if}}
+    {{/if}}
     <dl class="row dl-invert document-metadata">
       {{#if websiteUrl}}
         <dt class="col-sm-3">Website:</dt>
