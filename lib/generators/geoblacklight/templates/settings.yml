@@ -119,6 +119,8 @@ WEBSERVICES_SHOWN:
   - 'tiled_map_layer'
   - 'dynamic_map_layer'
   - 'image_map_layer'
+  - 'cog'
+  - 'pmtiles'
 
 # Display Notes to display / Non-prefixed default bootstrap class is alert-secondary
 DISPLAY_NOTES_SHOWN:
