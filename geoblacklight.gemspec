@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rails", ">= 6.1", "< 7.2"
   spec.add_dependency "blacklight", "~> 7.0"
   spec.add_dependency "config"
-  spec.add_dependency "faraday", ">= 1.0"
+  spec.add_dependency "faraday", "~> 2.0"
   spec.add_dependency "coderay"
   spec.add_dependency "deprecation"
   spec.add_dependency "geo_combine", "~> 0.8"
