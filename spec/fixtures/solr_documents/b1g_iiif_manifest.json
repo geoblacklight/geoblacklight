@@ -1,0 +1,64 @@
+{
+    "id": "p16022coll229:3210",
+    "gbl_mdVersion_s": "Aardvark",
+    "dct_title_s": "Atlas de Finlande, 1910, Atlas",
+    "dct_description_sm": [
+        "At head of title: Socie\u0301te\u0301 de ge\u0301ographie de Finlande. Running title: Fennia, 30. This edition of the text differs from that which appeared as no. 30 in the series \"\"Fennia\"\" in that it was issued without series t.-p.; the atlas is the same as the one which accompanies the series edition (in French) Bibliographies at the end of the description of each map.",
+        "Texte: I. Nature (cartes nos. 1-23) II. Population et civilisation (cartes nos. 24-55)--Atlas (2 p. l., iii, 7 p. 55 double pl. (maps, charts, diagrs.))",
+        "55 double plate 44 centimeters",
+        "Historical Atlases"
+    ],
+    "dct_language_sm": [
+        "fin",
+        "swe",
+        "fre"
+    ],
+    "dct_creator_sm": [
+        "Sa\u0308llskapet fo\u0308r Finlands geografi, Helsingfors"
+    ],
+    "dct_publisher_sm": [
+        "J. Simelii arfvingars boktryckeriaktiebolag (Helsingfors), 1911"
+    ],
+    "schema_provider_s": "University of Minnesota",
+    "gbl_resourceClass_sm": [
+        "Maps"
+    ],
+    "dcat_keyword_sm": [
+        "Finland Maps",
+        "2022-creator-sprint",
+        "202212bbox"
+    ],
+    "dct_temporal_sm": [
+        "1911"
+    ],
+    "dct_issued_s": "1911",
+    "gbl_indexYear_im": [
+        1911
+    ],
+    "gbl_dateRange_drsim": [
+        "[1911 TO 1911]"
+    ],
+    "dct_spatial_sm": [
+        "Finland"
+    ],
+    "locn_geometry": "POLYGON((19.08 70.09, 31.59 70.09, 31.59 59.45, 19.08 59.45, 19.08 70.09))",
+    "dcat_bbox": "ENVELOPE(19.08,31.59,70.09,59.45)",
+    "dcat_centroid": "64.77000000000001,25.335",
+    "pcdm_memberOf_sm": [
+        "64bd8c4c-8e60-4956-b43d-bdc3f93db488"
+    ],
+    "dct_isPartOf_sm": [
+        "05d-01",
+        "p16022coll229"
+    ],
+    "dct_rights_sm": [
+        "Use of this item may be governed by US and international copyright laws. You may be able to use this item, but copyright and other considerations may apply. For possible additional information or guidance on your use, please contact the contributing organization."
+    ],
+    "dct_accessRights_s": "Public",
+    "dct_format_s": "JPEG",
+    "dct_references_s": "{\"http://iiif.io/api/image\":\"https://cdm16022.contentdm.oclc.org/digital/iiif/p16022coll229/3210/info.json\",\"http://schema.org/url\":\"https://umedia.lib.umn.edu/item/p16022coll229:3210\",\"http://iiif.io/api/presentation#manifest\":\"https://cdm16022.contentdm.oclc.org/iiif/info/p16022coll229/3210/manifest.json\"}",
+    "dct_identifier_sm": [
+        "UMN_ALMA:9941944980001701"
+    ],
+    "gbl_mdModified_dt": "2023-12-29T20:59:48Z"
+}

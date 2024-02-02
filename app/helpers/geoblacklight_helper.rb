@@ -249,6 +249,8 @@ module GeoblacklightHelper
   def viewer_container
     if openlayers_container?
       ol_viewer
+    elsif iiif_manifest_container?
+      iiif_manifest_viewer
     else
       leaflet_viewer
     end
@@ -287,5 +289,14 @@ module GeoblacklightHelper
         :basemap => geoblacklight_basemap,
         :leaflet_options => leaflet_options
       })
+  end
+
+  def iiif_manifest_container?
+    return false unless @document
+    @document&.item_viewer&.viewer_preference&.key?(:iiif_manifest)
+  end
+
+  def iiif_manifest_viewer
+    tag.div(nil, id: "clover-viewer", iiif_content: @document.viewer_endpoint)
   end
 end
