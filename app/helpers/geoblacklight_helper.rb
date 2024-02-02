@@ -297,6 +297,6 @@ module GeoblacklightHelper
   end
 
   def iiif_manifest_viewer
-    tag("clover-viewer", { id: @document.viewer_endpoint }, false)
+    tag.div(nil, id: "clover-viewer", iiif_content: @document.viewer_endpoint)
   end
 end

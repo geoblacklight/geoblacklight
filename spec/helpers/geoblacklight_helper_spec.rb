@@ -364,7 +364,6 @@ describe GeoblacklightHelper, type: :helper do
     let(:rights_field) { Settings.FIELDS.RIGHTS }
 
     context "with pmtiles layer" do
-      let(:ol_viewer) { double }
       let(:document_attributes) do
         {
           references_field => {
@@ -379,6 +378,24 @@ describe GeoblacklightHelper, type: :helper do
         node = Capybara.string(helper.viewer_container)
         div = node.first("div")
         expect(div[:id]).to eq "ol-map"
+      end
+    end
+
+    context "with iiif manifest layer" do
+      let(:document_attributes) do
+        {
+          references_field => {
+            "http://iiif.io/api/presentation#manifest" => "https://cdm16022.contentdm.oclc.org/iiif/info/p16022coll229/3210/manifest.json"
+          }.to_json
+        }
+      end
+
+      it "renders a Clover IIIF container" do
+        allow(helper).to receive(:geoblacklight_basemap).and_return("esri")
+        assign(:document, document)
+        node = Capybara.string(helper.viewer_container)
+        div = node.first("div")
+        expect(div[:id]).to eq "clover-viewer"
       end
     end
   end
