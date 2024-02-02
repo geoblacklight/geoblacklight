@@ -32,9 +32,17 @@
         <dt class="col-sm-3">Download:</dt>
         <dd class="col-sm-9"><a href="{{downloadUrl}}">{{downloadUrl}}</a></dd>
       {{/if}}
+      {{#if download}}
+        <dt class="col-sm-3">Download:</dt>
+        <dd class="col-sm-9"><a href="{{download}}">{{download}}</a></dd>
+      {{/if}}
       {{#if recordIdentifier}}
         <dt class="col-sm-3">Record Identifier:</dt>
         <dd class="col-sm-9">{{recordIdentifier}}</dd>
+      {{/if}}
+      {{#if recId}}
+        <dt class="col-sm-3">Record Identifier:</dt>
+        <dd class="col-sm-9">{{recId}}</dd>
       {{/if}}
       {{#if label}}
         <dt class="col-sm-3">Label:</dt>
