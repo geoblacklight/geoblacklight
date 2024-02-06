@@ -46,7 +46,7 @@
   "dcat_centroid": "40.183,-74.75800000000001",
   "dct_accessRights_s": "Public",
   "dct_format_s": "GeoJSON",
-  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://raw.githubusercontent.com/OpenIndexMaps/edu.cornell/master/ny-aerial-photos-1960s.geojson\",\"https://openindexmaps.org\":\"https://raw.githubusercontent.com/OpenIndexMaps/edu.cornell/master/ny-aerial-photos-1960s.geojson\"}",
+  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://raw.githubusercontent.com/OpenIndexMaps/edu.cornell/master/ny-aerial-photos-1960s.geojson\",\"https://openindexmaps.org\":\"https://raw.githubusercontent.com/geoblacklight/geoblacklight/main/spec/fixtures/index_maps/index-map-point.geojson\"}",
   "id": "cornell-ny-aerial-photos-1960s",
   "dct_identifier_sm": [
     "cornell-ny-aerial-photos-1960s"

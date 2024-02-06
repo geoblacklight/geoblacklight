@@ -1,7 +1,7 @@
 {
   "dct_title_s": "Millionth Map of Hispanic America",
   "dct_alternative_sm": [
-    "index-map-v1-schema-complex"
+    "index-map-v1-complex"
   ],
   "dct_description_sm": [
     "GeoJSON index map of polygons using the OpenIndexMaps 1.0 schema. Complex geometry including inset maps (Multipolygon) and multiple editions of some sheets. ",
@@ -45,7 +45,7 @@
   "dcat_bbox": "ENVELOPE(-119,-30,33,-56)",
   "dct_accessRights_s": "Public",
   "dct_format_s": "GeoJSON",
-  "dct_references_s": "{\"http://schema.org/url\":\"https://digilib.uwm.edu/ark:/77981/gmgscj87k49\",\"https://openindexmaps.org\":\"https://raw.githubusercontent.com/OpenIndexMaps/edu.uwm/main/050bA1000000.geojson\",\"http://schema.org/downloadUrl\":\"https://geodata.uwm.edu/public/gmgscj87k49/050bA1000000.geojson\"}",
+  "dct_references_s": "{\"http://schema.org/url\":\"https://digilib.uwm.edu/ark:/77981/gmgscj87k49\",\"https://openindexmaps.org\":\"https://raw.githubusercontent.com/geoblacklight/geoblacklight/main/spec/fixtures/index_maps/index-map-v1-complex.geojson\",\"http://schema.org/downloadUrl\":\"https://geodata.uwm.edu/public/gmgscj87k49/050bA1000000.geojson\"}",
   "id": "ark:-77981-gmgscj87k49",
   "dct_identifier_sm": [
     "050-b A-1:1,000,000",
