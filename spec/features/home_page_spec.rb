@@ -44,4 +44,7 @@ feature "Home page", js: true do # use js: true for tests which require js, but 
     results = page.all(:css, "article.document")
     expect(results.count).to equal(4)
   end
+  scenario "pages should have meta tag with geoblacklight version" do
+    expect(page.body).to include("geoblacklight-version")
+  end
 end
