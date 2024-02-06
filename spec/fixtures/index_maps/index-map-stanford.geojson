@@ -1,0 +1,390 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "sheet": 1,
+          "available": false,
+          "recordIdentifier": 10532136,
+          "websiteUrl": "http://purl.stanford.edu/zh828kt2136",
+          "title": "Dabao Kinbōzu -- ダバオ近傍圖",
+          "titleEng": "Dabao Kinb?zu",
+          "callNumber": "G8064 .D245 S50 .J3 SHEET 8",
+          "webmapURL": "http://stanford.maps.arcgis.com/apps/SimpleViewer/index.html?appid=fbf74326c29945118d5642f061647e74",
+          "downloadUrl": "https://embed.stanford.edu/iframe?url=https://purl.stanford.edu/zh828kt2136&hide_title=true#",
+          "iiifUrl": "https://purl.stanford.edu/zh828kt2136/iiif/manifest",
+          "callNumberShort": "G8064 .D245 S50 .J3",
+          "label": "SHEET 8",
+          "sheetCallNumber": "G8064 .D245 S50 .J3 SHEET 8",
+          "barcode": 36105221064400,
+          "id": 0,
+          "objectIdentifier": "zh828kt2136"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                125,
+                6.6666
+              ],
+              [
+                125,
+                6.833275
+              ],
+              [
+                125.25,
+                6.833275
+              ],
+              [
+                125.25,
+                6.6666
+              ],
+              [
+                125,
+                6.6666
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "sheet": 1,
+          "available": true,
+          "recordIdentifier": 10532136,
+          "websiteUrl": "http://purl.stanford.edu/ww531pg8163",
+          "title": "Dabao Kinbōzu -- ダバオ近傍圖",
+          "titleEng": "Dabao Kinb?zu",
+          "callNumber": "G8064 .D245 S50 .J3 SHEET 7",
+          "webmapURL": "http://stanford.maps.arcgis.com/apps/SimpleViewer/index.html?appid=fbf74326c29945118d5642f061647e74",
+          "downloadUrl": "https://embed.stanford.edu/iframe?url=https://purl.stanford.edu/ww531pg8163&hide_title=true#",
+          "iiifUrl": "https://purl.stanford.edu/ww531pg8163/iiif/manifest",
+          "callNumberShort": "G8064 .D245 S50 .J3",
+          "label": "SHEET 7",
+          "sheetCallNumber": "G8064 .D245 S50 .J3 SHEET 7",
+          "barcode": 36105221064400,
+          "id": 0,
+          "objectIdentifier": "ww531pg8163"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                125.25,
+                6.6666
+              ],
+              [
+                125.25,
+                6.833275
+              ],
+              [
+                125.5,
+                6.833275
+              ],
+              [
+                125.5,
+                6.6666
+              ],
+              [
+                125.25,
+                6.6666
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "sheet": 1,
+          "available": true,
+          "recordIdentifier": 10532136,
+          "websiteUrl": "http://purl.stanford.edu/ff398nq3366",
+          "title": "Dabao Kinbōzu -- ダバオ近傍圖",
+          "titleEng": "Dabao Kinb?zu",
+          "callNumber": "G8064 .D245 S50 .J3 SHEET 6",
+          "webmapURL": "http://stanford.maps.arcgis.com/apps/SimpleViewer/index.html?appid=fbf74326c29945118d5642f061647e74",
+          "downloadUrl": "https://embed.stanford.edu/iframe?url=https://purl.stanford.edu/ff398nq3366&hide_title=true#",
+          "iiifUrl": "https://purl.stanford.edu/ff398nq3366/iiif/manifest",
+          "callNumberShort": "G8064 .D245 S50 .J3",
+          "label": "SHEET 6",
+          "sheetCallNumber": "G8064 .D245 S50 .J3 SHEET 6",
+          "barcode": 36105221064400,
+          "id": 0,
+          "objectIdentifier": "ff398nq3366"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                125.25,
+                6.833275
+              ],
+              [
+                125.25,
+                6.99995
+              ],
+              [
+                125.5,
+                6.99995
+              ],
+              [
+                125.5,
+                6.833275
+              ],
+              [
+                125.25,
+                6.833275
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "sheet": 1,
+          "available": true,
+          "recordIdentifier": 10532136,
+          "websiteUrl": "http://purl.stanford.edu/zs508nd4169",
+          "title": "Dabao Kinbōzu -- ダバオ近傍圖",
+          "titleEng": "Dabao Kinb?zu",
+          "callNumber": "G8064 .D245 S50 .J3 SHEET 4",
+          "webmapURL": "http://stanford.maps.arcgis.com/apps/SimpleViewer/index.html?appid=fbf74326c29945118d5642f061647e74",
+          "downloadUrl": "https://embed.stanford.edu/iframe?url=https://purl.stanford.edu/zs508nd4169&hide_title=true#",
+          "iiifUrl": "https://purl.stanford.edu/zs508nd4169/iiif/manifest",
+          "callNumberShort": "G8064 .D245 S50 .J3",
+          "label": "SHEET 4",
+          "sheetCallNumber": "G8064 .D245 S50 .J3 SHEET 4",
+          "barcode": 36105221064400,
+          "id": 0,
+          "objectIdentifier": "zs508nd4169"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                125.59930182113703,
+                6.833275
+              ],
+              [
+                125.59930182113703,
+                6.99995
+              ],
+              [
+                125.84930182113703,
+                6.99995
+              ],
+              [
+                125.84930182113703,
+                6.833275
+              ],
+              [
+                125.59930182113703,
+                6.833275
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "sheet": 1,
+          "available": true,
+          "recordIdentifier": 10532136,
+          "websiteUrl": "http://purl.stanford.edu/bt394cv2922",
+          "title": "Dabao Kinbōzu -- ダバオ近傍圖",
+          "titleEng": "Dabao Kinb?zu",
+          "callNumber": "G8064 .D245 S50 .J3 SHEET 5",
+          "webmapURL": "http://stanford.maps.arcgis.com/apps/SimpleViewer/index.html?appid=fbf74326c29945118d5642f061647e74",
+          "downloadUrl": "https://embed.stanford.edu/iframe?url=https://purl.stanford.edu/bt394cv2922&hide_title=true#",
+          "iiifUrl": "https://purl.stanford.edu/bt394cv2922/iiif/manifest",
+          "callNumberShort": "G8064 .D245 S50 .J3",
+          "label": "SHEET 5",
+          "sheetCallNumber": "G8064 .D245 S50 .J3 SHEET 5",
+          "barcode": 36105221064400,
+          "id": 0,
+          "objectIdentifier": "bt394cv2922"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                125.25,
+                6.99995
+              ],
+              [
+                125.25,
+                7.166625
+              ],
+              [
+                125.5,
+                7.166625
+              ],
+              [
+                125.5,
+                6.99995
+              ],
+              [
+                125.25,
+                6.99995
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "sheet": 1,
+          "available": true,
+          "recordIdentifier": 10532136,
+          "websiteUrl": "http://purl.stanford.edu/qc332sy1729",
+          "title": "Dabao Kinbōzu -- ダバオ近傍圖",
+          "titleEng": "Dabao Kinb?zu",
+          "callNumber": "G8064 .D245 S50 .J3 SHEET 3",
+          "webmapURL": "http://stanford.maps.arcgis.com/apps/SimpleViewer/index.html?appid=fbf74326c29945118d5642f061647e74",
+          "downloadUrl": "https://embed.stanford.edu/iframe?url=https://purl.stanford.edu/qc332sy1729&hide_title=true#",
+          "iiifUrl": "https://purl.stanford.edu/qc332sy1729/iiif/manifest",
+          "callNumberShort": "G8064 .D245 S50 .J3",
+          "label": "SHEET 3",
+          "sheetCallNumber": "G8064 .D245 S50 .J3 SHEET 3",
+          "barcode": 36105221064400,
+          "id": 0,
+          "objectIdentifier": "qc332sy1729"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                125.5,
+                6.99995
+              ],
+              [
+                125.5,
+                7.166625
+              ],
+              [
+                125.75,
+                7.166625
+              ],
+              [
+                125.75,
+                6.99995
+              ],
+              [
+                125.5,
+                6.99995
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "sheet": 1,
+          "available": true,
+          "recordIdentifier": 10532136,
+          "websiteUrl": "http://purl.stanford.edu/nt236fh7803",
+          "title": "Dabao Kinbōzu -- ダバオ近傍圖",
+          "titleEng": "Dabao Kinb?zu",
+          "callNumber": "G8064 .D245 S50 .J3 SHEET 1",
+          "webmapURL": "http://stanford.maps.arcgis.com/apps/SimpleViewer/index.html?appid=fbf74326c29945118d5642f061647e74",
+          "downloadUrl": "https://embed.stanford.edu/iframe?url=https://purl.stanford.edu/nt236fh7803&hide_title=true#",
+          "iiifUrl": "https://purl.stanford.edu/nt236fh7803/iiif/manifest",
+          "callNumberShort": "G8064 .D245 S50 .J3",
+          "label": "SHEET 1",
+          "sheetCallNumber": "G8064 .D245 S50 .J3 SHEET 1",
+          "barcode": 36105221065500,
+          "id": 0,
+          "objectIdentifier": "nt236fh7803"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                125.75,
+                6.99995
+              ],
+              [
+                125.75,
+                7.166625
+              ],
+              [
+                126,
+                7.166625
+              ],
+              [
+                126,
+                6.99995
+              ],
+              [
+                125.75,
+                6.99995
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "sheet": 1,
+          "available": true,
+          "recordIdentifier": 10532136,
+          "websiteUrl": "http://purl.stanford.edu/qs945pv4099",
+          "title": "Dabao Kinbōzu -- ダバオ近傍圖",
+          "titleEng": "Dabao Kinb?zu",
+          "callNumber": "G8064 .D245 S50 .J3 SHEET 2",
+          "webmapURL": "http://stanford.maps.arcgis.com/apps/SimpleViewer/index.html?appid=fbf74326c29945118d5642f061647e74",
+          "downloadUrl": "https://embed.stanford.edu/iframe?url=https://purl.stanford.edu/qs945pv4099&hide_title=true#",
+          "iiifUrl": "https://purl.stanford.edu/qs945pv4099/iiif/manifest",
+          "callNumberShort": "G8064 .D245 S50 .J3",
+          "label": "SHEET 2",
+          "sheetCallNumber": "G8064 .D245 S50 .J3 SHEET 2",
+          "barcode": 36105221064400,
+          "id": 0,
+          "objectIdentifier": "qs945pv4099"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                125.5,
+                7.166625
+              ],
+              [
+                125.5,
+                7.3333
+              ],
+              [
+                125.75,
+                7.3333
+              ],
+              [
+                125.75,
+                7.166625
+              ],
+              [
+                125.5,
+                7.166625
+              ]
+            ]
+          ]
+        }
+      }
+    ]
+  }
+  

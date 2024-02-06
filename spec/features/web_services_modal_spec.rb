@@ -57,4 +57,26 @@ feature "web services tools" do
       end
     end
   end
+  feature "when a PMTiles reference is provided", js: true do
+    scenario "shows up in tools" do
+      visit solr_document_path "princeton-t722hd30j"
+      expect(page).to have_css "div.web-services-sidebar a", text: "Web services"
+      click_link "Web services"
+      within ".modal-body" do
+        expect(page).to have_css "label", text: "PMTiles Layer"
+        expect(page).to have_css 'input[value="https://geodata.lib.princeton.edu/fe/d2/80/fed28076eaa04506b7956f10f61a2f77/display_vector.pmtiles"]'
+      end
+    end
+  end
+  feature "when a COG reference is provided", js: true do
+    scenario "shows up in tools" do
+      visit solr_document_path "princeton-dc7h14b252v"
+      expect(page).to have_css "div.web-services-sidebar a", text: "Web services"
+      click_link "Web services"
+      within ".modal-body" do
+        expect(page).to have_css "label", text: "COG Layer"
+        expect(page).to have_css 'input[value="https://geodata.lib.princeton.edu/13/f5/58/13f5582c32a54be98fc2982077d0456e/display_raster.tif"]'
+      end
+    end
+  end
 end
