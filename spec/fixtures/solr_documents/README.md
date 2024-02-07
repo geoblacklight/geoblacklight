@@ -30,6 +30,7 @@ If you add a new document, please add it to the table below, and indicate its pu
 | [index-map-polygon](index-map-polygon.json) | Index of Digital Elevation Models (DEM), New York | cugir-008186-no-downloadurl | GeoJSON index map of polygons, with a downloadUrl for the index itself               
 | [index-map-polygon-no-downloadurl](index-map-polygon-no-downloadurl.json) | Index of Digital Elevation Models (DEM), New York | cugir-008186 | GeoJSON index map of polygons, but lacking a downloadUrl for the index itself
 | [index-map-stanford](index-map-stanford.json) | Dabao Kinbōzu, Maps Index | stanford-fb897vt9938 | old-style (pre-GeoJSON) index map of rectangular polygons
+| [index-map-v1-complex](index-map-v1-complex.json) | Millionth Map of Hispanic America Index | ark:-77981-gmgscj87k49 | OpenIndexMap with complex geometry (inset sheets, multiple editions) using specification version 1.0.0
 | [metadata_no_geom](metadata_no_geom.json) | Ames Library of South Asia Maps | 05d-p16022coll246-noGeo | This is a collection level record without spatial coordinates
 | [metadata_no_provider](metadata_no_provider.json)| Social Explorer | 99-0001-noprovider | This is a website record that does not have a Provider (aardvark)/ provider (GBL Metadata 1.0)
 | [multiple-downloads](multiple-downloads.json) | Test record with additional download formats | cugir-007950 | This is a test record containing new-style references as nested child documents In addition to the original shapefile download, the references section contains additional PDF and KMZ downloads

@@ -1,0 +1,56 @@
+{
+  "dct_title_s": "Millionth Map of Hispanic America",
+  "dct_alternative_sm": [
+    "index-map-v1-complex"
+  ],
+  "dct_description_sm": [
+    "GeoJSON index map of polygons using the OpenIndexMaps 1.0 schema. Complex geometry including inset maps (Multipolygon) and multiple editions of some sheets. ",
+    "Download links are provided for each sheet, record links to index map on GitHub."
+  ],
+  "dct_creator_sm": [
+    "American Geographical Society of New York"
+  ],
+  "dct_publisher_sm": [
+    "American Geographical Society of New York"
+  ],
+  "schema_provider_s": "American Geographical Society Library – UWM Libraries",
+  "gbl_resourceClass_sm": [
+    "Maps"
+  ],
+  "gbl_resourceType_sm": [
+    "Index maps",
+    "Topographic maps"
+  ],
+  "dct_subject_sm": [
+    "Topography"
+  ],
+  "dcat_keyword_sm": [
+    "GBL Fixture records"
+  ],
+  "dct_temporal_sm": [
+    "1922-1962"
+  ],
+  "gbl_indexYear_im": [
+    1922,1924,1927,1928,1929,1930,1931,1932,1933,1934,1935,1936,1937,1938,1939,1940,1941,1942,1943,1945,1947,1948,1949,1950,1951,1952,1955,1956,1958,1959,1960,1962
+  ],
+  "gbl_dateRange_drsim": [
+    "[1922 TO 1962]"
+  ],
+  "dct_spatial_sm": [
+    "Latin America",
+    "Central America",
+    "South America"
+  ],
+  "locn_geometry": "ENVELOPE(-119,-30,33,-56)",
+  "dcat_bbox": "ENVELOPE(-119,-30,33,-56)",
+  "dct_accessRights_s": "Public",
+  "dct_format_s": "GeoJSON",
+  "dct_references_s": "{\"http://schema.org/url\":\"https://digilib.uwm.edu/ark:/77981/gmgscj87k49\",\"https://openindexmaps.org\":\"https://raw.githubusercontent.com/geoblacklight/geoblacklight/main/spec/fixtures/index_maps/index-map-v1-complex.geojson\",\"http://schema.org/downloadUrl\":\"https://geodata.uwm.edu/public/gmgscj87k49/050bA1000000.geojson\"}",
+  "id": "ark:-77981-gmgscj87k49",
+  "dct_identifier_sm": [
+    "050-b A-1:1,000,000",
+    "ark:77981/gmgscj87k49"
+  ],
+  "gbl_mdModified_dt": "2024-02-01T22:14:16Z",
+  "gbl_mdVersion_s": "Aardvark"
+}
