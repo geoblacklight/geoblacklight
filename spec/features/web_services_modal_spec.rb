@@ -79,4 +79,12 @@ feature "web services tools" do
       end
     end
   end
+  feature "copy to clipboard is provided", js: true do
+    scenario "shows up in tools" do
+      visit solr_document_path "princeton-dc7h14b252v"
+      expect(page).to have_css "div.web-services-sidebar a", text: "Web services"
+      click_link "Web services"
+      expect(page).to have_text "Copy"
+    end
+  end
 end

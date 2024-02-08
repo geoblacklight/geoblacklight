@@ -5,8 +5,24 @@
   </button>
 </div>
 <div class="modal-body web-services-modal-body">
+  <div class="alert alert-info d-none" role="alert">
+  <%= t('geoblacklight.clipboard.web_service') %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
   <%= render partial: 'web_services' %>
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-default hide-without-js" data-dismiss="modal"><%= t('geoblacklight.references.services_close')%></button>
 </div>
+
+<script>
+    $('[data-action="copyToClipboard"]').on('click', function() {
+        let text = $(this).data('clipboard-value');       
+        navigator.clipboard.writeText(text)
+            .then(() => {
+                $('.alert').removeClass('d-none');
+            })
+    });
+</script>
