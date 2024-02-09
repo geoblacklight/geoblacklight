@@ -19,7 +19,7 @@ describe "catalog/_show_tools.html.erb", type: :view do
     it "renders a document action" do
       allow(view).to receive(:some_action_solr_document_path).with(document, any_args).and_return "x"
       document_actions[:some_action] = Blacklight::Configuration::ToolConfig.new key: :some_action, name: :some_action, partial: "document_action"
-      render partial: "catalog/show_tools", locals: { document: document }
+      render partial: "catalog/show_tools", locals: {document: document}
       expect(rendered).to have_link "Some action", href: "x"
     end
 
@@ -29,7 +29,7 @@ describe "catalog/_show_tools.html.erb", type: :view do
       end
 
       it "does not display the tools" do
-        render partial: "catalog/show_tools", locals: { document: document }
+        render partial: "catalog/show_tools", locals: {document: document}
 
         expect(rendered).to be_blank
       end
