@@ -4,41 +4,16 @@
 
 GeoBlacklight is a world-class discovery platform for geospatial (GIS) holdings. It
 is an open collaborative project aiming to build off of the successes
-of the Blacklight Solr-powered discovery interface and the
+of the [Blacklight](https://projectblacklight.org) Solr-powered discovery interface and the
 multi-institutional [OpenGeoportal](http://opengeoportal.io/) and [OpenGeoMetadata](https://github.com/opengeometadata) federated metadata sharing
 communities. We're actively looking for community input and development partners.
 
-### Installation
+### Documentation
 
-  Use Ruby v3.2 and Rails v7 to bootstrap a new GeoBlacklight application using the template script:
+Our full [GeoBlacklight Documentation](https://geoblacklight.org/docs/) has how-to guides for installing, customizing, and maintaining a GeoBlacklight instance.
 
-```bash
-DISABLE_SPRING=1 rails new app-name -m https://raw.githubusercontent.com/geoblacklight/geoblacklight/main/template.rb
-```
-  Then run the `geoblacklight:server` rake task to run the application:
-
-```bash
-$ cd app-name
-$ bundle exec rake geoblacklight:server
-```
-
-* Visit your GeoBlacklight application at: [http://localhost:3000](http://localhost:3000)
-* Visit the Solr admin panel at: [http://localhost:8983/solr/#/blacklight-core](http://localhost:8983/solr/#/blacklight-core)
-
-#### Index Example Data
-
-Index the GeoBlacklight project's test fixtures via:
-
-```bash
-$ bundle exec rake "geoblacklight:index:seed[:remote]"
-```
+See the [Quick Start](https://geoblacklight.org/docs/geoblacklight_quick_start/) section to create a new GeoBlacklight application, or see [For Developers](https://geoblacklight.org/docs/developers/) for more information about setting up a development environment.
 
 ### Contributing
 
-Interested in contributing to GeoBlacklight? Please see our [contributing](https://geoblacklight.org/docs/overview/contributing/) guide.
-
-### Development
-
-See the [Getting Started for Developers guide](https://geoblacklight.org/docs/installation/getting_started_developers/) for more information about setting up your development environment.
-
-For more information, please see the [GeoBlacklight Documentation](https://geoblacklight.org/docs/) site.
+Interested in contributing to GeoBlacklight? Please see [CONTRIBUTING.md](./CONTRIBUTING.md).
