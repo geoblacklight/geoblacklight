@@ -4,6 +4,9 @@ en:
     location: 'Location'
     citation:
       retrieved_from: 'Retrieved from %{document_url}'
+    clipboard:
+      citation: Citation copied to clipboard
+      web_service: Web service copied to clipboard
     download:
       download: 'Download'
       download_link: 'Original %{download_format}'
