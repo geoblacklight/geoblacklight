@@ -13,7 +13,7 @@ module Geoblacklight
     def index_fields_display
       fields_values = []
       @configuration.index_fields.each do |_field_name, field_config|
-        val = field_value(field_config)
+        val = field_value(field_config).to_s
         if val.present?
           val += "." unless val.end_with?(".")
           fields_values << val

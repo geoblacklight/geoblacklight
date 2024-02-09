@@ -8,7 +8,7 @@ describe GeoblacklightHelper, type: :helper do
   include ActionView::Helpers::TranslationHelper
 
   describe "#geoblacklight_icon" do
-    it "supports in use cases" do
+    it "supports use cases" do
       {
         "Paper map" => "paper-map",
         "Michigan State" => "michigan-state",

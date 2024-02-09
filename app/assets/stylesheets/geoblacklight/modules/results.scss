@@ -19,10 +19,6 @@
     padding-right: 0;
   }
 
-  .document-counter {
-    @extend .pr-1;
-  }
-
   .caret-toggle {
     @include caret('right');
     padding-left: 0;

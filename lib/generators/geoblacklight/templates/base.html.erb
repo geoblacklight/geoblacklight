@@ -16,7 +16,20 @@
     <%= opensearch_description_tag application_name, opensearch_catalog_url(format: 'xml') %>
     <%= favicon_link_tag %>
     <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
+
+    <!-- Javascript / Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@rails/ujs@7.0.4-2/lib/assets/compiled/rails-ujs.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Javascript / Blacklight -->
+    <%= javascript_include_tag "blacklight/blacklight", type: 'module' %>
+    <script type="module">
+      import githubAutoCompleteElement from 'https://cdn.skypack.dev/@github/auto-complete-element';
+    </script>
+
+    <!-- Javascript / GeoBlacklight -->
+    <%= javascript_include_tag "geoblacklight", "data-turbo-track": "reload", defer: true %>
 
     <%= vite_client_tag %>
     <% if openlayers_container? %>
@@ -24,6 +37,9 @@
     <% elsif iiif_manifest_container? %>
       <%= vite_javascript_tag 'clover' %>
     <% end %>
+
+    <!-- GBL maps don't render unless turbo is overridden -->
+    <meta name="turbo-visit-control" content="reload">
 
     <%= csrf_meta_tags %>
     <%= content_for(:head) %>
