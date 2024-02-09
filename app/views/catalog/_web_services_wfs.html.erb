@@ -1,4 +1,4 @@
-<% document ||= @documents.first %>
+<% document ||= @documents&.first || @response %>
 
 <%= render partial: 'web_services_default', locals: { reference: reference } %>
 

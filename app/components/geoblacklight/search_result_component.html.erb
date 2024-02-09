@@ -1,0 +1,23 @@
+<%= content_tag @component,
+  id: @id,
+  data: {
+    'document-id': @document.id.to_s.parameterize,
+    'document-counter': @counter,
+  },
+  itemscope: true,
+  itemtype: @document.itemtype,
+  class: classes.flatten.join(' ') do %>
+  
+  <% if body.present? %>
+    <%= body %>
+  <% else %>
+    <div class="document-main-section">
+      <% partials.each do |partial| %>
+        <%= partial %>
+      <% end %>
+    </div>
+
+    <%= thumbnail %>
+  <% end %>
+  <%= footer %>
+<% end %>

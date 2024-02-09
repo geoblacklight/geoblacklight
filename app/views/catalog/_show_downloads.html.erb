@@ -2,13 +2,13 @@
 
 <% if document_downloadable? %>
   <% if document.direct_download.present? || document.hgl_download.present? || document.iiif_download.present? || document.download_types.present? %>
-    <div class="downloads-sidebar">
+    <div class="dropdown downloads-sidebar">
       <%# the dropdown-toggle class gives us the little arrow %>
-      <button type="button" class="btn btn-primary dropdown-toggle sidebar-btn" id="downloads-button" data-toggle="collapse" data-target="#downloads-collapse" aria-expanded="false" aria-controls="downloads-collapse">
+      <button type="button" class="btn btn-primary dropdown-toggle sidebar-btn" id="downloads-button" data-bs-toggle="dropdown" aria-expanded="false">
         Download
       </button>
-      <div class="collapse" id="downloads-collapse">
-        <div class="card card-body">
+      <div class="dropdown-menu" id="downloads-collapse" aria-labelledby="downloads-button">
+        <div class="card card-body dropdown-item">
           <%= render 'downloads_collapse' %>
         </div>
       </div>

@@ -2,7 +2,7 @@
 
 module Geoblacklight
   class BboxItemPresenter < Blacklight::FacetItemPresenter
-    def label
+    def value
       super.to_param
     end
   end

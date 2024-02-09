@@ -1,4 +1,4 @@
-<% document ||= @documents.first %>
+<% document ||= @documents&.first || @response %>
 
 <% document.references.refs.each do |reference| %>
   <% if Settings.WEBSERVICES_SHOWN.include? reference.type.to_s %>

@@ -1,4 +1,4 @@
-<% document ||= @documents.first %>
+<% document ||= @documents&.first || @response %>
 
 <div class='metadata-view'>
   <div class="container-fluid">

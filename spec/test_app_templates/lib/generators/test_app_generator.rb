@@ -14,7 +14,6 @@ class TestAppGenerator < Rails::Generators::Base
   end
 
   def add_gems
-    gem "blacklight"
     Bundler.with_clean_env do
       run "bundle install"
     end
