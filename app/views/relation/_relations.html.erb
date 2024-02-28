@@ -1,8 +1,24 @@
 <% @relations.send(rel)['docs'][0..2].each do |entry| %>
   <li class="list-group-item border-bottom-0">
     <%= link_to solr_document_path(entry[Settings.FIELDS.ID]) do %>
-      <%= relations_icon(entry, value.icon) unless value.icon.nil? %>
+      <%= relations_icon(entry, value.icon) unless value.icon.nil? || value.icon == "nil" %>
       <%= entry[Settings.FIELDS.TITLE] %>
+    <% end %>
+
+    <% # You could configure or enumerate a specific list of relationships %>
+    <% # to draw browse links for here. This is just one example. %>
+    <% if rel == :PART_OF_ANCESTORS %>
+      <%- @related_id = @relations.send(:PART_OF_ANCESTORS)['docs'].first['id'] %>
+      
+      <% # Query the inverse of the original relationship: PART_OF_ANCESTORS => PART_OF_DESCENDANTS %>
+      <%- @related = Geoblacklight::Relation::RelationResponse.new(@related_id, blacklight_config.repository_class.new(blacklight_config)) %>
+      <% if @related.send(:PART_OF_DESCENDANTS)['numFound'] > 1 %>
+        <p class="mt-2 mb-0">
+          <%= link_to search_catalog_path({f: {"#{Settings.RELATIONSHIPS_SHOWN.send(:PART_OF_DESCENDANTS).field}" => [@related_id]}}) do %>
+            <%= t('geoblacklight.relations.browse_all', count: @related.send(:PART_OF_DESCENDANTS)['numFound']) %>
+          <% end %>
+          </p>
+      <% end %>
     <% end %>
   </li>
 <% end %>
