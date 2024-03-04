@@ -116,17 +116,28 @@ module Geoblacklight
       copy_file "base.html.erb", "app/views/layouts/blacklight/base.html.erb"
     end
 
-    # Vite - Copy config file
-    def copy_config_vite_json
-      copy_file "vite.json", "config/vite.json"
-    end
-
     # Run bundle with vite install
     def bundle_install
       Bundler.with_clean_env do
         run "bundle install"
         run "bundle exec vite install"
       end
+    end
+
+    # Vite - Config files
+    def copy_config_vite_json
+      copy_file "vite.json", "config/vite.json"
+      copy_file "vite.rb", "config/vite.rb"
+      copy_file "vite.config.ts", "vite.config.ts"
+      copy_file "package.json", "package.json"
+
+      run "yarn install"
+    end
+
+    # Vite - Copy over the Vite entrypoints
+    def copy_vite_entrypoints
+      copy_file "clover.js", "app/frontend/entrypoints/clover.js"
+      copy_file "ol.js", "app/frontend/entrypoints/ol.js"
     end
   end
 end

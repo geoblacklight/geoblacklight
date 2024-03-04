@@ -1,4 +1,4 @@
-import '@/stylesheets/openlayers.css'
+import '../stylesheets/openlayers.css'
 import { Map, View } from 'ol'
 import TileLayer from 'ol/layer/Tile'
 import VectorTile from 'ol/layer/VectorTile'
