@@ -7,6 +7,15 @@ class TestAppGenerator < Rails::Generators::Base
 
   def add_gems
     gem "blacklight"
+
+    # In CI, Javascript and Webpacker are removed when generating Rails 6.x
+    # applications to enable Vite. Disabling javascript during test app
+    # generation removes Turbolinks. This gem is required and needs to be
+    # re-added.
+    if ENV["RAILS_VERSION"] && Gem::Version.new(ENV["RAILS_VERSION"]) < Gem::Version.new("7.0")
+      gem "turbolinks"
+    end
+
     Bundler.with_clean_env do
       run "bundle install"
     end

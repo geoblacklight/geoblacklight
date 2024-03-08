@@ -65,7 +65,7 @@ jobs:
       run: bundle exec rake ci
       env:
         RAILS_VERSION: ${{ matrix.rails_version }}
-        ENGINE_CART_RAILS_OPTIONS: '--skip-git --skip-listen --skip-spring --skip-keeps --skip-action-cable --skip-coffee --skip-test'
+        ENGINE_CART_RAILS_OPTIONS: '--skip-git --skip-listen --skip-spring --skip-keeps --skip-action-cable --skip-coffee --skip-test --skip-webpack-install --skip-javascript'
         SOLR_URL: http://solr:SolrRocks@localhost:8983/solr/blacklight-core
     - name: Upload coverage artifacts
       uses: actions/upload-artifact@v2
