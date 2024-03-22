@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 gem "blacklight", "~> 7.0"
-gem "geoblacklight", "~> 4.0"
+gem "geoblacklight", github: "geoblacklight/geoblacklight", branch: "package-gbl"
 gem "sprockets", "< 4.0" # Use sprockets less than 4.0, let webpacker users set this up themselves
 
 # Hack for https://github.com/rails/rails/issues/35153
