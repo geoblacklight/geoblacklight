@@ -139,5 +139,9 @@ module Geoblacklight
       copy_file "clover.js", "app/frontend/entrypoints/clover.js"
       copy_file "ol.js", "app/frontend/entrypoints/ol.js"
     end
+
+    def copy_vite_stylesheets
+      copy_file "openlayers.css", "app/frontend/stylesheets/openlayers.css"
+    end
   end
 end
