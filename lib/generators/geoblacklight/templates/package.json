@@ -1,4 +1,7 @@
 {
+  "dependencies": {
+    "@geoblacklight/frontend": "^4.4.6"
+  },
   "devDependencies": {
     "vite": "^5.1.5",
     "vite-plugin-ruby": "^5.0.0",

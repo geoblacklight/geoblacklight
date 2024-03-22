@@ -127,7 +127,6 @@ module Geoblacklight
     # Vite - Config files
     def copy_config_vite_json
       copy_file "vite.json", "config/vite.json"
-      copy_file "vite.rb", "config/vite.rb"
       copy_file "vite.config.ts", "vite.config.ts"
       copy_file "package.json", "package.json"
 
@@ -136,8 +135,8 @@ module Geoblacklight
 
     # Vite - Copy over the Vite entrypoints
     def copy_vite_entrypoints
-      copy_file "clover.js", "app/frontend/entrypoints/clover.js"
-      copy_file "ol.js", "app/frontend/entrypoints/ol.js"
+      copy_file "clover.js", "app/javascript/clover.js"
+      copy_file "ol.js", "app/javascript/ol.js"
     end
   end
 end
