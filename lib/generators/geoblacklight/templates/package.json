@@ -1,7 +1,13 @@
 {
   "devDependencies": {
     "vite": "^5.1.5",
-    "vite-plugin-ruby": "^5.0.0",
-    "vite-plugin-rails": "^0.5.0"
+    "vite-plugin-rails": "^0.5.0",
+    "vite-plugin-ruby": "^5.0.0"
+  },
+  "dependencies": {
+    "@samvera/clover-iiif": "^2.3.2",
+    "ol": "8.1.0",
+    "ol-pmtiles": "^0.3.0",
+    "react": "^18.2.0"
   }
 }
