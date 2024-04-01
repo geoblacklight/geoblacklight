@@ -1,8 +1,29 @@
 {
-  "name": "geoblacklight",
-  "version": "4.0.0",
-  "private": true,
+  "name": "@geoblacklight/frontend",
+  "type": "module",
+  "version": "4.4.6",
   "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "watch": "vite build --watch"
+  },
+  "files": ["dist"],
+  "main": "./dist/frontend.js",
+  "module": "./dist/frontend.umd.cjs",
+  "exports": {
+    ".": {
+      "import": "./dist/frontend.js",
+      "require": "./dist/frontend.umd.cjs"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    }
+  },
   "dependencies": {
     "@samvera/clover-iiif": "^2.3.2",
     "ol": "8.1.0",
@@ -10,7 +31,6 @@
     "react": "^18.2.0"
   },
   "devDependencies": {
-    "vite": "^5.0.0",
-    "vite-plugin-ruby": "^5.0.0"
+    "vite": "^5.0.0"
   }
 }

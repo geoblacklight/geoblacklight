@@ -5,8 +5,9 @@ require "rails/generators"
 module Geoblacklight
   class Install < Rails::Generators::Base
     source_root File.expand_path("../templates", __FILE__)
-
     desc "Install Geoblacklight"
+
+    class_option :test, type: :boolean, default: false, aliases: "-t", desc: "Indicates that app will be installed in a test environment"
 
     def allow_geoblacklight_params
       gbl_params = <<-PARAMS
@@ -116,6 +117,23 @@ module Geoblacklight
       copy_file "base.html.erb", "app/views/layouts/blacklight/base.html.erb"
     end
 
+    def copy_package_json
+      if options[:test]
+        # If building engine cart test app, use specific package.json so the
+        # locally built frontend javascript is used instead of the npm package.
+        copy_file "package-test.json", "package.json"
+      else
+        copy_file "package.json", "package.json"
+      end
+    end
+
+    # Vite - Config files
+    def copy_config_vite_json
+      copy_file "vite.json", "config/vite.json"
+      copy_file "vite.config.ts", "vite.config.ts"
+      run "yarn install"
+    end
+
     # Run bundle with vite install
     def bundle_install
       Bundler.with_clean_env do
@@ -124,20 +142,10 @@ module Geoblacklight
       end
     end
 
-    # Vite - Config files
-    def copy_config_vite_json
-      copy_file "vite.json", "config/vite.json"
-      copy_file "vite.rb", "config/vite.rb"
-      copy_file "vite.config.ts", "vite.config.ts"
-      copy_file "package.json", "package.json"
-
-      run "yarn install"
-    end
-
     # Vite - Copy over the Vite entrypoints
     def copy_vite_entrypoints
-      copy_file "clover.js", "app/frontend/entrypoints/clover.js"
-      copy_file "ol.js", "app/frontend/entrypoints/ol.js"
+      copy_file "clover.js", "app/javascript/entrypoints/clover.js"
+      copy_file "ol.js", "app/javascript/entrypoints/ol.js"
     end
   end
 end

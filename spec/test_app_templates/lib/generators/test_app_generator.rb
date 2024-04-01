@@ -21,14 +21,25 @@ class TestAppGenerator < Rails::Generators::Base
     end
   end
 
+  def build_frontend
+    run "yarn install && yarn build"
+  end
+
+  # Ensure local frontend build is linked so internal test app
+  # can use local javascript instead of npm package.
+  def link_frontend
+    run "yarn link"
+  end
+
   def run_blacklight_generator
     say_status("warning", "GENERATING BL", :yellow)
 
     generate "blacklight:install", "--devise"
   end
 
+  # Install geoblacklight with the `test` option
   def install_engine
-    generate "geoblacklight:install", "-f"
+    generate "geoblacklight:install", "-f --test"
   end
 
   # Symlink fixture document directories so the test app doesn't have to be
