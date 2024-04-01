@@ -17,6 +17,6 @@ end
 feature "Clover IIIF fullscreen control", js: true do
   scenario "IIIF layer should have full screen control" do
     visit solr_document_path("princeton-sx61dn82p")
-    expect(page).to have_css("#fullPage")
+    expect(page).to have_button("Toggle full page")
   end
 end
