@@ -1,378 +1,558 @@
 {
   "selection": [
     {
-      "order": 44,
-      "name": "maps"
+      "order": 330,
+      "name": "northwestern-university",
+      "prevSize": 32
     },
     {
-      "order": 45,
-      "name": "american-geographical-society-library-uwm-libraries"
+      "order": 331,
+      "name": "image",
+      "prevSize": 32
     },
     {
-      "order": 46,
-      "name": "arizona"
+      "order": 332,
+      "name": "maps",
+      "prevSize": 32
     },
     {
-      "order": 47,
-      "name": "arrow-circle-down"
+      "order": 333,
+      "name": "american-geographical-society-library-uwm-libraries",
+      "prevSize": 32
     },
     {
-      "order": 48,
-      "name": "baruch-cuny"
+      "order": 334,
+      "name": "arizona",
+      "prevSize": 32
     },
     {
-      "order": 49,
-      "name": "book"
+      "order": 335,
+      "name": "arrow-circle-down",
+      "prevSize": 32
     },
     {
-      "order": 50,
-      "name": "bookmark"
+      "order": 336,
+      "name": "baruch-cuny",
+      "prevSize": 32
     },
     {
-      "order": 51,
-      "name": "cd-rom"
+      "order": 337,
+      "name": "book",
+      "prevSize": 32
     },
     {
-      "order": 52,
-      "name": "chicago"
+      "order": 338,
+      "name": "bookmark",
+      "prevSize": 32
     },
     {
-      "order": 53,
-      "name": "child-item"
+      "order": 339,
+      "name": "cd-rom",
+      "prevSize": 32
     },
     {
-      "order": 54,
-      "name": "circle-info-solid"
+      "order": 340,
+      "name": "chicago",
+      "prevSize": 32
     },
     {
-      "order": 55,
-      "name": "citation"
+      "order": 341,
+      "name": "child-item",
+      "prevSize": 32
     },
     {
-      "order": 56,
-      "name": "collection"
+      "order": 342,
+      "name": "circle-info-solid",
+      "prevSize": 32
     },
     {
-      "order": 57,
-      "name": "collections"
+      "order": 343,
+      "name": "citation",
+      "prevSize": 32
     },
     {
-      "order": 58,
-      "name": "columbia"
+      "order": 344,
+      "name": "collection",
+      "prevSize": 32
     },
     {
-      "order": 59,
-      "name": "cornell"
+      "order": 345,
+      "name": "collections",
+      "prevSize": 32
     },
     {
-      "order": 60,
-      "name": "datasets"
+      "order": 346,
+      "name": "columbia",
+      "prevSize": 32
     },
     {
-      "order": 61,
-      "name": "dvd-rom"
+      "order": 347,
+      "name": "cornell",
+      "prevSize": 32
     },
     {
-      "order": 62,
-      "name": "email"
+      "order": 348,
+      "name": "datasets",
+      "prevSize": 32
     },
     {
-      "order": 63,
-      "name": "esri-globe"
+      "order": 349,
+      "name": "dvd-rom",
+      "prevSize": 32
     },
     {
-      "order": 64,
-      "name": "fire-solid"
+      "order": 350,
+      "name": "email",
+      "prevSize": 32
     },
     {
-      "order": 65,
-      "name": "george-mason"
+      "order": 351,
+      "name": "esri-globe",
+      "prevSize": 32,
+      "codes": [
+        59669,
+        59670,
+        59671,
+        59672,
+        59673,
+        59674
+      ]
     },
     {
-      "order": 66,
-      "name": "globe"
+      "order": 352,
+      "name": "fire-solid",
+      "prevSize": 32
     },
     {
-      "order": 67,
-      "name": "harvard"
+      "order": 353,
+      "name": "george-mason",
+      "prevSize": 32
     },
     {
-      "order": 68,
-      "name": "home"
+      "order": 354,
+      "name": "globe",
+      "prevSize": 32
     },
     {
-      "order": 69,
-      "name": "illinois"
+      "order": 355,
+      "name": "harvard",
+      "prevSize": 32
     },
     {
-      "order": 70,
-      "name": "image"
+      "order": 356,
+      "name": "home",
+      "prevSize": 32
     },
     {
-      "order": 71,
-      "name": "imagery"
+      "order": 357,
+      "name": "illinois",
+      "prevSize": 32
     },
     {
-      "order": 72,
-      "name": "indiana"
+      "order": 358,
+      "name": "image1",
+      "prevSize": 32
     },
     {
-      "order": 73,
-      "name": "iowa"
+      "order": 359,
+      "name": "imagery",
+      "prevSize": 32
     },
     {
-      "order": 74,
-      "name": "leaf"
+      "order": 360,
+      "name": "indiana",
+      "prevSize": 32
     },
     {
-      "order": 75,
-      "name": "lewis-clark"
+      "order": 361,
+      "name": "iowa",
+      "prevSize": 32
     },
     {
-      "order": 76,
-      "name": "lightbulb-solid"
+      "order": 362,
+      "name": "leaf",
+      "prevSize": 32
     },
     {
-      "order": 77,
-      "name": "line"
+      "order": 363,
+      "name": "lewis-clark",
+      "prevSize": 32
     },
     {
-      "order": 78,
-      "name": "logo"
+      "order": 364,
+      "name": "lightbulb-solid",
+      "prevSize": 32
     },
     {
-      "order": 79,
-      "name": "map-marker"
+      "order": 365,
+      "name": "line",
+      "prevSize": 32
     },
     {
-      "order": 80,
-      "name": "map"
+      "order": 366,
+      "name": "logo",
+      "prevSize": 32,
+      "codes": [
+        59689,
+        59690,
+        59691,
+        59692,
+        59693,
+        59694,
+        59695,
+        59696,
+        59697,
+        59698,
+        59699,
+        59700,
+        59701,
+        59702,
+        59703,
+        59704,
+        59705,
+        59706,
+        59707,
+        59708,
+        59709,
+        59710,
+        59711,
+        59712
+      ]
     },
     {
-      "order": 81,
-      "name": "maryland"
+      "order": 367,
+      "name": "map-marker",
+      "prevSize": 32
     },
     {
-      "order": 82,
-      "name": "massgis"
+      "order": 368,
+      "name": "map",
+      "prevSize": 32
     },
     {
-      "order": 83,
-      "name": "metadata"
+      "order": 369,
+      "name": "maryland",
+      "prevSize": 32
     },
     {
-      "order": 84,
-      "name": "michigan-state-university"
+      "order": 370,
+      "name": "massgis",
+      "prevSize": 32
     },
     {
-      "order": 85,
-      "name": "michigan-state"
+      "order": 371,
+      "name": "metadata",
+      "prevSize": 32
     },
     {
-      "order": 86,
-      "name": "michigan"
+      "order": 372,
+      "name": "michigan-state-university",
+      "prevSize": 32
     },
     {
-      "order": 87,
-      "name": "minnesota"
+      "order": 373,
+      "name": "michigan-state",
+      "prevSize": 32
     },
     {
-      "order": 88,
-      "name": "mit"
+      "order": 374,
+      "name": "michigan",
+      "prevSize": 32
     },
     {
-      "order": 89,
-      "name": "mixed"
+      "order": 375,
+      "name": "minnesota",
+      "prevSize": 32
     },
     {
-      "order": 90,
-      "name": "multilinestring"
+      "order": 376,
+      "name": "mit",
+      "prevSize": 32
     },
     {
-      "order": 91,
-      "name": "multipoint"
+      "order": 377,
+      "name": "mixed",
+      "prevSize": 32
     },
     {
-      "order": 92,
-      "name": "multipolygon"
+      "order": 378,
+      "name": "multilinestring",
+      "prevSize": 32
     },
     {
-      "order": 93,
-      "name": "nebraska"
+      "order": 379,
+      "name": "multipoint",
+      "prevSize": 32
     },
     {
-      "order": 94,
-      "name": "nyu"
+      "order": 380,
+      "name": "multipolygon",
+      "prevSize": 32
     },
     {
-      "order": 95,
-      "name": "ohio-state"
+      "order": 381,
+      "name": "nebraska",
+      "prevSize": 32
     },
     {
-      "order": 96,
-      "name": "pagelines-brands"
+      "order": 382,
+      "name": "nyu",
+      "prevSize": 32
     },
     {
-      "order": 97,
-      "name": "paper-map"
+      "order": 383,
+      "name": "ohio-state",
+      "prevSize": 32
     },
     {
-      "order": 98,
-      "name": "parent-item"
+      "order": 384,
+      "name": "pagelines-brands",
+      "prevSize": 32
     },
     {
-      "order": 99,
-      "name": "penn-state"
+      "order": 385,
+      "name": "paper-map",
+      "prevSize": 32
     },
     {
-      "order": 100,
-      "name": "pennsylvania-state-university"
+      "order": 386,
+      "name": "parent-item",
+      "prevSize": 32
     },
     {
-      "order": 101,
-      "name": "point"
+      "order": 387,
+      "name": "penn-state",
+      "prevSize": 32
     },
     {
-      "order": 102,
-      "name": "polygon"
+      "order": 388,
+      "name": "pennsylvania-state-university",
+      "prevSize": 32
     },
     {
-      "order": 103,
-      "name": "polyline"
+      "order": 389,
+      "name": "point",
+      "prevSize": 32
     },
     {
-      "order": 104,
-      "name": "princeton"
+      "order": 390,
+      "name": "polygon",
+      "prevSize": 32
     },
     {
-      "order": 105,
-      "name": "public"
+      "order": 391,
+      "name": "polyline",
+      "prevSize": 32
     },
     {
-      "order": 106,
-      "name": "purdue-university"
+      "order": 392,
+      "name": "princeton",
+      "prevSize": 32
     },
     {
-      "order": 107,
-      "name": "purdue"
+      "order": 393,
+      "name": "public",
+      "prevSize": 32
     },
     {
-      "order": 108,
-      "name": "raster"
+      "order": 394,
+      "name": "purdue-university",
+      "prevSize": 32
     },
     {
-      "order": 109,
-      "name": "restricted"
+      "order": 395,
+      "name": "purdue",
+      "prevSize": 32
     },
     {
-      "order": 110,
-      "name": "rutgers"
+      "order": 396,
+      "name": "raster",
+      "prevSize": 32
     },
     {
-      "order": 111,
-      "name": "sms"
+      "order": 397,
+      "name": "restricted",
+      "prevSize": 32
     },
     {
-      "order": 112,
-      "name": "stanford"
+      "order": 398,
+      "name": "rutgers",
+      "prevSize": 32
     },
     {
-      "order": 113,
-      "name": "table"
+      "order": 399,
+      "name": "sms",
+      "prevSize": 32
     },
     {
-      "order": 114,
-      "name": "tags"
+      "order": 400,
+      "name": "stanford",
+      "prevSize": 32
     },
     {
-      "order": 115,
-      "name": "texas"
+      "order": 401,
+      "name": "table",
+      "prevSize": 32
     },
     {
-      "order": 116,
-      "name": "the-ohio-state-university"
+      "order": 402,
+      "name": "tags",
+      "prevSize": 32
     },
     {
-      "order": 117,
-      "name": "triangle-exclamation-solid"
+      "order": 403,
+      "name": "texas",
+      "prevSize": 32
     },
     {
-      "order": 118,
-      "name": "tufts"
+      "order": 404,
+      "name": "the-ohio-state-university",
+      "prevSize": 32
     },
     {
-      "order": 119,
-      "name": "ucla"
+      "order": 405,
+      "name": "triangle-exclamation-solid",
+      "prevSize": 32
     },
     {
-      "order": 120,
-      "name": "university-of-california-berkeley"
+      "order": 406,
+      "name": "tufts",
+      "prevSize": 32
     },
     {
-      "order": 121,
-      "name": "university-of-chicago"
+      "order": 407,
+      "name": "ucla",
+      "prevSize": 32
     },
     {
-      "order": 122,
-      "name": "university-of-colorado-boulder"
+      "order": 408,
+      "name": "university-of-california-berkeley",
+      "prevSize": 32
     },
     {
-      "order": 123,
-      "name": "university-of-illinois-urbana-champaign"
+      "order": 409,
+      "name": "university-of-chicago",
+      "prevSize": 32
     },
     {
-      "order": 124,
-      "name": "university-of-iowa"
+      "order": 410,
+      "name": "university-of-colorado-boulder",
+      "prevSize": 32
     },
     {
-      "order": 125,
-      "name": "university-of-maryland"
+      "order": 411,
+      "name": "university-of-illinois-urbana-champaign",
+      "prevSize": 32
     },
     {
-      "order": 126,
-      "name": "university-of-michigan"
+      "order": 412,
+      "name": "university-of-iowa",
+      "prevSize": 32
     },
     {
-      "order": 127,
-      "name": "university-of-minnesota"
+      "order": 413,
+      "name": "university-of-maryland",
+      "prevSize": 32
     },
     {
-      "order": 128,
-      "name": "university-of-nebraska-lincoln"
+      "order": 414,
+      "name": "university-of-michigan",
+      "prevSize": 32
     },
     {
-      "order": 129,
-      "name": "university-of-wisconsin-madison"
+      "order": 415,
+      "name": "university-of-minnesota",
+      "prevSize": 32
     },
     {
-      "order": 130,
-      "name": "uva"
+      "order": 416,
+      "name": "university-of-nebraska-lincoln",
+      "prevSize": 32
     },
     {
-      "order": 131,
-      "name": "web_services"
+      "order": 417,
+      "name": "university-of-wisconsin-madison",
+      "prevSize": 32
     },
     {
-      "order": 132,
-      "name": "websites"
+      "order": 418,
+      "name": "uva",
+      "prevSize": 32
     },
     {
-      "order": 133,
-      "name": "wisconsin"
+      "order": 419,
+      "name": "web_services",
+      "prevSize": 32
+    },
+    {
+      "order": 420,
+      "name": "websites",
+      "prevSize": 32
+    },
+    {
+      "order": 421,
+      "name": "wisconsin",
+      "prevSize": 32
     }
   ],
   "metadata": {
     "name": "geoblacklight-icons",
     "importSize": {
-      "width": 32,
-      "height": 32
+      "width": 293,
+      "height": 282
     },
     "url": "https://geoblacklight.org/",
-    "iconsHash": 866505789
+    "iconsHash": 918511942
   },
   "height": 1024,
   "prevSize": 32,
   "icons": [
+    {
+      "paths": [
+        "M675.776 7.616v72.256l121.28 30.496 23.968 29.76v578.816l-607.488-718.976h-178.656v54.112l98.784 111.104v750.56l-133.632 37.408v63.168h383.104v-63.552l-118.752-31.584-24.32-30.144v-603.52l618.4 736.416h71.52v-909.984l134.368-40.672v-65.728z"
+      ],
+      "attrs": [
+        {
+          "fill": "rgb(108, 117, 125)"
+        }
+      ],
+      "width": 1064,
+      "grid": 0,
+      "tags": [
+        "northwestern-university"
+      ],
+      "colorPermutations": {
+        "110811712512052052051255255255177186109189791": [
+          {
+            "f": 2
+          }
+        ]
+      },
+      "defaultCode": 59648
+    },
+    {
+      "paths": [
+        "M365.714 329.143c0 60.594-49.121 109.714-109.714 109.714s-109.714-49.121-109.714-109.714v0c0-60.594 49.121-109.714 109.714-109.714s109.714 49.121 109.714 109.714v0zM950.857 548.571v256h-804.571v-109.714l182.857-182.857 91.429 91.429 292.571-292.571zM1005.714 146.286h-914.286c-9.874 0-18.286 8.411-18.286 18.286v694.857c0 9.874 8.411 18.286 18.286 18.286h914.286c9.874 0 18.286-8.411 18.286-18.286v-694.857c0-9.874-8.411-18.286-18.286-18.286zM1097.143 164.571v694.857c0 50.495-40.934 91.429-91.429 91.429v0h-914.286c-50.495 0-91.429-40.934-91.429-91.429v0-694.857c0-50.495 40.934-91.429 91.429-91.429v0h914.286c50.495 0 91.429 40.934 91.429 91.429v0z"
+      ],
+      "attrs": [
+        {
+          "fill": "rgb(108, 117, 125)"
+        }
+      ],
+      "width": 1097,
+      "grid": 0,
+      "tags": [
+        "image"
+      ],
+      "colorPermutations": {
+        "110811712512052052051255255255177186109189791": [
+          {
+            "f": 2
+          }
+        ]
+      },
+      "defaultCode": 59649
+    },
     {
       "paths": [
         "M292.576 0c9.888 0 18.272 8.416 18.272 18.272v841.152c-0.064 6.976-4 12.992-9.76 16.032l-0.096 0.064-274.272 146.272c-2.336 1.376-5.12 2.208-8.128 2.208-0.096 0-0.192 0-0.32 0v0c-10.016-0.192-18.080-8.256-18.272-18.272v-841.152c0-6.944 3.648-13.152 9.888-16.096l274.272-146.272c2.336-1.376 5.12-2.208 8.128-2.208 0.096 0 0.192 0 0.32 0v0zM1005.728 0c9.888 0 18.272 8.416 18.272 18.272v841.152c-0.064 6.976-4 12.992-9.76 16.032l-0.096 0.064-274.272 146.272c-2.336 1.376-5.12 2.208-8.128 2.208-0.096 0-0.192 0-0.32 0v0c-10.016-0.192-18.080-8.256-18.272-18.272v-841.152c0-6.944 3.648-13.152 9.888-16.096l274.272-146.272c2.336-1.376 5.12-2.208 8.128-2.208 0.096 0 0.192 0 0.32 0v0zM365.728 0c0.032 0 0.064 0 0.064 0 2.912 0 5.632 0.672 8.064 1.888l-0.096-0.064 292.576 146.272c6.208 3.648 10.24 9.504 10.24 16.448v841.152c0 0 0 0.032 0 0.032 0 10.112-8.192 18.272-18.272 18.272-2.944 0-5.696-0.704-8.16-1.92l0.096 0.064-292.576-146.272c-6.016-3.168-10.080-9.312-10.24-16.448v-841.152c0-9.888 8.416-18.272 18.272-18.272z"
@@ -392,7 +572,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59650
     },
     {
       "paths": [
@@ -428,7 +609,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59651
     },
     {
       "paths": [
@@ -457,7 +639,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59652
     },
     {
       "paths": [
@@ -479,7 +662,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59653
     },
     {
       "paths": [
@@ -500,7 +684,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59654
     },
     {
       "paths": [
@@ -522,7 +707,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59655
     },
     {
       "paths": [
@@ -544,7 +730,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59656
     },
     {
       "paths": [
@@ -565,7 +752,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59657
     },
     {
       "paths": [
@@ -594,7 +782,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59658
     },
     {
       "paths": [
@@ -615,7 +804,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59659
     },
     {
       "paths": [
@@ -636,7 +826,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59660
     },
     {
       "paths": [
@@ -657,7 +848,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59661
     },
     {
       "paths": [
@@ -678,7 +870,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59662
     },
     {
       "paths": [
@@ -699,7 +892,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59663
     },
     {
       "paths": [
@@ -720,7 +914,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59664
     },
     {
       "paths": [
@@ -755,7 +950,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59665
     },
     {
       "paths": [
@@ -818,7 +1014,8 @@
             "s": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59666
     },
     {
       "paths": [
@@ -839,7 +1036,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59667
     },
     {
       "paths": [
@@ -860,7 +1058,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59668
     },
     {
       "paths": [
@@ -917,7 +1116,8 @@
             "f": 0
           }
         ]
-      }
+      },
+      "defaultCode": 59669
     },
     {
       "paths": [
@@ -939,7 +1139,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59675
     },
     {
       "paths": [
@@ -967,7 +1168,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59676
     },
     {
       "paths": [
@@ -989,7 +1191,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59677
     },
     {
       "paths": [
@@ -1010,7 +1213,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59678
     },
     {
       "paths": [
@@ -1032,7 +1236,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59679
     },
     {
       "paths": [
@@ -1061,7 +1266,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59680
     },
     {
       "paths": [
@@ -1083,7 +1289,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59681
     },
     {
       "paths": [
@@ -1105,7 +1312,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59682
     },
     {
       "paths": [
@@ -1126,7 +1334,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59683
     },
     {
       "paths": [
@@ -1147,7 +1356,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59684
     },
     {
       "paths": [
@@ -1168,7 +1378,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59685
     },
     {
       "paths": [
@@ -1204,7 +1415,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59686
     },
     {
       "paths": [
@@ -1226,7 +1438,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59687
     },
     {
       "paths": [
@@ -1264,7 +1477,8 @@
             "s": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59688
     },
     {
       "paths": [
@@ -1448,7 +1662,8 @@
             "f": 4
           }
         ]
-      }
+      },
+      "defaultCode": 59689
     },
     {
       "paths": [
@@ -1470,7 +1685,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59713
     },
     {
       "paths": [
@@ -1491,7 +1707,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59714
     },
     {
       "paths": [
@@ -1513,7 +1730,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59715
     },
     {
       "paths": [
@@ -1535,7 +1753,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59716
     },
     {
       "paths": [
@@ -1557,7 +1776,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59717
     },
     {
       "paths": [
@@ -1586,7 +1806,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59718
     },
     {
       "paths": [
@@ -1615,7 +1836,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59719
     },
     {
       "paths": [
@@ -1637,7 +1859,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59720
     },
     {
       "paths": [
@@ -1658,7 +1881,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59721
     },
     {
       "paths": [
@@ -1685,7 +1909,8 @@
             "s": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59722
     },
     {
       "paths": [
@@ -1731,7 +1956,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59723
     },
     {
       "paths": [
@@ -1794,7 +2020,8 @@
             "s": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59724
     },
     {
       "paths": [
@@ -1815,7 +2042,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59725
     },
     {
       "paths": [
@@ -1878,7 +2106,8 @@
             "s": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59726
     },
     {
       "paths": [
@@ -1906,7 +2135,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59727
     },
     {
       "paths": [
@@ -1948,7 +2178,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59728
     },
     {
       "paths": [
@@ -1984,7 +2215,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59729
     },
     {
       "paths": [
@@ -2006,7 +2238,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59730
     },
     {
       "paths": [
@@ -2027,7 +2260,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59731
     },
     {
       "paths": [
@@ -2049,7 +2283,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59732
     },
     {
       "paths": [
@@ -2078,7 +2313,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59733
     },
     {
       "paths": [
@@ -2107,7 +2343,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59734
     },
     {
       "paths": [
@@ -2128,7 +2365,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59735
     },
     {
       "paths": [
@@ -2166,7 +2404,8 @@
             "s": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59736
     },
     {
       "paths": [
@@ -2228,7 +2467,8 @@
             "s": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59737
     },
     {
       "paths": [
@@ -2249,7 +2489,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59738
     },
     {
       "paths": [
@@ -2271,7 +2512,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59739
     },
     {
       "paths": [
@@ -2300,7 +2542,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59740
     },
     {
       "paths": [
@@ -2329,7 +2572,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59741
     },
     {
       "paths": [
@@ -2350,7 +2594,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59742
     },
     {
       "paths": [
@@ -2372,7 +2617,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59743
     },
     {
       "paths": [
@@ -2408,7 +2654,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59744
     },
     {
       "paths": [
@@ -2430,7 +2677,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59745
     },
     {
       "paths": [
@@ -2451,7 +2699,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59746
     },
     {
       "paths": [
@@ -2473,7 +2722,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59747
     },
     {
       "paths": [
@@ -2495,7 +2745,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59748
     },
     {
       "paths": [
@@ -2517,7 +2768,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59749
     },
     {
       "paths": [
@@ -2553,7 +2805,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59750
     },
     {
       "paths": [
@@ -2574,7 +2827,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59751
     },
     {
       "paths": [
@@ -2596,7 +2850,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59752
     },
     {
       "paths": [
@@ -2617,7 +2872,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59753
     },
     {
       "paths": [
@@ -2646,7 +2902,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59754
     },
     {
       "paths": [
@@ -2675,7 +2932,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59755
     },
     {
       "paths": [
@@ -2697,7 +2955,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59756
     },
     {
       "paths": [
@@ -2726,7 +2985,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59757
     },
     {
       "paths": [
@@ -2747,7 +3007,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59758
     },
     {
       "paths": [
@@ -2769,7 +3030,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59759
     },
     {
       "paths": [
@@ -2791,7 +3053,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59760
     },
     {
       "paths": [
@@ -2812,7 +3075,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59761
     },
     {
       "paths": [
@@ -2854,7 +3118,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59762
     },
     {
       "paths": [
@@ -2876,7 +3141,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59763
     },
     {
       "paths": [
@@ -2897,7 +3163,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59764
     },
     {
       "paths": [
@@ -2918,7 +3185,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59765
     },
     {
       "paths": [
@@ -2939,7 +3207,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59766
     },
     {
       "paths": [
@@ -2961,7 +3230,8 @@
             "f": 2
           }
         ]
-      }
+      },
+      "defaultCode": 59767
     }
   ],
   "colorThemes": [
@@ -3013,21 +3283,30 @@
     "showSVGs": true,
     "fontPref": {
       "prefix": "icon-",
-      "metadata": {},
+      "metadata": {
+        "fontFamily": "icomoon"
+      },
       "metrics": {
         "emSize": 1024,
         "baseline": 6.25,
         "whitespace": 50
-      }
+      },
+      "embed": false
     },
     "imagePref": {
       "prefix": "icon-",
       "png": true,
       "useClassSelector": true,
-      "color": 0,
-      "bgColor": 16777215
+      "color": 7107965,
+      "bgColor": 16777215,
+      "name": "icomoon",
+      "classSelector": ".icon",
+      "height": 32,
+      "columns": 16,
+      "margin": 16
     },
-    "historySize": 50
+    "historySize": 50,
+    "gridSize": 16
   },
   "IcoMoonType": "icon-set"
 }
