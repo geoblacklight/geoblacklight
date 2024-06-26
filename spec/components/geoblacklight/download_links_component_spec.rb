@@ -2,9 +2,9 @@
 
 require "spec_helper"
 
-RSpec.describe Geoblacklight::DownloadComponent, type: :component do
+RSpec.describe Geoblacklight::DownloadLinksComponent, type: :component do
   subject(:rendered) do
-    render_inline_to_capybara_node(described_class.new(document:))
+    render_inline_to_capybara_node(described_class.new(document: document))
   end
   let(:document) { instance_double(SolrDocument, id: 123) }
 
@@ -17,8 +17,8 @@ RSpec.describe Geoblacklight::DownloadComponent, type: :component do
     end
 
     it "shows download link" do
-      expect(rendered).to have_text('Download')
-      expect(rendered).to have_text('Export Shapefile')
+      expect(rendered).to have_text("Download")
+      expect(rendered).to have_text("Export Shapefile")
     end
   end
 
@@ -31,8 +31,8 @@ RSpec.describe Geoblacklight::DownloadComponent, type: :component do
     end
 
     it "does not render anything" do
-      expect(rendered).not_to have_text('Download')
-      expect(rendered).not_to have_text('Export Shapefile')
+      expect(rendered).not_to have_text("Download")
+      expect(rendered).not_to have_text("Export Shapefile")
     end
   end
 end
