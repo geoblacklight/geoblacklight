@@ -1,0 +1,35 @@
+<div class="downloads-sidebar">
+    <%# the dropdown-toggle class gives us the little arrow %>
+    <button type="button" class="btn btn-primary dropdown-toggle sidebar-btn" id="downloads-button" data-toggle="collapse" data-target="#downloads-collapse" aria-expanded="false" aria-controls="downloads-collapse">
+    Download
+    </button>
+    <div class="collapse" id="downloads-collapse">
+        <div class="card card-body">
+            <%# Renders the options of the downloads dropdown button %>
+            <% if document.direct_download.present? %>
+            <% if document.direct_download[:download].is_a? Array %>
+                <% document.direct_download[:download].each do |download| %>
+                <%= download_link_file(download['label'], document.id, download['url']) %>
+                <% end %>
+            <% end %>
+            <% if document.direct_download[:download].is_a? String %>
+                <%= download_link_file(download_text(document.file_format), document.id, document.direct_download[:download]) %>
+            <% end %>
+            <% end %>
+
+            <% if document.hgl_download.present? %>
+            <%= download_link_hgl(download_text(document.download_types.first[0]), document) %>
+            <% end %>
+
+            <% if document.iiif_download.present? %>
+            <%= download_link_iiif %>
+            <% end %>
+
+            <% if document.download_types.present? %>
+            <% document.download_types.each do |type| %>
+                <%= download_link_generated(type.first, document) %>
+            <% end %>
+            <% end %>
+        </div>
+    </div>
+</div>

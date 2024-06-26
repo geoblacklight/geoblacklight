@@ -1,19 +1,7 @@
 <% document ||= @document %>
 
 <% if document_downloadable? %>
-  <% if document.direct_download.present? || document.hgl_download.present? || document.iiif_download.present? || document.download_types.present? %>
-    <div class="downloads-sidebar">
-      <%# the dropdown-toggle class gives us the little arrow %>
-      <button type="button" class="btn btn-primary dropdown-toggle sidebar-btn" id="downloads-button" data-toggle="collapse" data-target="#downloads-collapse" aria-expanded="false" aria-controls="downloads-collapse">
-        Download
-      </button>
-      <div class="collapse" id="downloads-collapse">
-        <div class="card card-body">
-          <%= render 'downloads_collapse' %>
-        </div>
-      </div>
-    </div>
-  <% end %>
+  <%= render(Geoblacklight::DownloadComponent.new(document: @document)) %>
 <% elsif document.restricted? && document.same_institution? %>
   <div class="card authentication">
     <div class="card-header">

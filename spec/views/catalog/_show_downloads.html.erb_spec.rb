@@ -3,11 +3,11 @@
 require "spec_helper"
 
 describe "catalog/_show_downloads", type: :view do
-  context "document is downloadable" do
-    let(:document) { instance_double(SolrDocument) }
-    before do
-      assign :document, document
+  before { assign :document, document }
 
+  context "document is downloadable" do
+    let(:document) { instance_double(SolrDocument, id: 123) }
+    before do
       allow(document).to receive(:restricted?).and_return(false)
       allow(document).to receive(:direct_download).and_return(test: :test)
       allow(document).to receive(:hgl_download).and_return({})
@@ -17,12 +17,8 @@ describe "catalog/_show_downloads", type: :view do
 
     it "renders the downloads collapse partial" do
       expect(view).to receive(:document_downloadable?).and_return(true)
-
-      stub_template "catalog/_downloads_collapse.html.erb" => "stubbed_downloads_collapse"
-
       render
-
-      expect(rendered).to have_content "stubbed_downloads_collapse"
+      expect(rendered).to have_text('Export Shapefile')
     end
   end
 
@@ -34,9 +30,9 @@ describe "catalog/_show_downloads", type: :view do
 
     context "when restricted & same institution" do
       it "renders login link" do
-        assign :document, document
         render
         expect(rendered).to have_css ".card-header a"
+        expect(rendered).not_to have_text('Export Shapefile')
       end
     end
   end
