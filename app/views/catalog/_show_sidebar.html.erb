@@ -3,7 +3,8 @@
 
 <div class="sidebar-buttons">
 <%= render :partial => "show_web_services" %>
-<%= render :partial => "show_downloads" %>
+<%= render(Geoblacklight::DownloadLinksComponent.new(document:)) if document_downloadable? %>
+<%= render(Geoblacklight::LoginLinkComponent.new(document:)) %>
 </div>
 
 <% unless @document.more_like_this.empty? %>

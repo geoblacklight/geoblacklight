@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Geoblacklight
-  # Display drop-down file download menu in sidebar
-  class DownloadComponent < ViewComponent::Base
+  # Display expandable file download links in sidebar
+  class DownloadLinksComponent < ViewComponent::Base
     attr_reader :document
 
     def initialize(document:)
