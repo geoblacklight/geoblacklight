@@ -35,7 +35,7 @@ class CatalogController < ApplicationController
     # solr field configuration for search results/index views
     # config.index.show_link = 'title_display'
     # config.index.record_display_type = 'format'
-
+    config.index.document_component = Geoblacklight::SearchResultComponent
     config.index.title_field = Settings.FIELDS.TITLE
 
     # solr field configuration for document/show views
