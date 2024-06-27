@@ -1,6 +1,4 @@
-<% document ||= @documents.first %>
-
-<%= render partial: 'web_services_default', locals: { reference: reference } %>
+<%= render Geoblacklight::WebServicesDefaultComponent.new(reference:) %>
 
 <div class="form-group form-inline">
   <label for="wfs_abv_webservice" class="mr-2"><%= t('geoblacklight.references.wfs_abv')%> <code><%= t('geoblacklight.references.wfs_label')%></code></label>
