@@ -1,9 +1,0 @@
-<% document ||= @documents.first %>
-
-<% document.references.refs.each do |reference| %>
-  <% if Settings.WEBSERVICES_SHOWN.include? reference.type.to_s %>
-    <div class="web-services-modal-entry">
-      <%= render_web_services(reference) %>
-    </div>
-  <% end %>
-<% end %>

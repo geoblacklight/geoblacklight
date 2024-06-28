@@ -173,19 +173,6 @@ module GeoblacklightHelper
   end
 
   ##
-  # Renders the partials for a Geoblacklight::Reference in the web services
-  # modal
-  # @param [Geoblacklight::Reference]
-  def render_web_services(reference)
-    render(
-      partial: "web_services_#{reference.type}",
-      locals: {reference: reference}
-    )
-  rescue ActionView::MissingTemplate
-    render partial: "web_services_default", locals: {reference: reference}
-  end
-
-  ##
   # Returns a hash of the leaflet plugin settings to pass to the viewer.
   # @return[Hash]
   def leaflet_options

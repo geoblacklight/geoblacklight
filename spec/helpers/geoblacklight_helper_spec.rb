@@ -182,27 +182,6 @@ describe GeoblacklightHelper, type: :helper do
     end
   end
 
-  describe "#render_web_services" do
-    let(:reference) { instance_double(Geoblacklight::Reference, type: "wms") }
-    it "with a reference to a defined partial" do
-      expect(helper).to receive(:render)
-        .with(partial: "web_services_wms", locals: {reference: reference})
-      helper.render_web_services(reference)
-    end
-    context "when the partial is missing" do
-      let(:reference) { instance_double(Geoblacklight::Reference, type: "iiif") }
-
-      it "with a reference to a missing partial" do
-        expect(helper).to receive(:render)
-          .with(partial: "web_services_iiif", locals: {reference: reference})
-          .and_raise ActionView::MissingTemplate.new({}, "", "", "", "")
-        expect(helper).to receive(:render)
-          .with(partial: "web_services_default", locals: {reference: reference})
-        helper.render_web_services(reference)
-      end
-    end
-  end
-
   describe "#leaflet_options" do
     it "returns a hash of options for leaflet" do
       expect(leaflet_options[:VIEWERS][:WMS][:CONTROLS]).to eq(%w[Opacity Fullscreen])

@@ -11,7 +11,9 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <%= render partial: 'web_services' %>
+  <div class="web-services-modal-entry">
+    <%= render Geoblacklight::WebServicesComponent.with_collection(@documents.first.references.refs, document: @documents.first) %>
+  </div>
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-default hide-without-js" data-dismiss="modal"><%= t('geoblacklight.references.services_close')%></button>
