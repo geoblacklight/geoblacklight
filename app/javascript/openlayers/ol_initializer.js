@@ -82,7 +82,8 @@ export default class OlInitializer {
 
   initializeCog () {
     const source = new GeoTIFF({
-      sources: [{ url: this.data.url }]
+      sources: [{ url: this.data.url }],
+      convertToRGB: true
     })
 
     source.getView().then((view) => {
