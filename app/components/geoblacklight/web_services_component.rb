@@ -2,12 +2,12 @@
 
 module Geoblacklight
   class WebServicesComponent < ViewComponent::Base
-    with_collection_parameter :item
+    with_collection_parameter :ref
 
-    def initialize(item:, document:)
-      @item = item
+    def initialize(ref:, document:)
+      @ref = ref
       @document = document
-      @type = item.type.to_s
+      @type = ref.type.to_s
       super
     end
 
@@ -18,9 +18,9 @@ module Geoblacklight
     def render_web_services
       component_class_name = "Geoblacklight::WebServices#{@type.camelize}Component"
       component_class = component_class_name.constantize
-      render component_class.new(reference: @item, document: @document)
+      render component_class.new(reference: @ref, document: @document)
     rescue
-      render Geoblacklight::WebServicesDefaultComponent.new(reference: @item)
+      render Geoblacklight::WebServicesDefaultComponent.new(reference: @ref)
     end
   end
 end

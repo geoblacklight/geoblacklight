@@ -4,8 +4,8 @@ require "spec_helper"
 
 RSpec.describe Geoblacklight::WebServicesComponent, type: :component do
   let(:document) { instance_double(SolrDocument, id: 123, wxs_identifier: "wxs_identifier") }
-  let(:item) { instance_double(Geoblacklight::Reference, type: type, endpoint: "endpoint") }
-  let(:component) { described_class.new(document: document, item: item) }
+  let(:ref) { instance_double(Geoblacklight::Reference, type: type, endpoint: "endpoint") }
+  let(:component) { described_class.new(document: document, ref: ref) }
   subject(:rendered) do
     render_inline_to_capybara_node(component)
   end
