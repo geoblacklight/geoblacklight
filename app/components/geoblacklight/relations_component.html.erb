@@ -4,7 +4,7 @@
   </div>
 
   <ul class="list-group list-group-flush">
-    <% relations.send(relationship_type)['docs'][0..2].each do |entry| %>
+    <% relationship_type_results['docs'][0..2].each do |entry| %>
       <li class="list-group-item border-bottom-0">
         <%= link_to solr_document_path(entry[Settings.FIELDS.ID]) do %>
           <%= relations_icon(entry, rel_type_info.icon) unless rel_type_info.icon.nil? %>
@@ -12,10 +12,10 @@
         <% end %>
       </li>
     <% end %>
-    <% unless (relations.send(relationship_type)['numFound'].to_i <= 3) %>
+    <% unless (relationship_type_results['numFound'].to_i <= 3) %>
       <li class="list-group-item border-bottom-0">
         <%= link_to search_catalog_path({f: {"#{Settings.RELATIONSHIPS_SHOWN.send(relationship_type).field}" => [relations.link_id]}}) do %>
-          <%= t('geoblacklight.relations.browse_all', count: relations.send(relationship_type)['numFound']) %>
+          <%= t('geoblacklight.relations.browse_all', count: relationship_type_results['numFound']) %>
         <% end %>
       </li>
     <% end %>

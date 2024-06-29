@@ -13,7 +13,13 @@ module Geoblacklight
     end
 
     def render?
-      relations.send(relationship_type)["numFound"].to_i.positive?
+      relationship_type_results["numFound"].to_i.positive?
+    end
+
+    private
+
+    def relationship_type_results
+      @relationship_type_results ||= relations.send(relationship_type)
     end
   end
 end
