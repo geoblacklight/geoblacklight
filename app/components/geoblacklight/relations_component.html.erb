@@ -1,0 +1,23 @@
+<div class="card relations relationship-<%= relationship_type.downcase %>">
+  <div class="card-header">
+    <h2 class="mb-0 h6"><%= t("#{rel_type_info.label}") %></h2>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% relations.send(relationship_type)['docs'][0..2].each do |entry| %>
+      <li class="list-group-item border-bottom-0">
+        <%= link_to solr_document_path(entry[Settings.FIELDS.ID]) do %>
+          <%= relations_icon(entry, rel_type_info.icon) unless rel_type_info.icon.nil? %>
+          <%= entry[Settings.FIELDS.TITLE] %>
+        <% end %>
+      </li>
+    <% end %>
+    <% unless (relations.send(relationship_type)['numFound'].to_i <= 3) %>
+      <li class="list-group-item border-bottom-0">
+        <%= link_to search_catalog_path({f: {"#{Settings.RELATIONSHIPS_SHOWN.send(relationship_type).field}" => [relations.link_id]}}) do %>
+          <%= t('geoblacklight.relations.browse_all', count: relations.send(relationship_type)['numFound']) %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
