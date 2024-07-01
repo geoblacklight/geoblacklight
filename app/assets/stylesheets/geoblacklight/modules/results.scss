@@ -23,14 +23,13 @@
     @extend .pe-1;
   }
 
-  .caret-toggle {
-    @include caret('right');
-    padding-left: 0;
-    width: 28px;
+  // rotate BS5's default caret
+  .dropdown-toggle:after {
+    transform: rotate(-90deg); 
+  }
 
-    &[aria-expanded="true"] {
-      @include caret('down');
-    }
+  .dropdown-toggle[aria-expanded="true"]:after {
+    transform: rotate(0deg); 
   }
 
   .status-icons {
