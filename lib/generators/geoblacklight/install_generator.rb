@@ -146,6 +146,7 @@ module Geoblacklight
     def copy_vite_entrypoints
       copy_file "clover.js", "app/javascript/entrypoints/clover.js"
       copy_file "ol.js", "app/javascript/entrypoints/ol.js"
+      copy_file "geoblacklight.js", "app/javascript/entrypoints/geoblacklight.js"
     end
   end
 end
