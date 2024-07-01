@@ -85,7 +85,7 @@ feature "Index view", js: true do
     visit search_catalog_path(f: {Settings.FIELDS.PROVIDER => ["Stanford"]})
     within(".documentHeader", match: :first) do
       expect(page).to have_css("a[itemprop='name']")
-      find(".caret-toggle").click
+      find(".dropdown-toggle").click
     end
     within(".more-info-area", match: :first) do
       expect(page).to have_css("small[itemprop='description']")

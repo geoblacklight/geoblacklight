@@ -1,13 +1,13 @@
 <div class="modal-header">
   <h1 class="modal-title"><%= t('geoblacklight.download.hgl_request') %></h1>
-  <button type="button" class="blacklight-modal-close close" data-dismiss="modal" aria-label="<%= t('blacklight.modal.close') %>">
+  <button type="button" class="blacklight-modal-close close" data-bs-dismiss="modal" aria-label="<%= t('blacklight.modal.close') %>">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
 <div class="modal-body">
   <form class="form-horizontal" role="form" id="hglRequest">
     <p><%= t('geoblacklight.download.hgl_instructions')%></p>
-    <div class="form-group">
+    <div class="mb-3">
       <div class="row">
         <label for="requestEmail" class="col-sm-2 control-label"><%= t('geoblacklight.download.hgl_email')%></label>
         <div class="col-sm-6">
@@ -23,5 +23,5 @@
   </form>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-default hide-without-js" data-dismiss="modal"><%= t('geoblacklight.references.services_close')%></button>
+  <button type="button" class="btn btn-default hide-without-js" data-bs-dismiss="modal"><%= t('geoblacklight.references.services_close')%></button>
 </div>

@@ -1,7 +1,7 @@
 <%= render Geoblacklight::WebServicesDefaultComponent.new(reference:) %>
 
-<div class="form-group form-inline">
-  <label for="wms_abv_webservice" class="mr-2"><%= t('geoblacklight.references.wms_abv')%> <code><%= t('geoblacklight.references.wms_label')%></code></label>
+<div class="mb-3 d-flex align-items-center">
+  <label for="wms_abv_webservice" class="me-2"><%= t('geoblacklight.references.wms_abv')%> <code><%= t('geoblacklight.references.wms_label')%></code></label>
   <div class='input-group'>
     <input id="wms_abv_webservice" type='text' value='<%= document.wxs_identifier %>' readonly='readonly' class="form-control" data-action="copyToClipboard" data-clipboard-value='<%= document.wxs_identifier %>'>
     <div class="input-group-append">

@@ -1,7 +1,7 @@
 <%= render Geoblacklight::WebServicesDefaultComponent.new(reference:) %>
 
-<div class="form-group form-inline">
-  <label for="wfs_abv_webservice" class="mr-2"><%= t('geoblacklight.references.wfs_abv')%> <code><%= t('geoblacklight.references.wfs_label')%></code></label>
+<div class="mb-3 d-flex align-items-center">
+  <label for="wfs_abv_webservice" class="me-2"><%= t('geoblacklight.references.wfs_abv')%> <code><%= t('geoblacklight.references.wfs_label')%></code></label>
   <div class='input-group'>
     <input id="wfs_abv_webservice" type='text' value='<%= document.wxs_identifier %>' readonly='readonly' class="form-control">
     <div class="input-group-append">

@@ -1,9 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  connect() {
-  }
-
   download(ev) {
     ev.preventDefault();
     if (this.downloading) {
@@ -52,7 +49,7 @@ export default class extends Controller {
     Object.entries(message).forEach(([idx, msg]) => {
       const flash = document.createElement("div");
       flash.className = `alert alert-${msg[0]}`;
-      flash.innerHTML = `<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>${msg[1]}`;
+      flash.innerHTML = `<button type="button" class="close" data-bs-dismiss="alert" aria-hidden="true">&times;</button>${msg[1]}`;
       document.querySelector("div.flash_messages").appendChild(flash);
     });
   }
