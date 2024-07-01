@@ -1,8 +1,14 @@
-<div data-blacklight-modal="container">
-  <div class="modal-header">
-    <h1 class="modal-title"><%= t('geoblacklight.references.services')%></h1>
-    <button type="button" class="blacklight-modal-close close" data-dismiss="modal" aria-label="<%= t('blacklight.modal.close') %>">
-      <span aria-hidden="true">&times;</span>
+<div class="modal-header">
+  <h1 class="modal-title"><%= t('geoblacklight.references.services')%></h1>
+  <button type="button" class="blacklight-modal-close close" data-bs-dismiss="modal" aria-label="<%= t('blacklight.modal.close') %>">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body web-services-modal-body">
+  <div class="alert alert-info d-none" role="alert">
+  <%= t('geoblacklight.clipboard.web_service') %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body web-services-modal-body">
@@ -20,6 +26,10 @@
     <button type="button" class="btn btn-default hide-without-js" data-dismiss="modal"><%= t('geoblacklight.references.services_close')%></button>
   </div>
 </div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default hide-without-js" data-bs-dismiss="modal"><%= t('geoblacklight.references.services_close')%></button>
+</div>
+
 <script>
     $('[data-action="copyToClipboard"]').on('click', function() {
         let text = $(this).data('clipboard-value');       
