@@ -14,11 +14,18 @@ RSpec.describe Geoblacklight::ArcGisComponent, type: :component do
   end
 
   describe "#arcgis_link" do
-    it "creates a valid ArcGIS online url with correct params" do
-      expect(component.arcgis_link("http://example.com/foo/MapServer")).to eq "#{Settings.ARCGIS_BASE_URL}?urls=http%3A%2F%2Fexample.com%2Ffoo%2FMapServer"
+    context "single url" do
+      it "creates a single url param" do
+        expect(component.arcgis_link).to eq "#{Settings.ARCGIS_BASE_URL}?urls=https%3A%2F%2Fwww.stanford.edu"
+      end
     end
-    it "handles multiple urls" do
-      expect(component.arcgis_link(["http://example.com/foo/MapServer", "http://example.com/foo/FeatureServer"])).to eq "#{Settings.ARCGIS_BASE_URL}?urls=http%3A%2F%2Fexample.com%2Ffoo%2FMapServer&urls=http%3A%2F%2Fexample.com%2Ffoo%2FFeatureServer"
+
+    context "multiple urls" do
+      let(:document) { instance_double(SolrDocument, id: 123, arcgis_urls: ["http://example.com/foo/MapServer", "http://example.com/foo/FeatureServer"]) }
+
+      it "appends the url params" do
+        expect(component.arcgis_link).to eq "#{Settings.ARCGIS_BASE_URL}?urls=http%3A%2F%2Fexample.com%2Ffoo%2FMapServer&urls=http%3A%2F%2Fexample.com%2Ffoo%2FFeatureServer"
+      end
     end
   end
 end
