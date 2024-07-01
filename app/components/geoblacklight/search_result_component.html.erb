@@ -25,7 +25,7 @@
       <span class='status-icons'>
         <%= render Geoblacklight::HeaderIconsComponent.new(document: @document) %>
         <button
-            class="caret-toggle btn"
+            class="btn dropdown-toggle"
             data-bs-toggle="collapse"
             data-bs-target="#doc-<%= @document.id %>-fields-collapse"
             aria-label="<%= t('geoblacklight.metadata.toggle_summary') %>"
