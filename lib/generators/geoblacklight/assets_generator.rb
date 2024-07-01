@@ -14,15 +14,6 @@ module Geoblacklight
        4. Sets asset initializer values into the local application
     DESCRIPTION
 
-    def add_javascript
-      copy_file "assets/geoblacklight.js", "app/assets/javascripts/geoblacklight.js"
-
-      if Rails.version.to_i >= 6
-        append_to_file "app/assets/javascripts/application.js",
-          "\n// Required by GeoBlacklight\n//= require geoblacklight"
-      end
-    end
-
     def remove_stylesheets
       remove_file "app/assets/stylesheets/application.css"
       remove_file "app/assets/stylesheets/blacklight.scss"

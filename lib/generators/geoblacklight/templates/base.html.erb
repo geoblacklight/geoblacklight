@@ -16,7 +16,13 @@
     <%= opensearch_description_tag application_name, opensearch_catalog_url(format: 'xml') %>
     <%= favicon_link_tag %>
     <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
+  
+    <%= javascript_include_tag "blacklight/blacklight", type: 'module' %>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script src="https://unpkg.com/esri-leaflet@3.0.10/dist/esri-leaflet.js"></script>
 
     <%= vite_client_tag %>
     <% if openlayers_container? %>
@@ -24,6 +30,8 @@
     <% elsif iiif_manifest_container? %>
       <%= vite_javascript_tag 'clover' %>
     <% end %>
+
+    <%= vite_javascript_tag 'geoblacklight' %>
 
     <%= csrf_meta_tags %>
     <%= content_for(:head) %>
