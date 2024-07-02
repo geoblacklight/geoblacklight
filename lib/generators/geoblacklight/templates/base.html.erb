@@ -17,21 +17,23 @@
     <%= favicon_link_tag %>
     <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
   
-    <%= javascript_include_tag "blacklight/blacklight", type: 'module' %>
-
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-    <script src="https://unpkg.com/esri-leaflet@3.0.10/dist/esri-leaflet.js"></script>
+
+    <!-- Blacklight + Typeahead -->
+    <%= javascript_include_tag "blacklight/blacklight", type: 'module' %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.3/typeahead.bundle.min.js" integrity="sha512-E4rXB8fOORHVM/jZYNCX2rIY+FOvmTsWJ7OKZOG9x/0RmMAGyyzBqZG0OGKMpTyyuXVVoJsKKWYwbm7OU2klxA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <%= vite_client_tag %>
+    <%= vite_javascript_tag 'geoblacklight' %>
+
     <% if openlayers_container? %>
       <%= vite_javascript_tag 'ol' %>
     <% elsif iiif_manifest_container? %>
       <%= vite_javascript_tag 'clover' %>
+    <% else %>
+      <%= vite_javascript_tag 'leaflet' %>
     <% end %>
-
-    <%= vite_javascript_tag 'geoblacklight' %>
 
     <%= csrf_meta_tags %>
     <%= content_for(:head) %>
