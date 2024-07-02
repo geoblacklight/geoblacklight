@@ -11,9 +11,11 @@
     "build": "vite build",
     "watch": "vite build --watch"
   },
-  "files": ["dist"],
-  "main": "./dist/frontend.js",
-  "module": "./dist/frontend.umd.cjs",
+  "files": [
+    "dist"
+  ],
+  "module": "./dist/frontend.js",
+  "main": "./dist/frontend.umd.cjs",
   "exports": {
     ".": {
       "import": "./dist/frontend.js",
