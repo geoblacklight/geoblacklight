@@ -1,9 +1,4 @@
-import L from 'leaflet';
-// NOTE: why are we importing the bundled version here?
-import GeoBlacklight from '@/geoblacklight/geoblacklight';
-
-// GeoBlacklight Basemaps
-GeoBlacklight.Basemaps = {
+export default {
   darkMatter: L.tileLayer(
     'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{retina}.png', {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://carto.com/attributions">Carto</a>',
