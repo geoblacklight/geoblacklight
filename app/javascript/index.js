@@ -1,9 +1,11 @@
-import OlInitializer from './openlayers/ol_initializer'
-import CloverInitializer from './clover/clover_initializer'
-import GeoBlacklightLeafletPlugin from './geoblacklight/leaflet_plugin'
+import OlInitializer from "./openlayers/ol_initializer";
+import CloverInitializer from "./clover/clover_initializer";
+import LeafletInitializer from "./leaflet/leaflet_initializer";
+import GeoBlacklightInitializer from "./geoblacklight/geoblacklight_initializer";
 
 export {
   OlInitializer,
   CloverInitializer,
-  GeoBlacklightLeafletPlugin
-}
+  LeafletInitializer,
+  GeoBlacklightInitializer,
+};

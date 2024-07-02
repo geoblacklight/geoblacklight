@@ -1,7 +1,3 @@
-import GeoBlacklightLeafletPlugin from "../leaflet_plugin.js";
-import "../controls/fullscreen.js";
-import "../controls/opacity.js";
-
 class GeoBlacklightViewer extends L.Class {
   options = {};
 
@@ -18,33 +14,27 @@ class GeoBlacklightViewer extends L.Class {
   }
 
   /**
-   * Loads leaflet controls from controls directory.
+   * Loads leaflet controls.
    */
   loadControls() {
-    // Access protocol directly from this.data, converting to uppercase
     const protocol = this.data.protocol.toUpperCase();
-    // Assuming this.data.leafletOptions is a JSON string, parse it
     const options = JSON.parse(this.data.leafletOptions || "{}");
 
-    if (!options.VIEWERS) {
-      return;
-    }
-
+    if (!options.VIEWERS) return;
     const viewer = options.VIEWERS[protocol];
     const controls = viewer && viewer.CONTROLS;
 
     this.controlPreload();
 
-    /**
-     * Loop through the GeoBlacklight.Controls hash, and for each control,
-     * check to see if it is included in the controls list for the current
-     * viewer. If it is, then pass in the viewer object and run the function
-     * that adds it to the map.
-     */
-    // Replace $.each with Object.entries and forEach for vanilla JS iteration
-    Object.entries(GeoBlacklightLeafletPlugin.Controls).forEach(([name, func]) => {
-      if (controls && controls.indexOf(name) > -1) {
-        func.call(this);
+    if (!controls) return;
+    controls.forEach((control) => {
+      if (control === "Opacity") {
+        this.map.addControl(new L.Control.LayerOpacity(this.overlay));
+      }
+      if (control === "Fullscreen") {
+        this.map.addControl(
+          new L.Control.Fullscreen({ position: "topright" })
+        );
       }
     });
   }

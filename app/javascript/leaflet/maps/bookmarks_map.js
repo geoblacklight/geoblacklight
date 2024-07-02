@@ -1,7 +1,10 @@
-import GeoBlacklightViewerMap from "../viewers/map.js";
+import L from "leaflet";
+import GeoBlacklightViewerMap from "../viewers/map";
+import { bboxToBounds, geoJSONToBounds } from "../utils";
 
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll('[data-map="bookmarks"]').forEach((element) => {
+// Set up the leaflet map on the bookmarks page
+export default class BookmarksMap {
+  constructor(element) {
     const data = element.dataset,
       world = L.latLngBounds([
         [-90, -180],
@@ -10,14 +13,14 @@ document.addEventListener("DOMContentLoaded", () => {
     let geoblacklight, bbox;
 
     if (typeof data.mapGeom === "string") {
-      bbox = L.geoJSONToBounds(JSON.parse(data.mapGeom));
+      bbox = geoJSONToBounds(JSON.parse(data.mapGeom));
     } else {
       document
         .querySelectorAll(".document [data-geom]")
         .forEach((docElement) => {
           try {
             const geomData = JSON.parse(docElement.dataset.geom);
-            const currentBounds = L.geoJSONToBounds(geomData);
+            const currentBounds = geoJSONToBounds(geomData);
             if (!world.contains(currentBounds)) {
               throw new Error("Invalid bounds");
             }
@@ -26,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 ? currentBounds
                 : bbox.extend(currentBounds);
           } catch (e) {
-            bbox = L.bboxToBounds("-180 -90 180 90");
+            bbox = bboxToBounds("-180 -90 180 90");
           }
         });
     }
@@ -61,5 +64,5 @@ document.addEventListener("DOMContentLoaded", () => {
         true
       ); // Use event capturing
     }
-  });
-});
+  }
+}

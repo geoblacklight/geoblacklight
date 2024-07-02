@@ -1,9 +1,10 @@
-import "./geosearch.js";
-import GeoBlacklightViewerMap from "../viewers/map.js";
+import GeoBlacklightViewerMap from "../viewers/map";
+import GeoSearch from "../geosearch";
 
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll('[data-map="home"]').forEach((element) => {
-    const geoblacklight = new GeoBlacklightViewerMap(element);
+// Leaflet maps that displays on the homepage
+export default class HomepageMap {
+  constructor(element) {
+    const geoBlacklight = new GeoBlacklightViewerMap(element);
     const data = element.dataset; // Assuming all data attributes are directly convertible
 
     const baseUrl = data.catalogPath; // Adjust according to actual data attributes
@@ -37,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Insert the input element at the beginning of the label element
     dynamicButtonNode.insertBefore(input, dynamicButtonNode.firstChild);
 
-    const geosearchOptions = {
+    const geoSearchOptions = {
       baseUrl: baseUrl,
       dynamic: false,
       searcher: function () {
@@ -47,12 +48,10 @@ document.addEventListener("DOMContentLoaded", () => {
       dynamicButton: dynamicButtonNode,
     };
 
-    geosearchOptions.staticButton.href = "#";
-    geosearchOptions.staticButton.className = "btn btn-primary";
-    geosearchOptions.staticButton.textContent = "Search here";
+    geoSearchOptions.staticButton.href = "#";
+    geoSearchOptions.staticButton.className = "btn btn-primary";
+    geoSearchOptions.staticButton.textContent = "Search here";
 
-    // Since L.control.geosearch might expect a string of HTML for the button, you might need to adjust the control
-    // to accept DOM elements or modify the approach accordingly if it does not support DOM elements directly.
-    geoblacklight.map.addControl(L.control.geosearch(geosearchOptions));
-  });
-});
+    geoBlacklight.map.addControl(new GeoSearch(geoSearchOptions));
+  }
+}
