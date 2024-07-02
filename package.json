@@ -26,6 +26,13 @@
   },
   "dependencies": {
     "@samvera/clover-iiif": "^2.3.2",
+    "blacklight-frontend": "^8.3.0",
+    "esri-leaflet": "^3.0.12",
+    "leaflet": "^1.9.4",
+    "leaflet-fullscreen": "^1.0.2",
+    "leaflet-iiif": "^3.0.0",
+    "linkify-html": "^4.1.3",
+    "linkifyjs": "^4.1.3",
     "ol": "8.1.0",
     "ol-pmtiles": "^0.3.0",
     "react": "^18.2.0"
