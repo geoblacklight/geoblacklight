@@ -1,24 +1,15 @@
-import "./geosearch.js";
-import GeoBlacklightViewerMap from "../viewers/map.js";
+import GeoBlacklightViewerMap from "../viewers/map";
+import GeoSearch from "../geosearch";
 
-document.addEventListener("DOMContentLoaded", () => {
-  const historySupported = !!(window.history && window.history.pushState);
-
-  if (historySupported) {
-    window.addEventListener("popstate", () => {
-      const state = history.state;
-      updatePage(state ? state.url : window.location.href);
-    });
-  }
-
-  document.querySelectorAll('[data-map="index"]').forEach((element) => {
+export default class SearchResultsMap {
+  constructor(element) {
     const data = element.dataset,
       opts = { baseUrl: data.catalogPath },
       world = L.latLngBounds([
         [-90, -180],
         [90, 180],
       ]);
-    let geoblacklight, bbox;
+    let bbox;
 
     if (typeof data.mapGeom === "string") {
       bbox = L.geoJSONToBounds(JSON.parse(data.mapGeom));
@@ -42,19 +33,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    if (!historySupported) {
-      Object.assign(opts, {
-        dynamic: false,
-        searcher: function () {
-          window.location.href = this.getSearchUrl();
-        },
-      });
-    }
-
     // instantiate new map
-    geoblacklight = new GeoBlacklightViewerMap(element, { bbox });
+    this.map = new GeoBlacklightViewerMap(element, { bbox });
 
     // add geosearch control to map
+    this.map.addControl(new GeoSearch(initialOptions));
 
     // StaticButton
     // Create the anchor element
@@ -104,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const target = event.target.closest("[data-layer-id]");
         if (target && target.dataset.bbox !== "") {
           const geom = target.dataset.geom;
-          geoblacklight.addGeoJsonOverlay(JSON.parse(geom));
+          this.map.addGeoJsonOverlay(JSON.parse(geom));
         }
       },
       true
@@ -115,16 +98,19 @@ document.addEventListener("DOMContentLoaded", () => {
       (event) => {
         const target = event.target.closest("[data-layer-id]");
         if (target) {
-          geoblacklight.removeBoundsOverlay();
+          this.map.removeBoundsOverlay();
         }
       },
       true
     );
 
-    geoblacklight.map.addControl(L.control.geosearch(initialOptions));
-  });
+    window.addEventListener("popstate", () => {
+      const state = history.state;
+      updatePage(state ? state.url : window.location.href);
+    });
+  }
 
-  function updatePage(url) {
+  updatePage(url) {
     fetch(url, { headers: { "X-Requested-With": "XMLHttpRequest" } })
       .then((response) => response.text())
       .then((html) => {
@@ -159,4 +145,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
   }
-});
+}

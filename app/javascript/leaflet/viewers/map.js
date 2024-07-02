@@ -1,7 +1,7 @@
-import GeoBlacklight from "@/geoblacklight/geoblacklight";
+import basemaps from "../../leaflet/basemaps.js";
 import GeoBlacklightViewer from "./viewer.js";
 
-class GeoBlacklightViewerMap extends GeoBlacklightViewer {
+export default class GeoBlacklightViewerMap extends GeoBlacklightViewer {
   constructor(el, options) {
     super(el, options);
 
@@ -67,10 +67,6 @@ class GeoBlacklightViewerMap extends GeoBlacklightViewer {
   }
 
   selectBasemap() {
-    return this.data.basemap
-      ? GeoBlacklight.Basemaps[this.data.basemap]
-      : GeoBlacklight.Basemaps.positron;
+    return this.data.basemap ? basemaps[this.data.basemap] : basemaps.positron;
   }
 }
-
-export default GeoBlacklightViewerMap;

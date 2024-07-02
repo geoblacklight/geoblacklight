@@ -1,4 +1,5 @@
 import GeoBlacklightViewerMap from './map.js'
+import linkifyHtml from "linkify-html";
 
 class GeoBlacklightViewerEsri extends GeoBlacklightViewerMap {
   constructor(options) {
