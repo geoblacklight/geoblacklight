@@ -5,18 +5,17 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <div class="modal-body" data-clipboard-target="source">
+  <div class="modal-body">
     <div class="alert alert-info d-none" role="alert">
       <%= t('geoblacklight.clipboard.citation') %>
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-
       <%= t('blacklight.tools.citation_info') %>
-    <% @documents&.each do |document| %>
-      <%= document.geoblacklight_citation(solr_document_url(document)) %>
-    <% end %>
+      <div class="d-inline" data-clipboard-target="source">
+        <%= render Geoblacklight::CitationComponent.with_collection(@documents) if @documents %>
+      </div>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-primary" data-action="copyToClipboard"><%= t('blacklight.modal.copy-citation') %></button>
