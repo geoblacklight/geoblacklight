@@ -5,7 +5,6 @@ module Geoblacklight
   # A component for rendering attribute table
   #
   class AttributeTableComponent < ViewComponent::Base
-    attr_reader :show_attribute_table
     def initialize(show_attribute_table:, **)
       @show_attribute_table = show_attribute_table
       super
