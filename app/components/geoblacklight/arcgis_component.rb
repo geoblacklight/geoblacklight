@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Geoblacklight
-  class ArcGisComponent < ViewComponent::Base
+  class ArcgisComponent < ViewComponent::Base
     attr_reader :document
 
     def initialize(document:, action:, **)

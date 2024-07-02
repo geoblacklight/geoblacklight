@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe Geoblacklight::ArcGisComponent, type: :component do
+RSpec.describe Geoblacklight::ArcgisComponent, type: :component do
   let(:component) { described_class.new(document: document, action: nil) }
   subject(:rendered) do
     render_inline_to_capybara_node(component)
