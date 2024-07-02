@@ -1,6 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
-  "use strict";
-
+export default function initializeTooltips() {
   document.body.addEventListener(
     "mouseenter",
     (event) => {
@@ -52,4 +50,4 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     true
   ); // Use capture to ensure the event is caught as it bubbles up
-});
+}
