@@ -1,13 +1,3 @@
-<%- Settings.RELATIONSHIPS_SHOWN.each do |rel, value| %>
-  <% unless @relations.send(rel)['numFound'].to_i.zero? %>
-    <div class="card relations relationship-<%= rel.downcase %>">
-      <div class="card-header">
-        <h2 class="mb-0 h6"><%= t("#{value.label}") %></h2>
-      </div>
-
-      <ul class="list-group list-group-flush">
-        <%= render partial: 'relations', locals: { rel: rel, value: value } %>
-      </ul>
-    </div>
-  <% end %>
+<%- Settings.RELATIONSHIPS_SHOWN.each do |relationship_type, rel_type_info| %>
+  <%= render Geoblacklight::RelationsComponent.new(relations: @relations, relationship_type:, rel_type_info:) %>
 <% end %>
