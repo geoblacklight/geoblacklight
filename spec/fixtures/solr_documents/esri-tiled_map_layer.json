@@ -38,7 +38,7 @@
   "dct_accessRights_s": "Public",
   "dct_format_s": "GeoTIFF",
   "gbl_wxsIdentifier_s": "test-soil-survey_map",
-  "dct_references_s": "{\"urn:x-esri:serviceType:ArcGIS#TiledMapLayer\":\"http://services.arcgisonline.com/arcgis/rest/services/Specialty/Soil_Survey_Map/MapServer\"}",
+  "dct_references_s": "{\"urn:x-esri:serviceType:ArcGIS#TiledMapLayer\":\"https://dnrmaps.wi.gov/arcgis2/rest/services/TS_AGOL_STAGING_SERVICES/EN_AGOL_STAGING_SurfaceWater_WTM/MapServer/2\"}",
   "id": "nyu-test-soil-survey-map",
   "dct_identifier_sm": [
     "test-soil-survey-map"
