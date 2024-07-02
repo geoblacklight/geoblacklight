@@ -1,4 +1,22 @@
-document.addEventListener("DOMContentLoaded", () => {
+const fadeIn = (element, duration) => {
+  element.style.opacity = 0;
+  element.style.display = "block";
+
+  let start = null;
+  function step(timestamp) {
+    if (!start) start = timestamp;
+    const progress = timestamp - start;
+    element.style.opacity = Math.min(progress / duration, 1);
+    if (progress < duration) {
+      window.requestAnimationFrame(step);
+    }
+  }
+
+  window.requestAnimationFrame(step);
+};
+
+// Set up the relations widgets by querying the relations endpoint
+export default function initializeRelations() {
   document.querySelectorAll('[data-relations="true"]').forEach((element) => {
     const attributes = element.dataset;
     const relationUrl = `${attributes.url}/relations`;
@@ -19,21 +37,4 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch((error) => console.error("Error:", error));
   });
-});
-
-function fadeIn(element, duration) {
-  element.style.opacity = 0;
-  element.style.display = "block";
-
-  let start = null;
-  function step(timestamp) {
-    if (!start) start = timestamp;
-    const progress = timestamp - start;
-    element.style.opacity = Math.min(progress / duration, 1);
-    if (progress < duration) {
-      window.requestAnimationFrame(step);
-    }
-  }
-
-  window.requestAnimationFrame(step);
 }
