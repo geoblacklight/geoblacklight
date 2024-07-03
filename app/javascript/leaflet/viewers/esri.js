@@ -1,15 +1,16 @@
-import GeoBlacklightViewerMap from './map.js'
 import linkifyHtml from "linkify-html";
+import { geoJSONToBounds } from "../utils.js";
+import LeafletViewerMap from "./map.js";
 
-class GeoBlacklightViewerEsri extends GeoBlacklightViewerMap {
-  constructor(options) {
-    super(options);
+export default class LeafletViewerEsri extends LeafletViewerMap {
+  constructor(element, options) {
+    super(element, options);
     this.layerInfo = {};
   }
 
-  load() {
-    this.options.bbox = L.geoJSONToBounds(JSON.parse(this.data.mapGeom));
-    this.map = L.map(this.element).fitBounds(this.options.bbox);
+  onLoad() {
+    super.onLoad();
+    this.options.bbox = geoJSONToBounds(JSON.parse(this.data.mapGeom));
     this.map.addLayer(this.selectBasemap());
     this.map.addLayer(this.overlay);
     if (this.data.available) {
@@ -21,7 +22,7 @@ class GeoBlacklightViewerEsri extends GeoBlacklightViewerMap {
 
   getEsriLayer() {
     // Remove any trailing slash from endpoint url
-    this.data.url = this.data.url.replace(/\/$/, '');
+    this.data.url = this.data.url.replace(/\/$/, "");
 
     L.esri.get(this.data.url, {}, (error, response) => {
       if (!error) {
@@ -33,7 +34,7 @@ class GeoBlacklightViewerEsri extends GeoBlacklightViewerMap {
         // Add layer to map
         if (this.addPreviewLayer(layer)) {
           // Add controls if layer is added
-          this.loadControls();
+          this.addControls();
         }
       }
     });
@@ -55,11 +56,13 @@ class GeoBlacklightViewerEsri extends GeoBlacklightViewerMap {
       </span>
       </td></tr></tbody>`;
 
-    document.querySelector('.attribute-table-body').innerHTML = spinner;
+    document.querySelector(".attribute-table-body").innerHTML = spinner;
   }
 
   appendErrorMessage() {
-    document.querySelector('.attribute-table-body').innerHTML = `<tbody class="attribute-table-body">
+    document.querySelector(
+      ".attribute-table-body"
+    ).innerHTML = `<tbody class="attribute-table-body">
       <tr><td colspan="2">Could not find that feature</td></tr></tbody>`;
   }
 
@@ -67,17 +70,15 @@ class GeoBlacklightViewerEsri extends GeoBlacklightViewerMap {
     let html = '<tbody class="attribute-table-body">';
 
     // Step through properties and append to table
-    Object.keys(feature.properties).forEach(property => {
+    Object.keys(feature.properties).forEach((property) => {
       html += `<tr><td>${property}</td>
                <td>${linkifyHtml(feature.properties[property])}</td></tr>`;
     });
-    html += '</tbody>';
+    html += "</tbody>";
 
-    const tableBody = document.querySelector('.attribute-table-body');
+    const tableBody = document.querySelector(".attribute-table-body");
     if (tableBody) {
       tableBody.outerHTML = html; // Replace existing table body with new content
     }
   }
 }
-
-export default GeoBlacklightViewerEsri;

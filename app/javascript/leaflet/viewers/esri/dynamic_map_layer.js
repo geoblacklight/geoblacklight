@@ -1,7 +1,8 @@
-import GeoBlacklightViewerEsri from "../esri.js";
+import { get, dynamicMapLayer, identifyFeatures } from "esri-leaflet";
 import linkifyHtml from "linkify-html";
+import LeafletViewerEsri from "../esri.js";
 
-class GeoBlacklightViewerEsriDynamicMapLayer extends GeoBlacklightViewerEsri {
+export default class LeafletViewerEsriDynamicMapLayer extends LeafletViewerEsri {
   // Override to parse between dynamic layer types
   getEsriLayer() {
     // Remove any trailing slash from endpoint url
@@ -17,7 +18,7 @@ class GeoBlacklightViewerEsriDynamicMapLayer extends GeoBlacklightViewerEsri {
       this.data.url = this.data.url.slice(0, -(lastSegment.length + 1));
     }
 
-    L.esri.get(this.data.url, {}, (error, response) => {
+    get(this.data.url, {}, (error, response) => {
       if (!error) {
         this.layerInfo = response;
 
@@ -27,7 +28,7 @@ class GeoBlacklightViewerEsriDynamicMapLayer extends GeoBlacklightViewerEsri {
         // Add layer to map
         if (this.addPreviewLayer(layer)) {
           // Add controls if layer is added
-          this.loadControls();
+          this.addControls();
         }
       }
     });
@@ -42,7 +43,7 @@ class GeoBlacklightViewerEsriDynamicMapLayer extends GeoBlacklightViewerEsri {
       this.options.layers = [this.dynamicLayerId];
     }
 
-    const esriDynamicMapLayer = L.esri.dynamicMapLayer(this.options);
+    const esriDynamicMapLayer = dynamicMapLayer(this.options);
 
     // Setup feature inspection
     this.setupInspection(esriDynamicMapLayer);
@@ -54,11 +55,10 @@ class GeoBlacklightViewerEsriDynamicMapLayer extends GeoBlacklightViewerEsri {
       this.appendLoadingMessage();
 
       // Query layer at click location
-      const identify = L.esri
-        .identifyFeatures({
-          url: layer.options.url,
-          useCors: true,
-        })
+      const identify = identifyFeatures({
+        url: layer.options.url,
+        useCors: true,
+      })
         .tolerance(2)
         .returnGeometry(false)
         .on(this.map)
@@ -108,5 +108,3 @@ class GeoBlacklightViewerEsriDynamicMapLayer extends GeoBlacklightViewerEsri {
     document.querySelector(".attribute-table-body").replaceWith(html);
   }
 }
-
-export default GeoBlacklightViewerEsriDynamicMapLayer;

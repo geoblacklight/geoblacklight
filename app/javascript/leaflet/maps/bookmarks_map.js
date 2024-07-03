@@ -10,7 +10,7 @@ export default class BookmarksMap {
         [-90, -180],
         [90, 180],
       ]);
-    let geoblacklight, bbox;
+    let bbox;
 
     if (typeof data.mapGeom === "string") {
       bbox = geoJSONToBounds(JSON.parse(data.mapGeom));
@@ -35,8 +35,8 @@ export default class BookmarksMap {
     }
 
     // instantiate new map
-    geoblacklight = new GeoBlacklightViewerMap(element, { bbox });
-    geoblacklight.removeBoundsOverlay();
+    const viewer = new GeoBlacklightViewerMap(element, { bbox });
+    viewer.removeBoundsOverlay();
 
     // set hover listeners on map
     const contentElement = document.getElementById("content");
@@ -47,7 +47,7 @@ export default class BookmarksMap {
           const target = event.target.closest("#documents [data-layer-id]");
           if (target && target.dataset.bbox !== "") {
             const geom = target.dataset.geom;
-            geoblacklight.addGeoJsonOverlay(JSON.parse(geom));
+            viewer.addGeoJsonOverlay(JSON.parse(geom));
           }
         },
         true
@@ -58,7 +58,7 @@ export default class BookmarksMap {
         (event) => {
           const target = event.target.closest("#documents [data-layer-id]");
           if (target) {
-            geoblacklight.removeBoundsOverlay();
+            viewer.removeBoundsOverlay();
           }
         },
         true

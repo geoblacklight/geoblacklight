@@ -1,10 +1,9 @@
-import GeoBlacklightViewerWms from "./wms.js";
+import { tileLayer } from "leaflet";
+import LeafletViewerWms from "./wms.js";
 
-class GeoBlacklightViewerXyz extends GeoBlacklightViewerWms {
+export default class LeafletViewerXyz extends LeafletViewerWms {
   addPreviewLayer() {
-    const xyzLayer = L.tileLayer(this.data.url);
+    const xyzLayer = tileLayer(this.data.url);
     this.overlay.addLayer(xyzLayer);
   }
 }
-
-export default GeoBlacklightViewerXyz;
