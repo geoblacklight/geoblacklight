@@ -1,6 +1,7 @@
-import GeoBlacklightViewerEsri from "../esri.js";
+import { tiledMapLayer, identifyFeatures } from "esri-leaflet";
+import LeafletViewerEsri from "../esri.js";
 
-class GeoBlacklightViewerEsriTiledMapLayer extends GeoBlacklightViewerEsri {
+export default class LeafletViewerEsriTiledMapLayer extends LeafletViewerEsri {
   getPreviewLayer() {
     // Set layer URL
     this.options.url = this.data.url;
@@ -15,7 +16,7 @@ class GeoBlacklightViewerEsriTiledMapLayer extends GeoBlacklightViewerEsri {
        *       - use Proj4Leaflet
        */
 
-      const esriTiledMapLayer = L.esri.tiledMapLayer(this.options);
+      const esriTiledMapLayer = tiledMapLayer(this.options);
 
       // Setup feature inspection
       this.setupInspection(esriTiledMapLayer);
@@ -29,8 +30,7 @@ class GeoBlacklightViewerEsriTiledMapLayer extends GeoBlacklightViewerEsri {
       this.appendLoadingMessage();
 
       // Query layer at click location
-      L.esri
-        .identifyFeatures({
+      identifyFeatures({
           url: layer.options.url,
           useCors: true,
         })
@@ -71,5 +71,3 @@ class GeoBlacklightViewerEsriTiledMapLayer extends GeoBlacklightViewerEsri {
     });
   }
 }
-
-export default GeoBlacklightViewerEsriTiledMapLayer;

@@ -1,10 +1,10 @@
-import L from "leaflet";
-import { debounce, boundsToBbox } from "./utils";
+import { Control, setOptions } from "leaflet";
+import { debounce, boundsToBbox } from "../utils";
 
-export default class GeoSearch extends L.Control {
+export default class GeoSearchControl extends Control {
   constructor(options) {
     super(options);
-    L.Util.setOptions(this, options);
+    setOptions(this, options);
   }
 
   onAdd(map) {

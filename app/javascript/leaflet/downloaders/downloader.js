@@ -1,3 +1,5 @@
+import L from "leaflet";
+
 class GeoBlacklightDownloader extends L.Class {
   constructor(el, options) {
     super();

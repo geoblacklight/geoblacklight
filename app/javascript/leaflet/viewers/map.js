@@ -1,9 +1,11 @@
-import basemaps from "../../leaflet/basemaps.js";
-import GeoBlacklightViewer from "./viewer.js";
+import { layerGroup, LatLngBounds, polygon, geoJSON, map } from "leaflet";
+import basemaps from "../basemaps.js";
+import { geoJSONToBounds } from "../utils.js";
+import LeafletViewerBase from "./base.js";
 
-export default class GeoBlacklightViewerMap extends GeoBlacklightViewer {
-  constructor(el, options) {
-    super(el, options);
+export default class LeafletViewerMap extends LeafletViewerBase {
+  constructor(element, options) {
+    super(element);
 
     this.options = {
       // Initial bounds of map
@@ -15,18 +17,16 @@ export default class GeoBlacklightViewerMap extends GeoBlacklightViewer {
       ...options,
     };
 
-    this.overlay = L.layerGroup();
-
-    // trigger viewer load function
-    this.load();
+    this.overlay = layerGroup();
+    this.onLoad();
   }
 
-  load() {
+  onLoad() {
     if (this.data.mapGeom) {
-      this.options.bbox = L.geoJSONToBounds(JSON.parse(this.data.mapGeom));
+      this.options.bbox = geoJSONToBounds(JSON.parse(this.data.mapGeom));
     }
 
-    this.map = L.map(this.element).fitBounds(this.options.bbox);
+    this.map = map(this.element).fitBounds(this.options.bbox);
 
     // Add initial bbox to map element for easier testing
     if (this.map.getBounds().isValid()) {
@@ -44,9 +44,9 @@ export default class GeoBlacklightViewerMap extends GeoBlacklightViewer {
   }
 
   addBoundsOverlay(bounds) {
-    if (bounds instanceof L.LatLngBounds) {
+    if (bounds instanceof LatLngBounds) {
       this.overlay.addLayer(
-        L.polygon([
+        polygon([
           bounds.getSouthWest(),
           bounds.getSouthEast(),
           bounds.getNorthEast(),
@@ -61,7 +61,7 @@ export default class GeoBlacklightViewerMap extends GeoBlacklightViewer {
   }
 
   addGeoJsonOverlay(geojson) {
-    const layer = L.geoJSON();
+    const layer = geoJSON();
     layer.addData(geojson);
     this.overlay.addLayer(layer);
   }

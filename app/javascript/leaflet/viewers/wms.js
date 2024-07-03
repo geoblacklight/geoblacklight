@@ -1,22 +1,19 @@
-import GeoBlacklightViewerMap from "./map.js";
+import { tileLayer } from "leaflet";
+import LeafletViewerMap from "./map.js";
 
-class GeoBlacklightViewerWms extends GeoBlacklightViewerMap {
-  load() {
-    this.options.bbox = L.geoJSONToBounds(JSON.parse(this.data.mapGeom));
-    this.map = L.map(this.element).fitBounds(this.options.bbox);
-    this.map.addLayer(this.selectBasemap());
-    this.map.addLayer(this.overlay);
-
+export default class LeafletViewerWms extends LeafletViewerMap {
+  onLoad() {
+    super.onLoad();
     if (this.data.available) {
       this.addPreviewLayer();
-      this.loadControls();
+      this.addControls();
     } else {
       this.addBoundsOverlay(this.options.bbox);
     }
   }
 
   addPreviewLayer() {
-    const wmsLayer = L.tileLayer.wms(this.data.url, {
+    const wmsLayer = tileLayer.wms(this.data.url, {
       layers: this.data.layerId,
       format: "image/png",
       transparent: true,
@@ -82,5 +79,3 @@ class GeoBlacklightViewerWms extends GeoBlacklightViewerMap {
     });
   }
 }
-
-export default GeoBlacklightViewerWms;
