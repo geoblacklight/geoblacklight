@@ -1,5 +1,7 @@
+import L from "leaflet";
 import GeoBlacklightViewerMap from "../viewers/map";
-import GeoSearch from "../geosearch";
+import GeoSearchControl from "../controls/geosearch";
+import { bboxToBounds, geoJSONToBounds } from "../utils";
 
 export default class SearchResultsMap {
   constructor(element) {
@@ -10,34 +12,6 @@ export default class SearchResultsMap {
         [90, 180],
       ]);
     let bbox;
-
-    if (typeof data.mapGeom === "string") {
-      bbox = L.geoJSONToBounds(JSON.parse(data.mapGeom));
-    } else {
-      document
-        .querySelectorAll(".document [data-geom]")
-        .forEach((docElement) => {
-          try {
-            const geomData = JSON.parse(docElement.dataset.geom);
-            const currentBounds = L.geoJSONToBounds(geomData);
-            if (!world.contains(currentBounds)) {
-              throw new Error("Invalid bounds");
-            }
-            bbox =
-              typeof bbox === "undefined"
-                ? currentBounds
-                : bbox.extend(currentBounds);
-          } catch (e) {
-            bbox = L.bboxToBounds("-180 -90 180 90");
-          }
-        });
-    }
-
-    // instantiate new map
-    this.map = new GeoBlacklightViewerMap(element, { bbox });
-
-    // add geosearch control to map
-    this.map.addControl(new GeoSearch(initialOptions));
 
     // StaticButton
     // Create the anchor element
@@ -80,6 +54,34 @@ export default class SearchResultsMap {
       dynamicButton: dynamicButtonNode,
     };
 
+    if (typeof data.mapGeom === "string") {
+      bbox = geoJSONToBounds(JSON.parse(data.mapGeom));
+    } else {
+      document
+        .querySelectorAll(".document [data-geom]")
+        .forEach((docElement) => {
+          try {
+            const geomData = JSON.parse(docElement.dataset.geom);
+            const currentBounds = geoJSONToBounds(geomData);
+            if (!world.contains(currentBounds)) {
+              throw new Error("Invalid bounds");
+            }
+            bbox =
+              typeof bbox === "undefined"
+                ? currentBounds
+                : bbox.extend(currentBounds);
+          } catch (e) {
+            bbox = bboxToBounds("-180 -90 180 90");
+          }
+        });
+    }
+
+    // instantiate new viewer
+    this.viewer = new GeoBlacklightViewerMap(element, { bbox });
+
+    // add geosearch control to viewer map
+    this.viewer.map.addControl(new GeoSearchControl(initialOptions));
+
     // set hover listeners on map
     document.getElementById("content").addEventListener(
       "mouseenter",
@@ -87,7 +89,7 @@ export default class SearchResultsMap {
         const target = event.target.closest("[data-layer-id]");
         if (target && target.dataset.bbox !== "") {
           const geom = target.dataset.geom;
-          this.map.addGeoJsonOverlay(JSON.parse(geom));
+          this.viewer.addGeoJsonOverlay(JSON.parse(geom));
         }
       },
       true
@@ -98,7 +100,7 @@ export default class SearchResultsMap {
       (event) => {
         const target = event.target.closest("[data-layer-id]");
         if (target) {
-          this.map.removeBoundsOverlay();
+          this.viewer.removeBoundsOverlay();
         }
       },
       true
