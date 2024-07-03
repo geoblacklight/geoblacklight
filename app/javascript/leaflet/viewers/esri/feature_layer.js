@@ -1,8 +1,9 @@
-import GeoBlacklightViewerEsri from "../esri.js";
+import { featureLayer } from "esri-leaflet";
+import LeafletViewerEsri from "../esri.js";
 
-class GeoBlacklightViewerEsriFeatureLayer extends GeoBlacklightViewerEsri {
-  constructor(options) {
-    super(options);
+export default class LeafletViewerEsriFeatureLayer extends LeafletViewerEsri {
+  constructor(element, options) {
+    super(element, options);
     this.defaultStyles = {
       esriGeometryPoint: "",
       esriGeometryMultipoint: "",
@@ -19,7 +20,7 @@ class GeoBlacklightViewerEsriFeatureLayer extends GeoBlacklightViewerEsri {
     this.options.style = this.getFeatureStyle();
 
     // Define feature layer
-    this.esriFeatureLayer = L.esri.featureLayer(this.options);
+    this.esriFeatureLayer = featureLayer(this.options);
 
     // Setup feature inspection and opacity
     this.setupInspection(this.esriFeatureLayer);
@@ -103,5 +104,3 @@ class GeoBlacklightViewerEsriFeatureLayer extends GeoBlacklightViewerEsri {
     }
   }
 }
-
-export default GeoBlacklightViewerEsriFeatureLayer;

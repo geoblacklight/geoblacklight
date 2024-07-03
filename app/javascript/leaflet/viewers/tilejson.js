@@ -1,6 +1,7 @@
-import GeoBlacklightViewerWms from "./wms.js";
+import { latLng, latLngBounds, tileLayer } from "leaflet";
+import LeafletViewerWms from "./wms.js";
 
-class GeoBlacklightViewerTileJson extends GeoBlacklightViewerWms {
+export default class LeafletViewerTileJson extends LeafletViewerWms {
   addPreviewLayer() {
     fetch(this.data.url)
       .then((response) => {
@@ -13,7 +14,7 @@ class GeoBlacklightViewerTileJson extends GeoBlacklightViewerWms {
         const bounds = this.getBounds(tileJson),
           options = bounds ? { bounds } : {},
           url = tileJson.tiles[0],
-          tileJsonLayer = L.tileLayer(url, options);
+          tileJsonLayer = tileLayer(url, options);
         this.overlay.addLayer(tileJsonLayer);
       })
       .catch((error) => console.debug(error));
@@ -22,11 +23,9 @@ class GeoBlacklightViewerTileJson extends GeoBlacklightViewerWms {
   getBounds(doc) {
     const bounds = doc.bounds;
     if (bounds) {
-      const corner1 = L.latLng(bounds[1], bounds[0]),
-        corner2 = L.latLng(bounds[3], bounds[2]);
-      return L.latLngBounds(corner1, corner2);
+      const corner1 = latLng(bounds[1], bounds[0]),
+        corner2 = latLng(bounds[3], bounds[2]);
+      return latLngBounds(corner1, corner2);
     }
   }
 }
-
-export default GeoBlacklightViewerTileJson;

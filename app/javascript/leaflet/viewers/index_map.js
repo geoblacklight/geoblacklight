@@ -1,13 +1,14 @@
-import GeoBlacklightViewerMap from "./map.js";
+import { geoJson, circleMarker } from "leaflet";
+import LeafletViewerMap from "./map.js";
 
-class GeoBlacklightViewerIndexMap extends GeoBlacklightViewerMap {
-  load() {
-    this.map = L.map(this.element).fitBounds(this.options.bbox);
+export default class LeafletViewerIndexMap extends LeafletViewerMap {
+  onLoad() {
+    super.onLoad();
     this.map.addLayer(this.selectBasemap());
 
     if (this.data.available) {
       this.addPreviewLayer();
-      this.loadControls();
+      this.addControls();
     } else {
       this.addBoundsOverlay(this.options.bbox);
     }
@@ -130,7 +131,7 @@ class GeoBlacklightViewerIndexMap extends GeoBlacklightViewerMap {
     fetch(this.data.url)
       .then((response) => response.json())
       .then((data) => {
-        const geoJSONLayer = L.geoJson(data, {
+        const geoJSONLayer = geoJson(data, {
           style: (feature) =>
             this.availabilityStyle(feature.properties.available),
           onEachFeature: (feature, layer) => {
@@ -148,7 +149,7 @@ class GeoBlacklightViewerIndexMap extends GeoBlacklightViewerMap {
               });
             }
           },
-          pointToLayer: (feature, latlng) => L.circleMarker(latlng),
+          pointToLayer: (feature, latlng) => circleMarker(latlng),
         }).addTo(this.map);
         this.map.fitBounds(geoJSONLayer.getBounds());
       })
@@ -173,5 +174,3 @@ class GeoBlacklightViewerIndexMap extends GeoBlacklightViewerMap {
     });
   };
 }
-
-export default GeoBlacklightViewerIndexMap;
