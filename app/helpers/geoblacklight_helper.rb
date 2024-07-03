@@ -130,7 +130,7 @@ module GeoblacklightHelper
   def render_help_text_entry(feature, key)
     if I18n.exists?("geoblacklight.help_text.#{feature}.#{key}", locale)
       help_text = I18n.t("geoblacklight.help_text.#{feature}.#{key}")
-      tag.h3 class: "help-text viewer_protocol h6" do
+      tag.h2 class: "help-text viewer_protocol h6" do
         tag.a data: {toggle: "popover", title: help_text[:title], content: help_text[:content]} do
           help_text[:title]
         end
