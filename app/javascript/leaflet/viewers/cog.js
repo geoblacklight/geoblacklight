@@ -1,5 +1,5 @@
-import GeoBlacklightViewer from "./viewer.js";
+import LeafletViewerBase from "./base.js";
 
-export default class GeoBlacklightViewerCog extends GeoBlacklightViewer {
-  load() {}
+export default class LeafletViewerCog extends LeafletViewerBase {
+
 }
