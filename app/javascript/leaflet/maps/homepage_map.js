@@ -1,10 +1,10 @@
 import GeoBlacklightViewerMap from "../viewers/map";
-import GeoSearch from "../geosearch";
+import GeoSearchControl from "../controls/geosearch";
 
 // Leaflet maps that displays on the homepage
 export default class HomepageMap {
   constructor(element) {
-    const geoBlacklight = new GeoBlacklightViewerMap(element);
+    const viewer = new GeoBlacklightViewerMap(element);
     const data = element.dataset; // Assuming all data attributes are directly convertible
 
     const baseUrl = data.catalogPath; // Adjust according to actual data attributes
@@ -52,6 +52,6 @@ export default class HomepageMap {
     geoSearchOptions.staticButton.className = "btn btn-primary";
     geoSearchOptions.staticButton.textContent = "Search here";
 
-    geoBlacklight.map.addControl(new GeoSearch(geoSearchOptions));
+    viewer.map.addControl(new GeoSearchControl(geoSearchOptions));
   }
 }

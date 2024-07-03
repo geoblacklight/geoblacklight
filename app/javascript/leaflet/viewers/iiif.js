@@ -1,21 +1,24 @@
+import { map, tileLayer } from "leaflet";
 import "leaflet-iiif";
-import GeoBlacklightViewer from "./viewer.js";
+import LeafletViewerBase from "./base.js";
 
-class GeoBlacklightViewerIiif extends GeoBlacklightViewer {
+export default class LeafletViewerIiif extends LeafletViewerBase {
   constructor(el) {
     super(el);
   }
 
-  load() {
+  onLoad() {
+    super.onLoad();
+
     this.adjustLayout();
 
-    this.map = L.map(this.element, {
+    this.map = map(this.element, {
       center: [0, 0],
       crs: L.CRS.Simple,
       zoom: 0,
     });
-    //this.loadControls();
-    this.iiifLayer = L.tileLayer.iiif(this.data.url).addTo(this.map);
+
+    this.iiifLayer = tileLayer.iiif(this.data.url).addTo(this.map);
   }
 
   adjustLayout() {
@@ -31,5 +34,3 @@ class GeoBlacklightViewerIiif extends GeoBlacklightViewer {
     }
   }
 }
-
-export default GeoBlacklightViewerIiif;

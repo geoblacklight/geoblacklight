@@ -1,3 +1,5 @@
+import L from "leaflet";
+
 export default {
   darkMatter: L.tileLayer(
     'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{retina}.png', {
