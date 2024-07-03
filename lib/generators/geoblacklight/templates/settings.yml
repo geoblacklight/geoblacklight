@@ -290,3 +290,5 @@ HELP_TEXT:
 SIDEBAR_STATIC_MAP:
   - 'iiif'
   - 'iiif_manifest'
+
+IIIF_DRAG_DROP_LINK: '@manifest?manifest=@manifest'

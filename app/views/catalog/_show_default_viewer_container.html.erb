@@ -24,5 +24,6 @@
     <% end %>
 
     <%= viewer_container %>
+    <%= render Geoblacklight::IiifDragDropComponent.new(document:) if iiif_manifest_container? %>
   </div>
 </div>
