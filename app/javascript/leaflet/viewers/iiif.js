@@ -5,11 +5,10 @@ import LeafletViewerBase from "./base.js";
 export default class LeafletViewerIiif extends LeafletViewerBase {
   constructor(el) {
     super(el);
+    this.onLoad();
   }
 
   onLoad() {
-    super.onLoad();
-
     this.adjustLayout();
 
     this.map = map(this.element, {
@@ -19,6 +18,7 @@ export default class LeafletViewerIiif extends LeafletViewerBase {
     });
 
     this.iiifLayer = tileLayer.iiif(this.data.url).addTo(this.map);
+    this.addControls();
   }
 
   adjustLayout() {
