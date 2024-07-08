@@ -13,7 +13,7 @@ export default class LeafletViewerEsri extends LeafletViewerMap {
     this.options.bbox = geoJSONToBounds(JSON.parse(this.data.mapGeom));
     this.map.addLayer(this.selectBasemap());
     this.map.addLayer(this.overlay);
-    if (this.data.available) {
+    if (this.available) {
       this.getEsriLayer();
     } else {
       this.addBoundsOverlay(this.options.bbox);
