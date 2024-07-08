@@ -57,6 +57,20 @@ describe Geoblacklight::WmsLayer do
     end
   end
 
+  describe "#feature_info" do
+    let(:response) { instance_double(Geoblacklight::FeatureInfoResponse) }
+    let(:params) { rails_4_params }
+
+    before do
+      allow(Geoblacklight::FeatureInfoResponse).to receive(:new).and_return(response)
+      allow(response).to receive(:check)
+    end
+
+    it "returns the response from the FeatureInfoResponse object" do
+      expect(wms_layer.feature_info).to eq(response.check)
+    end
+  end
+
   describe "#request_response" do
     subject(:wms_layer) { described_class.new(params) }
     let(:params) { rails_4_params }
