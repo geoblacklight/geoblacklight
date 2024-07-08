@@ -28,10 +28,8 @@
   },
   "dependencies": {
     "@samvera/clover-iiif": "^2.3.2",
-    "blacklight-frontend": "^8.3.0",
-    "bootstrap": "^4.6.2",
+    "blacklight-frontend": "7.37",
     "esri-leaflet": "^3.0.12",
-    "jquery": "^3.7.1",
     "leaflet": "^1.9.4",
     "leaflet-fullscreen": "^1.0.2",
     "leaflet-iiif": "^3.0.0",
