@@ -1,4 +1,4 @@
-import L from "leaflet";
+import { latLngBounds} from "leaflet";
 import GeoBlacklightViewerMap from "../viewers/map";
 import { bboxToBounds, geoJSONToBounds } from "../utils";
 
@@ -6,7 +6,7 @@ import { bboxToBounds, geoJSONToBounds } from "../utils";
 export default class BookmarksMap {
   constructor(element) {
     const data = element.dataset,
-      world = L.latLngBounds([
+      world = latLngBounds([
         [-90, -180],
         [90, 180],
       ]);
