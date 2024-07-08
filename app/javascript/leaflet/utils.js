@@ -1,4 +1,4 @@
-import { latLngBounds, formatNum, geoJSON } from "leaflet";
+import { latLngBounds, Util, geoJSON } from "leaflet";
 
 export const bboxToBounds = (bbox) => {
   bbox = bbox.split(" ");
@@ -23,10 +23,10 @@ export const boundsToBbox = (bounds) => {
   sw = sw.wrap();
   ne = ne.wrap();
   return [
-    formatNum(sw.lng, 6),
-    formatNum(sw.lat, 6),
-    formatNum(ne.lng, 6),
-    formatNum(ne.lat, 6),
+    Util.formatNum(sw.lng, 6),
+    Util.formatNum(sw.lat, 6),
+    Util.formatNum(ne.lng, 6),
+    Util.formatNum(ne.lat, 6),
   ];
 };
 
