@@ -1,4 +1,4 @@
-import { map, tileLayer } from "leaflet";
+import { map, tileLayer, CRS } from "leaflet";
 import "leaflet-iiif";
 import LeafletViewerBase from "./base.js";
 
@@ -13,7 +13,7 @@ export default class LeafletViewerIiif extends LeafletViewerBase {
 
     this.map = map(this.element, {
       center: [0, 0],
-      crs: L.CRS.Simple,
+      crs: CRS.Simple,
       zoom: 0,
     });
 

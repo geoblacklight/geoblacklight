@@ -1,3 +1,4 @@
+import { get as esriGet } from "esri-leaflet";
 import linkifyHtml from "linkify-html";
 import { geoJSONToBounds } from "../utils.js";
 import LeafletViewerMap from "./map.js";
@@ -24,7 +25,7 @@ export default class LeafletViewerEsri extends LeafletViewerMap {
     // Remove any trailing slash from endpoint url
     this.data.url = this.data.url.replace(/\/$/, "");
 
-    L.esri.get(this.data.url, {}, (error, response) => {
+    esriGet(this.data.url, {}, (error, response) => {
       if (!error) {
         this.layerInfo = response;
 
