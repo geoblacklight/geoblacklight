@@ -6,7 +6,7 @@ export default class LeafletViewerIndexMap extends LeafletViewerMap {
     super.onLoad();
     this.map.addLayer(this.selectBasemap());
 
-    if (this.data.available) {
+    if (this.available) {
       this.addPreviewLayer();
       this.addControls();
     } else {
