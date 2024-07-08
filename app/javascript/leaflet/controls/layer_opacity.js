@@ -29,7 +29,6 @@ export default class LayerOpacityControl extends Control {
 
     this.setListeners(handle, bottom, handleText);
     handle.style.top = `${handle.offsetTop - 13 + 50}px`;
-    console.log('layer', this.options.layer)
     handleText.innerHTML = `${parseInt(
       this.options.layer.options.opacity * 100
     )}%`;
