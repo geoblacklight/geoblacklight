@@ -6,6 +6,7 @@ export default class LeafletViewerBase {
   constructor(element) {
     this.element = element;
     this.data = element.dataset;
+    this.available = this.data.available === "true";
 
     // Sets leaflet icon paths to ex. /assets/marker-icon-2x-rails-fingerprint
     Icon.Default.imagePath = "..";
