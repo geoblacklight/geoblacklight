@@ -1,6 +1,6 @@
 import GeoBlacklightDownloader from './downloader.js'
 
-class GeoBlacklightHglDownloader extends GeoBlacklightDownloader {
+export default class GeoBlacklightHglDownloader extends GeoBlacklightDownloader {
   constructor(el, options) {
     super(el, options);
     this.configureHandler();
@@ -38,9 +38,4 @@ class GeoBlacklightHglDownloader extends GeoBlacklightDownloader {
     .then(data => this.complete(data))
     .catch(error => this.error(error));
   }
-
-  // Assuming complete and error are methods defined in GeoBlacklight.Downloader
-  // or need to be implemented here if unique to HglDownloader
 }
-
-export default GeoBlacklightHglDownloader;
