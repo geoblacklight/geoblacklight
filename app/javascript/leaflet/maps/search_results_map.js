@@ -1,4 +1,4 @@
-import L from "leaflet";
+import { latLngBounds } from "leaflet";
 import GeoBlacklightViewerMap from "../viewers/map";
 import GeoSearchControl from "../controls/geosearch";
 import { bboxToBounds, geoJSONToBounds } from "../utils";
@@ -7,7 +7,7 @@ export default class SearchResultsMap {
   constructor(element) {
     const data = element.dataset,
       opts = { baseUrl: data.catalogPath },
-      world = L.latLngBounds([
+      world = latLngBounds([
         [-90, -180],
         [90, 180],
       ]);
