@@ -4,7 +4,7 @@ import LeafletViewerMap from "./map.js";
 export default class LeafletViewerWms extends LeafletViewerMap {
   onLoad() {
     super.onLoad();
-    if (this.data.available) {
+    if (this.available) {
       this.addPreviewLayer();
       this.addControls();
     } else {
