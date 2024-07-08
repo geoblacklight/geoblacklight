@@ -38,9 +38,6 @@ export default class LeafletViewerMap extends LeafletViewerBase {
 
     this.map.addLayer(this.selectBasemap());
     this.map.addLayer(this.overlay);
-    if (this.data.map !== "index") {
-      this.addBoundsOverlay(this.options.bbox);
-    }
   }
 
   addBoundsOverlay(bounds) {
