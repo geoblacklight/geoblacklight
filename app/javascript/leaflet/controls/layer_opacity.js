@@ -2,7 +2,6 @@ import { DomUtil, DomEvent, Control } from "leaflet";
 
 export default class LayerOpacityControl extends Control {
   constructor(layer, options = {}) {
-    console.log("LayerOpacityControl constructor", layer, options);
     super(options);
     this.options.position = "topleft";
 
@@ -30,6 +29,7 @@ export default class LayerOpacityControl extends Control {
 
     this.setListeners(handle, bottom, handleText);
     handle.style.top = `${handle.offsetTop - 13 + 50}px`;
+    console.log('layer', this.options.layer)
     handleText.innerHTML = `${parseInt(
       this.options.layer.options.opacity * 100
     )}%`;
