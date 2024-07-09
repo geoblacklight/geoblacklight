@@ -1,0 +1,16 @@
+<% document ||= @document %>
+<div class='row'>
+  <div id='viewer-container' class="col-md-12">
+
+    <!-- Show help text-->
+    <%= render Geoblacklight::ViewerHelpTextComponent.new('viewer_protocol', @viewer_protocol) %>
+    
+    <!-- Index map -->
+    <%= render Geoblacklight::IndexMapLegendComponent.new if @display_index_map %>
+   
+    <!-- Viewer container method -->
+
+    <!-- IIIF drag and drop component -->
+    <%= render Geoblacklight::IiifDragDropComponent.new(document:) if iiif_manifest_container? %>
+  </div>
+</div>
