@@ -1,7 +1,7 @@
 {
   "name": "@geoblacklight/frontend",
   "type": "module",
-  "version": "4.4.6",
+  "version": "5.0.0-alpha.1",
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"
