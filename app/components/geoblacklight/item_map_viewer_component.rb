@@ -12,12 +12,10 @@ module Geoblacklight
       @geojson = document.geometry.geojson
       super
     end
-  
 
-  # Determine what to display in the page
-  # If the conditions for this being IIIF content are met, dislay the IIIF viewer
-  # Otherwise display the base viewer which will take into account if it is open layers 
-  # or generic content. 
+    # If the conditions for this being IIIF content are met, dislay the IIIF viewer
+    # Otherwise display the base viewer which will take into account if it is open layers
+    # or generic content.
     def display_tag
       return iiif_tag if iiif?
 
@@ -25,7 +23,7 @@ module Geoblacklight
     end
 
     def render?
-      @document 
+      @document
     end
 
     private
@@ -47,19 +45,19 @@ module Geoblacklight
     # The only difference beween the open layers container and the regular leaflet container
     # is the id. Here we check if we need to use open layers, and set the id appropriately.
     def base_tag
-      map_id = open_layers? ? 'ol-map' : 'map'
+      map_id = open_layers? ? "ol-map" : "map"
       tag.div(nil,
         id: map_id,
         data: {
           :map => "item", :protocol => @viewer_protocol.camelize,
           :url => @viewer_endpoint,
           "layer-id" => @wxs_identifier,
-          "map-geom" => @geojson, 
+          "map-geom" => @geojson,
           "catalog-path" => helpers.search_catalog_path,
           :available => helpers.document_available?,
           :basemap => helpers.geoblacklight_basemap,
           :leaflet_options => helpers.leaflet_options
-      })
+        })
     end
-  end 
+  end
 end

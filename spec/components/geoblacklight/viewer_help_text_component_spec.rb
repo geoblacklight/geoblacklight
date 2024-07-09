@@ -3,8 +3,8 @@
 require "spec_helper"
 
 RSpec.describe Geoblacklight::ViewerHelpTextComponent, type: :component do
-  let(:feature) {'viewer_protocol'}
-  let(:key) {'wms'}
+  let(:feature) { 'viewer_protocol' }
+  let(:key) { 'wms' }
 
   subject(:rendered) do
     render_inline_to_capybara_node(described_class.new(feature, key))
@@ -16,7 +16,7 @@ RSpec.describe Geoblacklight::ViewerHelpTextComponent, type: :component do
     end
   end
 
-  context "when the help text is missing for a viewer protocol that exists" do 
+  context "when the help text is missing for a viewer protocol that exists" do
     before do
       allow(I18n).to receive(:exists?).and_return(false)
     end
