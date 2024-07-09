@@ -27,7 +27,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "mime-types"
   spec.add_dependency "handlebars_assets"
   spec.add_dependency "rgeo-geojson"
-  spec.add_dependency "sprockets-rails", "~> 3.0"
   spec.add_dependency "vite_rails", "~> 3.0"
 
   spec.add_development_dependency "solr_wrapper"
