@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-gem "blacklight", "~> 7.0"
+gem "blacklight", "~> 8.0"
 gem "geoblacklight", "~> 4.0"
 
 run "bundle install"
