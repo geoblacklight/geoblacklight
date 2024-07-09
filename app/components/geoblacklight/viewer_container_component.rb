@@ -5,11 +5,12 @@ module Geoblacklight
   # A component for rendering the viewer container for the map
   #
   class ViewerContainerComponent < ViewComponent::Base
-    attr_reader :document
+    #attr_reader :document
 
-    def initialize(viewer_protocol, display_index_map)
-      @viewer_protocol = viewer_protocol
-      @display_index_map = display_index_map
+    def initialize(document)
+      @document = document
+      @viewer_protocol = document.viewer_protocol
+      @display_index_map = document.item_viewer.index_map
       super
     end
 
