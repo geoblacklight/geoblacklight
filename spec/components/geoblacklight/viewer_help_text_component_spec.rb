@@ -3,8 +3,8 @@
 require "spec_helper"
 
 RSpec.describe Geoblacklight::ViewerHelpTextComponent, type: :component do
-  let(:feature) { 'viewer_protocol' }
-  let(:key) { 'wms' }
+  let(:feature) { "viewer_protocol" }
+  let(:key) { "wms" }
 
   subject(:rendered) do
     render_inline_to_capybara_node(described_class.new(feature, key))

@@ -67,4 +67,3 @@ RSpec.describe Geoblacklight::ViewerContainerComponent, type: :component do
     end
   end
 end
-

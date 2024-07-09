@@ -5,7 +5,6 @@ module Geoblacklight
   # A component for rendering the viewer container for the map
   #
   class ViewerContainerComponent < ViewComponent::Base
-
     def initialize(document)
       @document = document
       @viewer_protocol = document.viewer_protocol
