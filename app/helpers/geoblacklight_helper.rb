@@ -24,8 +24,6 @@ module GeoblacklightHelper
   ##
   # Returns an SVG icon or empty HTML span element
   # @return [SVG or HTML tag]
-  # standard:disable Style/ArgumentsForwarding
-  # TODO: Remove linter disable after lowest supported Ruby version >= 3.2
   def geoblacklight_icon(name, **args)
     icon_name = name ? name.to_s.parameterize : "none"
     camel_icon = icon_name.tr("-", "_").camelize.delete(" ")
@@ -35,7 +33,6 @@ module GeoblacklightHelper
       tag.span class: "icon-missing geoblacklight-none"
     end
   end
-  # standard:enable Style/ArgumentsForwarding
 
   ##
   # Looks up formatted names for references
