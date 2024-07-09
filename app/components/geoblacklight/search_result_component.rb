@@ -9,10 +9,5 @@ module Geoblacklight
   #    Otherwise view_component will not provide the count value when calling the component.
   #
   class SearchResultComponent < Blacklight::DocumentComponent
-    attr_reader :document, :document_counter
-
-    def initialize(document:, document_counter:)
-      super
-    end
   end
 end
