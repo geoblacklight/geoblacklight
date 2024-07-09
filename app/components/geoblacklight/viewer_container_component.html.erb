@@ -1,4 +1,3 @@
-<% document ||= @document %>
 <div class='row'>
   <div id='viewer-container' class="col-md-12">
 
@@ -9,8 +8,9 @@
     <%= render Geoblacklight::IndexMapLegendComponent.new if @display_index_map %>
    
     <!-- Viewer container method -->
+    <%= render Geoblacklight::ItemMapViewerComponent.new(@document) %>
 
     <!-- IIIF drag and drop component -->
-    <%= render Geoblacklight::IiifDragDropComponent.new(document:) if iiif_manifest_container? %>
+    <%= render Geoblacklight::IiifDragDropComponent.new(document:@document) if helpers.iiif_manifest_container? %>
   </div>
 </div>
