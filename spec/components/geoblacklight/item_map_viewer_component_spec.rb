@@ -3,12 +3,6 @@
 require "spec_helper"
 
 RSpec.describe Geoblacklight::ItemMapViewerComponent, type: :component do
-  before do
-    # Without these, helper methods will return error for document_available?
-    allow(@document).to receive(:public?).and_return(true)
-    allow(@document).to receive(:same_institution?).and_return(true)
-  end
-
   subject(:rendered) do
     render_inline_to_capybara_node(described_class.new(document))
   end
