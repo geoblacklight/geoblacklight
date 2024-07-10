@@ -54,7 +54,7 @@ module Geoblacklight
           "layer-id" => @wxs_identifier,
           "map-geom" => @geojson,
           "catalog-path" => helpers.search_catalog_path,
-          :available => helpers.document_available?,
+          :available => helpers.document_available?(@document),
           :basemap => helpers.geoblacklight_basemap,
           :leaflet_options => helpers.leaflet_options
         })
