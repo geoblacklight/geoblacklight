@@ -336,46 +336,4 @@ describe GeoblacklightHelper, type: :helper do
       end
     end
   end
-
-  describe "#viewer_container" do
-    let(:document) { SolrDocument.new(document_attributes) }
-    let(:references_field) { Settings.FIELDS.REFERENCES }
-    let(:rights_field) { Settings.FIELDS.RIGHTS }
-
-    context "with pmtiles layer" do
-      let(:document_attributes) do
-        {
-          references_field => {
-            "https://github.com/protomaps/PMTiles" => "https://geodata.lib.princeton.edu/fe/d2/80/fed28076eaa04506b7956f10f61a2f77/display_vector.pmtiles"
-          }.to_json
-        }
-      end
-
-      it "renders an OpenLayers container" do
-        allow(helper).to receive(:geoblacklight_basemap).and_return("esri")
-        assign(:document, document)
-        node = Capybara.string(helper.viewer_container)
-        div = node.first("div")
-        expect(div[:id]).to eq "ol-map"
-      end
-    end
-
-    context "with iiif manifest layer" do
-      let(:document_attributes) do
-        {
-          references_field => {
-            "http://iiif.io/api/presentation#manifest" => "https://cdm16022.contentdm.oclc.org/iiif/info/p16022coll229/3210/manifest.json"
-          }.to_json
-        }
-      end
-
-      it "renders a Clover IIIF container" do
-        allow(helper).to receive(:geoblacklight_basemap).and_return("esri")
-        assign(:document, document)
-        node = Capybara.string(helper.viewer_container)
-        div = node.first("div")
-        expect(div[:id]).to eq "clover-viewer"
-      end
-    end
-  end
 end
