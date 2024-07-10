@@ -3,11 +3,6 @@ source "https://rubygems.org"
 # Specify your gem's dependencies in geoblacklight.gemspec
 gemspec
 
-group :development, :test do
-  # See https://github.com/rails/rails/issues/32955
-  gem "thor", ">= 0.19.0"
-end
-
 group :test do
   gem "capybara", require: false
   gem "database_cleaner", require: false
@@ -23,8 +18,8 @@ group :test do
 end
 
 # BEGIN ENGINE_CART BLOCK
-# engine_cart: 0.10.0
-# engine_cart stanza: 0.10.0
+# engine_cart: 2.6.0
+# engine_cart stanza: 2.5.0
 # the below comes from engine_cart, a gem used to test this Rails engine gem in the context of a Rails app.
 file = File.expand_path("Gemfile", ENV["ENGINE_CART_DESTINATION"] || ENV["RAILS_ROOT"] || File.expand_path(".internal_test_app", File.dirname(__FILE__)))
 if File.exist?(file)
@@ -45,11 +40,5 @@ else
       gem "rails", ENV["RAILS_VERSION"]
     end
   end
-end
-
-if File.exist?("spec/test_app_templates/Gemfile.extra")
-  # rubocop:disable Security/Eval
-  eval File.read("spec/test_app_templates/Gemfile.extra"), nil, "spec/test_app_templates/Gemfile.extra"
-  # rubocop:enable Security/Eval
 end
 # END ENGINE_CART BLOCK
