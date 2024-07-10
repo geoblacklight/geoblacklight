@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require "rails/generators"
+require 'rails/generators'
 
 module Geoblacklight
   class AssetsGenerator < Rails::Generators::Base
-    source_root File.expand_path("templates", __dir__)
+    source_root File.expand_path('templates', __dir__)
 
     desc <<-DESCRIPTION
       This generator makes the following changes to your application:
@@ -15,23 +15,23 @@ module Geoblacklight
     DESCRIPTION
 
     def remove_stylesheets
-      remove_file "app/assets/stylesheets/application.css"
-      remove_file "app/assets/stylesheets/blacklight.scss"
+      remove_file 'app/assets/stylesheets/application.css'
+      remove_file 'app/assets/stylesheets/blacklight.scss'
     end
 
     def add_stylesheets
-      copy_file "assets/application.scss", "app/assets/stylesheets/application.scss"
-      copy_file "assets/_blacklight.scss", "app/assets/stylesheets/_blacklight.scss"
-      copy_file "assets/_customizations.scss", "app/assets/stylesheets/_customizations.scss"
-      copy_file "assets/_geoblacklight.scss", "app/assets/stylesheets/_geoblacklight.scss"
+      copy_file 'assets/application.scss', 'app/assets/stylesheets/application.scss'
+      copy_file 'assets/_blacklight.scss', 'app/assets/stylesheets/_blacklight.scss'
+      copy_file 'assets/_customizations.scss', 'app/assets/stylesheets/_customizations.scss'
+      copy_file 'assets/_geoblacklight.scss', 'app/assets/stylesheets/_geoblacklight.scss'
     end
 
     def add_initializers
-      append_to_file "config/initializers/assets.rb",
-        "\nRails.application.config.assets.precompile += %w( favicon.ico )\n"
+      append_to_file 'config/initializers/assets.rb',
+                     "\nRails.application.config.assets.precompile += %w( application.css favicon.ico )\n"
 
-      append_to_file "config/initializers/assets.rb",
-        "\nRails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'images')\n"
+      append_to_file 'config/initializers/assets.rb',
+                     "\nRails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'images')\n"
     end
   end
 end
