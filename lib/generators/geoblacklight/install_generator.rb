@@ -50,10 +50,6 @@ module Geoblacklight
       inject_into_file "config/routes.rb", routes, before: /^end/
     end
 
-    def generate_assets
-      generate "geoblacklight:assets"
-    end
-
     def create_blacklight_catalog
       remove_file "app/controllers/catalog_controller.rb"
       copy_file "catalog_controller.rb", "app/controllers/catalog_controller.rb"
@@ -117,6 +113,7 @@ module Geoblacklight
       copy_file "base.html.erb", "app/views/layouts/blacklight/base.html.erb"
     end
 
+    # TODO: rework this so package-test.json isn't needed
     def copy_package_json
       if options[:test]
         # If building engine cart test app, use specific package.json so the
@@ -142,12 +139,8 @@ module Geoblacklight
       end
     end
 
-    # Vite - Copy over the Vite entrypoints
-    def copy_vite_entrypoints
-      copy_file "clover.js", "app/javascript/entrypoints/clover.js"
-      copy_file "ol.js", "app/javascript/entrypoints/ol.js"
-      copy_file "leaflet.js", "app/javascript/entrypoints/leaflet.js"
-      copy_file "geoblacklight.js", "app/javascript/entrypoints/geoblacklight.js"
+    def generate_assets
+      generate "geoblacklight:assets"
     end
   end
 end
