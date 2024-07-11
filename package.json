@@ -14,21 +14,10 @@
   "files": [
     "dist"
   ],
-  "module": "./dist/frontend.js",
-  "main": "./dist/frontend.umd.cjs",
-  "exports": {
-    ".": {
-      "import": "./dist/frontend.js",
-      "require": "./dist/frontend.umd.cjs"
-    },
-    "./dist/style.css": {
-      "import": "./dist/style.css",
-      "require": "./dist/style.css"
-    }
-  },
+  "module": "./dist/javascript/geoblacklight.js",
+  "main": "./dist/javascript/geoblacklight.umd.cjs",
   "dependencies": {
     "@samvera/clover-iiif": "^2.3.2",
-    "blacklight-frontend": "7.37",
     "esri-leaflet": "^3.0.12",
     "leaflet": "^1.9.4",
     "leaflet-fullscreen": "^1.0.2",
