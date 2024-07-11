@@ -1,24 +1,33 @@
-import { resolve } from 'path'
-import { defineConfig } from 'vite'
-import { exec } from 'child_process'
+import { resolve } from "path";
+import { defineConfig } from "vite";
+import { exec } from "child_process";
 
-export default defineConfig({
-  build: {
-    manifest: true,
-    minify: true,
-    reportCompressedSize: true,
-    lib: {
-      entry: resolve(__dirname, 'app/javascript/index.js'),
-      name: '@geoblacklight/frontend',
-      fileName: 'frontend'
-    }
-  },
-  "plugins": [
-    {
-      name: 'clobber internal test app vite files and cache',
-      buildEnd: async() => {
-        exec("cd .internal_test_app && bundle exec vite clobber")
-      }
-    }
-  ]
-})
+export default defineConfig(() => {
+  return {
+    build: {
+      outDir: 'dist/javascript',
+      emptyOutDir: true,
+      manifest: true,
+      minify: false,
+      lib: {
+        entry: resolve(__dirname, "app/javascript/index.js"),
+        name: "@geoblacklight/frontend",
+        fileName: "geoblacklight",
+      },
+    },
+    plugins: [
+      {
+        name: "copy sass sources into build",
+        buildEnd: async() => {
+          exec("cp -R app/assets/stylesheets dist/")
+        }
+      },
+      {
+        name: "clobber internal test app vite files and cache",
+        buildEnd: async () => {
+          exec("cd .internal_test_app && bundle exec vite clobber");
+        },
+      },
+    ],
+  };
+});
