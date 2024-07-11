@@ -42,17 +42,30 @@ module Geoblacklight
       copy_file "geoblacklight.js", "app/javascript/entrypoints/geoblacklight.js"
     end
 
-    # Import styles into application entrypoint so vite will bundle them automatically
-    # Also import turbo
+    # Import JS dependencies from node_modules
     def update_application_entrypoint
-      inject_into_file 'app/javascript/entrypoints/application.js' do
-        "import \"../../assets/stylesheets/application.scss\"\nimport \"@hotwired/turbo-rails\"\n"
-      end
+      imports = <<~JS
+        // JS dependencies
+        import "@hotwired/turbo-rails";
+        import jQuery from "jquery";
+        import "popper.js";
+        import bootstrap from "bootstrap";
+        import Bloodhound from "typeahead.js/dist/bloodhound";
+        import "typeahead.js/dist/typeahead.jquery";
+
+        // Make imports available globally
+        window.bootstrap = bootstrap;
+        window.$ = jQuery;
+        window.jQuery = jQuery;
+        window.Bloodhound = Bloodhound;
+      JS
+
+      inject_into_file 'app/javascript/entrypoints/application.js', imports
     end
 
     def add_initializers
       append_to_file 'config/initializers/assets.rb',
-                     "\nRails.application.config.assets.precompile += %w( application.css favicon.ico )\n"
+                     "\nRails.application.config.assets.precompile += %w( favicon.ico )\n"
 
       append_to_file 'config/initializers/assets.rb',
                      "\nRails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'images')\n"
