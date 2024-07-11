@@ -24,6 +24,7 @@ module Geoblacklight
     def add_stylesheets
       copy_file 'assets/_customizations.scss', 'app/assets/stylesheets/_customizations.scss'
       copy_file 'assets/application.scss', 'app/assets/stylesheets/application.scss'
+      copy_file 'application.css', 'app/javascript/entrypoints/application.css'
     end
 
     def remove_javascript
