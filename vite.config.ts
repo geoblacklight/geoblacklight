@@ -23,6 +23,12 @@ export default defineConfig(() => {
         }
       },
       {
+        name: "copy image assets into build",
+        buildEnd: async() => {
+          exec("cp -R app/assets/images dist/")
+        }
+      },
+      {
         name: "clobber internal test app vite files and cache",
         buildEnd: async () => {
           exec("cd .internal_test_app && bundle exec vite clobber");
