@@ -138,12 +138,12 @@ export default class SearchResultsMap {
           document.getElementById("map").nextElementSibling;
         if (mapNextElement) {
           mapNextElement.replaceWith(
-            doc.querySelector("#map").nextElementSibling
+            doc.querySelector("#leaflet-viewer").nextElementSibling
           );
         } else {
           document
             .getElementById("map")
-            .after(doc.querySelector("#map").nextElementSibling);
+            .after(doc.querySelector("#leaflet-viewer").nextElementSibling);
         }
       });
   }
