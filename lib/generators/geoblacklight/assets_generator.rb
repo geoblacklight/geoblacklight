@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'rails/generators'
+require "rails/generators"
 
 module Geoblacklight
   class AssetsGenerator < Rails::Generators::Base
-    source_root File.expand_path('templates', __dir__)
+    source_root File.expand_path("templates", __dir__)
 
     desc <<-DESCRIPTION
       This generator makes the following changes to your application:
@@ -16,22 +16,22 @@ module Geoblacklight
 
     # Remove these; we reference the versions installed from npm instead
     def remove_stylesheets
-      remove_file 'app/assets/stylesheets/application.css'
-      remove_file 'app/assets/stylesheets/blacklight.scss'
+      remove_file "app/assets/stylesheets/application.css"
+      remove_file "app/assets/stylesheets/blacklight.scss"
     end
 
     # Add our own stylesheets that reference the versions from npm
     def add_stylesheets
-      copy_file 'assets/_customizations.scss', 'app/assets/stylesheets/_customizations.scss'
-      copy_file 'assets/application.scss', 'app/assets/stylesheets/application.scss'
-      copy_file 'application.css', 'app/javascript/entrypoints/application.css'
+      copy_file "assets/_customizations.scss", "app/assets/stylesheets/_customizations.scss"
+      copy_file "assets/application.scss", "app/assets/stylesheets/application.scss"
+      copy_file "application.css", "app/javascript/entrypoints/application.css"
     end
 
     def remove_javascript
       # Remove this since we aren't using sprockets; everything is in app/javascript instead
-      remove_dir 'app/assets/javascripts'
+      remove_dir "app/assets/javascripts"
       # Remove this because we aren't using importmaps; the main entrypoint is in app/javascript/entrypoints/application.js
-      remove_file 'app/javascript/application.js'
+      remove_file "app/javascript/application.js"
     end
 
     # Copy over the Vite entrypoints for modules that need to be built in addition to application.js
@@ -60,15 +60,15 @@ module Geoblacklight
         window.Bloodhound = Bloodhound;
       JS
 
-      inject_into_file 'app/javascript/entrypoints/application.js', imports
+      inject_into_file "app/javascript/entrypoints/application.js", imports
     end
 
     def add_initializers
-      append_to_file 'config/initializers/assets.rb',
-                     "\nRails.application.config.assets.precompile += %w( favicon.ico )\n"
+      append_to_file "config/initializers/assets.rb",
+        "\nRails.application.config.assets.precompile += %w( favicon.ico )\n"
 
-      append_to_file 'config/initializers/assets.rb',
-                     "\nRails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'images')\n"
+      append_to_file "config/initializers/assets.rb",
+        "\nRails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'images')\n"
     end
   end
 end
