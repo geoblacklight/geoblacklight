@@ -5,7 +5,7 @@ require "spec_helper"
 feature "Layer preview", js: true do
   scenario "Restricted layer should show bounding box" do
     visit solr_document_path("stanford-cg357zz0321")
-    within("#map") do
+    within("#leaflet-viewer") do
       expect(page).to have_css("path")
     end
   end

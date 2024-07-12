@@ -12,7 +12,7 @@ feature "Index view", js: true do
     visit search_catalog_path(f: {Settings.FIELDS.PROVIDER => ["Stanford"]})
     expect(page).to have_css("#documents")
     expect(page).to have_css(".document", count: 6)
-    expect(page).to have_css("#map")
+    expect(page).to have_css("#leaflet-viewer")
   end
 
   scenario "should have sort and per_page on page" do
@@ -51,7 +51,7 @@ feature "Index view", js: true do
     # BL7 has svg icons, so sniffing for SVG path won't return false
     # expect(Nokogiri::HTML.parse(page.body).css('path').length).to eq 0
     find(".documentHeader", match: :first).hover
-    within("#map") do
+    within("#leaflet-viewer") do
       expect(page).to have_css("path")
     end
   end
@@ -66,13 +66,13 @@ feature "Index view", js: true do
 
   scenario "spatial search should reset to page one" do
     visit "/?per_page=5&q=%2A&page=2"
-    find("#map").double_click
+    find("#leaflet-viewer").double_click
     expect(find(".page-entries")).to have_content(/^1 - \d of \d.*$/)
   end
 
   scenario "clicking map search should retain current search parameters" do
     visit "/?f[#{subject_field}][]=Population"
-    find("#map").double_click
+    find("#leaflet-viewer").double_click
     within "#appliedParams" do
       expect(page).to have_content("Subject Population")
       expect(page).to have_css "span.filter-name", text: "Bounding Box"
