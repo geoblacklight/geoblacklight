@@ -5,7 +5,7 @@ require "spec_helper"
 feature "saved searches" do
   scenario "list spatial search", js: true do
     visit root_path
-    within "#map" do
+    within "#leaflet-viewer" do
       find(".search-control a").click
       expect(page.current_url).to match(/bbox=/)
     end

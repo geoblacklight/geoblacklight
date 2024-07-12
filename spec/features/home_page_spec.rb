@@ -28,12 +28,12 @@ feature "Home page", js: true do # use js: true for tests which require js, but 
   end
   scenario "map should be visible" do
     within "#main-container" do
-      expect(page).to have_css("#map")
+      expect(page).to have_css("#leaflet-viewer")
       expect(page).to have_css("img.leaflet-tile", minimum: 3)
     end
   end
   scenario "clicking map search should create a spatial search" do
-    within "#map" do
+    within "#leaflet-viewer" do
       find(".search-control a").click
       expect(page.current_url).to match(/bbox=/)
     end
