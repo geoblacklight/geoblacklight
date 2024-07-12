@@ -1,4 +1,4 @@
-[data-map="index"], [data-map="bookmarks"] {
+[data-page="index"], [data-page="bookmarks"] {
   height: 480px;
 }
 
@@ -51,7 +51,7 @@
     }
   }
 
-  [data-map="index"] {
+  .viewer[data-page="index"] {
     height: 400px;
 
     .leaflet-control-container {
