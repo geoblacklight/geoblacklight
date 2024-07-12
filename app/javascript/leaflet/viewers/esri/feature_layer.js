@@ -70,37 +70,4 @@ export default class LeafletViewerEsriFeatureLayer extends LeafletViewerEsri {
         });
     });
   }
-
-  appendLoadingMessage() {
-    const spinner = document.createElement("tbody");
-    spinner.className = "attribute-table-body";
-    spinner.innerHTML = `<tr><td colspan="2">
-      <div class="spinner-border" role="status"><span class="sr-only">Inspecting</span></div>
-      </td></tr>`;
-    const tableBody = document.querySelector(".attribute-table-body");
-    if (tableBody) {
-      tableBody.parentNode.replaceChild(spinner, tableBody);
-    }
-  }
-
-  appendErrorMessage() {
-    const errorMessage = `<tbody class="attribute-table-body">
-      <tr><td colspan="2">Could not find that feature</td></tr></tbody>`;
-    const tableBody = document.querySelector(".attribute-table-body");
-    if (tableBody) {
-      tableBody.innerHTML = errorMessage;
-    }
-  }
-
-  populateAttributeTable(feature) {
-    let htmlContent = `<tbody class="attribute-table-body">`;
-    Object.entries(feature.properties).forEach(([key, value]) => {
-      htmlContent += `<tr><td>${key}</td><td>${value}</td></tr>`;
-    });
-    htmlContent += `</tbody>`;
-    const tableBody = document.querySelector(".attribute-table-body");
-    if (tableBody) {
-      tableBody.innerHTML = htmlContent;
-    }
-  }
 }

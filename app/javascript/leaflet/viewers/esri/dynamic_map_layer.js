@@ -78,33 +78,4 @@ export default class LeafletViewerEsriDynamicMapLayer extends LeafletViewerEsri 
       });
     });
   }
-
-  appendLoadingMessage() {
-    const spinner = document.createElement("tbody");
-    spinner.className = "attribute-table-body";
-    spinner.innerHTML = `<tr><td colspan="2">
-      <span id="attribute-table">
-      <div class="spinner-border" role="status"><span class="sr-only">Inspecting</span></div>
-      </span>
-      </td></tr>`;
-    document.querySelector(".attribute-table-body").replaceWith(spinner);
-  }
-
-  appendErrorMessage() {
-    const errorMessage = document.createElement("tbody");
-    errorMessage.className = "attribute-table-body";
-    errorMessage.innerHTML = `<tr><td colspan="2">Could not find that feature</td></tr>`;
-    document.querySelector(".attribute-table-body").replaceWith(errorMessage);
-  }
-
-  populateAttributeTable(feature) {
-    const html = document.createElement("tbody");
-    html.className = "attribute-table-body";
-    Object.entries(feature.properties).forEach(([property, value]) => {
-      const row = document.createElement("tr");
-      row.innerHTML = `<td>${property}</td><td>${linkifyHtml(value)}</td>`;
-      html.appendChild(row);
-    });
-    document.querySelector(".attribute-table-body").replaceWith(html);
-  }
 }
