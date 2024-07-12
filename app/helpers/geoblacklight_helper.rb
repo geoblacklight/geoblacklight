@@ -223,7 +223,7 @@ module GeoblacklightHelper
     geoblacklight_icon(icon_name, **icon_options)
   end
 
-  ## Returns the data-map attribute value used as the JS map selector
+  ## Returns the data-page attribute value used as the JS map selector
   def results_js_map_selector(controller_name)
     case controller_name
     when "bookmarks"

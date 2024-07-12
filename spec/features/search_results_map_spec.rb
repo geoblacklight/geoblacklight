@@ -5,14 +5,14 @@ require "spec_helper"
 feature "search results map", js: true do
   scenario "present on a search result page" do
     visit search_catalog_path(q: "Minnesota")
-    expect(page).to have_css "#map"
+    expect(page).to have_css "#leaflet-viewer"
   end
   xscenario "view is scoped to Minnesota" do
     # pending 'Minnesota fixtures have changed.'
     visit root_path
     click_link "Minnesota, United States"
-    expect(page).to have_css "#map"
-    bbox = page.find("#map")["data-js-map-render-bbox"]
+    expect(page).to have_css "#leaflet-viewer"
+    bbox = page.find("#leaflet-viewer")["data-js-map-render-bbox"]
 
     # Example bbox for Place > Minnesota, United States:
     # "-101.90917968749999,38.75408327579141,-83.27636718749999,53.27835301753182"
@@ -24,8 +24,8 @@ feature "search results map", js: true do
   end
   scenario "view is scoped to Twin Cities metro area" do
     visit search_catalog_path(q: "Minneapolis")
-    expect(page).to have_css "#map"
-    bbox = page.find("#map")["data-js-map-render-bbox"]
+    expect(page).to have_css "#leaflet-viewer"
+    bbox = page.find("#leaflet-viewer")["data-js-map-render-bbox"]
 
     # Example bbox for q: Minneapolis
     # "-94.537353515625,44.004669106432225,-92.208251953125,45.87088761346192"
@@ -39,8 +39,8 @@ feature "search results map", js: true do
     skip "spec inconsistently failing"
     visit root_path
     click_link "New York, New York"
-    expect(page).to have_css "#map"
-    bbox = page.find("#map")["data-js-map-render-bbox"]
+    expect(page).to have_css "#leaflet-viewer"
+    bbox = page.find("#leaflet-viewer")["data-js-map-render-bbox"]
 
     # Example bbox for Place > New York, New York, United States
     # "-74.26895141601562,40.455307212131494,-73.68667602539061,40.95501133048621"

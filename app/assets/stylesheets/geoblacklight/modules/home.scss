@@ -14,7 +14,7 @@
     }
   }
 
-  [data-map="home"] {
+  .viewer[data-page="home"] {
     height: 400px;
 
     .leaflet-control-container {
