@@ -18,6 +18,7 @@ module Geoblacklight
     # or generic content.
     def display_tag
       return iiif_tag if iiif?
+      return oembed_tag if oembed?
 
       base_tag
     end
@@ -37,26 +38,50 @@ module Geoblacklight
       @document&.item_viewer&.viewer_preference&.key?(:iiif_manifest)
     end
 
-    # Generate thet tag for IIIF content
-    def iiif_tag
-      tag.div(nil, id: "clover-viewer", iiif_content: @viewer_endpoint)
+    def oembed?
+      @document.item_viewer.oembed
     end
 
-    # The only difference beween the open layers container and the regular leaflet container
-    # is the id. Here we check if we need to use open layers, and set the id appropriately.
-    def base_tag
-      map_id = open_layers? ? "ol-map" : "map"
+    # Generate the viewer HTML for IIIF content
+    def iiif_tag
       tag.div(nil,
-        id: map_id,
+        id: "clover-viewer",
+        class: "viewer",
         data: {
-          :map => "item", :protocol => @viewer_protocol.camelize,
-          :url => @viewer_endpoint,
-          "layer-id" => @wxs_identifier,
-          "map-geom" => @geojson,
-          "catalog-path" => helpers.search_catalog_path,
-          :available => helpers.document_available?(@document),
-          :basemap => helpers.geoblacklight_basemap,
-          :leaflet_options => helpers.leaflet_options
+          controller: "clover-viewer",
+          clover_viewer_iiif_content_value: @document.viewer_endpoint
+        })
+    end
+
+    # Generate the viewer HTML for oEmbed content
+    def oembed_tag
+      tag.div(nil,
+        id: "oembed-viewer",
+        class: "viewer",
+        data: {
+          controller: "oembed-viewer",
+          oembed_viewer_url_value: @document.viewer_endpoint
+        })
+    end
+
+    # The leaflet and openlayers viewers share a lot of the same data attributes
+    # so we can use a base tag for both of them and just vary a few names
+    def base_tag
+      viewer_name = open_layers? ? "openlayers-viewer" : "leaflet-viewer"
+      tag.div(nil,
+        id: viewer_name,
+        class: "viewer",
+        data: {
+          "map" => "item",
+          "controller" => viewer_name,
+          "available" => helpers.document_available?(@document),
+          "catalog_path" => helpers.search_catalog_path,
+          "leaflet_options" => helpers.leaflet_options,
+          "#{viewer_name}_basemap_value" => geoblacklight_basemap,
+          "#{viewer_name}_protocol_value" => @document.viewer_protocol.camelize,
+          "#{viewer_name}_url_value" => @document.viewer_endpoint,
+          "#{viewer_name}_map_geom_value" => @document.geometry.geojson,
+          "#{viewer_name}_layer_id_value" => @wxs_identifier
         })
     end
   end
