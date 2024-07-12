@@ -20,13 +20,6 @@
     <%= vite_stylesheet_tag 'application' %>
     <%= vite_javascript_tag 'application' %>
     <%= vite_javascript_tag 'geoblacklight' %>
-    <% if openlayers_container? %>
-      <%= vite_javascript_tag 'ol' %>
-    <% elsif iiif_manifest_container? %>
-      <%= vite_javascript_tag 'clover' %>
-    <% else %>
-      <%= vite_javascript_tag 'leaflet' %>
-    <% end %>
 
     <%= csrf_meta_tags %>
     <%= content_for(:head) %>
