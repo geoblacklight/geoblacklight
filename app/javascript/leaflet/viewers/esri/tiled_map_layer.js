@@ -47,27 +47,4 @@ export default class LeafletViewerEsriTiledMapLayer extends LeafletViewerEsri {
         });
     });
   }
-
-  appendLoadingMessage() {
-    const loadingMessage = `<div class="spinner-border" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>`;
-    document.querySelector(".attribute-table-body").innerHTML = loadingMessage;
-  }
-
-  appendErrorMessage() {
-    const errorMessage = `<tr><td colspan="2">Could not find that feature</td></tr>`;
-    document.querySelector(".attribute-table-body").innerHTML = errorMessage;
-  }
-
-  populateAttributeTable(feature) {
-    const properties = feature.properties;
-    const tableBody = document.querySelector(".attribute-table-body");
-    tableBody.innerHTML = ""; // Clear existing content
-
-    Object.entries(properties).forEach(([key, value]) => {
-      const row = `<tr><td>${key}</td><td>${value}</td></tr>`;
-      tableBody.innerHTML += row;
-    });
-  }
 }
