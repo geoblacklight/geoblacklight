@@ -6,15 +6,15 @@ import SearchResultsMap from "./maps/search_results_map";
 export default class LeafletInitializer {
   run() {
     document
-      .querySelectorAll('[data-map="bookmarks"]')
+      .querySelectorAll('#leaflet-viewer[data-page="bookmarks"]')
       .forEach((element) => new BookmarksMap(element));
-    document.querySelectorAll('[data-map="home"]').forEach((element) => {
+    document.querySelectorAll('#leaflet-viewer[data-page="home"]').forEach((element) => {
       new HomepageMap(element);
     });
-    document.querySelectorAll('[data-map="item"]').forEach((element) => {
+    document.querySelectorAll('#leaflet-viewer[data-page="show"]').forEach((element) => {
       new ItemMap(element);
     });
-    document.querySelectorAll('[data-map="index"]').forEach((element) => {
+    document.querySelectorAll('#leaflet-viewer[data-page="index"]').forEach((element) => {
       new SearchResultsMap(element);
     });
   }
