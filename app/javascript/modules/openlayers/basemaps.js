@@ -1,4 +1,4 @@
-export  const openLayersBasemaps = {
+export default {
   darkMatter: {
     url:'https://{a-d}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://carto.com/attributions">Carto</a>',
