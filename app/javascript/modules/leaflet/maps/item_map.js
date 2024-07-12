@@ -7,7 +7,6 @@ import LeafletViewerEsriImageMapLayer from "../viewers/esri/image_map_layer.js";
 import LeafletViewerEsriTiledMapLayer from "../viewers/esri/tiled_map_layer.js";
 import LeafletViewerIiif from "../viewers/iiif.js";
 import LeafletViewerIndexMap from "../viewers/index_map.js";
-import LeafletViewerOembed from "../viewers/oembed.js";
 import LeafletViewerPmtiles from "../viewers/pmtiles.js";
 import LeafletViewerTileJson from "../viewers/tilejson.js";
 import LeafletViewerTms from "../viewers/tms.js";
@@ -25,7 +24,6 @@ const dict = new Map([
   ["TiledMapLayer", LeafletViewerEsriTiledMapLayer],
   ["Iiif", LeafletViewerIiif],
   ["IndexMap", LeafletViewerIndexMap],
-  ["Oembed", LeafletViewerOembed],
   ["Pmtiles", LeafletViewerPmtiles],
   ["Tilejson", LeafletViewerTileJson],
   ["Tms", LeafletViewerTms],
