@@ -6,13 +6,13 @@
   }
 
   #viewer-container {
-    [data-map="item"] {
+    .viewer {
       border: 1px solid $gray-400;
-      height: 27.5rem;
+      min-height: 27.5rem;
 
       // Ensure oembed iframe is the same height as its container
       iframe {
-        height: 27.5rem;
+        min-height: 27.5rem;
       }
     }
 
