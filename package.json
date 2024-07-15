@@ -17,6 +17,7 @@
   "module": "./dist/javascript/geoblacklight.js",
   "main": "./dist/javascript/geoblacklight.umd.cjs",
   "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
     "@samvera/clover-iiif": "^2.3.2",
     "esri-leaflet": "^3.0.12",
     "leaflet": "^1.9.4",
