@@ -9,7 +9,7 @@ import GeoTIFF from "ol/source/GeoTIFF";
 import WebGLTileLayer from "ol/layer/WebGLTile";
 import { FullScreen, defaults as defaultControls } from "ol/control";
 import { PMTilesVectorSource } from "ol-pmtiles";
-import basemaps from "../modules/openlayers/basemaps";
+import basemaps from "../openlayers/basemaps";
 import { Controller } from "@hotwired/stimulus";
 
 export default class OpenlayersViewerController extends Controller {
