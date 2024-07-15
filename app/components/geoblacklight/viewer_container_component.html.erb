@@ -11,6 +11,6 @@
     <%= render Geoblacklight::ItemMapViewerComponent.new(@document) %>
 
     <!-- IIIF drag and drop component -->
-    <%= render Geoblacklight::IiifDragDropComponent.new(document:@document) if helpers.iiif_manifest_container? %>
+    <%= render Geoblacklight::IiifDragDropComponent.new(document:@document) %>
   </div>
 </div>

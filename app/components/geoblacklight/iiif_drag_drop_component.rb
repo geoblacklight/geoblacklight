@@ -4,7 +4,8 @@ module Geoblacklight
   class IiifDragDropComponent < ViewComponent::Base
     def initialize(document:)
       super
-      @manifest = document.viewer_endpoint || ""
+      manifest_ref = document.item_viewer&.iiif_manifest
+      @manifest = manifest_ref&.endpoint || ""
       @href_link = Settings.IIIF_DRAG_DROP_LINK&.gsub("@manifest", @manifest)
     end
 

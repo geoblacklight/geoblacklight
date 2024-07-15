@@ -4,7 +4,9 @@ require "spec_helper"
 
 RSpec.describe Geoblacklight::IiifDragDropComponent, type: :component do
   describe "#iiifdragdropcomponet" do
-    let(:document) { instance_double(SolrDocument, id: 123, viewer_endpoint: endpoint) }
+    let(:reference) { instance_double(Geoblacklight::Reference, endpoint: endpoint) }
+    let(:item_viewer) { instance_double(Geoblacklight::ItemViewer, iiif_manifest: reference) }
+    let(:document) { instance_double(SolrDocument, id: 123, item_viewer: item_viewer) }
     let(:component) { described_class.new(document: document) }
     let(:rendered) { render_inline_to_capybara_node(component) }
 
