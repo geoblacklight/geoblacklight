@@ -1,7 +1,11 @@
 import { tileLayer } from "leaflet";
 
+// NOTE: having these exported as layer objects instead of functions causes 
+// leaflet to not play nice with Turbo. Basemaps will load on initial page load,
+// but not for subsequent turbo visits. Instead, they are exported as functions
+// so that basemaps are re-instantiated each time the map is loaded.
 export default {
-  darkMatter: tileLayer(
+  darkMatter: () => tileLayer(
     'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{retina}.png', {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://carto.com/attributions">Carto</a>',
       maxZoom: 18,
@@ -10,7 +14,7 @@ export default {
       detectRetina: false
     }
   ),
-  positron: tileLayer(
+  positron: () => tileLayer(
     'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{retina}.png', {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://carto.com/attributions">Carto</a>',
       maxZoom: 18,
@@ -19,7 +23,7 @@ export default {
       detectRetina: false
     }
   ),
-  positronLite: tileLayer(
+  positronLite: () => tileLayer(
     'https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{retina}.png', {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://carto.com/attributions">Carto</a>',
       maxZoom: 18,
@@ -28,7 +32,7 @@ export default {
       detectRetina: false
     }
   ),
-  worldAntique: tileLayer(
+  worldAntique: () => tileLayer(
     'https://cartocdn_{s}.global.ssl.fastly.net/base-antique/{z}/{x}/{y}{retina}.png', {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://carto.com/attributions">Carto</a>',
       maxZoom: 18,
@@ -37,7 +41,7 @@ export default {
       detectRetina: false
     }
   ),
-  worldEco: tileLayer(
+  worldEco: () => tileLayer(
     'https://cartocdn_{s}.global.ssl.fastly.net/base-eco/{z}/{x}/{y}{retina}.png', {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://carto.com/attributions">Carto</a>',
       maxZoom: 18,
@@ -46,7 +50,7 @@ export default {
       detectRetina: false
     }
   ),
-  flatBlue: tileLayer(
+  flatBlue: () => tileLayer(
     'https://cartocdn_{s}.global.ssl.fastly.net/base-flatblue/{z}/{x}/{y}{retina}.png', {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://carto.com/attributions">Carto</a>',
       maxZoom: 18,
@@ -55,7 +59,7 @@ export default {
       detectRetina: false
     }
   ),
-  midnightCommander: tileLayer(
+  midnightCommander: () => tileLayer(
     'https://cartocdn_{s}.global.ssl.fastly.net/base-midnight/{z}/{x}/{y}{retina}.png', {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://carto.com/attributions">Carto</a>',
       maxZoom: 18,
@@ -64,7 +68,7 @@ export default {
       detectRetina: false
     }
   ),
-  openstreetmapHot: tileLayer(
+  openstreetmapHot: () => tileLayer(
     'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>', 
       maxZoom: 19,
@@ -73,7 +77,7 @@ export default {
       detectRetina: false
     }
   ),
-  openstreetmapStandard: tileLayer(
+  openstreetmapStandard: () => tileLayer(
     'https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       maxZoom: 19,
