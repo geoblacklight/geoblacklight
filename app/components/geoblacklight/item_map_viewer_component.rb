@@ -72,16 +72,15 @@ module Geoblacklight
         id: viewer_name,
         class: "viewer",
         data: {
-          "map" => "item",
           "controller" => viewer_name,
-          "available" => helpers.document_available?(@document),
-          "catalog_path" => helpers.search_catalog_path,
-          "leaflet_options" => helpers.leaflet_options,
-          "#{viewer_name}_basemap_value" => geoblacklight_basemap,
-          "#{viewer_name}_protocol_value" => @document.viewer_protocol.camelize,
-          "#{viewer_name}_url_value" => @document.viewer_endpoint,
-          "#{viewer_name}_map_geom_value" => @document.geometry.geojson,
-          "#{viewer_name}_layer_id_value" => @wxs_identifier
+          "catalog-path" => helpers.search_catalog_path,
+          "#{viewer_name}-available-value" => helpers.document_available?(@document),
+          "#{viewer_name}-basemap-value" => helpers.geoblacklight_basemap,
+          "#{viewer_name}-protocol-value" => @document.viewer_protocol.camelize,
+          "#{viewer_name}-url-value" => @document.viewer_endpoint,
+          "#{viewer_name}-map-geom-value" => @document.geometry.geojson,
+          "#{viewer_name}-layer-id-value" => @wxs_identifier,
+          "#{viewer_name}-options-value" => helpers.leaflet_options
         })
     end
   end
