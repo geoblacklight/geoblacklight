@@ -9,6 +9,7 @@ export default defineConfig(() => {
       emptyOutDir: true,
       manifest: true,
       minify: false,
+      sourcemap: true,
       lib: {
         entry: resolve(__dirname, "app/javascript/index.js"),
         name: "@geoblacklight/frontend",
