@@ -1,4 +1,5 @@
 import { tileLayer } from "leaflet";
+import { dynamicMapLayer, featureLayer } from "esri-leaflet";
 import { DEFAULT_OPACITY } from "./constants";
 
 // Create a WMS tile layer
@@ -30,5 +31,36 @@ export const wmtsLayer = async (url, { opacity, detectRetina }) => {
     opacity: opacity || DEFAULT_OPACITY,
     detectRetina: detectRetina || false,
     ...options,
+  });
+};
+
+// Create an ESRI dynamic map layer
+export const esriDynamicMapLayer = (url, { opacity, detectRetina }) => {
+  // Remove any trailing slash and get the last segment from the URL
+  url = url.replace(/\/$/, "");
+  const pathArray = url.split("/");
+  const lastSegment = pathArray[pathArray.length - 1];
+
+  // If the last segment is an integer it's the layer ID
+  let layerId;
+  if (Number(lastSegment) === parseInt(lastSegment, 10)) {
+    layerId = lastSegment;
+    url = url.slice(0, -(lastSegment.length + 1));
+  }
+
+  const options = layerId ? { layers: [layerId] } : {};
+  return dynamicMapLayer({
+    url,
+    opacity: opacity || DEFAULT_OPACITY,
+    detectRetina: detectRetina || false,
+    ...options,
+  });
+};
+
+export const esriFeatureLayer = (url, { opacity, detectRetina }) => {
+  return featureLayer({
+    url,
+    opacity: opacity || DEFAULT_OPACITY,
+    detectRetina: detectRetina || false,
   });
 };
