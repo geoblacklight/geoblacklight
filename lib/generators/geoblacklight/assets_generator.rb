@@ -34,18 +34,12 @@ module Geoblacklight
       remove_file "app/javascript/application.js"
     end
 
-    # Copy over the controllers and Vite entrypoints
+    # Copy over the main Geoblacklight entrypoint
     def add_javascript
-      directory "javascript/controllers", "app/javascript/controllers"
       copy_file "geoblacklight.js", "app/javascript/entrypoints/geoblacklight.js"
     end
 
-    # We just imported new controllers, so regenerate the stimulus manifest
-    def regenerate_controller_manifest
-      rails_command "stimulus:manifest:update"
-    end
-
-    # Import JS dependencies from node_modules
+    # Update the application entrypoint
     def update_application_entrypoint
       imports = <<~JS
         // JS dependencies
@@ -61,9 +55,6 @@ module Geoblacklight
         window.$ = jQuery;
         window.jQuery = jQuery;
         window.Bloodhound = Bloodhound;
-
-        // Import our stimulus controllers
-        import "../controllers";
       JS
 
       inject_into_file "app/javascript/entrypoints/application.js", imports
