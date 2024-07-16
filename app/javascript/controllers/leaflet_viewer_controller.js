@@ -1,11 +1,16 @@
 import { Icon, Control } from "leaflet";
 import "leaflet-fullscreen";
-import { layerGroup, polygon, geoJSON, map, tileLayer } from "leaflet";
+import { layerGroup, polygon, map, tileLayer } from "leaflet";
 import { Controller } from "@hotwired/stimulus";
 import basemaps from "../leaflet/basemaps.js";
 import LayerOpacityControl from "../leaflet/controls/layer_opacity.js";
-import { wmsLayer } from "../leaflet/layers.js";
-import { LatLngBounds } from "leaflet";
+import {
+  wmsLayer,
+  esriDynamicMapLayer,
+  esriFeatureLayer,
+} from "../leaflet/layers.js";
+import { geoJSONToBounds } from "../leaflet/utils.js";
+import { DEFAULT_BOUNDS, DEFAULT_BASEMAP } from "../leaflet/constants.js";
 
 // base
 // ├── map
@@ -20,18 +25,6 @@ import { LatLngBounds } from "leaflet";
 // │   │   ├── xyz
 // │   │   ├── tms
 // │   │   ├── tilejson
-
-export const geoJSONToBounds = (geojson) => {
-  const layer = geoJSON(geojson);
-  return layer.getBounds();
-};
-
-export const DEFAULT_BOUNDS = new LatLngBounds([
-  [-30, -100],
-  [30, 100],
-]);
-
-export const DEFAULT_OPACITY = 0.75;
 
 export default class LeafletViewerController extends Controller {
   static values = {
@@ -50,7 +43,7 @@ export default class LeafletViewerController extends Controller {
     Icon.Default.imagePath = "..";
 
     // Set up layers
-    this.basemap = this.selectBasemap();
+    this.basemap = this.getBasemap();
     this.overlay = layerGroup();
 
     // Calculate bounds
@@ -64,10 +57,6 @@ export default class LeafletViewerController extends Controller {
   get config() {
     if (!this.optionsValue.VIEWERS) return {};
     return this.optionsValue.VIEWERS[this.protocolValue.toUpperCase()];
-  }
-
-  get detectRetina() {
-    return this.optionsValue.LAYERS.DETECT_RETINA || false;
   }
 
   get controlNames() {
@@ -92,9 +81,12 @@ export default class LeafletViewerController extends Controller {
   }
 
   // Select the configured basemap to use
-  selectBasemap() {
-    const basemapName = this.basemapValue || "Streets";
-    return basemaps[basemapName]();
+  getBasemap() {
+    const basemapName = this.basemapValue || "positron";
+    return tileLayer(basemaps[basemapName].url, {
+      ...basemaps[basemapName],
+      detectRetina: this.optionsValue.LAYERS.DETECT_RETINA || false,
+    });
   }
 
   // Add the configured controls to the map
@@ -114,7 +106,6 @@ export default class LeafletViewerController extends Controller {
 
   // Add the bounding box to the map
   addBoundsOverlay(bounds) {
-    console.log("adding bounds", bounds);
     const boundsOverlay = polygon([
       bounds.getSouthWest(),
       bounds.getSouthEast(),
@@ -132,31 +123,31 @@ export default class LeafletViewerController extends Controller {
 
   // Add the actual data to the map as a layer
   async addPreviewOverlay() {
-    this.previewOverlay = await this.getPreviewOverlay();
-    this.overlay.addLayer(this.previewOverlay);
+    this.previewOverlay = await this.getPreviewOverlay(
+      this.protocolValue,
+      this.urlValue,
+      {
+        layerId: this.layerIdValue,
+        opacity: this.optionsValue.opacity,
+        detectRetina: this.optionsValue.LAYERS.DETECT_RETINA || false,
+      }
+    );
+
+    if (this.previewOverlay) this.overlay.addLayer(this.previewOverlay);
   }
 
   // Generate a layer based on the protocol
-  async getPreviewOverlay() {
-    const url = this.urlValue;
-    const options = {
-      layerId: this.layerIdValue,
-      opacity: this.optionsValue.opacity,
-      detectRetina: this.detectRetina,
-    };
-
-    if (this.protocolValue == "EsriDynamicMap") return null; // TODO
-    if (this.protocolValue == "EsriFeatureLayer") return null; // TODO
-    if (this.protocolValue == "EsriImageMap") return null; // TODO
-    if (this.protocolValue == "EsriTiledMap") return null; // TODO
-    if (this.protocolValue == "IndexMap") return null; // TODO
-    if (this.protocolValue == "Wms") return wmsLayer(url, options);
-    if (this.protocolValue == "Wmts") return null; // TODO
-    if (this.protocolValue == "Xyz") return tileLayer(url, options);
-    if (this.protocolValue == "Tms")
-      return tileLayer(url, { tms: true, ...options });
-    if (this.protocolValue == "Tilejson") return null; // TODO
-    console.error(`Unsupported protocol name: "${this.protocolValue}"`);
-    return null;
+  async getPreviewOverlay(protocol, url, options) {
+    if (protocol == "DynamicMapLayer") return esriDynamicMapLayer(url, options);
+    if (protocol == "FeatureLayer") return esriFeatureLayer(url, options);
+    if (protocol == "EsriImageMap") return null; // TODO
+    if (protocol == "EsriTiledMap") return null; // TODO
+    if (protocol == "IndexMap") return null; // TODO
+    if (protocol == "Wms") return wmsLayer(url, options);
+    if (protocol == "Wmts") return null; // TODO
+    if (protocol == "Xyz") return tileLayer(url, options);
+    if (protocol == "Tms") return tileLayer(url, { tms: true, ...options });
+    if (protocol == "Tilejson") return null; // TODO
+    console.error(`Unsupported protocol name: "${protocol}"`);
   }
 }
