@@ -98,7 +98,7 @@ METADATA_SHOWN:
   - 'html'
 
 # (For external Download) timeout and open_timeout parameters for Faraday
-TIMEOUT_DOWNLOAD: 16
+TIMEOUT_DOWNLOAD: 180
 
 # (For WMS inspection) timeout and open_timeout parameters for Faraday
 TIMEOUT_WMS: 4
@@ -215,7 +215,7 @@ RELATIONSHIPS_SHOWN:
     inverse: :VERSION_OF_ANCESTORS
     label: geoblacklight.relations.version_of_descendants
     query_type: descendants
-    
+
 # WMS Parameters
 WMS_PARAMS:
   :SERVICE: 'WMS'
