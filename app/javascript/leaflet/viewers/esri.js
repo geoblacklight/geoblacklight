@@ -3,6 +3,8 @@ import linkifyHtml from "linkify-html";
 import { geoJSONToBounds } from "../utils.js";
 import LeafletViewerMap from "./map.js";
 
+
+// we are deleting this file 
 export default class LeafletViewerEsri extends LeafletViewerMap {
   constructor(element, options) {
     super(element, options);
