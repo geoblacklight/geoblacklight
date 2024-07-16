@@ -23,7 +23,6 @@
     "esri-leaflet": "^3.0.12",
     "leaflet": "^1.9.4",
     "leaflet-fullscreen": "^1.0.2",
-    "leaflet-iiif": "^3.0.0",
     "linkify-html": "^4.1.3",
     "linkifyjs": "^4.1.3",
     "ol": "8.1.0",
