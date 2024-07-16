@@ -7,7 +7,7 @@ module Geoblacklight
     end
 
     def viewer_protocol
-      return "map" if viewer_preference.nil?
+      return if viewer_preference.nil?
       viewer_preference.keys.first.to_s
     end
 
