@@ -1,13 +1,17 @@
 import { Icon, Control } from "leaflet";
 import "leaflet-fullscreen";
 import { layerGroup, polygon, map, tileLayer } from "leaflet";
+import { imageMapLayer } from "esri-leaflet";
 import { Controller } from "@hotwired/stimulus";
 import basemaps from "../leaflet/basemaps.js";
 import LayerOpacityControl from "../leaflet/controls/layer_opacity.js";
 import {
-  wmsLayer,
   esriDynamicMapLayer,
   esriFeatureLayer,
+  tileJsonLayer,
+  wmsLayer,
+  wmtsLayer,
+  indexMapLayer
 } from "../leaflet/layers.js";
 import { geoJSONToBounds } from "../leaflet/utils.js";
 import { DEFAULT_BOUNDS, DEFAULT_BASEMAP } from "../leaflet/constants.js";
@@ -132,7 +136,7 @@ export default class LeafletViewerController extends Controller {
         detectRetina: this.optionsValue.LAYERS.DETECT_RETINA || false,
       }
     );
-
+    console.log('preview overlay', this)
     if (this.previewOverlay) this.overlay.addLayer(this.previewOverlay);
   }
 
@@ -140,14 +144,14 @@ export default class LeafletViewerController extends Controller {
   async getPreviewOverlay(protocol, url, options) {
     if (protocol == "DynamicMapLayer") return esriDynamicMapLayer(url, options);
     if (protocol == "FeatureLayer") return esriFeatureLayer(url, options);
-    if (protocol == "EsriImageMap") return null; // TODO
-    if (protocol == "EsriTiledMap") return null; // TODO
-    if (protocol == "IndexMap") return null; // TODO
+    if (protocol == "ImageMapLayer") return imageMapLayer({url});
+    if (protocol == "TiledMapLayer") return await esriTiledMapLayer(url);
+    if (protocol == "IndexMap") return await indexMapLayer(url, this.optionsValue);
     if (protocol == "Wms") return wmsLayer(url, options);
-    if (protocol == "Wmts") return null; // TODO
+    if (protocol == "Wmts") return await wmtsLayer(url, options);
     if (protocol == "Xyz") return tileLayer(url, options);
     if (protocol == "Tms") return tileLayer(url, { tms: true, ...options });
-    if (protocol == "Tilejson") return null; // TODO
+    if (protocol == "Tilejson") return await tileJsonLayer(url);
     console.error(`Unsupported protocol name: "${protocol}"`);
   }
 }
