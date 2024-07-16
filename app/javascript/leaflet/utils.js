@@ -1,4 +1,4 @@
-import { latLngBounds, Util, geoJSON } from "leaflet";
+import { latLngBounds, Util, geoJSON, latLng  } from "leaflet";
 
 export const bboxToBounds = (bbox) => {
   bbox = bbox.split(" ");
@@ -43,4 +43,13 @@ export const debounce = (fn, delay) => {
       fn.apply(this, args);
     }, delay);
   };
+};
+
+export const getTileJsonBounds = (doc) => {
+  const bounds = doc.bounds;
+  if (bounds) {
+    const corner1 = latLng(bounds[1], bounds[0]),
+      corner2 = latLng(bounds[3], bounds[2]);
+    return latLngBounds(corner1, corner2);
+  }
 };
