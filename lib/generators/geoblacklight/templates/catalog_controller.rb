@@ -49,6 +49,7 @@ class CatalogController < ApplicationController
     config.show.partials << "show_default_attribute_table"
     config.show.partials << "show_default_viewer_information"
     config.show.partials << :show
+    config.header_component = Geoblacklight::HeaderComponent
 
     ##
     # Configure the index document presenter.
