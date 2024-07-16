@@ -1,8 +1,12 @@
 <div class='row'>
-  <div id="documents" class="documents-list col-md-6">
+  <div
+    id="documents"
+    class="documents-list col-md-6"
+    data-controller="search-results"
+    data-search-results-leaflet-viewer-outlet=".leaflet-viewer">
     <% documents.each_with_index do |document, index| %>
       <%= render Geoblacklight::SearchResultComponent.new(document: document, document_counter: index) %>
     <% end %>
   </div>
-  <%= render(Geoblacklight::LocationLeafletMapComponent.new(data_map: results_js_map_selector(controller.controller_name), classes: 'col-md-6 sticky-top position-sticky')) %>
+  <%= render(Geoblacklight::LocationLeafletMapComponent.new(page: 'index', classes: 'col-md-6 sticky-top position-sticky leaflet-viewer')) %>
 </div>

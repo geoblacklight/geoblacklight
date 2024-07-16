@@ -80,7 +80,8 @@ module Geoblacklight
           "#{viewer_name}-url-value" => @document.viewer_endpoint,
           "#{viewer_name}-map-geom-value" => @document.geometry.geojson,
           "#{viewer_name}-layer-id-value" => @wxs_identifier,
-          "#{viewer_name}-options-value" => helpers.leaflet_options
+          "#{viewer_name}-options-value" => helpers.leaflet_options,
+          "#{viewer_name}-draw-initial-bounds-value" => true
         })
     end
   end
