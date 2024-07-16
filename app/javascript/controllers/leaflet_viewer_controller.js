@@ -5,6 +5,7 @@ import { Controller } from "@hotwired/stimulus";
 import basemaps from "../leaflet/basemaps.js";
 import LayerOpacityControl from "../leaflet/controls/layer_opacity.js";
 import { wmsLayer } from "../leaflet/layers.js";
+import { LatLngBounds } from "leaflet";
 
 // base
 // ├── map
@@ -25,10 +26,10 @@ export const geoJSONToBounds = (geojson) => {
   return layer.getBounds();
 };
 
-export const DEFAULT_BOUNDS = [
-  [-82, -144],
-  [77, 161],
-];
+export const DEFAULT_BOUNDS = new LatLngBounds([
+  [-30, -100],
+  [30, 100],
+]);
 
 export const DEFAULT_OPACITY = 0.75;
 
@@ -41,6 +42,7 @@ export default class LeafletViewerController extends Controller {
     basemap: String,
     mapGeom: Object,
     layerId: String,
+    drawInitialBounds: Boolean,
   };
 
   connect() {
@@ -52,7 +54,8 @@ export default class LeafletViewerController extends Controller {
     this.overlay = layerGroup();
 
     // Calculate bounds
-    this.bounds = geoJSONToBounds(this.mapGeomValue) || DEFAULT_BOUNDS;
+    this.bounds = DEFAULT_BOUNDS;
+    if (this.hasMapGeomValue) this.bounds = geoJSONToBounds(this.mapGeomValue);
 
     // Load the map
     this.loadMap();
@@ -74,16 +77,18 @@ export default class LeafletViewerController extends Controller {
   // Create the map, add layers, and fit the bounds
   loadMap() {
     this.map = map(this.element);
-    this.map.addLayer(this.overlay);
     this.map.addLayer(this.basemap);
+    this.map.addLayer(this.overlay);
     this.map.fitBounds(this.bounds);
 
     // If the data is available, add the preview and controls
-    // Otherwise just draw the bounds
+    // Otherwise just draw the bounds, if configured to do so
     if (this.availableValue) {
       this.addPreviewOverlay();
       if (this.previewOverlay) this.addControls();
-    } else this.addBoundsOverlay();
+    } else if (this.drawInitialBoundsValue && this.bounds) {
+      this.addBoundsOverlay(this.bounds);
+    }
   }
 
   // Select the configured basemap to use
@@ -107,16 +112,17 @@ export default class LeafletViewerController extends Controller {
     });
   }
 
-  // Render the bounding box as a polygon overlay, e.g. if the real data is unavailable
-  addBoundsOverlay() {
-    this.boundsOverlay = this.overlay.addLayer(
-      polygon([
-        this.bounds.getSouthWest(),
-        this.bounds.getSouthEast(),
-        this.bounds.getNorthEast(),
-        this.bounds.getNorthWest(),
-      ])
-    );
+  // Add the bounding box to the map
+  addBoundsOverlay(bounds) {
+    console.log("adding bounds", bounds);
+    const boundsOverlay = polygon([
+      bounds.getSouthWest(),
+      bounds.getSouthEast(),
+      bounds.getNorthEast(),
+      bounds.getNorthWest(),
+    ]);
+    this.boundsOverlay = boundsOverlay;
+    this.overlay.addLayer(boundsOverlay);
   }
 
   // Remove the bounding box overlay
@@ -127,19 +133,18 @@ export default class LeafletViewerController extends Controller {
   // Add the actual data to the map as a layer
   async addPreviewOverlay() {
     this.previewOverlay = await this.getPreviewOverlay();
-    this.overlay.addLayer(this.getPreviewOverlay());
+    this.overlay.addLayer(this.previewOverlay);
   }
 
   // Generate a layer based on the protocol
   async getPreviewOverlay() {
     const url = this.urlValue;
     const options = {
+      layerId: this.layerIdValue,
       opacity: this.optionsValue.opacity,
       detectRetina: this.detectRetina,
     };
-    
-    if (this.protocolValue == "Map") return null; // TODO
-    if (this.protocolValue == "Esri") return null; // TODO
+
     if (this.protocolValue == "EsriDynamicMap") return null; // TODO
     if (this.protocolValue == "EsriFeatureLayer") return null; // TODO
     if (this.protocolValue == "EsriImageMap") return null; // TODO
@@ -148,7 +153,8 @@ export default class LeafletViewerController extends Controller {
     if (this.protocolValue == "Wms") return wmsLayer(url, options);
     if (this.protocolValue == "Wmts") return null; // TODO
     if (this.protocolValue == "Xyz") return tileLayer(url, options);
-    if (this.protocolValue == "Tms") return tileLayer(url, { tms: true, ...options });
+    if (this.protocolValue == "Tms")
+      return tileLayer(url, { tms: true, ...options });
     if (this.protocolValue == "Tilejson") return null; // TODO
     console.error(`Unsupported protocol name: "${this.protocolValue}"`);
     return null;

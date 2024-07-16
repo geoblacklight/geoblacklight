@@ -28,6 +28,22 @@ module Geoblacklight
       "#{west} #{south} #{east} #{north}"
     end
 
+    # Output a GeoJSON representation of the bounding box
+    def to_geojson
+      {
+        "type" => "Polygon",
+        "coordinates" => [
+          [
+            [west.to_f, south.to_f],
+            [west.to_f, north.to_f],
+            [east.to_f, north.to_f],
+            [east.to_f, south.to_f],
+            [west.to_f, south.to_f]
+          ]
+        ]
+      }.to_json
+    end
+
     ##
     # Create a Geoblacklight::BoundingBox from a Solr rectangle syntax
     # @param [String] bbox as "W S E N"
