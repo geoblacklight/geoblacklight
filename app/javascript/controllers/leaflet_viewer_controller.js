@@ -8,13 +8,14 @@ import LayerOpacityControl from "../leaflet/controls/layer_opacity.js";
 import {
   esriDynamicMapLayer,
   esriFeatureLayer,
+  esriTiledMapLayer,
   tileJsonLayer,
   wmsLayer,
   wmtsLayer,
-  indexMapLayer
+  indexMapLayer,
 } from "../leaflet/layers.js";
 import { geoJSONToBounds } from "../leaflet/utils.js";
-import { DEFAULT_BOUNDS, DEFAULT_BASEMAP } from "../leaflet/constants.js";
+import { DEFAULT_BOUNDS } from "../leaflet/constants.js";
 
 // base
 // ├── map
@@ -63,16 +64,14 @@ export default class LeafletViewerController extends Controller {
     return this.optionsValue.VIEWERS[this.protocolValue.toUpperCase()];
   }
 
-  get controlNames() {
-    return this.config.CONTROLS || [];
-  }
-
   // Create the map, add layers, and fit the bounds
   loadMap() {
+    if (this.map) return;
+
     this.map = map(this.element);
     this.map.addLayer(this.basemap);
     this.map.addLayer(this.overlay);
-    this.map.fitBounds(this.bounds);
+    this.fitBounds(this.bounds);
 
     // If the data is available, add the preview and controls
     // Otherwise just draw the bounds, if configured to do so
@@ -82,6 +81,15 @@ export default class LeafletViewerController extends Controller {
     } else if (this.drawInitialBoundsValue && this.bounds) {
       this.addBoundsOverlay(this.bounds);
     }
+
+    // Emit an event for other controllers to listen to
+    this.dispatch("loaded");
+  }
+
+  // Set the bounds of the map to an L.LatLngBounds object
+  fitBounds(bounds) {
+    this.map.fitBounds(bounds);
+    this.bounds = bounds;
   }
 
   // Select the configured basemap to use
@@ -95,17 +103,25 @@ export default class LeafletViewerController extends Controller {
 
   // Add the configured controls to the map
   addControls() {
-    this.controlNames.forEach((controlName) => {
-      if (controlName == "Opacity")
-        return this.map.addControl(
-          new LayerOpacityControl(this.previewOverlay)
-        );
-      if (controlName == "Fullscreen")
-        return this.map.addControl(
-          new Control.Fullscreen({ position: "topright" })
-        );
-      console.error(`Unsupported control name: "${controlName}"`);
+    const controlNames = this.config.CONTROLS || [];
+    controlNames.forEach((controlName) => {
+      const control = this.getControl(controlName);
+      if (control) this.addControl(control);
     });
+  }
+
+  // Add a pre-configured L.Control instance to the map
+  addControl(control) {
+    this.map.addControl(control);
+  }
+
+  // Look up the control name and return the corresponding L.Control instance
+  getControl(controlName) {
+    if (controlName == "Opacity")
+      return new LayerOpacityControl(this.previewOverlay);
+    if (controlName == "Fullscreen")
+      new Control.Fullscreen({ position: "topright" });
+    console.error(`Unsupported control name: "${controlName}"`);
   }
 
   // Add the bounding box to the map
@@ -136,7 +152,6 @@ export default class LeafletViewerController extends Controller {
         detectRetina: this.optionsValue.LAYERS.DETECT_RETINA || false,
       }
     );
-    console.log('preview overlay', this)
     if (this.previewOverlay) this.overlay.addLayer(this.previewOverlay);
   }
 
@@ -144,9 +159,10 @@ export default class LeafletViewerController extends Controller {
   async getPreviewOverlay(protocol, url, options) {
     if (protocol == "DynamicMapLayer") return esriDynamicMapLayer(url, options);
     if (protocol == "FeatureLayer") return esriFeatureLayer(url, options);
-    if (protocol == "ImageMapLayer") return imageMapLayer({url});
+    if (protocol == "ImageMapLayer") return imageMapLayer({ url });
     if (protocol == "TiledMapLayer") return await esriTiledMapLayer(url);
-    if (protocol == "IndexMap") return await indexMapLayer(url, this.optionsValue);
+    if (protocol == "IndexMap")
+      return await indexMapLayer(url, this.optionsValue);
     if (protocol == "Wms") return wmsLayer(url, options);
     if (protocol == "Wmts") return await wmtsLayer(url, options);
     if (protocol == "Xyz") return tileLayer(url, options);

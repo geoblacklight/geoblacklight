@@ -74,7 +74,13 @@ export const esriTiledMapLayer = async (url) => {
   if (!response.ok)
     throw new Error("Unable to fetch TiledMapLayer document", url);
 
-  const layerInfo = await response.json();
+  let layerInfo;
+  try {
+    layerInfo = await response.json();
+  } catch (error) {
+    throw new Error("Unable to parse TiledMapLayer document", response);
+  }
+
   // For an example of tiledMapLayer data see nyu-test-soil-survey-map
   // We aren't sure what the json structure looks like
   // This is not rendering anything (and wasn't before we made changes) and the keys are not even present
@@ -100,8 +106,6 @@ export const tileJsonLayer = async (url) => {
   const tileUrl = layerInfo.tiles[0];
   return tileLayer(tileUrl, options);
 };
-
-
 
 export const indexMapLayer = async (url, leafletOptions) => {
   let prevLayer = null;
@@ -133,7 +137,7 @@ export const indexMapLayer = async (url, leafletOptions) => {
       }
     },
     pointToLayer: (feature, latlng) => circleMarker(latlng),
-  })
+  });
 
   return geoJSONLayer;
-}
+};

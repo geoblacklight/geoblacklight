@@ -2,6 +2,7 @@ import VectorTile from "ol/layer/VectorTile";
 import { Style, Stroke, Fill, Circle } from "ol/style";
 import { PMTilesVectorSource } from "ol-pmtiles";
 import { useGeographic } from "ol/proj";
+import GeoTIFF from "ol/source/GeoTIFF";
 import WebGLTileLayer from "ol/layer/WebGLTile";
 
 // Create a new PMTiles layer
