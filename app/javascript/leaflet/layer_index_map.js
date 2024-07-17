@@ -97,7 +97,6 @@ const indexMapTemplate = (data) => {
 };
 
 export const availabilityStyle = (availability, leafletOptions) => {
-    console.log(leafletOptions)
     return availability || typeof availability === "undefined"
         ? leafletOptions.LAYERS.INDEX.DEFAULT
         : leafletOptions.LAYERS.INDEX.UNAVAILABLE;
