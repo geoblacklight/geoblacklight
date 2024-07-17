@@ -11,7 +11,7 @@ describe GeoblacklightHelper, type: :helper do
     it "supports in use cases" do
       {
         "Paper map" => "paper-map",
-        "Michigan State" => "michigan-state",
+        "Michigan State University" => "michigan-state-university",
         "CD ROM" => "cd-rom",
         "Lewis & Clark" => "lewis-clark"
       }.each_key do |key|

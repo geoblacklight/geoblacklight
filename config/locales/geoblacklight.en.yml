@@ -155,7 +155,6 @@ en:
       baruch-cuny: Baruch College
       berkeley: University of California, Berkeley
       cd-rom: CD-Rom
-      chicago: The University of Chicago
       columbia: Columbia University
       cornell: Cornell University
       dvd-rom: DVD-Rom
@@ -163,27 +162,17 @@ en:
       george-mason: George Mason University
       harvard: Harvard University
       iiif-drag-n-drop: Drag icon to any IIIF viewer
-      illinois: University of Illinois
       indiana: Indiana University
-      iowa: University of Iowa
       lewis-clark: Lewis & Clark
-      maryland: University of Maryland
       massgis: MassGIS
-      michigan-state: Michigan State University
-      michigan: University of Michigan
-      minnesota: University of Minnesota
       mit: Massachusetts Institute of Technology
       multilinestring: Multi-line string
       multipoint: Multi-point
       multipolygon: Multi-polygon
-      nebraska: University of Nebraska-Lincoln
       northwestern-university: Northwestern University
       nyu: New York University
-      ohio-state: The Ohio State University
-      penn-state: Penn State University
       princeton: Princeton University
       public: Public content
-      purdue: Purdue University
       restricted: Restricted content
       rutgers: Rutgers University
       sms: SMS
@@ -192,4 +181,3 @@ en:
       tufts: Tufts University
       ucla: University of California, Los Angeles
       uva: University of Virginia
-      wisconsin: University of Wisconsin
