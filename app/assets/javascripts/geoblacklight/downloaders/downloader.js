@@ -10,7 +10,7 @@
       L.Util.setOptions(this, options);
       this.$el = $(el);
       this.options.spinner.hide();
-      $('.exports .card-header').append(this.options.spinner);
+      this.$el.before(this.options.spinner);
       this.configureHandler();
     },
 
@@ -26,6 +26,9 @@
       this.downloading = true;
       var url = this.$el.data('downloadPath');
       this.options.spinner.show();
+      this.$el.removeAttr('href');
+      this.$el.prop('disabled', true);
+      this.$el.prop('innerHTML', 'Preparing download...');
       $.getJSON(url)
         .done(L.Util.bind(this.complete, this))
         .fail(L.Util.bind(this.error, this));
@@ -34,12 +37,14 @@
     complete: function(data) {
       this.downloading = false;
       this.$el.prop('disabled', false);
+      this.$el.prop('outerHTML', data[0][1]);
       this.renderMessage(data);
       this.options.spinner.hide();
     },
 
     error: function(data) {
       this.downloading = false;
+      this.$el.prop('innerHTML', 'Download failed');
       this.$el.prop('disabled', false);
       this.options.spinner.hide();
     },
