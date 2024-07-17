@@ -26,7 +26,6 @@ export default class LayerOpacityControl extends Control {
 
     DomEvent.stopPropagation(container);
     DomEvent.disableClickPropagation(container);
-
     this.setListeners(handle, bottom, handleText);
     handle.style.top = `${handle.offsetTop - 13 + 50}px`;
     handleText.innerHTML = `${parseInt(
