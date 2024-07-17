@@ -31,8 +31,6 @@ module Geoblacklight
         },
         data: {
           "controller" => "leaflet-viewer",
-          "catalog-path" => helpers.search_catalog_path,
-          "page" => @page,
           "leaflet-viewer-basemap-value" => helpers.geoblacklight_basemap,
           "leaflet-viewer-map-geom-value" => search_bbox || @map_geometry,
           "leaflet-viewer-data-map-value" => @data_map,
