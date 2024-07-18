@@ -110,7 +110,7 @@ RSpec.describe Geoblacklight::DownloadLinksComponent, type: :component do
     it "generates a link to download the JPG file from the IIIF server" do
       # Stub I18n to ensure the link can be customized via `export_` labels.
       allow(component).to receive(:t).with("geoblacklight.download.export_shapefile_link").and_return("Shapefile Export Customization")
-      allow(component).to receive(:t).with("geoblacklight.download.export_link", {:download_format=>"Shapefile Export Customization"}).and_return("Export Shapefile Export Customization")
+      allow(component).to receive(:t).with("geoblacklight.download.export_link", {download_format: "Shapefile Export Customization"}).and_return("Export Shapefile Export Customization")
       puts component.download_link_generated(download_type, document)
       expect(component.download_link_generated(download_type, document)).to eq '<a data-download-path="/download/test-id?type=SHAPEFILE" data-download="trigger" data-action="downloads#download:once" data-download-complete-text="Shapefile Export Customization is ready for download" data-download-type="SHAPEFILE" data-download-id="test-id" href="">Export Shapefile Export Customization</a>'
     end
