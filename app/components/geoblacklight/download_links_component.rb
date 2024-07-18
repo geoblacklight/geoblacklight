@@ -15,7 +15,7 @@ module Geoblacklight
       downloadable && (document.direct_download.present? || document.hgl_download.present? || document.iiif_download.present? || document.download_types.present?)
     end
 
-  def download_link_file(label, id, url)
+    def download_link_file(label, id, url)
       link_to(
         label,
         url,
@@ -62,7 +62,7 @@ module Geoblacklight
           download_path: download_path(document.id, type: download_type),
           download: "trigger",
           action: "downloads#download:once",
-          download_complete_text: export_format_label(download_type) + ' is ready for download',
+          download_complete_text: export_format_label(download_type) + " is ready for download",
           download_type: download_type,
           download_id: document.id
         }
