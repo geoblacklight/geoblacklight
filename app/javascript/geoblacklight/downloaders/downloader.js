@@ -8,8 +8,7 @@ export default class GeoBlacklightDownloader {
     this.options.spinner.role = "status";
     this.options.spinner.innerHTML = '<span class="sr-only">Downloading</span>';
     this.options.spinner.style.display = "none";
-    // @TODO: This spinner doesn't appear to work in GBL Proper anymore.
-    //document.querySelector('.exports .card-header').appendChild(this.options.spinner);
+    this.el.before(this.options.spinner);
     this.configureHandler();
   }
 
@@ -23,8 +22,11 @@ export default class GeoBlacklightDownloader {
       return;
     }
     this.downloading = true;
+    this.el.classList.add('disabled');
     const url = this.el.getAttribute("data-download-path");
     this.options.spinner.style.display = "block";
+    this.el.removeAttribute('href');
+    this.el.innerHTML = 'Preparing download...';
 
     fetch(url)
       .then((response) => {
@@ -39,7 +41,8 @@ export default class GeoBlacklightDownloader {
 
   complete(data) {
     this.downloading = false;
-    this.el.disabled = false;
+    this.el.classList.remove('disabled');
+    this.el.outerHTML = data[0][1]
     this.renderMessage(data);
     this.options.spinner.style.display = "none";
   }
@@ -47,7 +50,8 @@ export default class GeoBlacklightDownloader {
   error(data) {
     console.error("Download error:", data);
     this.downloading = false;
-    this.el.disabled = false;
+    this.el.classList.remove('disabled');
+    this.el.innerHTML = 'Download failed';
     this.options.spinner.style.display = "none";
   }
 
