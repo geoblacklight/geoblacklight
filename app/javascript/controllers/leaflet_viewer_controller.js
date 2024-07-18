@@ -5,6 +5,7 @@ import { imageMapLayer } from "esri-leaflet";
 import { Controller } from "@hotwired/stimulus";
 import basemaps from "../leaflet/basemaps.js";
 import LayerOpacityControl from "../leaflet/controls/layer_opacity.js";
+import GeoSearchControl from "../leaflet/controls/geosearch.js";
 import {
   esriDynamicMapLayer,
   esriFeatureLayer,
@@ -17,23 +18,10 @@ import {
 import { geoJSONToBounds } from "../leaflet/utils.js";
 import { DEFAULT_BOUNDS } from "../leaflet/constants.js";
 
-// base
-// ├── map
-// │   ├── esri
-// │   │   ├── dynamic map
-// │   │   ├── feature layer
-// │   │   ├── image map
-// │   │   ├── tiled map
-// │   ├── index map
-// │   ├── wms
-// │   │   ├── wmts
-// │   │   ├── xyz
-// │   │   ├── tms
-// │   │   ├── tilejson
-
 export default class LeafletViewerController extends Controller {
   static values = {
     url: String,
+    catalogBaseUrl: String,
     protocol: String,
     available: Boolean,
     options: Object,
@@ -60,7 +48,7 @@ export default class LeafletViewerController extends Controller {
   }
 
   get config() {
-    if (!this.optionsValue.VIEWERS) return {};
+    if (!this.optionsValue.VIEWERS || !this.hasProtocolValue) return {};
     return this.optionsValue.VIEWERS[this.protocolValue.toUpperCase()];
   }
 
@@ -68,28 +56,37 @@ export default class LeafletViewerController extends Controller {
   loadMap() {
     if (this.map) return;
 
+    // Set up the map and fit to bounds
     this.map = map(this.element);
     this.map.addLayer(this.basemap);
     this.map.addLayer(this.overlay);
-    this.fitBounds(this.bounds);
+    this.map.fitBounds(this.bounds);
 
-    // If the data is available, add the preview and controls
-    // Otherwise just draw the bounds, if configured to do so
-    if (this.availableValue) {
-      this.addPreviewOverlay();
-      if (this.previewOverlay) this.addControls();
-    } else if (this.drawInitialBoundsValue && this.bounds) {
+    // Add the layer preview, if available, and controls
+    if (this.availableValue) this.addPreviewOverlay();
+    this.addControls();
+
+    // If we didn't add a preview, draw the bounds instead (if configured)
+    // This is used when the data is unavailable to render
+    if (!this.previewOverlay && this.drawInitialBoundsValue) {
       this.addBoundsOverlay(this.bounds);
     }
+
+    // Enable geosearch if available
+    if (this.map.geosearch) this.map.geosearch.enable();
 
     // Emit an event for other controllers to listen to
     this.dispatch("loaded");
   }
 
   // Set the bounds of the map to an L.LatLngBounds object
+  // FIXME we have to turn off geosearch so that fitting the map doesn't
+  // register as a search, but it still does anyway?
   fitBounds(bounds) {
+    if (this.map.geosearch) this.map.geosearch.disable();
     this.map.fitBounds(bounds);
     this.bounds = bounds;
+    if (this.map.geosearch) this.map.geosearch.enable();
   }
 
   // Select the configured basemap to use
@@ -103,11 +100,22 @@ export default class LeafletViewerController extends Controller {
 
   // Add the configured controls to the map
   addControls() {
-    const controlNames = this.config.CONTROLS || [];
-    controlNames.forEach((controlName) => {
-      const control = this.getControl(controlName);
+    // Add any top-level controls (e.g. geosearch) first
+    const globalControls = this.optionsValue.CONTROLS || {};
+    Object.entries(globalControls).forEach(([controlName, controlOptions]) => {
+      const control = this.getControl(controlName, controlOptions);
       if (control) this.addControl(control);
     });
+
+    // If there are controls configured for this protocol type, and we
+    // successfully added an available layer of that type, add its controls
+    const protocolControls = this.config.CONTROLS || [];
+    if (this.availableValue && this.previewOverlay) {
+      protocolControls.forEach((controlName) => {
+        const control = this.getControl(controlName);
+        if (control) this.addControl(control);
+      });
+    }
   }
 
   // Add a pre-configured L.Control instance to the map
@@ -116,11 +124,13 @@ export default class LeafletViewerController extends Controller {
   }
 
   // Look up the control name and return the corresponding L.Control instance
-  getControl(controlName) {
+  getControl(controlName, controlOptions) {
     if (controlName == "Opacity")
       return new LayerOpacityControl(this.previewOverlay);
     if (controlName == "Fullscreen")
-      new Control.Fullscreen({ position: "topright" });
+      return new Control.Fullscreen({ position: "topright", ...controlOptions });
+    if (controlName == "Geosearch")
+      return new GeoSearchControl({ baseUrl: this.catalogBaseUrlValue, ...controlOptions });
     console.error(`Unsupported control name: "${controlName}"`);
   }
 
