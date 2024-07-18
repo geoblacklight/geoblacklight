@@ -1,15 +1,23 @@
 import { DomUtil, Control, Handler, setOptions } from "leaflet";
 import { debounce, boundsToBbox } from "../utils";
 
+export const geosearchDefaultOptions = {
+  dynamic: true,
+  delay: 800,
+};
+
 export default class GeoSearchControl extends Control {
   constructor(options) {
-    super(options);
-    setOptions(this, options);
+    const _options = { ...geosearchDefaultOptions, ...options }
+    super(_options);
+    setOptions(this, _options);
   }
 
   onAdd(map) {
     this.map = map;
     this.map.options.geoSearchControl = this;
+
+    console.log('geosearch added', this.options);
 
     // Create the buttons
     this.staticButton = this.createStaticButton();
@@ -45,10 +53,7 @@ export default class GeoSearchControl extends Control {
     staticButtonNode.setAttribute("href", "#");
     staticButtonNode.setAttribute("style", "display:none;");
     staticButtonNode.className = "btn btn-primary";
-    staticButtonNode.textContent = "Redo search here";
-    const span = DomUtil.create("span");
-    span.className = "glyphicon glyphicon-repeat";
-    staticButtonNode.appendChild(span);
+    staticButtonNode.textContent = "Search here";
     staticButtonNode.addEventListener("click", this.staticSearch.bind(this));
     return staticButtonNode;
   }
@@ -81,16 +86,14 @@ export default class GeoSearchControl extends Control {
 
   // Update the URL with the current bounding box and go back to page 1
   applySearch() {
-    const params = new URL(window.location).searchParams;
+    const params = new URL(window.location).searchParams
     params.delete("page");
     params.delete("bbox");
     const bbox = boundsToBbox(this._map.getBounds());
     // FIXME: we shouldn't pass the bbox with whitespace in it, but the catalog
     // controller won't honor it unless we do
-    const url = `${this.options.baseUrl}?${params.toString()}&bbox=${bbox.join(
-      " "
-    )}`;
-    window.location.href = url;
+    const newUrl = `${this.options.baseUrl}?${params.toString()}&bbox=${bbox.join(" ")}`;
+    window.location.href = newUrl;
   }
 
   // Toggle the dynamic search option
@@ -130,18 +133,15 @@ class GeoSearchHandler extends Handler {
   }
 
   handleResize() {
-    console.log("resize");
     this.wasResized = true;
   }
 
   handleMoveEnd() {
-    console.log("moveend");
     if (this.wasResized) this.wasResized = false;
     else this.control.dynamicSearcher.apply(this.control);
   }
 
   handleMoveStart() {
-    console.log("movestart");
     if (!this.control.options.dynamic) {
       this.control.hideDynamicButton();
     }
