@@ -4,6 +4,7 @@ import CloverViewerController from "./controllers/clover_viewer_controller";
 import OembedViewerController from "./controllers/oembed_viewer_controller";
 import LeafletViewerController from "./controllers/leaflet_viewer_controller";
 import SearchResultsController from "./controllers/search_results_controller";
+import DownloadsController from "./controllers/downloads_controller";
 
 // GBL stuff
 import GeoBlacklightInitializer from "./geoblacklight/geoblacklight_initializer";
@@ -19,6 +20,7 @@ export {
   LeafletViewerController,
   GeoBlacklightInitializer,
   SearchResultsController,
+  DownloadsController,
   openLayersBasemaps,
   leafletBasemaps,
 };
