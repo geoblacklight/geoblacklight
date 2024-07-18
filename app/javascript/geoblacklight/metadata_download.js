@@ -1,5 +1,5 @@
 export class GeoBlacklightMetadataDownloadButton {
-  constructor(el, options = {}) {
+  constructor(el, i, options = {}) {
     this.options = options;
     this.el = typeof el === "string" ? document.querySelector(el) : el;
     this.download = document.querySelector(
@@ -30,7 +30,10 @@ export class GeoBlacklightMetadataDownloadButton {
 export default function initializeMetadataDownload() {
   const modal = document.getElementById("blacklight-modal");
 
-  modal.addEventListener("loaded.blacklight.blacklight-modal", (e) => {
+  modal.addEventListener("focus", (e) => {
+    if (!Array.from(e.target.classList).includes('show')){
+      return;
+    }
     e.target.querySelectorAll(".metadata-body").forEach((el) => {
       el.closest(".modal-content").classList.add("metadata-modal");
     });
@@ -40,7 +43,10 @@ export default function initializeMetadataDownload() {
     });
   });
 
-  modal.addEventListener("hidden.bs.modal", (e) => {
+  modal.addEventListener("blur", (e) => {
+    if (Array.from(e.target.classList).includes('show')){
+      return;
+    }
     e.target.querySelectorAll(".metadata-body").forEach((el) => {
       el.closest(".modal-content").classList.remove("metadata-modal");
     });
