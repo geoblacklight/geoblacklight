@@ -1,8 +1,7 @@
-import GeoBlacklightDownloader from './downloader.js'
-
-export default class GeoBlacklightHglDownloader extends GeoBlacklightDownloader {
+export default class GeoBlacklightHglDownloader {
   constructor(el, options) {
-    super(el, options);
+    this.options = options;
+    this.el = el;
     this.configureHandler();
   }
 
@@ -37,5 +36,22 @@ export default class GeoBlacklightHglDownloader extends GeoBlacklightDownloader 
     })
     .then(data => this.complete(data))
     .catch(error => this.error(error));
+  }
+
+  complete(data) {
+    this.downloading = false;
+    this.element.classList.remove('disabled');
+    this.element.innerHTML = 'Download ready';
+    this.element.href = data[1];
+    this.renderMessage(data[0]);
+    this.spinnerTarget.style.display = "none";
+  }
+
+  error(data) {
+    console.error("Download error:", data);
+    this.downloading = false;
+    this.element.classList.remove('disabled');
+    this.element.innerHTML = 'Download failed';
+    this.spinnerTarget.style.display = "none";
   }
 }
