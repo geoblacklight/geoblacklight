@@ -6,6 +6,11 @@ import { Controller } from "@hotwired/stimulus";
 import basemaps from "../leaflet/basemaps.js";
 import LayerOpacityControl from "../leaflet/controls/layer_opacity.js";
 import GeoSearchControl from "../leaflet/controls/geosearch.js";
+import { wmsInspection,
+  tiledMapLayerInspection,
+  featureLayerInspection,
+  dynamicMapLayerInspection
+} from "../leaflet/inspection.js";
 import {
   esriDynamicMapLayer,
   esriFeatureLayer,
@@ -16,7 +21,7 @@ import {
   indexMapLayer,
 } from "../leaflet/layers.js";
 import { geoJSONToBounds } from "../leaflet/utils.js";
-import { DEFAULT_BOUNDS } from "../leaflet/constants.js";
+import { DEFAULT_BOUNDS, DEFAULT_OPACITY } from "../leaflet/constants.js";
 
 export default class LeafletViewerController extends Controller {
   static values = {
@@ -33,7 +38,8 @@ export default class LeafletViewerController extends Controller {
 
   connect() {
     // Sets leaflet icon paths to ex. /assets/marker-icon-2x-rails-fingerprint
-    Icon.Default.imagePath = "..";
+    // TODO: figure out why vite @leaftlet_images alias is not working.
+    Icon.Default.imagePath = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/";
 
     // Set up layers
     this.basemap = this.getBasemap();
@@ -48,11 +54,12 @@ export default class LeafletViewerController extends Controller {
   }
 
   get config() {
+
     if (!this.optionsValue.VIEWERS || !this.hasProtocolValue) return {};
     return this.optionsValue.VIEWERS[this.protocolValue.toUpperCase()];
   }
 
-  // Create the map, add layers, and fit the bounds
+  // Create the map, add layers, fit the bounds
   loadMap() {
     if (this.map) return;
 
@@ -62,13 +69,11 @@ export default class LeafletViewerController extends Controller {
     this.map.addLayer(this.overlay);
     this.map.fitBounds(this.bounds);
 
-    // Add the layer preview, if available, and controls
-    if (this.availableValue) this.addPreviewOverlay();
-    this.addControls();
-
-    // If we didn't add a preview, draw the bounds instead (if configured)
-    // This is used when the data is unavailable to render
-    if (!this.previewOverlay && this.drawInitialBoundsValue) {
+    // If the data is available, add the preview
+    // Otherwise just draw the bounds, if configured to do so
+    if (this.availableValue) {
+      this.addPreviewOverlay();
+    } else if (this.drawInitialBoundsValue && this.bounds) {
       this.addBoundsOverlay(this.bounds);
     }
 
@@ -107,15 +112,14 @@ export default class LeafletViewerController extends Controller {
       if (control) this.addControl(control);
     });
 
-    // If there are controls configured for this protocol type, and we
-    // successfully added an available layer of that type, add its controls
-    const protocolControls = this.config.CONTROLS || [];
-    if (this.availableValue && this.previewOverlay) {
-      protocolControls.forEach((controlName) => {
-        const control = this.getControl(controlName);
-        if (control) this.addControl(control);
-      });
+    // Add opacity and fullscreen controls for all layers
+    const opacityControl = this.getControl("Opacity");
+    // TODO: set up opacity control for IndexMap. After that we can remove this condition.
+    if (this.protocolValue !== "IndexMap") {
+      this.addControl(opacityControl);
     }
+    const fullscreenControl = this.getControl("Fullscreen");
+    this.addControl(fullscreenControl);
   }
 
   // Add a pre-configured L.Control instance to the map
@@ -151,6 +155,14 @@ export default class LeafletViewerController extends Controller {
     if (this.boundsOverlay) this.overlay.removeLayer(this.boundsOverlay);
   }
 
+  addInspection() {
+    if (this.protocolValue == "Wms") return wmsInspection(this.map, this.urlValue, this.layerIdValue);
+    if (this.protocolValue == "FeatureLayer") return featureLayerInspection(this.map, this.previewOverlay);
+    if (this.protocolValue  == "DynamicMapLayer") return dynamicMapLayerInspection(this.map, this.previewOverlay, this.layerIdValue)
+    // TODO: TiledMapLayer is converted but seems busted -- see layers.js. Don't know what to test it with, need a fixture.
+    // if (this.protocolValue == "TiledMapLayer") return tiledMapLayerInspection(this.map, this.previewOverlay);
+  }
+
   // Add the actual data to the map as a layer
   async addPreviewOverlay() {
     this.previewOverlay = await this.getPreviewOverlay(
@@ -158,26 +170,32 @@ export default class LeafletViewerController extends Controller {
       this.urlValue,
       {
         layerId: this.layerIdValue,
-        opacity: this.optionsValue.opacity,
+        opacity: this.optionsValue.opacity || DEFAULT_OPACITY,
         detectRetina: this.optionsValue.LAYERS.DETECT_RETINA || false,
       }
     );
-    if (this.previewOverlay) this.overlay.addLayer(this.previewOverlay);
+    // Create the overlay, controls, and inspection interactions once the layer exists
+    if (this.previewOverlay) {       
+      this.overlay.addLayer(this.previewOverlay);
+      this.addControls();
+      this.addInspection();
+    };
   }
 
   // Generate a layer based on the protocol
   async getPreviewOverlay(protocol, url, options) {
     if (protocol == "DynamicMapLayer") return esriDynamicMapLayer(url, options);
     if (protocol == "FeatureLayer") return esriFeatureLayer(url, options);
-    if (protocol == "ImageMapLayer") return imageMapLayer({ url });
-    if (protocol == "TiledMapLayer") return await esriTiledMapLayer(url);
-    if (protocol == "IndexMap")
-      return await indexMapLayer(url, this.optionsValue);
+    // imageMapLayer is a built-in method from esri-leaflet
+    if (protocol == "ImageMapLayer") return imageMapLayer({url, ...options});
+    if (protocol == "IndexMap") return await indexMapLayer(url, this.optionsValue);
+    if (protocol == "TiledMapLayer") return await esriTiledMapLayer(url, options);
+    if (protocol == "Tilejson") return await tileJsonLayer(url, options);
+    // tileLayer is a built-in method from leaflet
+    if (protocol == "Tms") return tileLayer(url, { tms: true, ...options });
     if (protocol == "Wms") return wmsLayer(url, options);
     if (protocol == "Wmts") return await wmtsLayer(url, options);
     if (protocol == "Xyz") return tileLayer(url, options);
-    if (protocol == "Tms") return tileLayer(url, { tms: true, ...options });
-    if (protocol == "Tilejson") return await tileJsonLayer(url);
     console.error(`Unsupported protocol name: "${protocol}"`);
   }
 }

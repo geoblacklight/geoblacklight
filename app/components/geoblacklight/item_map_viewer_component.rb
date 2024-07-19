@@ -25,7 +25,7 @@ module Geoblacklight
     private
 
     def protocol
-      @document.viewer_protocol.camelize if @document.viewer_protocol
+      @document.viewer_protocol&.camelize
     end
 
     # These are captured as openlayers_container? and iiif_manifest_viewer? in geoblacklight_helper.

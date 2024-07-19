@@ -53,3 +53,26 @@ export const getTileJsonBounds = (doc) => {
     return latLngBounds(corner1, corner2);
   }
 };
+
+export const appendLoadingMessage = () => {
+  const spinner = `<tbody class="attribute-table-body"><tr><td colspan="2">
+    <span id="attribute-table">
+    <div class="spinner-border" role="status"><span class="sr-only">Inspecting</span></div>
+    </span>
+    </td></tr></tbody>`;
+
+  document.querySelector(".attribute-table-body").innerHTML = spinner;
+};
+
+export const appendErrorMessage = () => {
+  document.querySelector(
+    ".attribute-table-body"
+  ).innerHTML = `<tbody class="attribute-table-body">
+    <tr><td colspan="2">Could not find that feature</td></tr></tbody>`;
+};
+
+// Looks for strings that could be URLs and wraps them in <a> tags
+export const linkify = (str) => {
+  const urlRegEx = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-]*)?\??(?:[\-\+=&;%@\.\w]*)#?(?:[\.\!\/\\\w]*))?)/g;
+  return str.toString().replace(urlRegEx, '<a href=\'$1\'>$1</a>');
+}
