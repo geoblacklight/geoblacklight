@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+module Blacklight
+  module Icons
+    class PolygonComponent < Blacklight::Icons::IconComponent
+      self.svg = svg
+
+      def svg
+        <<~SVG
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+          	<title>#{title}</title>
+          	<path fill="none" stroke="#6c757d" stroke-miterlimit="10" stroke-width="1.52" d="M.76.76h6.33v6.33H.76V.76zM24.9.76h6.34v6.33h-6.33V.76zM.76 24.9h6.33v6.34H.76v-6.33zM24.9 24.9h6.34v6.34h-6.33v-6.33z"/>
+          	<path fill="none" stroke="#6c757d" stroke-miterlimit="10" stroke-width="3.04" d="M7.1 3.93h17.8M7.1 29h17.8M28.07 24.9V7.1M3.93 24.9V7.1"/>
+          </svg>
+        SVG
+      end
+
+      def title
+        key = "blacklight.icon.#{name}"
+        t(key)
+      end
+    end
+  end
+end
