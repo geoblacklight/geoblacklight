@@ -60,24 +60,28 @@ export default class LeafletViewerController extends Controller {
   }
 
   // Create the map, add layers, fit the bounds
-  loadMap() {
+  async loadMap() {
     if (this.map) return;
 
     // Set up the map and fit to bounds
     this.map = map(this.element);
     this.map.addLayer(this.basemap);
     this.map.addLayer(this.overlay);
-    this.map.fitBounds(this.bounds);
+    this.fitBounds(this.bounds);
 
-    // If the data is available, add the preview
+    // If the data is available, add the preview and set up inspection
     // Otherwise just draw the bounds, if configured to do so
     if (this.availableValue) {
-      this.addPreviewOverlay();
+      await this.addPreviewOverlay();
+      this.addInspection();
     } else if (this.drawInitialBoundsValue && this.bounds) {
       this.addBoundsOverlay(this.bounds);
     }
 
-    // Enable geosearch if available
+    // Add configured controls
+    this.addControls();
+
+    // Enable geosearch handler, if available
     if (this.map.geosearch) this.map.geosearch.enable();
 
     // Emit an event for other controllers to listen to
@@ -85,13 +89,9 @@ export default class LeafletViewerController extends Controller {
   }
 
   // Set the bounds of the map to an L.LatLngBounds object
-  // FIXME we have to turn off geosearch so that fitting the map doesn't
-  // register as a search, but it still does anyway?
   fitBounds(bounds) {
-    if (this.map.geosearch) this.map.geosearch.disable();
-    this.map.fitBounds(bounds);
+    this.map.fitBounds(bounds, { animate: false, noMoveStart: true });
     this.bounds = bounds;
-    if (this.map.geosearch) this.map.geosearch.enable();
   }
 
   // Select the configured basemap to use
@@ -113,13 +113,15 @@ export default class LeafletViewerController extends Controller {
     });
 
     // Add opacity and fullscreen controls for all layers
-    const opacityControl = this.getControl("Opacity");
-    // TODO: set up opacity control for IndexMap. After that we can remove this condition.
-    if (this.protocolValue !== "IndexMap") {
-      this.addControl(opacityControl);
+    if (this.hasProtocolValue) {
+      const opacityControl = this.getControl("Opacity");
+      // TODO: set up opacity control for IndexMap. After that we can remove this condition.
+      if (this.protocolValue !== "IndexMap") {
+        this.addControl(opacityControl);
+      }
+      const fullscreenControl = this.getControl("Fullscreen");
+      this.addControl(fullscreenControl);
     }
-    const fullscreenControl = this.getControl("Fullscreen");
-    this.addControl(fullscreenControl);
   }
 
   // Add a pre-configured L.Control instance to the map
@@ -174,12 +176,7 @@ export default class LeafletViewerController extends Controller {
         detectRetina: this.optionsValue.LAYERS.DETECT_RETINA || false,
       }
     );
-    // Create the overlay, controls, and inspection interactions once the layer exists
-    if (this.previewOverlay) {       
-      this.overlay.addLayer(this.previewOverlay);
-      this.addControls();
-      this.addInspection();
-    };
+    if (this.previewOverlay) this.overlay.addLayer(this.previewOverlay);
   }
 
   // Generate a layer based on the protocol
