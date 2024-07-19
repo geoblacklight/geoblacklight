@@ -7,7 +7,9 @@ export default class SearchResultsController extends Controller {
   static outlets = ["leaflet-viewer"];
 
   // Fit the map to the combined bounding box of all search results
+  // If a bounding box query is already active, do not override it
   fitResultBounds() {
+    if (new URL(window.location).searchParams.get("bbox")) return;
     this.leafletViewerOutlet.fitBounds(this.getMaximalBounds());
   }
 
