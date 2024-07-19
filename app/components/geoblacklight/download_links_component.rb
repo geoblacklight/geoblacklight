@@ -62,7 +62,6 @@ module Geoblacklight
           download_path: download_path(document.id, type: download_type),
           download: "trigger",
           action: "downloads#download:once",
-          download_complete_text: export_format_label(download_type) + " is ready for download",
           download_type: download_type,
           download_id: document.id
         }
