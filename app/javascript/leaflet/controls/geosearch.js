@@ -8,7 +8,7 @@ export const geosearchDefaultOptions = {
 
 export default class GeoSearchControl extends Control {
   constructor(options) {
-    const _options = { ...geosearchDefaultOptions, ...options }
+    const _options = { ...geosearchDefaultOptions, ...options };
     super(_options);
     setOptions(this, _options);
   }
@@ -16,8 +16,6 @@ export default class GeoSearchControl extends Control {
   onAdd(map) {
     this.map = map;
     this.map.options.geoSearchControl = this;
-
-    console.log('geosearch added', this.options);
 
     // Create the buttons
     this.staticButton = this.createStaticButton();
@@ -86,14 +84,25 @@ export default class GeoSearchControl extends Control {
 
   // Update the URL with the current bounding box and go back to page 1
   applySearch() {
-    const params = new URL(window.location).searchParams
+    // Delete any existing page and bbox parameters
+    const params = new URL(window.location).searchParams;
     params.delete("page");
     params.delete("bbox");
+
+    // Calculate the bounding box from the current map bounds
     const bbox = boundsToBbox(this._map.getBounds());
-    // FIXME: we shouldn't pass the bbox with whitespace in it, but the catalog
-    // controller won't honor it unless we do
-    const newUrl = `${this.options.baseUrl}?${params.toString()}&bbox=${bbox.join(" ")}`;
-    window.location.href = newUrl;
+    params.set("bbox", bbox.join(" "));
+
+    // Make the new target URL using the configured base URL
+    const newUrl = new URL(this.options.baseUrl)
+    newUrl.search = params.toString()
+    console.log('navigating to', newUrl, 'with Turbo:', window.Turbo);
+
+    // If Turbo Drive is active, do the new page navigation without a full page reload
+    if (window.Turbo) window.Turbo.visit(newUrl);
+
+    // Otherwise fall back to the traditional full page reload
+    else window.location.href = newUrl;
   }
 
   // Toggle the dynamic search option
@@ -119,29 +128,27 @@ class GeoSearchHandler extends Handler {
   // Bind event handlers to the map
   addHooks() {
     this.map.on("resize", this.handleResize.bind(this));
-    this.map.on("moveend", this.handleMoveEnd.bind(this));
-    this.map.on("movestart", this.handleMoveStart.bind(this));
-    console.log("added hooks");
+    this.map.on("dragend", this.handleDragEnd.bind(this));
+    this.map.on("dragstart", this.handleDragStart.bind(this));
   }
 
   // Remove event handlers from the map
   removeHooks() {
     this.map.off("resize");
-    this.map.off("moveend");
-    this.map.off("movestart");
-    console.log("removed hooks");
+    this.map.off("dragend");
+    this.map.off("dragstart");
   }
 
   handleResize() {
     this.wasResized = true;
   }
 
-  handleMoveEnd() {
+  handleDragEnd() {
     if (this.wasResized) this.wasResized = false;
     else this.control.dynamicSearcher.apply(this.control);
   }
 
-  handleMoveStart() {
+  handleDragStart() {
     if (!this.control.options.dynamic) {
       this.control.hideDynamicButton();
     }
