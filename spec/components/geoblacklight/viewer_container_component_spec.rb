@@ -35,7 +35,7 @@ RSpec.describe Geoblacklight::ViewerContainerComponent, type: :component do
     end
 
     it "uses the Open Layers tag for the container" do
-      expect(rendered).to have_css("div#ol-map")
+      expect(rendered).to have_css("div#openlayers-viewer")
     end
   end
 
@@ -48,7 +48,7 @@ RSpec.describe Geoblacklight::ViewerContainerComponent, type: :component do
     end
 
     it "uses the Leaflet tag for the container" do
-      expect(rendered).to have_css("div#map")
+      expect(rendered).to have_css("div#leaflet-viewer")
     end
   end
 
@@ -63,7 +63,7 @@ RSpec.describe Geoblacklight::ViewerContainerComponent, type: :component do
     end
 
     it "uses the Leaflet tag for the container" do
-      expect(rendered).to have_css("div#map")
+      expect(rendered).to have_css("div#leaflet-viewer")
     end
   end
 end
