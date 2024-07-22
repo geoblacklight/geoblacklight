@@ -21,7 +21,7 @@ RSpec.describe Geoblacklight::ItemMapViewerComponent, type: :component do
     let(:document) { SolrDocument.new(fixture) }
 
     it "uses the open layers tag" do
-      expect(rendered).to have_css("div#ol-map")
+      expect(rendered).to have_css("div#openlayers-viewer")
     end
   end
 
@@ -30,7 +30,7 @@ RSpec.describe Geoblacklight::ItemMapViewerComponent, type: :component do
     let(:document) { SolrDocument.new(fixture) }
 
     it "uses the IIIF tag" do
-      expect(rendered).to have_css("div#map")
+      expect(rendered).to have_css("div#leaflet-viewer")
     end
   end
 end
