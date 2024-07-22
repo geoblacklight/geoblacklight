@@ -41,9 +41,6 @@ export default class HomepageMap {
     const geoSearchOptions = {
       baseUrl: baseUrl,
       dynamic: false,
-      searcher: function () {
-        window.location.href = this.getSearchUrl();
-      },
       staticButton: staticButtonNode,
       dynamicButton: dynamicButtonNode,
     };
