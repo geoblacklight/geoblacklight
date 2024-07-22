@@ -81,6 +81,10 @@ export default class LeafletViewerController extends Controller {
     // Add configured controls
     this.addControls();
 
+    if (this.protocolValue == "IndexMap"){
+      this.fitBounds(this.previewOverlay.getBounds())
+    }
+
     // Enable geosearch handler, if available
     if (this.map.geosearch) this.map.geosearch.enable();
 
