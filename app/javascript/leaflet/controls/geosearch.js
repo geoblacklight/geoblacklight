@@ -79,11 +79,11 @@ export default class GeoSearchControl extends Control {
     if (this.options.dynamic) {
       this.dynamicButton.style.display = "block";
     }
-    this.applySearch();
+    this.applySearch(false);
   }
 
   // Update the URL with the current bounding box and go back to page 1
-  applySearch() {
+  applySearch(turbo=true) {
     // Delete any existing page and bbox parameters
     const params = new URL(window.location).searchParams;
     params.delete("page");
@@ -99,7 +99,8 @@ export default class GeoSearchControl extends Control {
     console.log('navigating to', newUrl, 'with Turbo:', window.Turbo);
 
     // If Turbo Drive is active, do the new page navigation without a full page reload
-    if (window.Turbo) window.Turbo.visit(newUrl);
+    // Do full page reload for staticSearch button
+    if (window.Turbo && turbo) window.Turbo.visit(newUrl);
 
     // Otherwise fall back to the traditional full page reload
     else window.location.href = newUrl;
@@ -128,15 +129,15 @@ class GeoSearchHandler extends Handler {
   // Bind event handlers to the map
   addHooks() {
     this.map.on("resize", this.handleResize.bind(this));
-    this.map.on("dragend", this.handleDragEnd.bind(this));
-    this.map.on("dragstart", this.handleDragStart.bind(this));
+    this.map.on("moveend", this.handleDragEnd.bind(this));
+    this.map.on("movestart", this.handleDragStart.bind(this));
   }
 
   // Remove event handlers from the map
   removeHooks() {
     this.map.off("resize");
-    this.map.off("dragend");
-    this.map.off("dragstart");
+    this.map.off("moveend");
+    this.map.off("movestart");
   }
 
   handleResize() {
