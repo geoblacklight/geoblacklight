@@ -20,7 +20,6 @@ export default function initializeTruncation() {
       let isExpanded = control.getAttribute("aria-expanded") === "true";
       control.textContent = isExpanded ? "Read more" : "Close";
       control.setAttribute("aria-expanded", !isExpanded);
-      element.classList.toggle("show");
     });
 
     element.parentNode.insertBefore(control, element.nextSibling);
