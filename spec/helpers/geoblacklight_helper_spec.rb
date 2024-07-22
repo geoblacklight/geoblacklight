@@ -104,7 +104,7 @@ describe GeoblacklightHelper, type: :helper do
 
   describe "#leaflet_options" do
     it "returns a hash of options for leaflet" do
-      expect(leaflet_options[:VIEWERS][:WMS][:CONTROLS]).to eq(%w[Opacity Fullscreen])
+      expect(leaflet_options[:LAYERS][:INDEX].keys).to eq([:DEFAULT, :UNAVAILABLE, :SELECTED])
     end
   end
 
