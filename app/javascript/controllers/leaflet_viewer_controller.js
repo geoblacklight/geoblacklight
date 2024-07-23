@@ -71,7 +71,7 @@ export default class LeafletViewerController extends Controller {
 
     // If the data is available, add the preview and set up inspection
     // Otherwise just draw the bounds, if configured to do so
-    if (this.availableValue) {
+    if (this.availableValue && this.protocolValue) {
       await this.addPreviewOverlay();
       this.addInspection();
     } else if (this.drawInitialBoundsValue && this.bounds) {
