@@ -11,6 +11,12 @@ feature "Download layer" do
     allow(Geoblacklight::KmzDownload).to receive(:new).and_return(kmz_download)
   end
 
+  # cleanup any downloaded files
+  after do
+    FileUtils.rm("tufts-cambridgegrid100-04-shapefile.zip", force: true)
+    FileUtils.rm("tufts-cambridgegrid100-04-kmz.kmz", force: true)
+  end
+
   scenario "clicking initial shapefile download button should trigger download", js: true do
     expect(shapefile_download).to receive(:get).and_return("tufts-cambridgegrid100-04-shapefile.zip")
     visit solr_document_path("tufts-cambridgegrid100-04")

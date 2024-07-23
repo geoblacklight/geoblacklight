@@ -31,7 +31,6 @@ export default class extends Controller {
   }
 
   complete(data, target) {
-    console.log(data);
     this.downloading = false;
     target.classList.remove('download-in-progress');
     target.classList.add('download-complete');
@@ -42,7 +41,6 @@ export default class extends Controller {
   }
 
   error(exception, target) {
-    console.error("Download data:", exception.data);
     this.downloading = false;
     target.classList.remove('download-in-progress');
     target.classList.add('download-complete');
