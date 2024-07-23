@@ -129,15 +129,19 @@ class GeoSearchHandler extends Handler {
   // Bind event handlers to the map
   addHooks() {
     this.map.on("resize", this.handleResize.bind(this));
-    this.map.on("moveend", this.handleDragEnd.bind(this));
-    this.map.on("movestart", this.handleDragStart.bind(this));
+    this.map.on("dragend", this.handleDragEnd.bind(this));
+    this.map.on("dragstart", this.handleDragStart.bind(this));
+    this.map.on("zoomstart", this.handleDragEnd.bind(this));
+    this.map.on("zoomend", this.handleDragStart.bind(this));
   }
 
   // Remove event handlers from the map
   removeHooks() {
     this.map.off("resize");
-    this.map.off("moveend");
-    this.map.off("movestart");
+    this.map.off("dragend");
+    this.map.off("dragstart");
+    this.map.off("zoomend");
+    this.map.off("zoomstart");
   }
 
   handleResize() {
