@@ -15,17 +15,12 @@ export default class OpenlayersViewerController extends Controller {
     mapGeom: String,
   };
 
-  connect() {
+  async connect() {
     // Set up layers
     this.basemap = this.getBasemap();
     this.overlay = this.getPreviewOverlay(this.protocolValue, this.urlValue);
 
-    // Calculate bounds
-    this.extent = new GeoJSON()
-      .readFeatures(this.mapGeomValue)[0]
-      .getGeometry()
-      .getExtent();
-
+    await this.getBounds();
     // Load the map
     this.loadMap();
   }
@@ -38,6 +33,18 @@ export default class OpenlayersViewerController extends Controller {
       layers: [this.basemap, this.overlay],
     });
     this.map.getView().fit(this.extent, this.map.getSize());
+  }
+
+  async getBounds() {
+    if (this.protocolValue == 'Cog') {
+      const view = await this.overlay.getSource().getView();
+      this.extent = view.extent;
+    } else {
+      this.extent = new GeoJSON()
+      .readFeatures(this.mapGeomValue)[0]
+      .getGeometry()
+      .getExtent();
+    }
   }
 
   // Select the configured basemap to use
