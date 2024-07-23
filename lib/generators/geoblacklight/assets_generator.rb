@@ -29,8 +29,10 @@ module Geoblacklight
     def remove_javascript
       # Remove this since we aren't using sprockets; everything is in app/javascript instead
       remove_dir "app/assets/javascripts"
+      # remove manifest.js sprockets
+      remove_file "app/assets/config/manifest.js"
       # Remove this because we aren't using importmaps; the main entrypoint is in app/javascript/entrypoints/application.js
-      remove_file "app/javascript/application.js"
+      #remove_file "app/javascript/application.js"
     end
 
     # Copy over the main Geoblacklight entrypoint
@@ -57,14 +59,6 @@ module Geoblacklight
       JS
 
       inject_into_file "app/javascript/entrypoints/application.js", imports
-    end
-
-    def add_initializers
-      append_to_file "config/initializers/assets.rb",
-        "\nRails.application.config.assets.precompile += %w( favicon.ico )\n"
-
-      append_to_file "config/initializers/assets.rb",
-        "\nRails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'images')\n"
     end
   end
 end
