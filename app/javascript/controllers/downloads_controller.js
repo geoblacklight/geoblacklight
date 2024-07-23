@@ -18,7 +18,11 @@ export default class extends Controller {
     fetch(url)
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Network response was not ok", response.json());
+          return response.json().then((errorData) => {
+            const exception = new Error("Network response was not ok");
+            exception.data = errorData; // Attach the parsed JSON data to the error object
+            throw exception;
+          });
         }
         return response.json();
       })
@@ -34,15 +38,16 @@ export default class extends Controller {
     target.innerHTML = `Download ready (${target.dataset.downloadType})`;
     target.href = data[1];
     this.renderMessage(data[0]);
-   // target.click();
+    target.click();
   }
 
-  error(data, target) {
-    console.error("Download error:", data);
+  error(exception, target) {
+    console.error("Download data:", exception.data);
     this.downloading = false;
     target.classList.remove('download-in-progress');
+    target.classList.add('download-complete');
     target.innerHTML = `Download failed (${target.dataset.downloadType})`;
-    this.renderMessage(data[0]);
+    this.renderMessage(exception.data[0]);
   }
 
   renderMessage(message) {
