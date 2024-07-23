@@ -11,14 +11,20 @@ feature "Download layer" do
     allow(Geoblacklight::KmzDownload).to receive(:new).and_return(kmz_download)
   end
 
+  # cleanup any downloaded files
+  after do
+    FileUtils.rm("tufts-cambridgegrid100-04-shapefile.zip", force: true)
+    FileUtils.rm("tufts-cambridgegrid100-04-kmz.kmz", force: true)
+  end
+
   scenario "clicking initial shapefile download button should trigger download", js: true do
-    expect(shapefile_download).to receive(:get).and_return("mit-f6rqs4ucovjk2-shapefile.zip")
-    visit solr_document_path("mit-f6rqs4ucovjk2")
+    expect(shapefile_download).to receive(:get).and_return("tufts-cambridgegrid100-04-shapefile.zip")
+    visit solr_document_path("tufts-cambridgegrid100-04")
     find("#downloads-button").click
     find('a[data-download-type="shapefile"]', text: "Export Shapefile").click
     expect(page).to have_css(
-      'a[href="/download/file/mit-f6rqs4ucovjk2-shapefile.zip"]',
-      text: "Your file mit-f6rqs4ucovjk2-shapefile.zip is ready for download"
+      'a[href="/download/file/tufts-cambridgegrid100-04-shapefile.zip"]',
+      text: "Your file tufts-cambridgegrid100-04-shapefile.zip is ready for download"
     )
   end
 
@@ -27,17 +33,18 @@ feature "Download layer" do
     visit solr_document_path("mit-f6rqs4ucovjk2")
     find("#downloads-button").click
     find('#downloads-collapse a[data-download-type="shapefile"]', text: "Export Shapefile").click
+    expect(page).to have_text "Download failed (shapefile)"
     expect(page).to have_css "div.alert.alert-danger", text: "Sorry, the requested file could not be downloaded."
   end
 
   scenario "clicking kmz download button should trigger download", js: true do
-    expect(kmz_download).to receive(:get).and_return("mit-f6rqs4ucovjk2-kmz.kmz")
-    visit solr_document_path("mit-f6rqs4ucovjk2")
+    expect(kmz_download).to receive(:get).and_return("tufts-cambridgegrid100-04-kmz.kmz")
+    visit solr_document_path("tufts-cambridgegrid100-04")
     find("#downloads-button").click
     find('#downloads-collapse a[data-download-type="kmz"]', text: "Export KMZ").click
     expect(page).to have_css(
-      'a[href="/download/file/mit-f6rqs4ucovjk2-kmz.kmz"]',
-      text: "Your file mit-f6rqs4ucovjk2-kmz.kmz is ready for download"
+      'a[href="/download/file/tufts-cambridgegrid100-04-kmz.kmz"]',
+      text: "Your file tufts-cambridgegrid100-04-kmz.kmz is ready for download"
     )
   end
 
@@ -54,7 +61,7 @@ feature "Download layer" do
   end
 
   scenario "options should be available under toggle" do
-    visit solr_document_path("mit-f6rqs4ucovjk2")
+    visit solr_document_path("tufts-cambridgegrid100-04")
     find("#downloads-button").click
     expect(page).to have_css('#downloads-collapse a[data-download-type="shapefile"]', text: "Export Shapefile")
     expect(page).to have_css('#downloads-collapse a[data-download-type="kmz"]', text: "Export KMZ")
