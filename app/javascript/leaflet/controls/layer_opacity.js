@@ -9,6 +9,7 @@ export default class LayerOpacityControl extends Control {
     if (typeof layer.getLayers !== "undefined") {
       // Add first layer from layer group to options
       this.options.layer = layer.getLayers()[0];
+      this.options.layer = this.options.layer ? this.options.layer : layer;
     } else {
       // Add layer to options
       this.options.layer = layer;
