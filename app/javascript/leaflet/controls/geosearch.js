@@ -79,11 +79,12 @@ export default class GeoSearchControl extends Control {
     if (this.options.dynamic) {
       this.dynamicButton.style.display = "block";
     }
-    this.applySearch(false);
+    // Do full page reload for staticSearch button
+    this.applySearch({ turbo: false });
   }
 
   // Update the URL with the current bounding box and go back to page 1
-  applySearch(turbo=true) {
+  applySearch(opts={turbo: true}) {
     // Delete any existing page and bbox parameters
     const params = new URL(window.location).searchParams;
     params.delete("page");
@@ -99,8 +100,7 @@ export default class GeoSearchControl extends Control {
     console.log('navigating to', newUrl, 'with Turbo:', window.Turbo);
 
     // If Turbo Drive is active, do the new page navigation without a full page reload
-    // Do full page reload for staticSearch button
-    if (window.Turbo && turbo) window.Turbo.visit(newUrl);
+    if (window.Turbo && opts.turbo) window.Turbo.visit(newUrl);
 
     // Otherwise fall back to the traditional full page reload
     else window.location.href = newUrl;
