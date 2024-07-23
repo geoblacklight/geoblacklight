@@ -37,7 +37,7 @@ require "webmock/rspec"
 WebMock.allow_net_connect!(net_http_connect_on_start: true)
 
 Capybara.register_driver(:selenium) do |app|
-  browser_options = ::Selenium::WebDriver::Chrome::Options.new(args: %w[headless disable-gpu disable-setuid-sandbox window-size=7680,4320])
+  browser_options = ::Selenium::WebDriver::Chrome::Options.new(args: %w[disable-gpu disable-setuid-sandbox window-size=7680,4320])
 
   http_client = Selenium::WebDriver::Remote::Http::Default.new
   http_client.read_timeout = 120
