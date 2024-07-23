@@ -10,8 +10,8 @@ feature "search results display document iconography" do
       q: "stanford-cg357zz0321"
     )
     first_result = page.all("span.status-icons > span")
-    expect(first_result[0][:class]).to include "blacklight-icon-line"
-    expect(first_result[1][:class]).to include "blacklight-icon-stanford"
-    expect(first_result[2][:class]).to include "blacklight-icon-restricted"
+    expect(first_result[0][:class]).to include "blacklight-icons-line"
+    expect(first_result[1][:class]).to include "blacklight-icons-stanford"
+    expect(first_result[2][:class]).to include "blacklight-icons-restricted"
   end
 end

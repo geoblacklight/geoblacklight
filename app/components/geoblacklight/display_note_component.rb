@@ -24,7 +24,7 @@ module Geoblacklight
           prefixed = true
           @note = tag.div class: "gbl-display-note alert #{value.first}", role: "alert" do
             capture do
-              "#{blacklight_icon(value.second)}
+              "#{geoblacklight_icon(value.second)}
               #{@display_note}".html_safe
             end
           end

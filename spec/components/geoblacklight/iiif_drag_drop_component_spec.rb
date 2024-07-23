@@ -22,7 +22,7 @@ RSpec.describe Geoblacklight::IiifDragDropComponent, type: :component do
       let(:endpoint) { "https://url.com/manifest.json" }
       it "renders iiif drag and drop icon" do
         expect(component.render?).to be true
-        expect(rendered).to have_selector(:css, ".blacklight-icon-iiif-drag-drop")
+        expect(rendered).to have_selector(:css, ".blacklight-icons-iiif-drag-drop")
         expect(rendered).to have_selector(:css, "a[href='https://url.com/manifest.json?manifest=https://url.com/manifest.json']")
       end
     end
