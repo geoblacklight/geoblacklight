@@ -12,12 +12,14 @@ module Geoblacklight
 
     def get_icon(field)
       icon_name = @document[field]
-      if icon_name&.include?("Datasets")
-        field = Settings.FIELDS.RESOURCE_TYPE
-        icon_name = @document[field]
+      if icon_name&.include?("Datasets") && @document[Settings.FIELDS.RESOURCE_TYPE]
+        specific_icon = @document[Settings.FIELDS.RESOURCE_TYPE]
+        specific_icon = specific_icon.is_a?(Array) ? specific_icon.first : specific_icon
+        specific_icon = specific_icon&.gsub(" data", "")
+        icon = geoblacklight_icon(specific_icon, classes: "svg_tooltip")
+        return icon unless icon.include?("icon-missing")
       end
       icon_name = icon_name.is_a?(Array) ? icon_name.first : icon_name
-      icon_name = icon_name.gsub(" data", "") if field == Settings.FIELDS.RESOURCE_TYPE
       geoblacklight_icon(icon_name, classes: "svg_tooltip")
     end
   end
