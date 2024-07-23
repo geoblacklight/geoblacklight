@@ -1,0 +1,26 @@
+services:
+  app:
+    image: ghcr.io/geoblacklight/geoblacklight:main
+    ports:
+      - "3001:3000"
+    links:
+      - "solr:solr"
+    environment:
+      SOLR_URL: "http://solr:8983/solr/blacklight-core"
+      RAILS_DEVELOPMENT_HOSTS: ".githubpreview.dev,.preview.app.github.dev,.app.github.dev,.csb.app"
+    depends_on:
+      - solr
+    command: sh start-server.sh
+  solr:
+    image: "solr:latest"
+    ports:
+      - "8984:8983"
+    volumes:
+      - "./solr/conf:/opt/solr/conf"
+    entrypoint:
+      - docker-entrypoint.sh
+      - solr-precreate
+      - blacklight-core
+      - /opt/solr/conf
+      - "-Xms256m"
+      - "-Xmx512m"
