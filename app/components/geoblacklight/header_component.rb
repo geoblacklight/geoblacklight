@@ -2,8 +2,8 @@
 
 module Geoblacklight
   class HeaderComponent < Blacklight::HeaderComponent
-    def not_landing_page?
-      controller_name == "catalog" && (helpers.has_search_parameters? || params[:action] == "show")
+    def landing_page?
+      current_page?(root_path) && !helpers.has_search_parameters?
     end
   end
 end
