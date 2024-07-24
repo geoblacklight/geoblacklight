@@ -54,7 +54,7 @@ jobs:
       env:
         RAILS_VERSION: ${{ matrix.rails_version }}
     - name: Setup Yarn
-      run: exec "yarnpkg" && yarn install
+      run: exec "yarnpkg"
     - name: Load config into solr
       run: |
           cd solr/conf
