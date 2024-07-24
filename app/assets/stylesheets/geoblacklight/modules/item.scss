@@ -16,8 +16,8 @@
       }
     }
 
-    .clover-iiif-image-openseadragon {
-      height: 100vh;
+    .clover-iiif-image-openseadragon, .ol-viewport {
+      height: 100vh!important;
     }
 
     [data-inspect="true"][data-available="true"] {
