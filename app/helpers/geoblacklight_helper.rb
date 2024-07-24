@@ -158,14 +158,4 @@ module GeoblacklightHelper
       "index"
     end
   end
-
-  def openlayers_container?
-    return false unless @document
-    @document.item_viewer.pmtiles || @document.item_viewer.cog
-  end
-
-  def iiif_manifest_container?
-    return false unless @document
-    @document&.item_viewer&.viewer_preference&.key?(:iiif_manifest)
-  end
 end
