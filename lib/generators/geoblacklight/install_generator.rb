@@ -108,12 +108,6 @@ module Geoblacklight
       end
     end
 
-    # Remove sprockets-rails in Gemfile
-    def remove_sprocket_rails_gemfile
-      gsub_file "Gemfile", /gem "sprockets-rails"/, ""
-      gsub_file "Gemfile", /gem "sassc-rails", "~> 2.1"/, ""
-    end
-
     # Vite - GBL Base Layout with Vite Helper Tags
     def geoblacklight_base_layout
       copy_file "base.html.erb", "app/views/layouts/blacklight/base.html.erb"
@@ -135,15 +129,6 @@ module Geoblacklight
       copy_file "vite.json", "config/vite.json"
       copy_file "vite.config.ts", "vite.config.ts"
       run "yarn install"
-    end
-
-    def edit_config
-      gsub_file "config/environments/development.rb", /config.assets/, "# config.assets"
-      gsub_file "config/environments/production.rb", /config.assets/, "# config.assets"
-    end
-
-    def remove_sprockets_assets
-      remove_file "config/initializers/assets.rb"
     end
 
     # Run bundle with vite install
