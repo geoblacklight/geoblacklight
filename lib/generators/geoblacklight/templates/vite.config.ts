@@ -16,7 +16,8 @@ export default defineConfig(({ mode }) => {
       alias: {
         '@leaflet_images': path.resolve(__dirname, './node_modules/@geoblacklight/frontend/node_modules/leaflet/dist/images'),
         '@geoblacklight_images': path.resolve(__dirname, './node_modules/@geoblacklight/frontend/dist/images')
-      }
+      },
+      preserveSymlinks: true
     }
   }
 })
