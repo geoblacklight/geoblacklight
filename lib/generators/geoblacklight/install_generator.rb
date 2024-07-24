@@ -129,8 +129,6 @@ module Geoblacklight
       copy_file "vite.json", "config/vite.json"
       copy_file "vite.config.ts", "vite.config.ts"
       run "yarn install"
-      run "yarn build" if options[:test]
-      run "yarn link" if options[:test]
     end
 
     # Run bundle with vite install

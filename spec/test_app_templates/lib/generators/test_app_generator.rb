@@ -32,11 +32,23 @@ class TestAppGenerator < Rails::Generators::Base
     generate "blacklight:install", "--devise"
   end
 
+  # Build the @geoblacklight/frontend package
+  def build_frontend
+    run "yarn install && yarn build"
+  end
+
+  # Link the @geoblacklight/frontend package so internal test app
+  # can use local javascript instead of npm package.
+  def link_frontend
+    run "yarn link"
+  end
+
   # Install geoblacklight with the `test` option
   def install_engine
     generate "geoblacklight:install", "-f --test"
   end
 
+  # Pre-run the Vite build so it's ready for tests
   def vite_build
     run "bin/vite build --clear --mode=test --debug"
   end
