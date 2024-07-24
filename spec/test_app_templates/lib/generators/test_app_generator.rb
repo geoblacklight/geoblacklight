@@ -58,6 +58,6 @@ class TestAppGenerator < Rails::Generators::Base
   end
 
   def vite_build
-    run "bin/vite build --clear --mode=test --debug"
+    run "bin/vite build --clear --mode=test"
   end
 end
