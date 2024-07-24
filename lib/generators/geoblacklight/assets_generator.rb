@@ -14,25 +14,10 @@ module Geoblacklight
        4. Sets asset initializer values into the local application
     DESCRIPTION
 
-    # Remove these; we reference the versions installed from npm instead
-    def remove_stylesheets
-      remove_file "app/assets/stylesheets/application.css"
-      remove_file "app/assets/stylesheets/blacklight.scss"
-    end
-
     # Add our own stylesheets that reference the versions from npm
     def add_stylesheets
       copy_file "assets/_customizations.scss", "app/javascript/entrypoints/_customizations.scss"
       copy_file "assets/application.scss", "app/javascript/entrypoints/application.scss"
-    end
-
-    def remove_javascript
-      # Remove this since we aren't using sprockets; everything is in app/javascript instead
-      remove_dir "app/assets/javascripts"
-      # remove manifest.js sprockets
-      remove_file "app/assets/config/manifest.js"
-      # Remove this because we aren't using importmaps; the main entrypoint is in app/javascript/entrypoints/application.js
-      #remove_file "app/javascript/application.js"
     end
 
     # Copy over the main Geoblacklight entrypoint
