@@ -37,7 +37,7 @@ export default class extends Controller {
     target.innerHTML = `Download ready (${target.dataset.downloadType})`;
     target.href = data[1];
     this.renderMessage(data[0]);
-    target.click();
+    //target.click();
   }
 
   error(exception, target) {

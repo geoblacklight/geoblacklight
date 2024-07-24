@@ -7,7 +7,6 @@ require "faraday"
 require "geoblacklight/version"
 require "nokogiri"
 require "mime/types"
-require "handlebars_assets"
 
 module Geoblacklight
   class Engine < ::Rails::Engine

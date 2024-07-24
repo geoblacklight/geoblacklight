@@ -4,8 +4,10 @@ import { exec } from "child_process";
 
 export default defineConfig(() => {
   return {
+    publicDir: 'app/assets',
     build: {
-      outDir: 'dist/javascript',
+      outDir: 'dist',
+      copyPublicDir: true,
       emptyOutDir: true,
       manifest: true,
       minify: false,
@@ -16,26 +18,6 @@ export default defineConfig(() => {
         fileName: "geoblacklight",
       },
     },
-    plugins: [
-      {
-        name: "copy sass sources into build",
-        buildEnd: async() => {
-          exec("cp -R app/assets/stylesheets dist/")
-        }
-      },
-      {
-        name: "copy image assets into build",
-        buildEnd: async() => {
-          exec("cp -R app/assets/images dist/")
-        }
-      },
-      {
-        name: "clobber internal test app vite files and cache",
-        buildEnd: async () => {
-          exec("cd .internal_test_app && bundle exec vite clobber");
-        },
-      },
-    ],
     test: {
       environment: 'jsdom',
     }

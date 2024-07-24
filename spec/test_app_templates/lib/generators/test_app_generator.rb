@@ -13,12 +13,17 @@ class TestAppGenerator < Rails::Generators::Base
     # generation removes Turbolinks. This gem is required and needs to be
     # re-added.
     if ENV["RAILS_VERSION"] && Gem::Version.new(ENV["RAILS_VERSION"]) < Gem::Version.new("7.0")
-      gem "turbolinks"
+      gem "turbo-rails"
+      gem "stimulus-rails"
     end
 
     Bundler.with_clean_env do
       run "bundle install"
     end
+  end
+
+  def stimulus_generator
+    rails_command "stimulus:install"
   end
 
   def build_frontend
@@ -50,5 +55,9 @@ class TestAppGenerator < Rails::Generators::Base
     FileUtils.mkdir_p "spec/fixtures"
     FileUtils.symlink solr_docs_path, "spec/fixtures/solr_documents"
     FileUtils.symlink metadata_path, "spec/fixtures/metadata"
+  end
+
+  def vite_build
+    run "bin/vite build --clear --mode=test"
   end
 end

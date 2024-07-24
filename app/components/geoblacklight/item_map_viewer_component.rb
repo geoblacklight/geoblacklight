@@ -28,7 +28,6 @@ module Geoblacklight
       @document.viewer_protocol&.camelize
     end
 
-    # These are captured as openlayers_container? and iiif_manifest_viewer? in geoblacklight_helper.
     def openlayers?
       %w[Cog Pmtiles].include?(protocol)
     end

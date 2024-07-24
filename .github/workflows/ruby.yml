@@ -38,7 +38,7 @@ jobs:
     strategy:
       matrix:
         ruby_version: ['3.2', '3.3']
-        rails_version: [6.1.7.6, 7.1.3]
+        rails_version: ['7.0.8.4', '7.1.3.4']
 
     name: test ruby ${{ matrix.ruby_version }} / rails ${{ matrix.rails_version }}
     steps:
@@ -65,7 +65,7 @@ jobs:
       run: bundle exec rake ci
       env:
         RAILS_VERSION: ${{ matrix.rails_version }}
-        ENGINE_CART_RAILS_OPTIONS: '--skip-git --skip-listen --skip-spring --skip-keeps --skip-action-cable --skip-coffee --skip-test --skip-webpack-install --skip-javascript'
+        ENGINE_CART_RAILS_OPTIONS: '--skip-git --skip-listen --skip-spring --skip-keeps --skip-action-cable --skip-coffee --skip-test --skip-webpack-install -a propshaft'
         SOLR_URL: http://solr:SolrRocks@localhost:8983/solr/blacklight-core
     - name: Upload coverage artifacts
       uses: actions/upload-artifact@v2
