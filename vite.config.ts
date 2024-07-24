@@ -1,5 +1,6 @@
 import { resolve } from "path";
 import { defineConfig } from "vite";
+import { exec } from "child_process";
 
 export default defineConfig(() => {
   return {
@@ -16,13 +17,6 @@ export default defineConfig(() => {
         name: "@geoblacklight/frontend",
         fileName: "geoblacklight",
       },
-      rollupOptions: {
-        output: {
-          entryFileNames: 'javascript/geoblacklight.js',
-          chunkFileNames: 'javascript/[name].js',
-          assetFileNames: 'javascript/[name].[ext]'
-        },
-      }
     },
     test: {
       environment: 'jsdom',
