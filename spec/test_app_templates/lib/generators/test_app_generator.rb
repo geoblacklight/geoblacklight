@@ -26,16 +26,6 @@ class TestAppGenerator < Rails::Generators::Base
     rails_command "stimulus:install"
   end
 
-  def build_frontend
-    run "yarn install && yarn build"
-  end
-
-  # Ensure local frontend build is linked so internal test app
-  # can use local javascript instead of npm package.
-  def link_frontend
-    run "yarn link"
-  end
-
   def run_blacklight_generator
     say_status("warning", "GENERATING BL", :yellow)
 
@@ -47,6 +37,10 @@ class TestAppGenerator < Rails::Generators::Base
     generate "geoblacklight:install", "-f --test"
   end
 
+  def vite_build
+    run "bin/vite build --clear --mode=test --debug"
+  end
+
   # Symlink fixture document directories so the test app doesn't have to be
   # regenerated when they are changed or updated.
   def fixtures
@@ -55,9 +49,5 @@ class TestAppGenerator < Rails::Generators::Base
     FileUtils.mkdir_p "spec/fixtures"
     FileUtils.symlink solr_docs_path, "spec/fixtures/solr_documents"
     FileUtils.symlink metadata_path, "spec/fixtures/metadata"
-  end
-
-  def vite_build
-    run "bin/vite build --clear --mode=test --debug"
   end
 end
