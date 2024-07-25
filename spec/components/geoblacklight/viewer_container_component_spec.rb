@@ -10,7 +10,7 @@ RSpec.describe Geoblacklight::ViewerContainerComponent, type: :component do
   end
 
   subject(:rendered) do
-    render_inline_to_capybara_node(described_class.new(document))
+    render_inline_to_capybara_node(described_class.new(document:))
   end
 
   context "includes IIIF content" do
