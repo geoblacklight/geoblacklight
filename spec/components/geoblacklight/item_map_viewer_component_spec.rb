@@ -4,7 +4,7 @@ require "spec_helper"
 
 RSpec.describe Geoblacklight::ItemMapViewerComponent, type: :component do
   subject(:rendered) do
-    render_inline_to_capybara_node(described_class.new(document))
+    render_inline_to_capybara_node(described_class.new(document:))
   end
 
   context "IIIF viewer" do
