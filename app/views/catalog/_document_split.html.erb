@@ -12,6 +12,7 @@
         <%= render Geoblacklight::SearchResultComponent.new(document: presenter, document_counter: index) %>
       <% end %>
     </turbo-frame>
+  </div>
   <% if results_js_map_selector(controller.controller_name) == "index" %>
     <%= render(Geoblacklight::LocationLeafletMapComponent.new(page: 'index', geosearch: { dynamic: true }, classes: 'col-md-6 sticky-top position-sticky leaflet-viewer')) %>
   <% else %>
