@@ -4,7 +4,7 @@
   </div>
 
   <div class="card-body">
-    <%= content_tag :div, id: 'static-map', aria: { label: t('geoblacklight.map.label') }, data: { page: 'show', protocol: 'Map', url: @document.viewer_endpoint, 'layer-id' => @document.wxs_identifier, 'map-geom' => @document.geometry.geojson, 'catalog-path'=> blacklight_path, available: document_available?, inspect: show_attribute_table?, basemap: geoblacklight_basemap, leaflet_options: leaflet_options } do %>
+    <%= content_tag :div, id: 'static-map', aria: { label: t('geoblacklight.map.label') }, data: { controller: 'leaflet-viewer', leaflet_viewer_map_geom_value: @document.geometry.geojson, leaflet_viewer_basemap_value: geoblacklight_basemap, leaflet_viewer_options_value: leaflet_options, leaflet_viewer_draw_initial_bounds_value: true } do %>
     <% end %>
   </div>
 </div>
