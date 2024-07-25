@@ -32,8 +32,10 @@ module Geoblacklight
         import "@hotwired/turbo-rails";
         import * as bootstrap from "bootstrap";
         import githubAutoCompleteElement from "@github/auto-complete-element";
+        import Blacklight from "blacklight-frontend";
 
         window.bootstrap = bootstrap;
+        window.Blacklight = Blacklight;
       JS
 
       inject_into_file "app/javascript/entrypoints/application.js", imports
