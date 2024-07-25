@@ -29,6 +29,7 @@ class CatalogController < ApplicationController
 
     # GeoBlacklight Defaults
     # * Adds the "map" split view for catalog#index
+    config.view.split(partials: ["index"])
     config.view.delete_field("list")
 
     # solr field configuration for search results/index views
