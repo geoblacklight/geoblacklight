@@ -99,6 +99,7 @@ export default class LeafletViewerController extends Controller {
     this.map.fitBounds(bounds, { animate: false, noMoveStart: true });
     this.bounds = bounds;
     if (this.map.geosearch) this.map.geosearch.enable();
+    this.element.dataset.bounds = this.bounds.toBBoxString();
   }
 
   // Select the configured basemap to use
