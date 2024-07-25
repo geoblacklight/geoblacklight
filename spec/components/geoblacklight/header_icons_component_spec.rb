@@ -19,7 +19,6 @@ RSpec.describe Geoblacklight::HeaderIconsComponent, type: :component do
   context "when there is a resource type with icon" do
     let(:resource_type_list) { ["Polygon"] }
     it "renders 3 icons" do
-      puts rendered.native.inner_html.inspect
       expect(rendered).to have_css(".blacklight-icons-polygon")
       expect(rendered).to have_css(".blacklight-icons-stanford")
       expect(rendered).to have_css(".blacklight-icons-public")
