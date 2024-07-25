@@ -6,7 +6,7 @@ export const wmsInspection = (map, url, layerId) => {
     const spinner = document.createElement("tbody");
     spinner.className = "attribute-table-body";
     spinner.innerHTML =
-      '<tr><td colspan="2"><div class="spinner-border" role="status"><span class="sr-only">Inspecting</span></div></td></tr>';
+      '<tr><td colspan="2"><div class="spinner-border" role="status"><span class="visaully-hidden">Inspecting</span></div></td></tr>';
     document.querySelector(".attribute-table-body").replaceWith(spinner);
 
     const wmsoptions = {
