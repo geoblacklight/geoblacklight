@@ -123,10 +123,7 @@ export default class LeafletViewerController extends Controller {
     // Add opacity and fullscreen controls for all layers
     if (this.hasProtocolValue) {
       const opacityControl = this.getControl("Opacity");
-      // TODO: set up opacity control for IndexMap. After that we can remove this condition.
-      if (this.protocolValue !== "IndexMap") {
-        this.addControl(opacityControl);
-      }
+      this.addControl(opacityControl);
       const fullscreenControl = this.getControl("Fullscreen");
       this.addControl(fullscreenControl);
     }

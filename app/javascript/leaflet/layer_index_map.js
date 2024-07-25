@@ -79,8 +79,6 @@ const indexMapDownloadTemplate = (data) =>
 const indexMapTemplate = (data) => {
     return new Promise((resolve) => {
         if (data.iiifUrl && !data.thumbnailUrl) {
-
-
             fetch(data.iiifUrl)
                 .then((response) => response.json())
                 .then((manifestResponse) => {
@@ -97,9 +95,12 @@ const indexMapTemplate = (data) => {
 };
 
 export const availabilityStyle = (availability, leafletOptions) => {
-    return availability || typeof availability === "undefined"
+    var style = availability || typeof availability === "undefined"
         ? leafletOptions.LAYERS.INDEX.DEFAULT
         : leafletOptions.LAYERS.INDEX.UNAVAILABLE;
+    style['fillOpacity'] = leafletOptions.opacity || .65;
+    style['opacity'] = leafletOptions.opacity || .65;
+    return style
 }
 
 export const updateInformation = (properties) => {
