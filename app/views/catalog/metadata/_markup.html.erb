@@ -1,7 +1,7 @@
 <div id="metadata-markup-container" class="container-fluid">
   <div class="alert alert-warning" role="alert">
     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-    <span class="sr-only">Error:</span>
+    <span class="visually-hidden">Error:</span>
     <span><%= t('geoblacklight.metadata.metadata_error')%></span>
   </div>
   <%= CodeRay.scan(content, :xml).div.html_safe %>
