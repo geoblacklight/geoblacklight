@@ -1,0 +1,10 @@
+<%= render Geoblacklight::StaticMapComponent.new(document:) %>
+<%= render_show_tools %>
+
+<div class="sidebar-buttons">
+  <%= render Geoblacklight::WebServicesLinkComponent.new(document:) %>
+  <%= render Geoblacklight::DownloadLinksComponent.new(document:) %>
+  <%= render Geoblacklight::LoginLinkComponent.new(document:) %>
+</div>
+
+<%= render Blacklight::Document::MoreLikeThisComponent.new(document: document) %>
