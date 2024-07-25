@@ -94,8 +94,11 @@ export default class LeafletViewerController extends Controller {
 
   // Set the bounds of the map to an L.LatLngBounds object
   fitBounds(bounds) {
+    // prevent map from moving when setting bounds, if relevant
+    if (this.map.geosearch) this.map.geosearch.disable();
     this.map.fitBounds(bounds, { animate: false, noMoveStart: true });
     this.bounds = bounds;
+    if (this.map.geosearch) this.map.geosearch.enable();
   }
 
   // Select the configured basemap to use
