@@ -1,14 +1,13 @@
 {
   "dependencies": {
     "@geoblacklight/frontend": "^4.4",
+    "@github/auto-complete-element": "3.6.2",
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^8.0.4",
-    "blacklight-frontend": "7.37",
-    "bootstrap": "^4.6.2",
-    "jquery": "3.7.1",
-    "popper.js": "^1.16.1",
-    "sass": "^1.77.7",
-    "typeahead.js": "0.11.1"
+    "@popperjs/core": "2.11.8",
+    "blacklight-frontend": "8.3.0",
+    "bootstrap": "^5.3.3",
+    "sass": "^1.77.7"
   },
   "devDependencies": {
     "vite": "^5.1.5",
