@@ -57,7 +57,7 @@ export const getTileJsonBounds = (doc) => {
 export const appendLoadingMessage = () => {
   const spinner = `<tbody class="attribute-table-body"><tr><td colspan="2">
     <span id="attribute-table">
-    <div class="spinner-border" role="status"><span class="sr-only">Inspecting</span></div>
+    <div class="spinner-border" role="status"><span class="visually-hidden">Inspecting</span></div>
     </span>
     </td></tr></tbody>`;
 
