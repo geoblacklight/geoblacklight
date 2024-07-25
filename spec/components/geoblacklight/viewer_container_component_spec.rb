@@ -3,10 +3,10 @@
 require "spec_helper"
 
 RSpec.describe Geoblacklight::ViewerContainerComponent, type: :component do
+  let(:document) { SolrDocument.new(fixture) }
+
   before do
-    # Without these, helper methods will return error for document_available?
-    allow(@document).to receive(:public?).and_return(true)
-    allow(@document).to receive(:same_institution?).and_return(true)
+    allow_any_instance_of(GeoblacklightHelper).to receive(:document_available?).and_return(true)
   end
 
   subject(:rendered) do
@@ -15,7 +15,6 @@ RSpec.describe Geoblacklight::ViewerContainerComponent, type: :component do
 
   context "includes IIIF content" do
     let(:fixture) { JSON.parse(read_fixture("solr_documents/b1g_iiif_manifest.json")) }
-    let(:document) { SolrDocument.new(fixture) }
 
     it "displays the IIIF help text" do
       expect(rendered).to have_text(I18n.t("geoblacklight.help_text.viewer_protocol.iiif.title"))
@@ -28,7 +27,6 @@ RSpec.describe Geoblacklight::ViewerContainerComponent, type: :component do
 
   context "includes PM Tiles content" do
     let(:fixture) { JSON.parse(read_fixture("solr_documents/public_pmtiles_princeton.json")) }
-    let(:document) { SolrDocument.new(fixture) }
 
     it "displays the PM Tiles help text" do
       expect(rendered).to have_text(I18n.t("geoblacklight.help_text.viewer_protocol.pmtiles.title"))
@@ -41,7 +39,6 @@ RSpec.describe Geoblacklight::ViewerContainerComponent, type: :component do
 
   context "includes general content" do
     let(:fixture) { JSON.parse(read_fixture("solr_documents/actual-polygon1.json")) }
-    let(:document) { SolrDocument.new(fixture) }
 
     it "displays wms help text" do
       expect(rendered).to have_text(I18n.t("geoblacklight.help_text.viewer_protocol.wms.title"))
@@ -54,7 +51,6 @@ RSpec.describe Geoblacklight::ViewerContainerComponent, type: :component do
 
   context "includes an index map" do
     let(:fixture) { JSON.parse(read_fixture("solr_documents/index-map-stanford.json")) }
-    let(:document) { SolrDocument.new(fixture) }
 
     it "displays the index map legend information" do
       expect(rendered).to have_selector(:css, ".index-map-legend-default")
