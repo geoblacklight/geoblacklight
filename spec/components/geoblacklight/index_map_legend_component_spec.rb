@@ -3,8 +3,10 @@
 require "spec_helper"
 
 RSpec.describe Geoblacklight::IndexMapLegendComponent, type: :component do
+  let(:document) { instance_double(SolrDocument) }
+
   subject(:rendered) do
-    render_inline_to_capybara_node(described_class.new)
+    render_inline_to_capybara_node(described_class.new(document:))
   end
 
   it "shows available map text" do
