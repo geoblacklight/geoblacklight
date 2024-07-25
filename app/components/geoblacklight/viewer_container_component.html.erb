@@ -5,12 +5,12 @@
     <%= render Geoblacklight::ViewerHelpTextComponent.new('viewer_protocol', @viewer_protocol) %>
     
     <!-- Index map -->
-    <%= render Geoblacklight::IndexMapLegendComponent.new if @display_index_map %>
+    <%= render Geoblacklight::IndexMapLegendComponent.new(document: @document) %>
    
     <!-- Viewer container method -->
-    <%= render Geoblacklight::ItemMapViewerComponent.new(@document) %>
+    <%= render Geoblacklight::ItemMapViewerComponent.new(document: @document) %>
 
     <!-- IIIF drag and drop component -->
-    <%= render Geoblacklight::IiifDragDropComponent.new(document:@document) %>
+    <%= render Geoblacklight::IiifDragDropComponent.new(document: @document) %>
   </div>
 </div>
