@@ -29,7 +29,6 @@ class CatalogController < ApplicationController
 
     # GeoBlacklight Defaults
     # * Adds the "map" split view for catalog#index
-    config.view.split(partials: ["index"])
     config.view.delete_field("list")
 
     # solr field configuration for search results/index views
@@ -49,6 +48,7 @@ class CatalogController < ApplicationController
     config.show.partials << "show_default_attribute_table"
     config.show.partials << "show_default_viewer_information"
     config.show.partials << :show
+    config.show.sidebar_component = Geoblacklight::SidebarComponent
     config.header_component = Geoblacklight::HeaderComponent
 
     ##
