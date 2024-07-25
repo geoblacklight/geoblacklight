@@ -6,18 +6,19 @@ feature "Home page", js: true do # use js: true for tests which require js, but 
   before do
     visit root_path
   end
+
   scenario "navbar" do
     expect(page).to have_css "#bookmarks_nav"
     expect(page).to have_css "a", text: "History"
   end
+
   scenario "search bar" do
     expect(page).not_to have_css "#search-navbar"
-    within ".jumbotron" do
-      expect(page).to have_css "h1", text: "Explore and discover..."
-      expect(page).to have_css "h2", text: "Find the maps and data you need"
-      expect(page).to have_css "form.search-query-form"
-    end
+    expect(page).to have_css "h1", text: "Explore and discover..."
+    expect(page).to have_css "h2", text: "Find the maps and data you need"
+    expect(page).to have_css "form.search-query-form"
   end
+
   scenario "find by category" do
     expect(page).to have_css ".category-block", count: 4
     expect(page).to have_css ".home-facet-link", count: 36
@@ -26,12 +27,14 @@ feature "Home page", js: true do # use js: true for tests which require js, but 
     expect(page).to have_css ".filter-name", text: "Subject"
     expect(page).to have_css ".filter-value", text: "Counties"
   end
+
   scenario "map should be visible" do
     within "#main-container" do
       expect(page).to have_css("#leaflet-viewer")
       expect(page).to have_css("img.leaflet-tile", minimum: 3)
     end
   end
+
   scenario "clicking map search should create a spatial search" do
     within "#leaflet-viewer" do
       find(".search-control a").click
@@ -39,11 +42,13 @@ feature "Home page", js: true do # use js: true for tests which require js, but 
     end
     expect(page).to have_css "#documents"
   end
+
   scenario "can search by placename" do
     click_link "New York, New York"
     results = page.all(:css, "article.document")
     expect(results.count).to equal(4)
   end
+
   scenario "pages should have meta tag with geoblacklight version" do
     expect(page.body).to include("geoblacklight-version")
   end
