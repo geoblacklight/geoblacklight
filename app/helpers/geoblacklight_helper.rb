@@ -5,10 +5,6 @@ module GeoblacklightHelper
     document.public? || (document.same_institution? && user_signed_in?)
   end
 
-  def document_downloadable?
-    document_available? && @document.downloadable?
-  end
-
   def iiif_jpg_url
     @document.references.iiif.endpoint.sub! "info.json", "full/full/0/default.jpg"
   end
@@ -64,20 +60,6 @@ module GeoblacklightHelper
     else
       tag.span class: "help-text translation-missing"
     end
-  end
-
-  ##
-  # Determines if item view should render the sidebar static map
-  # @return [Boolean]
-  def render_sidebar_map?(document)
-    Settings.SIDEBAR_STATIC_MAP&.any? { |vp| document.viewer_protocol == vp }
-  end
-
-  ##
-  # Deteremines if item view should include attribute table
-  # @return [Boolean]
-  def show_attribute_table?
-    document_available? && @document.inspectable?
   end
 
   ##

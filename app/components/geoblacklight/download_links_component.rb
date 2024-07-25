@@ -3,16 +3,19 @@
 module Geoblacklight
   # Display expandable file download links in sidebar
   class DownloadLinksComponent < ViewComponent::Base
-    attr_reader :document, :downloadable
+    attr_reader :document
 
-    def initialize(document:, downloadable:)
+    def initialize(document:)
       @document = document
-      @downloadable = downloadable
       super
     end
 
     def render?
-      downloadable && (document.direct_download.present? || document.hgl_download.present? || document.iiif_download.present? || document.download_types.present?)
+      downloadable? && (document.direct_download.present? || document.hgl_download.present? || document.iiif_download.present? || document.download_types.present?)
+    end
+
+    def downloadable?
+      helpers.document_available? && @document.downloadable?
     end
 
     def download_link_file(label, id, url)
