@@ -29,7 +29,7 @@ module Geoblacklight
     # Removes blank space from provider to accomodate Carto OneClick
     #
     def carto_provider
-      application_name.delete(" ")
+      helpers.application_name.delete(" ")
     end
 
     private
