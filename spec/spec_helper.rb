@@ -36,20 +36,7 @@ require "webdrivers"
 require "webmock/rspec"
 WebMock.allow_net_connect!(net_http_connect_on_start: true)
 
-Capybara.register_driver(:selenium) do |app|
-  browser_options = ::Selenium::WebDriver::Chrome::Options.new(args: %w[headless disable-gpu disable-setuid-sandbox window-size=7680,4320])
-
-  http_client = Selenium::WebDriver::Remote::Http::Default.new
-  http_client.read_timeout = 120
-  http_client.open_timeout = 120
-  Capybara::Selenium::Driver.new(app,
-    browser: :chrome,
-    options: browser_options,
-    http_client: http_client)
-end
-
-Capybara.javascript_driver = :selenium
-Capybara.default_max_wait_time = 120
+Capybara.javascript_driver = :selenium_chrome_headless
 
 require "geoblacklight"
 
@@ -59,20 +46,8 @@ FactoryBot.definition_file_paths = [File.expand_path("../factories", __FILE__)]
 FactoryBot.find_definitions
 
 RSpec.configure do |config|
-  config.use_transactional_fixtures = false
+  config.use_transactional_fixtures = true
 
-  config.before do
-    DatabaseCleaner.strategy = if Capybara.current_driver == :rack_test
-      :transaction
-    else
-      :truncation
-    end
-    DatabaseCleaner.start
-  end
-
-  config.after do
-    DatabaseCleaner.clean
-  end
   if Rails::VERSION::MAJOR >= 5
     config.include ::Rails.application.routes.url_helpers
     config.include ::Rails.application.routes.mounted_helpers
