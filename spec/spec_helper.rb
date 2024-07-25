@@ -46,20 +46,8 @@ FactoryBot.definition_file_paths = [File.expand_path("../factories", __FILE__)]
 FactoryBot.find_definitions
 
 RSpec.configure do |config|
-  config.use_transactional_fixtures = false
+  config.use_transactional_fixtures = true
 
-  config.before do
-    DatabaseCleaner.strategy = if Capybara.current_driver == :rack_test
-      :transaction
-    else
-      :truncation
-    end
-    DatabaseCleaner.start
-  end
-
-  config.after do
-    DatabaseCleaner.clean
-  end
   if Rails::VERSION::MAJOR >= 5
     config.include ::Rails.application.routes.url_helpers
     config.include ::Rails.application.routes.mounted_helpers
