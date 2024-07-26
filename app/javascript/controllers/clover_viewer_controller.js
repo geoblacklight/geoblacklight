@@ -26,10 +26,16 @@ export default class CloverViewerController extends Controller {
 
   getViewer(protocol, url) {
     if (protocol == "Iiif") {
-      return createElement(Image, {
-        src: url.replace(/\/info\.json$/, ""),
-        isTiledImage: true,
-      });
+      // Create a wrapper div with inline style, as recommended in the docs:
+      // https://samvera-labs.github.io/clover-iiif/docs/image#react
+      return createElement(
+        "div",
+        { style: { height: 400 } },
+        createElement(Image, {
+          src: url.replace(/\/info\.json$/, ""),
+          isTiledImage: true,
+        })
+      );
     }
     if (protocol == "IiifManifest")
       return createElement(Viewer, {
