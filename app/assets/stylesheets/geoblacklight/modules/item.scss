@@ -10,14 +10,10 @@
       border: 1px solid $gray-400;
       min-height: 27.5rem;
 
-      // Ensure oembed iframe is the same height as its container
-      iframe {
+      // Ensure embeds, openlayers viewer, and IIIF viewer fit their container
+      iframe, .ol-viewport, .clover-iiif-image-openseadragon {
         min-height: 27.5rem;
       }
-    }
-
-    .clover-iiif-image-openseadragon, .ol-viewport {
-      height: 100vh!important;
     }
 
     [data-inspect="true"][data-available="true"] {
