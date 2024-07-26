@@ -13,12 +13,7 @@
       </button>
     </div>
     <div class="web-services-modal-entry">
-      <%#= render Geoblacklight::WebServicesComponent.with_collection(@documents.first.references.refs, document: @documents.first) %>
-      <%# @documents is empty, but @response has the Solr document.  action_documents is 
-          described in https://github.com/projectblacklight/blacklight/blob/main/app/controllers/concerns/blacklight/catalog.rb#L117 .
-          If we can figure out why that is not returning what we want, we can fix that and use the original line above
-      %>
-      <%= render Geoblacklight::WebServicesComponent.with_collection(@response.references.refs, document: @response) %>
+      <%= render Geoblacklight::WebServicesComponent.with_collection(@docs.first.references.refs, document: @docs.first) %>
     </div>
   </div>
   <div class="modal-footer">
