@@ -1,35 +1,21 @@
-<div data-controller="clipboard">
-  <div class="modal-header">
-    <h1><%= t('blacklight.tools.citation') %></h1>
-    <button type="button" class="blacklight-modal-close close" data-bs-dismiss="modal" aria-label="<%= t('blacklight.modal.close') %>">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <div class="alert alert-info d-none" role="alert">
-      <%= t('geoblacklight.clipboard.citation') %>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
+<%= render Blacklight::System::ModalComponent.new do |component| %>
+  <div data-controller="clipboard">
+    <div class="modal-header">
+      <h1><%= t('blacklight.tools.citation') %></h1>
     </div>
-      <%= t('blacklight.tools.citation_info') %>
-      <div class="d-inline" data-clipboard-target="source">
-        <%= render Geoblacklight::CitationComponent.with_collection(@documents) if @documents %>
+    <div class="modal-body">
+      <div class="alert alert-info d-none" data-clipboard-target="alert" role="alert">
+        <%= t('geoblacklight.clipboard.citation') %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
+        <%= t('blacklight.tools.citation_info') %>
+        <div class="d-inline" data-clipboard-target="citation">
+          <%= render Geoblacklight::CitationComponent.with_collection(@documents) if @documents %>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" data-action="clipboard#copyToClipboard"><%= t('blacklight.modal.copy-citation') %></button>
+      <button type="button" class="btn btn-secondary" data-bl-dismiss="modal"><%= t('blacklight.modal.close') %></button>
+    </div>
   </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-primary" data-action="copyToClipboard"><%= t('blacklight.modal.copy-citation') %></button>
-    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><%= t('blacklight.modal.close') %></button>
-  </div>
-</div>
-
-<script>
-    $('[data-action="copyToClipboard"]').on('click', function() {
-        let text = $('[data-clipboard-target="source"]').text().trim()
-        navigator.clipboard.writeText(text)
-            .then(() => {
-                $('.alert').removeClass('d-none');
-            })
-    });
-</script>
-
+<% end %>
