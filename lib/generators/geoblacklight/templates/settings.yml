@@ -224,11 +224,12 @@ WMS_PARAMS:
   :STYLES: ''
   :SRS: 'EPSG:4326'
   :EXCEPTIONS: 'application/json'
-  :INFO_FORMAT: 'text/html'
+  :INFO_FORMAT: 'application/json'
 
 # Settings for leaflet
 LEAFLET:
   MAP:
+  SELECTED_COLOR: "#2C7FB8"
   LAYERS:
     DETECT_RETINA: true
     INDEX:

@@ -1,4 +1,5 @@
 import { DomUtil, DomEvent, Control } from "leaflet";
+import { getLayerOpacity } from "../utils";
 
 export default class LayerOpacityControl extends Control {
   constructor(layer, options = {}) {
@@ -8,10 +9,12 @@ export default class LayerOpacityControl extends Control {
     // Check if layer is actually a layer group
     if (typeof layer.getLayers !== "undefined") {
       layers = layer.getLayers();
-      // Add first layer from layer group to options
+      layers = layers && layers[0] instanceof L.Layer ? layers : [layer];
+    } else {
+      this.layersOnLoad = Object.keys(layer).includes('_layers');
     }
     this.options.layer = layers[0];
-    this.options.layers = layers;
+    this.options.layers = this.layersOnLoad ? [] : layers;
   }
 
   onAdd(map) {
@@ -25,9 +28,9 @@ export default class LayerOpacityControl extends Control {
 
     DomEvent.stopPropagation(container);
     DomEvent.disableClickPropagation(container);
-    this.setListeners(handle, bottom, handleText);
+    this.setListeners(handle, bottom, handleText, map);
 
-    const opacity =  this.options.layer.options.fillOpacity ?  this.options.layer.options.fillOpacity : this.options.layer.options.opacity;
+    let opacity =  getLayerOpacity(this.options.layer);
     const opacityPercentage = parseInt(opacity * 100);
     handle.style.zIndex = 4;
     handle.style.top = `calc(100% - ${opacityPercentage}% - 12px)`;
@@ -41,7 +44,7 @@ export default class LayerOpacityControl extends Control {
 
   layerOpacity(layer, opacity) {
     try {
-      layer.setStyle({'fillOpacity': opacity, "opacity": opacity})
+      layer.setStyle({"fillOpacity": opacity, "opacity": opacity})
     } catch {
       try {
         layer.setOpacity(opacity);
@@ -51,7 +54,7 @@ export default class LayerOpacityControl extends Control {
     }
   }
 
-  setListeners(handle, bottom, handleText) {
+  setListeners(handle, bottom, handleText, map) {
     let start = false;
     let startTop;
 
@@ -64,7 +67,7 @@ export default class LayerOpacityControl extends Control {
       handleText.innerHTML = `${Math.round((1 - percentInverse / 100) * 100)}%`;
       bottom.style.height = `${Math.max(0, (100 - percentInverse) * 2 - 13)}px`;
       bottom.style.top = `${Math.min(200, percentInverse * 2 + 13)}px`;
-      this.updateMapOpacity(1 - percentInverse / 100)
+      this.updateMapOpacity(1 - percentInverse / 100);
     });
 
     DomEvent.on(handle, "mousedown", (e) => {
@@ -75,6 +78,20 @@ export default class LayerOpacityControl extends Control {
 
     DomEvent.on(document, "mouseup", () => {
       start = null;
+    });
+
+    let _this = this;
+    DomEvent.on(map, 'layeradd', function(e) {
+      if (e.layer.options.addToOpacitySlider || (_this.layersOnLoad && e.layer instanceof L.Layer)){
+        _this.options.layers.push(e.layer);
+      }
+    });
+
+    DomEvent.on(map, 'layerremove', function(e) {
+      if (e.layer.options.addToOpacitySlider){
+        const index = _this.options.layers.indexOf(e.layer);
+        if (index) { _this.options.layers.splice(index, 1)};
+      }
     });
   }
 }

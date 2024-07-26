@@ -73,6 +73,11 @@ export const appendErrorMessage = () => {
 
 // Looks for strings that could be URLs and wraps them in <a> tags
 export const linkify = (str) => {
+  if (!str) return '';
   const urlRegEx = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-]*)?\??(?:[\-\+=&;%@\.\w]*)#?(?:[\.\!\/\\\w]*))?)/g;
   return str.toString().replace(urlRegEx, '<a href=\'$1\'>$1</a>');
+}
+
+export const getLayerOpacity = (layer) => {
+  return layer.options.fillOpacity ? layer.options.fillOpacity : layer.options.opacity;
 }

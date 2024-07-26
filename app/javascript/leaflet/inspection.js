@@ -1,7 +1,8 @@
 import { appendLoadingMessage, appendErrorMessage, linkify } from "./utils.js";
 import { identifyFeatures } from "esri-leaflet";
+import { getLayerOpacity } from "./utils";
 
-export const wmsInspection = (map, url, layerId) => {
+export const wmsInspection = (map, url, layerId, layer) => {
   map.on("click", async (e) => {
     const spinner = document.createElement("tbody");
     spinner.className = "attribute-table-body";
@@ -34,24 +35,54 @@ export const wmsInspection = (map, url, layerId) => {
 
       if (!response.ok) throw new Error("Network response was not ok.");
 
-      const data = await response.json();
+      const response_data = await response.json();
 
-      if (data.hasOwnProperty("error") || data.values.length === 0) {
+      if (response_data.hasOwnProperty("error") || response_data.hasOwnProperty('exceptions') || response_data.features.length === 0) {
         document.querySelector(".attribute-table-body").innerHTML =
           '<tr><td colspan="2">Could not find that feature</td></tr>';
         return;
       }
+      const data = response_data.features[0];
+      if (!data.isHTML) overlayLayer(map, data, layer);
 
-      const html = document.createElement("tbody");
-      html.className = "attribute-table-body";
-      data.values.forEach((val) => {
-        html.innerHTML += `<tr><td>${val[0]}</td><td>${val[1]}</td></tr>`; // Note: You might need to implement linkify functionality
-      });
-      document.querySelector(".attribute-table-body").replaceWith(html);
+      populateAttributeTable(data);
     } catch (error) {
       console.error("Fetch error: ", error);
     }
   });
+}
+
+export const overlayLayer = (map, data, layer) => {
+  const highlightLayerOld = Object.values(map._layers).filter(layer => layer.options.highlightLayer);
+  if (highlightLayerOld[0]) highlightLayerOld.map(layer => map.removeLayer(layer));
+  if (!data) return;
+
+  let overlayLayer;
+
+  const opacity = getLayerOpacity(layer);
+  const color = map.options.selected_color;
+
+  if (data._latlngs) {
+    overlayLayer = L.polygon(data._latlngs, {color: color, weight: 2, layer: true, fillOpacity: opacity, addToOpacitySlider: true, highlightLayer: true });
+  } else {
+    overlayLayer = L.geoJSON(data, {
+      color: color,
+      opacity: opacity,
+      addToOpacitySlider: true,
+      highlightLayer: true,
+      pointToLayer: function(feature, latlng) {
+        return L.circleMarker(latlng, {
+          radius: 8,
+          fillColor: color,
+          color: color,
+          weight: 1,
+          opacity: opacity,
+          fillOpacity: opacity
+        });
+      }
+    });
+  }
+  L.layerGroup([overlayLayer]).addTo(map);
 }
 
 export const tiledMapLayerInspection = (map, layer) => {
@@ -64,7 +95,7 @@ export const tiledMapLayerInspection = (map, layer) => {
       useCors: true,
     })
       .tolerance(0)
-      .returnGeometry(false)
+      .returnGeometry(true)
       .on(map)
       .at(e.latlng)
       .run((error, featureCollection) => {
@@ -87,7 +118,7 @@ export const dynamicMapLayerInspection = (map, layer, layerId) => {
       useCors: true,
     })
       .tolerance(2)
-      .returnGeometry(false)
+      .returnGeometry(true)
       .on(map)
       .at(e.latlng);
 
@@ -100,6 +131,7 @@ export const dynamicMapLayerInspection = (map, layer, layerId) => {
       if (error || response.results < 1) {
         appendErrorMessage();
       } else {
+        overlayLayer(map, featureCollection.features[0], layer);
         populateAttributeTable(featureCollection.features[0]);
       }
     });
@@ -116,12 +148,13 @@ export const featureLayerInspection = (map, layer) => {
     // Query layer at click location
     layer
       .query()
-      .returnGeometry(false)
+      .returnGeometry(true)
       .nearby(e.latlng, distance)
       .run((error, featureCollection) => {
         if (error || !featureCollection.features.length) {
           appendErrorMessage();
         } else {
+          overlayLayer(map, featureCollection.features[0], layer);
           populateAttributeTable(featureCollection.features[0]);
         }
       });
