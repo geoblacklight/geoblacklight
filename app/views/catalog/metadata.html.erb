@@ -1,14 +1,14 @@
 <%= render Blacklight::System::ModalComponent.new do |component| %>
-  <div data-controller="clipboard">
-    <div class="modal-header">
-      <h3 class="modal-title"><%= t('geoblacklight.metadata.view_metadata')%></h3>
-    </div>
+  <% component.with_title do %>
+    <%= t('geoblacklight.metadata.view_metadata') %>
+  <% end %>
+  <% component.with_body do %>
     <div class="modal-body metadata-body">
       <%= render partial: 'metadata' %>
     </div>
-    <div class="modal-footer">
-      <a href="#" target="_blank" rel="noopener noreferrer" id="btn-metadata-download" class="btn btn-primary">Download</a>
-      <button type="button" class="btn btn-secondary" data-bl-dismiss="modal"><%= t('blacklight.modal.close') %></button>
-    </div>
-  </div>
+  <% end %>
+  <% component.with_footer do %>
+    <a href="#" target="_blank" rel="noopener noreferrer" id="btn-metadata-download" class="btn btn-primary">Download</a>
+    <button type="button" class="btn btn-secondary" data-bl-dismiss="modal"><%= t('blacklight.modal.close') %></button>
+  <% end %>
 <% end %>

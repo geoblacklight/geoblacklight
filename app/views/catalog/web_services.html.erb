@@ -1,23 +1,19 @@
 <%= render Blacklight::System::ModalComponent.new do |component| %>
-  <div data-controller="clipboard">
-    <div class="modal-header">
-      <h1 class="modal-title"><%= t('geoblacklight.references.services')%></h1>
-      <button type="button" class="blacklight-modal-close btn-close close" data-bl-dismiss="modal" aria-label="<%= t('blacklight.modal.close') %>">
-      </button>
-    </div>
-    <div class="modal-body web-services-modal-body">
-      <div class="alert alert-info d-none" role="alert">
-      <%= t('geoblacklight.clipboard.web_service') %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+  <% component.with_title do %>
+    <%= t('geoblacklight.references.services') %>
+  <% end %>
+  <% component.with_body do %>
+    <div class="modal-body web-services-modal-body" data-controller="clipboard">
+      <div class="alert alert-info d-none" role="alert" data-clipboard-target="alert">
+        <%= t('geoblacklight.clipboard.web_service') %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
       <div class="web-services-modal-entry">
         <%= render Geoblacklight::WebServicesComponent.with_collection(@documents.first.references.refs, document: @documents.first) %>
       </div>
     </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-bl-dismiss="modal"><%= t('blacklight.modal.close') %></button>
-    </div>
-  </div>
+  <% end %>
+  <% component.with_footer do %>
+    <button type="button" class="btn btn-secondary" data-bl-dismiss="modal"><%= t('blacklight.modal.close') %></button>
+  <% end %> 
 <% end %>
