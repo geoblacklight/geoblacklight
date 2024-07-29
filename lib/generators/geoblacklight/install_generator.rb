@@ -128,7 +128,7 @@ module Geoblacklight
       if options[:test]
         run "yarn add file:#{Geoblacklight::Engine.root}"
       else
-        run "yarn add @geoblacklight/frontend^5.0.0-alpha"
+        run "yarn add @geoblacklight/frontend@#{Geoblacklight::VERSION}"
       end
     end
 
