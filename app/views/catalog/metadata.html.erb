@@ -1,13 +1,31 @@
-<div class="modal-header">
-  <h3 class="modal-title"><%= t('geoblacklight.metadata.view_metadata')%></h3>
-  <button type="button" class="blacklight-modal-close close" data-dismiss="modal" aria-label="<%= t('blacklight.modal.close') %>">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-<div class="modal-body metadata-body">
-  <%= render partial: 'metadata' %>
-</div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-default hide-without-js" data-dismiss="modal">Close</button>
-  <a href="#" target="_blank" rel="noopener noreferrer" id="btn-metadata-download" class="btn btn-primary">Download</a>
+<div data-blacklight-modal="container">
+  <div class="modal-header">
+    <h3 class="modal-title"><%= t('geoblacklight.metadata.view_metadata')%></h3>
+    <button
+      type="button"
+      class="blacklight-modal-close close"
+      data-dismiss="modal"
+      aria-label="<%= t('blacklight.modal.close') %>"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body metadata-body"><%= render partial: 'metadata' %></div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-default hide-without-js"
+      data-dismiss="modal"
+    >
+      Close
+    </button>
+    <a
+      href="#"
+      target="_blank"
+      rel="noopener noreferrer"
+      id="btn-metadata-download"
+      class="btn btn-primary"
+      >Download</a
+    >
+  </div>
 </div>
