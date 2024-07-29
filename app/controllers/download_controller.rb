@@ -14,8 +14,8 @@ class DownloadController < ApplicationController
           download_type: "generated-#{params[:type]}"
         })
     respond_to do |format|
-      format.json { render json: flash, response: response }
-      format.html { render json: flash, response: response }
+      format.json { render json: [flash, ""], response: response, status: 500 }
+      format.html { render json: [flash, ""], response: response, status: 500 }
     end
   end
 
@@ -25,8 +25,8 @@ class DownloadController < ApplicationController
     response = check_type
     validate response
     respond_to do |format|
-      format.json { render json: flash, response: response }
-      format.html { render json: flash, response: response }
+      format.json { render json: [flash, download_file_path(response)], response: response }
+      format.html { render json: [flash, download_file_path(response)], response: response }
     end
   end
 

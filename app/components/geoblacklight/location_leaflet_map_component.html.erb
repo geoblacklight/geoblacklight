@@ -1,5 +1,1 @@
-<%= content_tag :div, '', id: @id, class: @classes, aria: { label: @label },
-data: { map: @data_map, 'catalog-path'=> search_catalog_path,
-'map-bbox' => params[:bbox],
-'map-geom' => @map_geometry, basemap: helpers.geoblacklight_basemap,
-leaflet_options:} %>
+<%= viewer_tag %>

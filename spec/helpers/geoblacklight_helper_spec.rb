@@ -25,86 +25,6 @@ describe GeoblacklightHelper, type: :helper do
     end
   end
 
-  describe "#proper_case_format" do
-    it "returns a properly cased format" do
-      expect(proper_case_format("GEOJSON")).to eq "GeoJSON"
-    end
-  end
-
-  describe "#download_text" do
-    it "returns download text concatenated with proper case format" do
-      expect(download_text("GEOJSON")).to eq "Original GeoJSON"
-    end
-  end
-
-  describe "#download_text" do
-    it "returns download text concatenated with proper case format" do
-      expect(download_text("GEOJSON")).to eq "Original GeoJSON"
-    end
-  end
-
-  describe "#download_link_file" do
-    let(:label) { "Test Link Text" }
-    let(:id) { "test-id" }
-    let(:url) { "http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip" }
-
-    it "generates a link to download the original file" do
-      expect(download_link_file(label, id, url)).to eq '<a contentUrl="http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip" data-download="trigger" data-download-type="direct" data-download-id="test-id" href="http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip">Test Link Text</a>'
-    end
-  end
-
-  describe "#download_link_hgl" do
-    let(:text) { "Test Link Text" }
-    let(:document) { instance_double(SolrDocument) }
-
-    before do
-      allow(document).to receive(:id).and_return("test-id")
-      allow(document).to receive(:to_s).and_return("test-id")
-    end
-
-    it "generates a link to the HGL route" do
-      expect(download_link_hgl(text, document)).to eq '<a data-blacklight-modal="trigger" data-download="trigger" data-download-type="harvard-hgl" data-download-id="test-id" href="/download/hgl/test-id">Test Link Text</a>'
-    end
-  end
-
-  describe "#download_link_iiif" do
-    let(:references_field) { Settings.FIELDS.REFERENCES }
-    let(:document_attributes) do
-      {
-        references_field => {
-          "http://iiif.io/api/image" => "https://example.edu/image/info.json"
-        }.to_json
-      }
-    end
-    let(:document) { SolrDocument.new(document_attributes) }
-
-    before do
-      allow_any_instance_of(Geoblacklight::Reference).to receive(:to_hash).and_return(iiif: "https://example.edu/image/info.json")
-    end
-
-    it "generates a link to download the JPG file from the IIIF server" do
-      assign(:document, document)
-      expect(helper.download_link_iiif).to eq '<a contentUrl="https://example.edu/image/full/full/0/default.jpg" data-download="trigger" href="https://example.edu/image/full/full/0/default.jpg">Original JPG</a>'
-    end
-  end
-
-  describe "#download_link_generated" do
-    let(:download_type) { "SHAPEFILE" }
-    let(:document) { instance_double(SolrDocument) }
-
-    before do
-      allow(document).to receive(:id).and_return("test-id")
-      allow(document).to receive(:to_s).and_return("test-id")
-    end
-
-    it "generates a link to download the JPG file from the IIIF server" do
-      # Stub I18n to ensure the link can be customized via `export_` labels.
-      allow(helper).to receive(:t).and_call_original
-      allow(helper).to receive(:t).with("geoblacklight.download.export_shapefile_link").and_return("Shapefile Export Customization")
-      expect(helper.download_link_generated(download_type, document)).to eq '<a data-download-path="/download/test-id?type=SHAPEFILE" data-download="trigger" data-download-type="SHAPEFILE" data-download-id="test-id" href="">Export Shapefile Export Customization</a>'
-    end
-  end
-
   describe "#geoblacklight_basemap" do
     let(:blacklight_config) { double }
     it "without configuration" do
@@ -184,7 +104,7 @@ describe GeoblacklightHelper, type: :helper do
 
   describe "#leaflet_options" do
     it "returns a hash of options for leaflet" do
-      expect(leaflet_options[:VIEWERS][:WMS][:CONTROLS]).to eq(%w[Opacity Fullscreen])
+      expect(leaflet_options[:LAYERS][:INDEX].keys).to eq([:DEFAULT, :UNAVAILABLE, :SELECTED])
     end
   end
 
@@ -315,7 +235,7 @@ describe GeoblacklightHelper, type: :helper do
     context "viewing bookmarks" do
       let(:controller_name) { "bookmarks" }
 
-      it "returns bookmarks data-map selector" do
+      it "returns bookmarks data-page selector" do
         expect(results_js_map_selector(controller_name)).to eq "bookmarks"
       end
     end
@@ -323,7 +243,7 @@ describe GeoblacklightHelper, type: :helper do
     context "viewing catalog results" do
       let(:controller_name) { "catalog" }
 
-      it "returns index data-map selector" do
+      it "returns index data-page selector" do
         expect(results_js_map_selector(controller_name)).to eq "index"
       end
     end
@@ -331,7 +251,7 @@ describe GeoblacklightHelper, type: :helper do
     context "calling outside of intended scope" do
       let(:controller_name) { "outside" }
 
-      it "returns default data-map value" do
+      it "returns default data-page value" do
         expect(results_js_map_selector(controller_name)).to eq "index"
       end
     end

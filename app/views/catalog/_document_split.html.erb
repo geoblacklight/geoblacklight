@@ -1,8 +1,21 @@
 <div class='row'>
-  <div id="documents" class="documents-list col-md-6">
-    <% documents.each_with_index do |document, index| %>
-      <%= render Geoblacklight::SearchResultComponent.new(document: document, document_counter: index) %>
-    <% end %>
+  <div
+    id="documents"
+    class="documents-list col-md-6"
+    data-controller="search-results"
+    data-action="leaflet-viewer:loaded@window->search-results#fitResultBounds"
+    data-search-results-leaflet-viewer-outlet=".leaflet-viewer"
+    >
+    <turbo-frame id="documents-frame">
+      <% documents.each_with_index do |document, index| %>
+        <%= render Geoblacklight::SearchResultComponent.new(document: document, document_counter: index) %>
+      <% end %>
+    </turbo-frame>
   </div>
-  <%= render(Geoblacklight::LocationLeafletMapComponent.new(data_map: results_js_map_selector(controller.controller_name), classes: 'col-md-6 sticky-top position-sticky')) %>
+  <% if results_js_map_selector(controller.controller_name) == "index" %>
+    <%= render(Geoblacklight::LocationLeafletMapComponent.new(page: 'index', geosearch: { dynamic: true }, classes: 'col-md-6 sticky-top position-sticky leaflet-viewer')) %>
+  <% else %>
+    <%= render(Geoblacklight::LocationLeafletMapComponent.new(page: 'index', classes: 'col-md-6 leaflet-viewer')) %>
+  <% end %>
 </div>
+

@@ -14,33 +14,36 @@ module Geoblacklight
        4. Sets asset initializer values into the local application
     DESCRIPTION
 
-    def add_javascript
-      copy_file "assets/geoblacklight.js", "app/assets/javascripts/geoblacklight.js"
-
-      if Rails.version.to_i >= 6
-        append_to_file "app/assets/javascripts/application.js",
-          "\n// Required by GeoBlacklight\n//= require geoblacklight"
-      end
-    end
-
-    def remove_stylesheets
-      remove_file "app/assets/stylesheets/application.css"
-      remove_file "app/assets/stylesheets/blacklight.scss"
-    end
-
+    # Add our own stylesheets that reference the versions from npm
     def add_stylesheets
-      copy_file "assets/application.scss", "app/assets/stylesheets/application.scss"
-      copy_file "assets/_blacklight.scss", "app/assets/stylesheets/_blacklight.scss"
-      copy_file "assets/_customizations.scss", "app/assets/stylesheets/_customizations.scss"
-      copy_file "assets/_geoblacklight.scss", "app/assets/stylesheets/_geoblacklight.scss"
+      copy_file "assets/_customizations.scss", "app/javascript/entrypoints/_customizations.scss"
+      copy_file "assets/application.scss", "app/javascript/entrypoints/application.scss"
     end
 
-    def add_initializers
-      append_to_file "config/initializers/assets.rb",
-        "\nRails.application.config.assets.precompile += %w( favicon.ico )\n"
+    # Copy over the main Geoblacklight entrypoint
+    def add_javascript
+      copy_file "geoblacklight.js", "app/javascript/entrypoints/geoblacklight.js"
+    end
 
-      append_to_file "config/initializers/assets.rb",
-        "\nRails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'images')\n"
+    # Update the application entrypoint
+    def update_application_entrypoint
+      imports = <<~JS
+        // JS dependencies
+        import "@hotwired/turbo-rails";
+        import jQuery from "jquery";
+        import "popper.js";
+        import bootstrap from "bootstrap";
+        import Bloodhound from "typeahead.js/dist/bloodhound";
+        import "typeahead.js/dist/typeahead.jquery";
+
+        // Make imports available globally
+        window.bootstrap = bootstrap;
+        window.$ = jQuery;
+        window.jQuery = jQuery;
+        window.Bloodhound = Bloodhound;
+      JS
+
+      inject_into_file "app/javascript/entrypoints/application.js", imports
     end
   end
 end

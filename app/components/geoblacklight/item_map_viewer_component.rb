@@ -3,21 +3,17 @@
 module Geoblacklight
   class ItemMapViewerComponent < ViewComponent::Base
     def initialize(document)
-      @document = document
-      @pmtiles = document.item_viewer.pmtiles
-      @cog = document.item_viewer.cog
-      @viewer_protocol = document.viewer_protocol
-      @viewer_endpoint = document.viewer_endpoint
-      @wxs_identifier = document.wxs_identifier
-      @geojson = document.geometry.geojson
       super
+      @document = document
     end
 
     # If the conditions for this being IIIF content are met, dislay the IIIF viewer
+    # If it is oembed content, display the oembed viewer
     # Otherwise display the base viewer which will take into account if it is open layers
     # or generic content.
     def display_tag
       return iiif_tag if iiif?
+      return oembed_tag if oembed?
 
       base_tag
     end
@@ -28,36 +24,63 @@ module Geoblacklight
 
     private
 
-    # These are captured as openlayers_container? and iiif_manifest_viewer? in geoblacklight_helper.
-    def open_layers?
-      @pmtiles || @cog
+    def protocol
+      @document.viewer_protocol&.camelize
+    end
+
+    def openlayers?
+      %w[Cog Pmtiles].include?(protocol)
     end
 
     def iiif?
-      @document&.item_viewer&.viewer_preference&.key?(:iiif_manifest)
+      %w[Iiif IiifManifest].include?(protocol)
     end
 
-    # Generate thet tag for IIIF content
+    def oembed?
+      protocol == "Oembed"
+    end
+
+    # Generate the viewer HTML for IIIF content
     def iiif_tag
-      tag.div(nil, id: "clover-viewer", iiif_content: @viewer_endpoint)
+      tag.div(nil,
+        id: "clover-viewer",
+        class: "viewer",
+        data: {
+          controller: "clover-viewer",
+          "clover-viewer-protocol-value": protocol,
+          "clover-viewer-url-value": @document.viewer_endpoint
+        })
     end
 
-    # The only difference beween the open layers container and the regular leaflet container
-    # is the id. Here we check if we need to use open layers, and set the id appropriately.
-    def base_tag
-      map_id = open_layers? ? "ol-map" : "map"
+    # Generate the viewer HTML for oEmbed content
+    def oembed_tag
       tag.div(nil,
-        id: map_id,
+        id: "oembed-viewer",
+        class: "viewer",
         data: {
-          :map => "item", :protocol => @viewer_protocol.camelize,
-          :url => @viewer_endpoint,
-          "layer-id" => @wxs_identifier,
-          "map-geom" => @geojson,
-          "catalog-path" => helpers.search_catalog_path,
-          :available => helpers.document_available?(@document),
-          :basemap => helpers.geoblacklight_basemap,
-          :leaflet_options => helpers.leaflet_options
+          controller: "oembed-viewer",
+          oembed_viewer_url_value: @document.viewer_endpoint
         })
+    end
+
+    # The leaflet and openlayers viewers share a lot of the same data attributes
+    # so we can use a base tag for both of them and just vary a few names
+    def base_tag
+      viewer_name = openlayers? ? "openlayers-viewer" : "leaflet-viewer"
+      tag.div(nil,
+        id: viewer_name,
+        class: "viewer",
+        data: {
+          "controller" => viewer_name,
+          "#{viewer_name}-available-value" => helpers.document_available?(@document),
+          "#{viewer_name}-basemap-value" => helpers.geoblacklight_basemap,
+          "#{viewer_name}-protocol-value" => protocol,
+          "#{viewer_name}-url-value" => @document.viewer_endpoint,
+          "#{viewer_name}-map-geom-value" => @document.geometry.geojson,
+          "#{viewer_name}-layer-id-value" => @document.wxs_identifier,
+          "#{viewer_name}-options-value" => helpers.leaflet_options,
+          "#{viewer_name}-draw-initial-bounds-value" => true
+        }.compact)
     end
   end
 end

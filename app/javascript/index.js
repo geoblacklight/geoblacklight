@@ -1,7 +1,26 @@
-import OlInitializer from './openlayers/ol_initializer'
-import CloverInitializer from './clover/clover_initializer'
+// Stimulus controllers
+import OpenlayersViewerController from "./controllers/openlayers_viewer_controller";
+import CloverViewerController from "./controllers/clover_viewer_controller";
+import OembedViewerController from "./controllers/oembed_viewer_controller";
+import LeafletViewerController from "./controllers/leaflet_viewer_controller";
+import SearchResultsController from "./controllers/search_results_controller";
+import DownloadsController from "./controllers/downloads_controller";
+
+// GBL stuff
+import GeoBlacklightInitializer from "./geoblacklight/geoblacklight_initializer";
+
+// Other modules
+import openLayersBasemaps from "./openlayers/basemaps";
+import leafletBasemaps from "./leaflet/basemaps";
 
 export {
-  OlInitializer,
-  CloverInitializer
-}
+  OpenlayersViewerController,
+  CloverViewerController,
+  OembedViewerController,
+  LeafletViewerController,
+  GeoBlacklightInitializer,
+  SearchResultsController,
+  DownloadsController,
+  openLayersBasemaps,
+  leafletBasemaps,
+};
