@@ -190,7 +190,7 @@ describe GeoblacklightHelper, type: :helper do
 
     context "valid entry" do
       it "renders help text entry for the wms viewer protocol" do
-        expect(helper.render_help_text_entry(feature, translation_key)).to eq '<h3 class="help-text viewer_protocol h6"><a data-bs-toggle="popover" data-title="Web Map Service (WMS)" data-content="A Web Map Service displays a geospatial dataset as map images.">Web Map Service (WMS)</a></h3>'
+        expect(helper.render_help_text_entry(feature, translation_key)).to eq '<h2 class="help-text viewer_protocol h6"><a data-bs-toggle="popover" data-title="Web Map Service (WMS)" data-content="A Web Map Service displays a geospatial dataset as map images.">Web Map Service (WMS)</a></h2>'
       end
     end
 
