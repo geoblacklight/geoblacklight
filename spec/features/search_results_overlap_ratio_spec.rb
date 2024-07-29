@@ -50,7 +50,7 @@ end
 
 def position_in_result_page(page, id)
   results = []
-  page.all("div.documentHeader.row").each do |div|
+  page.all("div.documentHeader").each do |div|
     results << div["data-layer-id"]
   end
   results.index(id) + 1

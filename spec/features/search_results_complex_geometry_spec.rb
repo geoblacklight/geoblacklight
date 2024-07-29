@@ -9,7 +9,7 @@ feature "spatial search results with an WKT bounding box that crosses the anti-m
       q: "A new & accurate map of Asia",
       bbox: "98.4375 31.765537 117.202148 45.429299"
     )
-    result_id = page.all("div.documentHeader.row").first["data-layer-id"]
+    result_id = page.all("div.documentHeader").first["data-layer-id"]
     expect(result_id).to eq "57f0f116-b64e-4773-8684-96ba09afb549"
   end
 
@@ -19,7 +19,7 @@ feature "spatial search results with an WKT bounding box that crosses the anti-m
       q: "A new & accurate map of Asia",
       bbox: "-98.717651 34.40691 -96.37207 36.199958"
     )
-    results = page.all("div.documentHeader.row")
+    results = page.all("div.documentHeader")
     expect(results.count).to eq 0
   end
 end
