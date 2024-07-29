@@ -1,20 +1,19 @@
 <%= render Blacklight::System::ModalComponent.new do |component| %>
+  <% component.with_title do %>
+    <%= t('blacklight.tools.citation') %>
+  <% end %>
   <div data-controller="clipboard">
-    <div class="modal-header">
-      <h1><%= t('blacklight.tools.citation') %></h1>
+    <div class="alert alert-info d-none" data-clipboard-target="alert" role="alert">
+      <%= t('geoblacklight.clipboard.citation') %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    <div class="modal-body">
-      <div class="alert alert-info d-none" data-clipboard-target="alert" role="alert">
-        <%= t('geoblacklight.clipboard.citation') %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-        <%= t('blacklight.tools.citation_info') %>
-        <div class="d-inline" data-clipboard-target="citation">
-          <%= render Geoblacklight::CitationComponent.with_collection(@documents) if @documents %>
-        </div>
+    <%= t('blacklight.tools.citation_info') %>
+    <% citation = render Geoblacklight::CitationComponent.with_collection(@documents) if @documents %>
+    <div class="d-inline">
+      <%= citation %>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-primary" data-action="clipboard#copyToClipboard"><%= t('blacklight.modal.copy-citation') %></button>
+      <button type="button" class="btn btn-primary" data-action="clipboard#copyToClipboard" data-clipboard-value="<%= citation %>"><%= t('blacklight.modal.copy-citation') %></button>
       <button type="button" class="btn btn-secondary" data-bl-dismiss="modal"><%= t('blacklight.modal.close') %></button>
     </div>
   </div>
