@@ -14,7 +14,7 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 2.7
+        ruby-version: 3.2
     - name: Install dependencies
       run: bundle install
     - name: Run linter
@@ -27,7 +27,7 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 2.7
+        ruby-version: 3.2
     - name: Install json schema validator
       run: gem install json_schemer
     - name: Run json_schemer against aarkvark fixtures
@@ -38,7 +38,7 @@ jobs:
     strategy:
       matrix:
         ruby_version: ['3.2', '3.3']
-        rails_version: [6.1.7.6, 7.1.3]
+        rails_version: ['7.0.8.4', '7.1.3.4']
 
     name: test ruby ${{ matrix.ruby_version }} / rails ${{ matrix.rails_version }}
     steps:
