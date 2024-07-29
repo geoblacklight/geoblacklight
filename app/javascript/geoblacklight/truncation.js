@@ -10,9 +10,9 @@ export default function initializeTruncation() {
 
     let control = document.createElement("button");
     control.className = "btn btn-link p-0 border-0";
-    control.setAttribute("data-toggle", "collapse");
+    control.setAttribute("data-bs-toggle", "collapse");
     control.setAttribute("aria-expanded", "false");
-    control.setAttribute("data-target", `#${id}`);
+    control.setAttribute("data-bs-target", `#${id}`);
     control.setAttribute("aria-controls", id);
     control.textContent = "Read more";
 
