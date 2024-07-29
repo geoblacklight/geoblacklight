@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "@geoblacklight/frontend": "^5.0 || ^5.0.0-alpha",
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^8.0.4",
     "blacklight-frontend": "7.37",

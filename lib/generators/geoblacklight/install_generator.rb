@@ -113,15 +113,8 @@ module Geoblacklight
       copy_file "base.html.erb", "app/views/layouts/blacklight/base.html.erb"
     end
 
-    # TODO: rework this so package-test.json isn't needed
     def copy_package_json
-      if options[:test]
-        # If building engine cart test app, use specific package.json so the
-        # locally built frontend javascript is used instead of the npm package.
-        copy_file "package-test.json", "package.json"
-      else
-        copy_file "package.json", "package.json"
-      end
+      copy_file "package.json", "package.json"
     end
 
     # Vite - Config files
@@ -129,6 +122,14 @@ module Geoblacklight
       copy_file "vite.json", "config/vite.json"
       copy_file "vite.config.ts", "vite.config.ts"
       run "yarn install"
+    end
+
+    def add_frontend
+      if options[:test]
+        run "yarn add file:#{Geoblacklight::Engine.root}"
+      else
+        run "yarn add @geoblacklight/frontend^5.0.0-alpha"
+      end
     end
 
     # Run bundle with vite install

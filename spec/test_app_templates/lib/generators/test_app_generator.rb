@@ -20,7 +20,7 @@ class TestAppGenerator < Rails::Generators::Base
   # Ensure local frontend build is linked so internal test app
   # can use local javascript instead of npm package.
   def link_frontend
-    run "yarn link"
+    run "yarn add #{Blacklight::Engine.root}"
   end
 
   def run_blacklight_generator
