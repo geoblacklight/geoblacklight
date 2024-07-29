@@ -97,7 +97,6 @@ export default class GeoSearchControl extends Control {
     // Make the new target URL using the configured base URL
     const newUrl = new URL(this.options.baseUrl)
     newUrl.search = params.toString()
-    console.log('navigating to', newUrl, 'with Turbo:', window.Turbo);
 
     // If Turbo Drive is active, do the new page navigation without a full page reload
     if (window.Turbo && opts.turbo) window.Turbo.visit(newUrl);
