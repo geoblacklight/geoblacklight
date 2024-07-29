@@ -236,39 +236,15 @@ LEAFLET:
         color: "#7FCDBB"
         weight: 1
         radius: 4
+        sr_color_name: "Green"
       UNAVAILABLE:
         <<: *default
         color: "#EDF8B1"
+        sr_color_name: "Yellow"
       SELECTED:
         <<: *default
         color: "#2C7FB8"
-  VIEWERS:
-    DYNAMICMAPLAYER:
-      CONTROLS:
-        - 'Opacity'
-        - 'Fullscreen'
-    FEATURELAYER:
-      CONTROLS:
-        - 'Opacity'
-        - 'Fullscreen'
-    IIIF:
-      CONTROLS:
-        - 'Fullscreen'
-    IMAGEMAPLAYER:
-      CONTROLS:
-        - 'Opacity'
-        - 'Fullscreen'
-    INDEXMAP:
-      CONTROLS:
-        - 'Fullscreen'
-    TILEDMAPLAYER:
-      CONTROLS:
-        - 'Opacity'
-        - 'Fullscreen'
-    WMS:
-      CONTROLS:
-        - 'Opacity'
-        - 'Fullscreen'
+        sr_color_name: "Blue"
 
 # Toggle the help text feature that offers users context
 HELP_TEXT:

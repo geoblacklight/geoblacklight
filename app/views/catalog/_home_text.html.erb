@@ -15,7 +15,7 @@
     </div>
     <div class='col-sm'>
       <%= content_tag :h3, t('geoblacklight.home.map_heading') %>
-      <%= render(Geoblacklight::LocationLeafletMapComponent.new(data_map: 'home')) %>
+      <%= render(Geoblacklight::LocationLeafletMapComponent.new(page: 'home', geosearch: { dynamic: false })) %>
     </div>
   </div>
   <div id="geoblacklight-version" class="text-right">

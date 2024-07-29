@@ -50,10 +50,6 @@ module Geoblacklight
       inject_into_file "config/routes.rb", routes, before: /^end/
     end
 
-    def generate_assets
-      generate "geoblacklight:assets"
-    end
-
     def create_blacklight_catalog
       remove_file "app/controllers/catalog_controller.rb"
       copy_file "catalog_controller.rb", "app/controllers/catalog_controller.rb"
@@ -118,13 +114,7 @@ module Geoblacklight
     end
 
     def copy_package_json
-      if options[:test]
-        # If building engine cart test app, use specific package.json so the
-        # locally built frontend javascript is used instead of the npm package.
-        copy_file "package-test.json", "package.json"
-      else
-        copy_file "package.json", "package.json"
-      end
+      copy_file "package.json", "package.json"
     end
 
     # Vite - Config files
@@ -132,6 +122,14 @@ module Geoblacklight
       copy_file "vite.json", "config/vite.json"
       copy_file "vite.config.ts", "vite.config.ts"
       run "yarn install"
+    end
+
+    def add_frontend
+      if options[:test]
+        run "yarn add file:#{Geoblacklight::Engine.root}"
+      else
+        run "yarn add @geoblacklight/frontend@#{Geoblacklight::VERSION}"
+      end
     end
 
     # Run bundle with vite install
@@ -142,10 +140,8 @@ module Geoblacklight
       end
     end
 
-    # Vite - Copy over the Vite entrypoints
-    def copy_vite_entrypoints
-      copy_file "clover.js", "app/javascript/entrypoints/clover.js"
-      copy_file "ol.js", "app/javascript/entrypoints/ol.js"
+    def generate_assets
+      generate "geoblacklight:assets"
     end
   end
 end

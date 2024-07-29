@@ -10,7 +10,7 @@ feature "Index map" do
     visit solr_document_path("stanford-fb897vt9938")
     # Wait until SVG elements are added
     expect(page).to have_css ".leaflet-overlay-pane svg"
-    within "#map" do
+    within "#leaflet-viewer" do
       expect(page).to have_css "svg g path:nth-child(2)[fill='#{default_color}']"
       find("svg g path:nth-child(2)").click
       expect(page).to have_css "svg g path:nth-child(2)[fill='#{selected_color}']"
@@ -22,7 +22,7 @@ feature "Index map" do
     visit solr_document_path("cornell-ny-aerial-photos-1960s")
     # Wait until SVG elements are added
     expect(page).to have_css ".leaflet-overlay-pane svg"
-    within "#map" do
+    within "#leaflet-viewer" do
       expect(page).to have_css "svg g path:nth-child(2)[fill='#{default_color}']"
       find("svg g path:nth-child(2)").click
       expect(page).to have_css "svg g path:nth-child(2)[fill='#{selected_color}']"

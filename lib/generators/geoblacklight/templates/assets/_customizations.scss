@@ -1,7 +1,8 @@
 // Local Application Customizations
 
 // Set Header Logo
-$logo-image: image_url('blacklight/logo.svg') !default;
+// @geoblacklight_images is a vite path alias set in vite.config.js
+$logo-image: url('@geoblacklight_images/blacklight/logo.svg');
 
 .navbar-brand {  /* The main logo image for the Blacklight instance */
   @if $logo-image {
@@ -13,17 +14,17 @@ $logo-image: image_url('blacklight/logo.svg') !default;
 // Override default Bootstrap variables here
 
 // Example: Bootstrap Colors
-$blue:    #0d6efd !default;
-$indigo:  #6610f2 !default;
-$purple:  #6f42c1 !default;
-$pink:    #d63384 !default;
-$red:     #dc3545 !default;
-$orange:  #fd7e14 !default;
-$yellow:  #ffc107 !default;
-$green:   #198754 !default;
-$teal:    #20c997 !default;
-$cyan:    #0dcaf0 !default;
-$dark:    #212529 !default; // $gray-900
+// $blue:    #0d6efd !default;
+// $indigo:  #6610f2 !default;
+// $purple:  #6f42c1 !default;
+// $pink:    #d63384 !default;
+// $red:     #dc3545 !default;
+// $orange:  #fd7e14 !default;
+// $yellow:  #ffc107 !default;
+// $green:   #198754 !default;
+// $teal:    #20c997 !default;
+// $cyan:    #0dcaf0 !default;
+// $dark:    #212529 !default; // $gray-900
 
 // Example: Bootstrap Link color
-$link-color: $blue;
+// $link-color: $blue;
