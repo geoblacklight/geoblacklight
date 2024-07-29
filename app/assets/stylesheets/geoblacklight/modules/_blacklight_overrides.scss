@@ -43,9 +43,15 @@ $logo-image: image_url('blacklight/logo.svg') !default;
 .documents-list .document {
   margin-top:0.5rem;
   padding-top:0.5rem;
+  border-bottom: 0;
 }
 // End - Addresses GBL issue #639
 
 .navbar-search.bg-light {
   background-color: inherit!important;
+  display: flex;
+  flex-grow: 1;
+  & > .container {
+    justify-content: center;
+  }
 }
