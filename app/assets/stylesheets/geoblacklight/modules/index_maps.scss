@@ -42,15 +42,6 @@
     margin-bottom: 0;
   }
 
-  &-default {
-    background: #7FCDBB;
-  }
-  &-unavailable {
-    background: #EDF8B1;
-  }
-  &-selected {
-    background: #2C7FB8;
-  }
   &-default, &-unavailable, &-selected {
     opacity: 0.65;
   }

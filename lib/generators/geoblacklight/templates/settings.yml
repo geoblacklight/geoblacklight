@@ -236,12 +236,15 @@ LEAFLET:
         color: "#7FCDBB"
         weight: 1
         radius: 4
+        sr_color_name: "Green"
       UNAVAILABLE:
         <<: *default
         color: "#EDF8B1"
+        sr_color_name: "Yellow"
       SELECTED:
         <<: *default
         color: "#2C7FB8"
+        sr_color_name: "Blue"
 
 # Toggle the help text feature that offers users context
 HELP_TEXT:
