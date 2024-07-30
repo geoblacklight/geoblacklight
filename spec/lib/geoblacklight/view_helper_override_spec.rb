@@ -2,7 +2,14 @@
 
 require "spec_helper"
 
-class GeoblacklightControllerTestClass
+class TestSuperClass
+  def render_search_to_s(_params)
+    "test"
+  end
+end
+
+class GeoblacklightControllerTestClass < TestSuperClass
+  include Geoblacklight::ViewHelperOverride
   include AbstractController::Translation
   attr_accessor :params
 end
@@ -10,7 +17,6 @@ end
 describe Geoblacklight::ViewHelperOverride do
   let(:fake_controller) do
     GeoblacklightControllerTestClass.new
-      .extend(described_class)
   end
 
   describe "render_search_to_s_bbox" do
@@ -18,12 +24,17 @@ describe Geoblacklight::ViewHelperOverride do
       fake_controller.params = {}
       expect(fake_controller.render_search_to_s_bbox(fake_controller.params)).to eq ""
     end
+
     it "returns render_search_to_s_element when bbox is present" do
       fake_controller.params = {bbox: "123"}
       params = {"bbox" => "123"}
       expect(fake_controller).to receive(:render_search_to_s_element)
       expect(fake_controller).to receive(:render_filter_value)
       fake_controller.render_search_to_s_bbox(params)
+    end
+
+    it "calls the parent method" do
+      expect(fake_controller.render_search_to_s({})).to eq "test"
     end
   end
 end
