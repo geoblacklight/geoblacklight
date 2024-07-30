@@ -7,22 +7,22 @@ import SearchResultsController from "./controllers/search_results_controller";
 import DownloadsController from "./controllers/downloads_controller";
 import ClipboardController from "./controllers/clipboard_controller";
 
-// GBL stuff
-import GeoBlacklightInitializer from "./geoblacklight/geoblacklight_initializer";
-
 // Other modules
 import openLayersBasemaps from "./openlayers/basemaps";
 import leafletBasemaps from "./leaflet/basemaps";
 
-export {
+// Core
+import Core from "./core";
+
+export default {
   OpenlayersViewerController,
   CloverViewerController,
   OembedViewerController,
   LeafletViewerController,
-  GeoBlacklightInitializer,
   SearchResultsController,
   DownloadsController,
   ClipboardController,
   openLayersBasemaps,
   leafletBasemaps,
+  Core,
 };

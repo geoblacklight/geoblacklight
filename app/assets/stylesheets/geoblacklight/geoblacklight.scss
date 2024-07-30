@@ -1,9 +1,9 @@
 // Leaflet
-@import "../../../node_modules/leaflet/dist/leaflet.css";
-@import "../../../node_modules/leaflet-fullscreen/dist/leaflet.fullscreen.css";
+@import "leaflet/dist/leaflet";
+@import "leaflet-fullscreen/dist/leaflet.fullscreen";
 
 // OpenLayers
-@import "../../../node_modules/ol/ol.css";
+@import "ol/ol";
 
 // GeoBlacklight
 @import 'modules/base';
