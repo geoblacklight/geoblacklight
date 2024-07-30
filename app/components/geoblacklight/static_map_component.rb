@@ -17,10 +17,6 @@ module Geoblacklight
       @label ||= t("geoblacklight.location")
     end
 
-    def key
-      "sidebar_static_map"
-    end
-
     def viewer_tag
       tag.div(nil,
         id: "static-map",
