@@ -15,6 +15,7 @@ group :test do
   gem "standardrb", require: false
   gem "webdrivers", require: false
   gem "webmock", require: false
+  gem "axe-core-rspec", require: false
 end
 
 # BEGIN ENGINE_CART BLOCK

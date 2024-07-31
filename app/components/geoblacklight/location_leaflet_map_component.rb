@@ -4,23 +4,17 @@ module Geoblacklight
   class LocationLeafletMapComponent < ViewComponent::Base
     def initialize(
       id: "leaflet-viewer",
-      label: nil,
       map_geometry: Settings.HOMEPAGE_MAP_GEOM,
       classes: "",
       page: nil,
       geosearch: nil
     )
       @id = id
-      @label = label
       @classes = classes
       @map_geometry = map_geometry if map_geometry != "null"
       @page = page
       @geosearch = geosearch
       super
-    end
-
-    def before_render
-      @label ||= t("geoblacklight.map.label")
     end
 
     def search_bbox
@@ -41,9 +35,6 @@ module Geoblacklight
       tag.div(nil,
         id: @id,
         class: @classes,
-        aria: {
-          label: @label
-        },
         data: {
           "controller" => "leaflet-viewer",
           "leaflet-viewer-basemap-value" => helpers.geoblacklight_basemap,
