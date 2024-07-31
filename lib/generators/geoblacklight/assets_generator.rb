@@ -33,9 +33,11 @@ module Geoblacklight
         import * as bootstrap from "bootstrap";
         import githubAutoCompleteElement from "@github/auto-complete-element";
         import Blacklight from "blacklight-frontend";
+        import Geoblacklight from "@geoblacklight/frontend";
 
         window.bootstrap = bootstrap;
         window.Blacklight = Blacklight;
+        window.Geoblacklight = Geoblacklight;
       JS
 
       inject_into_file "app/javascript/entrypoints/application.js", imports
