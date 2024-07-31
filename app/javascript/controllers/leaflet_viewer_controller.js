@@ -68,6 +68,7 @@ export default class LeafletViewerController extends Controller {
     this.map.addLayer(this.basemap);
     this.map.addLayer(this.overlay);
     this.fitBounds(this.bounds);
+    this.map.options.selected_color = this.optionsValue.SELECTED_COLOR || 'blue';
 
     // If the data is available, add the preview and set up inspection
     // Otherwise just draw the bounds, if configured to do so
@@ -122,9 +123,8 @@ export default class LeafletViewerController extends Controller {
 
     // Add opacity and fullscreen controls for all layers
     if (this.hasProtocolValue) {
-      const opacityControl = this.getControl("Opacity");
-      // TODO: set up opacity control for IndexMap. After that we can remove this condition.
-      if (this.protocolValue !== "IndexMap") {
+      if (this.availableValue){
+        const opacityControl = this.getControl("Opacity");
         this.addControl(opacityControl);
       }
       const fullscreenControl = this.getControl("Fullscreen");
@@ -166,7 +166,7 @@ export default class LeafletViewerController extends Controller {
   }
 
   addInspection() {
-    if (this.protocolValue == "Wms") return wmsInspection(this.map, this.urlValue, this.layerIdValue);
+    if (this.protocolValue == "Wms") return wmsInspection(this.map, this.urlValue, this.layerIdValue, this.previewOverlay);
     if (this.protocolValue == "FeatureLayer") return featureLayerInspection(this.map, this.previewOverlay);
     if (this.protocolValue  == "DynamicMapLayer") return dynamicMapLayerInspection(this.map, this.previewOverlay, this.layerIdValue)
     // TODO: TiledMapLayer is converted but seems busted -- see layers.js. Don't know what to test it with, need a fixture.

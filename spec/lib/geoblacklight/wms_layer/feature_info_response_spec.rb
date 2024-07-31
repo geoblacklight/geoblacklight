@@ -29,15 +29,17 @@ describe Geoblacklight::FeatureInfoResponse do
   describe "#format" do
     it "returns a formated response" do
       expect(response.format).not_to be_nil
-      expect(response.format[:values].length).to eq 2
-      expect(response.format[:values][0]).to eq %w[Header1 value1]
-      expect(response.format[:values][1]).to eq %w[Header2 value2]
+      expect(response.format[:features][0][:properties].keys.length).to eq 2
+      expect(response.format[:features][0][:isHTML]).to be true
+      expect(response.format[:features][0][:properties]["Header1"]).to eq "value1"
+      expect(response.format[:features][0][:properties]["Header2"]).to eq "value2"
     end
     it "returns a formated response when multiple features are retrieved" do
       expect(response_multiple_features.format).not_to be_nil
-      expect(response_multiple_features.format[:values].length).to eq 2
-      expect(response_multiple_features.format[:values][0]).to eq %w[Header1 value1]
-      expect(response_multiple_features.format[:values][1]).to eq %w[Header2 value2]
+      expect(response.format[:features][0][:properties].keys.length).to eq 2
+      expect(response.format[:features][0][:isHTML]).to be true
+      expect(response.format[:features][0][:properties]["Header1"]).to eq "value1"
+      expect(response.format[:features][0][:properties]["Header2"]).to eq "value2"
     end
   end
 

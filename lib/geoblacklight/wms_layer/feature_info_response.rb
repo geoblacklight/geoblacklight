@@ -15,15 +15,18 @@ module Geoblacklight
     end
 
     def format
+      JSON.parse(@response.body)
+    rescue
       page = Nokogiri::HTML(@response.body)
-      table_values = {values: []}
-      page.css("th").each do |th|
-        table_values[:values].push([th.text])
-      end
+      properties = {}
+      values = {}
       page.css("td").each_with_index do |td, index|
-        table_values[:values][index].push(td.text) unless index >= table_values[:values].count
+        values[index] = td.text
       end
-      table_values
+      page.css("th").each_with_index do |th, index|
+        properties[th.text] = values[index] unless index >= values.keys.count
+      end
+      {features: [{properties: properties, isHTML: true}]}
     end
 
     def error?
