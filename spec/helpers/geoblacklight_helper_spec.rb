@@ -23,6 +23,10 @@ describe GeoblacklightHelper, type: :helper do
       html = Capybara.string(geoblacklight_icon(nil))
       expect(html).to have_css ".icon-missing"
     end
+    it "works with settings icon mapping" do
+      html = Capybara.string(geoblacklight_icon("ohio-state"))
+      expect(html).to have_css ".blacklight-icons-the-ohio-state-university"
+    end
   end
 
   describe "#geoblacklight_basemap" do

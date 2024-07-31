@@ -271,3 +271,17 @@ SIDEBAR_STATIC_MAP:
   - 'iiif_manifest'
 
 IIIF_DRAG_DROP_LINK: '@manifest?manifest=@manifest'
+
+ICON_MAPPING:
+  chicago: university-of-chicago
+  illinois: university-of-illinois-urbana-champaign
+  iowa: university-of-iowa
+  maryland: university-of-maryland
+  michigan-state: michigan-state-university
+  michigan: university-of-michigan
+  minnesota: university-of-minnesota
+  nebraska: university-of-nebraska-lincoln
+  ohio-state: the-ohio-state-university
+  penn-state: pennsylvania-state-university
+  purdue: purdue-university
+  wisconsin: university-of-wisconsin-madison
