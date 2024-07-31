@@ -15,10 +15,4 @@ run "bundle install"
 generate "blacklight:install", "--devise"
 generate "geoblacklight:install", "-f"
 
-# Install latest version of geoblacklight frontend javascript if
-# running generator with a development branch
-if ENV["BRANCH"]
-  run "yarn add @geoblacklight/frontend@latest"
-end
-
 rake "db:migrate"
