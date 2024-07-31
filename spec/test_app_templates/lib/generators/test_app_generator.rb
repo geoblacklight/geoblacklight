@@ -17,12 +17,6 @@ class TestAppGenerator < Rails::Generators::Base
     run "yarn install && yarn build"
   end
 
-  # Ensure local frontend build is linked so internal test app
-  # can use local javascript instead of npm package.
-  def link_frontend
-    run "yarn add #{Blacklight::Engine.root}"
-  end
-
   def run_blacklight_generator
     say_status("warning", "GENERATING BL", :yellow)
 
@@ -42,9 +36,5 @@ class TestAppGenerator < Rails::Generators::Base
     FileUtils.mkdir_p "spec/fixtures"
     FileUtils.symlink solr_docs_path, "spec/fixtures/solr_documents"
     FileUtils.symlink metadata_path, "spec/fixtures/metadata"
-  end
-
-  def vite_build
-    run "bin/vite build --clear --mode=test"
   end
 end
