@@ -85,11 +85,6 @@ module Geoblacklight
       FileUtils.mkdir_p("tmp/cache/downloads") unless File.directory?("tmp/cache/downloads")
     end
 
-    def update_application_name
-      gsub_file("config/locales/blacklight.en.yml", "Blacklight", "GeoBlacklight")
-    end
-
-    # Ensure that assets/images exists
     def create_image_assets_directory
       FileUtils.mkdir_p("app/assets/images") unless File.directory?("app/assets/images")
     end
