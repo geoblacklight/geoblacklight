@@ -10,10 +10,14 @@ module Geoblacklight
       class_option :test, type: :boolean, default: false, aliases: "-t", desc: "Indicates that app will be installed in a test environment"
 
       desc <<-DESCRIPTION
-        This generator makes the following changes to your application:
-        1. Removes stock Rails and Blacklight stylesheets from the application
-        2. Copies GBL stylesheets into the local application
-        3. Updates the application entrypoint to import Geoblacklight's javascript
+        This generator sets up the app to use Vite as the bundler for styles and javascript using the vite_rails gem. All of the frontend assets
+        get moved to a directory called app/frontend, and the two main
+        entrypoints for the application's styles and javascript are copied
+        into app/frontend/entrypoints.
+
+        Geoblacklight's frontend assets are installed from the npm package. In
+        local development they automatically reference the versions from the
+        outer directory (the Geoblacklight repository).
       DESCRIPTION
 
       # Install Vite
