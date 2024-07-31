@@ -101,10 +101,17 @@ module Geoblacklight
       FileUtils.mkdir_p("app/assets/images") unless File.directory?("app/assets/images")
     end
 
+    def install_sass_pipeline
+      append_to_file "Gemfile" do
+        "gem \"cssbundling-rails\", \"~> 1.4\"\n"
+      end
+      rails_command "css:install:sass"
+    end
+
     # Vite - Required for successful installation
     def install_vite_rails
       append_to_file "Gemfile" do
-        "gem \"vite_rails\", \"~> 3.0\""
+        "gem \"vite_rails\", \"~> 3.0\"\n"
       end
     end
 

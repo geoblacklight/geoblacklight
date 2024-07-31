@@ -8,21 +8,22 @@ module Geoblacklight
 
     desc <<-DESCRIPTION
       This generator makes the following changes to your application:
-       1. Copies GBL javascript into the application
-       2. Removes stock Rails and Blacklight stylesheets from the application
-       3. Copies GBL stylesheets into the local application
-       4. Sets asset initializer values into the local application
+       1. Removes stock Rails and Blacklight stylesheets from the application
+       2. Copies GBL stylesheets into the local application
+       3. Updates the application entrypoint to import Geoblacklight's javascript
     DESCRIPTION
 
-    # Add our own stylesheets that reference the versions from npm
-    def add_stylesheets
-      copy_file "assets/_customizations.scss", "app/javascript/entrypoints/_customizations.scss"
-      copy_file "assets/application.scss", "app/javascript/entrypoints/application.scss"
+    # Remove the default Sprockets manifest and Blacklight's stylesheet
+    def remove_stylesheets
+      remove_file "app/assets/stylesheets/application.css"
+      remove_file "app/assets/stylesheets/blacklight.scss"
     end
 
-    # Copy over the main Geoblacklight entrypoint
-    def add_javascript
-      copy_file "geoblacklight.js", "app/javascript/entrypoints/geoblacklight.js"
+    # Add our own stylesheets, which import Blacklight's and other dependencies
+    def add_stylesheets
+      copy_file "assets/application.css", "app/assets/stylesheets/application.css"
+      copy_file "assets/_customizations.scss", "app/assets/stylesheets/_customizations.scss"
+      copy_file "assets/geoblacklight.scss", "app/assets/stylesheets/geoblacklight.scss"
     end
 
     # Update the application entrypoint
