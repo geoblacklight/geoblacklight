@@ -1,7 +1,7 @@
 import { resolve } from "path";
 import { defineConfig } from "vite";
 
-export default defineConfig(() => {
+export default defineConfig(({ mode }) => {
   return {
     build: {
       outDir: "app/assets/javascripts/geoblacklight",
@@ -13,6 +13,13 @@ export default defineConfig(() => {
         fileName: "geoblacklight",
       },
     },
+    // If these are not defined, they will not be replaced in bundled code,
+    // which will throw errors because `process` is not defined in the browser
+    define: {
+      "process.env.NODE_ENV": JSON.stringify(mode),
+      "process.env.LANG": "en",
+    },
+    // Used by vitest
     test: {
       environment: "jsdom",
     },
