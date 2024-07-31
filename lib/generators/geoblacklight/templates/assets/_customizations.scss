@@ -1,12 +1,13 @@
 // Local Application Customizations
 
 // Set Header Logo
-// $logo-image: url('my-logo.svg');
-// .navbar-brand {  /* The main logo image for the Blacklight instance */
-//   @if $logo-image {
-//     background: transparent $logo-image no-repeat top left;
-//   }
-// }
+$logo-image: url('@geoblacklight/frontend/app/assets/images/blacklight/logo.svg');
+
+.navbar-brand {  /* The main logo image for the Blacklight instance */
+  @if $logo-image {
+    background: transparent $logo-image no-repeat top left;
+  }
+}
 
 // Optional
 // Override default Bootstrap variables here
