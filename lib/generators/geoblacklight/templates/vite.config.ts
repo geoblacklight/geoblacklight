@@ -4,7 +4,7 @@ import rails from 'vite-plugin-rails'
 export default defineConfig(({ mode }) => {
   return {
     build: {
-      minify: mode === 'production',
+      minify: mode === "production",
       manifest: true,
       sourcemap: true,
     },
