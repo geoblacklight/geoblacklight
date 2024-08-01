@@ -8,15 +8,17 @@ span.icon-missing {
 
 // CatalogController#index - Home
 .category-icon {
+  display: flex;
+  place-content: center;
+  padding: 2rem 0;
+
   .blacklight-icons {
     height: 6rem;
-    width: auto;
+    width: 6rem;
   }
 
   .blacklight-icons svg {
-    width:  100%;
-    height: 100%;
-    top: 2rem;
+    aspect-ratio: 1;
   }
 }
 
@@ -42,12 +44,27 @@ span.icon-missing {
   }
 }
 
-.blacklight-icons {
-  svg * {
-    width:  100%;
-    height: 100%;
+// Begin - Addresses GBL issue #634
+// Emulates font-size for SVG icons and aligns to baseline
+.status-icons,
+.facet-label,
+.show-tools,
+.gbl-display-note,
+.relations {
+  .blacklight-icons {
+    display: inline-flex;
+    height: $font-size-base;
+    width: $font-size-base;
+  }
+  
+  .blacklight-icons svg {
+    height: 1rem;
+    width: 1rem;
+    top: .125rem;
+    position: relative;
   }
 }
+// End - Addresses GBL issue #634
 
 // Sidebar Action Icons
 #citationLink {
