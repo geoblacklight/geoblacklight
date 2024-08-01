@@ -1,18 +1,14 @@
 <header>
   <%= top_bar %>
+  <%= search_bar %>
   <% if landing_page? %>
-    <div class='p-5 mb-4 bg-light'>
-      <div class='d-flex justify-content-center'>
-        <%= content_tag :h1, t('geoblacklight.home.headline'), class: 'text-center display-5 fw-bold' %>
-      </div>
-      <div class='d-flex justify-content-center'>
-        <%= content_tag :h2, t('geoblacklight.home.search_heading'), class: 'text-center fs-4' %>
-      </div>
-      <div class='d-flex justify-content-center'>
-        <%= search_bar %>
-      </div>
+  <div class='p-5 mb-4 bg-light'>
+    <div class='d-flex justify-content-center'>
+      <%= content_tag :h1, t('geoblacklight.home.headline'), class: 'text-center display-5 fw-bold' %>
     </div>
-  <% else %>
-    <%= search_bar %>
+    <div class='d-flex justify-content-center'>
+      <%= content_tag :h2, t('geoblacklight.home.search_heading'), class: 'text-center fs-4' %>
+    </div>
+  </div>
   <% end %>
 </header>

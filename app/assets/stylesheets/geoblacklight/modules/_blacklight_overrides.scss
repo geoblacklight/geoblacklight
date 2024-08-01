@@ -10,22 +10,6 @@ $logo-image: image_url('blacklight/logo.svg') !default;
   }
 }
 
-// Begin - Addresses GBL issue #634
-// Emulates font-size for SVG icons and aligns to baseline
-.blacklight-icons {
-  display: inline-flex;
-  height: $font-size-base;
-  width: $font-size-base;
-}
-
-.blacklight-icons svg {
-  height: 1rem;
-  width: 1rem;
-  top: .125rem;
-  position: relative;
-}
-// End - Addresses GBL issue #634
-
 .blacklight-icons-iiif-drag-drop, .blacklight-icons-iiif-drag-drop svg {
   height: 2rem;
   width: 2rem;
@@ -47,11 +31,13 @@ $logo-image: image_url('blacklight/logo.svg') !default;
 }
 // End - Addresses GBL issue #639
 
-.navbar-search.bg-light {
-  background-color: inherit!important;
-  display: flex;
-  flex-grow: 1;
-  & > .container {
-    justify-content: center;
-  }
+// Round the left end of the search bar since we don't have a dropdown there
+auto-complete {
+  border-top-left-radius: $border-radius !important;
+  border-bottom-left-radius: $border-radius !important;
+}
+
+// Add a bit of padding to the main container
+#main-container {
+  padding-top: 1rem;
 }
