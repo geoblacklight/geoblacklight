@@ -20,9 +20,31 @@ module Geoblacklight
         outer directory (the Geoblacklight repository).
     DESCRIPTION
 
+    # We don't use sprockets to bundle SCSS anymore
+    # See: https://github.com/geoblacklight/geoblacklight/issues/1265
+    def remove_sprockets
+      remove_dir "app/assets/config"
+      remove_file "config/initializers/assets.rb"
+      gsub_file "config/environments/development.rb", /config\.assets\./, '# \0'
+      gsub_file "config/environments/production.rb", /config\.assets\./, '# \0'
+      gsub_file "Gemfile", /gem "sprockets-rails"/, '# \0'
+      gsub_file "Gemfile", /gem "sprockets"/, '# \0'
+      gsub_file "Gemfile", /gem "sassc-rails"/, '# \0'
+      gsub_file "Gemfile", /gem "sass-rails"/, '# \0'
+      gsub_file "Gemfile", /gem "bootstrap"/, '# \0'
+    end
+
+    # We won't use importmaps either, which is the default in Rails 7
+    def remove_importmaps
+      remove_file "config/importmap.rb"
+      remove_file "app/javascript/application.js"
+      gsub_file "Gemfile", /gem "importmap-rails"/, '# \0'
+    end
+
     # Install Vite
     def install_vite
       gem "vite_rails", "~> 3.0"
+      run "bundle install"
     end
 
     # Add our version of the Blacklight base layout with Vite helper tags
@@ -52,14 +74,9 @@ module Geoblacklight
     def add_frontend
       # If in local development or CI, install the version we made linkable in
       # the test app generator. This will make it so changes made in the outer
-      # directory are picked up automatically, like a symlink. However, this
-      # does NOT install the dependencies of the package, so we also need to
-      # run yarn install from the outer directory to get those. See:
-      # https://classic.yarnpkg.com/lang/en/docs/cli/link/
-      # https://github.com/yarnpkg/yarn/issues/2914
+      # directory are picked up automatically, like a symlink.
       if options[:test]
         run "yarn link @geoblacklight/frontend"
-      # run "yarn --cwd ../ install"
 
       # If a branch was specified (e.g. you are running a template.rb build
       # against a test branch), use the latest version available on npm
@@ -73,15 +90,11 @@ module Geoblacklight
       end
     end
 
-    # We won't use this directory and will store assets under app/frontend,
-    # as per vite-rails's defaults
-    def remove_unused_assets
+    # Move any existing assets from sprockets to the new frontend directory;
+    # useful if you're manually invoking the generator on an existing app
+    def move_existing_assets
+      run "mv app/assets/* app/frontend/"
       remove_dir "app/assets"
-    end
-
-    # We don't use the importmap-generated entrypoint
-    def remove_importmap_entrypoint
-      remove_file "app/javascript/application.js"
     end
 
     # Move the other generated javascript for stimulus into app/frontend
