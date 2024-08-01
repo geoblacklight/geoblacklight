@@ -40,7 +40,7 @@ module Geoblacklight
     end
 
     def display_note
-      fetch(Settings.FIELDS.DISPLAY_NOTE, "")
+      fetch(Settings.FIELDS.DISPLAY_NOTE, [])
     end
 
     def hgl_download
