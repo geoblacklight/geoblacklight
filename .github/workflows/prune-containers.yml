@@ -13,6 +13,7 @@ jobs:
       - uses: snok/container-retention-policy@v3.0.0
         with:
           account: geoblacklight
+          image-names: geoblacklight
           token: ${{ secrets.GITHUB_TOKEN }}
           image-tags: "!main !base"
-          cut-off: 4w
+          cut-off: 2w
