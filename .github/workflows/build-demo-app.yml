@@ -9,145 +9,145 @@ on:
     - cron: "0 1 * * SUN"  # every sunday at 1AM
   workflow_dispatch:
 
-env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
-  BRANCH: ${{ github.head_ref || github.ref_name }}
-
-jobs:
-  build-app:
-    runs-on: ubuntu-latest
-    outputs:
-      artifact-url: ${{ steps.artifact-upload-step.outputs.artifact-url }}
-    steps:
-      - uses: actions/checkout@v4
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 3.3
-
-      - name: Install dependencies
-        run: bundle install
-        env:
-          RAILS_VERSION: 7.1.3
-
-      - name: Setup Yarn
-        run: exec "yarnpkg"
-
-      - name: Build
-        run: BRANCH=${{ env.BRANCH }} rails new build -m template.rb -a propshaft
-
-      - name: Copy Dockerfile
-        run: cp lib/generators/geoblacklight/templates/docker/demo-app-Dockerfile build/Dockerfile
-
-      - name: Copy compose.yml
-        run: cp lib/generators/geoblacklight/templates/docker/demo-app-compose.yml build/compose.yml
-
-      - name: Copy start-server script
-        run: cp lib/generators/geoblacklight/templates/docker/start-server.sh build/.
-
-      - name: Copy fixture solr documents
-        run:  mkdir -p build/spec/fixtures && cp -R spec/fixtures/solr_documents build/spec/fixtures/.
-
-      - name: Replace main image tag with pr tag
-        if: github.ref_name != 'main'
-        run: sed -i 's/main/pr-${{ github.event.number }}/g'  build/compose.yml
-
-      - name: Cleanup
-        run: rm -rf build/node_modules build/Gemfile.lock build/yarn.lock build/tmp
-
-      - name: Upload app build
-        uses: actions/upload-artifact@v4
-        id: artifact-upload-step
-        with:
-          name: build-${{ env.BRANCH }}
-          path: build/
-
-  build-docker:
-    runs-on: ubuntu-latest
-    needs:
-      - build-app
-    steps:
-      - name: Download app build
-        uses: actions/download-artifact@v4
-        with:
-          name: build-${{ env.BRANCH }}
-
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Log in to the Container registry
-        uses: docker/login-action@v3
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Extract metadata (tags, labels) for Docker
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-          tags: |
-            type=ref,event=branch
-            type=ref,event=pr
-            type=sha
-        env:
-          DOCKER_METADATA_PR_HEAD_SHA: true
-
-        # Rebuild base context when updating the main branch.
-      - name: Build and push main Docker image
-        uses: docker/build-push-action@v6
-        if: github.ref_name == 'main'
-        with:
-          context: "${{ github.workspace }}"
-          file: "${{ github.workspace }}/Dockerfile"
-          push: true
-          platforms: linux/amd64,linux/arm64
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-          tags: ghcr.io/geoblacklight/geoblacklight:base
-          target: "base"
-
-        # Build only the app context. Build times are faster because most
-        # gems and node packages are already installed in the base context.
-      - name: Build and push branch Docker image
-        uses: docker/build-push-action@v6
-        with:
-          context: "${{ github.workspace }}"
-          file: "${{ github.workspace }}/Dockerfile"
-          push: true
-          platforms: linux/amd64,linux/arm64
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-          target: "app"
-
-  notify:
-    runs-on: ubuntu-latest
-    if: github.ref_name != 'main'
-    needs:
-      - build-app
-      - build-docker
-    permissions:
-      contents: read
-      packages: write
-      pull-requests: write
-    steps:
-      - name: Add artifact link to PR comments
-        uses: mshick/add-pr-comment@v2
-        with:
-          message: |
-            Demo app download link: ${{ needs.build-app.outputs.artifact-url }}
-
-            1. Download demo app and unzip file
-            2. Change into app directory
-                - run `docker compose pull`
-                - run `docker compose up`
-            3. Open in browser
-                - App:  http://127.0.0.1:3001
-                - Solr: http://127.0.0.1:8984
+# env:
+#   REGISTRY: ghcr.io
+#   IMAGE_NAME: ${{ github.repository }}
+#   BRANCH: ${{ github.head_ref || github.ref_name }}
+#
+# jobs:
+#   build-app:
+#     runs-on: ubuntu-latest
+#     outputs:
+#       artifact-url: ${{ steps.artifact-upload-step.outputs.artifact-url }}
+#     steps:
+#       - uses: actions/checkout@v4
+#       - name: Set up Ruby
+#         uses: ruby/setup-ruby@v1
+#         with:
+#           ruby-version: 3.3
+#
+#       - name: Install dependencies
+#         run: bundle install
+#         env:
+#           RAILS_VERSION: 7.1.3
+#
+#       - name: Setup Yarn
+#         run: exec "yarnpkg"
+#
+#       - name: Build
+#         run: BRANCH=${{ env.BRANCH }} rails new build -m template.rb -a propshaft
+#
+#       - name: Copy Dockerfile
+#         run: cp lib/generators/geoblacklight/templates/docker/demo-app-Dockerfile build/Dockerfile
+#
+#       - name: Copy compose.yml
+#         run: cp lib/generators/geoblacklight/templates/docker/demo-app-compose.yml build/compose.yml
+#
+#       - name: Copy start-server script
+#         run: cp lib/generators/geoblacklight/templates/docker/start-server.sh build/.
+#
+#       - name: Copy fixture solr documents
+#         run:  mkdir -p build/spec/fixtures && cp -R spec/fixtures/solr_documents build/spec/fixtures/.
+#
+#       - name: Replace main image tag with pr tag
+#         if: github.ref_name != 'main'
+#         run: sed -i 's/main/pr-${{ github.event.number }}/g'  build/compose.yml
+#
+#       - name: Cleanup
+#         run: rm -rf build/node_modules build/Gemfile.lock build/yarn.lock build/tmp
+#
+#       - name: Upload app build
+#         uses: actions/upload-artifact@v4
+#         id: artifact-upload-step
+#         with:
+#           name: build-${{ env.BRANCH }}
+#           path: build/
+#
+#   build-docker:
+#     runs-on: ubuntu-latest
+#     needs:
+#       - build-app
+#     steps:
+#       - name: Download app build
+#         uses: actions/download-artifact@v4
+#         with:
+#           name: build-${{ env.BRANCH }}
+#
+#       - name: Set up QEMU
+#         uses: docker/setup-qemu-action@v3
+#
+#       - name: Set up Docker Buildx
+#         uses: docker/setup-buildx-action@v3
+#
+#       - name: Log in to the Container registry
+#         uses: docker/login-action@v3
+#         with:
+#           registry: ${{ env.REGISTRY }}
+#           username: ${{ github.actor }}
+#           password: ${{ secrets.GITHUB_TOKEN }}
+#
+#       - name: Extract metadata (tags, labels) for Docker
+#         id: meta
+#         uses: docker/metadata-action@v5
+#         with:
+#           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+#           tags: |
+#             type=ref,event=branch
+#             type=ref,event=pr
+#             type=sha
+#         env:
+#           DOCKER_METADATA_PR_HEAD_SHA: true
+#
+#         # Rebuild base context when updating the main branch.
+#       - name: Build and push main Docker image
+#         uses: docker/build-push-action@v6
+#         if: github.ref_name == 'main'
+#         with:
+#           context: "${{ github.workspace }}"
+#           file: "${{ github.workspace }}/Dockerfile"
+#           push: true
+#           platforms: linux/amd64,linux/arm64
+#           cache-from: type=gha
+#           cache-to: type=gha,mode=max
+#           tags: ghcr.io/geoblacklight/geoblacklight:base
+#           target: "base"
+#
+#         # Build only the app context. Build times are faster because most
+#         # gems and node packages are already installed in the base context.
+#       - name: Build and push branch Docker image
+#         uses: docker/build-push-action@v6
+#         with:
+#           context: "${{ github.workspace }}"
+#           file: "${{ github.workspace }}/Dockerfile"
+#           push: true
+#           platforms: linux/amd64,linux/arm64
+#           cache-from: type=gha
+#           cache-to: type=gha,mode=max
+#           tags: ${{ steps.meta.outputs.tags }}
+#           labels: ${{ steps.meta.outputs.labels }}
+#           target: "app"
+#
+#   notify:
+#     runs-on: ubuntu-latest
+#     if: github.ref_name != 'main'
+#     needs:
+#       - build-app
+#       - build-docker
+#     permissions:
+#       contents: read
+#       packages: write
+#       pull-requests: write
+#     steps:
+#       - name: Add artifact link to PR comments
+#         uses: mshick/add-pr-comment@v2
+#         with:
+#           message: |
+#             Demo app download link: ${{ needs.build-app.outputs.artifact-url }}
+#
+#             1. Download demo app and unzip file
+#             2. Change into app directory
+#                 - run `docker compose pull`
+#                 - run `docker compose up`
+#             3. Open in browser
+#                 - App:  http://127.0.0.1:3001
+#                 - Solr: http://127.0.0.1:8984
