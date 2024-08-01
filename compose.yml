@@ -1,0 +1,14 @@
+services:
+  solr:
+    image: solr:latest
+    volumes:
+      - $PWD/solr/conf:/opt/solr/conf
+    ports:
+      - 8983:8983
+    entrypoint:
+      - docker-entrypoint.sh
+      - solr-precreate
+      - blacklight-core
+      - /opt/solr/conf
+      - "-Xms256m"
+      - "-Xmx512m"
