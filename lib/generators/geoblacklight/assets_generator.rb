@@ -36,7 +36,7 @@ module Geoblacklight
       copy_file "vite.config.ts", "vite.config.ts"
     end
 
-    # Add our package.json with frontend dependencies (leaflet, etc.)
+    # Add our package.json with non-GBL dependencies (Blacklight, Bootstrap, etc.)
     def install_dependencies
       copy_file "package.json", "package.json"
       run "yarn install"
@@ -48,15 +48,26 @@ module Geoblacklight
       run "bundle exec vite install"
     end
 
-    # Pick a version of the frontend asset package and install it. If in local
-    # development or test, just reference the files directly from one level
-    # up. If a branch is specified, use the latest package version. Otherwise,
-    # pick the version that matches our Geoblacklight gem version.
+    # Pick a version of the frontend asset package and install it.
     def add_frontend
+      # If in local development or CI, install the version we made linkable in
+      # the test app generator. This will make it so changes made in the outer
+      # directory are picked up automatically, like a symlink. However, this
+      # does NOT install the dependencies of the package, so we also need to
+      # run yarn install from the outer directory to get those. See:
+      # https://classic.yarnpkg.com/lang/en/docs/cli/link/
+      # https://github.com/yarnpkg/yarn/issues/2914
       if options[:test]
-        run "yarn add file:#{Geoblacklight::Engine.root}"
+        run "yarn link @geoblacklight/frontend"
+      # run "yarn --cwd ../ install"
+
+      # If a branch was specified (e.g. you are running a template.rb build
+      # against a test branch), use the latest version available on npm
       elsif ENV["BRANCH"]
         run "yarn add @geoblacklight/frontend@latest"
+
+      # Otherwise, pick the version from npm that matches our Geoblacklight
+      # gem version
       else
         run "yarn add @geoblacklight/frontend@#{Geoblacklight::VERSION}"
       end

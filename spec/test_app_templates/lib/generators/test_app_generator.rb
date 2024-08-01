@@ -17,6 +17,10 @@ class TestAppGenerator < Rails::Generators::Base
     run "yarn install && yarn build"
   end
 
+  def link_frontend
+    run "yarn link"
+  end
+
   def run_blacklight_generator
     say_status("warning", "GENERATING BL", :yellow)
 
