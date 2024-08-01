@@ -98,10 +98,10 @@ jobs:
         env:
           DOCKER_METADATA_PR_HEAD_SHA: true
 
-        # Rebuild base context when updating the main branch.
-      - name: Build and push main Docker image
+        # Rebuild base context when triggered by schedule or workflow_dispatch
+      - name: Build and push base Docker image
         uses: docker/build-push-action@v6
-        if: github.ref_name == 'main'
+        if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
         with:
           context: "${{ github.workspace }}"
           file: "${{ github.workspace }}/Dockerfile"
