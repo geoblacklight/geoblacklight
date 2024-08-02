@@ -37,14 +37,17 @@ jobs:
       - name: Build
         run: BRANCH=${{ env.BRANCH }} rails new build -m template.rb -a propshaft
 
+      - name: Cleanup
+        run: rm -rf build/node_modules build/Gemfile.lock build/yarn.lock build/tmp
+
       - name: Copy Dockerfile
-        run: cp lib/generators/geoblacklight/templates/docker/demo-app-Dockerfile build/Dockerfile
+        run: cp lib/generators/geoblacklight/templates/demo-app/Dockerfile build/.
 
       - name: Copy compose.yml
-        run: cp lib/generators/geoblacklight/templates/docker/demo-app-compose.yml build/compose.yml
+        run: cp lib/generators/geoblacklight/templates/demo-app/compose.yml build/.
 
       - name: Copy start-server script
-        run: cp lib/generators/geoblacklight/templates/docker/start-server.sh build/.
+        run: cp lib/generators/geoblacklight/templates/demo-app/start-server.sh build/.
 
       - name: Copy fixture solr documents
         run:  mkdir -p build/spec/fixtures && cp -R spec/fixtures/solr_documents build/spec/fixtures/.
@@ -52,9 +55,6 @@ jobs:
       - name: Replace main image tag with pr tag
         if: github.ref_name != 'main'
         run: sed -i 's/main/pr-${{ github.event.number }}/g'  build/compose.yml
-
-      - name: Cleanup
-        run: rm -rf build/node_modules build/Gemfile.lock build/yarn.lock build/tmp
 
       - name: Upload app build
         uses: actions/upload-artifact@v4
