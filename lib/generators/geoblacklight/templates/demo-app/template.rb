@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-gem "blacklight", "~> 7.0"
+gem "blacklight", "~> 8.0"
 
 # Install latest version of geoblacklight gem if running
 # generator with a development branch.
