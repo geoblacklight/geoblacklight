@@ -1,0 +1,11 @@
+/* Leaflet */
+@import url("https://cdn.skypack.dev/leaflet@1.9.4/dist/leaflet.css");
+@import url("https://cdn.skypack.dev/leaflet-fullscreen@1.0.2/dist/leaflet.fullscreen.css");
+
+/* OpenLayers */
+@import url("https://cdn.skypack.dev/ol@8.1.0/ol.css");
+
+/* GeoBlacklight (compiled locally by cssbundling-rails) */
+@import url("geoblacklight.css");
+
+/* Your styles here! */
