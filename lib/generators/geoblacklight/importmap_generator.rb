@@ -74,7 +74,8 @@ module Geoblacklight
 
     # Update the main javascript entrypoint
     def update_js_entrypoint
-      append_to_file "app/javascript/application.js", 'import Geoblacklight from "geoblacklight"'
+      append_to_file "app/javascript/application.js", "import Blacklight from \"blacklight\"\n"
+      append_to_file "app/javascript/application.js", "import Geoblacklight from \"geoblacklight\"\n"
     end
 
     # Build the styles
