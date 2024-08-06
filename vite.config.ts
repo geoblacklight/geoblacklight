@@ -1,5 +1,6 @@
 import { resolve } from "path";
 import { defineConfig } from "vite";
+import includePaths from "rollup-plugin-includepaths";
 
 export default defineConfig(({ mode }) => {
   return {
@@ -11,6 +12,16 @@ export default defineConfig(({ mode }) => {
         entry: resolve(__dirname, "app/javascript/geoblacklight/index.js"),
         name: "@geoblacklight/frontend",
         fileName: "geoblacklight",
+      },
+      // Rewrite importmap-friendly bare specifiers like geoblacklight/foo/bar 
+      // to bundler-friendly local paths like ./foo/bar
+      rollupOptions: {
+        plugins: [
+          includePaths({
+            paths: ["app/javascript"],
+            extensions: [".js"],
+          }),
+        ],
       },
     },
     // If these are not defined, they will not be replaced in bundled code,
