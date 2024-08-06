@@ -26,7 +26,6 @@ module Geoblacklight
       next unless app.config.respond_to?(:assets)
 
       app.config.assets.paths << Geoblacklight::Engine.root.join("app/javascript")
-      app.config.assets.paths << Geoblacklight::Engine.root.join("app/assets/stylesheets")
       app.config.assets.precompile += Geoblacklight::Engine::PRECOMPILE_ASSETS
     end
 
@@ -35,6 +34,7 @@ module Geoblacklight
       next unless app.config.respond_to?(:importmap)
 
       app.config.importmap.paths << Engine.root.join("config/importmap.rb")
+      app.config.importmap.cache_sweepers << Engine.root.join("app/assets/javascripts")
     end
 
     config.to_prepare do
