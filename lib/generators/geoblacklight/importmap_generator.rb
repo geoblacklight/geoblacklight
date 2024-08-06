@@ -12,12 +12,17 @@ module Geoblacklight
       This generator sets up the app to use Importmaps to manage the javascript,
       and cssbundling-rails to manage the styles.
 
-      Geoblacklight's frontend assets are referenced via a CDN. If in local
-      development, the package is instead installed and linked so that changes
-      are picked up.
+      SCSS sources from Bootstrap and Blacklight are installed via yarn and
+      built into a single CSS stylesheet by cssbundling-rails.
+
+      JS sources from Blacklight and Geoblacklight are delivered unbundled as
+      ES modules via importmap, and their dependencies are pinned to versions
+      delivered via CDN.
     DESCRIPTION
 
-    # Add our package.json with non-GBL dependencies (Blacklight, Bootstrap, etc.)
+    # Add our package.json and install dependencies
+    # This is used so that we get local copies of the SCSS needed to build the
+    # styles; JS all comes from the importmap
     def install_dependencies
       copy_file "package.json", "package.json"
       run "yarn install"
@@ -57,14 +62,6 @@ module Geoblacklight
       remove_file "app/assets/builds/application.css"
       copy_file "assets/application.css", "app/assets/stylesheets/application.css"
     end
-
-    # # Support referencing assets from the frontend package in stylesheets
-    # def update_assets_initializer
-    #   append_to_file "config/initializers/assets.rb", <<~RUBY
-    #     Rails.application.config.assets.paths << Rails.root.join('node_modules')
-    #     Rails.application.config.assets.precompile += %w( application.css )
-    #   RUBY
-    # end
 
     # If this is a local dev/test build, symlink the frontend package so we
     # can reference its stylesheets in development
