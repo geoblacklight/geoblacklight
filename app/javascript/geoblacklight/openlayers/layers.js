@@ -1,32 +1,30 @@
-// import { layer, style } from "ol";
-// import VectorTile from "ol/layer/VectorTile";
-// import { Style, Stroke, Fill, Circle } from "ol/style";
 import { PMTilesVectorSource } from "ol-pmtiles";
-// import { useGeographic } from "ol/proj";
-// import GeoTIFF from "ol/source/GeoTIFF";
-// import WebGLTileLayer from "ol/layer/WebGLTile";
-import ol from "ol";
+import VectorTile from "ol/layer/VectorTile";
+import WebGLTileLayer from "ol/layer/WebGLTile";
+import { useGeographic } from "ol/proj";
+import GeoTIFF from "ol/source/GeoTIFF";
+import { Circle, Fill, Stroke, Style } from "ol/style";
 
 // Create a new PMTiles layer
 export const pmTilesLayer = (url) => {
-  ol.proj.useGeographic();
-  return new ol.layer.VectorTile({
+  useGeographic();
+  return new VectorTile({
     declutter: true,
     source: new PMTilesVectorSource({ url }),
-    style: new ol.style.Style({
-      stroke: new ol.style.Stroke({
+    style: new Style({
+      stroke: new Stroke({
         color: "#7070B3",
         width: 1,
       }),
-      fill: new ol.style.Fill({
+      fill: new Fill({
         color: "#FFFFFF",
       }),
-      image: new ol.style.Circle({
+      image: new Circle({
         radius: 7,
-        fill: new ol.style.Fill({
+        fill: new Fill({
           color: "#7070B3",
         }),
-        stroke: new ol.style.Stroke({
+        stroke: new Stroke({
           color: "#FFFFFF",
           width: 2,
         }),
@@ -37,8 +35,8 @@ export const pmTilesLayer = (url) => {
 
 // Create a new cloud-optimized GeoTIFF (COG) layer
 export const cogLayer = (url) => {
-  return new ol.layer.WebGLTileLayer({
-    source: new ol.source.GeoTIFF({
+  return new WebGLTileLayer({
+    source: new GeoTIFF({
       sources: [{ url }],
       convertToRGB: true,
     }),
