@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-# Bootstrap
-pin "bootstrap", to: "https://cdn.skypack.dev/bootstrap@5.3.3", preload: true
-
 # OpenLayers viewer
 pin "ol", to: "https://esm.sh/ol@8.1.0"
 pin "ol/", to: "https://esm.sh/ol@8.1.0/"

@@ -71,8 +71,18 @@ module Geoblacklight
 
     # Update the main javascript entrypoint
     def update_js_entrypoint
-      append_to_file "app/javascript/application.js", "import Blacklight from \"blacklight\"\n"
-      append_to_file "app/javascript/application.js", "import Geoblacklight from \"geoblacklight\"\n"
+      imports = <<~JS
+        import "bootstrap"
+        import "blacklight"
+        import "geoblacklight"
+      JS
+
+      append_to_file "app/javascript/application.js", imports, before: "import \"controllers\""
+    end
+
+    # Add a pin for bootstrap to the generated importmap
+    def update_importmap
+      append_to_file "config/importmap.rb", "pin \"bootstrap\", to: \"https://cdn.skypack.dev/bootstrap@5.3.3\"\n"
     end
 
     # Build the styles
