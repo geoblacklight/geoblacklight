@@ -1,17 +1,18 @@
-import OpenlayersViewerController from "./controllers/openlayers_viewer_controller";
-import CloverViewerController from "./controllers/clover_viewer_controller";
-import OembedViewerController from "./controllers/oembed_viewer_controller";
-import LeafletViewerController from "./controllers/leaflet_viewer_controller";
-import SearchResultsController from "./controllers/search_results_controller";
-import DownloadsController from "./controllers/downloads_controller";
-import ClipboardController from "./controllers/clipboard_controller";
+// Initializers
+import initializePopovers from "geoblacklight/initializers/popovers";
+import initializeRelations from "geoblacklight/initializers/relations";
+import initializeTooltips from "geoblacklight/initializers/tooltips";
+import initializeTruncation from "geoblacklight/initializers/truncation";
+import initializeMetadataDownload from "geoblacklight/initializers/metadata_download";
 
-import initializePopovers from "./popovers";
-import initializeRelations from "./relations";
-import initializeTooltips from "./tooltips";
-import initializeTruncation from "./truncation";
-import initializeDownloads from "./downloads";
-import initializeMetadataDownload from "./metadata_download";
+// Stimulus controllers
+import ClipboardController from "geoblacklight/controllers/clipboard_controller";
+import CloverViewerController from "geoblacklight/controllers/clover_viewer_controller";
+import DownloadsController from "geoblacklight/controllers/downloads_controller";
+import LeafletViewerController from "geoblacklight/controllers/leaflet_viewer_controller";
+import OembedViewerController from "geoblacklight/controllers/oembed_viewer_controller";
+import OpenlayersViewerController from "geoblacklight/controllers/openlayers_viewer_controller";
+import SearchResultsController from "geoblacklight/controllers/search_results_controller";
 
 // Inspired by Blacklight's javascript/blacklight/core.js
 const Geoblacklight = (function () {
@@ -25,13 +26,14 @@ const Geoblacklight = (function () {
     // Activate all stored callbacks
     activate: function (event) {
       callbacks.forEach((callback) => {
-        callback(event)
+        callback(event);
       });
     },
 
     // Define hooks that will trigger the activation of the Geoblacklight JS
     listeners: function () {
-      if (typeof Turbo !== "undefined") return ["turbo:load", "turbo:frame-load"];
+      if (typeof Turbo !== "undefined")
+        return ["turbo:load", "turbo:frame-load"];
       else return ["DOMContentLoaded"];
     },
   };
@@ -47,7 +49,6 @@ Geoblacklight.onLoad(initializePopovers);
 Geoblacklight.onLoad(initializeRelations);
 Geoblacklight.onLoad(initializeTooltips);
 Geoblacklight.onLoad(initializeTruncation);
-Geoblacklight.onLoad(initializeDownloads);
 Geoblacklight.onLoad(initializeMetadataDownload);
 
 // Register our Stimulus controllers
@@ -59,9 +60,10 @@ if (typeof Stimulus !== "undefined") {
   Stimulus.register("search-results", SearchResultsController);
   Stimulus.register("downloads", DownloadsController);
   Stimulus.register("clipboard", ClipboardController);
-}
-else {
-  console.error("Couldn't find Stimulus. Check instructions at https://github.com/hotwired/stimulus-rails");
+} else {
+  console.error(
+    "Couldn't find Stimulus. Check instructions at https://github.com/hotwired/stimulus-rails"
+  );
 }
 
 export default Geoblacklight;

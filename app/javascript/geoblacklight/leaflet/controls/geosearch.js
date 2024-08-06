@@ -1,5 +1,5 @@
 import { DomUtil, Control, Handler, setOptions } from "leaflet";
-import { debounce, boundsToBbox } from "../utils";
+import { debounce, boundsToBbox } from "geoblacklight/leaflet/utils";
 
 export const geosearchDefaultOptions = {
   dynamic: true,

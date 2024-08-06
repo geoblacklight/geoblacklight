@@ -1,5 +1,3 @@
-import { geoJson, circleMarker } from "leaflet";
-
 const indexMapInfoTemplate = (data) => `
   <div class="index-map-info">
     ${data.title
