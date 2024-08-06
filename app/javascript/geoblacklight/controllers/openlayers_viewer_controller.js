@@ -1,11 +1,11 @@
-import { Map } from "ol";
-import TileLayer from "ol/layer/Tile";
-import XYZ from "ol/source/XYZ";
-import GeoJSON from "ol/format/GeoJSON";
-import { FullScreen, defaults as defaultControls } from "ol/control";
-import { pmTilesLayer, cogLayer } from "../openlayers/layers";
-import basemaps from "../openlayers/basemaps";
 import { Controller } from "@hotwired/stimulus";
+import ol from "ol";
+// import { FullScreen, defaults as defaultControls } from "ol/control";
+// import GeoJSON from "ol/format/GeoJSON";
+// import TileLayer from "ol/layer/Tile";
+// import XYZ from "ol/source/XYZ";
+import basemaps from "geoblacklight/openlayers/basemaps";
+import { cogLayer, pmTilesLayer } from "geoblacklight/openlayers/layers";
 
 export default class OpenlayersViewerController extends Controller {
   static values = {
@@ -27,9 +27,9 @@ export default class OpenlayersViewerController extends Controller {
 
   // Create the map, add layers, and fit the bounds
   loadMap() {
-    this.map = new Map({
+    this.map = new ol.Map({
       target: this.element,
-      controls: defaultControls().extend([new FullScreen()]),
+      controls: ol.controls.defaults().extend([new ol.controls.FullScreen()]),
       layers: [this.basemap, this.overlay],
     });
     this.map.getView().fit(this.extent, this.map.getSize());
@@ -40,7 +40,7 @@ export default class OpenlayersViewerController extends Controller {
       const view = await this.overlay.getSource().getView();
       this.extent = view.extent;
     } else {
-      this.extent = new GeoJSON()
+      this.extent = new ol.format.GeoJSON()
       .readFeatures(this.mapGeomValue)[0]
       .getGeometry()
       .getExtent();
@@ -50,7 +50,7 @@ export default class OpenlayersViewerController extends Controller {
   // Select the configured basemap to use
   getBasemap() {
     const basemap = basemaps[this.basemapValue || "positron"];
-    const layer = new TileLayer({ source: new XYZ(basemap) });
+    const layer = new ol.layer.TileLayer({ source: new ol.source.XYZ(basemap) });
     return layer;
   }
 
