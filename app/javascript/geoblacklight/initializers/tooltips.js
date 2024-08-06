@@ -1,4 +1,5 @@
 import { Tooltip } from 'bootstrap';
+
 export default function initializeTooltips() {
   document.body.addEventListener(
     "mouseenter",
