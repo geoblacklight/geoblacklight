@@ -4,7 +4,8 @@
 pin "bootstrap", to: "https://cdn.skypack.dev/bootstrap@5.3.3", preload: true
 
 # OpenLayers viewer
-pin "ol", to: "https://cdn.skypack.dev/ol@8.1.0"
+pin "ol", to: "https://esm.sh/ol@8.1.0"
+pin "ol/", to: "https://esm.sh/ol@8.1.0/"
 pin "ol-pmtiles", to: "https://cdn.skypack.dev/ol-pmtiles@0.3.0"
 
 # Leaflet viewer

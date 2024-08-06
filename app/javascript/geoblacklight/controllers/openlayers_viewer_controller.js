@@ -1,11 +1,11 @@
 import { Controller } from "@hotwired/stimulus";
-import ol from "ol";
-// import { FullScreen, defaults as defaultControls } from "ol/control";
-// import GeoJSON from "ol/format/GeoJSON";
-// import TileLayer from "ol/layer/Tile";
-// import XYZ from "ol/source/XYZ";
 import basemaps from "geoblacklight/openlayers/basemaps";
 import { cogLayer, pmTilesLayer } from "geoblacklight/openlayers/layers";
+import { FullScreen, defaults as defaultControls } from "ol/control";
+import GeoJSON from "ol/format/GeoJSON";
+import TileLayer from "ol/layer/Tile";
+import { Map } from "ol";
+import XYZ from "ol/source/XYZ";
 
 export default class OpenlayersViewerController extends Controller {
   static values = {
@@ -27,30 +27,30 @@ export default class OpenlayersViewerController extends Controller {
 
   // Create the map, add layers, and fit the bounds
   loadMap() {
-    this.map = new ol.Map({
+    this.map = new Map({
       target: this.element,
-      controls: ol.controls.defaults().extend([new ol.controls.FullScreen()]),
+      controls: defaultControls().extend([new FullScreen()]),
       layers: [this.basemap, this.overlay],
     });
     this.map.getView().fit(this.extent, this.map.getSize());
   }
 
   async getBounds() {
-    if (this.protocolValue == 'Cog') {
+    if (this.protocolValue == "Cog") {
       const view = await this.overlay.getSource().getView();
       this.extent = view.extent;
     } else {
-      this.extent = new ol.format.GeoJSON()
-      .readFeatures(this.mapGeomValue)[0]
-      .getGeometry()
-      .getExtent();
+      this.extent = new GeoJSON()
+        .readFeatures(this.mapGeomValue)[0]
+        .getGeometry()
+        .getExtent();
     }
   }
 
   // Select the configured basemap to use
   getBasemap() {
     const basemap = basemaps[this.basemapValue || "positron"];
-    const layer = new ol.layer.TileLayer({ source: new ol.source.XYZ(basemap) });
+    const layer = new TileLayer({ source: new XYZ(basemap) });
     return layer;
   }
 
