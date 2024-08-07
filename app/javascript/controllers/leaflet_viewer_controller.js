@@ -22,6 +22,7 @@ import {
 } from "../leaflet/layers.js";
 import { geoJSONToBounds } from "../leaflet/utils.js";
 import { DEFAULT_BOUNDS, DEFAULT_OPACITY } from "../leaflet/constants.js";
+import sidebarControl from "../leaflet/controls/sidebar.js";
 
 export default class LeafletViewerController extends Controller {
   static values = {
@@ -81,6 +82,7 @@ export default class LeafletViewerController extends Controller {
 
     // Add configured controls
     this.addControls();
+    this.setUpSidebar();
 
     if (this.protocolValue == "IndexMap"){
       this.fitBounds(this.previewOverlay.getBounds())
@@ -165,10 +167,17 @@ export default class LeafletViewerController extends Controller {
     if (this.boundsOverlay) this.overlay.removeLayer(this.boundsOverlay);
   }
 
+  setUpSidebar() {
+    const control = new sidebarControl({
+      position: 'topright'
+    });
+    this.map.addControl(control);
+  }
+
   addInspection() {
     if (this.protocolValue == "Wms") return wmsInspection(this.map, this.urlValue, this.layerIdValue, this.previewOverlay);
     if (this.protocolValue == "FeatureLayer") return featureLayerInspection(this.map, this.previewOverlay);
-    if (this.protocolValue  == "DynamicMapLayer") return dynamicMapLayerInspection(this.map, this.previewOverlay, this.layerIdValue)
+    if (this.protocolValue  == "DynamicMapLayer") return dynamicMapLayerInspection(this.map, this.previewOverlay, this.layerIdValue);
     // TODO: TiledMapLayer is converted but seems busted -- see layers.js. Don't know what to test it with, need a fixture.
     // if (this.protocolValue == "TiledMapLayer") return tiledMapLayerInspection(this.map, this.previewOverlay);
   }
