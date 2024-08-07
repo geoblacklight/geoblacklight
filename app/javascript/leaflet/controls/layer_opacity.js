@@ -30,6 +30,7 @@ export default class LayerOpacityControl extends Control {
     DomEvent.disableClickPropagation(container);
     this.setListeners(handle, bottom, handleText, map);
 
+    handle.setAttribute("tabindex", "0");
     let opacity =  getLayerOpacity(this.options.layer);
     const opacityPercentage = parseInt(opacity * 100);
     handle.style.zIndex = 4;
@@ -92,6 +93,28 @@ export default class LayerOpacityControl extends Control {
         const index = _this.options.layers.indexOf(e.layer);
         if (index) { _this.options.layers.splice(index, 1)};
       }
+    });
+
+
+    DomEvent.on(handle, 'keydown', function(e) {
+      const opacity = _this.geoJSON ? _this.options.layer.style.fillOpacity : _this.options.layer.options.opacity;
+      const step = 1;
+      var newOpacity;
+      if (e.key == 'ArrowDown'){
+        newOpacity = opacity * 100 - step;
+      } else if (e.key == 'ArrowUp') {
+        newOpacity = opacity * 100 + step;
+      } else {
+        return;
+      }
+      e.preventDefault();
+      if (newOpacity > 100 || newOpacity < 0) { return; }
+      newOpacity = Math.round(newOpacity)
+      handle.style.top = `calc(100% - ${newOpacity}% - 12px)`;
+      handleText.innerHTML = newOpacity + "%";
+      bottom.style.height = newOpacity + "%";
+      bottom.style.top = `calc(100% - ${newOpacity}%)`;
+      _this.updateMapOpacity(newOpacity / 100)
     });
   }
 }
