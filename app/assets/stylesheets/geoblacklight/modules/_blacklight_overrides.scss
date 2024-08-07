@@ -41,3 +41,8 @@ auto-complete {
 #main-container {
   padding-top: 1rem;
 }
+
+// center contents of the container that holds the search bar
+.navbar-search.navbar > .container {
+  justify-content: center;
+}
