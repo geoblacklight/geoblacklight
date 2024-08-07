@@ -43,17 +43,9 @@ class CatalogController < ApplicationController
     # To move metadata above the map viewer,
     # remove the lines deleting and re-adding the :show partial
     config.show.display_type_field = "format"
-    config.show.partials.delete(:show)
-    config.show.partials << "show_default_display_note"
-    config.show.partials << "show_default_viewer_container"
-    config.show.partials << "show_default_attribute_table"
-    config.show.partials << "show_default_viewer_information"
-    config.show.partials << :show
+    config.show.document_component = Geoblacklight::DocumentComponent
+    config.show.sidebar_component = Geoblacklight::SidebarComponent
     config.header_component = Geoblacklight::HeaderComponent
-
-    ##
-    # Configure the index document presenter.
-    config.index.document_presenter_class = Geoblacklight::DocumentPresenter
 
     # solr fields that will be treated as facets by the blacklight application
     #   The ordering of the field names is the order of the display
@@ -333,7 +325,7 @@ class CatalogController < ApplicationController
   end
 
   def web_services
-    @response, @documents = action_documents
+    @docs = action_documents
 
     respond_to do |format|
       format.html do

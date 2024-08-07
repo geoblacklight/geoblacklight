@@ -16,7 +16,6 @@ RSpec.describe Geoblacklight::WebServicesComponent, type: :component do
       expect(rendered).to have_text("Web Mapping Service (WMS)")
       expect(rendered).to have_text("WMS layers")
       expect(rendered).to have_css(".web-services-form")
-      expect(rendered).to have_css(".form-inline")
     end
   end
 
@@ -26,7 +25,6 @@ RSpec.describe Geoblacklight::WebServicesComponent, type: :component do
       expect(rendered).to have_text("Web Feature Service (WFS)")
       expect(rendered).to have_text("WFS typeNames")
       expect(rendered).to have_css(".web-services-form")
-      expect(rendered).to have_css(".form-inline")
     end
   end
 
@@ -35,7 +33,6 @@ RSpec.describe Geoblacklight::WebServicesComponent, type: :component do
     it "shows the service" do
       expect(rendered).to have_text("International Image Interoperability Framework (IIIF)")
       expect(rendered).to have_css(".web-services-form")
-      expect(rendered).to have_no_css(".form-inline")
     end
   end
 

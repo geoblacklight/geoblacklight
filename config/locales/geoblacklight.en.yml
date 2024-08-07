@@ -14,7 +14,6 @@ en:
       hgl_success: 'You should receive an email when your download is ready.'
       hgl_request: 'Request Layer'
       hgl_request_button: 'Request'
-      hgl_close: 'Close'
       hgl_instructions: 'Please enter your email address. You will receive a link to download the layer when it is ready.' ## new variable
       hgl_email: 'Email'
       error: 'Sorry, the requested file could not be downloaded.'
@@ -67,7 +66,6 @@ en:
       image_map_layer: 'ArcGIS Image Map Layer'
       data_dictionary: 'Documentation'
       services: 'Web services'
-      services_close: 'Close'
       tms: 'Tile Map Service'
       tilejson: 'TileJSON Document'
       xyz: 'XYZ Tiles'

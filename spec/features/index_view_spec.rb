@@ -60,9 +60,9 @@ feature "Index view", js: true do
 
   scenario "click on a record area to expand collapse" do
     within("article", match: :first) do
-      expect(page).not_to have_css(".collapse")
+      expect(page).to have_css(".collapsed")
       find("button").click
-      expect(page).to have_css(".collapse", visible: true)
+      expect(page).not_to have_css(".collapsed")
     end
   end
 
@@ -85,7 +85,7 @@ feature "Index view", js: true do
     visit search_catalog_path(f: {Settings.FIELDS.PROVIDER => ["Stanford"]})
     within(".documentHeader", match: :first) do
       expect(page).to have_css("a[itemprop='name']")
-      find(".caret-toggle").click
+      find(".dropdown-toggle").click
     end
     within(".more-info-area", match: :first) do
       expect(page).to have_css("small[itemprop='description']")

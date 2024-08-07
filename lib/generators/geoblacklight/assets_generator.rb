@@ -30,17 +30,12 @@ module Geoblacklight
       imports = <<~JS
         // JS dependencies
         import "@hotwired/turbo-rails";
-        import jQuery from "jquery";
-        import "popper.js";
-        import bootstrap from "bootstrap";
-        import Bloodhound from "typeahead.js/dist/bloodhound";
-        import "typeahead.js/dist/typeahead.jquery";
+        import * as bootstrap from "bootstrap";
+        import githubAutoCompleteElement from "@github/auto-complete-element";
+        import Blacklight from "blacklight-frontend";
 
-        // Make imports available globally
         window.bootstrap = bootstrap;
-        window.$ = jQuery;
-        window.jQuery = jQuery;
-        window.Bloodhound = Bloodhound;
+        window.Blacklight = Blacklight;
       JS
 
       inject_into_file "app/javascript/entrypoints/application.js", imports

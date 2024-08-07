@@ -5,10 +5,6 @@ module GeoblacklightHelper
     document.public? || (document.same_institution? && user_signed_in?)
   end
 
-  def document_downloadable?
-    document_available? && @document.downloadable?
-  end
-
   def iiif_jpg_url
     @document.references.iiif.endpoint.sub! "info.json", "full/full/0/default.jpg"
   end
@@ -24,8 +20,6 @@ module GeoblacklightHelper
   ##
   # Returns an SVG icon or empty HTML span element
   # @return [SVG or HTML tag]
-  # standard:disable Style/ArgumentsForwarding
-  # TODO: Remove linter disable after lowest supported Ruby version >= 3.2
   def geoblacklight_icon(name, **args)
     icon_name = name ? name.to_s.parameterize : "none"
     icon_name = Settings.ICON_MAPPING && Settings.ICON_MAPPING[icon_name] || icon_name
@@ -36,7 +30,6 @@ module GeoblacklightHelper
       tag.span class: "icon-missing geoblacklight-none"
     end
   end
-  # standard:enable Style/ArgumentsForwarding
 
   ##
   # Looks up formatted names for references
@@ -60,27 +53,13 @@ module GeoblacklightHelper
     if I18n.exists?("geoblacklight.help_text.#{feature}.#{key}", locale)
       help_text = I18n.t("geoblacklight.help_text.#{feature}.#{key}")
       tag.h2 class: "help-text viewer_protocol h6" do
-        tag.a data: {toggle: "popover", title: help_text[:title], content: help_text[:content]} do
+        tag.a data: {"bs-toggle": "popover", title: help_text[:title], content: help_text[:content]} do
           help_text[:title]
         end
       end
     else
       tag.span class: "help-text translation-missing"
     end
-  end
-
-  ##
-  # Determines if item view should render the sidebar static map
-  # @return [Boolean]
-  def render_sidebar_map?(document)
-    Settings.SIDEBAR_STATIC_MAP&.any? { |vp| document.viewer_protocol == vp }
-  end
-
-  ##
-  # Deteremines if item view should include attribute table
-  # @return [Boolean]
-  def show_attribute_table?
-    document_available? && @document.inspectable?
   end
 
   ##

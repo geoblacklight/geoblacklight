@@ -6,13 +6,15 @@ RSpec.describe Geoblacklight::DownloadLinksComponent, type: :component do
   subject(:rendered) do
     render_inline_to_capybara_node(component)
   end
-  let(:document) { instance_double(SolrDocument, id: 123) }
-  let(:component) { described_class.new(document: document, downloadable: downloadable) }
   let(:downloadable) { true }
+  let(:document) { instance_double(SolrDocument, id: 123, downloadable?: downloadable) }
+  let(:component) { described_class.new(document: document) }
+
+  before do
+    allow_any_instance_of(GeoblacklightHelper).to receive(:document_available?).and_return(true)
+  end
 
   context "when rendering is required" do
-    let(:downloadable) { true }
-
     before do
       allow(document).to receive(:direct_download).and_return(test: :test)
       allow(document).to receive(:hgl_download).and_return({})
@@ -28,7 +30,6 @@ RSpec.describe Geoblacklight::DownloadLinksComponent, type: :component do
 
   context "when rendering is not required" do
     context "because there are no download links" do
-      let(:downloadable) { true }
       before do
         allow(document).to receive(:direct_download).and_return({})
         allow(document).to receive(:hgl_download).and_return({})
@@ -85,7 +86,7 @@ RSpec.describe Geoblacklight::DownloadLinksComponent, type: :component do
         }.to_json
       }
     end
-    let(:document) { SolrDocument.new(document_attributes) }
+    let(:document) { SolrDocument.new(document_attributes, downloadable?: downloadable) }
 
     before do
       allow(component).to receive(:download_text).and_return("Original JPG")
@@ -111,7 +112,6 @@ RSpec.describe Geoblacklight::DownloadLinksComponent, type: :component do
       # Stub I18n to ensure the link can be customized via `export_` labels.
       allow(component).to receive(:t).with("geoblacklight.download.export_shapefile_link").and_return("Shapefile Export Customization")
       allow(component).to receive(:t).with("geoblacklight.download.export_link", {download_format: "Shapefile Export Customization"}).and_return("Export Shapefile Export Customization")
-      puts component.download_link_generated(download_type, document)
       expect(component.download_link_generated(download_type, document)).to eq '<a data-download-path="/download/test-id?type=SHAPEFILE" data-download="trigger" data-action="downloads#download:once" data-download-type="SHAPEFILE" data-download-id="test-id" href="">Export Shapefile Export Customization</a>'
     end
   end

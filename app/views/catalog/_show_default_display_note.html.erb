@@ -1,7 +1,0 @@
-<% document ||= @document %>
-
-<% if document.display_note.present? %>
-  <% document.display_note.each do |display_note| %>
-    <%= render(Geoblacklight::DisplayNoteComponent.new(display_note: display_note)) %>
-  <% end %>
-<% end %>

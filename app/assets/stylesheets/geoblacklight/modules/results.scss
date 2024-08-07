@@ -6,6 +6,7 @@
   max-height: 100px;
   overflow:hidden;
   padding-left: 2ch;
+  border-bottom: 1px dotted $gray-300 !important;
 }
 
 .documents-list {
@@ -20,17 +21,16 @@
   }
 
   .document-counter {
-    @extend .pr-1;
+    @extend .pe-1;
   }
 
-  .caret-toggle {
-    @include caret('right');
-    padding-left: 0;
-    width: 28px;
+  // rotate BS5's default caret
+  .dropdown-toggle:after {
+    transform: rotate(-90deg); 
+  }
 
-    &[aria-expanded="true"] {
-      @include caret('down');
-    }
+  .dropdown-toggle[aria-expanded="true"]:after {
+    transform: rotate(0deg); 
   }
 
   .status-icons {
@@ -43,14 +43,6 @@
 }
 
 #main-container {
-  .category-block {
-    min-height: 240px;
-
-    .category-icon {
-      font-size: 6em;
-    }
-  }
-
   .viewer[data-page="index"] {
     height: 400px;
 

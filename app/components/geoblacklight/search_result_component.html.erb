@@ -14,33 +14,31 @@
   itemtype: @document.itemtype,
   class: classes.flatten.join(' ') do %>
 
-    <%= content_tag :div, class: 'documentHeader index-split row', data: { layer_id: document.id, geom: document.geometry.geojson } do %>
-      <h3 class="index_title col">
-        <% counter = document_counter_with_offset(document_counter) %>
+    <%= content_tag :div, class: 'documentHeader index-split d-flex flex-grow-1', data: { layer_id: @document.id, geom: @document.geometry.geojson } do %>
+      <h3 class="index_title d-flex flex-grow-1">
         <span class="document-counter">
-          <%= t('blacklight.search.documents.counter', :counter => counter) if counter %>
+          <%= t('blacklight.search.documents.counter', :counter => @counter) if @counter %>
         </span>
-        <%= helpers.link_to_document(document, counter: counter, itemprop: "name") %>
+        <%= helpers.link_to_document(@document, counter: @counter, itemprop: "name") %>
       </h3>
 
       <span class='status-icons'>
-        <%= render Geoblacklight::HeaderIconsComponent.new(document:) %>
+        <%= render Geoblacklight::HeaderIconsComponent.new(document: @document) %>
         <button
-            class="caret-toggle btn"
-            data-toggle="collapse"
-            data-target="#doc-<%= document.id %>-fields-collapse"
+            class="btn dropdown-toggle collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#doc-<%= @document.id %>-fields-collapse"
             aria-label="<%= t('geoblacklight.metadata.toggle_summary') %>"
             aria-expanded="false"
-            aria-controls="doc-<%= document.id %>-fields-collapse">
+            aria-controls="doc-<%= @document.id %>-fields-collapse">
           </button>
       </span>
     <% end %>
-
-    <div class='more-info-area'>
-      <div id="doc-<%= document.id %>-fields-collapse" class='collapse'>
-        <small itemprop="description">
-          <%=  helpers.geoblacklight_present(:index_fields_display, document) %>
-        </small>
-      </div>
-    </div>
   <% end %>
+  <div class='more-info-area border-bottom'>
+    <div id="doc-<%= @document.id %>-fields-collapse" class='collapse'>
+      <small itemprop="description">
+        <%= index_fields_display %>
+      </small>
+    </div>
+  </div>
