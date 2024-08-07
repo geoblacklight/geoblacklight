@@ -49,13 +49,30 @@
     -webkit-line-clamp: 8;
   }
 
-  #table-container{
-    overflow:scroll;
-    max-height: 450px;
+  #table-container {
     margin-bottom: 1rem;
 
     table {
       margin-bottom: 0px;
+    }
+  }
+
+  .attribute-data {
+    --bs-accordion-active-bg: none;
+  }
+
+  .sidebar-container {
+    width: 25vw;
+    overflow: scroll;
+    overscroll-behavior: contain;
+
+    img {
+      width: 100%;
+    }
+
+    @media screen and (max-width: breakpoint-max(sm)) {
+      width: calc(100vw - 100px);
+      max-height: 20vh!important;
     }
   }
 }
