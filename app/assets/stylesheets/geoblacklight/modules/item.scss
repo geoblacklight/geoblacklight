@@ -44,13 +44,40 @@
     -webkit-line-clamp: 8;
   }
 
-  #table-container{
-    overflow:scroll;
-    max-height: 450px;
+  #table-container {
     margin-bottom: 1rem;
 
     table {
       margin-bottom: 0px;
+    }
+  }
+
+  .sidebar-container {
+    width: 25vw;
+    overflow: scroll;
+    img {
+      width: 100%;
+    }
+
+    @media screen and (max-width: breakpoint-max(sm)) {
+      width: calc(100vw - 100px);
+      max-height: 15vh!important;
+    }
+  }
+
+  .content-sidebar-header {
+    text-decoration: none;
+    color: inherit;
+
+    &::after {
+      content: "\2303";
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    &[aria-expanded="false"]::after {
+        transform: rotate(180deg);
+        vertical-align: text-bottom;
     }
   }
 }
