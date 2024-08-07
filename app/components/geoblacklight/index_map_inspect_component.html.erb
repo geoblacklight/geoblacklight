@@ -1,4 +1,5 @@
-<div class='row'>
-  <div class='viewer-information col-sm-12'>
+<%= render Geoblacklight::AccordionComponent.new(id: 'index-map-attributes', title: t('geoblacklight.show.table_name')) do  %>
+  <div class='viewer-information px-3'>
+    <em><%= t('geoblacklight.show.click_map') %></em>
   </div>
-</div>
+<% end %>
