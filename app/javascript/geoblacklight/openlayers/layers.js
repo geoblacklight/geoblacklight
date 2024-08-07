@@ -1,9 +1,9 @@
-import VectorTile from "ol/layer/VectorTile";
-import { Style, Stroke, Fill, Circle } from "ol/style";
 import { PMTilesVectorSource } from "ol-pmtiles";
+import VectorTile from "ol/layer/VectorTile";
+import WebGLTileLayer from "ol/layer/WebGLTile";
 import { useGeographic } from "ol/proj";
 import GeoTIFF from "ol/source/GeoTIFF";
-import WebGLTileLayer from "ol/layer/WebGLTile";
+import { Circle, Fill, Stroke, Style } from "ol/style";
 
 // Create a new PMTiles layer
 export const pmTilesLayer = (url) => {

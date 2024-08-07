@@ -4,10 +4,9 @@
  */
 import { tileLayer, geoJson, circleMarker } from "leaflet";
 import { dynamicMapLayer, featureLayer, tiledMapLayer } from "esri-leaflet";
-import { DEFAULT_OPACITY } from "./constants";
-import { parseWmtsCapabilities } from "./layer_wmts";
-import { availabilityStyle, updateInformation } from "./layer_index_map";
-import { getTileJsonBounds } from "./utils";
+import { parseWmtsCapabilities } from "geoblacklight/leaflet/layer_wmts";
+import { availabilityStyle, updateInformation } from "geoblacklight/leaflet/layer_index_map";
+import { getTileJsonBounds } from "geoblacklight/leaflet/utils";
 
 // Create a leaflet tile layer for WMS
 export const wmsLayer = (url, { layerId, opacity, detectRetina }) => {

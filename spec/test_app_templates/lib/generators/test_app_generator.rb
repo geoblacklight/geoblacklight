@@ -8,7 +8,7 @@ class TestAppGenerator < Rails::Generators::Base
   def add_gems
     gem "blacklight"
 
-    Bundler.with_clean_env do
+    Bundler.with_unbundled_env do
       run "bundle install"
     end
   end
@@ -17,10 +17,8 @@ class TestAppGenerator < Rails::Generators::Base
     run "yarn install && yarn build"
   end
 
-  # Ensure local frontend build is linked so internal test app
-  # can use local javascript instead of npm package.
   def link_frontend
-    run "yarn add #{Blacklight::Engine.root}"
+    run "yarn link"
   end
 
   def run_blacklight_generator
@@ -42,9 +40,5 @@ class TestAppGenerator < Rails::Generators::Base
     FileUtils.mkdir_p "spec/fixtures"
     FileUtils.symlink solr_docs_path, "spec/fixtures/solr_documents"
     FileUtils.symlink metadata_path, "spec/fixtures/metadata"
-  end
-
-  def vite_build
-    run "bin/vite build --clear --mode=test"
   end
 end

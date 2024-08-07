@@ -81,67 +81,20 @@ module Geoblacklight
       end
     end
 
-    # Turn off JQuery animations during testing
-    def inject_disable_jquery_animations
-      inject_into_file "app/views/layouts/application.html.erb", before: "</head>" do
-        "  <%= javascript_tag '$.fx.off = true;' if Rails.env.test? %>\n"
-      end
-    end
-
     def create_downloads_directory
       FileUtils.mkdir_p("tmp/cache/downloads") unless File.directory?("tmp/cache/downloads")
+    end
+
+    def create_image_assets_directory
+      FileUtils.mkdir_p("app/assets/images") unless File.directory?("app/assets/images")
     end
 
     def update_application_name
       gsub_file("config/locales/blacklight.en.yml", "Blacklight", "GeoBlacklight")
     end
 
-    # Ensure that assets/images exists
-    def create_image_assets_directory
-      FileUtils.mkdir_p("app/assets/images") unless File.directory?("app/assets/images")
-    end
-
-    # Vite - Required for successful installation
-    def install_vite_rails
-      append_to_file "Gemfile" do
-        "gem \"vite_rails\", \"~> 3.0\""
-      end
-    end
-
-    # Vite - GBL Base Layout with Vite Helper Tags
-    def geoblacklight_base_layout
-      copy_file "base.html.erb", "app/views/layouts/blacklight/base.html.erb"
-    end
-
-    def copy_package_json
-      copy_file "package.json", "package.json"
-    end
-
-    # Vite - Config files
-    def copy_config_vite_json
-      copy_file "vite.json", "config/vite.json"
-      copy_file "vite.config.ts", "vite.config.ts"
-      run "yarn install"
-    end
-
-    def add_frontend
-      if options[:test]
-        run "yarn add file:#{Geoblacklight::Engine.root}"
-      else
-        run "yarn add @geoblacklight/frontend@#{Geoblacklight::VERSION}"
-      end
-    end
-
-    # Run bundle with vite install
-    def bundle_install
-      Bundler.with_clean_env do
-        run "bundle install"
-        run "bundle exec vite install"
-      end
-    end
-
     def generate_assets
-      generate "geoblacklight:assets"
+      generate "geoblacklight:assets", "--test" if options[:test]
     end
   end
 end

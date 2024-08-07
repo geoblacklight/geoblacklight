@@ -1,4 +1,4 @@
-import { appendLoadingMessage, appendErrorMessage, linkify } from "./utils.js";
+import { appendLoadingMessage, appendErrorMessage, linkify } from "geoblacklight/leaflet/utils";
 import { identifyFeatures } from "esri-leaflet";
 import { getLayerOpacity } from "./utils";
 

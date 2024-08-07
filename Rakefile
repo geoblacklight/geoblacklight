@@ -13,6 +13,10 @@ require "solr_wrapper/rake_task"
 require "engine_cart/rake_task"
 require "rspec/core/rake_task"
 
+# Ensure the app generates with Propshaft; sprockets is no longer supported
+# https://github.com/geoblacklight/geoblacklight/issues/1265
+ENV["ENGINE_CART_RAILS_OPTIONS"] = ENV["ENGINE_CART_RAILS_OPTIONS"].to_s + " -a propshaft"
+
 task(:spec).clear
 RSpec::Core::RakeTask.new(:spec) do |t|
   t.verbose = false

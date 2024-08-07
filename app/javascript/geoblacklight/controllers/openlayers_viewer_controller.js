@@ -1,11 +1,11 @@
-import { Map } from "ol";
-import TileLayer from "ol/layer/Tile";
-import XYZ from "ol/source/XYZ";
-import GeoJSON from "ol/format/GeoJSON";
-import { FullScreen, defaults as defaultControls } from "ol/control";
-import { pmTilesLayer, cogLayer } from "../openlayers/layers";
-import basemaps from "../openlayers/basemaps";
 import { Controller } from "@hotwired/stimulus";
+import basemaps from "geoblacklight/openlayers/basemaps";
+import { cogLayer, pmTilesLayer } from "geoblacklight/openlayers/layers";
+import { FullScreen, defaults as defaultControls } from "ol/control";
+import GeoJSON from "ol/format/GeoJSON";
+import TileLayer from "ol/layer/Tile";
+import { Map } from "ol";
+import XYZ from "ol/source/XYZ";
 
 export default class OpenlayersViewerController extends Controller {
   static values = {
@@ -36,14 +36,14 @@ export default class OpenlayersViewerController extends Controller {
   }
 
   async getBounds() {
-    if (this.protocolValue == 'Cog') {
+    if (this.protocolValue == "Cog") {
       const view = await this.overlay.getSource().getView();
       this.extent = view.extent;
     } else {
       this.extent = new GeoJSON()
-      .readFeatures(this.mapGeomValue)[0]
-      .getGeometry()
-      .getExtent();
+        .readFeatures(this.mapGeomValue)[0]
+        .getGeometry()
+        .getExtent();
     }
   }
 

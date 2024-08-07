@@ -1,27 +1,26 @@
-import { Icon, Control } from "leaflet";
-import "leaflet-fullscreen";
-import { layerGroup, polygon, map, tileLayer } from "leaflet";
-import { imageMapLayer } from "esri-leaflet";
 import { Controller } from "@hotwired/stimulus";
-import basemaps from "../leaflet/basemaps.js";
-import LayerOpacityControl from "../leaflet/controls/layer_opacity.js";
-import GeoSearchControl from "../leaflet/controls/geosearch.js";
-import { wmsInspection,
-  tiledMapLayerInspection,
+import { imageMapLayer } from "esri-leaflet";
+import basemaps from "geoblacklight/leaflet/basemaps";
+import { DEFAULT_BOUNDS, DEFAULT_OPACITY } from "geoblacklight/leaflet/constants";
+import GeoSearchControl from "geoblacklight/leaflet/controls/geosearch";
+import LayerOpacityControl from "geoblacklight/leaflet/controls/layer_opacity";
+import {
+  dynamicMapLayerInspection,
   featureLayerInspection,
-  dynamicMapLayerInspection
-} from "../leaflet/inspection.js";
+  wmsInspection
+} from "geoblacklight/leaflet/inspection";
 import {
   esriDynamicMapLayer,
   esriFeatureLayer,
   esriTiledMapLayer,
+  indexMapLayer,
   tileJsonLayer,
   wmsLayer,
   wmtsLayer,
-  indexMapLayer,
-} from "../leaflet/layers.js";
-import { geoJSONToBounds } from "../leaflet/utils.js";
-import { DEFAULT_BOUNDS, DEFAULT_OPACITY } from "../leaflet/constants.js";
+} from "geoblacklight/leaflet/layers";
+import { geoJSONToBounds } from "geoblacklight/leaflet/utils";
+import { Control, Icon, layerGroup, map, polygon, tileLayer } from "leaflet";
+import "leaflet-fullscreen";
 
 export default class LeafletViewerController extends Controller {
   static values = {
