@@ -1,0 +1,11 @@
+// Local customizations (import first, so that variables take precedence)
+@import 'customizations.scss';
+
+// Bootstrap (will use variables defined in customizations, if present)
+@import 'bootstrap/scss/bootstrap.scss';
+
+// Blacklight, imported from blacklight-frontend package
+@import 'blacklight-frontend/app/assets/stylesheets/blacklight/blacklight.scss';
+
+// Geoblacklight, imported from @geoblacklight/frontend package
+@import '@geoblacklight/frontend/app/assets/stylesheets/geoblacklight/geoblacklight.scss';

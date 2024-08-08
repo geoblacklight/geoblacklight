@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite'
 import rails from 'vite-plugin-rails'
-import path from 'path'
 
 export default defineConfig(({ mode }) => {
   return {
@@ -12,11 +11,5 @@ export default defineConfig(({ mode }) => {
     plugins: [
       rails(),
     ],
-    resolve: {
-      alias: {
-        '@leaflet_images': path.resolve(__dirname, './node_modules/@geoblacklight/frontend/node_modules/leaflet/dist/images'),
-        '@geoblacklight_images': path.resolve(__dirname, './node_modules/@geoblacklight/frontend/dist/images')
-      }
-    }
   }
 })

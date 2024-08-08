@@ -1,8 +1,7 @@
 // Local Application Customizations
 
 // Set Header Logo
-// @geoblacklight_images is a vite path alias set in vite.config.js
-$logo-image: url('@geoblacklight_images/blacklight/logo.svg');
+$logo-image: url('@geoblacklight/frontend/dist/images/blacklight/logo.svg');
 
 .navbar-brand {  /* The main logo image for the Blacklight instance */
   @if $logo-image {
