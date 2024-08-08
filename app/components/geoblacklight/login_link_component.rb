@@ -11,7 +11,7 @@ module Geoblacklight
     end
 
     def render?
-      document.restricted? && document.same_institution?
+      document.restricted? && document.same_institution? && !helpers.document_available?
     end
   end
 end
