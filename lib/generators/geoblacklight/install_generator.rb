@@ -7,7 +7,7 @@ module Geoblacklight
     source_root File.expand_path("../templates", __FILE__)
     desc "Install Geoblacklight"
 
-    class_option :test, type: :boolean, default: false, aliases: "-t", desc: "Indicates that app will be installed in a test environment"
+    class_option :test, type: :boolean, default: ENV.fetch("CI", false), aliases: "-t", desc: "Indicates that app will be installed in a test environment"
 
     def allow_geoblacklight_params
       gbl_params = <<-PARAMS

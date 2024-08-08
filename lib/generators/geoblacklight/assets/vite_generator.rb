@@ -13,12 +13,34 @@ module Geoblacklight
       This generator sets up the app to use Vite as the bundler for styles and
       javascript using the vite_rails gem. Existing stylesheets for Blacklight
       are removed and replaced with a single JS entrypoint file and a single
-      SCSS entrypoint file, which will be bundled by Vite.
+      SCSS entrypoint file, which will be bundled by Vite. All of the frontend
+      assets get moved to a directory called app/frontend.
 
       Geoblacklight's frontend assets are installed from the npm package. In
       local development they automatically reference the versions from the
       outer directory (the Geoblacklight repository) via a yarn symlink.
       DESCRIPTION
+
+      # We don't use sprockets to bundle SCSS anymore
+      # See: https://github.com/geoblacklight/geoblacklight/issues/1265
+      def remove_sprockets
+        remove_dir "app/assets/config"
+        remove_file "config/initializers/assets.rb"
+        gsub_file "config/environments/development.rb", /config\.assets\./, '# \0'
+        gsub_file "config/environments/production.rb", /config\.assets\./, '# \0'
+        gsub_file "Gemfile", /gem "sprockets-rails"/, '# \0'
+        gsub_file "Gemfile", /gem "sprockets"/, '# \0'
+        gsub_file "Gemfile", /gem "sassc-rails"/, '# \0'
+        gsub_file "Gemfile", /gem "sass-rails"/, '# \0'
+        gsub_file "Gemfile", /gem "bootstrap"/, '# \0'
+      end
+
+      # We won't use importmaps either, which is the default in Rails 7
+      def remove_importmaps
+        remove_file "config/importmap.rb"
+        remove_file "app/javascript/application.js"
+        gsub_file "Gemfile", /gem "importmap-rails"/, '# \0'
+      end
 
       # Install Vite
       def install_vite
@@ -73,17 +95,33 @@ module Geoblacklight
         end
       end
 
-      # Add our own stylesheets that reference the versions from npm
+      # Move any existing assets from sprockets to the new frontend directory;
+      # useful if you're manually invoking the generator on an existing app
+      def move_existing_assets
+        run "mv app/assets/* app/frontend/"
+        remove_dir "app/assets"
+      end
+
+      # Move the other generated javascript for stimulus into app/frontend
+      def move_existing_javascript
+        run "mv app/javascript/ app/frontend/javascript/"
+      end
+
+      # Add our own stylesheets, which import Blacklight's and other dependencies
       def add_stylesheets
-        copy_file "assets/_customizations.scss", "app/javascript/stylesheets/_customizations.scss"
-        copy_file "assets/geoblacklight.scss", "app/javascript/stylesheets/geoblacklight.scss"
-        copy_file "assets/application.scss", "app/javascript/entrypoints/application.scss"
+        copy_file "assets/_customizations.scss", "app/frontend/stylesheets/_customizations.scss"
+        copy_file "assets/geoblacklight.scss", "app/frontend/stylesheets/geoblacklight.scss"
+      end
+
+      # Add the main style entrypoint
+      def add_style_entrypoint
+        copy_file "assets/application.scss", "app/frontend/entrypoints/application.scss"
       end
 
       # Replace the default generated Vite entrypoint with our own
-      def add_javascript
-        remove_file "app/javascript/entrypoints/application.js"
-        copy_file "assets/application.js", "app/javascript/entrypoints/application.js"
+      def add_js_entrypoints
+        remove_file "app/frontend/entrypoints/application.js"
+        copy_file "assets/application.js", "app/frontend/entrypoints/application.js"
       end
     end
   end
