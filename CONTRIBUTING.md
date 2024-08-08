@@ -43,7 +43,7 @@ When proposing major new features or changes that may introduce an API or schema
   - Do all new methods, modules, and classes have comments? Do changed methods, modules, and classes have comments?
   - Does the commit contain more than it should? Are two separate concerns being addressed in one commit?
   - Did the Travis tests complete successfully?
-- If you are uncertain, bring other contributors into the conversation by creating a comment that includes their @username.
+- Bring the [GeoBlacklight Developers Team](https://github.com/orgs/geoblacklight/teams/geoblacklight-developers) into the conversation by creating a comment that tags their @username: `@geoblacklight/geoblacklight-developers`.
 - If you like the pull request, but want others to chime in, create a +1 comment and tag a user.
 
 If you wish to ask questions or participate further, email the [GeoBlacklight Working Group](https://groups.google.com/forum/#!forum/geoblacklight-working-group) at [geoblacklight-working-group@googlegroups.com](mailto:geoblacklight-working-group@googlegroups.com).
