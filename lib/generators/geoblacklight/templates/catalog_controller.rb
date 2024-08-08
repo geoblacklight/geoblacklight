@@ -44,7 +44,7 @@ class CatalogController < ApplicationController
     # remove the lines deleting and re-adding the :show partial
     config.show.display_type_field = "format"
     config.show.document_component = Geoblacklight::DocumentComponent
-    config.show.sidebar_component = Geoblacklight::SidebarComponent
+    config.show.sidebar_component = Geoblacklight::Document::SidebarComponent
     config.header_component = Geoblacklight::HeaderComponent
 
     # solr fields that will be treated as facets by the blacklight application
