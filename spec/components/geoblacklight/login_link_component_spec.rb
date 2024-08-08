@@ -10,6 +10,7 @@ RSpec.describe Geoblacklight::LoginLinkComponent, type: :component do
 
   context "when rendering is required" do
     before do
+      allow_any_instance_of(GeoblacklightHelper).to receive(:document_available?).and_return(false)
       allow(document).to receive(:restricted?).and_return(true)
       allow(document).to receive(:same_institution?).and_return(true)
     end
