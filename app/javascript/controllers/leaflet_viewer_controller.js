@@ -157,13 +157,13 @@ export default class LeafletViewerController extends Controller {
       bounds.getNorthEast(),
       bounds.getNorthWest(),
     ],
-      {
+      this.mapGeomValue ? {
         color: '#3388ff',
         dashArray: "5 5",
         weight: 2,
         opacity: 1,
         fillOpacity: 0
-      }
+      } : undefined
     );
     
     this.boundsOverlay = boundsOverlay;
