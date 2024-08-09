@@ -63,6 +63,7 @@ RSpec.describe Geoblacklight::DownloadLinksComponent, type: :component do
     end
   end
 
+  #test
   describe "#download_link_hgl" do
     let(:text) { "Test Link Text" }
 
