@@ -9,7 +9,7 @@
     <turbo-frame id="documents-frame">
       <% document_presenters = documents.map { |doc| document_presenter(doc) } -%>
       <% document_presenters.each_with_index do |presenter, index| %>
-        <%= render Geoblacklight::SearchResultComponent.new(document: presenter, document_counter: index) %>
+        <%= render blacklight_config.index.document_component.new(document: presenter, document_counter: index) %>
       <% end %>
     </turbo-frame>
   </div>
