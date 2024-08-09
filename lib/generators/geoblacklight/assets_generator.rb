@@ -16,7 +16,8 @@ module Geoblacklight
 
     # Add our own stylesheets that reference the versions from npm
     def add_stylesheets
-      copy_file "assets/_customizations.scss", "app/javascript/entrypoints/_customizations.scss"
+      copy_file "assets/_customizations.scss", "app/javascript/stylesheets/_customizations.scss"
+      copy_file "assets/geoblacklight.scss", "app/javascript/stylesheets/geoblacklight.scss"
       copy_file "assets/application.scss", "app/javascript/entrypoints/application.scss"
     end
 
