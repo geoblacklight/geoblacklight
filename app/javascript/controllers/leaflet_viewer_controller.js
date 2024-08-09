@@ -75,7 +75,8 @@ export default class LeafletViewerController extends Controller {
     if (this.availableValue && this.protocolValue) {
       await this.addPreviewOverlay();
       this.addInspection();
-    } else if ((this.drawInitialBoundsValue || !this.protocolValue) && this.bounds) {
+    } else if (this.drawInitialBoundsValue && this.bounds) {
+      if (this.mapGeomValue) this.map.addLayer(L.geoJSON(this.mapGeomValue))
       this.addBoundsOverlay(this.bounds);
     }
 
