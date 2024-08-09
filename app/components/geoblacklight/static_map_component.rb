@@ -27,7 +27,8 @@ module Geoblacklight
           "controller" => "leaflet-viewer",
           "leaflet-viewer-basemap-value" => helpers.geoblacklight_basemap,
           "leaflet-viewer-map-geom-value" => @document.geometry.geojson,
-          "leaflet-viewer-options-value" => helpers.leaflet_options
+          "leaflet-viewer-options-value" => helpers.leaflet_options,
+          "leaflet-viewer-draw-initial-bounds-value" => true
         })
     end
   end
