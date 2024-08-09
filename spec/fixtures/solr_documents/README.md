@@ -17,6 +17,7 @@ If you add a new document, please add it to the table below, and indicate its pu
 | [baruch_ancestor2](baruch_ancestor2.json) | 2016 NYC Geodatabase, ArcGIS Version (jan2016) | nyu_2451_34636 | Geodatabase with documentation download Referenced as parent                   
 | [baruch_documentation_download](baruch_documentation_download.json) | 2015 New York City Subway Complexes and Ridership | nyu_2451_34502 | Point dataset with WMS and WFS, documentation download, and two parent records
 | [bbox-spans-180](bbox-spans-180.json) | East Asia and Oceania | princeton-sx61dn82p | Scanned map with IIIF and direct TIFF download that spans across the 180th meridian                     
+| [complex-geom](complex-geom.json) | Anglesey; Garnesay; Wight olim vectis; ... | c8b46b52-0846-4abb-ba56-b484064f84ac | Scanned map with MULTIPOLYGON locn_geometry value                     
 | [cornell_html_metadata](cornell_html_metadata.json) | Air Monitoring Stations, Adirondack Park, 2000 | cugir-007741 | Point dataset with WMS, WFS, direct download, and FGDC metadata XML and HTML                       
 | [esri-dynamic-layer-all-layers](esri-dynamic-layer-all-layers.json) | Glacial Boundaries: Illinois, 1998 | 90f14ff4-1359-4beb-b931-5cb41d20ab90 | This record points to an the top level of an Esri Rest Web Map Service It does not specify a layer
 | [esri-dynamic-layer-single-layer](esri-dynamic-layer-single-layer.json) | Abandoned Quarries: Indiana | 4669301e-b4b2-4c8b-bf40-01b968a2865b | ArcGIS Dynamic Map Layer with single layer indicated
