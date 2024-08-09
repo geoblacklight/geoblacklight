@@ -63,21 +63,6 @@ RSpec.describe Geoblacklight::DownloadLinksComponent, type: :component do
     end
   end
 
-  #test
-  describe "#download_link_hgl" do
-    let(:text) { "Test Link Text" }
-
-    before do
-      allow(component).to receive(:download_hgl_path).and_return("/download/hgl/test-id")
-      allow(document).to receive(:id).and_return("test-id")
-      allow(document).to receive(:to_s).and_return("test-id")
-    end
-
-    it "generates a link to the HGL route" do
-      expect(component.download_link_hgl(text, document)).to eq '<a data-blacklight-modal="trigger" data-download="trigger" data-download-type="harvard-hgl" data-download-id="test-id" href="/download/hgl/test-id">Test Link Text</a>'
-    end
-  end
-
   describe "#download_link_iiif" do
     let(:references_field) { Settings.FIELDS.REFERENCES }
     let(:document_attributes) do

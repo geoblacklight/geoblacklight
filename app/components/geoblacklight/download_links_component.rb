@@ -31,19 +31,6 @@ module Geoblacklight
       )
     end
 
-    def download_link_hgl(text, document)
-      link_to(
-        text,
-        download_hgl_path(id: document),
-        data: {
-          blacklight_modal: "trigger",
-          download: "trigger",
-          download_type: "harvard-hgl",
-          download_id: document.id
-        }
-      )
-    end
-
     # Generates the link markup for the IIIF JPEG download
     # @return [String]
     def download_link_iiif

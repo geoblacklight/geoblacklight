@@ -17,10 +17,6 @@
             <% end %>
             <% end %>
 
-            <% if document.hgl_download.present? %>
-            <%= download_link_hgl(download_text(document.download_types.first[0]), document) %>
-            <% end %>
-
             <% if document.iiif_download.present? %>
             <%= download_link_iiif %>
             <% end %>
