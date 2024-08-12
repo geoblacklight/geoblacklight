@@ -30,7 +30,7 @@ feature "feature_layer reference", js: true do
   end
   scenario "displays tiled map layer" do
     skip "spec depend on potentially flaky external services"
-    visit solr_document_path "nyu-test-soil-survey-map"
+    visit solr_document_path "31567cf1-bad8-4bc5-8d57-44b96c207ecc"
     expect(page).to have_css ".leaflet-control-zoom", visible: true
     expect(page).to have_css "img.leaflet-tile.leaflet-tile-loaded", visible: true
   end
