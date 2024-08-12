@@ -17,7 +17,6 @@ module Geoblacklight
   require "geoblacklight/download/geotiff_download"
   require "geoblacklight/download/kmz_download"
   require "geoblacklight/download/shapefile_download"
-  require "geoblacklight/download/hgl_download"
   require "geoblacklight/metadata"
   require "geoblacklight/metadata/base"
   require "geoblacklight/metadata/fgdc"

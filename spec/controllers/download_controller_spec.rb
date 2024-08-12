@@ -77,46 +77,4 @@ describe DownloadController, type: :controller do
       end
     end
   end
-
-  describe "#hgl" do
-    let(:hgl_download) { instance_double(Geoblacklight::HglDownload) }
-
-    it "requests file" do
-      allow(hgl_download).to receive(:get).and_return("success")
-      allow(Geoblacklight::HglDownload).to receive(:new).and_return(hgl_download)
-
-      get :hgl, params: {id: "harvard-g7064-s2-1834-k3", email: "foo@example.com"}
-      expect(response).to have_http_status :ok
-    end
-
-    it "renders form" do
-      allow(Geoblacklight::HglDownload).to receive(:new).and_return(hgl_download)
-
-      get :hgl, params: {id: "harvard-g7064-s2-1834-k3"}
-      expect(response).to render_template("hgl")
-    end
-
-    context "when an error occurs while downloading a file" do
-      let(:exception) { Geoblacklight::Exceptions::ExternalDownloadFailed.new(url: nil) }
-
-      it "uses the default error message when the exception does not have a URL" do
-        allow(Geoblacklight::HglDownload).to receive(:new).and_raise(exception)
-
-        get :hgl, params: {id: "harvard-g7064-s2-1834-k3", email: "foo@example.com"}
-        expect(response.body).to include("danger")
-        expect(response.body).to include("Sorry, the requested file could not be downloaded")
-      end
-    end
-
-    context "when downloading the requested file fails" do
-      it "flashes the error message" do
-        allow(hgl_download).to receive(:get).and_return(nil)
-        allow(Geoblacklight::HglDownload).to receive(:new).and_return(hgl_download)
-
-        get :hgl, params: {id: "harvard-g7064-s2-1834-k3", email: "foo@example.com"}
-        expect(response.body).to include("danger")
-        expect(response.body).to include("Sorry, the requested file could not be downloaded")
-      end
-    end
-  end
 end

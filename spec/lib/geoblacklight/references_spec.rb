@@ -9,10 +9,7 @@ describe Geoblacklight::References do
     described_class.new(
       SolrDocument.new(
         file_format_field => "Shapefile",
-        references_field => {
-          "http://www.opengis.net/def/serviceType/ogc/wms" => "http://hgl.harvard.edu:8080/geoserver/wms",
-          "http://www.opengis.net/def/serviceType/ogc/wfs" => "http://hgl.harvard.edu:8080/geoserver/wfs"
-        }.to_json
+        references_field => {}.to_json
       )
     )
   end
@@ -28,10 +25,7 @@ describe Geoblacklight::References do
     described_class.new(
       SolrDocument.new(
         file_format_field => "GeoTIFF",
-        references_field => {
-          "http://www.opengis.net/def/serviceType/ogc/wms" => "http://hgl.harvard.edu:8080/geoserver/wms",
-          "http://www.opengis.net/def/serviceType/ogc/wfs" => "http://hgl.harvard.edu:8080/geoserver/wfs"
-        }.to_json
+         references_field => {}.to_json
       )
     )
   end
@@ -39,11 +33,7 @@ describe Geoblacklight::References do
     described_class.new(
       SolrDocument.new(
         file_format_field => "ArcGRID",
-        references_field => {
-          "http://www.opengis.net/def/serviceType/ogc/wms" => "http://hgl.harvard.edu:8080/geoserver/wms",
-          "http://www.opengis.net/def/serviceType/ogc/wfs" => "http://hgl.harvard.edu:8080/geoserver/wfs"
-        }.to_json
-      )
+       references_field => {}.to_json)
     )
   end
   let(:complex_shapefile) do
@@ -55,8 +45,6 @@ describe Geoblacklight::References do
           "http://www.isotc211.org/schemas/2005/gmd/" => "http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/iso19139.xml",
           "http://www.loc.gov/mods/v3" => "http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/mods.xml",
           "http://schema.org/url" => "http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/homepage",
-          "http://www.opengis.net/def/serviceType/ogc/wms" => "http://hgl.harvard.edu:8080/geoserver/wms",
-          "http://www.opengis.net/def/serviceType/ogc/wfs" => "http://hgl.harvard.edu:8080/geoserver/wfs"
         }.to_json
       )
     )
@@ -176,13 +164,11 @@ describe Geoblacklight::References do
   describe "download_types" do
     it "returns available downloads by format" do
       types = complex_shapefile.download_types
-      expect(types.first[1]).to eq wfs: "http://hgl.harvard.edu:8080/geoserver/wfs"
       expect(types.count).to eq 3
       expect(direct_download_only.download_types).to be_nil
     end
     it "onlies return available downloads if no direct is present" do
       types = typical_ogp_shapefile.download_types
-      expect(types.first[1]).to eq wfs: "http://hgl.harvard.edu:8080/geoserver/wfs"
       expect(types.count).to eq 3
     end
   end
@@ -214,11 +200,9 @@ describe Geoblacklight::References do
     end
     it "returns geotiff" do
       expect(typical_ogp_geotiff.downloads_by_format.count).to eq 1
-      expect(typical_ogp_geotiff.downloads_by_format[:geotiff][:wms]).to eq "http://hgl.harvard.edu:8080/geoserver/wms"
     end
     it "returns arcgrid as geotiff" do
       expect(typical_arcgrid.downloads_by_format.count).to eq 1
-      expect(typical_arcgrid.downloads_by_format[:geotiff][:wms]).to eq "http://hgl.harvard.edu:8080/geoserver/wms"
     end
     it "does not return shapefile if wms and wfs are not present" do
       expect(no_service_shapefile.downloads_by_format).to be_nil

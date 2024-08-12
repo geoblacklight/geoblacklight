@@ -87,32 +87,4 @@ feature "Download layer" do
     expect(page).to have_css("#downloads-collapse a", text: "Original")
     expect(page).to have_css("#downloads-collapse a", text: "Export")
   end
-
-  scenario "clicking download GeoTIFF for Harvard layer should show email form", js: true do
-    visit solr_document_path("harvard-g7064-s2-1834-k3")
-    find("#downloads-button").click
-    find('a[data-download-type="harvard-hgl"]', text: "GeoTIFF").click
-    expect(page).to have_css("#hglRequest")
-  end
-
-  context "with a successful request to the server" do
-    let(:hgl_download) { instance_double(Geoblacklight::HglDownload) }
-
-    xscenario "submitting email form should trigger HGL request", js: true do
-      # There are currently difficulties with testing the HGL downloader
-      visit solr_document_path("harvard-g7064-s2-1834-k3")
-      find("#downloads-button").click
-      find('a[data-download-type="harvard-hgl"]', text: "Original GeoTIFF").click
-
-      allow_any_instance_of(Geoblacklight::HglDownload).to receive(:new).and_return(hgl_download)
-      allow(hgl_download).to receive(:get).and_return("success")
-
-      within "#hglRequest" do
-        fill_in("Email", with: "foo@example.com")
-        click_button("Request")
-      end
-      expect(page).to have_css(".alert-success")
-      expect(page).to have_content("You should receive an email when your download is ready")
-    end
-  end
 end

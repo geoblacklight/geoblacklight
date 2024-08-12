@@ -17,7 +17,6 @@ RSpec.describe Geoblacklight::DownloadLinksComponent, type: :component do
   context "when rendering is required" do
     before do
       allow(document).to receive(:direct_download).and_return(test: :test)
-      allow(document).to receive(:hgl_download).and_return({})
       allow(document).to receive(:iiif_download).and_return({})
       allow(document).to receive(:download_types).and_return(shapefile: {})
     end
@@ -32,7 +31,6 @@ RSpec.describe Geoblacklight::DownloadLinksComponent, type: :component do
     context "because there are no download links" do
       before do
         allow(document).to receive(:direct_download).and_return({})
-        allow(document).to receive(:hgl_download).and_return({})
         allow(document).to receive(:iiif_download).and_return({})
         allow(document).to receive(:download_types).and_return({})
       end

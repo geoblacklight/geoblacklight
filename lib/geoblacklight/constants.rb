@@ -21,7 +21,6 @@ module Geoblacklight
       tms: "https://wiki.osgeo.org/wiki/Tile_Map_Service_Specification",
       tilejson: "https://github.com/mapbox/tilejson-spec",
       xyz: "https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames",
-      hgl: "http://schema.org/DownloadAction",
       feature_layer: "urn:x-esri:serviceType:ArcGIS#FeatureLayer",
       tiled_map_layer: "urn:x-esri:serviceType:ArcGIS#TiledMapLayer",
       dynamic_map_layer: "urn:x-esri:serviceType:ArcGIS#DynamicMapLayer",
