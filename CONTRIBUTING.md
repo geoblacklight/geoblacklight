@@ -38,8 +38,8 @@ When proposing major new features or changes that may introduce an API or schema
 
 - It is considered "poor form" to merge your own request.
 - Please take the time to review the changes and get a sense of what is being changed. Things to consider:
-  - Does the commit message explain what is going on?
-  - Does the code changes have tests? _Not all changes need new tests, some changes are refactorings_
+  - Do the commit messages explain what is going on?
+  - Do the code changes have tests? _Not all changes need new tests, some changes are refactorings_
   - Do all new methods, modules, and classes have comments? Do changed methods, modules, and classes have comments?
   - Does the commit contain more than it should? Are two separate concerns being addressed in one commit?
   - Did the GitHub Actions CI tests complete successfully?
