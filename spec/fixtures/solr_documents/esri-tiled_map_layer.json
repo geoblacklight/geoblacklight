@@ -1,48 +1,69 @@
 {
-  "dct_title_s": "Soil Survey Geographic (SSURGO)",
-  "dct_alternative_sm": [
-    "esri-tiled_map_layer"
-  ],
+  "dct_title_s": "Minnesota Land Cover Classification and Impervious Surface Area by Landsat and Lidar (2013 Update)",
   "dct_description_sm": [
-    "ArcGIS tiled map layer. ",
-    "This map shows the Soil Survey Geographic (SSURGO) by the United States Department of Agriculture's Natural Resources Conservation Service. It also shows data that was developed by the National Cooperative Soil Survey and supersedes the State Soil Geographic (STATSGO) dataset published in 1994. SSURGO digitizing duplicates the original soil survey maps. This level of mapping is designed for use by landowners, townships, and county natural resource planning and management. The user should be knowledgeable of soils data and their characteristics. The smallest scale map shows the Global Soil Regions map by the United States Department of Agriculture’s Natural Resources Conservation Service."
+    "This is a 15-meter raster dataset of a land cover and impervious surface classification for 2013, level two classification. The classification was created using a combination of multitemporal Landsat 8 data and LiDAR data with Object-based image analysis. By using objects instead of pixels we were able to utilize multispectral data along with spatial and contextual information of objects such as shape, size, texture and LiDAR-derived metrics to distinguish different land cover types. While OBIA has become the standard procedure for classification of high resolution imagery we found that it works equally well with Landsat imagery. For the objects classified as urban or developed, a regression model relating the Landsat greenness variable to percent impervious was developed to estimate and map the percent impervious surface area at the pixel level."
   ],
   "dct_language_sm": [
     "eng"
   ],
-  "dct_publisher_sm": [
-    "United States Department of Agriculture, Natural Resources Conservation Service"
+  "dct_creator_sm": [
+    "Bauer, Marvin E.",
+    "Knight, Joe F.",
+    "Rampi, Lian P."
   ],
-  "schema_provider_s": "NYU",
+  "schema_provider_s": "University of Minnesota",
   "gbl_resourceClass_sm": [
-    "Maps"
+    "Datasets"
   ],
   "gbl_resourceType_sm": [
-    "Raster data"
+    "Vector data",
+    "Raster data",
+    "LiDAR"
+  ],
+  "dcat_theme_sm": [
+    "Imagery"
   ],
   "dcat_keyword_sm": [
-    "GBL Fixture records"
+    "Lidar",
+    "Landsat Satellites",
+    "Land cover",
+    "2022-creator-sprint"
   ],
   "dct_temporal_sm": [
-    "2010"
+    "2013"
   ],
+  "dct_issued_s": "2016-08-03",
   "gbl_indexYear_im": [
-    2010
+    2013
   ],
   "gbl_dateRange_drsim": [
-    "[2010 TO 2010]"
+    "[2013 TO 2013]"
   ],
-  "locn_geometry": "ENVELOPE(-129.4956,-64.4393,48.6336,21.8079)",
-  "dcat_bbox": "ENVELOPE(-129.4956,-64.4393,48.6336,21.8079)",
-  "dcat_centroid": "35.22075,-96.96745",
+  "dct_spatial_sm": [
+    "Minnesota"
+  ],
+  "locn_geometry": "POLYGON((-97.23 49.37, -89.53 49.37, -89.53 43.5, -97.23 43.5, -97.23 49.37))",
+  "dcat_bbox": "ENVELOPE(-97.23,-89.53,49.37,43.5)",
+  "dcat_centroid": "46.435,-93.38",
+  "pcdm_memberOf_sm": [
+    "dc8c18df-7d64-4ff4-a754-d18d0891187d"
+  ],
+  "dct_isPartOf_sm": [
+    "05d-03"
+  ],
+  "dct_rights_sm": [
+    "https://conservancy.umn.edu/pages/drum/policies/#terms-of-use"
+  ],
+  "dct_license_sm": [
+    "http://creativecommons.org/publicdomain/zero/1.0/"
+  ],
   "dct_accessRights_s": "Public",
   "dct_format_s": "GeoTIFF",
-  "gbl_wxsIdentifier_s": "test-soil-survey_map",
-  "dct_references_s": "{\"urn:x-esri:serviceType:ArcGIS#TiledMapLayer\":\"https://dnrmaps.wi.gov/arcgis2/rest/services/TS_AGOL_STAGING_SERVICES/EN_AGOL_STAGING_SurfaceWater_WTM/MapServer/2\"}",
-  "id": "nyu-test-soil-survey-map",
+  "dct_references_s": "{\"http://lccn.loc.gov/sh85035852\":\"https://conservancy.umn.edu/bitstream/handle/11299/181555/Classification%20scheme%20for%20Level%201%20and%202%20land%20cover%20classes%202013.pdf\",\"http://schema.org/downloadUrl\":[{\"label\":\"Original GeoTIFF\",\"url\":\"https://conservancy.umn.edu/bitstream/handle/11299/181555/Statewide_FinalMap_2013_2014_v2.zip\"}],\"http://www.opengis.net/cat/csw/csdgm\":\"https://conservancy.umn.edu/bitstream/handle/11299/181555/Statewide_LandCoverMetadata_MN_2013_v2.xml\",\"http://www.w3.org/1999/xhtml\":\"https://conservancy.umn.edu/bitstream/handle/11299/181555/Statewide_LandCover_Metadata_MN_2013_v2.html\",\"http://schema.org/url\":\"http://doi.org/10.13020/D6JP4S\",\"urn:x-esri:serviceType:ArcGIS#TiledMapLayer\":\"https://tiles.arcgis.com/tiles/8df8p0NlLFEShl0r/arcgis/rest/services/mn_landcover_impervious_2013v2_tiles/MapServer\"}",
+  "id": "31567cf1-bad8-4bc5-8d57-44b96c207ecc",
   "dct_identifier_sm": [
-    "test-soil-survey-map"
+    "http://doi.org/10.13020/D6JP4S",
+    "http://hdl.handle.net/11299/181555"
   ],
-  "gbl_mdModified_dt": "2021-06-01T22:14:15Z",
   "gbl_mdVersion_s": "Aardvark"
 }

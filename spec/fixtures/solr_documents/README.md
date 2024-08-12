@@ -22,7 +22,7 @@ If you add a new document, please add it to the table below, and indicate its pu
 | [esri-dynamic-layer-single-layer](esri-dynamic-layer-single-layer.json) | Abandoned Quarries: Indiana | 4669301e-b4b2-4c8b-bf40-01b968a2865b | ArcGIS Dynamic Map Layer with single layer indicated
 | [esri-feature-layer](esri-feature-layer.json) | Transit - Airports: Maryland | f406332e63eb4478a9560ad86ae90327_18| ArcGIS Feature Layer - point dataset |
 | [esri-image-map-layer](esri-image-map-layer.json)| Wabash Topo (27): Indiana, 1929 | 32653ed6-8d83-4692-8a06-bf13ffe2c018 | ArcGIS Image Map Layer with GeoTIFF direct download
-| [esri-tiled_map_layer](esri-tiled_map_layer.json)| Soil Survey Geographic (SSURGO) | nyu-test-soil-survey-map | ArcGIS tiled map layer
+| [esri-tiled_map_layer](esri-tiled_map_layer.json)| Minnesota Land Cover Classification and Impervious Surface Area by Landsat and Lidar (2013 Update) | 31567cf1-bad8-4bc5-8d57-44b96c207ecc  | ArcGIS tiled map layer
 | [esri-wms-layer](esri-wms-layer.json) | Agriculture Census: Indiana, 1997 | purdue-urn-f082acb1-b01e-4a08-9126-fd62a23fd9aa | Dataset with ArcGIS Dynamic Map Layer, ArcGIS WMS, and direct download                       
 | [harvard_raster](harvard_raster.json) | Saint Petersburg Region, Russia, 1834 (Raster Image) | harvard-g7064-s2-1834-k3 | This layer is a georeferenced raster image of the historic paper map
 | [iiif-eastern-hemisphere](iiif-eastern-hemisphere.json) | A new & accurate map of Asia: drawn from actual surveys, and otherwise collected from journals | 57f0f116-b64e-4773-8684-96ba09afb549                        | Eastern hemisphere scanned map with IIIF manifest
