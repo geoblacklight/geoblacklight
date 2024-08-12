@@ -25,7 +25,7 @@ describe Geoblacklight::References do
     described_class.new(
       SolrDocument.new(
         file_format_field => "GeoTIFF",
-         references_field => {}.to_json
+        references_field => {}.to_json
       )
     )
   end
@@ -33,7 +33,8 @@ describe Geoblacklight::References do
     described_class.new(
       SolrDocument.new(
         file_format_field => "ArcGRID",
-       references_field => {}.to_json)
+        references_field => {}.to_json
+      )
     )
   end
   let(:complex_shapefile) do
