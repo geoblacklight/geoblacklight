@@ -94,63 +94,8 @@ module Geoblacklight
       FileUtils.mkdir_p("app/assets/images") unless File.directory?("app/assets/images")
     end
 
-    # Vite - Required for successful installation
-    def install_vite_rails
-      append_to_file "Gemfile" do
-        "gem \"vite_rails\", \"~> 3.0\""
-      end
-    end
-
-    # Vite - GBL Base Layout with Vite Helper Tags
-    def geoblacklight_base_layout
-      copy_file "base.html.erb", "app/views/layouts/blacklight/base.html.erb"
-    end
-
-    def copy_package_json
-      copy_file "package.json", "package.json"
-    end
-
-    # Pick a version of the frontend asset package and install it.
-    def add_frontend
-      # If in local development or CI, install the version we made linkable in
-      # the test app generator. This will make it so changes made in the outer
-      # directory are picked up automatically, like a symlink. Note that this
-      # does NOT install the dependencies of the package, so we have to make
-      # sure to install those separately. See:
-      # https://classic.yarnpkg.com/lang/en/docs/cli/link/
-      # https://github.com/yarnpkg/yarn/issues/2914
-      if options[:test]
-        run "yarn link @geoblacklight/frontend"
-
-      # If a branch was specified (e.g. you are running a template.rb build
-      # against a test branch), use the latest version available on npm
-      elsif ENV["BRANCH"]
-        run "yarn add @geoblacklight/frontend@latest"
-
-      # Otherwise, pick the version from npm that matches our Geoblacklight
-      # gem version
-      else
-        run "yarn add @geoblacklight/frontend@#{Geoblacklight::VERSION}"
-      end
-    end
-
-    # Vite - Config files
-    def copy_config_vite_json
-      copy_file "vite.json", "config/vite.json"
-      copy_file "vite.config.ts", "vite.config.ts"
-      run "yarn install"
-    end
-
-    # Run bundle with vite install
-    def bundle_install
-      Bundler.with_clean_env do
-        run "bundle install"
-        run "bundle exec vite install"
-      end
-    end
-
     def generate_assets
-      generate "geoblacklight:assets"
+      generate "geoblacklight:assets", "--test" if options[:test]
     end
   end
 end

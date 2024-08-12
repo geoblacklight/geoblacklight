@@ -43,8 +43,4 @@ class TestAppGenerator < Rails::Generators::Base
     FileUtils.symlink solr_docs_path, "spec/fixtures/solr_documents"
     FileUtils.symlink metadata_path, "spec/fixtures/metadata"
   end
-
-  def vite_build
-    run "bin/vite build --clear --mode=test"
-  end
 end
