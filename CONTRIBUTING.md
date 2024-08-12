@@ -42,7 +42,7 @@ When proposing major new features or changes that may introduce an API or schema
   - Does the code changes have tests? _Not all changes need new tests, some changes are refactorings_
   - Do all new methods, modules, and classes have comments? Do changed methods, modules, and classes have comments?
   - Does the commit contain more than it should? Are two separate concerns being addressed in one commit?
-  - Did the Travis tests complete successfully?
+  - Did the GitHub Actions CI tests complete successfully?
 - Bring the [GeoBlacklight Developers Team](https://github.com/orgs/geoblacklight/teams/geoblacklight-developers) into the conversation by creating a comment that tags their @username: `@geoblacklight/geoblacklight-developers`.
 - If you like the pull request, but want others to chime in, create a +1 comment and tag a user.
 
