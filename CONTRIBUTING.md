@@ -1,5 +1,5 @@
 ## Contributing
-GeoBlacklight is a collaborative open source projects where contributions are :sparkles:welcome:sparkles:. This contributing guide is borrowed in part from the [Samvera Contributing Guide](https://github.com/samvera/hydra/blob/master/CONTRIBUTING.md) and the [Blacklight Contributing Wiki](https://github.com/projectblacklight/blacklight/wiki/Contributing-to-Blacklight).
+GeoBlacklight is a collaborative, open source project where contributions are :sparkles:welcome:sparkles:. This contributing guide is borrowed in part from the [Samvera Contributing Guide](https://github.com/samvera/hydra/blob/master/CONTRIBUTING.md) and the [Blacklight Contributing Wiki](https://github.com/projectblacklight/blacklight/wiki/Contributing-to-Blacklight).
 
 ### Who can contribute?
 **Anyone** is welcome to contribute to GeoBlacklight. We follow a set of contribution practices to maintain a technically sustainable and stable software project for everyone.
