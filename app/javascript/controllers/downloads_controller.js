@@ -10,7 +10,7 @@ export default class extends Controller {
     ev.target.classList.add('download-in-progress');
     const url = ev.target.dataset.downloadPath;
     ev.target.removeAttribute('href');
-    ev.target.innerHTML = '<div class="spinner-border spinner-border-sm float-right"></div> Preparing download...';
+    ev.target.innerHTML = '<div class="spinner-border spinner-border-sm float-end"></div> Preparing download...';
 
     fetch(url)
       .then((response) => {
