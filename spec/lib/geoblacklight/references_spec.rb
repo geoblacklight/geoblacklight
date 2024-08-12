@@ -25,7 +25,7 @@ describe Geoblacklight::References do
     described_class.new(
       SolrDocument.new(
         file_format_field => "GeoTIFF",
-        references_field => {}.to_json
+         references_field => {}.to_json
       )
     )
   end
@@ -33,8 +33,7 @@ describe Geoblacklight::References do
     described_class.new(
       SolrDocument.new(
         file_format_field => "ArcGRID",
-        references_field => {}.to_json
-      )
+       references_field => {}.to_json)
     )
   end
   let(:complex_shapefile) do
@@ -45,7 +44,7 @@ describe Geoblacklight::References do
           "http://schema.org/downloadUrl" => "http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip",
           "http://www.isotc211.org/schemas/2005/gmd/" => "http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/iso19139.xml",
           "http://www.loc.gov/mods/v3" => "http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/mods.xml",
-          "http://schema.org/url" => "http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/homepage"
+          "http://schema.org/url" => "http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/homepage",
         }.to_json
       )
     )
