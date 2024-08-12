@@ -46,4 +46,4 @@ When proposing major new features or changes that may introduce an API or schema
 - Bring the [GeoBlacklight Developers Team](https://github.com/orgs/geoblacklight/teams/geoblacklight-developers) into the conversation by creating a comment that tags their @username: `@geoblacklight/geoblacklight-developers`.
 - If you like the pull request, but want others to chime in, create a +1 comment and tag a user.
 
-If you wish to ask questions or participate further, email the [GeoBlacklight Working Group](https://groups.google.com/forum/#!forum/geoblacklight-working-group) at [geoblacklight-working-group@googlegroups.com](mailto:geoblacklight-working-group@googlegroups.com).
+If you wish to ask questions or participate further, email the [GeoBlacklight Community](https://groups.google.com/g/geoblacklight-community) at [geoblacklight-community@googlegroups.com](mailto:geoblacklight-community@googlegroups.com).
