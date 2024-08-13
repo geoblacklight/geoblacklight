@@ -157,7 +157,7 @@ export default class LeafletViewerController extends Controller {
       bounds.getNorthEast(),
       bounds.getNorthWest(),
     ],
-      this.mapGeomValue ? {
+      hasMapGeomValue ? {
         color: '#3388ff',
         dashArray: "5 5",
         weight: 2,
