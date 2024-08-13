@@ -17,6 +17,7 @@ feature "Accessibility testing", js: true do
 
     it "validates an item page with relationships" do
       visit solr_document_path("all-relationships")
+      sleep 0.5 # wait for relationships to be fully visible / faded in
       expect(page).to be_accessible
     end
 
