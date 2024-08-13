@@ -20,10 +20,10 @@ SimpleCov.start "rails" do
   minimum_coverage 100
 end
 
-require "factory_bot"
 require "database_cleaner"
 require "action_cable/engine"
 require "engine_cart"
+require "factory_bot"
 EngineCart.load_application!
 
 require "rails-controller-testing" if Rails::VERSION::MAJOR >= 5
