@@ -150,6 +150,7 @@ export default class LeafletViewerController extends Controller {
 
   // Add the bounding box to the map
   addBoundsOverlay(bounds) {
+    const hasMapGeomValue = Object.keys(this.mapGeomValue).length > 0;
     const boundsOverlay = polygon([
       bounds.getSouthWest(),
       bounds.getSouthEast(),
@@ -166,7 +167,7 @@ export default class LeafletViewerController extends Controller {
     );
     
     // Render geometry layer if available
-    if (this.mapGeomValue) this.map.addLayer(L.geoJSON(this.mapGeomValue));
+    if (hasMapGeomValue) this.map.addLayer(L.geoJSON(this.mapGeomValue));
 
     // Render the bounds overlay
     this.boundsOverlay = boundsOverlay;
