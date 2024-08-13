@@ -185,6 +185,9 @@ describe Geoblacklight::References do
     end
   end
   describe "downloads_by_format" do
+    it "returns shapefile" do
+      expect(typical_ogp_shapefile.downloads_by_format.count).to eq 2
+    end
     it "does not return shapefile if wms and wfs are not present" do
       expect(no_service_shapefile.downloads_by_format).to be_nil
     end
