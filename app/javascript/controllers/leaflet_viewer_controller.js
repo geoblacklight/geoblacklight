@@ -76,7 +76,6 @@ export default class LeafletViewerController extends Controller {
       await this.addPreviewOverlay();
       this.addInspection();
     } else if (this.drawInitialBoundsValue && this.bounds) {
-      if (this.mapGeomValue) this.map.addLayer(L.geoJSON(this.mapGeomValue))
       this.addBoundsOverlay(this.bounds);
     }
 
@@ -166,6 +165,10 @@ export default class LeafletViewerController extends Controller {
       } : undefined
     );
     
+    // Render geometry layer if available
+    if (this.mapGeomValue) this.map.addLayer(L.geoJSON(this.mapGeomValue));
+
+    // Render the bounds overlay
     this.boundsOverlay = boundsOverlay;
     this.overlay.addLayer(boundsOverlay);
   }
