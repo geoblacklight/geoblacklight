@@ -2,8 +2,6 @@ en:
   geoblacklight:
     bbox_label: 'Bounding Box'
     location: 'Location'
-    citation:
-      retrieved_from: 'Retrieved from %{document_url}'
     clipboard:
       citation: Citation copied to clipboard
       web_service: Web service copied to clipboard

@@ -7,7 +7,6 @@
       <%= t('geoblacklight.clipboard.citation') %>
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    <%= t('blacklight.tools.citation_info') %>
     <% citation = render Geoblacklight::Document::CitationComponent.with_collection(@documents) if @documents %>
     <div class="d-inline">
       <%= citation %>
