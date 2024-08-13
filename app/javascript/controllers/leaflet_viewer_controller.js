@@ -21,7 +21,7 @@ import {
   indexMapLayer,
 } from "../leaflet/layers.js";
 import { geoJSONToBounds } from "../leaflet/utils.js";
-import { DEFAULT_BOUNDS, DEFAULT_OPACITY } from "../leaflet/constants.js";
+import { DEFAULT_BOUNDS, DEFAULT_OPACITY, DEFAULT_GEOM_OVERLAY_OPTIONS } from "../leaflet/constants.js";
 
 export default class LeafletViewerController extends Controller {
   static values = {
@@ -32,6 +32,7 @@ export default class LeafletViewerController extends Controller {
     options: Object,
     basemap: String,
     mapGeom: Object,
+    page: String,
     layerId: String,
     drawInitialBounds: Boolean,
   };
@@ -151,19 +152,14 @@ export default class LeafletViewerController extends Controller {
   // Add the bounding box to the map
   addBoundsOverlay(bounds) {
     const hasMapGeomValue = Object.keys(this.mapGeomValue).length > 0;
+    var defaultOptions = hasMapGeomValue ? DEFAULT_GEOM_OVERLAY_OPTIONS : {};
+    const options = {...defaultOptions, ...this.optionsValue.BOUNDSOVERLAY[this.pageValue]}
     const boundsOverlay = polygon([
       bounds.getSouthWest(),
       bounds.getSouthEast(),
       bounds.getNorthEast(),
       bounds.getNorthWest(),
-    ],
-      hasMapGeomValue ? {
-        color: '#3388ff',
-        dashArray: "5 5",
-        weight: 2,
-        opacity: 1,
-        fillOpacity: 0
-      } : undefined
+    ], options
     );
     
     // Render geometry layer if available

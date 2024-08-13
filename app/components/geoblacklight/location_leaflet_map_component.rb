@@ -40,6 +40,7 @@ module Geoblacklight
           "leaflet-viewer-basemap-value" => helpers.geoblacklight_basemap,
           "leaflet-viewer-map-geom-value" => search_bbox || @map_geometry,
           "leaflet-viewer-data-map-value" => @data_map,
+          "leaflet-viewer-page-value" => params[:action]&.upcase,
           "leaflet-viewer-options-value" => leaflet_options,
           "leaflet-viewer-catalog-base-url-value" => (helpers.search_catalog_url if @geosearch)
         }.compact)
