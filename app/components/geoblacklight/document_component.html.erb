@@ -18,6 +18,7 @@
       <%= render Geoblacklight::ViewerContainerComponent.new(document: @document) %>
       <%= render Geoblacklight::AttributeTableComponent.new(document: @document) %>
       <%= render Geoblacklight::IndexMapInspectComponent.new(document: @document) %>
+      <% title.with_after_title { render Geoblacklight::HeaderIconsComponent.new(document: @document) } %>
       <%= title %>
       <%= embed %>
       <%= content %>
