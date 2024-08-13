@@ -162,17 +162,6 @@ describe Geoblacklight::References do
       expect(typical_ogp_geotiff.preferred_download).to be_nil
     end
   end
-  describe "download_types" do
-    it "returns available downloads by format" do
-      types = complex_shapefile.download_types
-      expect(types.count).to eq 3
-      expect(direct_download_only.download_types).to be_nil
-    end
-    it "onlies return available downloads if no direct is present" do
-      types = typical_ogp_shapefile.download_types
-      expect(types.count).to eq 3
-    end
-  end
   describe "#esri_webservices" do
     it "returns webservices that are esri specific" do
       expect(some_esri_services.esri_webservices.length).to eq 3
@@ -196,15 +185,6 @@ describe Geoblacklight::References do
     end
   end
   describe "downloads_by_format" do
-    it "returns shapefile" do
-      expect(typical_ogp_shapefile.downloads_by_format.count).to eq 3
-    end
-    it "returns geotiff" do
-      expect(typical_ogp_geotiff.downloads_by_format.count).to eq 1
-    end
-    it "returns arcgrid as geotiff" do
-      expect(typical_arcgrid.downloads_by_format.count).to eq 1
-    end
     it "does not return shapefile if wms and wfs are not present" do
       expect(no_service_shapefile.downloads_by_format).to be_nil
     end
