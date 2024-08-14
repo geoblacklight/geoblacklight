@@ -37,24 +37,6 @@ class DownloadController < ApplicationController
     send_file download_file_path_and_name, x_sendfile: true
   end
 
-  def hgl
-    @document = search_service.fetch params[:id]
-    if params[:email]
-      response = Geoblacklight::HglDownload.new(@document, params[:email]).get
-      if response.nil?
-        flash.now[:danger] = t "geoblacklight.download.error"
-      else
-        flash.now[:success] = t "geoblacklight.download.hgl_success"
-      end
-      respond_to do |format|
-        format.json { render json: flash, response: response }
-        format.html { render json: flash, response: response }
-      end
-    else
-      render layout: false
-    end
-  end
-
   private
 
   def download_file_path_and_name
