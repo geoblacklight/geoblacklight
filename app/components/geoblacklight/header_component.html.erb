@@ -1,8 +1,7 @@
 <header>
   <%= top_bar %>
-  <%= search_bar %>
   <% if landing_page? %>
-  <div class='p-5 mb-4 bg-light'>
+  <div class='p-5 bg-light jumbotron'>
     <div class='d-flex justify-content-center'>
       <%= content_tag :h1, t('geoblacklight.home.headline'), class: 'text-center display-5 fw-bold' %>
     </div>
@@ -10,5 +9,6 @@
       <%= content_tag :h2, t('geoblacklight.home.search_heading'), class: 'text-center fs-4' %>
     </div>
   </div>
-  <% end %>
+  <% end %>  
+  <%= search_bar %>
 </header>

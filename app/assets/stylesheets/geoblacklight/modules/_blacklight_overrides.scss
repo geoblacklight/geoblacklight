@@ -41,3 +41,13 @@ auto-complete {
 #main-container {
   padding-top: 1rem;
 }
+
+// center contents of the container that holds the search bar on the home page
+.jumbotron ~ .navbar-search.navbar .container {
+  justify-content: center;
+}
+
+// add padding around the container that holds the search bar (on all pages)
+.navbar-search.navbar .container {
+  padding: 1rem;
+}
