@@ -127,9 +127,10 @@
         dct_title_ti^6
         dct_accessRights_ti^7
         dct_provider_ti^8
-        layer_geom_type_ti^9
-        layer_slug_ti^10
+        gbl_resourceClass_ti^9
+        gbl_resourceType_ti^9
         dct_identifier_ti^10
+        id_ti^10
       </str>
       <str name="pf"><!-- phrase boost within result set -->
         text^1
@@ -143,9 +144,10 @@
         dct_title_ti^6
         dct_accessRights_ti^7
         dct_provider_ti^8
-        layer_geom_type_ti^9
-        layer_slug_ti^10
+        gbl_resourceClass_ti^9
+        gbl_resourceType_ti^9
         dct_identifier_ti^10
+        id_ti^10
       </str>
       <bool name="facet">true</bool>
       <int name="facet.mincount">1</int>
