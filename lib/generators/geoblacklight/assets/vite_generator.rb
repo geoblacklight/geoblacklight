@@ -80,25 +80,10 @@ module Geoblacklight
         copy_file "assets/application.scss", "app/javascript/entrypoints/application.scss"
       end
 
-      # Copy over the main Geoblacklight entrypoint
+      # Replace the default generated Vite entrypoint with our own
       def add_javascript
-        copy_file "geoblacklight.js", "app/javascript/entrypoints/geoblacklight.js"
-      end
-
-      # Update the application entrypoint
-      def update_application_entrypoint
-        imports = <<~JS
-          // JS dependencies
-          import "@hotwired/turbo-rails";
-          import * as bootstrap from "bootstrap";
-          import githubAutoCompleteElement from "@github/auto-complete-element";
-          import Blacklight from "blacklight-frontend";
-
-          window.bootstrap = bootstrap;
-          window.Blacklight = Blacklight;
-        JS
-
-        inject_into_file "app/javascript/entrypoints/application.js", imports
+        remove_file "app/javascript/entrypoints/application.js"
+        copy_file "assets/application.js", "app/javascript/entrypoints/application.js"
       end
     end
   end
