@@ -4,10 +4,8 @@ import { exec } from "child_process";
 
 export default defineConfig(() => {
   return {
-    publicDir: 'app/assets',
     build: {
-      outDir: 'dist',
-      copyPublicDir: true,
+      outDir: 'app/assets/javascripts/geoblacklight',
       emptyOutDir: true,
       manifest: true,
       minify: false,
