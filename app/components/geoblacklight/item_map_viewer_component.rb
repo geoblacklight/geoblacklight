@@ -79,6 +79,7 @@ module Geoblacklight
           "#{viewer_name}-map-geom-value" => @document.geometry.geojson,
           "#{viewer_name}-layer-id-value" => @document.wxs_identifier,
           "#{viewer_name}-options-value" => helpers.leaflet_options,
+          "#{viewer_name}-page-value" => params[:action]&.upcase,
           "#{viewer_name}-draw-initial-bounds-value" => true
         }.compact)
     end
