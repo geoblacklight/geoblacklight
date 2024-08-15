@@ -9,7 +9,7 @@ describe Geoblacklight::SolrDocument::Citation do
 
     it "creates a citation" do
       expect(document.geoblacklight_citation("http://example.com"))
-        .to eq "United States. National Oceanic and Atmospheric Administration. Circuit Rider Productions. (2002). 10 Meter Contours: Russian River Basin, California. [Shapefile]. Circuit Rider Productions. Retrieved from http://example.com"
+        .to eq "United States. National Oceanic and Atmospheric Administration. Circuit Rider Productions. (2002). 10 Meter Contours: Russian River Basin, California. [Shapefile]. Circuit Rider Productions. http://purl.stanford.edu/cg357zz0321"
     end
   end
 end
