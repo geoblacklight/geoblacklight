@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
-import { geoJSONToBounds } from "../leaflet/utils";
-import { DEFAULT_BOUNDS } from "../leaflet/constants";
+import { geoJSONToBounds } from "geoblacklight/leaflet/utils";
+import { DEFAULT_BOUNDS } from "geoblacklight/leaflet/constants";
 
 export default class SearchResultsController extends Controller {
   static targets = ["result"];

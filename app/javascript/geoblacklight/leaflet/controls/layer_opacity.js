@@ -1,5 +1,5 @@
 import { DomUtil, DomEvent, Control } from "leaflet";
-import { getLayerOpacity } from "../utils";
+import { getLayerOpacity } from "geoblacklight/leaflet/utils";
 
 export default class LayerOpacityControl extends Control {
   constructor(layer, options = {}) {

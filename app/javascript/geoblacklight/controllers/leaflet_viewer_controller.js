@@ -3,14 +3,14 @@ import "leaflet-fullscreen";
 import { layerGroup, polygon, map, tileLayer } from "leaflet";
 import { imageMapLayer } from "esri-leaflet";
 import { Controller } from "@hotwired/stimulus";
-import basemaps from "../leaflet/basemaps.js";
-import LayerOpacityControl from "../leaflet/controls/layer_opacity.js";
-import GeoSearchControl from "../leaflet/controls/geosearch.js";
+import basemaps from "geoblacklight/leaflet/basemaps.js";
+import LayerOpacityControl from "geoblacklight/leaflet/controls/layer_opacity.js";
+import GeoSearchControl from "geoblacklight/leaflet/controls/geosearch.js";
 import { wmsInspection,
   tiledMapLayerInspection,
   featureLayerInspection,
   dynamicMapLayerInspection
-} from "../leaflet/inspection.js";
+} from "geoblacklight/leaflet/inspection.js";
 import {
   esriDynamicMapLayer,
   esriFeatureLayer,
@@ -19,9 +19,9 @@ import {
   wmsLayer,
   wmtsLayer,
   indexMapLayer,
-} from "../leaflet/layers.js";
-import { geoJSONToBounds } from "../leaflet/utils.js";
-import { DEFAULT_BOUNDS, DEFAULT_OPACITY, DEFAULT_GEOM_OVERLAY_OPTIONS } from "../leaflet/constants.js";
+} from "geoblacklight/leaflet/layers.js";
+import { geoJSONToBounds } from "geoblacklight/leaflet/utils.js";
+import { DEFAULT_BOUNDS, DEFAULT_OPACITY, DEFAULT_GEOM_OVERLAY_OPTIONS } from "geoblacklight/leaflet/constants.js";
 
 export default class LeafletViewerController extends Controller {
   static values = {
