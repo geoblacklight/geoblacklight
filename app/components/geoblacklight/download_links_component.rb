@@ -11,7 +11,7 @@ module Geoblacklight
     end
 
     def render?
-      downloadable? && (document.direct_download.present? || document.hgl_download.present? || document.iiif_download.present? || document.download_types.present?)
+      downloadable? && (document.direct_download.present? || document.iiif_download.present? || document.download_types.present?)
     end
 
     def downloadable?
@@ -27,19 +27,6 @@ module Geoblacklight
           download: "trigger",
           download_type: "direct",
           download_id: id
-        }
-      )
-    end
-
-    def download_link_hgl(text, document)
-      link_to(
-        text,
-        download_hgl_path(id: document),
-        data: {
-          blacklight_modal: "trigger",
-          download: "trigger",
-          download_type: "harvard-hgl",
-          download_id: document.id
         }
       )
     end

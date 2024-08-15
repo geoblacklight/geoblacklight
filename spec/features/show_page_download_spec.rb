@@ -19,12 +19,4 @@ feature "Download display on show page" do
       expect(page).to have_selector(:css, 'a[href="https://libimages1.princeton.edu/loris/figgy_prod/2e%2Fa9%2F43%2F2ea943b0bd4348fc9954b299f1b359f6%2Fintermediate_file.jp2/full/full/0/default.jpg"]')
     end
   end
-
-  scenario "with Harvard hgl_download" do
-    visit solr_document_path "harvard-g7064-s2-1834-k3"
-    find("#downloads-button").click
-    within "#downloads-collapse" do
-      expect(page).to have_selector(:css, 'a[href="/download/hgl/harvard-g7064-s2-1834-k3"][data-download-type="harvard-hgl"]')
-    end
-  end
 end

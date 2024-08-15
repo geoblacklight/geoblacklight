@@ -132,26 +132,6 @@ describe Geoblacklight::SolrDocument do
       expect(document.direct_download).to be_nil
     end
   end
-  describe "hgl_download" do
-    describe "with an hgl download" do
-      let(:document_attributes) do
-        {
-          references_field => {
-            "http://schema.org/DownloadAction" => "http://example.com/harvard"
-          }.to_json
-        }
-      end
-      it "returns an hgl download hash" do
-        expect(document.hgl_download[:hgl]).to eq("http://example.com/harvard")
-      end
-    end
-    describe "without an hgl download" do
-      let(:document_attributes) { {} }
-      it "returns nil" do
-        expect(document.direct_download).to be_nil
-      end
-    end
-  end
   describe "#oembed" do
     describe "with an oembed url" do
       let(:document_attributes) do
