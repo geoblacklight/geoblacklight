@@ -3,7 +3,7 @@
     <%= t('blacklight.tools.citation') %>
   <% end %>
   <div data-controller="clipboard">
-    <div class="alert alert-info d-none" data-clipboard-target="alert" role="alert">
+    <div class="alert alert-info alert-dismissible d-none" data-clipboard-target="alert" role="alert">
       <%= t('geoblacklight.clipboard.citation') %>
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
@@ -12,7 +12,7 @@
       <%= citation %>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-primary" data-action="clipboard#copyToClipboard" data-clipboard-value="<%= citation %>"><%= t('blacklight.modal.copy-citation') %></button>
+      <button type="button" class="btn btn-primary" data-action="clipboard#copyToClipboard" data-clipboard-value="<%= citation %>"><%= t('geoblacklight.modal.copy-citation') %></button>
       <button type="button" class="btn btn-secondary" data-bl-dismiss="modal"><%= t('blacklight.modal.close') %></button>
     </div>
   </div>

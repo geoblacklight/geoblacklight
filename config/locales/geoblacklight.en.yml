@@ -85,7 +85,8 @@ en:
       version_of_descendants: 'Has version...'
       browse_all_no_count: "Browse all records..."
       browse_all: "Browse all %{count} records..."
-
+    modal:
+      copy-citation: "Copy Citation"
     metadata:
       toggle_summary: 'Toggle summary'
       view_metadata: 'View Metadata'
