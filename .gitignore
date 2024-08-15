@@ -37,7 +37,7 @@ package-lock.json
 /public/vite*
 /public/geoblacklight-vite*
 node_modules
-dist
+app/assets/javascripts/geoblacklight
 # Vite uses dotenv and suggests to ignore local-only env files. See
 # https://vitejs.dev/guide/env-and-mode.html#env-files
 *.local
