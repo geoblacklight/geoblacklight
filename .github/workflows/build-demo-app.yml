@@ -35,7 +35,7 @@ jobs:
         run: exec "yarnpkg"
 
       - name: Build
-        run: BRANCH=${{ env.BRANCH }} rails new build -m template.rb -a propshaft
+        run: BRANCH=${{ env.BRANCH }} ASSET_PIPELINE=vite rails new build -m template.rb -a propshaft
 
       - name: Cleanup
         run: rm -rf build/node_modules build/Gemfile.lock build/yarn.lock build/tmp
