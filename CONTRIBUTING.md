@@ -1,4 +1,4 @@
-## Contributing
+# GeoBlacklight Codebase Contribution Guide
 GeoBlacklight is a collaborative, open source project where contributions are :sparkles:welcome:sparkles:.
 
 ### Who can contribute?
@@ -7,9 +7,9 @@ GeoBlacklight is a collaborative, open source project where contributions are :s
 ### Join the community
 See the [community page](https://geoblacklight.org/community/) on our website for information about our community calendar, slack, volunteer opportunities, and more.
 
-If youhave questions, email the [GeoBlacklight Community Google Group](https://groups.google.com/g/geoblacklight-community) at [geoblacklight-community@googlegroups.com](mailto:geoblacklight-community@googlegroups.com).
+If you have questions or want to get more involved, join [GeoBlacklight Slack](https://geoblacklight.slack.com/join/shared_invite/zt-1p7dcay40-Ye_WTt5_iCqU8rDjzhkoWw#/shared-invite/email) or email the [GeoBlacklight Community](https://groups.google.com/g/geoblacklight-community) at [geoblacklight-community@googlegroups.com](mailto:geoblacklight-community@googlegroups.com).
 
-### Reporting issues
+## Reporting issues
 Did you find a bug in GeoBlacklight or interested in a new feature? Make sure to add an issue for it in the [issue tracker](https://github.com/geoblacklight/geoblacklight/issues).
 Issues are used in the GeoBlacklight community as a convenient way to document bugs, propose new functionality and enhancements, and discuss important code changes.
 If someone is already assigned to an issue, that does not mean you can't contribute.
@@ -22,21 +22,31 @@ If someone is already assigned to an issue, that does not mean you can't contrib
     - Explain the actual behavior
     - Provide steps to reproduce the actual behavior
 
-### Contributing code or documentation
-GeoBlacklight welcomes code and documentation contributions. You do *not* need to be a "GeoBlacklight Committer" to contribute code or documentation. We follow the [pull request](https://help.github.com/articles/using-pull-requests/) model for contributing on GitHub. GeoBlacklight uses a suite of tests to express its features and protect from bugs:bug:.
+## Contributing code or documentation
+GeoBlacklight welcomes code and documentation contributions. You do *not* need to be a "GeoBlacklight Committer" to contribute code or documentation. We follow the [pull request](https://help.github.com/articles/using-pull-requests/) model for contributing on GitHub. GeoBlacklight uses a suite of tests to express its features and protect from bugs :bug:.
 
 When proposing major new features or changes that may introduce an API or schema change, please make sure to communicate with the [community](http://geoblacklight.org/connect) so the full implications are understood. Likely there are ways to introduce these changes in a backwards compatible way that others may be able to help with.
 
-#### Pull request overview
-1. If there isn't already an associated issue in the repository, create one.
-1. Fork it ( http://github.com/my-github-username/geoblacklight/fork )
-1. Create your feature branch (`git checkout -b my-new-feature`)
-1. Commit your changes (`git commit -am 'Add some feature'`)
-1. Push to the branch (`git push origin my-new-feature`)
-1. Create new Pull Request
-1. Mention the pull request in the associated issue.
+To contribute to our website or documentation pages, see the [GeoBlacklight Website Contribution Guide](https://github.com/geoblacklight/geoblacklight.github.io/blob/main/CONTRIBUTING.md).
 
-#### Merging Changes
+### Pull request overview
+**Contributors:**
+
+1. If there isn't already an associated issue in the repository, create one
+1. Clone or fork the geoblacklight repository
+1. Create a new feature branch and publish it
+1. Make changes to the files
+1. Commit your changes
+1. Push to the new branch
+1. Open a Pull Request to the **main** branch
+1. Add GeoBlacklight-Developers as a requested reviewer
+1. Mention the pull request in the associated issue
+
+**GeoBlacklight Developers Team:**
+
+1. Review the Pull Request and merge changes to the **main** branch
+
+### Tips for contributions:
 - Please take the time to review the changes and get a sense of what is being changed. Things to consider:
   - Do the commit messages explain what is going on?
   - Do the code changes have tests? _Not all changes need new tests, some changes are refactorings_
@@ -45,7 +55,7 @@ When proposing major new features or changes that may introduce an API or schema
   - Did the GitHub Actions CI tests complete successfully?
 - It is considered "poor form" to merge your own request.
   - Given the multi-institutional nature of the project, communitiy code review is important.
-  - Bring the [GeoBlacklight Developers Team](https://github.com/srappel/geoblacklight/edit/main/CONTRIBUTING.md#who-are-the-github-developers-team) into the conversation by creating a comment that tags their @username: `@geoblacklight/geoblacklight-developers`.
+  - Bring the [GeoBlacklight Developers Team](https://github.com/geoblacklight/geoblacklight/edit/main/CONTRIBUTING.md#who-are-the-github-developers-team) into the conversation by creating a comment that tags their @username: `@geoblacklight/geoblacklight-developers`.
   - If you want specific others to chime in, create a +1 comment and tag them.
 
 ### Who are the GitHub Developers Team?
