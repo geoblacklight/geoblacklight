@@ -22,10 +22,10 @@ If someone is already assigned to an issue, that does not mean you can't contrib
     - Explain the actual behavior
     - Provide steps to reproduce the actual behavior
 
-## Contributing code or documentation
-GeoBlacklight welcomes code and documentation contributions. You do *not* need to be a "GeoBlacklight Committer" to contribute code or documentation. We follow the [pull request](https://help.github.com/articles/using-pull-requests/) model for contributing on GitHub. GeoBlacklight uses a suite of tests to express its features and protect from bugs :bug:.
+## Contributing to the codebase
+GeoBlacklight welcomes code contributions. You do *not* need to be a "GeoBlacklight Committer" to contribute code or documentation. We follow the [pull request](https://help.github.com/articles/using-pull-requests/) model for contributing on GitHub. GeoBlacklight uses a suite of tests to express its features and protect from bugs :bug:.
 
-When proposing major new features or changes that may introduce an API or schema change, please make sure to communicate with the [community](http://geoblacklight.org/connect) so the full implications are understood. Likely there are ways to introduce these changes in a backwards compatible way that others may be able to help with.
+When proposing major new features or changes that may introduce an API or schema change, please make sure to communicate with the [community](https://geoblacklight.org/community/) so the full implications are understood. Likely there are ways to introduce these changes in a backwards compatible way that others may be able to help with.
 
 To contribute to our website or documentation pages, see the [GeoBlacklight Website Contribution Guide](https://github.com/geoblacklight/geoblacklight.github.io/blob/main/CONTRIBUTING.md).
 
@@ -38,7 +38,7 @@ To contribute to our website or documentation pages, see the [GeoBlacklight Webs
 1. Make changes to the files
 1. Commit your changes
 1. Push to the new branch
-1. Open a Pull Request to the **main** branch
+1. Open a Pull Request to the appropriate branch, like main, release-4.x, etc.
 1. Add GeoBlacklight-Developers as a requested reviewer
 1. Mention the pull request in the associated issue
 
