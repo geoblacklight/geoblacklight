@@ -87,6 +87,14 @@ module Geoblacklight
       @geometry ||= Geoblacklight::Geometry.new(geom_field)
     end
 
+    def wxs_identifier
+      fetch(Settings.FIELDS.WXS_IDENTIFIER, "")
+    end
+
+    def file_format
+      fetch(Settings.FIELDS.FORMAT, nil)
+    end
+
     ##
     # Provides a convenience method to access a SolrDocument's References
     # endpoint url without having to check and see if it is available

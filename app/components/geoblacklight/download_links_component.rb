@@ -74,6 +74,7 @@ module Geoblacklight
 
     # Looks up properly formatted names for formats
     def proper_case_format(format)
+      return t("geoblacklight.formats.nil") unless format
       t("geoblacklight.formats.#{format.to_s.parameterize(separator: "_")}")
     end
   end

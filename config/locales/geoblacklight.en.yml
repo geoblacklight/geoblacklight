@@ -39,6 +39,7 @@ en:
       jpg: 'JPG'
       esri_geodatabase: 'ESRI Geodatabase'
       sqlite_database: 'SQLite Database'
+      nil: 'Unknown format'
     map:
       label: 'Zoomable map'
     references:
