@@ -3,8 +3,8 @@ import TileLayer from "ol/layer/Tile";
 import XYZ from "ol/source/XYZ";
 import GeoJSON from "ol/format/GeoJSON";
 import { FullScreen, defaults as defaultControls } from "ol/control";
-import { pmTilesLayer, cogLayer } from "../openlayers/layers";
-import basemaps from "../openlayers/basemaps";
+import { pmTilesLayer, cogLayer } from "geoblacklight/openlayers/layers";
+import basemaps from "geoblacklight/openlayers/basemaps";
 import { Controller } from "@hotwired/stimulus";
 
 export default class OpenlayersViewerController extends Controller {

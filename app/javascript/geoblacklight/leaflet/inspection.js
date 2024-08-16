@@ -1,6 +1,5 @@
-import { appendLoadingMessage, appendErrorMessage, linkify } from "./utils.js";
 import { identifyFeatures } from "esri-leaflet";
-import { getLayerOpacity } from "./utils";
+import { appendErrorMessage, appendLoadingMessage, getLayerOpacity, linkify } from "geoblacklight/leaflet/utils";
 
 export const wmsInspection = (map, url, layerId, layer) => {
   map.on("click", async (e) => {

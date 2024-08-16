@@ -1,7 +1,7 @@
 {
   "name": "@geoblacklight/frontend",
   "type": "module",
-  "version": "5.0.0-alpha.8",
+  "version": "5.0.0-alpha.9",
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"
@@ -20,7 +20,9 @@
   "main": "app/assets/javascripts/geoblacklight/geoblacklight.umd.cjs",
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
+    "@popperjs/core": "^2.11.8",
     "@samvera/clover-iiif": "^2.3.2",
+    "bootstrap": "^5.3.3",
     "esri-leaflet": "^3.0.12",
     "leaflet": "^1.9.4",
     "leaflet-fullscreen": "^1.0.2",
@@ -32,6 +34,7 @@
   },
   "devDependencies": {
     "jsdom": "^24.1.0",
+    "rollup-plugin-includepaths": "^0.2.4",
     "vite": "^5.0.0",
     "vitest": "^2.0.3"
   }
