@@ -35,6 +35,8 @@ When proposing major new features or changes that may introduce an API or schema
 To contribute to our website or documentation pages, see the [GeoBlacklight Website Contribution Guide](https://github.com/geoblacklight/geoblacklight.github.io/blob/main/CONTRIBUTING.md).
 
 ### Pull request overview
+Given the multi-institutional nature of the project, communitiy code review is important. **We discourage individuals from merging their own requests.** We also prefer that developers from the same institutions do not merge their colleagues code.
+
 **Contributors:**
 
 1. If there isn't already an associated issue in the repository, create one.
@@ -48,11 +50,12 @@ To contribute to our website or documentation pages, see the [GeoBlacklight Webs
 1. Add the GeoBlacklight Developers team as a requested reviewer.
 1. Mention the pull request in the associated issue.
 
-**GeoBlacklight Developers Team:**
+**Reviewers:**
 
-1. Review the Pull Request and merge changes to the appropriate branch
+1. Review the Pull Request
+1. Merge changes to the appropriate branch
 
-### Tips for contributions:
+### Tips for contributions
 Please take the time to review the changes you made. Make sure that:
 - New and changed code has comments
 - The commit summary explains what has been changed
