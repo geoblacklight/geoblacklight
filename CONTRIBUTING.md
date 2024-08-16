@@ -9,10 +9,11 @@ See the [community page](https://geoblacklight.org/community/) on our website fo
 
 If you have questions or want to get more involved, join [GeoBlacklight Slack](https://geoblacklight.slack.com/join/shared_invite/zt-1p7dcay40-Ye_WTt5_iCqU8rDjzhkoWw#/shared-invite/email) or email the [GeoBlacklight Community](https://groups.google.com/g/geoblacklight-community) at [geoblacklight-community@googlegroups.com](mailto:geoblacklight-community@googlegroups.com).
 
-## Reporting issues
-Did you find a bug in GeoBlacklight or interested in a new feature? Make sure to add an issue for it in the [issue tracker](https://github.com/geoblacklight/geoblacklight/issues).
+## Issues
 Issues are used in the GeoBlacklight community as a convenient way to document bugs, propose new functionality and enhancements, and discuss important code changes.
-If someone is already assigned to an issue, that does not mean you can't contribute.
+
+### Reporting an issue
+Did you find a bug in GeoBlacklight or interested in a new feature? Make sure to add an issue for it in the [issue tracker](https://github.com/geoblacklight/geoblacklight/issues). 
 
  - Make sure you have a [GitHub account](https://github.com/signup/free)
  - Submit a [GitHub issue](./issues) by:
@@ -21,6 +22,10 @@ If someone is already assigned to an issue, that does not mean you can't contrib
     - Explain the expected behavior
     - Explain the actual behavior
     - Provide steps to reproduce the actual behavior
+
+### Assigning an issue
+
+In the GeoBlacklight community, issue assignment helps signal who is interested in working on an issue or who can assist in moving it forward. If you find an issue you’d like to contribute to, you can assign yourself to it. If an issue is already assigned, you are still welcome to contribute or provide support. Active issues will be marked with a status of “In progress” on our Project boards.
 
 ## Contributing to the codebase
 GeoBlacklight welcomes code contributions. You do *not* need to be a "GeoBlacklight Committer" to contribute code or documentation. We follow the [pull request](https://help.github.com/articles/using-pull-requests/) model for contributing on GitHub. GeoBlacklight uses a suite of tests to express its features and protect from bugs :bug:.
