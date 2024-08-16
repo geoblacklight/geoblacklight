@@ -39,4 +39,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "foreman"
   spec.add_development_dependency "standardrb", "1.0.1"
   spec.add_development_dependency "webmock", "~> 3.14"
+  spec.add_development_dependency "database_cleaner"
+  spec.add_development_dependency "axe-core-rspec"
 end
