@@ -18,5 +18,6 @@ run "bundle install"
 
 generate "blacklight:install", "--devise"
 generate "geoblacklight:install", "-f"
+generate "geoblacklight:assets:vite"
 
 rake "db:migrate"
