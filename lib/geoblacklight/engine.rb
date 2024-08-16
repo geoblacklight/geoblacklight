@@ -17,11 +17,5 @@ module Geoblacklight
         ActionView::Base.send :include, GeoblacklightHelper
       end
     end
-
-    config.to_prepare do
-      unless SearchHistoryController.helpers.is_a?(Geoblacklight::ViewHelperOverride)
-        SearchHistoryController.send(:helper, Geoblacklight::ViewHelperOverride)
-      end
-    end
   end
 end

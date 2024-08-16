@@ -8,7 +8,6 @@ module Geoblacklight
   require "geoblacklight/constants"
   require "geoblacklight/exceptions"
   require "geoblacklight/geometry"
-  require "geoblacklight/view_helper_override"
   require "geoblacklight/item_viewer"
   require "geoblacklight/wms_layer"
   require "geoblacklight/wms_layer/feature_info_response"
