@@ -37,32 +37,28 @@ To contribute to our website or documentation pages, see the [GeoBlacklight Webs
 ### Pull request overview
 **Contributors:**
 
-1. If there isn't already an associated issue in the repository, create one
-1. Clone or fork the geoblacklight repository
-1. Create a new feature branch and publish it
-1. Make changes to the files
-1. Commit your changes
-1. Push to the new branch
-1. Open a Pull Request to the appropriate branch, like main, release-4.x, etc.
-1. Add GeoBlacklight-Developers as a requested reviewer
-1. Mention the pull request in the associated issue
+1. If there isn't already an associated issue in the repository, create one.
+1. Clone or fork the geoblacklight repository.
+1. Create a new feature branch and publish it.
+1. Make changes to the files.
+1. Commit your changes.
+1. Push to the new branch.
+1. Open a Pull Request to the appropriate branch, like **main**, **release-4.x**, etc.
+1. If you want specific others to chime in, create a +1 comment and tag them. You can tag the [GeoBlacklight Developers](#who-are-the-geoblacklight-developers) with their @username: `@geoblacklight/geoblacklight-developers`.
+1. Add the GeoBlacklight Developers team as a requested reviewer.
+1. Mention the pull request in the associated issue.
 
 **GeoBlacklight Developers Team:**
 
-1. Review the Pull Request and merge changes to the **main** branch
+1. Review the Pull Request and merge changes to the appropriate branch
 
 ### Tips for contributions:
-- Please take the time to review the changes and get a sense of what is being changed. Things to consider:
-  - Do the commit messages explain what is going on?
-  - Do the code changes have tests? _Not all changes need new tests, some changes are refactorings_
-  - Do all new methods, modules, and classes have comments? Do changed methods, modules, and classes have comments?
-  - Does the commit contain more than it should? Are two separate concerns being addressed in one commit?
-  - Did the GitHub Actions CI tests complete successfully?
-- It is considered "poor form" to merge your own request.
-  - Given the multi-institutional nature of the project, communitiy code review is important.
-  - Bring the [GeoBlacklight Developers Team](https://github.com/geoblacklight/geoblacklight/edit/main/CONTRIBUTING.md#who-are-the-github-developers-team) into the conversation by creating a comment that tags their @username: `@geoblacklight/geoblacklight-developers`.
-  - If you want specific others to chime in, create a +1 comment and tag them.
+Please take the time to review the changes you made. Make sure that:
+- New and changed code has comments
+- The commit summary explains what has been changed
+- Each commit addresses just a single concern
+- If your code requires testing, you wrote a new test for it
+- The GitHub Actions CI tests completed successfully
 
-### Who are the GitHub Developers Team?
-[The GeoBlacklight Developers Team](https://github.com/orgs/geoblacklight/teams/geoblacklight-developers)
-consists of contributors with GitHub privileges to review and merge pull requests (PRs) for the GeoBlacklight project. This team brings together individuals with varying types of expertise, including experience in the codebase, documentation, metadata, GIS data, and web services. If you have any questions or need guidance, this team or its individual members are a great starting point. When you submit a PR, a member of this team will review it and, if appropriate, merge it into the project.
+### Who are the GeoBlacklight Developers?
+The [GeoBlacklight Developers](https://github.com/orgs/geoblacklight/teams/geoblacklight-developers) team consists of contributors with GitHub privileges to review and merge pull requests (PRs) for the GeoBlacklight project. This team brings together individuals with varying types of expertise, including experience in the codebase, documentation, metadata, GIS data, and web services. If you have any questions or need guidance, this team or its individual members are a great starting point. When you submit a PR, a member of this team will review it and, if appropriate, merge it into the project.
