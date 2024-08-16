@@ -102,7 +102,7 @@ module Geoblacklight
     # URL for download
     # @return [String] URL that is checked in download
     def url
-      url = @document.references.send(@options[:service_type]).endpoint
+      url = @document.references.public_send(@options[:service_type]).endpoint
       url += "/reflect" if @options[:reflect]
       url
     end

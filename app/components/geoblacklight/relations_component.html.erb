@@ -14,7 +14,7 @@
     <% end %>
     <% unless (relationship_type_results['numFound'].to_i <= 3) %>
       <li class="list-group-item border-bottom-0">
-        <%= link_to search_catalog_path({f: {"#{Settings.RELATIONSHIPS_SHOWN.send(relationship_type).field}" => [relations.link_id]}}) do %>
+        <%= link_to search_catalog_path({f: {"#{Settings.RELATIONSHIPS_SHOWN.public_send(relationship_type).field}" => [relations.link_id]}}) do %>
           <%= t('geoblacklight.relations.browse_all', count: relationship_type_results['numFound']) %>
         <% end %>
       </li>
