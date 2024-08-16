@@ -12,11 +12,11 @@ If you have questions or want to get more involved, join [GeoBlacklight Slack](h
 ## Issues
 Issues are used in the GeoBlacklight community as a convenient way to document bugs, propose new functionality and enhancements, and discuss important code changes.
 
-### Reporting an issue
-Did you find a bug in GeoBlacklight or interested in a new feature? Make sure to add an issue for it in the [issue tracker](https://github.com/geoblacklight/geoblacklight/issues). 
+### Creating an issue
+Did you find a bug in GeoBlacklight? Looking to suggest a new feature? Add an issue for it in the [issue tracker](https://github.com/geoblacklight/geoblacklight/issues). 
 
  - Make sure you have a [GitHub account](https://github.com/signup/free)
- - Submit a [GitHub issue](./issues) that:
+ - Submit a new issue that:
     - Clearly describes the issue
     - Provides a descriptive summary
     - Explains the expected behavior
