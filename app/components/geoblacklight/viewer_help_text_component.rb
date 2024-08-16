@@ -23,7 +23,7 @@ module Geoblacklight
     def help_text_tag
       help_text = help_text_value
       tag.h2 class: "help-text viewer_protocol h6" do
-        tag.a data: {toggle: "popover", title: help_text[:title], content: help_text[:content]} do
+        tag.a data: {"bs-toggle": "popover", title: help_text[:title], "bs-content": help_text[:content]} do
           help_text[:title]
         end
       end
