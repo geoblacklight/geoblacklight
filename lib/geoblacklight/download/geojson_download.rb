@@ -11,7 +11,7 @@ module Geoblacklight
     }.freeze
 
     def initialize(document, options = {})
-      request_params = GEOJSON_DOWNLOAD_PARAMS.merge(typeName: document[Settings.FIELDS.WXS_IDENTIFIER])
+      request_params = GEOJSON_DOWNLOAD_PARAMS.merge(typeName: document.wxs_identifier)
       super(document, {
         type: "geojson",
         extension: "json",

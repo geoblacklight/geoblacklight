@@ -4,7 +4,7 @@ module Geoblacklight
   # Extends Blacklight::Solr::Document for GeoBlacklight specific functionality
   module SolrDocument
     extend Blacklight::Solr::Document
-
+    extend ActiveSupport::Concern
     include Geoblacklight::SolrDocument::Finder
     include Geoblacklight::SolrDocument::Carto
     include Geoblacklight::SolrDocument::Inspection
@@ -14,6 +14,22 @@ module Geoblacklight
     delegate :download_types, to: :references
     delegate :viewer_protocol, to: :item_viewer
     delegate :viewer_endpoint, to: :item_viewer
+
+    included do
+      attribute :display_note, :array, Settings.FIELDS.DISPLAY_NOTE
+      attribute :geom_field, :string, Settings.FIELDS.GEOMETRY
+      attribute :wxs_identifier, :string, Settings.FIELDS.WXS_IDENTIFIER
+      attribute :file_format, :string, Settings.FIELDS.FORMAT
+      attribute :rights_field_data, :string, Settings.FIELDS.ACCESS_RIGHTS
+      attribute :provider, :string, Settings.FIELDS.PROVIDER
+      attribute :resource_type, :string, Settings.FIELDS.RESOURCE_TYPE
+      attribute :title, :string, Settings.FIELDS.TITLE
+      attribute :creator, :array, Settings.FIELDS.CREATOR
+      attribute :publisher, :string, Settings.FIELDS.PUBLISHER
+      attribute :identifiers, :array, Settings.FIELDS.IDENTIFIER
+      attribute :issued, :string, Settings.FIELDS.DATE_ISSUED
+      attribute :format, :string, Settings.FIELDS.FORMAT
+    end
 
     def available?
       public? || same_institution?
@@ -39,16 +55,12 @@ module Geoblacklight
       references.download.to_hash if references.download.present?
     end
 
-    def display_note
-      fetch(Settings.FIELDS.DISPLAY_NOTE, [])
-    end
-
     def oembed
       references.oembed.endpoint if references.oembed.present?
     end
 
     def same_institution?
-      fetch(Settings.FIELDS.PROVIDER, "").casecmp?(Settings.INSTITUTION.downcase)
+      provider&.casecmp?(Settings.INSTITUTION.downcase)
     end
 
     def iiif_download
@@ -71,20 +83,8 @@ module Geoblacklight
       "http://schema.org/Dataset"
     end
 
-    def geom_field
-      fetch(Settings.FIELDS.GEOMETRY, "")
-    end
-
     def geometry
       @geometry ||= Geoblacklight::Geometry.new(geom_field)
-    end
-
-    def wxs_identifier
-      fetch(Settings.FIELDS.WXS_IDENTIFIER, "")
-    end
-
-    def file_format
-      fetch(Settings.FIELDS.FORMAT)
     end
 
     ##
@@ -98,10 +98,6 @@ module Geoblacklight
     end
 
     private
-
-    def rights_field_data
-      fetch(Settings.FIELDS.ACCESS_RIGHTS, nil)
-    end
 
     def method_missing(method, *args, &block)
       if /.*_url$/.match?(method.to_s)

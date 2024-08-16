@@ -4,11 +4,11 @@
   </div>
 
   <ul class="list-group list-group-flush">
-    <% relationship_type_results['docs'][0..2].each do |entry| %>
+    <% relationship_type_results['docs'][0..2].map { |hash| SolrDocument.new(hash) }.each do |doc| %>
       <li class="list-group-item border-bottom-0">
-        <%= link_to solr_document_path(entry[Settings.FIELDS.ID]) do %>
-          <%= relations_icon(entry, rel_type_info.icon) unless rel_type_info.icon.nil? %>
-          <%= entry[Settings.FIELDS.TITLE] %>
+        <%= link_to solr_document_path(doc) do %>
+          <%= relations_icon(doc, rel_type_info.icon) unless rel_type_info.icon.nil? %>
+          <%= doc.title %>
         <% end %>
       </li>
     <% end %>
