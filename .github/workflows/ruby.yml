@@ -48,7 +48,7 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby_version }}
       - name: Create Solr container
-        run: docker run -d -p 8983:8983 geoblacklight/solr:8.9-v1.0.0 server/scripts/ci-start.sh
+        run: docker run -d -p 8983:8983 ghcr.io/geoblacklight/solr:latest server/scripts/ci-start.sh
       - name: Install dependencies
         run: bundle install
         env:
