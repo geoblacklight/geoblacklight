@@ -20,11 +20,11 @@ module Geoblacklight
     end
 
     def public?
-      rights_field_data.present? && rights_field_data.casecmp("public").zero?
+      rights_field_data&.casecmp?("public")
     end
 
     def restricted?
-      rights_field_data.blank? || rights_field_data.casecmp("restricted").zero?
+      !rights_field_data || rights_field_data.casecmp?("restricted")
     end
 
     def downloadable?
@@ -52,7 +52,7 @@ module Geoblacklight
     end
 
     def same_institution?
-      fetch(Settings.FIELDS.PROVIDER, "").casecmp(Settings.INSTITUTION.downcase).zero?
+      fetch(Settings.FIELDS.PROVIDER, "").casecmp?(Settings.INSTITUTION.downcase)
     end
 
     def iiif_download
@@ -104,7 +104,7 @@ module Geoblacklight
     private
 
     def rights_field_data
-      fetch(Settings.FIELDS.ACCESS_RIGHTS, "")
+      fetch(Settings.FIELDS.ACCESS_RIGHTS, nil)
     end
 
     def method_missing(method, *args, &block)
