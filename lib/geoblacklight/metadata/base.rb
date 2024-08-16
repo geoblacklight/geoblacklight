@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "geoblacklight/faraday_middleware/follow_redirects"
 module Geoblacklight
   module Metadata
     ##
