@@ -61,10 +61,3 @@ To contribute to our website or documentation pages, see the [GeoBlacklight Webs
 ### Who are the GitHub Developers Team?
 [The GeoBlacklight Developers Team](https://github.com/orgs/geoblacklight/teams/geoblacklight-developers)
 consists of contributors with GitHub privileges to review and merge pull requests (PRs) for the GeoBlacklight project. This team brings together individuals with varying types of expertise, including experience in the codebase, documentation, metadata, GIS data, and web services. If you have any questions or need guidance, this team or its individual members are a great starting point. When you submit a PR, a member of this team will review it and, if appropriate, merge it into the project.
-
-### GeoBlacklight Software Versioning
-GeoBlacklight follows the practice of [Semantic Versioning](https://semver.org/) for software releases. The declared semantically versioned public API includes:
- - the GeoBlacklight-Schema
- - the [public GeoBlacklight Ruby codebase classes](http://www.rubydoc.info/github/geoblacklight/geoblacklight/master/frames)
- - the GeoBlacklight JavaScript interface
- - the GeoBlacklight view interface
