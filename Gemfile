@@ -3,21 +3,6 @@ source "https://rubygems.org"
 # Specify your gem's dependencies in geoblacklight.gemspec
 gemspec
 
-group :test do
-  gem "capybara", require: false
-  gem "database_cleaner", require: false
-  gem "engine_cart", require: false
-  gem "factory_bot_rails", require: false
-  gem "foreman", require: false
-  gem "rails-controller-testing", require: false
-  gem "rspec-rails", require: false
-  gem "simplecov", require: false
-  gem "standardrb", require: false
-  gem "webdrivers", require: false
-  gem "webmock", require: false
-  gem "axe-core-rspec", require: false
-end
-
 # BEGIN ENGINE_CART BLOCK
 # engine_cart: 2.6.0
 # engine_cart stanza: 2.5.0
