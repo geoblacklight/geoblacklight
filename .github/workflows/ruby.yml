@@ -10,66 +10,66 @@ jobs:
   linter:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 3.2
-    - name: Install dependencies
-      run: bundle install
-    - name: Run linter
-      run: bundle exec standardrb
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2
+      - name: Install dependencies
+        run: bundle install
+      - name: Run linter
+        run: bundle exec standardrb
 
   aardvark-fixture-linter:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 3.2
-    - name: Install json schema validator
-      run: gem install json_schemer
-    - name: Run json_schemer against aarkvark fixtures
-      run: find spec/fixtures/solr_documents -type f -name "*.json" | xargs json_schemer schema/geoblacklight-schema-aardvark.json
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2
+      - name: Install json schema validator
+        run: gem install json_schemer
+      - name: Run json_schemer against aarkvark fixtures
+        run: find spec/fixtures/solr_documents -type f -name "*.json" | xargs json_schemer schema/geoblacklight-schema-aardvark.json
 
   test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby_version: ['3.2', '3.3']
-        rails_version: ['7.0.8.4', '7.1.3.4', '7.2.0']
+        ruby_version: ["3.2", "3.3"]
+        rails_version: ["7.0.8.4", "7.1.3.4", "7.2.0"]
 
     name: test ruby ${{ matrix.ruby_version }} / rails ${{ matrix.rails_version }}
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: ${{ matrix.ruby_version }}
-    - name: Create Solr container
-      run: docker run -d -p 8983:8983 geoblacklight/solr:8.9-v1.0.0 server/scripts/ci-start.sh
-    - name: Install dependencies
-      run: bundle install
-      env:
-        RAILS_VERSION: ${{ matrix.rails_version }}
-    - name: Setup Yarn
-      run: exec "yarnpkg"
-    - name: Load config into solr
-      run: |
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby_version }}
+      - name: Create Solr container
+        run: docker run -d -p 8983:8983 geoblacklight/solr:8.9-v1.0.0 server/scripts/ci-start.sh
+      - name: Install dependencies
+        run: bundle install
+        env:
+          RAILS_VERSION: ${{ matrix.rails_version }}
+      - name: Setup Yarn
+        run: exec "yarnpkg"
+      - name: Load config into solr
+        run: |
           cd solr/conf
           zip -1 -r solr_config.zip ./*
           curl -H "Content-type:application/octet-stream" --data-binary @solr_config.zip "http://solr:SolrRocks@127.0.0.1:8983/solr/admin/configs?action=UPLOAD&name=blacklight"
           curl -H 'Content-type: application/json' http://solr:SolrRocks@127.0.0.1:8983/api/collections/  -d '{create: {name: blacklight-core, config: blacklight, numShards: 1}}'
-    - name: Run tests
-      run: bundle exec rake ci
-      env:
-        RAILS_VERSION: ${{ matrix.rails_version }}
-        ENGINE_CART_RAILS_OPTIONS: '--skip-git --skip-listen --skip-spring --skip-keeps --skip-action-cable --skip-coffee --skip-test --skip-webpack-install -a propshaft'
-        SOLR_URL: http://solr:SolrRocks@localhost:8983/solr/blacklight-core
-    - name: Upload coverage artifacts
-      uses: actions/upload-artifact@v2
-      if: always()
-      with:
-        name: coverage
-        path: coverage/
+      - name: Run tests
+        run: bundle exec rake ci
+        env:
+          RAILS_VERSION: ${{ matrix.rails_version }}
+          ENGINE_CART_RAILS_OPTIONS: "--skip-git --skip-keeps --skip-action-cable --skip-test -a propshaft"
+          SOLR_URL: http://solr:SolrRocks@localhost:8983/solr/blacklight-core
+      - name: Upload coverage artifacts
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: coverage
+          path: coverage/
