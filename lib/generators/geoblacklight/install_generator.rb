@@ -95,7 +95,11 @@ module Geoblacklight
     end
 
     def generate_assets
-      generate "geoblacklight:assets", "--test" if options[:test]
+      if options[:test]
+        generate "geoblacklight:assets", "--test=true"
+      else
+        generate "geoblacklight:assets"
+      end
     end
   end
 end
