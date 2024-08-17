@@ -8,7 +8,14 @@ module Geoblacklight
     class_option :test, type: :boolean, default: ENV.fetch("CI", false), aliases: "-t", desc: "Indicates that app will be installed in a test environment"
 
     def run_asset_pipeline_specific_generator
-      generate "geoblacklight:assets:#{options[:"asset-pipeline"]}", "--test" if options[:test]
+      generated_options = "--test=true" if options[:test]
+      generator = if options[:"asset-pipeline"]
+        "geoblacklight:assets:#{options[:"asset-pipeline"]}"
+      else
+        "geoblacklight:assets:vite"
+      end
+
+      generate generator, generated_options
     end
   end
 end

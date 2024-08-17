@@ -19,10 +19,4 @@ run "bundle install"
 generate "blacklight:install", "--devise"
 generate "geoblacklight:install", "-f"
 
-if ENV["ASSET_PIPELINE"]
-  generate "geoblacklight:assets:#{ENV["ASSET_PIPELINE"]}"
-else
-  generate "geoblacklight:assets:vite"
-end
-
 rake "db:migrate"
