@@ -40,29 +40,6 @@ module GeoblacklightHelper
   end
 
   ##
-  # Deteremines if a feature should include help text popover
-  # @return [Boolean]
-  def show_help_text?(feature, key)
-    Settings&.HELP_TEXT&.public_send(feature)&.include?(key)
-  end
-
-  ##
-  # Render help text popover for a given feature and translation key
-  # @return [HTML tag]
-  def render_help_text_entry(feature, key)
-    if I18n.exists?("geoblacklight.help_text.#{feature}.#{key}", locale)
-      help_text = I18n.t("geoblacklight.help_text.#{feature}.#{key}")
-      tag.h2 class: "help-text viewer_protocol h6" do
-        tag.a data: {"bs-toggle": "popover", title: help_text[:title], content: help_text[:content]} do
-          help_text[:title]
-        end
-      end
-    else
-      tag.span class: "help-text translation-missing"
-    end
-  end
-
-  ##
   # Render value for a document's field as a truncate abstract
   # div. Arguments come from Blacklight::DocumentPresenter's
   # get_field_values method
