@@ -1,35 +1,35 @@
 {
   "dct_title_s": "Agricultural Districts, Columbia County NY, 2009 (TMS)",
   "dct_alternative_sm": [
-    "tms"
+  "tms"
   ],
   "dct_description_sm": [
-    "These GIS files represent geographic boundaries for lands that are under the protection of NYS Agricultural District Law, administered by the New York State Department of Agriculture and Markets. The boundaries are derived from New York State Agricultural District, 1:24,000-scale, maps produced at county agencies. The district boundaries correspond to tax parcel data. District boundaries are joined into a file representing all of the Agricultural Districts within an entire county. Note that 2003 legislation allows lands to be added to districts on an annual basis. Electronic data provided here may predate those additions. Tax parcel detail and secondary rights-of-way are not included in this dataset. Rights-of-way for state and federal highways, railroads and utilities are only included when they are delineated on the original 1:24,000 scale maps. The data files are in ArcGIS shapefile format.  A Geographic Information System (ArcGIS) file intended to represent the lands within agricultural district. Please note that boundaries may be generalizations; precise information can be obtained from the county or town tax parcel information."
+  "These GIS files represent geographic boundaries for lands that are under the protection of NYS Agricultural District Law, administered by the New York State Department of Agriculture and Markets. The boundaries are derived from New York State Agricultural District, 1:24,000-scale, maps produced at county agencies. The district boundaries correspond to tax parcel data. District boundaries are joined into a file representing all of the Agricultural Districts within an entire county. Note that 2003 legislation allows lands to be added to districts on an annual basis. Electronic data provided here may predate those additions. Tax parcel detail and secondary rights-of-way are not included in this dataset. Rights-of-way for state and federal highways, railroads and utilities are only included when they are delineated on the original 1:24,000 scale maps. The data files are in ArcGIS shapefile format.  A Geographic Information System (ArcGIS) file intended to represent the lands within agricultural district. Please note that boundaries may be generalizations; precise information can be obtained from the county or town tax parcel information."
   ],
   "dct_language_sm": [
-    "eng"
+  "eng"
   ],
   "schema_provider_s": "Cornell",
   "gbl_resourceClass_sm": [
-    "Datasets"
+  "Datasets"
   ],
   "gbl_resourceType_sm": [
-    "Polygon"
+  "Polygon"
   ],
   "dct_subject_sm": [
-    "New York State Agricultural District boundaries",
-    "Agriculture and Markets",
-    "Agricultural Districts Mapping Program"
+  "New York State Agricultural District boundaries",
+  "Agriculture and Markets",
+  "Agricultural Districts Mapping Program"
   ],
   "dcat_keyword_sm": [
-    "GBL Fixture records"
+  "GBL Fixture records"
   ],
   "dct_temporal_sm": [
-    "2009"
+  "2009"
   ],
   "dct_issued_s": "2009-02-13",
   "dct_spatial_sm": [
-    "Columbia County NY"
+  "Columbia County NY"
   ],
   "locn_geometry": "ENVELOPE(-73.918247, -73.367, 42.507614, 41.978298)",
   "dcat_bbox": "ENVELOPE(-73.918247, -73.367, 42.507614, 41.978298)",

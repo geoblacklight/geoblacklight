@@ -12,3 +12,7 @@ services:
       - /opt/solr/conf
       - "-Xms256m"
       - "-Xmx512m"
+  geoserver:
+    image: ghcr.io/geoblacklight/geoserver:2.25.3-dev
+    ports:
+      - 8080:8080
