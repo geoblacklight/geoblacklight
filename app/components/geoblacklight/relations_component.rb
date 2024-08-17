@@ -19,7 +19,7 @@ module Geoblacklight
     private
 
     def relationship_type_results
-      @relationship_type_results ||= relations.send(relationship_type)
+      @relationship_type_results ||= relations.public_send(relationship_type)
     end
   end
 end

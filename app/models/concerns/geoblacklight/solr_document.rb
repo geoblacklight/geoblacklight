@@ -93,7 +93,7 @@ module Geoblacklight
     # :type => a string which if its a Geoblacklight::Constants::URI key
     #          will return a coresponding Geoblacklight::Reference
     def checked_endpoint(type)
-      type = references.send(type)
+      type = references.public_send(type)
       type.endpoint if type.present?
     end
 

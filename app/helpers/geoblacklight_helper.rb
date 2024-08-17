@@ -43,7 +43,7 @@ module GeoblacklightHelper
   # Deteremines if a feature should include help text popover
   # @return [Boolean]
   def show_help_text?(feature, key)
-    Settings&.HELP_TEXT&.send(feature)&.include?(key)
+    Settings&.HELP_TEXT&.public_send(feature)&.include?(key)
   end
 
   ##
