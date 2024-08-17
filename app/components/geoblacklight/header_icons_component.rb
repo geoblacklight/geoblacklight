@@ -12,8 +12,8 @@ module Geoblacklight
 
     def get_icon(field)
       icon_name = @document[field]
-      if icon_name&.include?("Datasets") && @document[Settings.FIELDS.RESOURCE_TYPE]
-        specific_icon = @document[Settings.FIELDS.RESOURCE_TYPE]
+      if icon_name&.include?("Datasets") && @document.resource_type
+        specific_icon = @document.resource_type
         specific_icon = specific_icon.is_a?(Array) ? specific_icon.first : specific_icon
         specific_icon = specific_icon&.gsub(" data", "")
         icon = geoblacklight_icon(specific_icon, classes: "svg_tooltip")

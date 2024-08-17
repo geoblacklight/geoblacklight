@@ -7,11 +7,11 @@ module Geoblacklight
 
       def geoblacklight_citation(solr_document_url)
         [
-          fetch(Settings.FIELDS.CREATOR, nil),
+          creator,
           ("(#{issued})" if issued),
-          fetch(Settings.FIELDS.TITLE, nil),
+          title,
           ("[#{format}]" if format),
-          fetch(Settings.FIELDS.PUBLISHER, nil),
+          publisher,
           citation_link(solr_document_url)
         ].flatten.compact.join(". ")
       end
@@ -26,8 +26,6 @@ module Geoblacklight
 
       # identifier url in solr document (if it exists)
       def identifier_url
-        identifiers = fetch(Settings.FIELDS.IDENTIFIER, [])
-
         # find any identifier that look like a URL, return if found (could be DOI, Stanford PURL, etc)
         identifiers.find { |identifier| identifier if identifier.starts_with?("https://") }
       end
@@ -38,14 +36,6 @@ module Geoblacklight
       def reference_url
         url = references.refs.find { |ref| ref.reference[0] == "http://schema.org/url" }
         url.present? ? url.reference[1] : nil
-      end
-
-      def issued
-        fetch(Settings.FIELDS.DATE_ISSUED, nil)
-      end
-
-      def format
-        fetch(Settings.FIELDS.FORMAT, nil)
       end
     end
   end

@@ -8,7 +8,7 @@ module Geoblacklight
     }.freeze
 
     def initialize(document, options = {})
-      request_params = GEOTIFF_DOWNLOAD_PARAMS.merge(layers: document[Settings.FIELDS.WXS_IDENTIFIER])
+      request_params = GEOTIFF_DOWNLOAD_PARAMS.merge(layers: document.wxs_identifier)
       super(document, {
         type: "geotiff",
         extension: "tif",
