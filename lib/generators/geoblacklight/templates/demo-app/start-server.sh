@@ -18,4 +18,4 @@ yarn add file:$gempath
 # Start the server
 bundle exec rake db:prepare
 bundle exec rake geoblacklight:index:seed
-bundle exec rails server -b 0.0.0.0
+bundle exec rails server -b 0.0.0.0 -p 3001
