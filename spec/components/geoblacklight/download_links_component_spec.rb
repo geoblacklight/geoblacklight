@@ -17,7 +17,6 @@ RSpec.describe Geoblacklight::DownloadLinksComponent, type: :component do
   context "when rendering is required" do
     before do
       allow(document).to receive(:direct_download).and_return(test: :test)
-      allow(document).to receive(:hgl_download).and_return({})
       allow(document).to receive(:iiif_download).and_return({})
       allow(document).to receive(:download_types).and_return(shapefile: {})
     end
@@ -32,7 +31,6 @@ RSpec.describe Geoblacklight::DownloadLinksComponent, type: :component do
     context "because there are no download links" do
       before do
         allow(document).to receive(:direct_download).and_return({})
-        allow(document).to receive(:hgl_download).and_return({})
         allow(document).to receive(:iiif_download).and_return({})
         allow(document).to receive(:download_types).and_return({})
       end
@@ -60,20 +58,6 @@ RSpec.describe Geoblacklight::DownloadLinksComponent, type: :component do
 
     it "generates a link to download the original file" do
       expect(component.download_link_file(label, id, url)).to eq '<a contentUrl="http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip" data-download="trigger" data-download-type="direct" data-download-id="test-id" href="http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip">Test Link Text</a>'
-    end
-  end
-
-  describe "#download_link_hgl" do
-    let(:text) { "Test Link Text" }
-
-    before do
-      allow(component).to receive(:download_hgl_path).and_return("/download/hgl/test-id")
-      allow(document).to receive(:id).and_return("test-id")
-      allow(document).to receive(:to_s).and_return("test-id")
-    end
-
-    it "generates a link to the HGL route" do
-      expect(component.download_link_hgl(text, document)).to eq '<a data-blacklight-modal="trigger" data-download="trigger" data-download-type="harvard-hgl" data-download-id="test-id" href="/download/hgl/test-id">Test Link Text</a>'
     end
   end
 

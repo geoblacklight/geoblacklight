@@ -43,10 +43,6 @@ module Geoblacklight
       fetch(Settings.FIELDS.DISPLAY_NOTE, [])
     end
 
-    def hgl_download
-      references.hgl.to_hash if references.hgl.present?
-    end
-
     def oembed
       references.oembed.endpoint if references.oembed.present?
     end

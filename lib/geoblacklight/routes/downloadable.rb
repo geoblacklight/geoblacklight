@@ -9,7 +9,6 @@ module Geoblacklight
 
       def call(mapper, _options = {})
         mapper.get "file/:id", action: "file", as: :file
-        mapper.get "hgl/:id", action: "hgl", as: :hgl
       end
     end
   end
