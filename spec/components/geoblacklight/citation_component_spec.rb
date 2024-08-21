@@ -29,7 +29,6 @@ RSpec.describe Geoblacklight::Document::CitationComponent, type: :component do
       let(:fixture) { JSON.parse(read_fixture("solr_documents/no_spatial.json")) }
 
       it "creates a citation with the solr document link" do
-        puts rendered.native
         expect(rendered)
           .to have_text "ASTER Global Emissivity Dataset 1-kilometer V003 - AG1KM. http://test.host/catalog/aster-global-emissivity-dataset-1-kilometer-v003-ag1kmcad20"
       end
