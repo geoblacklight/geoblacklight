@@ -10,7 +10,7 @@ export const parseWmtsCapabilities = (wmtsCapabilities, layerId) => {
   // Generate URL with Leaflet.TileLayer URL template formatting
   const tileURL = resourceElement
     .getAttribute("template")
-    .replace("{Style}", getStyle(selectedLayer))
+    .replace("{style}", getStyle(selectedLayer))
     .replace("{TileMatrixSet}", getTileMatrixSet(selectedLayer))
     .replace("TileMatrix", "z")
     .replace("TileCol", "x")

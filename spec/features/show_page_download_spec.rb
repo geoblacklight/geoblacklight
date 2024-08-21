@@ -15,8 +15,8 @@ feature "Download display on show page" do
     visit solr_document_path "princeton-sx61dn82p"
     find("#downloads-button").click
     within "#downloads-collapse" do
-      expect(page).to have_selector(:css, 'a[href="https://figgy.princeton.edu/downloads/a990e1b4-7f0e-44b8-ae2a-de7e93cdd74a/file/36a2274c-e0c6-4901-a14f-7c422d15e194"]')
-      expect(page).to have_selector(:css, 'a[href="https://libimages1.princeton.edu/loris/figgy_prod/2e%2Fa9%2F43%2F2ea943b0bd4348fc9954b299f1b359f6%2Fintermediate_file.jp2/full/full/0/default.jpg"]')
+      expect(page).to have_selector(:css, 'a[href="http://127.0.0.1:9002/data/princeton-sx61dn82p/princeton-sx61dn82p.tif"]')
+      expect(page).to have_selector(:css, 'a[href="http://127.0.0.1:9001/iiif/data/princeton-sx61dn82p/princeton-sx61dn82p.tif/full/full/0/default.jpg"]')
     end
   end
 end

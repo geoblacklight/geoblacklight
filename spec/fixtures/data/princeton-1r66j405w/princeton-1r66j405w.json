@@ -1,0 +1,292 @@
+{
+    "@context": "http://iiif.io/api/presentation/2/context.json",
+    "@type": "sc:Manifest",
+    "@id": "http://127.0.0.1:9002/data/princeton-1r66j405w/princeton-1r66j405w.json",
+    "label": [
+        "Princeton, Mercer County, New Jersey"
+    ],
+    "description": [
+        "Title taken from sheet 1 of 1927 map.",
+        "\"Feb. 1885.\"",
+        "Includes location map and key.",
+        "Oriented with the north to the upper left."
+    ],
+    "viewingHint": "individuals",
+    "metadata": [
+        {
+            "label": "Author",
+            "value": [
+                "Sanborn Map Company"
+            ]
+        },
+        {
+            "label": "Former Owner",
+            "value": [
+                "Library of Congress"
+            ]
+        },
+        {
+            "label": "Title",
+            "value": [
+                {
+                    "@language": "eng",
+                    "@value": "Princeton, Mercer County, New Jersey"
+                }
+            ]
+        },
+        {
+            "label": "Type",
+            "value": [
+                "Maps"
+            ]
+        },
+        {
+            "label": "Provenance",
+            "value": [
+                "Historic Maps copy has stamp of Library of Congress."
+            ]
+        },
+        {
+            "label": "Creator",
+            "value": [
+                "Sanborn Map Company"
+            ]
+        },
+        {
+            "label": "Date",
+            "value": [
+                "1885"
+            ]
+        },
+        {
+            "label": "Language",
+            "value": [
+                "English"
+            ]
+        },
+        {
+            "label": "Local Identifier",
+            "value": [
+                "p4455c1542"
+            ]
+        },
+        {
+            "label": "Publisher",
+            "value": [
+                "New York : Sanborn Map & Publishing Co., Limited, 1885."
+            ]
+        },
+        {
+            "label": "Subject",
+            "value": [
+                "Real property\u2014New Jersey\u2014Princeton\u2014Maps"
+            ]
+        },
+        {
+            "label": "Cartographic Scale",
+            "value": [
+                "Scale (each sheet) 1 in. : 50 ft."
+            ]
+        },
+        {
+            "label": "Source Metadata Identifier",
+            "value": [
+                "9942666483506421"
+            ]
+        },
+        {
+            "label": "Call Number",
+            "value": [
+                "HMC04 (Princeton)",
+                "Electronic Resource"
+            ]
+        },
+        {
+            "label": "Location",
+            "value": [
+                "RCPXP HMC04 (Princeton)",
+                "RCPXP Electronic Resource",
+                "ELF1 HMC04 (Princeton)",
+                "ELF1 Electronic Resource"
+            ]
+        },
+        {
+            "label": "Imported Author",
+            "value": [
+                "Sanborn Map Company"
+            ]
+        },
+        {
+            "label": "Downloadable",
+            "value": [
+                "public"
+            ]
+        },
+        {
+            "label": "Held By",
+            "value": [
+                "Princeton"
+            ]
+        },
+        {
+            "label": "Ark",
+            "value": [
+                "http://arks.princeton.edu/ark:/88435/1r66j405w"
+            ]
+        },
+        {
+            "label": "Member Of Collections",
+            "value": [
+                "Sanborn Fire Insurance Maps of New Jersey"
+            ]
+        }
+    ],
+    "sequences": [
+        {
+            "@type": "sc:Sequence",
+            "@id": "https://figgy.princeton.edu/concern/scanned_maps/9a193476-5f2e-4f82-95a5-6db472e39b7b/manifest/sequence/normal",
+            "canvases": [
+                {
+                    "@type": "sc:Canvas",
+                    "@id": "https://figgy.princeton.edu/concern/scanned_maps/9a193476-5f2e-4f82-95a5-6db472e39b7b/manifest/canvas/b6ba3091-fcf4-4d2d-9d6a-df7df5c8c588",
+                    "label": "Sheet 1",
+                    "local_identifier": "p8g84q7230",
+                    "rendering": [
+                        {
+                            "@id": "http://127.0.0.1:9002/data/princeton-1r66j405w/princeton-1r66j405w-1.tif",
+                            "label": "Download the original file",
+                            "format": "image/tiff"
+                        }
+                    ],
+                    "width": 8347,
+                    "height": 10070,
+                    "images": [
+                        {
+                            "@type": "oa:Annotation",
+                            "motivation": "sc:painting",
+                            "resource": {
+                                "@type": "dctypes:Image",
+                                "@id": "http://127.0.0.1:9001/iiif/data/princeton-1r66j405w/princeton-1r66j405w-1.tif/full/1000,/0/default.jpg",
+                                "height": 10070,
+                                "width": 8347,
+                                "format": "image/jpeg",
+                                "service": {
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "@id": "http://127.0.0.1:9001/iiif/data/princeton-1r66j405w/princeton-1r66j405w-1.tif",
+                                    "profile": "http://iiif.io/api/image/2/level2.json"
+                                }
+                            },
+                            "@id": "https://figgy.princeton.edu/concern/scanned_maps/9a193476-5f2e-4f82-95a5-6db472e39b7b/manifest/image/b6ba3091-fcf4-4d2d-9d6a-df7df5c8c588",
+                            "on": "https://figgy.princeton.edu/concern/scanned_maps/9a193476-5f2e-4f82-95a5-6db472e39b7b/manifest/canvas/b6ba3091-fcf4-4d2d-9d6a-df7df5c8c588"
+                        }
+                    ]
+                },
+                {
+                    "@type": "sc:Canvas",
+                    "@id": "https://figgy.princeton.edu/concern/scanned_maps/9a193476-5f2e-4f82-95a5-6db472e39b7b/manifest/canvas/db890be9-02bf-43c1-85c8-69c0684e25f6",
+                    "label": "Sheet 2",
+                    "local_identifier": "pjs9593624",
+                    "rendering": [
+                        {
+                            "@id": "http://127.0.0.1:9002/data/princeton-1r66j405w/princeton-1r66j405w-2.tif",
+                            "label": "Download the original file",
+                            "format": "image/tiff"
+                        }
+                    ],
+                    "width": 8362,
+                    "height": 9912,
+                    "images": [
+                        {
+                            "@type": "oa:Annotation",
+                            "motivation": "sc:painting",
+                            "resource": {
+                                "@type": "dctypes:Image",
+                                "@id": "http://127.0.0.1:9001/iiif/data/princeton-1r66j405w/princeton-1r66j405w-2.tif/full/1000,/0/default.jpg",
+                                "height": 9912,
+                                "width": 8362,
+                                "format": "image/jpeg",
+                                "service": {
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "@id": "http://127.0.0.1:9001/iiif/data/princeton-1r66j405w/princeton-1r66j405w-2.tif",
+                                    "profile": "http://iiif.io/api/image/2/level2.json"
+                                }
+                            },
+                            "@id": "https://figgy.princeton.edu/concern/scanned_maps/9a193476-5f2e-4f82-95a5-6db472e39b7b/manifest/image/db890be9-02bf-43c1-85c8-69c0684e25f6",
+                            "on": "https://figgy.princeton.edu/concern/scanned_maps/9a193476-5f2e-4f82-95a5-6db472e39b7b/manifest/canvas/db890be9-02bf-43c1-85c8-69c0684e25f6"
+                        }
+                    ]
+                },
+                {
+                    "@type": "sc:Canvas",
+                    "@id": "https://figgy.princeton.edu/concern/scanned_maps/9a193476-5f2e-4f82-95a5-6db472e39b7b/manifest/canvas/0219c7ac-4ecd-417b-adf0-cc5762fb094d",
+                    "label": "Sheet 3",
+                    "local_identifier": "pwd378j08b",
+                    "rendering": [
+                        {
+                            "@id": "http://127.0.0.1:9002/data/princeton-1r66j405w/princeton-1r66j405w-3.tif",
+                            "label": "Download the original file",
+                            "format": "image/tiff"
+                        }
+                    ],
+                    "width": 8384,
+                    "height": 9991,
+                    "images": [
+                        {
+                            "@type": "oa:Annotation",
+                            "motivation": "sc:painting",
+                            "resource": {
+                                "@type": "dctypes:Image",
+                                "@id": "http://127.0.0.1:9001/iiif/data/princeton-1r66j405w/princeton-1r66j405w-3.tif/full/1000,/0/default.jpg",
+                                "height": 9991,
+                                "width": 8384,
+                                "format": "image/jpeg",
+                                "service": {
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "@id": "http://127.0.0.1:9001/iiif/data/princeton-1r66j405w/princeton-1r66j405w-3.tif",
+                                    "profile": "http://iiif.io/api/image/2/level2.json"
+                                }
+                            },
+                            "@id": "https://figgy.princeton.edu/concern/scanned_maps/9a193476-5f2e-4f82-95a5-6db472e39b7b/manifest/image/0219c7ac-4ecd-417b-adf0-cc5762fb094d",
+                            "on": "https://figgy.princeton.edu/concern/scanned_maps/9a193476-5f2e-4f82-95a5-6db472e39b7b/manifest/canvas/0219c7ac-4ecd-417b-adf0-cc5762fb094d"
+                        }
+                    ]
+                }
+            ],
+            "viewingHint": "individuals"
+        }
+    ],
+    "structures": [
+        {
+            "@type": "sc:Range",
+            "@id": "https://figgy.princeton.edu/concern/scanned_maps/9a193476-5f2e-4f82-95a5-6db472e39b7b/manifest/range/rb256abe8-129c-4d70-99f2-afaf0fd6bcd9",
+            "label": "",
+            "viewingHint": "top",
+            "ranges": [],
+            "canvases": []
+        }
+    ],
+    "seeAlso": [
+        {
+            "@id": "https://figgy.princeton.edu/catalog/9a193476-5f2e-4f82-95a5-6db472e39b7b.jsonld",
+            "format": "application/ld+json"
+        },
+        {
+            "@id": "https://catalog.princeton.edu/catalog/9942666483506421.marcxml",
+            "format": "text/xml"
+        }
+    ],
+    "license": "http://rightsstatements.org/vocab/NKC/1.0/",
+    "thumbnail": {
+        "@id": "http://127.0.0.1:9002/data/princeton-1r66j405w/princeton-1r66j405w-1.tif/full/!200,150/0/default.jpg",
+        "service": {
+            "@context": "http://iiif.io/api/image/2/context.json",
+            "@id": "http://127.0.0.1:9001/iiif/data/princeton-1r66j405w/princeton-1r66j405w-1.tif/full/1000,/0/default.jpg",
+            "profile": "http://iiif.io/api/image/2/level2.json"
+        }
+    },
+    "rendering": {
+        "@id": "http://arks.princeton.edu/ark:/88435/1r66j405w",
+        "format": "text/html"
+    },
+    "logo": "https://figgy.princeton.edu/assets/pul_logo_icon-5333765252f2b86e34cd7c096c97e79495fe4656c5f787c5510a84ee6b67afd8.png"
+}

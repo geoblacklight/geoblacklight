@@ -1,10 +1,9 @@
 {
-  "dct_title_s": "2005 Rural Poverty GIS Database: Uganda",
+  "dct_title_s": "2005 Rural Poverty GIS Database: Uganda (WMTS)",
   "dct_alternative_sm": [
-    "public_direct_download"
+    "wmts"
   ],
   "dct_description_sm": [
-    "includes a tentative dcat_distribution_sm property. ",
     "This polygon shapefile contains 2005 poverty data for 855 rural subcounties in Uganda. These data are intended for researchers, students, policy makers and the general public for reference and mapping purposes, and may be used for basic applications such as viewing, querying, and map output production."
   ],
   "dct_language_sm": [
@@ -52,11 +51,8 @@
   "dct_accessRights_s": "Public",
   "dct_format_s": "Shapefile",
   "gbl_wxsIdentifier_s": "gbl:stanford-cz128vq0535",
-  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://stacks.stanford.edu/file/druid:cz128vq0535/data.zip\",\"http://schema.org/url\":\"http://purl.stanford.edu/cz128vq0535\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"https://raw.githubusercontent.com/OpenGeoMetadata/edu.stanford.purl/master/cz/128/vq/0535/iso19139.xml\",\"http://www.loc.gov/mods/v3\":\"http://purl.stanford.edu/cz128vq0535.mods\",\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"http://127.0.0.1:9000/geoserver/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"http://127.0.0.1:9000/geoserver/wms\"}",
-  "id": "stanford-cz128vq0535",
-  "dct_identifier_sm": [
-    "http://purl.stanford.edu/cz128vq0535"
-  ],
+  "dct_references_s": "{\"http://www.opengis.net/def/serviceType/ogc/wmts\":\"http://127.0.0.1:9000/geoserver/gwc/service/wmts?service=WMTS&version=1.1.1&request=GetCapabilities\"}",
+  "id": "stanford-cz128vq0535-wmts",
   "gbl_mdModified_dt": "2021-06-01T22:14:16Z",
   "gbl_mdVersion_s": "Aardvark"
 }

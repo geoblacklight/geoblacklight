@@ -1,0 +1,172 @@
+{
+    "@context": "http://iiif.io/api/presentation/2/context.json",
+    "@type": "sc:Manifest",
+    "@id": "http://127.0.0.1:9002/data/57f0f116-b64e-4773-8684-96ba09afb549/57f0f116-b64e-4773-8684-96ba09afb549.json",
+    "label": "A new & accurate map of Asia : drawn from actual surveys, and otherwise collected from journals ; assisted by the most approved modern maps & charts. the whole being regulated by astron. observations",
+    "metadata": [
+        {
+            "label": "Barcode Identifier",
+            "value": "UMN_BARCODE:B5048235"
+        },
+        {
+            "label": "Contact Information",
+            "value": "University of Minnesota Libraries, John R. Borchert Map Library. S-76 Wilson Library, 309 19th Ave S, Minneapolis, MN 55455; https://www.lib.umn.edu/borchert"
+        },
+        {
+            "label": "Continent",
+            "value": "Asia"
+        },
+        {
+            "label": "Contributing Organization",
+            "value": "University of Minnesota Libraries, John R. Borchert Map Library."
+        },
+        {
+            "label": "Coordinates",
+            "value": "E0250000 W1682100 N0814000 S0125600; (E 25\u00b000'00\"--W 168\u00b021'00\"/N 81\u00b040'00\"--S 12\u00b056'00\")"
+        },
+        {
+            "label": "Creator",
+            "value": "Bowen, Emanuel, -1767"
+        },
+        {
+            "label": "Date of Creation",
+            "value": "1750"
+        },
+        {
+            "label": "Description",
+            "value": "Cartographic Details: Scale [1:26,000,000]. Numbered\"N\u00b052.\" Decorative title cartouche with palm tree. Shows boundaries, rivers, islands and principal settlements. Relief shown pictorially. London meridian."
+        },
+        {
+            "label": "Dimensions",
+            "value": "35 x 43 centimeters"
+        },
+        {
+            "label": "DLS Identifier",
+            "value": "map03548"
+        },
+        {
+            "label": "Item Physical Format",
+            "value": "Maps | http://vocab.getty.edu/aat/300028094"
+        },
+        {
+            "label": "Local Identifier",
+            "value": "G7400 1750 .B6"
+        },
+        {
+            "label": "Language",
+            "value": "English"
+        },
+        {
+            "label": "Local Rights Statement",
+            "value": "Use of this item may be governed by US and international copyright laws. You may be able to use this item, but copyright and other considerations may apply. For possible additional information or guidance on your use, please contact the contributing organization."
+        },
+        {
+            "label": "Persistent URL (PURL)",
+            "value": "http://purl.umn.edu/200804"
+        },
+        {
+            "label": "Scale",
+            "value": "Scale [1:26,000,000]"
+        },
+        {
+            "label": "Locally Assigned Subject Headings",
+            "value": "Asia -- Maps -- Early works to 1800; Early maps"
+        },
+        {
+            "label": "System Identifier",
+            "value": "UMN_ALMA:9946958860001701"
+        },
+        {
+            "label": "Title",
+            "value": "A new & accurate map of Asia : drawn from actual surveys, and otherwise collected from journals ; assisted by the most approved modern maps & charts. the whole being regulated by astron. observations"
+        },
+        {
+            "label": "Item Type",
+            "value": "Cartographic"
+        },
+        {
+            "label": "UMedia Archive",
+            "value": "yes"
+        },
+        {
+            "label": "Repository",
+            "value": "Minnesota Digital Library"
+        },
+        {
+            "label": "Source",
+            "value": "<span>From: <a href=\"https://cdm16022.contentdm.oclc.org/digital/collection/p16022coll246/id/224\">A new & accurate map of Asia : drawn from actual surveys, and otherwise collected from journals ; assisted by the most approved modern maps & charts. the whole being regulated by astron. observations</a></span>"
+        }
+    ],
+    "attribution": [
+        "",
+        "Use of this item may be governed by US and international copyright laws. You may be able to use this item, but copyright and other considerations may apply. For possible additional information or guidance on your use, please contact the contributing organization."
+    ],
+    "seeAlso": {
+        "@id": "https://cdm16022.contentdm.oclc.org/oai/oai.php?verb=GetRecord&identifier=oai:cdm16022.contentdm.oclc.org:p16022coll246/224&metadataPrefix=oai_qdc",
+        "format": "application/xml",
+        "profile": "http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd"
+    },
+    "within": "https://cdm16022.contentdm.oclc.org/iiif/p16022coll246/manifest.json",
+    "sequences": [
+        {
+            "@id": "http://127.0.0.1:9002/data/57f0f116-b64e-4773-8684-96ba09afb549/sequence/s0",
+            "@type": "sc:Sequence",
+            "label": "A new & accurate map of Asia : drawn from actual surveys, and otherwise collected from journals ; assisted by the most approved modern maps & charts. the whole being regulated by astron. observations",
+            "canvases": [
+                {
+                    "@id": "http://127.0.0.1:9002/data/57f0f116-b64e-4773-8684-96ba09afb549/canvas/c0",
+                    "@type": "sc:Canvas",
+                    "label": "A new & accurate map of Asia : drawn from actual surveys, and otherwise collected from journals ; assisted by the most approved modern maps & charts. the whole being regulated by astron. observations",
+                    "images": [
+                        {
+                            "@id": "http://127.0.0.1:9002/data/57f0f116-b64e-4773-8684-96ba09afb549/annotation/a0",
+                            "@type": "oa:Annotation",
+                            "motivation": "sc:painting",
+                            "resource": {
+                                "@id": "http://127.0.0.1:9001/iiif/data/57f0f116-b64e-4773-8684-96ba09afb549/57f0f116-b64e-4773-8684-96ba09afb549.tif/full/full/0/default.jpg",
+                                "@type": "dctypes:Image",
+                                "service": {
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "@id": "http://127.0.0.1:9001/iiif/data/57f0f116-b64e-4773-8684-96ba09afb549/57f0f116-b64e-4773-8684-96ba09afb549.tif",
+                                    "width": 5587,
+                                    "height": 5136,
+                                    "tiles": [
+                                        {
+                                            "width": 5587,
+                                            "scaleFactors": [
+                                                1,
+                                                2,
+                                                4,
+                                                8,
+                                                16
+                                            ]
+                                        }
+                                    ],
+                                    "profile": "http://iiif.io/api/image/2/level1.json",
+                                    "protocol": "http://iiif.io/api/image"
+                                },
+                                "format": "image/jpeg",
+                                "width": 5587,
+                                "height": 5136
+                            },
+                            "on": "http://127.0.0.1:9002/data/57f0f116-b64e-4773-8684-96ba09afb549/canvas/c0"
+                        }
+                    ],
+                    "width": 5587,
+                    "height": 5136
+                }
+            ]
+        }
+    ],
+    "structures": [
+        {
+            "@id": "http://127.0.0.1:9002/data/57f0f116-b64e-4773-8684-96ba09afb549/range/r0",
+            "@type": "sc:Range",
+            "label": "A new & accurate map of Asia : drawn from actual surveys, and otherwise collected from journals ; assisted by the most approved modern maps & charts. the whole being regulated by astron. observations",
+            "ranges": [],
+            "canvases": [
+                "http://127.0.0.1:9002/data/57f0f116-b64e-4773-8684-96ba09afb549/canvas/c0"
+            ]
+        }
+    ]
+}

@@ -50,9 +50,8 @@
   "dcat_bbox": "ENVELOPE(-76.3394,-72.1916,46.5798,38.6693)",
   "dcat_centroid": "42.62455,-74.2655",
   "dct_accessRights_s": "Public",
-  "dct_format_s": "Raster",
-  "gbl_wxsIdentifier_s": "02870w62c",
-  "dct_references_s": "{\"http://iiif.io/api/image\":\"https://iiif-cloud.princeton.edu/iiif/2/6c%2F52%2F12%2F6c5212e81bc845f59bb1cdc740a88bad%2Fintermediate_file/info.json\",\"http://schema.org/url\":\"http://arks.princeton.edu/ark:/88435/02870w62c\"}",
+  "dct_format_s": "TIFF",
+  "dct_references_s": "{\"http://iiif.io/api/image\":\"http://127.0.0.1:9001/iiif/data/princeton-02870w62c/princeton-02870w62c.tif/info.json\",\"http://schema.org/url\":\"http://arks.princeton.edu/ark:/88435/02870w62c\"}",
   "id": "princeton-02870w62c",
   "dct_identifier_sm": [
     "http://arks.princeton.edu/ark:/88435/02870w62c"

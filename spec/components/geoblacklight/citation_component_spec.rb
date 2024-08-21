@@ -21,7 +21,7 @@ RSpec.describe Geoblacklight::Document::CitationComponent, type: :component do
 
       it "creates a citation with the schema.org references link" do
         expect(rendered)
-          .to have_text "Great Britain. War Office. General Staff. Geographical Section. (1908). The Balkans [and] Turkey : G.S.G.S. no. 2097 / War Office. General Staff. Geographical Section (TileJSON Fixture). [London] : War Office. General Staff. Geographical Section. General Staff, 1908-25.. https://catalog.princeton.edu/catalog/99125413918506421"
+          .to have_text "Uganda Bureau of Statistics. (1905-06-27). 2005 Rural Poverty GIS Database: Uganda (TileJSON). [Shapefile]. Uganda Bureau of Statistics. http://purl.stanford.edu/cz128vq0535"
       end
     end
 

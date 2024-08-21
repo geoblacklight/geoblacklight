@@ -53,22 +53,22 @@ describe "web services tools", type: :feature do
 
   context "when wmts tile reference is provided" do
     it "shows up in tools" do
-      visit solr_document_path "princeton-fk4544658v-wmts"
+      visit solr_document_path "stanford-cz128vq0535-wmts"
       open_web_services_modal
       within ".modal-body" do
         expect(page).to have_css "label", text: "Web Map Tile Service"
-        expect(page).to have_css 'input[value="https://map-tiles-staging.princeton.edu/2a91d82c541c426cb787cc62afe8f248/mosaicjson/WMTSCapabilities.xml"]'
+        expect(page).to have_css 'input[value="http://127.0.0.1:9000/geoserver/gwc/service/wmts?service=WMTS&version=1.1.1&request=GetCapabilities"]'
       end
     end
   end
 
   context "when tilejson reference is provided" do
     it "shows up in tools" do
-      visit solr_document_path "princeton-fk4544658v-tilejson"
+      visit solr_document_path "stanford-cz128vq0535-tilejson"
       open_web_services_modal
       within ".modal-body" do
         expect(page).to have_css "label", text: "TileJSON Document"
-        expect(page).to have_css 'input[value="https://map-tiles-staging.princeton.edu/2a91d82c541c426cb787cc62afe8f248/mosaicjson/tilejson.json"]'
+        expect(page).to have_css 'input[value="http://127.0.0.1:9002/data/stanford-cz128vq0535-tilejson/tilejson.json"]'
       end
     end
   end
@@ -79,7 +79,7 @@ describe "web services tools", type: :feature do
       open_web_services_modal
       within ".modal-body" do
         expect(page).to have_css "label", text: "PMTiles Layer"
-        expect(page).to have_css 'input[value="https://geodata.lib.princeton.edu/fe/d2/80/fed28076eaa04506b7956f10f61a2f77/display_vector.pmtiles"]'
+        expect(page).to have_css 'input[value="http://127.0.0.1:9002/data/princeton-t722hd30j/princeton-t722hd30j.pmtiles"]'
       end
     end
   end
@@ -90,7 +90,7 @@ describe "web services tools", type: :feature do
       open_web_services_modal
       within ".modal-body" do
         expect(page).to have_css "label", text: "COG Layer"
-        expect(page).to have_css 'input[value="https://geodata.lib.princeton.edu/13/f5/58/13f5582c32a54be98fc2982077d0456e/display_raster.tif"]'
+        expect(page).to have_css 'input[value="http://127.0.0.1:9002/data/princeton-dc7h14b252v/princeton-dc7h14b252v.tif"]'
       end
     end
   end

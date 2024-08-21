@@ -1,0 +1,101 @@
+{
+    "@context": "http://iiif.io/api/presentation/2/context.json",
+    "@id": "http://127.0.0.1:9002/data/c8b46b52-0846-4abb-ba56-b484064f84ac/c8b46b52-0846-4abb-ba56-b484064f84ac.json",
+    "@type": "sc:Manifest",
+    "label": "Anglesey; Garnesay; Wight olim vectis; Iarsay / Per Gerardum Mercatorem.",
+    "metadata": [
+        {
+            "label": "Title",
+            "value": "Anglesey; Garnesay; Wight olim vectis; Iarsay / Per Gerardum Mercatorem.",
+            "field": "marc245"
+        }
+    ],
+    "thumbnail": {
+        "@id": "http://127.0.0.1:9001/iiif/data/c8b46b52-0846-4abb-ba56-b484064f84ac/c8b46b52-0846-4abb-ba56-b484064f84ac-1.tif/full/!100,100/0/default.jpg",
+        "service": {
+            "@context": "http://iiif.io/api/image/2/context.json",
+            "@id": "https://quod.lib.umich.edu/cgi/i/image/api/image/clark1ic:010356232:39015091191992_01",
+            "profile": "http://iiif.io/api/image/2/level1.json"
+        },
+        "@type": "dctypes:Image"
+    },
+    "attribution": "University of Michigan Library Digital Collections",
+    "sequences": [
+        {
+            "@id": "https://quod.lib.umich.edu/cgi/i/image/api/manifest/clark1ic:010356232/sequence/normal",
+            "@type": "sc:Sequence",
+            "label": "Sheet Set Order",
+            "canvases": [
+                {
+                    "@id": "https://quod.lib.umich.edu/cgi/i/image/api/manifest/clark1ic:010356232:39015091191992_01/canvas/0",
+                    "@type": "sc:Canvas",
+                    "height": 7280,
+                    "width": 8824,
+                    "label": "Sheet 1",
+                    "metadata": [
+                        {
+                            "label": "Item Description",
+                            "value": "Front",
+                            "field": "istruct_caption_item_description"
+                        }
+                    ],
+                    "images": [
+                        {
+                            "@id": "https://quod.lib.umich.edu/cgi/i/image/api/image/clark1ic:010356232:39015091191992_01/imageanno/0",
+                            "@type": "oa:Annotation",
+                            "motivation": "sc:painting",
+                            "on": "https://quod.lib.umich.edu/cgi/i/image/api/manifest/clark1ic:010356232:39015091191992_01/canvas/0",
+                            "resource": {
+                                "@id": "http://127.0.0.1:9001/iiif/data/c8b46b52-0846-4abb-ba56-b484064f84ac/c8b46b52-0846-4abb-ba56-b484064f84ac-1.tif/full/full/0/default.jpg",
+                                "@type": "dctypes:Image",
+                                "format": "image/jpeg",
+                                "height": 7280,
+                                "width": 8824,
+                                "service": {
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "@id": "https://quod.lib.umich.edu/cgi/i/image/api/image/clark1ic:010356232:39015091191992_01",
+                                    "profile": "http://iiif.io/api/image/2/level1.json"
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "@id": "https://quod.lib.umich.edu/cgi/i/image/api/manifest/clark1ic:010356232:39015091191992_02/canvas/1",
+                    "@type": "sc:Canvas",
+                    "height": 7280,
+                    "width": 8800,
+                    "label": "Sheet 2",
+                    "metadata": [
+                        {
+                            "label": "Item Description",
+                            "value": "Back",
+                            "field": "istruct_caption_item_description"
+                        }
+                    ],
+                    "images": [
+                        {
+                            "@id": "https://quod.lib.umich.edu/cgi/i/image/api/image/clark1ic:010356232:39015091191992_02/imageanno/1",
+                            "@type": "oa:Annotation",
+                            "motivation": "sc:painting",
+                            "on": "https://quod.lib.umich.edu/cgi/i/image/api/manifest/clark1ic:010356232:39015091191992_02/canvas/1",
+                            "resource": {
+                                "@id": "http://127.0.0.1:9001/iiif/data/c8b46b52-0846-4abb-ba56-b484064f84ac/c8b46b52-0846-4abb-ba56-b484064f84ac-2.tif/full/full/0/default.jpg",
+                                "@type": "dctypes:Image",
+                                "format": "image/jpeg",
+                                "height": 7280,
+                                "width": 8800,
+                                "service": {
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "@id": "https://quod.lib.umich.edu/cgi/i/image/api/image/clark1ic:010356232:39015091191992_02",
+                                    "profile": "http://iiif.io/api/image/2/level1.json"
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "generatedDate": "2024-08-10T10:51:24-04:00"
+}

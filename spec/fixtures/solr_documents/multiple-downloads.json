@@ -38,7 +38,7 @@
   "dct_accessRights_s": "Public",
   "dct_format_s": "Shapefile",
   "gbl_wxsIdentifier_s": "gbl:cugir-007950",
-  "dct_references_s": "{\"http://schema.org/downloadUrl\":[{\"url\":\"https://cugir-data.s3.amazonaws.com/00/79/50/cugir-007950.zip\",\"label\":\"Shapefile\"},{\"url\":\"https://cugir-data.s3.amazonaws.com/00/79/50/agBROO.pdf\",\"label\":\"PDF\"},{\"url\":\"https://cugir-data.s3.amazonaws.com/00/79/50/agBROO2011.kmz\",\"label\":\"KMZ\"}],\"http://www.opengis.net/cat/csw/csdgm\":\"https://cugir-data.s3.amazonaws.com/00/79/50/fgdc.xml\",\"http://www.w3.org/1999/xhtml\":\"https://cugir-data.s3.amazonaws.com/00/79/50/fgdc.html\",\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"http://127.0.0.1:8080/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"http://127.0.0.1:8080/wms\"}",
+  "dct_references_s": "{\"http://schema.org/downloadUrl\":[{\"url\":\"https://cugir-data.s3.amazonaws.com/00/79/50/cugir-007950.zip\",\"label\":\"Shapefile\"},{\"url\":\"https://cugir-data.s3.amazonaws.com/00/79/50/agBROO.pdf\",\"label\":\"PDF\"},{\"url\":\"https://cugir-data.s3.amazonaws.com/00/79/50/agBROO2011.kmz\",\"label\":\"KMZ\"}],\"http://www.opengis.net/cat/csw/csdgm\":\"https://cugir-data.s3.amazonaws.com/00/79/50/fgdc.xml\",\"http://www.w3.org/1999/xhtml\":\"https://cugir-data.s3.amazonaws.com/00/79/50/fgdc.html\",\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"http://127.0.0.1:9000/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"http://127.0.0.1:9000/wms\"}",
   "id": "cugir-007950",
   "gbl_mdModified_dt": "2021-06-11T18:39:49Z",
   "gbl_mdVersion_s": "Aardvark"

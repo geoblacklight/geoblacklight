@@ -54,7 +54,7 @@
   ],
   "dct_accessRights_s": "Public",
   "dct_format_s": "JPEG",
-  "dct_references_s": "{\"http://schema.org/url\":\"https://quod.lib.umich.edu/c/clark1ic/x-010356232/39015091191992_01\",\"http://iiif.io/api/presentation#manifest\":\"https://quod.lib.umich.edu/cgi/i/image/api/search/clark1ic:010356232\"}",
+  "dct_references_s": "{\"http://schema.org/url\":\"https://quod.lib.umich.edu/c/clark1ic/x-010356232/39015091191992_01\",\"http://iiif.io/api/presentation#manifest\":\"http://127.0.0.1:9002/data/c8b46b52-0846-4abb-ba56-b484064f84ac/c8b46b52-0846-4abb-ba56-b484064f84ac.json\"}",
   "dct_identifier_sm": [
     "c8b46b52-0846-4abb-ba56-b484064f84ac"
   ]

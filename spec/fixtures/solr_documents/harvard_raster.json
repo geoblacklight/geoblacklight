@@ -54,7 +54,7 @@
   "dct_accessRights_s": "Public",
   "dct_format_s": "GeoTIFF",
   "gbl_wxsIdentifier_s": "gbl:G7064_S2_1834_K3",
-  "dct_references_s": "{\"http://www.opengis.net/def/serviceType/ogc/wcs\":\"http://127.0.0.1:8080/geoserver/wcs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"http://127.0.0.1:8080/geoserver/wms\",\"http://www.opengis.net/cat/csw/csdgm\":\"https://raw.githubusercontent.com/OpenGeoMetadata/edu.harvard/master/217/121/227/77/fgdc.xml\"}",
+  "dct_references_s": "{\"http://www.opengis.net/def/serviceType/ogc/wcs\":\"http://127.0.0.1:9000/geoserver/wcs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"http://127.0.0.1:9000/geoserver/wms\",\"http://www.opengis.net/cat/csw/csdgm\":\"https://raw.githubusercontent.com/OpenGeoMetadata/edu.harvard/master/217/121/227/77/fgdc.xml\"}",
   "id": "harvard-g7064-s2-1834-k3",
   "dct_identifier_sm": [
     "urn:hul.harvard.edu:HARVARD.SDE2.G7064_S2_1834_K3"

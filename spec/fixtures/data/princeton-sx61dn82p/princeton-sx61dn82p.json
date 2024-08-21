@@ -1,0 +1,182 @@
+{
+    "@context": "http://iiif.io/api/presentation/2/context.json",
+    "@type": "sc:Manifest",
+    "@id": "http://127.0.0.1:9002/data/princeton-sx61dn82p/princeton-sx61dn82p.json",
+    "label": [
+        "East Asia and Oceania."
+    ],
+    "description": [
+        "United States. Central Intelligence Agency.",
+        "Map no. 802861 (A04678) 4-02."
+    ],
+    "viewingHint": "individuals",
+    "metadata": [
+        {
+            "label": "Title",
+            "value": [
+                {
+                    "@language": "eng",
+                    "@value": "East Asia and Oceania"
+                }
+            ]
+        },
+        {
+            "label": "Type",
+            "value": [
+                "Maps"
+            ]
+        },
+        {
+            "label": "Provenance",
+            "value": [
+                "Princeton"
+            ]
+        },
+        {
+            "label": "Date",
+            "value": [
+                "2002"
+            ]
+        },
+        {
+            "label": "Language",
+            "value": [
+                "English"
+            ]
+        },
+        {
+            "label": "Text Language",
+            "value": [
+                "In English."
+            ]
+        },
+        {
+            "label": "Local Identifier",
+            "value": [
+                "pj0991z37j"
+            ]
+        },
+        {
+            "label": "Publisher",
+            "value": [
+                "[Washington, D.C.] : [Central Intelligence Agency], 2002."
+            ]
+        },
+        {
+            "label": "Subject",
+            "value": [
+                "Asia, east\u2014Maps"
+            ]
+        },
+        {
+            "label": "Cartographic Scale",
+            "value": [
+                "Scale 1:18000000"
+            ]
+        },
+        {
+            "label": "Source Metadata Identifier",
+            "value": [
+                "9968293203506421"
+            ]
+        },
+        {
+            "label": "Call Number",
+            "value": [
+                "G7801.F1.2002.C4I5"
+            ]
+        },
+        {
+            "label": "Location",
+            "value": [
+                "SCIMC G7801.F1.2002.C4I5"
+            ]
+        },
+        {
+            "label": "Downloadable",
+            "value": [
+                "public"
+            ]
+        },
+        {
+            "label": "Held By",
+            "value": [
+                "Princeton"
+            ]
+        },
+        {
+            "label": "Ark",
+            "value": [
+                "http://arks.princeton.edu/ark:/88435/sx61dn82p"
+            ]
+        }
+    ],
+    "sequences": [
+        {
+            "@type": "sc:Sequence",
+            "@id": "https://figgy.princeton.edu/concern/scanned_maps/0c2e1053-22ef-409e-ad9a-7a4709a5efcb/manifest/sequence/normal",
+            "canvases": [
+                {
+                    "@type": "sc:Canvas",
+                    "@id": "https://figgy.princeton.edu/concern/scanned_maps/0c2e1053-22ef-409e-ad9a-7a4709a5efcb/manifest/canvas/a990e1b4-7f0e-44b8-ae2a-de7e93cdd74a",
+                    "label": "Sheet 9999997",
+                    "local_identifier": "pn009zq424",
+                    "rendering": [
+                        {
+                            "@id": "http://127.0.0.1:9002/data/princeton-sx61dn82p/princeton-sx61dn82p.tif",
+                            "label": "Download the original file",
+                            "format": "image/tiff"
+                        }
+                    ],
+                    "width": 17003,
+                    "height": 13456,
+                    "images": [
+                        {
+                            "@type": "oa:Annotation",
+                            "motivation": "sc:painting",
+                            "resource": {
+                                "@type": "dctypes:Image",
+                                "@id": "http://127.0.0.1:9001/iiif/data/princeton-sx61dn82p/princeton-sx61dn82p.tif/full/1000,/0/default.jpg",
+                                "height": 13456,
+                                "width": 17003,
+                                "format": "image/jpeg",
+                                "service": {
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "@id": "http://127.0.0.1:9001/iiif/data/princeton-sx61dn82p/princeton-sx61dn82p.tif",
+                                    "profile": "http://iiif.io/api/image/2/level2.json"
+                                }
+                            },
+                            "@id": "https://figgy.princeton.edu/concern/scanned_maps/0c2e1053-22ef-409e-ad9a-7a4709a5efcb/manifest/image/a990e1b4-7f0e-44b8-ae2a-de7e93cdd74a",
+                            "on": "https://figgy.princeton.edu/concern/scanned_maps/0c2e1053-22ef-409e-ad9a-7a4709a5efcb/manifest/canvas/a990e1b4-7f0e-44b8-ae2a-de7e93cdd74a"
+                        }
+                    ]
+                }
+            ],
+            "viewingHint": "individuals"
+        }
+    ],
+    "structures": [
+        {
+            "@type": "sc:Range",
+            "@id": "https://figgy.princeton.edu/concern/scanned_maps/0c2e1053-22ef-409e-ad9a-7a4709a5efcb/manifest/range/r18cb1acf-dedf-4900-8f19-f3686e99e87e",
+            "label": "",
+            "viewingHint": "top",
+            "ranges": [],
+            "canvases": []
+        }
+    ],
+    "license": "http://rightsstatements.org/vocab/NKC/1.0/",
+    "thumbnail": {
+        "@id": "http://127.0.0.1:9001/iiif/data/princeton-sx61dn82p/princeton-sx61dn82p.tif/full/!200,150/0/default.jpg",
+        "service": {
+            "@context": "http://iiif.io/api/image/2/context.json",
+            "@id": "http://127.0.0.1:9001/iiif/data/princeton-sx61dn82p/princeton-sx61dn82p.tif",
+            "profile": "http://iiif.io/api/image/2/level2.json"
+        }
+    },
+    "rendering": {
+        "@id": "http://arks.princeton.edu/ark:/88435/sx61dn82p",
+        "format": "text/html"
+    },
+    "logo": "https://figgy.princeton.edu/assets/pul_logo_icon-5333765252f2b86e34cd7c096c97e79495fe4656c5f787c5510a84ee6b67afd8.png"
+}
