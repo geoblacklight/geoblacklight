@@ -27,6 +27,11 @@ module Geoblacklight
         run "yarn link @geoblacklight/frontend" if options[:test]
       end
 
+      # Workaround for https://github.com/projectblacklight/blacklight/pull/3285
+      def update_blacklight_frontend
+        run "yarn add blacklight-frontend@8.3"
+      end
+
       # Add the customization overrides and insert before bootstrap import
       def add_customizations
         copy_file "assets/_customizations.scss", "app/assets/stylesheets/_customizations.scss"
@@ -38,9 +43,11 @@ module Geoblacklight
       def add_leaflet_ol_css_cdn
         insert_into_file "app/assets/stylesheets/application.bootstrap.scss", before: "@import 'customizations';\n" do
           <<~SCSS
+            /* GeoBlacklight dependencies CSS */
             @import url("https://cdn.skypack.dev/leaflet@1.9.4/dist/leaflet.css");
             @import url("https://cdn.jsdelivr.net/npm/leaflet-fullscreen@1.0.2/dist/leaflet.fullscreen.css");
             @import url("https://cdn.skypack.dev/ol@8.1.0/ol.css");
+
           SCSS
         end
       end
@@ -69,6 +76,11 @@ module Geoblacklight
             pin "@popperjs/core", to: "https://ga.jspm.io/npm:@popperjs/core@2.11.8/dist/umd/popper.min.js"
           CONTENT
         end
+      end
+
+      # Run the build so styles are available for the first load of the app
+      def build_styles
+        run "yarn build:css"
       end
     end
   end

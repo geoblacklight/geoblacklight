@@ -23,7 +23,7 @@
     "@hotwired/stimulus": "^3.2.2",
     "@popperjs/core": "^2.11.8",
     "@samvera/clover-iiif": "^2.3.2",
-    "blacklight-frontend": "^7.38.0",
+    "blacklight-frontend": "^8.3.0",
     "bootstrap": "^5.3.3",
     "esri-leaflet": "^3.0.12",
     "leaflet": "^1.9.4",
