@@ -5,7 +5,7 @@ require "spec_helper"
 feature "Leaflet fullscreen control", js: true do
   scenario "WMS layer should have full screen control" do
     visit solr_document_path("stanford-cz128vq0535")
-    expect(page).to have_css(".leaflet-control-fullscreen-button")
+    expect(page).to have_css(".leaflet-control-fullscreen-button", visible: :all)
   end
 end
 
