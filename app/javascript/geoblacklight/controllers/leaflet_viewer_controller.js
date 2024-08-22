@@ -6,6 +6,7 @@ import { Controller } from "@hotwired/stimulus";
 import basemaps from "geoblacklight/leaflet/basemaps";
 import LayerOpacityControl from "geoblacklight/leaflet/controls/layer_opacity";
 import GeoSearchControl from "geoblacklight/leaflet/controls/geosearch";
+import Sleep from "geoblacklight/leaflet/controls/sleep";
 import { wmsInspection,
   tiledMapLayerInspection,
   featureLayerInspection,
@@ -65,7 +66,10 @@ export default class LeafletViewerController extends Controller {
     if (this.map) return;
 
     // Set up the map and fit to bounds
-    this.map = map(this.element);
+    const sleepSettings = this.optionsValue.SLEEP || { 'SLEEP' : false }
+    this.map = map(this.element, sleepSettings);
+    if (sleepSettings.SLEEP) this.map.addHandler('SLEEP', Sleep);
+
     this.map.addLayer(this.basemap);
     this.map.addLayer(this.overlay);
     this.fitBounds(this.bounds);
