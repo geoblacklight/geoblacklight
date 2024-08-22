@@ -153,7 +153,8 @@ export default class LeafletViewerController extends Controller {
   addBoundsOverlay(bounds) {
     const hasMapGeomValue = Object.keys(this.mapGeomValue).length > 0;
     var defaultOptions = hasMapGeomValue ? DEFAULT_GEOM_OVERLAY_OPTIONS : {};
-    const options = {...defaultOptions, ...this.optionsValue.BOUNDSOVERLAY[this.pageValue]}
+    const overlayOptions = this.optionsValue.BOUNDSOVERLAY || {};
+    const options = {...defaultOptions, ...overlayOptions[this.pageValue]}
     const boundsOverlay = polygon([
       bounds.getSouthWest(),
       bounds.getSouthEast(),
