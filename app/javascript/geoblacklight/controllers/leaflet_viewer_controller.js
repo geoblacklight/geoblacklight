@@ -151,7 +151,7 @@ export default class LeafletViewerController extends Controller {
 
   // Add the bounding box to the map
   addBoundsOverlay(bounds) {
-    const hasMapGeomValue = Object.keys(this.mapGeomValue).length > 0;
+    const hasMapGeomValue = Object.keys(this.mapGeomValue).length > 0 && !this.map.geosearch;
     var defaultOptions = hasMapGeomValue ? DEFAULT_GEOM_OVERLAY_OPTIONS : {};
     const options = {...defaultOptions, ...this.optionsValue.BOUNDSOVERLAY[this.pageValue]}
     const boundsOverlay = polygon([
