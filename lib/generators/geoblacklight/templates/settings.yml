@@ -245,6 +245,13 @@ LEAFLET:
     STATIC_MAP:
       color: '#3388ff'
   SELECTED_COLOR: "#2C7FB8"
+  SLEEP:
+    SLEEP: false
+    SLEEPTIME: 750
+    WAKETIME: 750
+    HOVERTOWAKE: true
+    MESSAGE: 'Click or Hover to Wake'
+    BACKGROUND: 'rgba(214, 214, 214, .7)'
   LAYERS:
     DETECT_RETINA: true
     INDEX:
