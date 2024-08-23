@@ -1,30 +1,8 @@
 #document {
   .document-metadata.dl-invert {
-     dt {
+    dt {
       font-weight: bold;
     }
-  }
-
-  #viewer-container {
-    .viewer {
-      border: 1px solid $gray-400;
-      min-height: 27.5rem;
-
-      // Ensure embeds, openlayers viewer, and IIIF viewer fit their container
-      iframe, .ol-viewport, .clover-iiif-image-openseadragon {
-        min-height: 27.5rem;
-      }
-    }
-
-    [data-inspect="true"][data-available="true"] {
-      cursor: crosshair;
-
-      // set cursor for feature layer svg elements
-      .leaflet-clickable {
-        cursor: crosshair;
-      }
-    }
-    margin-bottom: 1rem;
   }
 
   .help-text {
@@ -43,8 +21,8 @@
     -webkit-line-clamp: 8;
   }
 
-  #table-container{
-    overflow:scroll;
+  #table-container {
+    overflow: scroll;
     max-height: 450px;
     margin-bottom: 1rem;
 
