@@ -9,7 +9,7 @@
   position: relative;
   top: 15px;
   width: 5px;
-  
+
   .opacity-handle {
     background-color: #fff;
     border-radius: 4px;
@@ -23,13 +23,13 @@
     text-align: center;
     top: 0;
     width: 26px;
-    @include map-control-shadow;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
     
     &:hover {
       background-color: #f4f4f4;
     }
   }
-  
+
   .opacity-arrow-up {
     color: #aaa;
     position: absolute;
