@@ -11,12 +11,6 @@ $logo-image: image_url("blacklight/logo.svg") !default;
   }
 }
 
-.blacklight-icons-iiif-drag-drop,
-.blacklight-icons-iiif-drag-drop svg {
-  height: 2rem;
-  width: 2rem;
-}
-
 // Begin - Addresses GBL issue #639
 .facet-limit {
   margin-bottom: 0;

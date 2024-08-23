@@ -46,6 +46,12 @@ span.icon-missing {
   }
 }
 
+.blacklight-icons-iiif-drag-drop,
+.blacklight-icons-iiif-drag-drop svg {
+  height: 2rem;
+  width: 2rem;
+}
+
 // Begin - Addresses GBL issue #634
 // Emulates font-size for SVG icons and aligns to baseline
 .status-icons,
