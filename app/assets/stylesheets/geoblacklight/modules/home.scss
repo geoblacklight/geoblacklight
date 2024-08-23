@@ -5,7 +5,7 @@
     .leaflet-control-container {
       .search-control {
         a {
-          color: $white;
+          color: var(--bs-btn-color); /* override of leaflet.css */
         }
       }
     }

@@ -2,39 +2,41 @@
   Stylesheet for overriding styles inherited from Blacklight proper
 **/
 
-$logo-image: image_url('blacklight/logo.svg') !default;
+$logo-image: image_url("blacklight/logo.svg") !default;
 
-.navbar-logo {  /* The main logo image for the Blacklight instance */
+.navbar-logo {
+  /* The main logo image for the Blacklight instance */
   @if $logo-image {
     background: transparent $logo-image no-repeat top left;
   }
 }
 
-.blacklight-icons-iiif-drag-drop, .blacklight-icons-iiif-drag-drop svg {
+.blacklight-icons-iiif-drag-drop,
+.blacklight-icons-iiif-drag-drop svg {
   height: 2rem;
   width: 2rem;
 }
 
 // Begin - Addresses GBL issue #639
 .facet-limit {
-  margin-bottom:0;
+  margin-bottom: 0;
 }
 
-.facets-collapse .card+.card {
+.facets-collapse .card + .card {
   margin-top: 0.5rem;
 }
 
 .documents-list .document {
-  margin-top:0.5rem;
-  padding-top:0.5rem;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
   border-bottom: 0;
 }
 // End - Addresses GBL issue #639
 
 // Round the left end of the search bar since we don't have a dropdown there
 auto-complete {
-  border-top-left-radius: $border-radius !important;
-  border-bottom-left-radius: $border-radius !important;
+  border-top-left-radius: var(--bs-border-radius) !important;
+  border-bottom-left-radius: var(--bs-border-radius) !important;
 }
 
 // Add a bit of padding to the main container
