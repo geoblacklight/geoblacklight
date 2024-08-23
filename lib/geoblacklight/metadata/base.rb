@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "geo_combine"
+
 module Geoblacklight
   module Metadata
     ##
