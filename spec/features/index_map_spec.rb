@@ -12,9 +12,10 @@ feature "Index map", js: true do
     expect(page).to have_css ".leaflet-overlay-pane svg"
     within "#leaflet-viewer" do
       expect(page).to have_css "svg g path:nth-child(2)[fill='#{default_color}']"
-      find("svg g path:nth-child(2)").click
+      # For x/y click location, See https://danielabaron.me/blog/capybara-selenium-webdriver-element-not-clickable/#solution
+      find("svg g path:nth-child(2)").click(x: 1, y: 1)
       expect(page).to have_css "svg g path:nth-child(2)[fill='#{selected_color}']"
-      first("svg g path").click
+      first("svg g path").click(x: 1, y: 1)
       expect(page).to have_css "svg g path:nth-child(2)[fill='#{default_color}']"
     end
   end
@@ -25,9 +26,9 @@ feature "Index map", js: true do
     expect(page).to have_css ".leaflet-overlay-pane svg"
     within "#leaflet-viewer" do
       expect(page).to have_css "svg g path:nth-child(2)[fill='#{default_color}']"
-      find("svg g path:nth-child(2)").click
+      find("svg g path:nth-child(2)").click(x: 1, y: 1)
       expect(page).to have_css "svg g path:nth-child(2)[fill='#{selected_color}']"
-      first("svg g path").click
+      first("svg g path").click(x: 1, y: 1)
       expect(page).to have_css "svg g path:nth-child(2)[fill='#{default_color}']"
     end
   end
