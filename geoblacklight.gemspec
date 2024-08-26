@@ -34,7 +34,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec-rails"
   spec.add_development_dependency "engine_cart", "~> 2.0"
   spec.add_development_dependency "capybara", ">= 2.5.0"
-  spec.add_development_dependency "webdrivers"
+  spec.add_development_dependency "selenium-webdriver"
   spec.add_development_dependency "factory_bot_rails"
   spec.add_development_dependency "simplecov", "~> 0.22"
   spec.add_development_dependency "foreman"

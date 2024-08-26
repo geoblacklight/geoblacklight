@@ -30,7 +30,6 @@ require "rails-controller-testing" if Rails::VERSION::MAJOR >= 5
 require "rspec/rails"
 require "capybara/rspec"
 require "selenium-webdriver"
-require "webdrivers"
 
 # Setup webmock for specific tests
 require "webmock/rspec"
