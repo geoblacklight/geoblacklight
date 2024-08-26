@@ -16,8 +16,8 @@ feature "Accessibility testing", js: true do
     end
 
     it "validates an item page with relationships" do
-      visit solr_document_path("all-relationships")
-      sleep 0.5 # wait for relationships to be fully visible / faded in
+      visit solr_document_path("nyu_2451_34502")
+      sleep 5 # wait for relationships to be fully visible / faded in
       expect(page).to be_accessible
     end
 
@@ -53,7 +53,7 @@ feature "Accessibility testing", js: true do
     end
 
     it "validates an bookmarks page" do
-      visit solr_document_path("all-relationships")
+      visit solr_document_path("nyu_2451_34502")
       find(".checkbox.toggle-bookmark").click
       visit "/bookmarks"
       expect(page).to be_accessible
