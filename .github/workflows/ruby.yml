@@ -39,8 +39,15 @@ jobs:
       matrix:
         ruby_version: ["3.2", "3.3"]
         rails_version: ["7.0.8.4", "7.1.3.4", "7.2.0"]
+        asset_pipeline: ["vite"]
+        additional_engine_cart_rails_options: [""]
+        include:
+          - ruby_version: "3.2"
+            rails_version: "7.1.3.4"
+            additional_engine_cart_rails_options: "--css bootstrap"
+            asset_pipeline: "importmap"
 
-    name: test ruby ${{ matrix.ruby_version }} / rails ${{ matrix.rails_version }}
+    name: test ruby ${{ matrix.ruby_version }} / rails ${{ matrix.rails_version }} / ${{ matrix.asset_pipeline }}
     steps:
       - uses: actions/checkout@v2
       - name: Set up Ruby
@@ -65,7 +72,8 @@ jobs:
         run: bundle exec rake ci
         env:
           RAILS_VERSION: ${{ matrix.rails_version }}
-          ENGINE_CART_RAILS_OPTIONS: "--skip-git --skip-keeps --skip-action-cable --skip-test -a propshaft"
+          ASSET_PIPELINE: ${{ matrix.asset_pipeline }}
+          ENGINE_CART_RAILS_OPTIONS: "--skip-git --skip-keeps --skip-action-cable --skip-test -a propshaft ${{ matrix.additional_engine_cart_rails_options }}"
           SOLR_URL: http://solr:SolrRocks@localhost:8983/solr/blacklight-core
       - name: Upload coverage artifacts
         uses: actions/upload-artifact@v2
