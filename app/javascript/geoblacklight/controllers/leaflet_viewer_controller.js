@@ -164,7 +164,7 @@ export default class LeafletViewerController extends Controller {
     );
     
     // Render geometry layer if available
-    if (hasMapGeomValue) this.map.addLayer(L.geoJSON(this.mapGeomValue));
+    if (hasMapGeomValue) this.map.addLayer(L.geoJSON(this.mapGeomValue, overlayOptions[this.pageValue]));
 
     // Render the bounds overlay
     this.boundsOverlay = boundsOverlay;
