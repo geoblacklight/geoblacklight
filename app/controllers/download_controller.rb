@@ -6,7 +6,7 @@ class DownloadController < ApplicationController
 
   rescue_from Geoblacklight::Exceptions::ExternalDownloadFailed do |exception|
     Geoblacklight.logger.error exception.message + " " + exception.url
-    flash[:danger] = view_context
+    flash.now[:danger] = view_context
       .tag.span(t("geoblacklight.download.error"),
         data: {
           download: "error",
@@ -42,9 +42,9 @@ class DownloadController < ApplicationController
     if params[:email]
       response = Geoblacklight::HglDownload.new(@document, params[:email]).get
       if response.nil?
-        flash[:danger] = t "geoblacklight.download.error"
+        flash.now[:danger] = t "geoblacklight.download.error"
       else
-        flash[:success] = t "geoblacklight.download.hgl_success"
+        flash.now[:success] = t "geoblacklight.download.hgl_success"
       end
       respond_to do |format|
         format.json { render json: flash, response: response }
@@ -75,7 +75,7 @@ class DownloadController < ApplicationController
   end
 
   def validate(response)
-    flash[:success] = view_context.link_to(t("geoblacklight.download.success", title: response),
+    flash.now[:success] = view_context.link_to(t("geoblacklight.download.success", title: response),
       download_file_path(response),
       data: {download: "trigger",
              download_id: params[:id],
