@@ -1,8 +1,0 @@
-javascript:
-  config_file: .jshintrc
-  ignore_file: .jshintignore
-scss:
-  exclude:
-    - 'vendor/assets/stylesheets/**'
-ruby:
-  config_file: .rubocop.yml
