@@ -105,7 +105,7 @@ module Geoblacklight
       return unless wms.present? && wfs.present?
 
       download_formats = {}
-      format_list = Settings&.DOWNLOAD_FORMATS&.VECTOR || [ "Shapefile" , "KMZ", "GeoJSON"]
+      format_list = Settings&.DOWNLOAD_FORMATS&.VECTOR || ["Shapefile","KMZ","GeoJSON"]
       format_list.each { |format| download_formats.merge!(web_service_hash(format)) }
       download_formats
     end
@@ -113,13 +113,13 @@ module Geoblacklight
     def web_service_hash(format)
       case format
       when "Shapefile"
-        { shapefile: wfs.to_hash }
+        {shapefile: wfs.to_hash}
       when "KMZ"
-        { kmz: wms.to_hash }
+        {kmz: wms.to_hash}
       when "GeoJSON"
-        { geojson: wfs.to_hash }
+        {geojson: wfs.to_hash}
       when "CSV"
-        { csv: wfs.to_hash }
+        {csv: wfs.to_hash}
       else
         {}
       end

@@ -22,7 +22,6 @@
             <% end %>
 
             <% if document.download_types.present? %>
-            <%= document.download_types.to_s %>
             <% document.download_types.each do |type| %>
                 <%= download_link_generated(type.first, document) %>
             <% end %>
