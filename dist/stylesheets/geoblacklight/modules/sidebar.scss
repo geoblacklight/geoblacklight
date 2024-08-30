@@ -1,0 +1,42 @@
+// Mixins and shared properties for sidebar elements
+@mixin sidebar-children {
+  margin-bottom: 20px;
+  margin-top: 20px;
+
+  .card-header h2 {
+    @extend .h6;
+    margin-bottom: 0px;
+  }
+
+  .card-subtitle {
+    margin: 1rem 0 0;
+    font-size: 1rem;
+    font-weight: normal;
+  }
+
+  .list-group {
+     border: 0;
+     margin: 8px 0;
+
+    .list-group-item {
+      border: 0;
+      padding: 0 0 0 20px;
+
+      a {
+        display: block;
+      }
+    }
+  }
+}
+
+.card.relations {
+  margin-bottom: 20px;
+}
+
+.page-sidebar .viewer {
+  height: 280px;
+  
+  .leaflet-control-attribution {
+    display: none;
+  }
+}

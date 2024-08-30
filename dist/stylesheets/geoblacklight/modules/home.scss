@@ -1,0 +1,13 @@
+#main-container {
+  .leaflet-container {
+    height: 400px;
+
+    .leaflet-control-container {
+      .search-control {
+        a {
+          color: $white;
+        }
+      }
+    }
+  }
+}

@@ -16,6 +16,7 @@ en:
       export_kmz_link: 'KMZ'
       export_geojson_link: 'GeoJSON'
       export_geotiff_link: 'GeoTIFF'
+      export_csv_link: 'CSV'
     home:
       headline: 'Explore and discover...'
       search_heading: 'Find the maps and data you need'
@@ -37,6 +38,7 @@ en:
       kmz: 'KMZ'
       shapefile: 'Shapefile'
       jpg: 'JPG'
+      csv: 'CSV'
       esri_geodatabase: 'ESRI Geodatabase'
       sqlite_database: 'SQLite Database'
     map:

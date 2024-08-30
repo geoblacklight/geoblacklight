@@ -1,0 +1,55 @@
+#document {
+  .document-metadata.dl-invert {
+     dt {
+      font-weight: bold;
+    }
+  }
+
+  #viewer-container {
+    .viewer {
+      border: 1px solid $gray-400;
+      min-height: 27.5rem;
+
+      // Ensure embeds, openlayers viewer, and IIIF viewer fit their container
+      iframe, .ol-viewport, .clover-iiif-image-openseadragon {
+        min-height: 27.5rem;
+      }
+    }
+
+    [data-inspect="true"][data-available="true"] {
+      cursor: crosshair;
+
+      // set cursor for feature layer svg elements
+      .leaflet-clickable {
+        cursor: crosshair;
+      }
+    }
+    margin-bottom: 1rem;
+  }
+
+  .help-text {
+    cursor: pointer;
+  }
+
+  .truncate-abstract.collapse:not(.show),
+  .truncate-abstract.collapsing {
+    display: block;
+    display: -webkit-box;
+    height: auto;
+    min-height: #{8 * $line-height-base}rem;
+    max-height: #{8 * $line-height-base}rem;
+    overflow-y: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 8;
+  }
+
+  #table-container{
+    overflow:scroll;
+    max-height: 450px;
+    margin-bottom: 1rem;
+
+    table {
+      margin-bottom: 0px;
+    }
+  }
+}

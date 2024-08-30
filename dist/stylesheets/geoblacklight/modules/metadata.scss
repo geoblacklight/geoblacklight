@@ -1,0 +1,31 @@
+/**
+ * Rules for the geospatial metadata Bootstrap Modal dialog
+ */
+.modal-dialog.metadata-modal {
+  width: 90%;
+}
+
+.metadata-body.modal-body {
+  overflow-y: scroll;
+  height: calc(100vh - 190px);
+
+  .metadata-view {
+    .nav-pills {
+      text-align: center;
+
+      li {
+        float: none;
+        display: inline-block;
+      }
+    }
+
+    // Begin - Addresses GBL issue #766 - adds space betwwen the links in the metadata modal
+    .nav>li>a {
+      position: relative;
+      display: block;
+      padding: 10px 15px;
+    }
+    //End - Addresses GBL issue #766
+
+  }
+}

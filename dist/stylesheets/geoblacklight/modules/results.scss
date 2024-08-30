@@ -1,0 +1,57 @@
+[data-page="index"], [data-page="bookmarks"] {
+  height: 480px;
+}
+
+.more-info-area {
+  max-height: 100px;
+  overflow:hidden;
+  padding-left: 2ch;
+  border-bottom: 1px dotted $gray-300 !important;
+}
+
+.documents-list {
+  @extend .mb-4;
+}
+
+.index-split {
+  .index_title {
+    display: flex;
+    font-size: 1rem;
+    padding-right: 0;
+  }
+
+  .document-counter {
+    @extend .pe-1;
+  }
+
+  // rotate BS5's default caret
+  .dropdown-toggle:after {
+    transform: rotate(-90deg); 
+  }
+
+  .dropdown-toggle[aria-expanded="true"]:after {
+    transform: rotate(0deg); 
+  }
+
+  .status-icons {
+    cursor: pointer;
+    margin-left: 0.5rem;
+    margin-top: -3px;
+    white-space: nowrap;
+    z-index: 2; // get the icons above the toggle
+  }
+}
+
+#main-container {
+  .viewer[data-page="index"] {
+    height: 400px;
+
+    .leaflet-control-container {
+      .search-control {
+        a {
+          color: $white;
+        }
+      }
+    }
+  }
+}

@@ -103,11 +103,32 @@ module Geoblacklight
     # @return (see #downloads_by_format)
     def vector_download_formats
       return unless wms.present? && wfs.present?
-      {
-        shapefile: wfs.to_hash,
-        kmz: wms.to_hash,
-        geojson: wfs.to_hash
-      }
+
+      download_formats = {}
+      
+      format_list = Settings&.DOWNLOAD_FORMATS&.VECTOR || [ "Shapefile" , "KMZ", "GeoJSON"]
+      Rails.logger.info("-----> FORMAT LIST")
+      Rails.logger.info(format_list)
+      format_list.each { |format| 
+        download_formats.merge!(web_service_hash(format)) }
+
+      Rails.logger.info(download_formats)
+      download_formats
+    end
+
+    def web_service_hash(format)
+      case format
+      when "Shapefile"
+        { shapefile: wfs.to_hash }
+      when "KMZ"
+        { kmz: wms.to_hash }
+      when "GeoJSON"
+        { geojson: wfs.to_hash }
+      when "CSV"
+        { csv: wfs.to_hash }
+      else
+        {}
+      end
     end
 
     ##
