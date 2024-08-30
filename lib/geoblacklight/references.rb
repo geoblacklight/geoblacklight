@@ -105,14 +105,8 @@ module Geoblacklight
       return unless wms.present? && wfs.present?
 
       download_formats = {}
-      
       format_list = Settings&.DOWNLOAD_FORMATS&.VECTOR || [ "Shapefile" , "KMZ", "GeoJSON"]
-      Rails.logger.info("-----> FORMAT LIST")
-      Rails.logger.info(format_list)
-      format_list.each { |format| 
-        download_formats.merge!(web_service_hash(format)) }
-
-      Rails.logger.info(download_formats)
+      format_list.each { |format| download_formats.merge!(web_service_hash(format)) }
       download_formats
     end
 
