@@ -209,22 +209,40 @@ describe Geoblacklight::References do
     end
   end
   describe "downloads_by_format" do
-    it "returns shapefile" do
-      expect(typical_ogp_shapefile.downloads_by_format.count).to eq 3
+    context "using default settings for vector download formats" do
+      it "returns shapefile" do
+        expect(typical_ogp_shapefile.downloads_by_format.count).to eq 3
+      end
+      it "returns geotiff" do
+        expect(typical_ogp_geotiff.downloads_by_format.count).to eq 1
+        expect(typical_ogp_geotiff.downloads_by_format[:geotiff][:wms]).to eq "http://hgl.harvard.edu:8080/geoserver/wms"
+      end
+      it "returns arcgrid as geotiff" do
+        expect(typical_arcgrid.downloads_by_format.count).to eq 1
+        expect(typical_arcgrid.downloads_by_format[:geotiff][:wms]).to eq "http://hgl.harvard.edu:8080/geoserver/wms"
+      end
+      it "does not return shapefile if wms and wfs are not present" do
+        expect(no_service_shapefile.downloads_by_format).to be_nil
+      end
+      it "does not return GeoTIFF if wms is not present" do
+        expect(direct_download_only.downloads_by_format).to be_nil
+      end
     end
-    it "returns geotiff" do
-      expect(typical_ogp_geotiff.downloads_by_format.count).to eq 1
-      expect(typical_ogp_geotiff.downloads_by_format[:geotiff][:wms]).to eq "http://hgl.harvard.edu:8080/geoserver/wms"
+    context "using custom settings including CSV for vector download formats" do
+      before do
+        allow(typical_ogp_shapefile).to receive(:format_list).and_return(["CSV"])
+      end
+      it "returns CSV" do
+        expect(typical_ogp_shapefile.downloads_by_format.count).to eq 1
+      end
     end
-    it "returns arcgrid as geotiff" do
-      expect(typical_arcgrid.downloads_by_format.count).to eq 1
-      expect(typical_arcgrid.downloads_by_format[:geotiff][:wms]).to eq "http://hgl.harvard.edu:8080/geoserver/wms"
-    end
-    it "does not return shapefile if wms and wfs are not present" do
-      expect(no_service_shapefile.downloads_by_format).to be_nil
-    end
-    it "does not return GeoTIFF if wms is not present" do
-      expect(direct_download_only.downloads_by_format).to be_nil
+    context "using custom settings which include incorrect settings" do
+      before do
+        allow(typical_ogp_shapefile).to receive(:format_list).and_return(["noformat"])
+      end
+      it "returns no formats for download" do
+        expect(typical_ogp_shapefile.downloads_by_format.count).to eq 0
+      end
     end
   end
 end
