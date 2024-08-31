@@ -4,6 +4,7 @@ module Geoblacklight
   # References is a geoblacklight-schema dct:references parser
   class References
     attr_reader :refs, :reference_field
+
     def initialize(document, reference_field = Settings.FIELDS.REFERENCES)
       @document = document
       @reference_field = reference_field
@@ -72,9 +73,9 @@ module Geoblacklight
     ##
     # Returns all of the Esri webservices for given set of references
     def esri_webservices
-      %w[tiled_map_layer dynamic_map_layer feature_layer image_map_layer].map do |layer_type|
+      %w[tiled_map_layer dynamic_map_layer feature_layer image_map_layer].filter_map do |layer_type|
         send(layer_type)
-      end.compact
+      end
     end
 
     private
@@ -105,9 +106,12 @@ module Geoblacklight
       return unless wms.present? && wfs.present?
 
       download_formats = {}
-      format_list = Settings&.DOWNLOAD_FORMATS&.VECTOR || ["Shapefile","KMZ","GeoJSON"]
       format_list.each { |format| download_formats.merge!(web_service_hash(format)) }
       download_formats
+    end
+
+    def format_list
+      Settings.DOWNLOAD_FORMATS&.VECTOR || %w[Shapefile KMZ GeoJSON]
     end
 
     def web_service_hash(format)
