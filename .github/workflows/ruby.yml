@@ -54,20 +54,14 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby_version }}
-      - name: Create Solr container
-        run: docker run -d -p 8983:8983 ghcr.io/geoblacklight/solr:latest server/scripts/ci-start.sh
+      - name: Run docker compose
+        run: docker compose up -d
       - name: Install dependencies
         run: bundle install
         env:
           RAILS_VERSION: ${{ matrix.rails_version }}
       - name: Setup Yarn
         run: exec "yarnpkg"
-      - name: Load config into solr
-        run: |
-          cd solr/conf
-          zip -1 -r solr_config.zip ./*
-          curl -H "Content-type:application/octet-stream" --data-binary @solr_config.zip "http://solr:SolrRocks@127.0.0.1:8983/solr/admin/configs?action=UPLOAD&name=blacklight"
-          curl -H 'Content-type: application/json' http://solr:SolrRocks@127.0.0.1:8983/api/collections/ -d '{"name": "blacklight-core", "config": "blacklight", "numShards": 1}'
       - name: Run tests
         run: bundle exec rake ci
         env:
