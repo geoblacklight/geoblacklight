@@ -26,7 +26,7 @@ module Geoblacklight
 
     # Add top-level geosearch control to leaflet options if configured
     def leaflet_options
-      options = helpers.leaflet_options
+      options = helpers.leaflet_options.deep_dup
       options["CONTROLS"] = {"Geosearch" => @geosearch} if @geosearch
       options.to_json
     end
