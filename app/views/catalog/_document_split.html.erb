@@ -6,12 +6,12 @@
     data-action="leaflet-viewer:loaded@window->search-results#fitResultBounds"
     data-search-results-leaflet-viewer-outlet=".leaflet-viewer"
     >
-    <turbo-frame id="documents-frame">
+    <div id="documents-container">
       <% document_presenters = documents.map { |doc| document_presenter(doc) } -%>
       <% document_presenters.each_with_index do |presenter, index| %>
         <%= render blacklight_config.index.document_component.new(document: presenter, document_counter: index) %>
       <% end %>
-    </turbo-frame>
+    </div>
   </div>
   <% if results_js_map_selector(controller.controller_name) == "index" %>
     <%= render(Geoblacklight::LocationLeafletMapComponent.new(page: 'index', geosearch: { dynamic: true }, classes: 'col-md-6 sticky-top position-sticky leaflet-viewer')) %>
