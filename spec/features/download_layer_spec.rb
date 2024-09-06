@@ -5,10 +5,12 @@ require "spec_helper"
 feature "Download layer" do
   let(:shapefile_download) { instance_double(Geoblacklight::ShapefileDownload) }
   let(:kmz_download) { instance_double(Geoblacklight::KmzDownload) }
+  let(:csv_download) { instance_double(Geoblacklight::CsvDownload) }
 
   before do
     allow(Geoblacklight::ShapefileDownload).to receive(:new).and_return(shapefile_download)
     allow(Geoblacklight::KmzDownload).to receive(:new).and_return(kmz_download)
+    allow(Geoblacklight::CsvDownload).to receive(:new).and_return(csv_download)
   end
 
   # cleanup any downloaded files
@@ -29,7 +31,9 @@ feature "Download layer" do
   end
 
   scenario "failed download should return message with link to layer", js: true do
-    expect(shapefile_download).to receive(:get).and_raise(Geoblacklight::Exceptions::ExternalDownloadFailed.new(message: "Failed", url: "http://www.example.com/failed"))
+    expect(shapefile_download).to receive(:get).and_raise(Geoblacklight::Exceptions::ExternalDownloadFailed.new(
+      message: "Failed", url: "http://www.example.com/failed"
+    ))
     visit solr_document_path("mit-f6rqs4ucovjk2")
     find("#downloads-button").click
     find('#downloads-collapse a[data-download-type="shapefile"]', text: "Export Shapefile").click
@@ -57,7 +61,9 @@ feature "Download layer" do
   scenario "clicking jpg download button should redirect to external image" do
     visit solr_document_path("princeton-02870w62c")
     find("#downloads-button").click
-    expect(page).to have_css("#downloads-collapse a[href='https://iiif-cloud.princeton.edu/iiif/2/6c%2F52%2F12%2F6c5212e81bc845f59bb1cdc740a88bad%2Fintermediate_file/full/full/0/default.jpg']", text: "Original JPG")
+    expect(page).to have_css(
+      "#downloads-collapse a[href='https://iiif-cloud.princeton.edu/iiif/2/6c%2F52%2F12%2F6c5212e81bc845f59bb1cdc740a88bad%2Fintermediate_file/full/full/0/default.jpg']", text: "Original JPG"
+    )
   end
 
   scenario "options should be available under toggle" do

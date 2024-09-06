@@ -76,5 +76,24 @@ describe DownloadController, type: :controller do
         expect(response.body).to include "Your file file.tiff is ready for download"
       end
     end
+
+    context "when requesting CSV files" do
+      let(:id) { "tufts-cambridgegrid100-04" }
+      let(:type) { "csv" }
+      let(:csv_download) { instance_double(Geoblacklight::CsvDownload) }
+
+      before do
+        allow(csv_download).to receive(:get).and_return("file.csv")
+        allow(Geoblacklight::CsvDownload).to receive(:new).and_return(csv_download)
+      end
+
+      it "downloads the files and notifies the user" do
+        expect(Geoblacklight::CsvDownload).to receive(:new)
+        get :show, params: {id: id, type: type}
+
+        expect(response.body).to include "success"
+        expect(response.body).to include "Your file file.csv is ready for download"
+      end
+    end
   end
 end

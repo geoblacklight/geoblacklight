@@ -53,6 +53,8 @@ class DownloadController < ApplicationController
       Geoblacklight::GeojsonDownload.new(@document).get
     when "geotiff"
       Geoblacklight::GeotiffDownload.new(@document).get
+    when "csv"
+      Geoblacklight::CsvDownload.new(@document).get
     end
   end
 
