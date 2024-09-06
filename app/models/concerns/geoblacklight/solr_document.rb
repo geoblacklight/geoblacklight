@@ -6,7 +6,6 @@ module Geoblacklight
     extend Blacklight::Solr::Document
     extend ActiveSupport::Concern
     include Geoblacklight::SolrDocument::Finder
-    include Geoblacklight::SolrDocument::Carto
     include Geoblacklight::SolrDocument::Inspection
     include Geoblacklight::SolrDocument::Arcgis
     include Geoblacklight::SolrDocument::Citation
