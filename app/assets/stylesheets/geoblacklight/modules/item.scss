@@ -31,6 +31,11 @@
     cursor: pointer;
   }
 
+  // Remove bootstrap transition delay since we're not animating it
+  .truncate-abstract {
+    transition: none;
+  }
+
   .truncate-abstract.collapse:not(.show),
   .truncate-abstract.collapsing {
     display: block;
