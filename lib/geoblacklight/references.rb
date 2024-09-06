@@ -111,7 +111,7 @@ module Geoblacklight
     end
 
     def format_list
-      Settings.DOWNLOAD_FORMATS&.VECTOR || %w[Shapefile KMZ GeoJSON]
+      Settings.DOWNLOAD_FORMATS&.VECTOR
     end
 
     def web_service_hash(format)

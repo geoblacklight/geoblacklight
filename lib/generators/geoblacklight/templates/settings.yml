@@ -222,6 +222,7 @@ DOWNLOAD_FORMATS:
     - 'Shapefile'
     - 'KMZ'
     - 'GeoJSON'
+    - 'CSV'
 
 # WMS Parameters
 WMS_PARAMS:
