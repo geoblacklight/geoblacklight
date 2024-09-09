@@ -2,6 +2,10 @@ import { identifyFeatures } from "esri-leaflet";
 import { appendErrorMessage, appendLoadingMessage, getLayerOpacity, linkify } from "geoblacklight/leaflet/utils";
 
 export const wmsInspection = (map, url, layerId, layer) => {
+  // add crosshair class for map items
+  map.getContainer().classList.add('leaflet-clickable');
+
+  // Inspect on click
   map.on("click", async (e) => {
     const spinner = document.createElement("tbody");
     spinner.className = "attribute-table-body";
@@ -108,6 +112,10 @@ export const tiledMapLayerInspection = (map, layer) => {
 }
 
 export const dynamicMapLayerInspection = (map, layer, layerId) => {
+  // add crosshair class for map items
+  map.getContainer().classList.add('leaflet-clickable');
+
+  // Inspect on click
   map.on("click", (e) => {
     appendLoadingMessage();
 
@@ -138,6 +146,16 @@ export const dynamicMapLayerInspection = (map, layer, layerId) => {
 }
 
 export const featureLayerInspection = (map, layer) => {
+  // add crosshair class for map items
+  layer.on('load', function() {
+    this.eachFeature(function(layer) {
+      var overlay = layer._path ? layer._path : layer._icon;
+      if (overlay) {
+        overlay.classList.add('leaflet-clickable');
+      }
+    });
+  });
+
   // Inspect on click
   layer.on("click", (e) => {
     const distance = 3000 / (1 + map.getZoom());

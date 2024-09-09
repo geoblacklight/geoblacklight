@@ -16,13 +16,9 @@
       }
     }
 
-    [data-inspect="true"][data-available="true"] {
+    // set cursor for inspectable maps
+    .leaflet-clickable {
       cursor: crosshair;
-
-      // set cursor for feature layer svg elements
-      .leaflet-clickable {
-        cursor: crosshair;
-      }
     }
     margin-bottom: 1rem;
   }
