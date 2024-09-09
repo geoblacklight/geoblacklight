@@ -20,7 +20,7 @@ feature "Download layer" do
   end
 
   scenario "clicking initial shapefile download button should trigger download", js: true do
-    expect(shapefile_download).to receive(:get).and_return("tufts-cambridgegrid100-04-shapefile.zip")
+    allow(shapefile_download).to receive(:get).and_return("tufts-cambridgegrid100-04-shapefile.zip")
     visit solr_document_path("tufts-cambridgegrid100-04")
     find("#downloads-button").click
     find('a[data-download-type="shapefile"]', text: "Export Shapefile").click
@@ -31,7 +31,7 @@ feature "Download layer" do
   end
 
   scenario "failed download should return message with link to layer", js: true do
-    expect(shapefile_download).to receive(:get).and_raise(Geoblacklight::Exceptions::ExternalDownloadFailed.new(
+    allow(shapefile_download).to receive(:get).and_raise(Geoblacklight::Exceptions::ExternalDownloadFailed.new(
       message: "Failed", url: "http://www.example.com/failed"
     ))
     visit solr_document_path("mit-f6rqs4ucovjk2")
@@ -42,7 +42,7 @@ feature "Download layer" do
   end
 
   scenario "clicking kmz download button should trigger download", js: true do
-    expect(kmz_download).to receive(:get).and_return("tufts-cambridgegrid100-04-kmz.kmz")
+    allow(kmz_download).to receive(:get).and_return("tufts-cambridgegrid100-04-kmz.kmz")
     visit solr_document_path("tufts-cambridgegrid100-04")
     find("#downloads-button").click
     find('#downloads-collapse a[data-download-type="kmz"]', text: "Export KMZ").click
