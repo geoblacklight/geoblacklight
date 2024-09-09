@@ -48,7 +48,7 @@ feature "Accessibility testing", js: true do
     end
 
     it "validates an item page" do
-      visit solr_document_path("princeton-1r66j405w")
+      visit solr_document_path("princeton-02870w62c")
       expect(page).to be_accessible
     end
 
