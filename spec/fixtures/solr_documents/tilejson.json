@@ -1,48 +1,57 @@
 {
-    "gbl_mdVersion_s": "Aardvark",
-    "dct_identifier_sm": [
-        "ark:/99999/fk4544658v"
-    ],
-    "id": "princeton-fk4544658v-tilejson",
-    "dct_title_s": "The Balkans [and] Turkey : G.S.G.S. no. 2097 / War Office. General Staff. Geographical Section (TileJSON Fixture)",
-    "locn_geometry": "ENVELOPE(19.333333, 29.333333, 43.083333, 39.75)",
-    "dcat_bbox": "ENVELOPE(19.333333, 29.333333, 43.083333, 39.75)",
-    "schema_provider_s": "Princeton",
-    "dct_accessRights_s": "Public",
-    "dct_description_sm": [
-        "Relief shown by contours approximately 100 feet interval, spot heights, and shading. Title varies; some sheets are titled \"Turkey\". Shows international boundaries, railways, 2 categories of roads, telegraph lines, places of worship, ruins. Constantinople latest edition map has a glossary."
-    ],
-    "dct_creator_sm": [
-        "Great Britain. War Office. General Staff. Geographical Section"
-    ],
-    "dct_language_sm": [
-        "eng"
-    ],
-    "dct_publisher_sm": [
-        "[London] : War Office. General Staff. Geographical Section. General Staff, 1908-25."
-    ],
-    "dct_subject_sm": [
-        "Balkan Peninsula Maps",
-        "Turkey Maps",
-        "Topographic Maps"
-    ],
-    "dct_spatial_sm": [
-        "Balkan Peninsula",
-        "Turkey"
-    ],
-    "dct_issued_s": "1908",
-    "gbl_indexYear_im": [
-        1908
-    ],
-    "gbl_mdModified_dt": "2022-02-03T22:13:40Z",
-    "dct_references_s": "{\"http://schema.org/url\":\"https://catalog.princeton.edu/catalog/99125413918506421\",\"http://schema.org/thumbnailUrl\":\"https://figgy-staging.princeton.edu/downloads/6b55d939-7188-4bce-9550-0ac535441f22/file/9042b887-da2e-4aa9-9ca5-d3ba77f440c4\",\"http://iiif.io/api/image\":\"https://iiif-cloud-staging.princeton.edu/iiif/2/05%2F71%2F04%2F0571046f9c7149a3b950899323f70788%2Fintermediate_file/info.json\",\"http://iiif.io/api/presentation#manifest\":\"https://figgy-staging.princeton.edu/concern/scanned_maps/2a91d82c-541c-426c-b787-cc62afe8f248/manifest\",\"https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames\":\"https://map-tiles-staging.princeton.edu/mosaicjson/tiles/2a91d82c541c426cb787cc62afe8f248/WebMercatorQuad/{z}/{x}/{y}@1x.png\",\"https://github.com/mapbox/tilejson-spec\":\"https://map-tiles-staging.princeton.edu/2a91d82c541c426cb787cc62afe8f248/mosaicjson/tilejson.json\"}",
-    "layer_geom_type_s": "Image",
-    "gbl_resourceClass_sm": [
-        "Maps",
-        "Web services"
-    ],
-    "gbl_resourceType_sm": [
-        "Military maps",
-        "Topographic maps"
-    ]
+  "dct_title_s": "2005 Rural Poverty GIS Database: Uganda (TileJSON)",
+  "dct_alternative_sm": [
+    "TileJSON"
+  ],
+  "dct_description_sm": [
+    "This polygon shapefile contains 2005 poverty data for 855 rural subcounties in Uganda. These data are intended for researchers, students, policy makers and the general public for reference and mapping purposes, and may be used for basic applications such as viewing, querying, and map output production."
+  ],
+  "dct_language_sm": [
+    "eng"
+  ],
+  "dct_creator_sm": [
+    "Uganda Bureau of Statistics"
+  ],
+  "dct_publisher_sm": [
+    "Uganda Bureau of Statistics"
+  ],
+  "schema_provider_s": "Stanford",
+  "gbl_resourceClass_sm": [
+    "Datasets"
+  ],
+  "gbl_resourceType_sm": [
+    "Polygon data"
+  ],
+  "dct_subject_sm": [
+    "Poverty",
+    "Statistics"
+  ],
+  "dcat_keyword_sm": [
+    "GBL Fixture records"
+  ],
+  "dct_temporal_sm": [
+    "2005"
+  ],
+  "dct_issued_s": "1905-06-27",
+  "gbl_indexYear_im": [
+    2005
+  ],
+  "gbl_dateRange_drsim": [
+    "[2005 TO 2005]"
+  ],
+  "dct_spatial_sm": [
+    "Uganda"
+  ],
+  "locn_geometry": "ENVELOPE(29.572742,35.000308,4.234077,-1.478794)",
+  "dcat_bbox": "ENVELOPE(29.572742,35.000308,4.234077,-1.478794)",
+  "dcat_centroid": "1.3776415000000002,32.286525",
+  "dct_rights_sm": [
+    "This item is in the public domain. There are no restrictions on use."
+  ],
+  "dct_accessRights_s": "Public",
+  "dct_format_s": "Shapefile",
+  "dct_references_s": "{\"http://schema.org/url\":\"http://purl.stanford.edu/cz128vq0535\", \"https://github.com/mapbox/tilejson-spec\":\"http://127.0.0.1:9002/data/stanford-cz128vq0535-tilejson/tilejson.json\"}",
+  "id": "stanford-cz128vq0535-tilejson",
+  "gbl_mdModified_dt": "2021-06-01T22:14:16Z",
+  "gbl_mdVersion_s": "Aardvark"
 }

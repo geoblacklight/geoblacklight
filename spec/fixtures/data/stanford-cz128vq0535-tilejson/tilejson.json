@@ -1,0 +1,20 @@
+{
+    "tilejson": "2.2.0",
+    "scheme": "xyz",
+    "tiles": [
+        "http://127.0.0.1:9000/geoserver/gwc/service/wmts/rest/gbl:stanford-cz128vq0535/polygon/WebMercatorQuad/{z}/{y}/{x}?format=image/png"
+    ],
+    "minzoom": 6,
+    "maxzoom": 20,
+    "bounds": [
+        29.572742,
+        -1.478794,
+        35.000308,
+        4.234077
+    ],
+    "center": [
+        1.3776415,
+        32.286525,
+        6
+    ]
+}

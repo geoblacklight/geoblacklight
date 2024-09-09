@@ -62,7 +62,7 @@ feature "Download layer" do
     visit solr_document_path("princeton-02870w62c")
     find("#downloads-button").click
     expect(page).to have_css(
-      "#downloads-collapse a[href='https://iiif-cloud.princeton.edu/iiif/2/6c%2F52%2F12%2F6c5212e81bc845f59bb1cdc740a88bad%2Fintermediate_file/full/full/0/default.jpg']", text: "Original JPG"
+      "#downloads-collapse a[href='http://127.0.0.1:9001/iiif/data/princeton-02870w62c/princeton-02870w62c.tif/full/full/0/default.jpg']", text: "Original JPG"
     )
   end
 

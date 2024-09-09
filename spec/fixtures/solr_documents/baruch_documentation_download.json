@@ -64,8 +64,8 @@
   ],
   "dct_accessRights_s": "Public",
   "dct_format_s": "Shapefile",
-  "gbl_wxsIdentifier_s": "sdr:nyu_2451_34502",
-  "dct_references_s": "{\"http://lccn.loc.gov/sh85035852\":\"https://archive.nyu.edu/retrieve/74755/nyu_2451_34502_doc.zip\",\"http://schema.org/downloadUrl\":\"https://archive.nyu.edu/retrieve/74701/nyu_2451_34502.zip\",\"http://schema.org/url\":\"http://hdl.handle.net/2451/34502\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"http://metadata.geo.nyu.edu/records/edu.nyu/handle/2451/34502/iso19139.xml\",\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"https://maps-public.geo.nyu.edu/geoserver/sdr/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://maps-public.geo.nyu.edu/geoserver/sdr/wms\"}",
+  "gbl_wxsIdentifier_s": "gbl:nyu_2451_34502",
+  "dct_references_s": "{\"http://lccn.loc.gov/sh85035852\":\"https://archive.nyu.edu/retrieve/74755/nyu_2451_34502_doc.zip\",\"http://schema.org/downloadUrl\":\"https://archive.nyu.edu/retrieve/74701/nyu_2451_34502.zip\",\"http://schema.org/url\":\"http://hdl.handle.net/2451/34502\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"http://metadata.geo.nyu.edu/records/edu.nyu/handle/2451/34502/iso19139.xml\",\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"http://127.0.0.1:9000/geoserver/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"http://127.0.0.1:9000/geoserver/wms\"}",
   "id": "nyu_2451_34502",
   "dct_identifier_sm": [
     "http://hdl.handle.net/2451/34502"

@@ -10,7 +10,7 @@ export const parseWmtsCapabilities = (wmtsCapabilities, layerId) => {
   // Generate URL with Leaflet.TileLayer URL template formatting
   const tileURL = resourceElement
     .getAttribute("template")
-    .replace("{Style}", getStyle(selectedLayer))
+    .replace("{style}", getStyle(selectedLayer))
     .replace("{TileMatrixSet}", getTileMatrixSet(selectedLayer))
     .replace("TileMatrix", "z")
     .replace("TileCol", "x")
@@ -42,8 +42,14 @@ const getStyle = (layer) => {
 }
 
 const getTileMatrixSet = (layer) => {
-  const tileMatrixElement = layer.getElementsByTagName("TileMatrixSet")[0];
-  return tileMatrixElement ? tileMatrixElement.textContent : undefined;
+  const tileMatrixElements = layer.getElementsByTagName("TileMatrixSet");
+  for (let i = 0; i < tileMatrixElements.length; i++) {
+    const tileMatrixName = tileMatrixElements[i].textContent
+    if (tileMatrixName == "WebMercatorQuad") {
+      return tileMatrixName;
+    }
+  }
+  return tileMatrixElement[0] ? tileMatrixElement[0].textContent : undefined;
 }
 
 const getBounds = (layer) => {

@@ -39,7 +39,6 @@
   "dct_accessRights_s": "Public",
   "dct_format_s": "Shapefile",
   "gbl_wxsIdentifier_s": "Norfolk:police_point",
-  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://gis.lib.virginia.edu/geoserver/ows?service=WFS\\\\u0026typeName=Norfolk:police_point\\\\u0026request=GetFeature\\\\u0026outputFormat=shape-zip\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"https://opengeometadata.github.io/edu.virginia/382/13/iso19139.xml\",\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"http://gis.lib.virginia.edu/geoserver/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"http://www.opengis.net/def/serviceType/ogc/wms:http://gis.lib.virginia.edu/geoserver/wms\"}",
   "id": "uva-Norfolk:police_point",
   "dct_identifier_sm": [
     "315fc8ee-3b57-4ebb-aa24-4300f1c42dc9-13"

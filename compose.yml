@@ -12,3 +12,22 @@ services:
       - /opt/solr/conf
       - "-Xms256m"
       - "-Xmx512m"
+  geoserver:
+    image: ghcr.io/geoblacklight/geoserver:2.25.3-dev
+    ports:
+      - 9000:8080
+  iiif:
+    image: iipsrv/iipsrv
+    environment:
+      - CORS=*
+    ports:
+      - 9001:80
+    volumes:
+      - ./spec/fixtures:/images
+  files:
+    image: ghcr.io/geoblacklight/static:1.26.2-dev
+    restart: unless-stopped
+    ports:
+      - 9002:80
+    volumes:
+      - ./spec/fixtures:/srv:ro
