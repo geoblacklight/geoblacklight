@@ -72,8 +72,8 @@ jobs:
           ENGINE_CART_RAILS_OPTIONS: "--skip-git --skip-keeps --skip-action-cable --skip-test -a propshaft ${{ matrix.additional_engine_cart_rails_options }}"
           SOLR_URL: http://solr:SolrRocks@localhost:8983/solr/blacklight-core
       - name: Upload coverage artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: coverage
+          name: "coverage-${{ matrix.ruby_version }}-${{ matrix.rails_version }}"
           path: coverage/
