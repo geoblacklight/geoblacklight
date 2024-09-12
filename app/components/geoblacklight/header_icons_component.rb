@@ -10,17 +10,20 @@ module Geoblacklight
       super
     end
 
-    def get_icon(field)
-      icon_name = @document[field]
-      if icon_name&.include?("Datasets") && @document.resource_type
-        specific_icon = @document.resource_type
-        specific_icon = specific_icon.is_a?(Array) ? specific_icon.first : specific_icon
-        specific_icon = specific_icon&.gsub(" data", "")
-        icon = geoblacklight_icon(specific_icon, classes: "svg_tooltip")
-        return icon unless icon.include?("icon-missing")
-      end
-      icon_name = icon_name.is_a?(Array) ? icon_name.first : icon_name
-      geoblacklight_icon(icon_name, classes: "svg_tooltip")
+    def icon(field)
+      return resource_icon if field == Settings.FIELDS.RESOURCE_CLASS
+
+      geoblacklight_icon(@document[field], classes: "svg_tooltip")
+    end
+
+    # If the item has a resource type of "X data" where "X" is an existing icon, use that icon
+    # Otherwise just use the resource class icon
+    def resource_icon
+      dataset_type = @document.resource_type.find { |type| type.include?(" data") }&.gsub(" data", "")
+      resource_type_icon = geoblacklight_icon(dataset_type, classes: "svg_tooltip")
+      return resource_type_icon unless resource_type_icon.include?("icon-missing")
+
+      geoblacklight_icon(@document.resource_class.first, classes: "svg_tooltip")
     end
   end
 end
