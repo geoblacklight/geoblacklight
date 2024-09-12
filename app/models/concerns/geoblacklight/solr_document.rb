@@ -21,7 +21,8 @@ module Geoblacklight
       attribute :file_format, :string, Settings.FIELDS.FORMAT
       attribute :rights_field_data, :string, Settings.FIELDS.ACCESS_RIGHTS
       attribute :provider, :string, Settings.FIELDS.PROVIDER
-      attribute :resource_type, :string, Settings.FIELDS.RESOURCE_TYPE
+      attribute :resource_type, :array, Settings.FIELDS.RESOURCE_TYPE
+      attribute :resource_class, :array, Settings.FIELDS.RESOURCE_CLASS
       attribute :title, :string, Settings.FIELDS.TITLE
       attribute :creator, :array, Settings.FIELDS.CREATOR
       attribute :publisher, :string, Settings.FIELDS.PUBLISHER
