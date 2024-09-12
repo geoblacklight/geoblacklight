@@ -53,4 +53,40 @@ RSpec.describe Geoblacklight::DocumentComponent, type: :component do
       expect(rendered).to have_css(".viewer-information")
     end
   end
+
+  context "when the document has a IIIF manifest" do
+    let(:fixture) { "solr_documents/b1g_iiif_manifest.json" }
+
+    it "displays the IIIF help text" do
+      expect(rendered).to have_text(I18n.t("geoblacklight.help_text.viewer_protocol.iiif.title"))
+    end
+
+    it "uses the IIIF tag for the container" do
+      expect(rendered).to have_css("div#clover-viewer")
+    end
+  end
+
+  context "when the document has a pmtiles layer" do
+    let(:fixture) { "solr_documents/public_pmtiles_princeton.json" }
+
+    it "displays the PM Tiles help text" do
+      expect(rendered).to have_text(I18n.t("geoblacklight.help_text.viewer_protocol.pmtiles.title"))
+    end
+
+    it "uses the Open Layers tag for the container" do
+      expect(rendered).to have_css("div#openlayers-viewer")
+    end
+  end
+
+  context "when the document has a WMS layer" do
+    let(:fixture) { "solr_documents/actual-polygon1.json" }
+
+    it "displays wms help text" do
+      expect(rendered).to have_text(I18n.t("geoblacklight.help_text.viewer_protocol.wms.title"))
+    end
+
+    it "uses the Leaflet tag for the container" do
+      expect(rendered).to have_css("div#leaflet-viewer")
+    end
+  end
 end
