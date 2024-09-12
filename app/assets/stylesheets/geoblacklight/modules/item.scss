@@ -9,6 +9,7 @@
     .viewer {
       border: 1px solid $gray-400;
       min-height: 27.5rem;
+      width: 100%;
 
       // Ensure embeds, openlayers viewer, and IIIF viewer fit their container
       iframe, .ol-viewport, .clover-iiif-image-openseadragon {
