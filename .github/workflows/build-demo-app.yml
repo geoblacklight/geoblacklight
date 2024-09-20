@@ -43,8 +43,8 @@ jobs:
       - name: Copy Dockerfile
         run: cp lib/generators/geoblacklight/templates/demo-app/Dockerfile build/.
 
-      - name: Copy compose.yml
-        run: cp lib/generators/geoblacklight/templates/demo-app/compose.yml build/.
+      - name: Copy demo-app compose.yml
+        run: cp -f lib/generators/geoblacklight/templates/demo-app/compose.yml build/.
 
       - name: Copy start-server script
         run: cp lib/generators/geoblacklight/templates/demo-app/start-server.sh build/.

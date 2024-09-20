@@ -26,10 +26,10 @@ Gem::Specification.new do |spec|
   spec.add_dependency "geo_combine", "~> 0.9"
   spec.add_dependency "mime-types"
   spec.add_dependency "rgeo-geojson"
+  spec.add_dependency "rsolr"
   spec.add_dependency "vite_rails", "~> 3.0"
   spec.add_dependency "zeitwerk"
 
-  spec.add_development_dependency "solr_wrapper"
   spec.add_development_dependency "rails-controller-testing"
   spec.add_development_dependency "rspec-rails"
   spec.add_development_dependency "engine_cart", "~> 2.0"

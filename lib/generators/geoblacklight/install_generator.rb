@@ -63,6 +63,14 @@ module Geoblacklight
       directory "../../../../solr", "solr"
     end
 
+    def add_rsolr_gem
+      gem "rsolr", ">= 1.0", "< 3"
+    end
+
+    def docker_compose
+      copy_file "../../../../compose.yml", "compose.yml"
+    end
+
     def include_geoblacklight_solrdocument
       inject_into_file "app/models/solr_document.rb", after: "include Blacklight::Solr::Document" do
         "\n include Geoblacklight::SolrDocument"

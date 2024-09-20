@@ -6,37 +6,16 @@ require "generators/geoblacklight/install_generator"
 namespace :geoblacklight do
   desc "Run Solr and GeoBlacklight for interactive development"
   task :server, [:rails_server_args] do |_t, args|
-    require "solr_wrapper"
-    SolrWrapper.wrap(port: "8983") do |solr|
-      solr.with_collection(name: "blacklight-core", dir: File.join(File.expand_path("../../", File.dirname(__FILE__)), "solr", "conf")) do
-        puts "\nSolr server running: http://localhost:#{solr.port}/solr/#/blacklight-core"
-        puts "\n^C to stop"
-        puts " "
-        begin
-          Rake::Task["geoblacklight:solr:seed"].invoke
-          system "bundle exec rails s #{args[:rails_server_args]}"
-        rescue Interrupt
-          puts "Shutting down..."
-        end
-      end
-    end
-  end
-
-  desc "Run Solr and GeoBlacklight for interactive development with Webpack enabled"
-  task :webpack do |_t|
-    require "solr_wrapper"
-    SolrWrapper.wrap(port: "8983") do |solr|
-      solr.with_collection(name: "blacklight-core", dir: File.join(File.expand_path("../../", File.dirname(__FILE__)), "solr", "conf")) do
-        puts "\nSolr server running: http://localhost:#{solr.port}/solr/#/blacklight-core"
-        puts "\n^C to stop"
-        puts " "
-        begin
-          Rake::Task["geoblacklight:solr:seed"].invoke
-          system "foreman start"
-        rescue Interrupt
-          puts "Shutting down..."
-        end
-      end
+    system "docker compose up -d"
+    puts "\nSolr server running: http://localhost:8983/solr/#/blacklight-core"
+    puts " "
+    begin
+      Rake::Task["geoblacklight:solr:seed"].invoke
+      system "bundle exec rails s #{args[:rails_server_args]}"
+    rescue Interrupt
+      puts "Shutting down..."
+    ensure
+      system "docker compose down"
     end
   end
 
