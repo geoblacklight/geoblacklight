@@ -3,8 +3,5 @@
   <label for="wfs_abv_webservice" class="me-2"><%= t('geoblacklight.references.wfs_abv')%> <code><%= t('geoblacklight.references.wfs_label')%></code></label>
   <div class='input-group'>
     <input id="wfs_abv_webservice" type='text' value='<%= document.wxs_identifier %>' readonly='readonly' class="form-control">
-    <div class="input-group-append">
-      <button button type="button" class="btn btn-primary"  data-action="clipboard#copyToClipboard" data-clipboard-value='<%= document.wxs_identifier %>'><%= t('blacklight.modal.copy') %></button>
-    </div>
   </div>
 </div>

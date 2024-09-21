@@ -3,11 +3,7 @@
     <%= t('geoblacklight.references.services') %>
   <% end %>
   <% component.with_body do %>
-    <div class="modal-body web-services-modal-body" data-controller="clipboard">
-      <div class="alert alert-info d-none" role="alert" data-clipboard-target="alert">
-        <%= t('geoblacklight.clipboard.web_service') %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
+    <div class="modal-body web-services-modal-body">
       <div class="web-services-modal-entry">
         <%= render Geoblacklight::WebServicesComponent.with_collection(@documents.first.references.refs, document: @documents.first) %>
       </div>

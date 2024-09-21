@@ -17,14 +17,6 @@ describe "web services tools", type: :feature do
     end
   end
 
-  context "when any reference is linked" do
-    it "shows copy to clipboard button" do
-      visit solr_document_path "princeton-dc7h14b252v"
-      open_web_services_modal
-      expect(page).to have_text "Copy"
-    end
-  end
-
   context "when wms/wfs are provided" do
     it "shows up in tools" do
       visit solr_document_path "stanford-cg357zz0321"
