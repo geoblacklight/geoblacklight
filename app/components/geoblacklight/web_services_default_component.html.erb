@@ -5,7 +5,7 @@
   <div class='input-group'>  
     <input type='text' id='<%= reference.type%>_webservice' value='<%= reference.endpoint %>' class='form-control'>
     <div class="input-group-append">
-      <button button type="button" class="btn btn-primary" data-action="clipboard#copyToClipboard" data-clipboard-value='<%= reference.endpoint %>'><%= t('blacklight.modal.copy') %></button>
+      <button button type="button" class="btn btn-primary" data-action="clipboard#copyToClipboard" data-clipboard-value-param='<%= reference.endpoint %>'><%= t('blacklight.modal.copy') %></button>
     </div>
   </div>
 </div>
