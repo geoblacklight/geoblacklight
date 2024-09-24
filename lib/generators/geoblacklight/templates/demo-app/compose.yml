@@ -12,11 +12,11 @@ services:
       - solr
     command: sh start-server.sh
   solr:
-    image: "solr:latest"
-    ports:
-      - "8984:8983"
+    image: solr:9.6.1
     volumes:
-      - "./solr/conf:/opt/solr/conf"
+      - $PWD/solr/conf:/opt/solr/conf
+    ports:
+      - 8984:8983
     entrypoint:
       - docker-entrypoint.sh
       - solr-precreate
