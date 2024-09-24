@@ -23,6 +23,17 @@ describe "web services tools", type: :feature do
       open_web_services_modal
       expect(page).to have_text "Copy"
     end
+
+    it "copies the link to clipboard", js: true do
+      sign_in # NOTE: this seems to be required for clipboard permissions to be granted succesfully
+      page.driver.browser.add_permission("clipboard-read", "granted")
+      page.driver.browser.add_permission("clipboard-write", "granted")
+      visit solr_document_path "princeton-1r66j405w"
+      open_web_services_modal
+      click_button "Copy"
+      clip_text = page.evaluate_async_script("navigator.clipboard.readText().then(arguments[0])")
+      expect(clip_text).to include("https://libimages1.princeton.edu/loris/figgy_prod/5a%2F20%2F58%2F5a20585db50d44959fe5ae44821fd174%2Fintermediate_file.jp2/info.json")
+    end
   end
 
   context "when wms/wfs are provided" do
