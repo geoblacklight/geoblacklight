@@ -27,6 +27,9 @@ end
 
 desc "Run test suite"
 task ci: ["geoblacklight:generate"] do
+  # Start solr docker
+  Rake::Task["geoblacklight:solr:start"].invoke
+
   within_test_app do
     system "RAILS_ENV=test rake geoblacklight:index:seed"
   end
@@ -36,6 +39,9 @@ task ci: ["geoblacklight:generate"] do
 
   # Run JavaScript tests
   Rake::Task["javascript_tests"].invoke
+
+  # Stop solr docker
+  Rake::Task["geoblacklight:solr:stop"].invoke
 end
 
 namespace :geoblacklight do
