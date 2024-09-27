@@ -56,8 +56,6 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby_version }}
-      - name: Run docker compose
-        run: docker compose up -d
       - name: Install dependencies
         run: bundle install
         env:

@@ -16,7 +16,7 @@ end
 
 run "bundle install"
 
-generate "blacklight:install", "--devise"
+generate "blacklight:install", "--devise", "--skip-solr"
 generate "geoblacklight:install", "-f"
 
 rake "db:migrate"
