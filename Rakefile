@@ -10,7 +10,7 @@ end
 
 require "engine_cart/rake_task"
 require "rspec/core/rake_task"
-require 'open3'
+require "open3"
 
 # Ensure the app generates with Propshaft; sprockets is no longer supported
 # https://github.com/geoblacklight/geoblacklight/issues/1265
@@ -64,28 +64,9 @@ namespace :geoblacklight do
 
   namespace :internal do
     task seed: ["engine_cart:generate"] do
-      system "bundle exec rake geoblacklight:index:seed"
-      system "bundle exec rake geoblacklight:downloads:mkdir"
-    end
-  end
-
-  desc "Run GeoBlacklight server (without Solr)"
-  task :server_only, [:rails_server_args] do |_t, args|
-    if File.exist? EngineCart.destination
       within_test_app do
-        system "bundle update"
-      end
-    else
-      Rake::Task["engine_cart:generate"].invoke
-    end
-
-    within_test_app do
-      puts "\n^C to stop the rails server"
-      puts " "
-      begin
-        system "bundle exec rails s #{args[:rails_server_args]}"
-      rescue Interrupt
-        puts "Shutting down the rails server..."
+        system "bundle exec rake geoblacklight:index:seed"
+        system "bundle exec rake geoblacklight:downloads:mkdir"
       end
     end
   end
@@ -103,21 +84,6 @@ namespace :geoblacklight do
         rescue Interrupt
           puts "Shutting down..."
         end
-      end
-    end
-
-    namespace :solr do
-      desc "Start Solr and seed with sample data"
-      task :start do
-        system "docker compose up -d"
-        Rake::Task["geoblacklight:internal:seed"].invoke
-        puts "\nSolr server running: http://localhost:8983/solr/#/blacklight-core"
-        puts " "
-      end
-
-      desc "Stop Solr"
-      task :stop do
-        system "docker compose down"
       end
     end
 
