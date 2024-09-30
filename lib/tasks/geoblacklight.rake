@@ -3,19 +3,35 @@
 require "rails/generators"
 require "generators/geoblacklight/install_generator"
 
+def system_with_error_handling(*args)
+  Open3.popen3(*args) do |_stdin, stdout, stderr, thread|
+    puts stdout.read
+    raise "Unable to run #{args.inspect}: #{stderr.read}" unless thread.value.success?
+  end
+end
+
+def with_solr(&block)
+  puts "Starting Solr"
+  system_with_error_handling "docker compose up -d solr"
+  yield
+ensure
+  puts "Stopping Solr"
+  system_with_error_handling "docker compose stop solr"
+end
+
 namespace :geoblacklight do
   desc "Run Solr and GeoBlacklight for interactive development"
   task :server, [:rails_server_args] do |_t, args|
-    system "docker compose up -d"
-    puts "\nSolr server running: http://localhost:8983/solr/#/blacklight-core"
-    puts " "
-    begin
-      Rake::Task["geoblacklight:solr:seed"].invoke
-      system "bundle exec rails s #{args[:rails_server_args]}"
-    rescue Interrupt
-      puts "Shutting down..."
-    ensure
-      system "docker compose down"
+    with_solr do
+      Rake::Task["geoblacklight:internal:seed"].invoke
+
+      puts "Starting GeoBlacklight (Rails server)"
+      puts " "
+      begin
+        system "bundle exec rails s #{args[:rails_server_args]}"
+      rescue Interrupt
+        puts "Shutting down..."
+      end
     end
   end
 
@@ -98,6 +114,19 @@ namespace :geoblacklight do
   end
 
   namespace :solr do
+    desc "Start Solr and seed with sample data"
+    task :start do
+      system "docker compose up -d"
+      Rake::Task["geoblacklight:internal:seed"].invoke
+      puts "\nSolr server running: http://localhost:8983/solr/#/blacklight-core"
+      puts " "
+    end
+
+    desc "Stop Solr"
+    task :stop do
+      system "docker compose down"
+    end
+
     desc "Put sample data into solr"
     task seed: :environment do
       Rake::Task["geoblacklight:index:seed"].invoke
