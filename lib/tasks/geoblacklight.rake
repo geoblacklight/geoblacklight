@@ -3,19 +3,35 @@
 require "rails/generators"
 require "generators/geoblacklight/install_generator"
 
+def system_with_error_handling(*args)
+  Open3.popen3(*args) do |_stdin, stdout, stderr, thread|
+    puts stdout.read
+    raise "Unable to run #{args.inspect}: #{stderr.read}" unless thread.value.success?
+  end
+end
+
+def with_solr(&block)
+  puts "Starting Solr"
+  system_with_error_handling "docker compose up -d solr"
+  yield
+ensure
+  puts "Stopping Solr"
+  system_with_error_handling "docker compose stop solr"
+end
+
 namespace :geoblacklight do
   desc "Run Solr and GeoBlacklight for interactive development"
   task :server, [:rails_server_args] do |_t, args|
-    system "docker compose up -d"
-    puts "\nSolr server running: http://localhost:8983/solr/#/blacklight-core"
-    puts " "
-    begin
-      Rake::Task["geoblacklight:solr:seed"].invoke
-      system "bundle exec rails s #{args[:rails_server_args]}"
-    rescue Interrupt
-      puts "Shutting down..."
-    ensure
-      system "docker compose down"
+    with_solr do
+      Rake::Task["geoblacklight:internal:seed"].invoke
+
+      puts "Starting GeoBlacklight (Rails server)"
+      puts " "
+      begin
+        system "bundle exec rails s #{args[:rails_server_args]}"
+      rescue Interrupt
+        puts "Shutting down..."
+      end
     end
   end
 
@@ -41,30 +57,6 @@ namespace :geoblacklight do
       end
 
       Blacklight.default_index.connection.add docs
-      Blacklight.default_index.connection.commit
-    end
-
-    desc "Ingests a GeoHydra transformed.json"
-    task ingest_all: :environment do
-      docs = JSON.parse(File.read(Rails.root.join("tmp", "transformed.json")))
-      docs.each do |doc|
-        Blacklight.default_index.connection.add doc
-        Blacklight.default_index.connection.commit
-      end
-    end
-
-    desc "Ingests a directory of geoblacklight.json files"
-    task :ingest, [:directory] => :environment do |_t, args|
-      args.with_defaults(directory: "data")
-      Dir.glob(File.join(args[:directory], "**", "geoblacklight.json")).each do |fn|
-        puts "Ingesting #{fn}"
-        begin
-          Blacklight.default_index.connection.add(JSON.parse(File.read(fn)))
-        rescue => e
-          puts "Failed to ingest #{fn}: #{e.inspect}"
-        end
-      end
-      puts "Committing changes to Solr"
       Blacklight.default_index.connection.commit
     end
   end
@@ -94,13 +86,6 @@ namespace :geoblacklight do
       Rails.logger.error error.message + " " + error.url
     rescue NameError
       Rails.logger.error "Could not find that download type \"#{args[:download_type]}\""
-    end
-  end
-
-  namespace :solr do
-    desc "Put sample data into solr"
-    task seed: :environment do
-      Rake::Task["geoblacklight:index:seed"].invoke
     end
   end
 
