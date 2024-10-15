@@ -54,3 +54,7 @@
     }
   }
 }
+
+.row > #leaflet-viewer {
+  --bs-gutter-x: 0;
+}
