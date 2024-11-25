@@ -6,7 +6,7 @@ feature "search results map", js: true do
   scenario "view is scoped to Twin Cities metro area" do
     visit search_catalog_path(q: "Minneapolis")
     expect(page).to have_css "#leaflet-viewer"
-    sleep 1
+    expect(page).to have_css "#leaflet-viewer[data-bounds]"
 
     bbox = page.find("#leaflet-viewer")["data-bounds"]
 
