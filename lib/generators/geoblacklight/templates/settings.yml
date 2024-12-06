@@ -239,6 +239,14 @@ LEAFLET:
     STATIC_MAP:
       color: '#3388ff'
   SELECTED_COLOR: "#2C7FB8"
+  SLEEP:
+    SLEEP: true # set to false to disable
+    MARGIN_DISTANCE: 100 # set to zero / false if you want to disable this check
+    SLEEPTIME: 750
+    WAKETIME: 750
+    HOVERTOWAKE: false
+    MESSAGE: 'Click to Wake'
+    BACKGROUND: 'rgba(214, 214, 214, .7)'
   LAYERS:
     DETECT_RETINA: true
     INDEX:
