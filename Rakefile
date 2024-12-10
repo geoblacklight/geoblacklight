@@ -14,7 +14,7 @@ require "open3"
 
 # Ensure the app generates with Propshaft; sprockets is no longer supported
 # https://github.com/geoblacklight/geoblacklight/issues/1265
-ENV["ENGINE_CART_RAILS_OPTIONS"] = ENV["ENGINE_CART_RAILS_OPTIONS"].to_s + " -a propshaft"
+ENV["ENGINE_CART_RAILS_OPTIONS"] = ENV["ENGINE_CART_RAILS_OPTIONS"].to_s + " -a propshaft -j rollup"
 
 def system_with_error_handling(*args)
   Open3.popen3(*args) do |_stdin, stdout, stderr, thread|
