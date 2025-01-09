@@ -19,20 +19,22 @@
   "module": "app/assets/javascripts/geoblacklight/geoblacklight.js",
   "main": "app/assets/javascripts/geoblacklight/geoblacklight.umd.cjs",
   "dependencies": {
-    "@github/auto-complete-element": "^3.6.2",
     "@hotwired/stimulus": "^3.2.2",
     "@popperjs/core": "^2.11.8",
     "@samvera/clover-iiif": "^2.3.2",
-    "blacklight-frontend": "^8.4.0",
-    "bootstrap": "^5.3.3",
+    "blacklight-frontend": "8",
     "esri-leaflet": "^3.0.12",
-    "leaflet": "^1.9.4",
-    "leaflet-fullscreen": "^1.0.2",
     "leaflet-iiif": "^3.0.0",
-    "ol": "8.1.0",
     "ol-pmtiles": "^0.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "peerDependencies": {
+    "@github/auto-complete-element": "^3.6.2",
+    "bootstrap": "^5.3.3",
+    "leaflet": "^1.9.4",
+    "leaflet-fullscreen": "^1.0.2",
+    "ol": "8.1.0"
   },
   "devDependencies": {
     "jsdom": "^24.1.0",
