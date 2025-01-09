@@ -40,13 +40,14 @@ jobs:
         ruby_version: ["3.2", "3.3"]
         rails_version: ["7.0.8.4", "7.1.3.4", "7.2.0"]
         asset_pipeline: ["vite"]
-        additional_engine_cart_rails_options: ["--css bootstrap"]
+        additional_engine_cart_rails_options: ["--js rollup"]
         # this build has failing tests that aren't easy to replicate locally
         # https://github.com/geoblacklight/geoblacklight/issues/1585
         # include:
         #   - ruby_version: "3.2"
         #     rails_version: "7.1.3.4"
         #     asset_pipeline: "importmap"
+        #     additional_engine_cart_rails_options: ["--js importmap"]
 
     name: test ruby ${{ matrix.ruby_version }} / rails ${{ matrix.rails_version }} / ${{ matrix.asset_pipeline }}
     steps:
