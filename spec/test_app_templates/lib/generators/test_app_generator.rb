@@ -5,26 +5,12 @@ require "rails/generators"
 class TestAppGenerator < Rails::Generators::Base
   source_root File.expand_path("../../../../spec/test_app_templates", __FILE__)
 
-  def say_source_root
-    say_status("warning", "Source root: #{source_root}", :red)
-  end
-
   def add_gems
     gem "blacklight"
 
     Bundler.with_unbundled_env do
       run "bundle install"
     end
-  end
-
-  def build_frontend
-    run "yarn install && yarn build"
-  end
-
-  # This makes the assets available in the test app so that changes made in
-  # local development can be picked up automatically
-  def link_frontend
-    run "yarn link"
   end
 
   def run_blacklight_generator
