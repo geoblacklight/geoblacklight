@@ -78,7 +78,7 @@ module Geoblacklight
       # manually. This method references the peer deps listed in package.json
       # so that they aren't listed in two places.
       def install_peer_dependencies
-        pkg_path = Geoblacklight::Engine.root.join("package.json")  # top-level package.json
+        pkg_path = Geoblacklight::Engine.root.join("package.json")  # geoblacklight's package.json
         pkg = JSON.load_file(pkg_path)
         pkg["peerDependencies"].each do |dep, version|
           run "yarn add #{dep}@#{version} --fixed"  # --fixed interprets version as a literal
@@ -89,6 +89,13 @@ module Geoblacklight
       # node package, so we need to do that manually as well.
       def install_dev_dependencies
         run "yarn add --dev vite-plugin-rails"
+      end
+
+      # Add shortcut so that 'yarn build' runs our vite pipeline
+      def add_build_shortcut
+        pkg = JSON.load_file("package.json") # generated app's package.json
+        pkg["scripts"] = {build: "vite build"}
+        JSON.dump(pkg, File.open("package.json", "w"), indent: 2)
       end
 
       # Add our own stylesheets that reference the versions from npm
