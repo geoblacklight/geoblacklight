@@ -30,7 +30,7 @@ jobs:
           ruby-version: 3.2
       - name: Install json schema validator
         run: gem install json_schemer
-      - name: Run json_schemer against aarkvark fixtures
+      - name: Run json_schemer against aardvark fixtures
         run: find spec/fixtures/solr_documents -type f -name "*.json" | xargs json_schemer schema/geoblacklight-schema-aardvark.json
 
   test:
