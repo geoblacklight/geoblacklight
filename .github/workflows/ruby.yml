@@ -56,12 +56,10 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby_version }}
-      - name: Install dependencies
+      - name: Install Ruby dependencies
         run: bundle install
         env:
           RAILS_VERSION: ${{ matrix.rails_version }}
-      - name: Setup Yarn
-        run: exec "yarnpkg"
       - name: Run tests
         run: bundle exec rake ci
         env:
