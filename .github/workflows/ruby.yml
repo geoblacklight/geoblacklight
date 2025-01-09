@@ -60,6 +60,12 @@ jobs:
         run: bundle install
         env:
           RAILS_VERSION: ${{ matrix.rails_version }}
+      - name: Build and link frontend package, if using vite
+        if: matrix.asset_pipeline == 'vite'
+        run: |
+          yarn install
+          yarn build
+          yarn link
       - name: Run tests
         run: bundle exec rake ci
         env:
