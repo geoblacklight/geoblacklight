@@ -5,6 +5,10 @@ require "rails/generators"
 class TestAppGenerator < Rails::Generators::Base
   source_root File.expand_path("../../../../spec/test_app_templates", __FILE__)
 
+  def say_source_root
+    say_status("warning", "Source root: #{source_root}", :red)
+  end
+
   def add_gems
     gem "blacklight"
 
