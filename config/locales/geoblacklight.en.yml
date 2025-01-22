@@ -93,6 +93,7 @@ en:
       attribute: 'Attribute'
       value: 'Value'
       click_map: 'Click on map to inspect values'
+      table_name: 'Map data'
     help_text:
       viewer_protocol:
         cog:

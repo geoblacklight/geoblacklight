@@ -1,4 +1,10 @@
-<div class='row'>
-  <div class='viewer-information col-sm-12'>
+<div id="<%= Settings.LEAFLET.SIDEBAR_ID || 'table-container' %>" data-sidebar="<%= Settings.LEAFLET.SIDEBAR_ID %>">
+  <div class="border bg-white p-2<% if Settings.LEAFLET.SIDEBAR_ID %> sidebar-container<% end %>">
+    <button class="content-sidebar-header p-0 m-0 btn btn-link h6" type="button" aria-expanded="true" data-bs-toggle="collapse" data-bs-target="#index-map-attributes" aria-controls="index-map-attributes">
+      <%= t('geoblacklight.show.table_name') %>
+    </button>
+    <div id="index-map-attributes" class='viewer-information'>
+      <em><%= t('geoblacklight.show.click_map') %></em>
+    </div>
   </div>
 </div>
