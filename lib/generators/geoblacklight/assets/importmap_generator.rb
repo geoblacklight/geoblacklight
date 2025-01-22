@@ -29,7 +29,7 @@ module Geoblacklight
 
       # Workaround for https://github.com/projectblacklight/blacklight/pull/3285
       def update_blacklight_frontend
-        run "yarn add blacklight-frontend@8.3"
+        run "yarn add blacklight-frontend@8"
       end
 
       # Add the customization overrides and insert before bootstrap import
