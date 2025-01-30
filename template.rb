@@ -18,7 +18,7 @@ end
 if ENV["BRANCH"]
   gem "geoblacklight", github: "geoblacklight/geoblacklight", branch: ENV["BRANCH"]
 else
-  gem "geoblacklight", "~> 4.0"
+  gem "geoblacklight", "~> 5.0"
 end
 
 run "bundle install"
