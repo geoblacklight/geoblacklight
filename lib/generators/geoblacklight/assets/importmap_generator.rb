@@ -27,11 +27,6 @@ module Geoblacklight
         run "yarn link @geoblacklight/frontend" if options[:test]
       end
 
-      # Workaround for https://github.com/projectblacklight/blacklight/pull/3285
-      def update_blacklight_frontend
-        run "yarn add blacklight-frontend@8.3"
-      end
-
       # Add the customization overrides and insert before bootstrap import
       def add_customizations
         copy_file "assets/_customizations.scss", "app/assets/stylesheets/_customizations.scss"
