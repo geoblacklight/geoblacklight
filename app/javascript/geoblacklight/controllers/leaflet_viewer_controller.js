@@ -39,8 +39,7 @@ export default class LeafletViewerController extends Controller {
   };
 
   connect() {
-    // Sets leaflet icon paths to ex. /assets/marker-icon-2x-rails-fingerprint
-    // TODO: figure out why vite @leaftlet_images alias is not working.
+    // Use leaflet icon images from CDN
     Icon.Default.imagePath = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/";
 
     // Set up layers
