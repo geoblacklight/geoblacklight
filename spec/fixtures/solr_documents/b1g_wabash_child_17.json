@@ -1,9 +1,7 @@
 {
-  "id": "55d9f193-9f29-4cbf-860d-23c1cff11691",
-  "gbl_mdVersion_s": "Aardvark",
-  "dct_title_s": "Wabash Topo (17): Indiana, 1929",
+  "dct_title_s": "Wabash Aerial (17): Indiana, 1929",
   "dct_description_sm": [
-    "The maps represented here are on tiff files owned by EAS library. The topos were scanned in color and are up to 550MB each. These images can be viewed and performed in the using either ArcGIS Desktop or QGIS (user choice), referencing against a number of known mapsets like the 2005 Indiana Orthophoto setand USGS DRGs. The geographic coordinate system reference of the maps included are applied in GCS_WGS_1984."
+    "The images represented here are the raster orthophoto set collected by remote sensing of 25 aerial images  owned by EAS library. Each aerial image was up to 450MB, 400dpi, grayscale. These images can be viewed and performed in the using either ArcGIS Desktop or QGIS (user choice), referencing against a number of known mapsets like the 2005 Indiana Orthophoto setand USGS DRGs. The geographic coordinate system reference of the maps included are applied in GCS_WGS_1984."
   ],
   "dct_language_sm": [
     "eng"
@@ -12,51 +10,47 @@
     "Brock & Weymouth Inc.",
     "United States Engineer Office"
   ],
-  "dct_publisher_sm": [
-    "Purdue University Libraries"
-  ],
+  "schema_provider_s": "Purdue University",
   "gbl_resourceClass_sm": [
-    "Maps"
-  ],
-  "dcat_keyword_sm": [
-    "Topography",
-    "Purdue Georeferenced Imagery"
+    "Imagery"
   ],
   "dcat_theme_sm": [
-    "Imagery and Base Maps"
+    "Imagery"
   ],
-  "dct_issued_s": "2015-10-31",
+  "dcat_keyword_sm": [
+    "Universities",
+    "Campuses"
+  ],
   "dct_temporal_sm": [
     "1929"
+  ],
+  "dct_issued_s": "2015-11-02",
+  "gbl_indexYear_im": [
+    1929
   ],
   "gbl_dateRange_drsim": [
     "[1929 TO 1929]"
   ],
-  "gbl_indexYear_im": [
-    1929
-  ],
   "dct_spatial_sm": [
     "Indiana"
   ],
-  "locn_geometry": "ENVELOPE(-87.4665,-87.3179,39.6748,39.5982)",
-  "dcat_bbox": "ENVELOPE(-87.4665,-87.3179,39.6748,39.5982)",
-  "dcat_centroid": "39.6365,-87.3922",
+  "locn_geometry": "ENVELOPE(-87.4646,-87.3186,39.673,39.5987)",
+  "dcat_bbox": "ENVELOPE(-87.4646,-87.3186,39.673,39.5987)",
+  "dcat_centroid": "39.635850000000005,-87.39160000000001",
   "pcdm_memberOf_sm": [
-    "09d-01"
+    "dc8c18df-7d64-4ff4-a754-d18d0891187d"
   ],
-  "gbl_resourceType_sm": [
-    "Topographic maps"
-  ],
-  "dct_format_s": "GeoTIFF",
-  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://mapsweb.lib.purdue.edu/datasets/Wabash1929/wabash_topo_17.tif.zip\",\"urn:x-esri:serviceType:ArcGIS#ImageMapLayer\":\"https://mapsweb.lib.purdue.edu/arcgis/rest/services/Purdue/wabashtopo/ImageServer\",\"http://schema.org/url\":\"https://mapsweb.lib.purdue.edu/wabashriver/\"}",
-  "dct_identifier_sm": [
-    "55d9f193-9f29-4cbf-860d-23c1cff11691"
-  ],
-  "schema_provider_s": "Purdue University",
   "dct_isPartOf_sm": [
-    "88cc9b19-3294-4da9-9edd-775c81fb1c59"
+    "09d-01",
+    "eee6150b-ce2f-4837-9d17-ce72a0c1c26f"
   ],
   "dct_accessRights_s": "Public",
-  "gbl_suppressed_b": true,
-  "gbl_mdModified_dt": "2021-05-07T23:00:10Z"
+  "dct_format_s": "GeoTIFF",
+  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://mapsweb.lib.purdue.edu/datasets/Wabash1929/wabashAerial_17.tif.zip\",\"urn:x-esri:serviceType:ArcGIS#ImageMapLayer\":\"https://mapsweb.lib.purdue.edu/arcgis/rest/services/Purdue/wabashaerial/ImageServer\",\"http://schema.org/url\":\"https://mapsweb.lib.purdue.edu/wabashriver/\"}",
+  "id": "33ecd1bd-c532-422c-8996-d8c1800aed5b",
+  "dct_identifier_sm": [
+    "33ecd1bd-c532-422c-8996-d8c1800aed5b"
+  ],
+  "gbl_mdModified_dt": "2022-05-31T13:44:06Z",
+  "gbl_mdVersion_s": "Aardvark"
 }
