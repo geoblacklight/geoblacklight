@@ -1,12 +1,12 @@
-<%= render Geoblacklight::StaticMapComponent.new(document:) %>
+<%= render_static_map_component %>
 <%= render_show_tools %>
 
 <div class="sidebar-buttons">
-  <%= render Geoblacklight::WebServicesLinkComponent.new(document:) %>
-  <%= render Geoblacklight::DownloadLinksComponent.new(document:) %>
-  <%= render Geoblacklight::LoginLinkComponent.new(document:) %>
+  <% sidebar_buttons.each do | sidebar_button |  %>
+    <%= render sidebar_button %>
+  <% end %>
 </div>
 
-<%= render Blacklight::Document::MoreLikeThisComponent.new(document: document) %>
+<%= render_more_like_this %>
 
 <%= render "relations_container", document: document %>
