@@ -6,6 +6,7 @@ import { FullScreen, defaults as defaultControls } from "ol/control";
 import { pmTilesLayer, cogLayer } from "geoblacklight/openlayers/layers";
 import basemaps from "geoblacklight/openlayers/basemaps";
 import { Controller } from "@hotwired/stimulus";
+import { pmTilesInspection } from "geoblacklight/openlayers/inspection";
 
 export default class OpenlayersViewerController extends Controller {
   static values = {
@@ -33,6 +34,11 @@ export default class OpenlayersViewerController extends Controller {
       layers: [this.basemap, this.overlay],
     });
     this.map.getView().fit(this.extent, this.map.getSize());
+    this.addInspection()
+  }
+
+  addInspection() {
+    if (this.protocolValue == "Pmtiles") return pmTilesInspection(this.map);
   }
 
   async getBounds() {
