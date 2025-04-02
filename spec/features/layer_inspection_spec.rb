@@ -9,4 +9,13 @@ feature "Layer inspection", js: true do
     find("#leaflet-viewer").click
     expect(page).not_to have_css("td.default-text")
   end
+
+  context "with a pmtiles layer" do
+    scenario "clicking map should trigger inspection" do
+      visit solr_document_path("princeton-t722hd30j")
+      expect(page).to have_css("th", text: "Attribute")
+      find("#openlayers-viewer").click
+      expect(page).not_to have_css("td.default-text")
+    end
+  end
 end
