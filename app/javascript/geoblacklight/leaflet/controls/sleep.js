@@ -60,7 +60,6 @@ export default class Sleep extends Handler {
 
     if (_this._map.options.MARGIN_DISTANCE){
       window.addEventListener("resize", (event) => {
-        console.log(event)
         _this.updateBasedOnSize();
       })
     }
@@ -97,4 +96,3 @@ export default class Sleep extends Handler {
     });
   }
 }
-
