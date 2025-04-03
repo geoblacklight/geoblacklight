@@ -50,7 +50,7 @@ export default class LayerOpacityControl extends Control {
       try {
         layer.setOpacity(opacity);
       } catch {
-        console.log(layer)
+        console.error("Couldn't set opacity for layer", layer)
       }
     }
   }
