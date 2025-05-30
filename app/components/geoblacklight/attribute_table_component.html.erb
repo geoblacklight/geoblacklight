@@ -1,6 +1,9 @@
-<div class='row'>
-  <div id='table-container' class='col-md-12'>
-    <table id="attribute-table" class="table table-hover table-condensed table-striped table-bordered col-md-12">
+<div id="<%= Settings.LEAFLET.SIDEBAR_ID || 'table-container' %>" data-sidebar="<%= Settings.LEAFLET.SIDEBAR_ID %>">
+  <div id='table-container' class="border bg-light<% if Settings.LEAFLET.SIDEBAR_ID %> sidebar-container<% end %>">
+    <button class="content-sidebar-header p-2 m-0 btn btn-link h6" type="button" aria-expanded="true" data-bs-toggle="collapse" data-bs-target="#attribute-table" aria-controls="attribute-table">
+      <%= t('geoblacklight.show.table_name') %>
+    </button>
+    <table id="attribute-table" class="table table-hover table-condensed table-striped table-bordered mb-0 collapse show">
       <thead>
         <tr>
           <th><%= t('geoblacklight.show.attribute') %></th>
