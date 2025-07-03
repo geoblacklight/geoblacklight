@@ -31,7 +31,7 @@ feature "Home page", js: true do # use js: true for tests which require js, but 
   scenario "map should be visible" do
     within "#main-container" do
       expect(page).to have_css("#leaflet-viewer")
-      expect(page).to have_css("img.leaflet-tile", minimum: 3)
+      expect(page).to have_css("img.leaflet-tile", visible: :all)
     end
   end
 

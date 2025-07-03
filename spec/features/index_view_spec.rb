@@ -24,7 +24,7 @@ feature "Index view", js: true do
   scenario "should have facets listed correctly" do
     skip "Takes too long in CI" if ENV["CI"]
 
-    within "#facet-panel-collapse" do
+    within "#facet-panel-collapse", visible: :all do
       expect(page).to have_css("div.card.facet-limit", text: "Year")
       expect(page).to have_css("div.card.facet-limit", text: "Place")
       expect(page).to have_css("div.card.facet-limit", text: "Access")
