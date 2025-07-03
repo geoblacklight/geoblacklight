@@ -2,6 +2,7 @@
 
 require "rails/generators"
 require "generators/geoblacklight/install_generator"
+require "open-uri"
 
 def system_with_error_handling(*args)
   Open3.popen3(*args) do |_stdin, stdout, stderr, thread|
