@@ -13,7 +13,7 @@ module Blacklight
     # @param [Boolean] label include <title> and aria-label as part of svg
     # @param [String] role role attribute to be included in svg
     # @param [Hash] additional_options the way forward instead of named arguments
-    def initialize(icon_name, classes: '', aria_hidden: false, label: true, role: 'img', additional_options: {})
+    def initialize(icon_name, classes: "", aria_hidden: false, label: true, role: "img", additional_options: {})
       @icon_name = icon_name
       @classes = classes
       @aria_hidden = aria_hidden
@@ -26,9 +26,9 @@ module Blacklight
     # Returns an updated version of the svg source
     # @return [String]
     def svg
-      svg = ng_xml.at_xpath('svg')
-      svg['aria-label'] = icon_label if label
-      svg['role'] = role
+      svg = ng_xml.at_xpath("svg")
+      svg["aria-label"] = icon_label if label
+      svg["role"] = role
       svg.prepend_child("<title>#{icon_label}</title>") if label
       ng_xml.to_xml
     end
@@ -60,7 +60,7 @@ module Blacklight
       # Handle both Sprockets::Asset and Propshaft::Asset
       data = file.respond_to?(:source) ? file.source : file.path.read
 
-      data.force_encoding('UTF-8')
+      data.force_encoding("UTF-8")
     end
 
     def ng_xml
@@ -70,7 +70,7 @@ module Blacklight
     private
 
     def icon_name_context
-      [icon_name, additional_options[:label_context]].compact.join('_')
+      [icon_name, additional_options[:label_context]].compact.join("_")
     end
 
     # @return [Sprockets::Asset,Propshaft::Asset]
@@ -79,8 +79,6 @@ module Blacklight
         Rails.application.assets.find_asset(path)
       elsif defined?(Sprockets) && defined?(Sprockets::Environment) && Rails.application.assets.is_a?(Sprockets::Environment)
         Rails.application.assets.find_asset(path)
-      else
-        nil
       end
     end
 
