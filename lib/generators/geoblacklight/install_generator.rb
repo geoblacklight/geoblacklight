@@ -117,6 +117,11 @@ module Geoblacklight
       copy_file "base.html.erb", "app/views/layouts/blacklight/base.html.erb"
     end
 
+    # Monkeypatch Blacklight::Icon class
+    def monkeypatch_blacklight_icon
+      copy_file "icon.rb", "config/initializers/icon.rb"
+    end
+
     def copy_package_json
       if options[:test]
         # If building engine cart test app, use specific package.json so the
