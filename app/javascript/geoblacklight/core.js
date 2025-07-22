@@ -7,7 +7,6 @@ import initializeMetadataDownload from "geoblacklight/initializers/metadata_down
 
 // Stimulus controllers
 import ClipboardController from "geoblacklight/controllers/clipboard_controller";
-import CloverViewerController from "geoblacklight/controllers/clover_viewer_controller";
 import DownloadsController from "geoblacklight/controllers/downloads_controller";
 import LeafletViewerController from "geoblacklight/controllers/leaflet_viewer_controller";
 import OembedViewerController from "geoblacklight/controllers/oembed_viewer_controller";
@@ -54,7 +53,6 @@ Geoblacklight.onLoad(initializeMetadataDownload);
 // Register our Stimulus controllers
 if (typeof Stimulus !== "undefined") {
   Stimulus.register("openlayers-viewer", OpenlayersViewerController);
-  Stimulus.register("clover-viewer", CloverViewerController);
   Stimulus.register("oembed-viewer", OembedViewerController);
   Stimulus.register("leaflet-viewer", LeafletViewerController);
   Stimulus.register("search-results", SearchResultsController);
