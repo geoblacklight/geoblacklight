@@ -1,10 +1,10 @@
 {
-  "devDependencies": {
-    "vite": "^5.1.5",
-    "vite-plugin-ruby": "^5.0.0",
-    "vite-plugin-rails": "^0.5.0"
+  "dependencies": {
+    "@geoblacklight/frontend": "^4.4.6"
   },
-  "scripts": {
-    "postinstall": "yarn link @geoblacklight/frontend"
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "vite-plugin-rails": "^0.5.0",
+    "vite-plugin-ruby": "^5.1.0"
   }
 }
