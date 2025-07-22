@@ -117,9 +117,18 @@ module Geoblacklight
       copy_file "base.html.erb", "app/views/layouts/blacklight/base.html.erb"
     end
 
-    # Monkeypatch Blacklight::Icon class
-    def monkeypatch_blacklight_icon
-      copy_file "icon.rb", "config/initializers/icon.rb"
+    # Ensure Sprockets is used instead of Propshaft
+    def ensure_sprockets
+      gemfile = File.read("Gemfile")
+      propshaft_present = gemfile.match?(/^\s*gem\s+["']propshaft["'].*$/)
+      if propshaft_present
+        gsub_file "Gemfile", /^(\s*gem\s+["']propshaft["'].*)$/, '# \1'
+      end
+      unless gemfile.match?(/gem ['\"]sprockets-rails['\"]/) || File.read("Gemfile").match?(/gem ['\"]sprockets-rails['\"]/)
+        append_to_file "Gemfile" do
+          "\ngem 'sprockets-rails'\n"
+        end
+      end
     end
 
     def copy_package_json
