@@ -11,11 +11,13 @@ end
 
 feature "Clover IIIF fullscreen control", js: true do
   scenario "IIIF layer should have full screen control" do
+    skip "Clover is disabled" # see https://github.com/geoblacklight/geoblacklight/issues/1675
     visit solr_document_path("princeton-sx61dn82p")
     expect(page).to have_button("Toggle full page")
   end
 
   scenario "IIIF image should have full screen control" do
+    skip "Clover is disabled" # see https://github.com/geoblacklight/geoblacklight/issues/1675
     visit solr_document_path("princeton-02870w62c")
     expect(page).to have_css("[data-button='full-page']")
   end

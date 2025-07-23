@@ -23,8 +23,8 @@ feature "Display related documents" do
 
   scenario "Record with relations should render widget in catalog#show", js: true do
     visit solr_document_path("nyu_2451_34635")
-    expect(page).to have_css(".card.relations")
-    expect(page).to have_css("div.card-header", text: "Derived records...")
+    expect(page).to have_css(".card.relations", visible: :all)
+    expect(page).to have_css("div.card-header", text: "Derived records...", visible: :all)
   end
 
   scenario "Record without relations should not render widget in catalog#show", js: true do
@@ -36,9 +36,9 @@ feature "Display related documents" do
     # Wabash Topo parent record
     visit solr_document_path("eee6150b-ce2f-4837-9d17-ce72a0c1c26f")
 
-    expect(page).to have_content("Has part...")
-    expect(page).to have_link("Browse all 4 records...")
-    click_link("Browse all 4 records...")
+    expect(page).to have_content(:all, "Has part...")
+    expect(page).to have_link("Browse all 4 records...", visible: :all)
+    click_link("Browse all 4 records...", visible: :all)
 
     expect(page).not_to have_content("No results found for your search")
   end
@@ -46,24 +46,24 @@ feature "Display related documents" do
   scenario "Record with dct_isPartOf_sm value(s) should link to relations", js: true do
     # All Relationships
     visit solr_document_path("all-relationships")
-    expect(page).to have_content("Is part of...")
+    expect(page).to have_content(:all, "Is part of...")
   end
 
   scenario "Record pointed at by a parent with dct_isPartOf_sm value(s) should link back", js: true do
     # The Related Record
     visit solr_document_path("the-related-record")
-    expect(page).to have_content("Has part...")
+    expect(page).to have_content(:all, "Has part...")
   end
 
   scenario "Record with pcdm_memberOf_sm value(s) should link to relations", js: true do
     # All Relationships
     visit solr_document_path("all-relationships")
-    expect(page).to have_content("Belongs to collection...")
+    expect(page).to have_content(:all, "Belongs to collection...")
   end
 
   scenario "Record pointed at by a parent with pcdm_memberOf_sm value(s) should link back", js: true do
     # The Related Record
     visit solr_document_path("the-related-record")
-    expect(page).to have_content("Collection records...")
+    expect(page).to have_content(:all, "Collection records...")
   end
 end

@@ -12,7 +12,7 @@ RSpec.describe Geoblacklight::ItemMapViewerComponent, type: :component do
     let(:document) { SolrDocument.new(fixture) }
 
     it "uses the IIIF tag" do
-      expect(rendered).to have_css("div#clover-viewer")
+      expect(rendered).to have_css("div#mirador")
     end
   end
 

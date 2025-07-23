@@ -12,8 +12,9 @@ module Geoblacklight
     # Otherwise display the base viewer which will take into account if it is open layers
     # or generic content.
     def display_tag
-      return iiif_tag if iiif?
-      return oembed_tag if oembed?
+      return iiif_manifest_tag if iiif_manifest?
+      return iiif_image_tag if iiif_image?
+      return oembed_tag if protocol == "Oembed"
 
       base_tag
     end
@@ -32,23 +33,33 @@ module Geoblacklight
       %w[Cog Pmtiles].include?(protocol)
     end
 
-    def iiif?
-      %w[Iiif IiifManifest].include?(protocol)
+    def iiif_image?
+      protocol == "Iiif"
     end
 
-    def oembed?
-      protocol == "Oembed"
+    def iiif_manifest?
+      protocol == "IiifManifest"
     end
 
-    # Generate the viewer HTML for IIIF content
-    def iiif_tag
+    # Use mirador as the IIIF manifest viewer due to bug in Clover; see:
+    # https://github.com/samvera-labs/clover-iiif/issues/294
+    def iiif_manifest_tag
       tag.div(nil,
-        id: "clover-viewer",
+        id: "mirador",
         class: "viewer",
         data: {
-          controller: "clover-viewer",
-          "clover-viewer-protocol-value": protocol,
-          "clover-viewer-url-value": @document.viewer_endpoint
+          manifest_url: @document.viewer_endpoint
+        })
+    end
+
+    # Use openseadragon for IIIF image content due to bug in Clover; see:
+    # https://github.com/samvera-labs/clover-iiif/issues/294
+    def iiif_image_tag
+      tag.div(nil,
+        id: "openseadragon",
+        class: "viewer",
+        data: {
+          image_url: @document.viewer_endpoint
         })
     end
 

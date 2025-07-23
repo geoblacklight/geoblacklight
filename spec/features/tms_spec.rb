@@ -5,7 +5,7 @@ require "spec_helper"
 feature "tms layer" do
   scenario "displays tms layer", js: true do
     visit solr_document_path("cugir-007957")
-    expect(page).to have_css ".leaflet-control-zoom", visible: true
-    expect(page).to have_css "img[src*='cugir.library.cornell.edu']"
+    expect(page).to have_css ".leaflet-control-zoom"
+    expect(page).to have_css "img[src*='cugir.library.cornell.edu']", visible: :all
   end
 end

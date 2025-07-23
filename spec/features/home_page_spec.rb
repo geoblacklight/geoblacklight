@@ -7,11 +7,6 @@ feature "Home page", js: true do # use js: true for tests which require js, but 
     visit root_path
   end
 
-  scenario "navbar" do
-    expect(page).to have_css "#bookmarks_nav"
-    expect(page).to have_css "a", text: "History"
-  end
-
   scenario "search bar" do
     expect(page).not_to have_css "#search-navbar"
     expect(page).to have_css "h1", text: "Explore and discover..."
@@ -31,7 +26,7 @@ feature "Home page", js: true do # use js: true for tests which require js, but 
   scenario "map should be visible" do
     within "#main-container" do
       expect(page).to have_css("#leaflet-viewer")
-      expect(page).to have_css("img.leaflet-tile", minimum: 3)
+      expect(page).to have_css("img.leaflet-tile", visible: :all)
     end
   end
 

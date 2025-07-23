@@ -62,7 +62,7 @@ RSpec.describe Geoblacklight::DocumentComponent, type: :component do
     end
 
     it "uses the IIIF tag for the container" do
-      expect(rendered).to have_css("div#clover-viewer")
+      expect(rendered).to have_css("div#mirador")
     end
   end
 
