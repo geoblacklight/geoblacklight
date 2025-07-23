@@ -1,3 +1,4 @@
+version: 8.11.4
 validate: false
 instance_dir: tmp/solr
 download_dir: tmp/solr
