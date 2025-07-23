@@ -37,8 +37,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby_version: ['3.2', '3.3']
-        rails_version: [7.2.2.1, 8.0.2]
+        ruby_version: ['3.2', '3.3', '3.4']
+        rails_version: [7.1.5.1, 7.2.2.1, 8.0.2]
 
     name: test ruby ${{ matrix.ruby_version }} / rails ${{ matrix.rails_version }}
     steps:
