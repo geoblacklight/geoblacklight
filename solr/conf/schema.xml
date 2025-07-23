@@ -52,7 +52,7 @@
                                 termVectors="true" termPositions="true" termOffsets="true"/>
     <dynamicField name="*_tmi"  type="text_en" stored="false" indexed="true" multiValued="true"
                                 termVectors="true" termPositions="true" termOffsets="true"/>
-    <dynamicField name="*_sort" type="text_sort" stored="false" indexed="true" multiValued="false" docValues="true"/>
+    <dynamicField name="*_sort" type="text_sort" stored="false" indexed="true" multiValued="false"/>
 
     <dynamicField name="*spell" type="textSpell" indexed="true" stored="false" multiValued="true" />
 
@@ -108,7 +108,14 @@
     </fieldType>
 
     <!-- for alpha sorting as a single token -->
-    <fieldType name="text_sort" class="solr.StrField" sortMissingLast="true" omitNorms="true"/>
+    <fieldType name="text_sort" class="solr.TextField" sortMissingLast="true" omitNorms="true">
+      <analyzer>
+        <tokenizer class="solr.KeywordTokenizerFactory"/>
+        <filter class="solr.LowerCaseFilterFactory" />
+        <filter class="solr.TrimFilterFactory" />
+        <filter class="solr.PatternReplaceFilterFactory" pattern="([^a-z0-9 ])" replacement="" replace="all"/>
+      </analyzer>
+    </fieldType>
 
     <!-- for spell checking -->
     <fieldType name="textSpell" class="solr.TextField" positionIncrementGap="100" >
