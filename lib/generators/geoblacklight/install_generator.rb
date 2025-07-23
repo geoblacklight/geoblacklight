@@ -124,7 +124,7 @@ module Geoblacklight
       if propshaft_present
         gsub_file "Gemfile", /^(\s*gem\s+["']propshaft["'].*)$/, '# \1'
       end
-      unless gemfile.match?(/gem ['\"]sprockets-rails['\"]/) || File.read("Gemfile").match?(/gem ['\"]sprockets-rails['\"]/)
+      unless gemfile.match?(/gem ['\"]sprockets-rails['\"]/)
         append_to_file "Gemfile" do
           "\ngem 'sprockets-rails'\n"
         end
