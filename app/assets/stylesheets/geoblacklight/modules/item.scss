@@ -12,7 +12,7 @@
       width: 100%;
 
       // Ensure embeds, openlayers viewer, and IIIF viewer fit their container
-      iframe, .ol-viewport, .clover-iiif-image-openseadragon {
+      iframe, .ol-viewport, .openseadragon-container {
         min-height: 27.5rem;
       }
     }
@@ -22,6 +22,10 @@
       cursor: crosshair;
     }
     margin-bottom: 1rem;
+  }
+
+  #mirador {
+    position: relative;
   }
 
   .help-text {

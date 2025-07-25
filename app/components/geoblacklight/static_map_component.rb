@@ -22,9 +22,6 @@ module Geoblacklight
       leaflet_options.SLEEP.SLEEP = false
       tag.div(nil,
         id: "static-map",
-        aria: {
-          label: @label
-        },
         data: {
           "controller" => "leaflet-viewer",
           "leaflet-viewer-basemap-value" => helpers.geoblacklight_basemap,

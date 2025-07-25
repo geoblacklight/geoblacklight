@@ -1,1 +1,59 @@
 <%= display_tag %>
+<% content_for :head do %>
+  <!-- Include Mirador 3 for IIIF content -->
+  <script src="https://unpkg.com/mirador@^3/dist/mirador.min.js"></script>
+  <!-- Include OpenSeadragon for IIIF Image content -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.2/openseadragon.min.js"></script>
+<% end %>
+<% if iiif_manifest? %>
+  <!-- Initialize Mirador viewer -->
+  <script>
+    window.miradorTarget = document.getElementById("mirador");
+    if (window.miradorTarget) {
+      Mirador.viewer({
+        id: "mirador",
+        windows: [
+          {
+            id: "main",
+            loadedManifest: window.miradorTarget.dataset.manifestUrl,
+          },
+        ],
+        window: {
+          allowClose: false,
+          allowFullscreen: true,
+          allowMaximize: false,
+          authNewWindowCenter: "screen",
+          hideWindowTitle: true,
+          sidebarPanel: "attribution",
+          views: [
+            { key: "single", behaviors: [null, "individuals"] },
+            { key: "book", behaviors: [null, "paged"] },
+            { key: "scroll", behaviors: ["continuous"] },
+            { key: "gallery" },
+          ],
+        },
+        workspace: {
+          showZoomControls: true,
+          type: "single",
+        },
+        workspaceControlPanel: {
+          enabled: false,
+        },
+      });
+  }
+  </script>
+<% elsif iiif_image? %>
+  <!-- Initialize OpenSeadragon viewer -->
+  <script>
+    window.osdTarget = document.getElementById("openseadragon");
+    if (window.osdTarget) {
+      OpenSeadragon({
+        id: "openseadragon",
+        tileSources: [window.osdTarget.dataset.imageUrl],
+        prefixUrl: "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.2/images/",
+        preserveViewport: true,
+        visibilityRatio: 1,
+      });
+    }
+  </script>
+<% end %>
