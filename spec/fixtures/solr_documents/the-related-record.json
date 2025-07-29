@@ -19,7 +19,7 @@
   ],
   "dct_format_s": "Shapefile",
   "gbl_georeferenced_b": false,
-  "dct_references_s": "{\"http://schema.org/url\":\"https://example.com\"}",
+  "dct_references_ss": "{\"http://schema.org/url\":\"https://example.com\"}",
   "schema_provider_s": "GeoBlacklight Community",
   "dct_accessRights_s": "Public",
   "gbl_suppressed_b": false,

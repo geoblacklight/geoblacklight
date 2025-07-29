@@ -58,7 +58,7 @@
   "dct_accessRights_s": "Restricted",
   "dct_format_s": "GeoTIFF",
   "gbl_wxsIdentifier_s": "druid:dp018hs9766",
-  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://stacks.stanford.edu/file/druid:dp018hs9766/data.zip\",\"http://schema.org/url\":\"http://purl.stanford.edu/dp018hs9766\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"https://raw.githubusercontent.com/OpenGeoMetadata/edu.stanford.purl/master/dp/018/hs/9766/iso19139.xml\",\"http://www.loc.gov/mods/v3\":\"http://purl.stanford.edu/dp018hs9766.mods\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://geowebservices-restricted.stanford.edu/geoserver/wms\"}",
+  "dct_references_ss": "{\"http://schema.org/downloadUrl\":\"https://stacks.stanford.edu/file/druid:dp018hs9766/data.zip\",\"http://schema.org/url\":\"http://purl.stanford.edu/dp018hs9766\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"https://raw.githubusercontent.com/OpenGeoMetadata/edu.stanford.purl/master/dp/018/hs/9766/iso19139.xml\",\"http://www.loc.gov/mods/v3\":\"http://purl.stanford.edu/dp018hs9766.mods\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://geowebservices-restricted.stanford.edu/geoserver/wms\"}",
   "id": "stanford-dp018hs9766",
   "dct_identifier_sm": [
     "http://purl.stanford.edu/dp018hs9766"

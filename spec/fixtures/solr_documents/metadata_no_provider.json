@@ -33,7 +33,7 @@
   "dcat_bbox": "ENVELOPE(-179.9,-64.4,71.6,-14.8)",
   "dcat_centroid": "28.4,-122.15",
   "dct_accessRights_s": "Restricted",
-  "dct_references_s": "{\"http://schema.org/url\":\"https://www.socialexplorer.com/\"}",
+  "dct_references_ss": "{\"http://schema.org/url\":\"https://www.socialexplorer.com/\"}",
   "id": "99-0001-noprovider",
   "gbl_mdModified_dt": "2021-06-11T18:35:25Z",
   "gbl_mdVersion_s": "Aardvark"

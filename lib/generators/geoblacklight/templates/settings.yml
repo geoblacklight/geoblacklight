@@ -64,7 +64,7 @@ FIELDS:
   :OVERLAP_FIELD: 'solr_bboxtype'
   :PUBLISHER: 'dct_publisher_sm'
   :PROVIDER: 'schema_provider_s'
-  :REFERENCES: 'dct_references_s'
+  :REFERENCES: 'dct_references_ss'
   :RELATION: 'dct_relation_sm'
   :REPLACES: 'dct_replaces_sm'
   :RESOURCE_CLASS: 'gbl_resourceClass_sm'

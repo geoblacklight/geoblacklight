@@ -47,7 +47,7 @@
   "dct_accessRights_s": "Public",
   "dct_format_s": "Shapefile",
   "gbl_wxsIdentifier_s": "sdr:nyu_2451_34564",
-  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://archive.nyu.edu/retrieve/74563/nyu_2451_34564.zip\",\"http://schema.org/url\":\"http://hdl.handle.net/2451/34564\",\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"https://maps-public.geo.nyu.edu/geoserver/sdr/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://maps-public.geo.nyu.edu/geoserver/sdr/wms\"}",
+  "dct_references_ss": "{\"http://schema.org/downloadUrl\":\"https://archive.nyu.edu/retrieve/74563/nyu_2451_34564.zip\",\"http://schema.org/url\":\"http://hdl.handle.net/2451/34564\",\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"https://maps-public.geo.nyu.edu/geoserver/sdr/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://maps-public.geo.nyu.edu/geoserver/sdr/wms\"}",
   "id": "nyu-2451-34564",
   "dct_identifier_sm": [
     "http://hdl.handle.net/2451/34564",
