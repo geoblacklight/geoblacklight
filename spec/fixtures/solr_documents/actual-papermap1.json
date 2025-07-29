@@ -37,7 +37,7 @@
   "dct_accessRights_s": "Public",
   "dct_format_s": "Paper",
   "gbl_wxsIdentifier_s": "MIT:001145244",
-  "dct_references_s": "{\"http://schema.org/url\":\"http://library.mit.edu/item/001145244\"}",
+  "dct_references_ss": "{\"http://schema.org/url\":\"http://library.mit.edu/item/001145244\"}",
   "id": "mit-001145244",
   "dct_identifier_sm": [
     "urn:arrowsmith.mit.edu:MIT.001145244"

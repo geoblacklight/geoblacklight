@@ -35,7 +35,7 @@
     ],
     "gbl_indexYear_im": [2010],
     "gbl_mdModified_dt": "2020-05-20T23:57:56Z",
-    "dct_references_s": "{\"http://www.opengis.net/cat/csw/csdgm\":\"https://figgy.princeton.edu/downloads/75bc7983-c0fa-4d54-8422-490bc63185dc/file/0c4e793f-d149-44e1-8d46-59e695441420\",\"http://schema.org/downloadUrl\":\"https://figgy.princeton.edu/downloads/a287cc33-3c2b-4cca-bdd2-525bc18ece49/file/7f5a693a-617e-4fe8-88ce-5f3b2c24a017\",\"http://schema.org/thumbnailUrl\":\"https://figgy.princeton.edu/downloads/a287cc33-3c2b-4cca-bdd2-525bc18ece49/file/6b6a9b1e-50a9-47bd-8395-0bd697e1f9c5\",\"https://github.com/protomaps/PMTiles\":\"https://geodata.lib.princeton.edu/fe/d2/80/fed28076eaa04506b7956f10f61a2f77/display_vector.pmtiles\"}",
+    "dct_references_ss": "{\"http://www.opengis.net/cat/csw/csdgm\":\"https://figgy.princeton.edu/downloads/75bc7983-c0fa-4d54-8422-490bc63185dc/file/0c4e793f-d149-44e1-8d46-59e695441420\",\"http://schema.org/downloadUrl\":\"https://figgy.princeton.edu/downloads/a287cc33-3c2b-4cca-bdd2-525bc18ece49/file/7f5a693a-617e-4fe8-88ce-5f3b2c24a017\",\"http://schema.org/thumbnailUrl\":\"https://figgy.princeton.edu/downloads/a287cc33-3c2b-4cca-bdd2-525bc18ece49/file/6b6a9b1e-50a9-47bd-8395-0bd697e1f9c5\",\"https://github.com/protomaps/PMTiles\":\"https://geodata.lib.princeton.edu/fe/d2/80/fed28076eaa04506b7956f10f61a2f77/display_vector.pmtiles\"}",
     "dct_format_s": "Shapefile",
     "dct_issued_dt": "2012-01-01T00:00:00Z"
 }
