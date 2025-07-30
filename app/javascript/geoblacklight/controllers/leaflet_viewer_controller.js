@@ -23,6 +23,7 @@ import {
 } from "geoblacklight/leaflet/layers";
 import { geoJSONToBounds } from "geoblacklight/leaflet/utils";
 import { DEFAULT_BOUNDS, DEFAULT_OPACITY, DEFAULT_GEOM_OVERLAY_OPTIONS } from "geoblacklight/leaflet/constants";
+import sidebarControl from "geoblacklight/leaflet/controls/sidebar";
 
 export default class LeafletViewerController extends Controller {
   static values = {
@@ -146,7 +147,7 @@ export default class LeafletViewerController extends Controller {
     if (controlName == "Opacity")
       return new LayerOpacityControl(this.previewOverlay);
     if (controlName == "Fullscreen")
-      return new Control.Fullscreen({ position: "topright", ...controlOptions });
+      return new Control.Fullscreen({ position: "bottomleft", ...controlOptions });
     if (controlName == "Geosearch")
       return new GeoSearchControl({ baseUrl: this.catalogBaseUrlValue, ...controlOptions });
     console.error(`Unsupported control name: "${controlName}"`);
@@ -179,10 +180,23 @@ export default class LeafletViewerController extends Controller {
     if (this.boundsOverlay) this.overlay.removeLayer(this.boundsOverlay);
   }
 
+  setUpSidebar() {
+    const sidebar = document.querySelector('[data-sidebar]')
+    if (!sidebar || sidebar.dataset.sidebar != 'true') return;
+    const control = new sidebarControl({
+      position: 'topright',
+      sidebar
+    });
+    this.map.addControl(control);
+  }
+
   addInspection() {
+    const inspectionProtocols = ['Wms', 'FeatureLayer', 'DynamicMapLayer', 'IndexMap']
+    if (!inspectionProtocols.includes(this.protocolValue)) return;
+    this.setUpSidebar();
     if (this.protocolValue == "Wms") return wmsInspection(this.map, this.urlValue, this.layerIdValue, this.previewOverlay);
     if (this.protocolValue == "FeatureLayer") return featureLayerInspection(this.map, this.previewOverlay);
-    if (this.protocolValue  == "DynamicMapLayer") return dynamicMapLayerInspection(this.map, this.previewOverlay, this.layerIdValue)
+    if (this.protocolValue  == "DynamicMapLayer") return dynamicMapLayerInspection(this.map, this.previewOverlay, this.layerIdValue);
     // TODO: TiledMapLayer is converted but seems busted -- see layers.js. Don't know what to test it with, need a fixture.
     // if (this.protocolValue == "TiledMapLayer") return tiledMapLayerInspection(this.map, this.previewOverlay);
   }
