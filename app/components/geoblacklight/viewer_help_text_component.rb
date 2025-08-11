@@ -8,12 +8,12 @@ module Geoblacklight
     def initialize(feature, key)
       @feature = feature
       @key = key
-      super
+      super()
     end
 
     # Retrieve i18n value
     def help_text_exists?
-      I18n.exists?("geoblacklight.help_text.#{@feature}.#{@key}", locale)
+      I18n.exists?("geoblacklight.help_text.#{@feature}.#{@key}", helpers.locale)
     end
 
     def help_text_value

@@ -6,7 +6,7 @@ module Geoblacklight
 
     def initialize(document:, action:, **)
       @document = document
-      super
+      super()
     end
 
     # Generates an ArcGIS.com viewer url with params that can open content directly

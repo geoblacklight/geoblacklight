@@ -7,7 +7,7 @@ module Geoblacklight
 
     def initialize(document:)
       @document = document
-      super
+      super()
     end
 
     def render?
@@ -75,6 +75,10 @@ module Geoblacklight
     # Looks up properly formatted names for formats
     def proper_case_format(format)
       t("geoblacklight.formats.#{format.to_s.parameterize(separator: "_")}")
+    end
+
+    def iiif_jpg_url
+      @document.references.iiif.endpoint.sub! "info.json", "full/full/0/default.jpg"
     end
   end
 end

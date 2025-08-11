@@ -6,7 +6,7 @@ module Geoblacklight
   #
   class IndexMapLegendComponent < ViewComponent::Base
     def initialize(document:)
-      super
+      super()
       @document = document
     end
 

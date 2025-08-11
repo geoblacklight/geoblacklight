@@ -5,7 +5,7 @@ module Geoblacklight
     attr_reader :reference
     def initialize(reference:)
       @reference = reference
-      super
+      super()
     end
   end
 end

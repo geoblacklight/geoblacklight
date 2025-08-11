@@ -8,7 +8,7 @@ module Geoblacklight
       @ref = ref
       @document = document
       @type = ref.type.to_s
-      super
+      super()
     end
 
     def render?

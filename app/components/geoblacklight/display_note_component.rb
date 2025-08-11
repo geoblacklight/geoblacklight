@@ -6,7 +6,7 @@ module Geoblacklight
 
     def initialize(display_note:)
       @display_note = display_note
-      super
+      super()
     end
 
     def before_render
@@ -24,7 +24,7 @@ module Geoblacklight
           prefixed = true
           @note = tag.div class: "gbl-display-note alert #{value.first}", role: "alert" do
             capture do
-              "#{geoblacklight_icon(value.second)}
+              "#{helpers.geoblacklight_icon(value.second)}
               #{@display_note}".html_safe
             end
           end

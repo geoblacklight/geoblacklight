@@ -5,10 +5,6 @@ module GeoblacklightHelper
     document.public? || (document.same_institution? && user_signed_in?)
   end
 
-  def iiif_jpg_url
-    @document.references.iiif.endpoint.sub! "info.json", "full/full/0/default.jpg"
-  end
-
   ##
   # Blacklight catalog controller helper method to truncate field value to 150 chars
   # @param [SolrDocument] args

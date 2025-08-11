@@ -6,7 +6,7 @@ module Geoblacklight
 
     def initialize(document:, action:, **)
       @document = document
-      super
+      super()
     end
 
     def key

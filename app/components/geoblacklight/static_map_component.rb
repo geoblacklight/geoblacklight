@@ -6,7 +6,7 @@ module Geoblacklight
 
     def initialize(document:, **)
       @document = document
-      super
+      super()
     end
 
     def render?

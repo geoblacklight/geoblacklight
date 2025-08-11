@@ -7,7 +7,7 @@ module Geoblacklight
       @label = label
       @facet_field = facet_field
       @response = response
-      super
+      super()
     end
   end
 end

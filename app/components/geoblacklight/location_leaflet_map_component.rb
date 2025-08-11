@@ -14,7 +14,7 @@ module Geoblacklight
       @map_geometry = map_geometry if map_geometry != "null"
       @page = page
       @geosearch = geosearch
-      super
+      super()
     end
 
     def search_bbox

@@ -9,7 +9,7 @@ module Geoblacklight
       @relations = relations
       @relationship_type = relationship_type
       @rel_type_info = rel_type_info
-      super
+      super()
     end
 
     def render?

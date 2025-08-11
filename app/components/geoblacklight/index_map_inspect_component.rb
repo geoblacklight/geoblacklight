@@ -4,7 +4,7 @@ module Geoblacklight
   # Renders the HTML that is dynamically populated when inspecting index maps
   class IndexMapInspectComponent < ViewComponent::Base
     def initialize(document:)
-      super
+      super()
       @document = document
     end
 

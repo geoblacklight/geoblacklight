@@ -10,6 +10,6 @@ RSpec.describe Blacklight::Icons::TriangleExclamationSolidComponent, type: :comp
     expect(rendered).to have_css("title")
     expect(rendered).to have_css("svg")
     expect(rendered).to have_css(".blacklight-icons")
-    expect(rendered.find("title").text).to eq "Triangle Exclamation Solid"
+    expect(rendered.find("title").text).to eq "Warning"
   end
 end
