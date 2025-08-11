@@ -7,7 +7,7 @@ module Geoblacklight
     def initialize(document:, fields: [Settings.FIELDS.RESOURCE_CLASS, Settings.FIELDS.PROVIDER, Settings.FIELDS.ACCESS_RIGHTS])
       @document = document
       @fields = fields
-      super
+      super()
     end
 
     def icon(field)

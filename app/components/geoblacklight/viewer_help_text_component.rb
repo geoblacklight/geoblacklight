@@ -8,7 +8,7 @@ module Geoblacklight
     def initialize(feature, key)
       @feature = feature
       @key = key
-      super
+      super()
     end
 
     # Retrieve i18n value

@@ -3,7 +3,7 @@
 module Geoblacklight
   class ItemMapViewerComponent < ViewComponent::Base
     def initialize(document:)
-      super
+      super()
       @document = document
     end
 

@@ -6,7 +6,7 @@ module Geoblacklight
 
     def initialize(display_note:)
       @display_note = display_note
-      super
+      super()
     end
 
     def before_render

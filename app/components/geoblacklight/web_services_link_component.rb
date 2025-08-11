@@ -4,7 +4,7 @@ module Geoblacklight
   class WebServicesLinkComponent < ViewComponent::Base
     def initialize(document:)
       @document = document
-      super
+      super()
     end
 
     def render?

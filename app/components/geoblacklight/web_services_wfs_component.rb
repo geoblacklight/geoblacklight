@@ -6,7 +6,7 @@ module Geoblacklight
     def initialize(reference:, document:)
       @reference = reference
       @document = document
-      super
+      super()
     end
   end
 end
