@@ -1,6 +1,6 @@
 <div class='category-block col-sm'>
   <div class='category-icon'>
-    <%= geoblacklight_icon(@icon) %>
+    <%= helpers.geoblacklight_icon(@icon) %>
   </div>
   <%= content_tag :h4, t(@label) %>
   <%- facets = @response.aggregations[@facet_field].items.map { |item|

@@ -7,7 +7,7 @@
     <% relationship_type_results['docs'][0..2].map { |hash| SolrDocument.new(hash) }.each do |doc| %>
       <li class="list-group-item border-bottom-0">
         <%= link_to solr_document_path(doc) do %>
-          <%= relations_icon(doc, rel_type_info.icon) unless rel_type_info.icon.nil? %>
+          <%= helpers.relations_icon(doc, rel_type_info.icon) unless rel_type_info.icon.nil? %>
           <%= doc.title %>
         <% end %>
       </li>
