@@ -82,6 +82,22 @@ RSpec.describe Geoblacklight::DownloadLinksComponent, type: :component do
     end
   end
 
+  describe "#iiif_jpg_url" do
+    let(:references_field) { Settings.FIELDS.REFERENCES }
+    let(:document_attributes) do
+      {
+        references_field => {
+          "http://iiif.io/api/image" => "https://example.edu/image/info.json"
+        }.to_json
+      }
+    end
+    let(:document) { SolrDocument.new(document_attributes) }
+
+    it "returns JPG download URL when given URL to a IIIF info.json" do
+      expect(component.iiif_jpg_url).to eq "https://example.edu/image/full/full/0/default.jpg"
+    end
+  end
+
   describe "#download_link_generated" do
     let(:download_type) { "SHAPEFILE" }
 
