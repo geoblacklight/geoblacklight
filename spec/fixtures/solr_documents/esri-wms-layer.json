@@ -49,7 +49,7 @@
   "dct_accessRights_s": "Public",
   "dct_format_s": "Shapefile",
   "gbl_wxsIdentifier_s": "0",
-  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://schema.org/downloadUrl:https://maps.indiana.edu/download/Environment/Agriculture_Census.zip\",\"http://schema.org/url\":\"http://indianamap.org/\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"https://opengeometadata.github.io/edu.purdue/f0/82/ac/b1b01e4a089126fd62a23fd9aa/iso19139.xml\",\"urn:x-esri:serviceType:ArcGIS#DynamicMapLayer\":\"https://maps.indiana.edu/arcgis/rest/services/Environment/Agriculture_Census/MapServer\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://maps.indiana.edu/arcgis/services/Environment/Agriculture_Census/MapServer/WMSServer\"}",
+  "dct_references_ss": "{\"http://schema.org/downloadUrl\":\"https://schema.org/downloadUrl:https://maps.indiana.edu/download/Environment/Agriculture_Census.zip\",\"http://schema.org/url\":\"http://indianamap.org/\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"https://opengeometadata.github.io/edu.purdue/f0/82/ac/b1b01e4a089126fd62a23fd9aa/iso19139.xml\",\"urn:x-esri:serviceType:ArcGIS#DynamicMapLayer\":\"https://maps.indiana.edu/arcgis/rest/services/Environment/Agriculture_Census/MapServer\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://maps.indiana.edu/arcgis/services/Environment/Agriculture_Census/MapServer/WMSServer\"}",
   "id": "purdue-urn-f082acb1-b01e-4a08-9126-fd62a23fd9aa",
   "dct_identifier_sm": [
     "urn-f082acb1-b01e-4a08-9126-fd62a23fd9aa"
