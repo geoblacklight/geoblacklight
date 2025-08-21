@@ -41,6 +41,11 @@ jobs:
         rails_version: ["7.2.3", "8.1.1"]
         asset_pipeline: ["vite"]
         additional_engine_cart_rails_options: ["--js rollup"]
+        include:
+          - ruby_version: "3.4"
+            rails_version: "8.1.1"
+            asset_pipeline: "importmap"
+            additional_engine_cart_rails_options: "--js importmap"
 
     name: test ruby ${{ matrix.ruby_version }} / rails ${{ matrix.rails_version }} / ${{ matrix.asset_pipeline }}
     steps:
@@ -68,7 +73,7 @@ jobs:
           SOLR_URL: http://solr:SolrRocks@localhost:8983/solr/blacklight-core
       - name: Upload coverage artifacts
         uses: actions/upload-artifact@v4
-        if: always()
+        if: matrix.asset_pipeline == 'vite'
         with:
           name: "coverage-${{ matrix.ruby_version }}-${{ matrix.rails_version }}"
           path: coverage/
