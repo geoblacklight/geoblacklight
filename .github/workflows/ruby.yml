@@ -41,6 +41,11 @@ jobs:
         rails_version: ["7.1.5.1", "7.2.2.1", "8.0.1"]
         asset_pipeline: ["vite"]
         additional_engine_cart_rails_options: ["--js rollup"]
+        include:
+          - ruby_version: "3.4"
+            rails_version: "8.0.1"
+            asset_pipeline: "importmap"
+            additional_engine_cart_rails_options: "--js importmap"
 
     name: test ruby ${{ matrix.ruby_version }} / rails ${{ matrix.rails_version }} / ${{ matrix.asset_pipeline }}
     steps:
