@@ -11,6 +11,7 @@ describe Geoblacklight::GeojsonDownload do
       options = download.instance_variable_get(:@options)
       expect(options[:content_type]).to eq "application/json"
       expect(options[:request_params][:typeName]).to eq "stanford-test"
+      expect(options[:extension]).to eq "geojson"
     end
     it "merges custom options" do
       download = described_class.new(document, timeout: 33)
