@@ -14,7 +14,7 @@ module Geoblacklight
       request_params = GEOJSON_DOWNLOAD_PARAMS.merge(typeName: document.wxs_identifier)
       super(document, {
         type: "geojson",
-        extension: "json",
+        extension: "geojson",
         request_params: request_params,
         content_type: "application/json",
         service_type: "wfs"
