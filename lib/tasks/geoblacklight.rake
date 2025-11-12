@@ -13,6 +13,7 @@ end
 def with_solr(&block)
   puts "Starting Solr"
   system_with_error_handling "docker compose up -d solr"
+  sleep 5 # give solr a few seconds to load the core config and be ready
   yield
 ensure
   puts "Stopping Solr"
