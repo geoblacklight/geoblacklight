@@ -35,26 +35,15 @@ namespace :geoblacklight do
     end
   end
 
-  # Local fixtures: bundle exec rake "geoblacklight:index:seed"
-  # Remote fixtures: bundle exec rake "geoblacklight:index:seed[:remote]"
+  # Get fixture items bundled with the gem and index them into Solr
   namespace :index do
     desc "Index GBL test fixture metadata into Solr"
-    task :seed, [:remote] => :environment do |t, args|
-      docs = []
+    task seed: :environment do
+      puts "Indexing test fixtures"
 
-      if args.remote
-        puts "Indexing - Remote test fixtures"
-        JSON.parse(
-          URI.parse("https://api.github.com/repos/geoblacklight/geoblacklight/contents/spec/fixtures/solr_documents").open.read
-        ).each do |fixture|
-          if fixture["name"].include?(".json")
-            docs << JSON.parse(URI.parse(fixture["download_url"]).open.read)
-          end
-        end
-      else
-        puts "Indexing - Local test fixtures"
-        docs = Dir["spec/fixtures/solr_documents/*.json"].map { |f| JSON.parse File.read(f) }.flatten
-      end
+      gem_path = Gem::Specification.find_by_name("geoblacklight").gem_dir
+      fixtures_path = File.join(gem_path, "spec", "fixtures", "solr_documents", "*.json")
+      docs = Dir[fixtures_path].flat_map { |f| JSON.parse(File.read(f)) }
 
       Blacklight.default_index.connection.add docs
       Blacklight.default_index.connection.commit
@@ -71,19 +60,21 @@ namespace :geoblacklight do
       FileUtils.mkdir_p(Rails.root.join("tmp", "cache", "downloads"), verbose: true)
     end
     desc "Precaches a download"
-    task :precache, [:doc_id, :download_type, :timeout] => [:environment] do |_t, args|
+    task :precache, %i[doc_id download_type timeout] => [:environment] do |_t, args|
       unless args[:doc_id] && args[:download_type] && args[:timeout]
-        fail "Please supply required arguments [document_id, download_type and timeout]"
+        raise "Please supply required arguments [document_id, download_type and timeout]"
       end
+
       document = Geoblacklight::SolrDocument.find(args[:doc_id])
-      fail Blacklight::Exceptions::RecordNotFound if document[:id] != args[:doc_id]
+      raise Blacklight::Exceptions::RecordNotFound if document[:id] != args[:doc_id]
+
       download = "Geoblacklight::#{args[:download_type].capitalize}Download"
         .constantize.new(document, timeout: args[:timeout].to_i)
       download.get
       Rails.logger.info "Successfully downloaded #{download.file_name}"
       Rails.logger.info Geoblacklight::ShapefileDownload.file_path.to_s
-    rescue Geoblacklight::Exceptions::ExternalDownloadFailed => error
-      Rails.logger.error error.message + " " + error.url
+    rescue Geoblacklight::Exceptions::ExternalDownloadFailed => e
+      Rails.logger.error e.message + " " + e.url
     rescue NameError
       Rails.logger.error "Could not find that download type \"#{args[:download_type]}\""
     end
