@@ -42,25 +42,6 @@ module Geoblacklight
         run "bundle exec vite install"
       end
 
-      # Pick a version of the frontend asset package and install it.
-      def add_frontend
-        # If a branch was specified (e.g. you are running a template.rb build
-        # against a test branch), use the latest version available on npm
-        if ENV["BRANCH"]
-          run "yarn add @geoblacklight/frontend@latest"
-
-        # Otherwise, pick the version from npm that matches our Geoblacklight
-        # gem version
-        else
-          run "yarn add @geoblacklight/frontend@#{Geoblacklight::VERSION}"
-        end
-
-        # If in local development or CI, also create a link. This will make it so
-        # changes made in the outer directory are picked up automatically.
-        # `yarn link` has to have already been run in the outer directory first.
-        run "yarn link @geoblacklight/frontend" if options[:test]
-      end
-
       # The vite_rails gem doesn't currently install the vite-plugin-rails
       # node package, so we need to do that manually.
       def install_dev_dependencies

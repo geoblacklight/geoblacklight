@@ -21,12 +21,6 @@ module Geoblacklight
         delivered via CDN.
       DESCRIPTION
 
-      # If this is a local dev/test build, symlink the frontend package so we
-      # can reference its stylesheets in development
-      def link_frontend
-        run "yarn link @geoblacklight/frontend" if options[:test]
-      end
-
       # Add the customization overrides and insert before bootstrap import
       def add_customizations
         copy_file "assets/_customizations.scss", "app/assets/stylesheets/_customizations.scss"
