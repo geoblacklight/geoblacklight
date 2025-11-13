@@ -11,6 +11,7 @@ if ENV.fetch("CIRCLE_ARTIFACTS", false)
 end
 
 SimpleCov.start "rails" do
+  add_filter "app/components/blacklight/icons"
   add_filter "lib/generators/geoblacklight/install_generator.rb"
   add_filter "lib/geoblacklight/version.rb"
   add_filter "lib/geoblacklight/engine.rb"
