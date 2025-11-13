@@ -15,10 +15,6 @@
     </script>
     <%= opensearch_description_tag application_name, opensearch_catalog_url(format: 'xml') %>
     <%= favicon_link_tag %>
-  
-    <%= vite_client_tag %>
-    <%= vite_stylesheet_tag 'application.scss', media: 'all' %>
-    <%= vite_javascript_tag 'application' %>
 
     <%= csrf_meta_tags %>
     <%= content_for(:head) %>

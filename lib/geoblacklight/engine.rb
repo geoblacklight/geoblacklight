@@ -29,7 +29,7 @@ module Geoblacklight
 
     # Add the Geoblacklight importmap to the built app's importmap
     initializer "geoblacklight.importmap", before: "importmap" do |app|
-      next unless app.config.respond_to?(:importmap) # skip for Vite
+      next unless app.config.respond_to?(:importmap)
 
       app.config.importmap.paths << Engine.root.join("config/importmap.rb")
       app.config.importmap.cache_sweepers << Engine.root.join("app/javascript")
