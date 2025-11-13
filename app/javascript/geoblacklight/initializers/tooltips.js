@@ -1,4 +1,4 @@
-import { Tooltip } from "bootstrap";
+import * as bootstrap from "bootstrap";
 
 export default function initializeTooltips() {
   document.body.addEventListener(
@@ -13,7 +13,7 @@ export default function initializeTooltips() {
 
         if (titleText !== undefined && titleText !== "") {
           // Initialize Bootstrap tooltip with native JavaScript
-          const tooltip = new Tooltip(svgElement, {
+          const tooltip = new bootstrap.Tooltip(svgElement, {
             placement: "bottom",
             title: titleText,
           });
