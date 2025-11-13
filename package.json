@@ -6,12 +6,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "watch": "vite build --watch",
-    "test": "vitest"
-  },
   "files": [
     "app/assets",
     "app/javascript"
@@ -33,8 +27,6 @@
   },
   "devDependencies": {
     "jsdom": "^27.3.0",
-    "rollup-plugin-includepaths": "^0.2.4",
-    "vite": "^7.2.2",
-    "vitest": "^4.0.15"
+    "rollup-plugin-includepaths": "^0.2.4"
   }
 }

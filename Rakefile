@@ -12,18 +12,6 @@ require "engine_cart/rake_task"
 require "rspec/core/rake_task"
 require "open3"
 
-# Ensure the app generates with Propshaft; sprockets is no longer supported
-# https://github.com/geoblacklight/geoblacklight/issues/1265
-ENV["ENGINE_CART_RAILS_OPTIONS"] = ENV["ENGINE_CART_RAILS_OPTIONS"].to_s + " -a propshaft --css bootstrap"
-
-# Ensure the app generates with the correct javascript pipeline; rollup
-# (for Vite) is the default
-ENV["ENGINE_CART_RAILS_OPTIONS"] += if ENV["ASSET_PIPELINE"] == "importmap"
-  " --js importmap"
-else
-  " --js rollup"
-end
-
 def system_with_error_handling(*args)
   Open3.popen3(*args) do |_stdin, stdout, stderr, thread|
     puts stdout.read
