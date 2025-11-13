@@ -48,8 +48,8 @@ export default class extends Controller {
   renderMessage(message) {
     Object.entries(message).forEach(([idx, msg]) => {
       const flash = document.createElement("div");
-      flash.className = `alert alert-${msg[0]}`;
-      flash.innerHTML = `<button type="button" class="close" data-bs-dismiss="alert" aria-hidden="true">&times;</button>${msg[1]}`;
+      flash.className = `alert alert-${msg[0]} alert-dismissible fade show`;
+      flash.innerHTML = `${msg[1]}<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>`;
       document.querySelector("div.flash_messages").appendChild(flash);
     });
   }
