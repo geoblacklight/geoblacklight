@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class DownloadController < ApplicationController
-  # include Blacklight::SearchHelper
   include Blacklight::Catalog
 
   rescue_from Geoblacklight::Exceptions::ExternalDownloadFailed do |exception|
