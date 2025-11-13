@@ -32,7 +32,7 @@ module Geoblacklight
       next unless app.config.respond_to?(:importmap) # skip for Vite
 
       app.config.importmap.paths << Engine.root.join("config/importmap.rb")
-      app.config.importmap.cache_sweepers << Engine.root.join("app/assets/javascripts")
+      app.config.importmap.cache_sweepers << Engine.root.join("app/javascript")
     end
   end
 end
