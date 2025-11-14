@@ -34,7 +34,7 @@
   "devDependencies": {
     "jsdom": "^24.1.0",
     "rollup-plugin-includepaths": "^0.2.4",
-    "vite": "^5.0.0",
+    "vite": "^7.2.2",
     "vitest": "^2.0.3"
   }
 }
