@@ -35,6 +35,6 @@
     "jsdom": "^24.1.0",
     "rollup-plugin-includepaths": "^0.2.4",
     "vite": "^5.0.0",
-    "vitest": "^2.0.3"
+    "vitest": "^4.0.9"
   }
 }
