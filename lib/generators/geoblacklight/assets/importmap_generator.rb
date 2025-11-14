@@ -21,6 +21,11 @@ module Geoblacklight
         delivered via CDN.
       DESCRIPTION
 
+      # Switch bootstrap import to ESM version so we can import individual parts
+      def use_bootstrap_esm
+        gsub_file "config/importmap.rb", /dist\/js\/bootstrap\.js/, "dist/js/bootstrap.esm.js"
+      end
+
       # Add the customization overrides and insert before bootstrap import
       def add_customizations
         copy_file "assets/_customizations.scss", "app/assets/stylesheets/_customizations.scss"
@@ -54,17 +59,6 @@ module Geoblacklight
       # Import Geoblacklight's JS using the name that importmap has pinned
       def add_geoblacklight_js
         append_to_file "app/javascript/application.js", "import Geoblacklight from \"geoblacklight\";"
-      end
-
-      # Add pins for application dependencies to the importmap
-      def update_importmap
-        gsub_file "config/importmap.rb", "bootstrap.min.js", "https://cdn.skypack.dev/bootstrap@5.3.3"
-        append_to_file "config/importmap.rb" do
-          <<~CONTENT
-            pin "@github/auto-complete-element", to: "https://cdn.skypack.dev/@github/auto-complete-element"
-            pin "@popperjs/core", to: "https://ga.jspm.io/npm:@popperjs/core@2.11.8/dist/umd/popper.min.js"
-          CONTENT
-        end
       end
 
       # Run the build so styles are available for the first load of the app
