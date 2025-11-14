@@ -28,7 +28,7 @@
     "leaflet": "^1.9.4",
     "leaflet-iiif": "^3.0.0",
     "leaflet-fullscreen": "^1.0.2",
-    "ol": "8.1.0",
+    "ol": "10.7.0",
     "ol-pmtiles": "^0.3.0"
   },
   "devDependencies": {
