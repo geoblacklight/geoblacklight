@@ -61,17 +61,6 @@ module Geoblacklight
         append_to_file "app/javascript/application.js", "import Geoblacklight from \"geoblacklight\";"
       end
 
-      # Add pins for application dependencies to the importmap
-      def update_importmap
-        gsub_file "config/importmap.rb", "bootstrap.min.js", "https://cdn.skypack.dev/bootstrap@5.3.3"
-        append_to_file "config/importmap.rb" do
-          <<~CONTENT
-            pin "@github/auto-complete-element", to: "https://cdn.skypack.dev/@github/auto-complete-element"
-            pin "@popperjs/core", to: "https://ga.jspm.io/npm:@popperjs/core@2.11.8/dist/umd/popper.min.js"
-          CONTENT
-        end
-      end
-
       # Run the build so styles are available for the first load of the app
       def build_styles
         run "yarn build:css"
