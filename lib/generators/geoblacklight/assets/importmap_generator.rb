@@ -21,6 +21,11 @@ module Geoblacklight
         delivered via CDN.
       DESCRIPTION
 
+      # Switch bootstrap import to ESM version so we can import individual parts
+      def use_bootstrap_esm
+        gsub_file "config/importmap.rb", /dist\/js\/bootstrap\.js/, "dist/js/bootstrap.esm.js"
+      end
+
       # Add the customization overrides and insert before bootstrap import
       def add_customizations
         copy_file "assets/_customizations.scss", "app/assets/stylesheets/_customizations.scss"
