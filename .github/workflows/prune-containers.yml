@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Delete old images
     steps:
-      - uses: snok/container-retention-policy@v3.0.0
+      - uses: snok/container-retention-policy@v3.0.1
         with:
           account: geoblacklight
           image-names: geoblacklight
