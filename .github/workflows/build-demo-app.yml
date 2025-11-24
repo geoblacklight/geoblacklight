@@ -20,7 +20,7 @@ jobs:
     outputs:
       artifact-url: ${{ steps.artifact-upload-step.outputs.artifact-url }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
