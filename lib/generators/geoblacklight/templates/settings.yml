@@ -247,6 +247,7 @@ LEAFLET:
     HOVERTOWAKE: false
     MESSAGE: 'Click to Wake'
     BACKGROUND: 'rgba(214, 214, 214, .7)'
+  SIDEBAR:
   LAYERS:
     DETECT_RETINA: true
     INDEX:
