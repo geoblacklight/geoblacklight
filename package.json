@@ -32,7 +32,7 @@
     "ol-pmtiles": "^2.0.2"
   },
   "devDependencies": {
-    "jsdom": "^24.1.0",
+    "jsdom": "^27.3.0",
     "rollup-plugin-includepaths": "^0.2.4",
     "vite": "^7.2.2",
     "vitest": "^4.0.15"
