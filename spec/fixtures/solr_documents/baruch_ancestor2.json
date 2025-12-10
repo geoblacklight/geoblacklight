@@ -62,7 +62,7 @@
   "dct_accessRights_s": "Public",
   "dct_format_s": "Geodatabase",
   "gbl_wxsIdentifier_s": "sdr:nyu_2451_34636",
-  "dct_references_s": "{\"http://lccn.loc.gov/sh85035852\":\"https://archive.nyu.edu/retrieve/74857/nyu_2451_34636_doc.zip\",\"http://schema.org/downloadUrl\":\"https://archive.nyu.edu/retrieve/74856/nyu_2451_34636.zip\",\"http://schema.org/url\":\"http://hdl.handle.net/2451/34636\"}",
+  "dct_references_ss": "{\"http://lccn.loc.gov/sh85035852\":\"https://archive.nyu.edu/retrieve/74857/nyu_2451_34636_doc.zip\",\"http://schema.org/downloadUrl\":\"https://archive.nyu.edu/retrieve/74856/nyu_2451_34636.zip\",\"http://schema.org/url\":\"http://hdl.handle.net/2451/34636\"}",
   "id": "nyu_2451_34636",
   "dct_identifier_sm": [
     "http://hdl.handle.net/2451/34636"

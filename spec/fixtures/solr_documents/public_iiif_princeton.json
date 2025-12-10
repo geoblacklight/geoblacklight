@@ -52,7 +52,7 @@
   "dct_accessRights_s": "Public",
   "dct_format_s": "Raster",
   "gbl_wxsIdentifier_s": "02870w62c",
-  "dct_references_s": "{\"http://iiif.io/api/image\":\"https://iiif-cloud.princeton.edu/iiif/2/6c%2F52%2F12%2F6c5212e81bc845f59bb1cdc740a88bad%2Fintermediate_file/info.json\",\"http://schema.org/url\":\"http://arks.princeton.edu/ark:/88435/02870w62c\"}",
+  "dct_references_ss": "{\"http://iiif.io/api/image\":\"https://iiif-cloud.princeton.edu/iiif/2/6c%2F52%2F12%2F6c5212e81bc845f59bb1cdc740a88bad%2Fintermediate_file/info.json\",\"http://schema.org/url\":\"http://arks.princeton.edu/ark:/88435/02870w62c\"}",
   "id": "princeton-02870w62c",
   "dct_identifier_sm": [
     "http://arks.princeton.edu/ark:/88435/02870w62c"
