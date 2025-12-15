@@ -72,7 +72,7 @@ jobs:
           ENGINE_CART_RAILS_OPTIONS: "--skip-docker --skip-action-cable --skip-rubocop --skip-brakeman --skip-kamal --skip-solid -a propshaft --css bootstrap ${{ matrix.additional_engine_cart_rails_options }}"
           SOLR_URL: http://solr:SolrRocks@localhost:8983/solr/blacklight-core
       - name: Upload coverage artifacts
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         if: matrix.asset_pipeline == 'vite'
         with:
           name: "coverage-${{ matrix.ruby_version }}-${{ matrix.rails_version }}"
