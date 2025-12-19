@@ -2,12 +2,12 @@
 
 require "spec_helper"
 
-feature "Metadata display on show page" do
+RSpec.feature "Metadata display on show page" do
   scenario "with default CatalogController specified fields" do
     visit solr_document_path "stanford-dp018hs9766"
     within ".document-metadata" do
       expect(page).to have_css "dt", count: 16
-      expect(page).to have_css "dd", count: 16
+      expect(page).to have_css "dd", count: 20
       expect(page).to have_css "div.truncate-abstract", count: 1
     end
   end

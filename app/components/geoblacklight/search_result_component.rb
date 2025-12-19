@@ -15,8 +15,8 @@ module Geoblacklight
     # @return [String]
     def index_fields_display
       fields_values = []
-      @presenter.configuration.index_fields.each do |_field_name, field_config|
-        val = @presenter.field_value(field_config).to_s
+      @presenter.configuration.index_fields.each_value do |field_config|
+        val = @presenter.field_value(field_config).to_sentence
         if val.present?
           val += "." unless val.end_with?(".")
           fields_values << val

@@ -2,55 +2,64 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   download(ev) {
-    ev.preventDefault();
+    ev.preventDefault()
     if (this.downloading) {
-      return;
+      return
     }
-    this.downloading = true;
-    ev.target.classList.add('download-in-progress');
-    const url = ev.target.dataset.downloadPath;
-    ev.target.removeAttribute('href');
-    ev.target.innerHTML = '<div class="spinner-border spinner-border-sm float-end"></div> Preparing download...';
+    this.downloading = true
+    ev.target.classList.add("download-in-progress")
+    const url = ev.target.dataset.downloadPath
+    ev.target.removeAttribute("href")
+    ev.target.innerHTML =
+      '<div class="spinner-border spinner-border-sm float-end"></div> Preparing download...'
 
     fetch(url)
-      .then((response) => {
+      .then(response => {
         if (!response.ok) {
-          return response.json().then((errorData) => {
-            const exception = new Error("Network response was not ok");
-            exception.data = errorData; // Attach the parsed JSON data to the error object
-            throw exception;
-          });
+          return response.json().then(errorData => {
+            const exception = new Error("Network response was not ok")
+            exception.data = errorData // Attach the parsed JSON data to the error object
+            throw exception
+          })
         }
-        return response.json();
+        return response.json()
       })
-      .then((data) => this.complete(data, ev.target))
-      .catch((error) => this.error(error, ev.target));
+      .then(data => this.complete(data, ev.target))
+      .catch(error => this.error(error, ev.target))
   }
 
   complete(data, target) {
-    this.downloading = false;
-    target.classList.remove('download-in-progress');
-    target.classList.add('download-complete');
-    target.innerHTML = `Download ready (${target.dataset.downloadType})`;
-    target.href = data[1];
-    this.renderMessage(data[0]);
+    this.downloading = false
+    target.classList.remove("download-in-progress")
+    target.classList.add("download-complete")
+    target.innerHTML = `Download ready (${target.dataset.downloadType})`
+    target.href = data[1]
+    this.renderMessage(data[0])
     //target.click();
   }
 
   error(exception, target) {
-    this.downloading = false;
-    target.classList.remove('download-in-progress');
-    target.classList.add('download-complete');
-    target.innerHTML = `Download failed (${target.dataset.downloadType})`;
-    this.renderMessage(exception.data[0]);
+    this.downloading = false
+    target.classList.remove("download-in-progress")
+    target.classList.add("download-complete")
+    target.innerHTML = `Download failed (${target.dataset.downloadType})`
+    console.log(exception)
+
+    this.renderMessage(exception.data[0])
   }
 
   renderMessage(message) {
+    let flashContainer = document.querySelector("div.flash_messages")
+    if (!flashContainer) {
+      flashContainer = document.createElement("div")
+      flashContainer.className = "flash_messages"
+      document.getElementById("document").prepend(flashContainer)
+    }
     Object.entries(message).forEach(([idx, msg]) => {
-      const flash = document.createElement("div");
-      flash.className = `alert alert-${msg[0]} alert-dismissible fade show`;
-      flash.innerHTML = `${msg[1]}<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>`;
-      document.querySelector("div.flash_messages").appendChild(flash);
-    });
+      const flash = document.createElement("div")
+      flash.className = `alert alert-${msg[0]} alert-dismissible fade show`
+      flash.innerHTML = `${msg[1]}<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>`
+      flashContainer.appendChild(flash)
+    })
   }
 }
