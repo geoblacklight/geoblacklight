@@ -9,9 +9,9 @@ RSpec.describe Geoblacklight::HomepageFeatureFacetComponent, type: :component do
 
   # Build a search
   let(:context) { {whatever: :value} }
-  let(:service) { Blacklight::SearchService.new(config: blacklight_config, user_params: user_params, **context) }
+  let(:service) { Blacklight::SearchService.new(config: blacklight_config, search_state:, **context) }
   let(:repository) { Blacklight::Solr::Repository.new(blacklight_config) }
-  let(:user_params) { {} }
+  let(:search_state) { Blacklight::SearchState.new({}, blacklight_config) }
   let(:blacklight_config) { Blacklight::Configuration.new }
   let(:copy_of_catalog_config) { ::CatalogController.blacklight_config.deep_copy }
   let(:blacklight_solr) { RSolr.connect(Blacklight.connection_config.except(:adapter)) }

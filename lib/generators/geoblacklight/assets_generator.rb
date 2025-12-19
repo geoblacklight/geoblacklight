@@ -42,15 +42,16 @@ module Geoblacklight
     # Switch Blacklight's bootstrap and popper imports to ESM versions so we
     # can import individual modules
     def use_bootstrap_esm
-      gsub_file "config/importmap.rb", /dist\/js\/bootstrap\.js/, "dist/js/bootstrap.esm.js"
-      gsub_file "config/importmap.rb", /dist\/umd\/popper.min.js/, "dist/esm/popper.js"
+      gsub_file "config/importmap.rb", %r{dist/js/bootstrap.js}, "dist/js/bootstrap.esm.js"
+      gsub_file "config/importmap.rb", %r{dist/umd/popper.min.js}, "dist/esm/popper.js"
     end
 
     # Add the SCSS customization overrides and insert before bootstrap import
     def add_customizations
       copy_file "assets/_customizations.scss", "app/assets/stylesheets/_customizations.scss"
       gsub_file "app/assets/stylesheets/_customizations.scss", "@geoblacklight/frontend/app/assets/", ""
-      insert_into_file "app/assets/stylesheets/application.bootstrap.scss", "@import 'customizations';\n", before: "@import 'bootstrap/scss/bootstrap';"
+      insert_into_file "app/assets/stylesheets/application.bootstrap.scss", "@import 'customizations';\n",
+        before: "@import 'bootstrap/scss/bootstrap';"
     end
 
     # Add CDN imports for CSS files used by Geoblacklight (leaflet, openlayers)
@@ -68,17 +69,13 @@ module Geoblacklight
 
     # Add an import for Geoblacklight's stylesheet
     def add_geoblacklight_styles
-      append_to_file "app/assets/stylesheets/application.bootstrap.scss", "@import '@geoblacklight/frontend/app/assets/stylesheets/geoblacklight/geoblacklight';"
-    end
-
-    # Ensure import of Blacklight's JS uses the name that importmap has pinned
-    def update_blacklight_import
-      gsub_file "app/javascript/application.js", "blacklight-frontend", "blacklight"
+      append_to_file "app/assets/stylesheets/application.bootstrap.scss",
+        "@import '@geoblacklight/frontend/app/assets/stylesheets/geoblacklight/geoblacklight';"
     end
 
     # Import Geoblacklight's JS using the name that importmap has pinned
     def add_geoblacklight_js
-      append_to_file "app/javascript/application.js", "import Geoblacklight from \"geoblacklight\";"
+      append_to_file "app/javascript/application.js", 'import Geoblacklight from "geoblacklight";'
     end
 
     # Run the build so styles are available for the first load of the app

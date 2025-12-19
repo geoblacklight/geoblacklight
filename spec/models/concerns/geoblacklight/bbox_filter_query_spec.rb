@@ -4,8 +4,8 @@ require "spec_helper"
 
 RSpec.describe Geoblacklight::BboxFilterQuery do
   # Subject
-  subject(:bbox_filter_query) { described_class.new(filter, solr_params) }
-
+  subject(:bbox_filter_query) { described_class.new(blacklight_config:) }
+  let(:result) { bbox_filter_query.call(filter, solr_params) }
   let(:solr_params) { {} }
 
   # Search State
@@ -32,6 +32,10 @@ RSpec.describe Geoblacklight::BboxFilterQuery do
   end
 
   describe "#envelope_bounds" do
+    before do
+      result
+    end
+
     it "returns an BoundingBox envelope" do
       expect(bbox_filter_query.envelope_bounds).to eq("ENVELOPE(-180, 120, 80, -80)")
     end
@@ -41,6 +45,7 @@ RSpec.describe Geoblacklight::BboxFilterQuery do
     context "without an explicit boost" do
       before do
         facet_config.within_boost = nil
+        result
       end
 
       it "returns an default boost value" do
@@ -51,6 +56,7 @@ RSpec.describe Geoblacklight::BboxFilterQuery do
     context "with an explicit boost" do
       before do
         facet_config.within_boost = 99
+        result
       end
 
       it "applies boost based on configured Settings.BBOX_WITHIN_BOOST" do
@@ -60,8 +66,9 @@ RSpec.describe Geoblacklight::BboxFilterQuery do
   end
 
   describe "#relevancy_boost" do
+    let(:relevancy_boost) { result.last }
     it "returns a relevancy_boost" do
-      expect(bbox_filter_query.relevancy_boost[:bq].to_s).to include("IsWithin")
+      expect(relevancy_boost[:bq].to_s).to include("IsWithin")
     end
 
     context "with overlap boost" do
@@ -70,7 +77,7 @@ RSpec.describe Geoblacklight::BboxFilterQuery do
       end
 
       it "applies overlapRatio when Settings.OVERLAP_RATIO_BOOST is configured" do
-        expect(bbox_filter_query.relevancy_boost[:bf].to_s).to include("$overlap^2")
+        expect(relevancy_boost[:bf].to_s).to include("$overlap^2")
       end
     end
 
@@ -80,7 +87,7 @@ RSpec.describe Geoblacklight::BboxFilterQuery do
       end
 
       it "does not apply overlapRatio when Settings.OVERLAP_RATIO_BOOST not configured" do
-        expect(bbox_filter_query.relevancy_boost).not_to have_key(:overlap)
+        expect(relevancy_boost).not_to have_key(:overlap)
       end
     end
 
@@ -91,15 +98,17 @@ RSpec.describe Geoblacklight::BboxFilterQuery do
       end
 
       it "appends overlap and includes the local boost" do
-        expect(bbox_filter_query.relevancy_boost[:bf].to_s).to include("$overlap^2")
-        expect(bbox_filter_query.relevancy_boost[:bf].to_s).to include("local_boost^5")
+        expect(relevancy_boost[:bf].to_s).to include("$overlap^2")
+        expect(relevancy_boost[:bf].to_s).to include("local_boost^5")
       end
     end
   end
 
   describe "#intersects_filter" do
+    let(:intersects_filter) { result.first }
+
     it "returns an Intersects query" do
-      expect(bbox_filter_query.intersects_filter).to include("Intersects")
+      expect(intersects_filter).to include("Intersects")
     end
   end
 end
