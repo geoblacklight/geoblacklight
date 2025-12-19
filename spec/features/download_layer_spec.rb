@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "Download layer" do
+RSpec.feature "Download layer" do
   let(:shapefile_download) { instance_double(Geoblacklight::ShapefileDownload) }
   let(:kmz_download) { instance_double(Geoblacklight::KmzDownload) }
   let(:csv_download) { instance_double(Geoblacklight::CsvDownload) }

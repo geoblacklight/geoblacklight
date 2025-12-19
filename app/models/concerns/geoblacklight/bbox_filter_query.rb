@@ -2,23 +2,21 @@
 
 module Geoblacklight
   class BboxFilterQuery
-    def self.call(_search_builder, filter, solr_params)
-      bbox_filter_query = Geoblacklight::BboxFilterQuery.new(filter, solr_params)
-
-      [bbox_filter_query.intersects_filter, bbox_filter_query.relevancy_boost]
+    def call(filter, solr_params)
+      @filter = filter
+      [intersects_filter, relevancy_boost(solr_params)]
     end
 
-    def initialize(filter, solr_params)
-      @filter = filter
-      @solr_params = solr_params
+    def initialize(blacklight_config:)
+      @blacklight_config = blacklight_config
     end
 
     def intersects_filter
       "#{@filter.key}:\"Intersects(#{envelope_bounds})\""
     end
 
-    def relevancy_boost
-      boosted_params = @solr_params.slice(:bq, :bf)
+    def relevancy_boost(solr_params)
+      boosted_params = solr_params.slice(:bq, :bf)
 
       boosted_params[:bq] ||= []
       boosted_params[:bq] << "#{@filter.key}:\"IsWithin(#{envelope_bounds})\"#{boost}"

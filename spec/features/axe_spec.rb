@@ -3,7 +3,7 @@
 require "axe-rspec"
 require "spec_helper"
 
-feature "Accessibility testing", js: true do
+RSpec.feature "Accessibility testing", js: true do
   context "logged out tests" do
     it "validates the home page" do
       visit root_path
@@ -23,7 +23,7 @@ feature "Accessibility testing", js: true do
 
     it "validates an bookmarks page" do
       visit solr_document_path("tufts-cambridgegrid100-04")
-      find(".checkbox.toggle-bookmark").click
+      click_on "Bookmark"
       visit bookmarks_path
       expect(page).to be_accessible
     end
@@ -52,9 +52,9 @@ feature "Accessibility testing", js: true do
       expect(page).to be_accessible
     end
 
-    it "validates an bookmarks page" do
+    it "validates the bookmarks page" do
       visit solr_document_path("nyu_2451_34502")
-      find(".checkbox.toggle-bookmark").click
+      click_on "Bookmark"
       visit "/bookmarks"
       expect(page).to be_accessible
     end
