@@ -16,7 +16,7 @@
     "@github/auto-complete-element": "^3.6.2",
     "@hotwired/stimulus": "^3.2.2",
     "@popperjs/core": "^2.11.8",
-    "blacklight-frontend": "8",
+    "blacklight-frontend": "9",
     "bootstrap": "^5.3.3",
     "esri-leaflet": "^3.0.12",
     "leaflet": "^1.9.4",

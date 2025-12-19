@@ -2,19 +2,6 @@
   @include sidebar-children;
 
   .list-group .list-group-item {
-    // Adjustments to give Bookmark same spacing as other Tools links
-    .checkbox {
-      label {
-        margin-bottom: 0;
-      }
-
-      .toggle-bookmark {
-        margin-right: 4px;
-        padding-bottom: 8px;
-        padding-top: 8px;
-      }
-    }
-
     // Spacing for Tools links other than Bookmark
     a {
       padding: 8px 1rem 8px 0;
@@ -23,12 +10,5 @@
     a:hover {
       text-decoration: underline;
     }
-  }
-
-  // Spacing between Tools icons and their labels
-  .blacklight-icons {
-    padding-right: 2px;
-    margin-right: 0.5rem;
-    margin-left: 0.1rem;
   }
 }

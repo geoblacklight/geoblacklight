@@ -9,7 +9,7 @@ def open_web_services_modal
   expect(page).to have_css "h1", text: "Web services"
 end
 
-describe "web services tools", type: :feature do
+RSpec.describe "web services tools", type: :feature do
   context "when no linkable references provided" do
     it "does not show up in tools" do
       visit solr_document_path "mit-001145244"
