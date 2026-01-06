@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema name="geoblacklight-schema" version="4.0">
+<schema name="geoblacklight-schema" version="1.6">
   <uniqueKey>id</uniqueKey>
   <fields>
     <field name="_version_" type="long"   stored="true" indexed="true"/>
