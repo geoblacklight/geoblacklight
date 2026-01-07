@@ -35,6 +35,7 @@
     "jsdom": "^27.3.0",
     "rollup-plugin-includepaths": "^0.2.4",
     "vite": "^7.2.2",
+    "vite-plugin-ruby": "5.1.1",
     "vitest": "^4.0.15"
   }
 }
