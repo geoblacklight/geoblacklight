@@ -5,7 +5,6 @@
 <% unless has_search_parameters? %>
   <%# if there are no input/search related params, display the "home" partial -%>
   <%= render 'home' %>
-  <%= render 'shared/sitelinks_search_box' %>
 <% else %>
   <% content_for(:sidebar) do %>
     <% conf = blacklight_config.view_config(document_index_view_type) %>

@@ -36,13 +36,24 @@ require "selenium-webdriver"
 require "webmock/rspec"
 WebMock.allow_net_connect!(net_http_connect_on_start: true)
 
-Capybara.javascript_driver = :selenium_chrome_headless
+Capybara.javascript_driver = :headless_chrome
+
+Capybara.register_driver :headless_chrome do |app|
+  Capybara::Selenium::Driver.load_selenium
+  capabilities = Selenium::WebDriver::Chrome::Options.new.tap do |opts|
+    opts.args << "--headless"
+    opts.args << "--disable-gpu"
+    opts.args << "--no-sandbox"
+    opts.args << "--window-size=1280,1696"
+  end
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: capabilities)
+end
 
 require "geoblacklight"
 
 Dir["./spec/support/**/*.rb"].sort.each { |f| require f }
 
-FactoryBot.definition_file_paths = [File.expand_path("../factories", __FILE__)]
+FactoryBot.definition_file_paths = [File.expand_path("factories", __dir__)]
 FactoryBot.find_definitions
 
 RSpec.configure do |config|
