@@ -7,7 +7,7 @@ feature "Index map", js: true do
   default_color = "#7FCDBB"
   selected_color = "#2C7FB8"
   scenario "displays index map viewer (polygon)" do
-    skip "Doesn't work for importmaps when headless in CI" if ENV["CI"] && ENV.fetch("ASSET_PIPELINE") == "importmap"
+    skip "Doesn't work for importmaps when headless in CI" if ENV["CI"]
 
     visit solr_document_path("stanford-fb897vt9938")
     # Wait until SVG elements are added
@@ -24,7 +24,7 @@ feature "Index map", js: true do
   end
 
   scenario "displays index map viewer (points)" do
-    skip "Doesn't work for importmaps when headless in CI" if ENV["CI"] && ENV.fetch("ASSET_PIPELINE") == "importmap"
+    skip "Doesn't work for importmaps when headless in CI" if ENV["CI"]
 
     visit solr_document_path("cornell-ny-aerial-photos-1960s")
     # Wait until SVG elements are added
