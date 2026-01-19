@@ -1,0 +1,16 @@
+<div data-sidebar="<%= Settings.LEAFLET.SIDEBAR %>">
+  <div class="accordion attribute-data<% if Settings.LEAFLET.SIDEBAR %> sidebar-container<% end %>">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="accordionHeading">
+        <button class="accordion-button p-2 border-none bg-none" type="button" data-bs-toggle="collapse" data-bs-target="#<%= @id %>" aria-expanded="true" aria-controls="<%= @id %>">
+          <%= @title %>
+        </button>
+      </h2>
+      <div id="<%= @id %>" class="accordion-collapse collapse show" aria-labelledby="accordionHeading" data-bs-parent="#accordionHeading">
+        <div class="accordion-body p-0">
+          <%= content %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
