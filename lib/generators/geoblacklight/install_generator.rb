@@ -7,8 +7,6 @@ module Geoblacklight
     source_root File.expand_path("../templates", __FILE__)
     desc "Install Geoblacklight"
 
-    class_option :test, type: :boolean, default: false, aliases: "-t", desc: "Indicates that app will be installed in a test environment"
-
     def allow_geoblacklight_params
       gbl_params = <<-PARAMS
         before_action :allow_geoblacklight_params
@@ -103,11 +101,7 @@ module Geoblacklight
     end
 
     def generate_assets
-      if options[:test]
-        generate "geoblacklight:assets", "--test=true"
-      else
-        generate "geoblacklight:assets"
-      end
+      generate "geoblacklight:assets"
     end
   end
 end
