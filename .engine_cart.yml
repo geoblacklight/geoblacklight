@@ -1,0 +1,15 @@
+rails_options:
+  - --skip-docker
+  - --skip-action-cable
+  - --skip-rubocop
+  - --skip-brakeman
+  - --skip-kamal
+  - --skip-solid
+  - --skip-git
+  - --skip-keeps
+  - --skip-test
+  - --skip-decrypted-diffs
+  - --skip-sprockets
+  - --asset-pipeline=propshaft
+  - --javascript=importmap
+  - --css=bootstrap
