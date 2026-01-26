@@ -14,7 +14,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2
+          ruby-version: 3.3
       - name: Install dependencies
         run: bundle install
       - name: Run linter
@@ -27,7 +27,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2
+          ruby-version: 3.3
       - name: Install json schema validator
         run: gem install json_schemer
       - name: Run json_schemer against aardvark fixtures
@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby_version: ["3.2", "3.3", "3.4"]
+        ruby_version: ["3.3", "3.4", "4.0"]
         rails_version: ["7.2.3", "8.1.1"]
 
     name: test ruby ${{ matrix.ruby_version }} / rails ${{ matrix.rails_version }}
@@ -50,10 +50,12 @@ jobs:
       - name: Install Ruby dependencies
         run: bundle install
         env:
+          BUNDLE_FORCE_RUBY_PLATFORM: true
           RAILS_VERSION: ${{ matrix.rails_version }}
       - name: Run tests
         run: bundle exec rake ci
         env:
+          BUNDLE_FORCE_RUBY_PLATFORM: true
           RAILS_VERSION: ${{ matrix.rails_version }}
           SOLR_URL: http://solr:SolrRocks@localhost:8983/solr/blacklight-core
       - name: Upload coverage artifacts
