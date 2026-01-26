@@ -13,15 +13,23 @@ class TestAppGenerator < Rails::Generators::Base
     end
   end
 
+  # Install blacklight
   def run_blacklight_generator
     say_status("warning", "GENERATING BL", :yellow)
-
     generate "blacklight:install", "--devise", "--skip-solr"
   end
 
-  # Install geoblacklight with the `test` option
+  # Install geoblacklight
   def install_engine
-    generate "geoblacklight:install", "-f --test"
+    say_status("warning", "GENERATING GBL", :yellow)
+    generate "geoblacklight:install"
+  end
+
+  # Symlink the frontend package from the outer directory so changes to styles
+  # are visible without needing to publish to npm.
+  def symlink_frontend_package
+    inside("..") { run "yarn link" }
+    run "yarn link @geoblacklight/frontend"
   end
 
   # Symlink fixture document directories so the test app doesn't have to be
