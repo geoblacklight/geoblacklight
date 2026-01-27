@@ -24,9 +24,5 @@
     "leaflet-fullscreen": "^1.0.2",
     "ol": "10.7.0",
     "ol-pmtiles": "^2.0.2"
-  },
-  "devDependencies": {
-    "jsdom": "^27.3.0",
-    "rollup-plugin-includepaths": "^0.2.4"
   }
 }
