@@ -18,7 +18,7 @@
     "GBL Fixture records"
   ],
   "dct_accessRights_s": "Public",
-  "dct_references_s": "{\"http://schema.org/url\":\"https://conservancy.umn.edu/handle/11299/166578\"}",
+  "dct_references_ss": "{\"http://schema.org/url\":\"https://conservancy.umn.edu/handle/11299/166578\"}",
   "id": "05d-03-noGeomType",
   "gbl_mdModified_dt": "2021-06-11T18:36:48Z",
   "gbl_mdVersion_s": "Aardvark"

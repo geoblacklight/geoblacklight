@@ -35,7 +35,7 @@
   ],
   "dct_accessRights_s": "Public",
   "dct_format_s": "GeoTIFF",
-  "dct_references_s": "{\"http://schema.org/url\":\"https://catalog.princeton.edu/catalog/9971226563506421\",\"http://schema.org/downloadUrl\":[{\"label\":\"GeoTIFF\",\"url\":\"https://figgy.princeton.edu/downloads/67d9ca18-49ee-44a6-8d87-3d4cbc70b0c5/file/a95c7f34-d4a8-49a5-a51a-ad782e43b37a\"}],\"http://schema.org/thumbnailUrl\":\"https://figgy.princeton.edu/downloads/67d9ca18-49ee-44a6-8d87-3d4cbc70b0c5/file/8b9b0834-0f3e-48ef-95d0-e065b30cd231\",\"https://github.com/cogeotiff/cog-spec\":\"https://geodata.lib.princeton.edu/13/f5/58/13f5582c32a54be98fc2982077d0456e/display_raster.tif\"}",
+  "dct_references_ss": "{\"http://schema.org/url\":\"https://catalog.princeton.edu/catalog/9971226563506421\",\"http://schema.org/downloadUrl\":[{\"label\":\"GeoTIFF\",\"url\":\"https://figgy.princeton.edu/downloads/67d9ca18-49ee-44a6-8d87-3d4cbc70b0c5/file/a95c7f34-d4a8-49a5-a51a-ad782e43b37a\"}],\"http://schema.org/thumbnailUrl\":\"https://figgy.princeton.edu/downloads/67d9ca18-49ee-44a6-8d87-3d4cbc70b0c5/file/8b9b0834-0f3e-48ef-95d0-e065b30cd231\",\"https://github.com/cogeotiff/cog-spec\":\"https://geodata.lib.princeton.edu/13/f5/58/13f5582c32a54be98fc2982077d0456e/display_raster.tif\"}",
   "schema_provider_s": "Princeton",
   "gbl_mdModified_dt": "2024-01-30T21:42:24Z",
   "gbl_mdVersion_s": "Aardvark",

@@ -49,7 +49,7 @@
   "dcat_centroid": "44.943,-93.372",
   "dct_accessRights_s": "Public",
   "dct_format_s": "Shapefile",
-  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"ftp://ftp.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_metc/plan_frmwrk2030dev_plan_ar2011/shp_plan_frmwrk2030dev_plan_ar2011.zip\",\"urn:x-esri:serviceType:ArcGIS#FeatureLayer\":\"https://arcgis.metc.state.mn.us/server/rest/services/GISLibrary/Framework2030PlanningAreas2011/FeatureServer/0\",\"http://schema.org/url\":\"https://gisdata.mn.gov/dataset/02236876-9c21-42f6-9870-d2562da8e44f\"}",
+  "dct_references_ss": "{\"http://schema.org/downloadUrl\":\"ftp://ftp.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_metc/plan_frmwrk2030dev_plan_ar2011/shp_plan_frmwrk2030dev_plan_ar2011.zip\",\"urn:x-esri:serviceType:ArcGIS#FeatureLayer\":\"https://arcgis.metc.state.mn.us/server/rest/services/GISLibrary/Framework2030PlanningAreas2011/FeatureServer/0\",\"http://schema.org/url\":\"https://gisdata.mn.gov/dataset/02236876-9c21-42f6-9870-d2562da8e44f\"}",
   "id": "02236876-9c21-42f6-9870-d2562da8e44f",
   "dct_identifier_sm": [
     "02236876-9c21-42f6-9870-d2562da8e44f"
