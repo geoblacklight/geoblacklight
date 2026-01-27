@@ -6,7 +6,7 @@ class Truncator {
   constructor(element, { lines, id }) {
     // if the element is already small enough, don't truncate it
     const minHeight = lines * parseFloat(window.getComputedStyle(element).fontSize);
-    if (element.getBoundingClientRect().height < minHeight) return;
+    if (element.getBoundingClientRect().height <= minHeight) return;
 
     // set a unique ID for the element if it doesn't have one
     this.element = element;
