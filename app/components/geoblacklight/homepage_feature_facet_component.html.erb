@@ -1,7 +1,5 @@
-<div class="category-block col-sm">
-  <div class="category-icon">
-    <%= helpers.geoblacklight_icon(@icon) %>
-  </div>
-  <%= content_tag :h4, t(@label) %>
-  <%= facets %>
+<div class="category-block col-md">
+  <%= helpers.geoblacklight_icon(@icon, class: "category-icon") %>
+  <%= content_tag :h4, t(@label), class: "category-heading" %>
+  <div class="facet-links"><%= facets %></div>
 </div>
