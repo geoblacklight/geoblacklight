@@ -34,14 +34,22 @@
   width: 6rem;
 }
 
-/*
- * Leaflet viewer
- */
-
 .leaflet-container {
   min-height: 400px;
 }
 
 .leaflet-container .btn {
   color: var(--bs-btn-color);
+}
+
+/*
+ * Search results page
+ */
+
+.documents-list + .leaflet-viewer {
+  max-height: 50vh;
+}
+
+.status-icons {
+  display: flex;
 }
