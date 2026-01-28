@@ -1,5 +1,5 @@
 # ArcGIS Online Base URL
-ARCGIS_BASE_URL: 'https://www.arcgis.com/home/webmap/viewer.html'
+ARCGIS_BASE_URL: 'https://www.arcgis.com/apps/mapviewer/index.html'
 
 # Download path can be configured using this setting
 #DOWNLOAD_PATH: "./tmp/cache/downloads"
