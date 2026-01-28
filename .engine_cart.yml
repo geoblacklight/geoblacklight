@@ -12,4 +12,4 @@ rails_options:
   - --skip-sprockets
   - --asset-pipeline=propshaft
   - --javascript=importmap
-  - --css=bootstrap
+  - --skip-css-bundling

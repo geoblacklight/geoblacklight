@@ -1,0 +1,12 @@
+/* Local Application Customizations */
+
+:root {
+  /* Define your own variables */
+  --my-institution-color: red;
+
+  /* Customize Bootstrap colors */
+  --bs-primary-color: var(--my-institution-color);
+
+  /* Set your own header logo */
+  /* $logo-image: url("my_institution_logo.svg"); */
+}

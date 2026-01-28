@@ -1,0 +1,47 @@
+/* Dependencies CSS */
+@import url("https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css");
+@import url("https://cdn.jsdelivr.net/npm/leaflet-fullscreen@1.0.2/dist/leaflet.fullscreen.css");
+@import url("https://cdn.jsdelivr.net/npm/ol@8.1.0/ol.css");
+
+/* Geoblacklight Variables */
+:root {
+  --bl-logo-image: url("logo.svg");
+}
+
+/* Geoblacklight CSS */
+
+/*
+ * Home page
+ */
+
+.column-heading {
+  margin: 1rem 0;
+}
+
+.category-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.category-heading {
+  margin: 0;
+}
+
+.category-icon {
+  height: 6rem;
+  width: 6rem;
+}
+
+/*
+ * Leaflet viewer
+ */
+
+.leaflet-container {
+  min-height: 400px;
+}
+
+.leaflet-container .btn {
+  color: var(--bs-btn-color);
+}
