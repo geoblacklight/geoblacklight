@@ -21,16 +21,19 @@ module Geoblacklight
         delivered via CDN.
       DESCRIPTION
 
-      # Switch bootstrap import to ESM version so we can import individual parts
+      # Switch Blacklight's bootstrap and popper imports to ESM versions so we
+      # can import individual modules
       def use_bootstrap_esm
-        gsub_file "config/importmap.rb", /dist\/js\/bootstrap\.js/, "dist/js/bootstrap.esm.js"
+        gsub_file "config/importmap.rb", %r{dist/js/bootstrap.js}, "dist/js/bootstrap.esm.js"
+        gsub_file "config/importmap.rb", %r{dist/umd/popper.min.js}, "dist/esm/popper.js"
       end
 
-      # Add the customization overrides and insert before bootstrap import
+      # Add the SCSS customization overrides and insert before bootstrap import
       def add_customizations
         copy_file "assets/_customizations.scss", "app/assets/stylesheets/_customizations.scss"
         gsub_file "app/assets/stylesheets/_customizations.scss", "@geoblacklight/frontend/app/assets/", ""
-        insert_into_file "app/assets/stylesheets/application.bootstrap.scss", "@import 'customizations';\n", before: "@import 'bootstrap/scss/bootstrap';"
+        insert_into_file "app/assets/stylesheets/application.bootstrap.scss", "@import 'customizations';\n",
+          before: "@import 'bootstrap/scss/bootstrap';"
       end
 
       # Add CDN imports for CSS files used by Geoblacklight (leaflet, openlayers)
@@ -38,9 +41,9 @@ module Geoblacklight
         insert_into_file "app/assets/stylesheets/application.bootstrap.scss", before: "@import 'customizations';\n" do
           <<~SCSS
             /* GeoBlacklight dependencies CSS */
-            @import url("https://cdn.skypack.dev/leaflet@1.9.4/dist/leaflet.css");
-            @import url("https://cdn.jsdelivr.net/npm/leaflet-fullscreen@1.0.2/dist/leaflet.fullscreen.css");
-            @import url("https://cdn.skypack.dev/ol@8.1.0/ol.css");
+            @import url("https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css");
+            @import url("https://cdn.jsdelivr.net/npm/leaflet.fullscreen@5.3.0/dist/Control.FullScreen.css");
+            @import url("https://cdn.jsdelivr.net/npm/ol@8.1.0/ol.css");
 
           SCSS
         end
