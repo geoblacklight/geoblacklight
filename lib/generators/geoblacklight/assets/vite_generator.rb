@@ -42,6 +42,15 @@ module Geoblacklight
         run "bundle exec vite install"
       end
 
+      # The vite-plugin-ruby package has a breaking change in 5.1.2,
+      # so we need to resolve to a specific version to avoid issues.
+      # Remove after https://github.com/ElMassimo/vite_ruby/issues/586 is fixed.
+      def pin_vite_plugin_ruby
+        inject_into_file "package.json", before: "  \"dependencies\": {" do
+          "  \"resolutions\": { \"vite-plugin-ruby\": \"5.1.1\" },\n"
+        end
+      end
+
       # The vite_rails gem doesn't currently install the vite-plugin-rails
       # node package, so we need to do that manually.
       def install_dev_dependencies
