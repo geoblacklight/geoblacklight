@@ -1,5 +1,5 @@
 import { Icon, Control } from "leaflet";
-import "leaflet-fullscreen";
+import { FullScreen } from "leaflet.fullscreen";
 import { layerGroup, polygon, map, tileLayer } from "leaflet";
 import { imageMapLayer } from "esri-leaflet";
 import { Controller } from "@hotwired/stimulus";
@@ -146,7 +146,7 @@ export default class LeafletViewerController extends Controller {
     if (controlName == "Opacity")
       return new LayerOpacityControl(this.previewOverlay);
     if (controlName == "Fullscreen")
-      return new Control.Fullscreen({ position: "topright", ...controlOptions });
+      return new FullScreen({ position: "topright", ...controlOptions });
     if (controlName == "Geosearch")
       return new GeoSearchControl({ baseUrl: this.catalogBaseUrlValue, ...controlOptions });
     console.error(`Unsupported control name: "${controlName}"`);
