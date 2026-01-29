@@ -59,9 +59,9 @@ module Geoblacklight
       insert_into_file "app/assets/stylesheets/application.bootstrap.scss", before: "@import 'customizations';\n" do
         <<~SCSS
           /* GeoBlacklight dependencies CSS */
-          @import url("https://cdn.skypack.dev/leaflet@1.9.4/dist/leaflet.css");
-          @import url("https://cdn.jsdelivr.net/npm/leaflet-fullscreen@1.0.2/dist/leaflet.fullscreen.css");
-          @import url("https://cdn.skypack.dev/ol@8.1.0/ol.css");
+          @import url("https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css");
+          @import url("https://cdn.jsdelivr.net/npm/leaflet.fullscreen@5.3.0/dist/Control.FullScreen.css");
+          @import url("https://cdn.jsdelivr.net/npm/ol@8.1.0/ol.css");
 
         SCSS
       end
