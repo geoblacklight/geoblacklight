@@ -4,10 +4,8 @@ GeoBlacklight is a collaborative, open source project where contributions are :s
 ### Who can contribute?
 **Anyone** is welcome to contribute to GeoBlacklight. We follow a set of contribution practices to maintain a technically sustainable and stable software project for everyone. We expect all contributors to adhere to our [Code of Conduct](https://github.com/geoblacklight/geoblacklight/blob/main/CODE_OF_CONDUCT.md).
 
-### Join the community
-See the [community page](https://geoblacklight.org/community/) on our website for information about our community calendar, slack, volunteer opportunities, and more.
-
-If you have questions or want to get more involved, join [GeoBlacklight Slack](https://geoblacklight.slack.com/join/shared_invite/zt-1p7dcay40-Ye_WTt5_iCqU8rDjzhkoWw#/shared-invite/email) or email the [GeoBlacklight Community](https://groups.google.com/g/geoblacklight-community) at [geoblacklight-community@googlegroups.com](mailto:geoblacklight-community@googlegroups.com).
+### How to contact us
+See the [community page](https://geoblacklight.org/community/) on our website for information about our community calendar, volunteer opportunities, and more. This page links to our Slack and Google Group so you can reach us if you have questions or want to get more involved.
 
 ## Issues
 Issues are used in the GeoBlacklight community as a convenient way to document bugs, propose new functionality and enhancements, and discuss important code changes.
