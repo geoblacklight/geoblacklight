@@ -21,7 +21,7 @@
     "esri-leaflet": "^3.0.19",
     "leaflet": "^1.9.4",
     "leaflet.fullscreen": "^5.3.0",
-    "ol": "10.7.0",
+    "ol": "10.8.0",
     "ol-pmtiles": "^2.0.2"
   }
 }
