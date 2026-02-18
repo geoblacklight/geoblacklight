@@ -47,6 +47,10 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby_version }}
+      # Needed until runner permissions issue is resolved:
+      # https://github.com/actions/runner-images/issues/13647
+      - name: Fix gem directory permissions
+        run: sudo chmod +t $(ruby -e 'puts Gem.default_dir')/gems
       - name: Install Ruby dependencies
         run: bundle install
         env:
