@@ -35,7 +35,7 @@
   "dcat_bbox": "ENVELOPE(-73.918247, -73.367, 42.507614, 41.978298)",
   "dct_accessRights_s": "Public",
   "dct_format_s": "Shapefile",
-  "dct_references_s": "{\"https://wiki.osgeo.org/wiki/Tile_Map_Service_Specification\":\"https://cugir.library.cornell.edu/geoserver/gwc/service/tms/1.0.0/cugir%3Acugir007957@EPSG%3A3857@png/{z}/{x}/{y}.png\",\"http://schema.org/downloadUrl\":\"https://cugir-data.s3.amazonaws.com/00/79/57/cugir-007957.zip\"}",
+  "dct_references_ss": "{\"https://wiki.osgeo.org/wiki/Tile_Map_Service_Specification\":\"https://cugir.library.cornell.edu/geoserver/gwc/service/tms/1.0.0/cugir%3Acugir007957@EPSG%3A3857@png/{z}/{x}/{y}.png\",\"http://schema.org/downloadUrl\":\"https://cugir-data.s3.amazonaws.com/00/79/57/cugir-007957.zip\"}",
   "id": "cugir-007957",
   "gbl_mdModified_dt": "2019-05-24T23:12:06.151Z",
   "gbl_mdVersion_s": "Aardvark"

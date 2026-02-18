@@ -36,7 +36,7 @@
   "dct_accessRights_s": "Public",
   "dct_format_s": "TIFF",
   "gbl_wxsIdentifier_s": "public-figgy:p-b6ba3091-fcf4-4d2d-9d6a-df7df5c8c598",
-  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://figgy.princeton.edu/downloads/b6ba3091-fcf4-4d2d-9d6a-df7df5c8c588/file/ff89fcc8-e61b-4b27-938f-a03e63d4f5f1\",\"http://iiif.io/api/image\":\"https://libimages1.princeton.edu/loris/figgy_prod/5a%2F20%2F58%2F5a20585db50d44959fe5ae44821fd174%2Fintermediate_file.jp2/info.json\",\"http://schema.org/url\":\"https://catalog.princeton.edu/catalog/4266648\",\"http://iiif.io/api/presentation#manifest\":\"https://figgy.princeton.edu/concern/scanned_maps/2806e4cf-effc-4827-b116-952dfe776d14/manifest\"}",
+  "dct_references_ss": "{\"http://schema.org/downloadUrl\":\"https://figgy.princeton.edu/downloads/b6ba3091-fcf4-4d2d-9d6a-df7df5c8c588/file/ff89fcc8-e61b-4b27-938f-a03e63d4f5f1\",\"http://iiif.io/api/image\":\"https://libimages1.princeton.edu/loris/figgy_prod/5a%2F20%2F58%2F5a20585db50d44959fe5ae44821fd174%2Fintermediate_file.jp2/info.json\",\"http://schema.org/url\":\"https://catalog.princeton.edu/catalog/4266648\",\"http://iiif.io/api/presentation#manifest\":\"https://figgy.princeton.edu/concern/scanned_maps/2806e4cf-effc-4827-b116-952dfe776d14/manifest\"}",
   "id": "princeton-n009w382v-fake1",
   "dct_identifier_sm": [
     "ark:/88435/n009w382v",

@@ -20,7 +20,7 @@
     "Afghanistan"
   ],
   "dct_accessRights_s": "Public",
-  "dct_references_s": "{\"http://schema.org/url\":\"https://umedia.lib.umn.edu/search?facets[collection_name_s][]=Ames+Library+of+South+Asia+Maps\"}",
+  "dct_references_ss": "{\"http://schema.org/url\":\"https://umedia.lib.umn.edu/search?facets[collection_name_s][]=Ames+Library+of+South+Asia+Maps\"}",
   "id": "05d-p16022coll246-noGeo",
   "gbl_mdModified_dt": "2021-06-11T18:38:42Z",
   "gbl_mdVersion_s": "Aardvark"

@@ -46,7 +46,7 @@
   ],
   "dct_accessRights_s": "Public",
   "dct_format_s": "GeoTIFF",
-  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://mapsweb.lib.purdue.edu/datasets/Wabash1929/wabashAerial_17.tif.zip\",\"urn:x-esri:serviceType:ArcGIS#ImageMapLayer\":\"https://mapsweb.lib.purdue.edu/arcgis/rest/services/Purdue/wabashaerial/ImageServer\",\"http://schema.org/url\":\"https://mapsweb.lib.purdue.edu/wabashriver/\"}",
+  "dct_references_ss": "{\"http://schema.org/downloadUrl\":\"https://mapsweb.lib.purdue.edu/datasets/Wabash1929/wabashAerial_17.tif.zip\",\"urn:x-esri:serviceType:ArcGIS#ImageMapLayer\":\"https://mapsweb.lib.purdue.edu/arcgis/rest/services/Purdue/wabashaerial/ImageServer\",\"http://schema.org/url\":\"https://mapsweb.lib.purdue.edu/wabashriver/\"}",
   "id": "33ecd1bd-c532-422c-8996-d8c1800aed5b",
   "dct_identifier_sm": [
     "33ecd1bd-c532-422c-8996-d8c1800aed5b"

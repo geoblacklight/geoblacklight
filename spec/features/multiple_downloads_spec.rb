@@ -3,7 +3,7 @@
 require "spec_helper"
 
 feature "Multiple downloads" do
-  feature "when item has multiple downloads in dct_references_s" do
+  feature "when item has multiple downloads in dct_references_ss" do
     scenario "downloads are listed in download card" do
       visit solr_document_path "cugir-007950"
       find("#downloads-button").click

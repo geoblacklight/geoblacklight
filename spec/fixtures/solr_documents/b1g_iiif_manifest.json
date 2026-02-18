@@ -56,7 +56,7 @@
     ],
     "dct_accessRights_s": "Public",
     "dct_format_s": "JPEG",
-    "dct_references_s": "{\"http://iiif.io/api/image\":\"https://cdm16022.contentdm.oclc.org/digital/iiif/p16022coll229/3210/info.json\",\"http://schema.org/url\":\"https://umedia.lib.umn.edu/item/p16022coll229:3210\",\"http://iiif.io/api/presentation#manifest\":\"https://cdm16022.contentdm.oclc.org/iiif/info/p16022coll229/3210/manifest.json\"}",
+    "dct_references_ss": "{\"http://iiif.io/api/image\":\"https://cdm16022.contentdm.oclc.org/digital/iiif/p16022coll229/3210/info.json\",\"http://schema.org/url\":\"https://umedia.lib.umn.edu/item/p16022coll229:3210\",\"http://iiif.io/api/presentation#manifest\":\"https://cdm16022.contentdm.oclc.org/iiif/info/p16022coll229/3210/manifest.json\"}",
     "dct_identifier_sm": [
         "UMN_ALMA:9941944980001701"
     ],
