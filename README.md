@@ -8,12 +8,12 @@ of the [Blacklight](https://projectblacklight.org) Solr-powered discovery interf
 multi-institutional [OpenGeoportal](http://opengeoportal.io/) and [OpenGeoMetadata](https://github.com/opengeometadata) federated metadata sharing
 communities. We're actively looking for community input and development partners.
 
-### Documentation
+## Documentation
 
-Our full [GeoBlacklight Documentation](https://geoblacklight.org/docs/) has how-to guides for installing, customizing, and maintaining a GeoBlacklight instance.
+Our full [GeoBlacklight Documentation](https://geoblacklight.org/latest/docs/) has how-to guides for installing, customizing, and maintaining a GeoBlacklight instance.
 
-See the [Quick Start](https://geoblacklight.org/docs/geoblacklight_quick_start/) section to create a new GeoBlacklight application, or see [For Developers](https://geoblacklight.org/docs/developers/) for more information about setting up a development environment.
+See the [Quick Start](https://geoblacklight.org/latest/docs/geoblacklight_quick_start/) section to create a new GeoBlacklight application, or see [For Developers](https://geoblacklight.org/latest/docs/developers/) for more information about setting up a development environment.
 
-### Contributing
+## Contributing
 
 Interested in contributing to GeoBlacklight? Please see [CONTRIBUTING.md](./CONTRIBUTING.md).
