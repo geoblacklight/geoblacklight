@@ -70,7 +70,7 @@ namespace :geoblacklight do
   desc "Run GeoBlacklight and Solr with seed data for interactive development"
   task :server, [:rails_server_args] do |_t, args|
     with_solr do
-      Rake::Task["geoblacklight:internal:seed"].invoke
+      Rake::Task["geoblacklight:index:seed"].invoke
 
       within_test_app do
         puts "Starting GeoBlacklight (Rails server)"
