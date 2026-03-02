@@ -57,7 +57,7 @@ jobs:
           RAILS_VERSION: ${{ matrix.rails_version }}
           SOLR_URL: http://solr:SolrRocks@localhost:8983/solr/blacklight-core
       - name: Upload coverage artifacts
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: "coverage-${{ matrix.ruby_version }}-${{ matrix.rails_version }}"
           path: coverage/
