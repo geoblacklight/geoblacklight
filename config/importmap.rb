@@ -3,7 +3,7 @@
 # OpenLayers viewer
 pin "ol", to: "https://esm.sh/ol@8.1.0"
 pin "ol/", to: "https://esm.sh/ol@8.1.0/"
-pin "ol-pmtiles", to: "https://cdn.skypack.dev/ol-pmtiles@0.3.0"
+pin "ol-pmtiles", to: "https://cdn.jsdelivr.net/npm/ol-pmtiles@0.3.0/+esm"
 
 # Leaflet viewer
 pin "leaflet", to: "https://cdn.skypack.dev/leaflet@1.9.4"
