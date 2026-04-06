@@ -174,7 +174,7 @@
     "dct_format_s": { "type": "string" },
     "gbl_fileSize_s": { "type": "string" },
     "gbl_wxsIdentifier_s": { "type": "string" },
-    "dct_references_s": { "type": "string" },
+    "dct_references_ss": { "type": "string" },
     "id": { "type": "string" },
     "dct_identifier_sm": {
       "type": "array",

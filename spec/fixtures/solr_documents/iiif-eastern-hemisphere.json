@@ -34,7 +34,7 @@
   "dcat_centroid": "34.365,-71.675",
   "dct_accessRights_s": "Public",
   "dct_format_s": "JPEG",
-  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://umedia.lib.umn.edu/sites/default/files/archive/113/image/tiff/1058396.tif\",\"http://schema.org/url\":\"http://purl.umn.edu/200804\",\"http://iiif.io/api/presentation#manifest\":\"https://cdm16022.contentdm.oclc.org/iiif/info/p16022coll246/224/manifest.json\"}",
+  "dct_references_ss": "{\"http://schema.org/downloadUrl\":\"https://umedia.lib.umn.edu/sites/default/files/archive/113/image/tiff/1058396.tif\",\"http://schema.org/url\":\"http://purl.umn.edu/200804\",\"http://iiif.io/api/presentation#manifest\":\"https://cdm16022.contentdm.oclc.org/iiif/info/p16022coll246/224/manifest.json\"}",
   "id": "57f0f116-b64e-4773-8684-96ba09afb549",
   "dct_identifier_sm": [
     "57f0f116-b64e-4773-8684-96ba09afb549"
