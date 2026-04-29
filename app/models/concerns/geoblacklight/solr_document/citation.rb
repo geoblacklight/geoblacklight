@@ -30,7 +30,7 @@ module Geoblacklight
         identifiers.find { |identifier| identifier if identifier.starts_with?("https://") }
       end
 
-      # Examine the list of references (in dct_references_s) to find a "schema.org/url"; return URL if found
+      # Examine the list of references (in dct_references_ss) to find a "schema.org/url"; return URL if found
       #  References are retrieved from the SolrDocument as an array of Geoblacklight::Reference
       #  where the "reference" attribute is an array of two elements, the first being the type and the second being the url
       def reference_url
