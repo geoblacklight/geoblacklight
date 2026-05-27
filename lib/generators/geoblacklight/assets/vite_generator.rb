@@ -16,14 +16,21 @@ module Geoblacklight
       SCSS entrypoint file, which will be bundled by Vite.
 
       Geoblacklight's frontend assets are installed from the npm package. In
-      local development they automatically reference the versions from the
-      outer directory (the Geoblacklight repository) via a yarn symlink.
+      CI they automatically reference the versions from the outer directory
+      (the Geoblacklight repository) via a yarn symlink.
       DESCRIPTION
 
       # Install Vite
       def install_vite_rails
         gem "vite_rails", "~> 3.0"
         run "bundle install"
+      end
+
+      # Symlink geoblacklight's frontend assets in CI
+      def link_geoblacklight_package
+        if options[:test]
+          run "yarn link @geoblacklight/frontend"
+        end
       end
 
       # Add our version of the Blacklight base layout with Vite helper tags
