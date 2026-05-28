@@ -22,7 +22,7 @@ module Geoblacklight
 
     # Make the source JS and CSS available to built apps
     initializer "geoblacklight.assets" do |app|
-      app.config.assets.paths << Geoblacklight::Engine.root.join("app/assets/javascript")
+      app.config.assets.paths << Geoblacklight::Engine.root.join("app/javascript")
       app.config.assets.paths << Geoblacklight::Engine.root.join("app/assets/images")
       app.config.assets.paths << Geoblacklight::Engine.root.join("app/assets/stylesheets")
       app.config.assets.precompile += Geoblacklight::Engine::PRECOMPILE_ASSETS

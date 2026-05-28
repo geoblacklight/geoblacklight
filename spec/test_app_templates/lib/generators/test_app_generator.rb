@@ -25,13 +25,6 @@ class TestAppGenerator < Rails::Generators::Base
     generate "geoblacklight:install"
   end
 
-  # Symlink the frontend package from the outer directory so changes to styles
-  # are visible without needing to publish to npm.
-  def symlink_frontend_package
-    inside("..") { run "yarn link" }
-    run "yarn link @geoblacklight/frontend"
-  end
-
   # Symlink fixture document directories so the test app doesn't have to be
   # regenerated when they are changed or updated.
   def fixtures
