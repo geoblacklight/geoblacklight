@@ -18,12 +18,13 @@ module Geoblacklight
       end
     end
 
-    PRECOMPILE_ASSETS = %w[favicon.ico geoblacklight/geoblacklight.umd.cjs geoblacklight/geoblacklight.umd.cjs.map geoblacklight/geoblacklight.js geoblacklight/geoblacklight.js.map].freeze
+    PRECOMPILE_ASSETS = %w[favicon.ico].freeze
 
     # Make the source JS and CSS available to built apps
     initializer "geoblacklight.assets" do |app|
-      app.config.assets.paths << Geoblacklight::Engine.root.join("app/javascript")
-      app.config.assets.paths << Geoblacklight::Engine.root.join("app/assets")
+      app.config.assets.paths << Geoblacklight::Engine.root.join("app/assets/javascript")
+      app.config.assets.paths << Geoblacklight::Engine.root.join("app/assets/images")
+      app.config.assets.paths << Geoblacklight::Engine.root.join("app/assets/stylesheets")
       app.config.assets.precompile += Geoblacklight::Engine::PRECOMPILE_ASSETS
     end
 
@@ -31,8 +32,8 @@ module Geoblacklight
     initializer "geoblacklight.importmap", before: "importmap" do |app|
       next unless app.config.respond_to?(:importmap)
 
-      app.config.importmap.paths << Engine.root.join("config/importmap.rb")
-      app.config.importmap.cache_sweepers << Engine.root.join("app/javascript")
+      app.config.importmap.paths << Geoblacklight::Engine.root.join("config/importmap.rb")
+      app.config.importmap.cache_sweepers << Geoblacklight::Engine.root.join("app/javascript")
     end
   end
 end

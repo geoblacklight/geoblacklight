@@ -1,0 +1,6 @@
+/* Local Application Customizations */
+
+:root {
+  /* Header Logo */
+  --bl-logo-image: url("geoblacklight/logo.svg");
+}
