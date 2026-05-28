@@ -1,0 +1,46 @@
+/* Styles for map viewers */
+
+#leaflet-viewer {
+  height: 500px;
+}
+
+/* Hide attribution and controls and disable interaction on the static map */
+#static-map {
+  height: 250px;
+  pointer-events: none;
+  cursor: default;
+}
+#static-map .leaflet-interactive {
+  pointer-events: none;
+  cursor: default;
+}
+#static-map .leaflet-control-container {
+  display: none;
+}
+
+/* Prevent transparency of Leaflet's affiliations display to improve contrast */
+.leaflet-container .leaflet-control-attribution {
+  background: white;
+}
+
+/* Fix text color on buttons inside the map to match Bootstrap */
+.leaflet-control-container {
+  .search-control {
+    a {
+      color: var(--bs-btn-color);
+    }
+  }
+}
+
+/* Blur the background of the dynamic search toggle to improve contrast */
+#gbl-dynamic-button {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(5px);
+}
+
+/* IIIF viewers */
+#mirador,
+#openseadragon {
+  position: relative;
+  height: 500px;
+}

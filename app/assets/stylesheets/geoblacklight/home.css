@@ -1,0 +1,21 @@
+/* Homepage styles */
+
+/* Category blocks */
+.category-icon .blacklight-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.category-icon .blacklight-icons svg {
+  width: 6rem;
+  height: 6rem;
+}
+
+/* Version display */
+#geoblacklight-version {
+  font-family: monospace;
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+}

@@ -50,7 +50,7 @@ export default class GeoSearchControl extends Control {
     staticButtonNode.setAttribute("id", "gbl-static-button");
     staticButtonNode.setAttribute("href", "#");
     staticButtonNode.setAttribute("style", "display:none;");
-    staticButtonNode.className = "btn btn-primary";
+    staticButtonNode.className = "btn btn-primary shadow";
     staticButtonNode.textContent = "Search here";
     staticButtonNode.addEventListener("click", this.staticSearch.bind(this));
     return staticButtonNode;
@@ -60,10 +60,14 @@ export default class GeoSearchControl extends Control {
   createDynamicButton() {
     const dynamicButtonNode = DomUtil.create("label");
     dynamicButtonNode.setAttribute("id", "gbl-dynamic-button");
+    dynamicButtonNode.className = "btn shadow border form-check-label";
     dynamicButtonNode.textContent = " Search when I move the map";
     dynamicButtonNode.setAttribute("style", "display:none;");
+    dynamicButtonNode.setAttribute("for", "gbl-dynamic-search-toggle");
     const input = DomUtil.create("input");
     input.setAttribute("type", "checkbox");
+    input.setAttribute("id", "gbl-dynamic-search-toggle");
+    input.className = "form-check-input";
     input.checked = true;
     dynamicButtonNode.insertBefore(input, dynamicButtonNode.firstChild);
     dynamicButtonNode.addEventListener(

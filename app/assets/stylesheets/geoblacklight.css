@@ -4,3 +4,11 @@
 @import url("https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css");
 @import url("https://cdn.jsdelivr.net/npm/leaflet.fullscreen@5.3.0/dist/Control.FullScreen.css");
 @import url("https://cdn.jsdelivr.net/npm/ol@8.1.0/ol.css");
+
+/* GBL CSS */
+@import url("geoblacklight/global.css");
+@import url("geoblacklight/viewers.css");
+@import url("geoblacklight/index_maps.css");
+@import url("geoblacklight/record.css");
+@import url("geoblacklight/home.css");
+@import url("geoblacklight/search.css");

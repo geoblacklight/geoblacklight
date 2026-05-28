@@ -1,0 +1,27 @@
+/* Record show page styles */
+
+/* Document header */
+.blacklight-catalog-show .documentHeader h1 > * {
+  vertical-align: middle;
+}
+
+.blacklight-catalog-show .documentHeader .blacklight-icons {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 1em;
+}
+
+/* Attribute table */
+[data-sidebar=false] .attribute-data {
+  margin: 1rem 0;
+}
+
+/* Sidebar */
+.page-sidebar .card + .card {
+  margin-top: 1rem;
+}
+
+.page-sidebar .card-header {
+  font-weight: 500;
+}

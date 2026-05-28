@@ -46,7 +46,7 @@ module Geoblacklight
     def iiif_manifest_tag
       tag.div(nil,
         id: "mirador",
-        class: "viewer",
+        class: "viewer border",
         data: {
           manifest_url: @document.viewer_endpoint
         })
@@ -57,7 +57,7 @@ module Geoblacklight
     def iiif_image_tag
       tag.div(nil,
         id: "openseadragon",
-        class: "viewer",
+        class: "viewer border",
         data: {
           image_url: @document.viewer_endpoint
         })
@@ -80,7 +80,7 @@ module Geoblacklight
       viewer_name = openlayers? ? "openlayers-viewer" : "leaflet-viewer"
       tag.div(nil,
         id: viewer_name,
-        class: "viewer",
+        class: "viewer border",
         data: {
           "controller" => viewer_name,
           "#{viewer_name}-available-value" => helpers.document_available?(@document),

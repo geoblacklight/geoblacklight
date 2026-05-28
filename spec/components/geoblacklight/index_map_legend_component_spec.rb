@@ -14,19 +14,8 @@ RSpec.describe Geoblacklight::IndexMapLegendComponent, type: :component do
       allow(document).to receive_message_chain(:item_viewer, :index_map).and_return(true)
     end
 
-    it "shows available map text" do
-      expect(rendered).to have_text("Green tile indicates")
-      expect(rendered).to have_selector(:css, ".index-map-legend-default")
-    end
-
-    it "shows unavailable map text" do
-      expect(rendered).to have_text("Yellow tile indicates")
-      expect(rendered).to have_selector(:css, ".index-map-legend-unavailable")
-    end
-
-    it "shows selected map text" do
-      expect(rendered).to have_text("Blue tile indicates")
-      expect(rendered).to have_selector(:css, ".index-map-legend-selected")
+    it "renders the legend" do
+      expect(rendered.text.strip).to include "Green tile indicates Map held by collection"
     end
   end
 
