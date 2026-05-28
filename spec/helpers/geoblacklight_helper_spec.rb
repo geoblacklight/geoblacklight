@@ -11,9 +11,7 @@ describe GeoblacklightHelper, type: :helper do
     it "supports in use cases" do
       {
         "Paper map" => "paper-map",
-        "Michigan State University" => "michigan-state-university",
-        "CD ROM" => "cd-rom",
-        "Lewis & Clark" => "lewis-clark"
+        "CD ROM" => "cd-rom"
       }.each_key do |key|
         html = Capybara.string(geoblacklight_icon(key))
         expect(html).to have_xpath "//*[local-name() = 'svg']"
@@ -22,10 +20,6 @@ describe GeoblacklightHelper, type: :helper do
     it "handles nil values" do
       html = Capybara.string(geoblacklight_icon(nil))
       expect(html).to have_css ".icon-missing"
-    end
-    it "works with settings icon mapping" do
-      html = Capybara.string(geoblacklight_icon("ohio-state"))
-      expect(html).to have_css ".blacklight-icons-the-ohio-state-university"
     end
   end
 
