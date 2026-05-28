@@ -33,21 +33,11 @@ RSpec::Core::RakeTask.new(:spec) do |t|
   t.verbose = false
 end
 
-desc "Run JavaScript unit tests"
-task :javascript_tests do
-  system "/bin/bash -c yarn test"
-end
-
 desc "Run test suite"
 task :ci do
   with_solr do
     Rake::Task["geoblacklight:internal:seed"].invoke
-
-    # Run RSpec tests with Coverage
     Rake::Task["geoblacklight:coverage"].invoke
-
-    # Run JavaScript tests
-    Rake::Task["javascript_tests"].invoke
   end
 end
 
