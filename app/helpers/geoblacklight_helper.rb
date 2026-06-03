@@ -95,13 +95,6 @@ module GeoblacklightHelper
     )
   end
 
-  ## Returns the icon used based off a Settings strategy
-  def relations_icon(document, icon)
-    icon_html = render Geoblacklight::HeaderIconsComponent.new(document: document, fields: [Settings.FIELDS.GEOM_TYPE]) if Settings.USE_GEOM_FOR_RELATIONS_ICON
-    return icon_html unless !Settings.USE_GEOM_FOR_RELATIONS_ICON || icon_html.include?("icon-missing")
-    geoblacklight_icon(icon, **{})
-  end
-
   ## Returns the data-page attribute value used as the JS map selector
   def results_js_map_selector(controller_name)
     case controller_name
