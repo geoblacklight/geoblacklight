@@ -3,20 +3,20 @@
 require "spec_helper"
 
 feature "Index view", js: true do
-  let(:subject_field) { Settings.FIELDS.SUBJECT }
+  let(:subject_field) { Geoblacklight.configuration.fields.subject }
   before do
     visit search_catalog_path(q: "*")
   end
 
   scenario "should have documents and map on page" do
-    visit search_catalog_path(f: {Settings.FIELDS.PROVIDER => ["Stanford"]})
+    visit search_catalog_path(f: {Geoblacklight.configuration.fields.provider => ["Stanford"]})
     expect(page).to have_css("#documents")
     expect(page).to have_css(".document", count: 5)
     expect(page).to have_css("#leaflet-viewer")
   end
 
   scenario "should have sort and per_page on page" do
-    visit search_catalog_path(f: {Settings.FIELDS.PROVIDER => ["Stanford"]})
+    visit search_catalog_path(f: {Geoblacklight.configuration.fields.provider => ["Stanford"]})
     expect(page).to have_css("#sort-dropdown")
     expect(page).to have_css("#per_page-dropdown")
   end
@@ -49,7 +49,7 @@ feature "Index view", js: true do
 
   scenario "hover on record should produce bounding box on map" do
     # Needed to find an svg element on the page
-    visit search_catalog_path(f: {Settings.FIELDS.PROVIDER => ["Stanford"]})
+    visit search_catalog_path(f: {Geoblacklight.configuration.fields.provider => ["Stanford"]})
     # BL7 has svg icons, so sniffing for SVG path won't return false
     # expect(Nokogiri::HTML.parse(page.body).css('path').length).to eq 0
     find(".documentHeader", match: :first).hover
@@ -82,7 +82,7 @@ feature "Index view", js: true do
   end
 
   scenario "should have schema.org props listed" do
-    visit search_catalog_path(f: {Settings.FIELDS.PROVIDER => ["Stanford"]})
+    visit search_catalog_path(f: {Geoblacklight.configuration.fields.provider => ["Stanford"]})
     within(".documentHeader", match: :first) do
       expect(page).to have_css("a[itemprop='name']")
       find(".dropdown-toggle").click

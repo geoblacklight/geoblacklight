@@ -7,8 +7,11 @@ describe Geoblacklight::Download do
 
   let(:faraday_connection) { instance_double(Faraday::Connection) }
   let(:faraday_response) { instance_double(Faraday::Response) }
-  let(:references_field) { Settings.FIELDS.REFERENCES }
-  let(:document) { SolrDocument.new(:"#{Settings.FIELDS.ID}" => "test", references_field => {"http://www.opengis.net/def/serviceType/ogc/wms" => "http://www.example.com/wms"}.to_json) }
+  let(:references_field) { Geoblacklight.configuration.fields.references }
+  let(:document) do
+    SolrDocument.new(:"#{Geoblacklight.configuration.fields.id}" => "test",
+      references_field => {"http://www.opengis.net/def/serviceType/ogc/wms" => "http://www.example.com/wms"}.to_json)
+  end
   let(:options) { {type: "shapefile", extension: "zip", service_type: "wms", content_type: "application/zip"} }
 
   describe "#initialize" do
@@ -31,15 +34,18 @@ describe Geoblacklight::Download do
       expect(download.file_name).to eq "test-shapefile.zip"
     end
   end
+
   describe "#file_path" do
     it "returns the path with name and extension" do
-      expect(download.class.file_path).to eq Rails.root.join("tmp", "cache", "downloads")
+      expect(download.class.file_path).to eq Rails.root.join("tmp", "cache", "downloads").to_s
     end
+
     it "is configurable" do
-      expect(Settings).to receive(:DOWNLOAD_PATH).and_return("configured/path")
+      expect(Geoblacklight.configuration).to receive(:download_path).and_return("configured/path")
       expect(download.class.file_path).to eq "configured/path"
     end
   end
+
   describe "#download_exists?" do
     it "returns false if file does not exist" do
       expect(File).to receive(:file?).and_return(false)
@@ -106,7 +112,10 @@ describe Geoblacklight::Download do
       it "creates the file in fs and delete it if the content headers are not correct" do
         allow(File).to receive(:delete).with("#{download.file_path_and_name}.tmp").and_return(nil)
 
-        expect { download.create_download_file }.to raise_error(Geoblacklight::Exceptions::ExternalDownloadFailed, "Wrong download type")
+        expect do
+          download.create_download_file
+        end.to raise_error(Geoblacklight::Exceptions::ExternalDownloadFailed,
+          "Wrong download type")
       end
     end
 

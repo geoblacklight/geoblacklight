@@ -3,7 +3,7 @@
 module Geoblacklight
   class WmsLayer
     def initialize(params)
-      @params = params.to_h.merge(Settings.WMS_PARAMS)
+      @params = params.to_h.merge(Geoblacklight.configuration.wms_params)
       @response = Geoblacklight::FeatureInfoResponse.new(request_response)
     end
 
@@ -23,8 +23,8 @@ module Geoblacklight
       conn = Faraday.new(url: url)
       conn.get do |request|
         request.params = search_params
-        request.options.timeout = Settings.TIMEOUT_WMS
-        request.options.open_timeout = Settings.TIMEOUT_WMS
+        request.options.timeout = Geoblacklight.configuration.timeout_wms
+        request.options.open_timeout = Geoblacklight.configuration.timeout_wms
       end
     rescue Faraday::ConnectionFailed, Faraday::TimeoutError => error
       Geoblacklight.logger.error error.inspect

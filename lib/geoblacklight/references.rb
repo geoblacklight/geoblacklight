@@ -5,7 +5,7 @@ module Geoblacklight
   class References
     attr_reader :refs, :reference_field
 
-    def initialize(document, reference_field = Settings.FIELDS.REFERENCES)
+    def initialize(document, reference_field = Geoblacklight.configuration.fields.references)
       @document = document
       @reference_field = reference_field
       @refs = parse_references.map { |ref| Reference.new(ref) }
@@ -15,9 +15,10 @@ module Geoblacklight
     # Return only those metadata references which are exposed within the configuration
     # @return [Geoblacklight::Reference]
     def shown_metadata_refs
-      metadata = @refs.select { |ref| Settings.METADATA_SHOWN.include?(ref.type.to_s) }
+      metadata_shown = Geoblacklight.configuration.metadata_shown
+      metadata = @refs.select { |ref| metadata_shown.include?(ref.type.to_s) }
       metadata.sort do |u, v|
-        Settings.METADATA_SHOWN.index(u.type.to_s) <=> Settings.METADATA_SHOWN.index(v.type.to_s)
+        metadata_shown.index(u.type.to_s) <=> metadata_shown.index(v.type.to_s)
       end
     end
 
@@ -111,7 +112,7 @@ module Geoblacklight
     end
 
     def format_list
-      Settings.DOWNLOAD_FORMATS&.VECTOR
+      Geoblacklight.configuration.vector_download_formats || []
     end
 
     def web_service_hash(format)

@@ -16,17 +16,17 @@ module Geoblacklight
       # Show suppressed records when searching relationships
       return if blacklight_params.fetch(:f,
         {}).keys.any? do |field|
-                  Settings.RELATIONSHIPS_SHOWN.map do |_key, value|
+                  Geoblacklight.configuration.relationships_shown.map do |_key, value|
                     value.field
                   end.include?(field)
                 end
 
       # Do not suppress action_documents method calls for individual documents
       # ex. CatalogController#web_services (exportable views)
-      return if solr_params[:q]&.include?("{!lucene}#{Settings.FIELDS.ID}:")
+      return if solr_params[:q]&.include?("{!lucene}#{Geoblacklight.configuration.fields.id}:")
 
       solr_params[:fq] ||= []
-      solr_params[:fq] << "-#{Settings.FIELDS.SUPPRESSED}: true"
+      solr_params[:fq] << "-#{Geoblacklight.configuration.fields.suppressed}: true"
     end
   end
 end

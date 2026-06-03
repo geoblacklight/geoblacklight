@@ -59,7 +59,7 @@ RSpec.describe Geoblacklight::BboxFilterQuery do
         result
       end
 
-      it "applies boost based on configured Settings.BBOX_WITHIN_BOOST" do
+      it "applies boost based on configuration" do
         expect(bbox_filter_query.boost).to eq("^99")
       end
     end
@@ -76,7 +76,7 @@ RSpec.describe Geoblacklight::BboxFilterQuery do
         facet_config.overlap_boost = 2
       end
 
-      it "applies overlapRatio when Settings.OVERLAP_RATIO_BOOST is configured" do
+      it "applies overlapRatio" do
         expect(relevancy_boost[:bf].to_s).to include("$overlap^2")
       end
     end
@@ -86,7 +86,7 @@ RSpec.describe Geoblacklight::BboxFilterQuery do
         facet_config.overlap_boost = nil
       end
 
-      it "does not apply overlapRatio when Settings.OVERLAP_RATIO_BOOST not configured" do
+      it "does not apply overlapRatio" do
         expect(relevancy_boost).not_to have_key(:overlap)
       end
     end

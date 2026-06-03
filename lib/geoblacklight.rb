@@ -13,4 +13,8 @@ module Geoblacklight
   def self.logger
     ::Rails.logger
   end
+
+  def self.configuration
+    @configuration ||= Configuration::LegacySettingsBuilder.build
+  end
 end

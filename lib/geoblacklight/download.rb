@@ -16,7 +16,7 @@ module Geoblacklight
     end
 
     def self.file_path
-      Settings.DOWNLOAD_PATH || Rails.root.join("tmp", "cache", "downloads")
+      Geoblacklight.configuration.download_path
     end
 
     def file_path_and_name
@@ -95,7 +95,7 @@ module Geoblacklight
     # the Geoblacklight::Download class
     # @return [Fixnum] download timeout in seconds
     def timeout
-      @options[:timeout] || Settings.TIMEOUT_DOWNLOAD || 20
+      @options[:timeout] || Geoblacklight.configuration.timeout_download
     end
 
     ##

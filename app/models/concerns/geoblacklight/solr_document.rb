@@ -15,20 +15,21 @@ module Geoblacklight
     delegate :viewer_endpoint, to: :item_viewer
 
     included do
-      attribute :display_note, :array, Settings.FIELDS.DISPLAY_NOTE
-      attribute :geom_field, :string, Settings.FIELDS.GEOMETRY
-      attribute :wxs_identifier, :string, Settings.FIELDS.WXS_IDENTIFIER
-      attribute :file_format, :string, Settings.FIELDS.FORMAT
-      attribute :rights_field_data, :string, Settings.FIELDS.ACCESS_RIGHTS
-      attribute :provider, :string, Settings.FIELDS.PROVIDER
-      attribute :resource_type, :array, Settings.FIELDS.RESOURCE_TYPE
-      attribute :resource_class, :array, Settings.FIELDS.RESOURCE_CLASS
-      attribute :title, :string, Settings.FIELDS.TITLE
-      attribute :creator, :array, Settings.FIELDS.CREATOR
-      attribute :publisher, :string, Settings.FIELDS.PUBLISHER
-      attribute :identifiers, :array, Settings.FIELDS.IDENTIFIER
-      attribute :issued, :string, Settings.FIELDS.DATE_ISSUED
-      attribute :format, :string, Settings.FIELDS.FORMAT
+      field_config = Geoblacklight.configuration.fields
+      attribute :display_note, :array, field_config.display_note
+      attribute :geom_field, :string, field_config.geometry
+      attribute :wxs_identifier, :string, field_config.wxs_identifier
+      attribute :file_format, :string, field_config.format
+      attribute :rights_field_data, :string, field_config.access_rights
+      attribute :provider, :string, field_config.provider
+      attribute :resource_type, :array, field_config.resource_type
+      attribute :resource_class, :array, field_config.resource_class
+      attribute :title, :string, field_config.title
+      attribute :creator, :array, field_config.creator
+      attribute :publisher, :string, field_config.publisher
+      attribute :identifiers, :array, field_config.identifier
+      attribute :issued, :string, field_config.date_issued
+      attribute :format, :string, field_config.format
     end
 
     def available?
@@ -60,7 +61,7 @@ module Geoblacklight
     end
 
     def same_institution?
-      provider&.casecmp?(Settings.INSTITUTION.downcase)
+      provider&.casecmp?(Geoblacklight.configuration.institution.downcase)
     end
 
     def iiif_download

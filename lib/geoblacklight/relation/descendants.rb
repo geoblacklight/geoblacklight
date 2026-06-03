@@ -11,7 +11,8 @@ module Geoblacklight
 
       def create_search_params
         {fq: "#{@field}:#{@search_id}",
-         fl: [Settings.FIELDS.TITLE, Settings.FIELDS.ID, Settings.FIELDS.RESOURCE_TYPE]}
+         fl: [Geoblacklight.configuration.fields.title, Geoblacklight.configuration.fields.id,
+           Geoblacklight.configuration.fields.resource_type]}
       end
 
       def execute_query

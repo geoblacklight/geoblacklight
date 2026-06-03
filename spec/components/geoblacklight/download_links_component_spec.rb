@@ -57,12 +57,13 @@ RSpec.describe Geoblacklight::DownloadLinksComponent, type: :component do
     let(:url) { "http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip" }
 
     it "generates a link to download the original file" do
-      expect(component.download_link_file(label, id, url)).to eq '<a contentUrl="http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip" data-download="trigger" data-download-type="direct" data-download-id="test-id" href="http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip">Test Link Text</a>'
+      expect(component.download_link_file(label, id,
+        url)).to eq '<a contentUrl="http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip" data-download="trigger" data-download-type="direct" data-download-id="test-id" href="http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip">Test Link Text</a>'
     end
   end
 
   describe "#download_link_iiif" do
-    let(:references_field) { Settings.FIELDS.REFERENCES }
+    let(:references_field) { Geoblacklight.configuration.fields.references }
     let(:document_attributes) do
       {
         references_field => {
@@ -83,7 +84,7 @@ RSpec.describe Geoblacklight::DownloadLinksComponent, type: :component do
   end
 
   describe "#iiif_jpg_url" do
-    let(:references_field) { Settings.FIELDS.REFERENCES }
+    let(:references_field) { Geoblacklight.configuration.fields.references }
     let(:document_attributes) do
       {
         references_field => {
@@ -111,8 +112,10 @@ RSpec.describe Geoblacklight::DownloadLinksComponent, type: :component do
     it "generates a link to download the JPG file from the IIIF server" do
       # Stub I18n to ensure the link can be customized via `export_` labels.
       allow(component).to receive(:t).with("geoblacklight.download.export_shapefile_link").and_return("Shapefile Export Customization")
-      allow(component).to receive(:t).with("geoblacklight.download.export_link", {download_format: "Shapefile Export Customization"}).and_return("Export Shapefile Export Customization")
-      expect(component.download_link_generated(download_type, document)).to eq '<a data-download-path="/download/test-id?type=SHAPEFILE" data-download="trigger" data-action="downloads#download:once" data-download-type="SHAPEFILE" data-download-id="test-id" href="">Export Shapefile Export Customization</a>'
+      allow(component).to receive(:t).with("geoblacklight.download.export_link",
+        {download_format: "Shapefile Export Customization"}).and_return("Export Shapefile Export Customization")
+      expect(component.download_link_generated(download_type,
+        document)).to eq '<a data-download-path="/download/test-id?type=SHAPEFILE" data-download="trigger" data-action="downloads#download:once" data-download-type="SHAPEFILE" data-download-id="test-id" href="">Export Shapefile Export Customization</a>'
     end
   end
 end

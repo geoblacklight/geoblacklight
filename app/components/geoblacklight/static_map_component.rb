@@ -10,7 +10,7 @@ module Geoblacklight
     end
 
     def render?
-      Settings.SIDEBAR_STATIC_MAP&.any? { |vp| @document.viewer_protocol == vp }
+      Geoblacklight.configuration.sidebar_static_map&.any? { |vp| @document.viewer_protocol == vp }
     end
 
     def before_render

@@ -15,7 +15,7 @@ module Geoblacklight
       params = URI.encode_www_form(
         urls: document.arcgis_urls
       )
-      Settings.ARCGIS_BASE_URL + "?" + params
+      Geoblacklight.configuration.arcgis_base_url + "?" + params
     end
 
     def key
