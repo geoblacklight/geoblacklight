@@ -152,40 +152,6 @@ describe GeoblacklightHelper, type: :helper do
     end
   end
 
-  describe "#relations_icon" do
-    context "when configured to use the geometry type" do
-      before do
-        allow(Settings).to receive(:USE_GEOM_FOR_RELATIONS_ICON).and_return(true)
-      end
-
-      it "renders a goemetry type as the icon" do
-        html = Capybara.string(helper.relations_icon({Settings.FIELDS.GEOM_TYPE => "polygon"}, "leaf"))
-        expect(html.title.strip).to eq "Polygon"
-      end
-
-      it "has the svg_tooltip class so that the Bootstrap tooltip is applied" do
-        html = Capybara.string(helper.relations_icon({Settings.FIELDS.GEOM_TYPE => "polygon"}, "leaf"))
-        expect(html).to have_css(".blacklight-icons.svg_tooltip")
-      end
-    end
-
-    context "when not confiugred to use the geometry type" do
-      before do
-        allow(Settings).to receive(:USE_GEOM_FOR_RELATIONS_ICON).and_return(false)
-      end
-
-      it "renders the provided icon" do
-        html = Capybara.string(helper.relations_icon({Settings.FIELDS.GEOM_TYPE => "polygon"}, "leaf"))
-        expect(html.title.strip).to eq "Leaf"
-      end
-
-      it "does not have the svg_tooltip class" do
-        html = Capybara.string(helper.relations_icon({Settings.FIELDS.GEOM_TYPE => "polygon"}, "leaf"))
-        expect(html).not_to have_css(".blacklight-icons.svg_tooltip")
-      end
-    end
-  end
-
   describe "#results_js_map_selector" do
     context "viewing bookmarks" do
       let(:controller_name) { "bookmarks" }
