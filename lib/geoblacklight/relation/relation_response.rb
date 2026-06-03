@@ -11,9 +11,9 @@ module Geoblacklight
       end
 
       def method_missing(method, *args, &block)
-        if Settings.RELATIONSHIPS_SHOWN.key?(method)
-          field = Settings.RELATIONSHIPS_SHOWN[method].field
-          query_type = query_type(Settings.RELATIONSHIPS_SHOWN[method])
+        if Geoblacklight.configuration.relationships_shown.key?(method)
+          field = Geoblacklight.configuration.relationships_shown[method].field
+          query_type = query_type(Geoblacklight.configuration.relationships_shown[method])
           @results = query_type.new(@search_id, field, @repository).results
         else
           super
@@ -21,7 +21,7 @@ module Geoblacklight
       end
 
       def respond_to_missing?(method_name, *args)
-        Settings.RELATIONSHIPS_SHOWN.key?(method_name) or super
+        Geoblacklight.configuration.relationships_shown.key?(method_name) or super
       end
 
       private

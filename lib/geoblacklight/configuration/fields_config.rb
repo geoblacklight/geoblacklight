@@ -1,0 +1,52 @@
+module Geoblacklight
+  class Configuration
+    # Configuration for fields used in GeoBlacklight search results and metadata display.
+    class FieldsConfig
+      include ActiveModel::Attributes
+
+      attribute :access_rights, :string, default: "dct_accessRights_s"
+      attribute :alternative_title, :string, default: "dct_alternative_sm"
+      attribute :centroid, :string, default: "dcat_centroid"
+      attribute :creator, :string, default: "dct_creator_sm"
+      attribute :date_issued, :string, default: "dct_issued_s"
+      attribute :date_range, :string, default: "gbl_dateRange_drsim"
+      attribute :description, :string, default: "dct_description_sm"
+      attribute :display_note, :string, default: "gbl_displayNote_s"
+      attribute :format, :string, default: "dct_format_s"
+      attribute :file_size, :string, default: "gbl_fileSize_drsim"
+      attribute :georeferenced, :string, default: "gbl_georeferenced_drsim"
+      attribute :id, :string, default: "id"
+      attribute :identifier, :string, default: "dct_identifier_s"
+      attribute :index_year, :string, default: "gbl_indexYear_drsim"
+      attribute :is_part_of, :string, default: "gbl_isPartOf_drsim"
+      attribute :is_replaced_by, :string, default: "gbl_isReplacedBy_drsim"
+      attribute :theme, :string, default: "gbl_theme_drsim"
+      attribute :keyword, :string, default: "dct_keyword_sm"
+      attribute :language, :string, default: "dct_language_s"
+      attribute :layer_modified, :string, default: "gbl_layerModified_drsim"
+      attribute :license, :string, default: "dct_license_s"
+      attribute :member_of, :string, default: "gbl_memberOf_drsim"
+      attribute :metadata_version, :string, default: "gbl_metadataVersion_drsim"
+      attribute :modified, :string, default: "gbl_modified_drsim"
+      attribute :overlap_field, :string, default: "gbl_overlapField_drsim"
+      attribute :publisher, :string, default: "gbl_publisher_drsim"
+      attribute :provider, :string, default: "gbl_provider_drsim"
+      attribute :references, :string, default: "gbl_references_drsim"
+      attribute :relation, :string, default: "gbl_relation_drsim"
+      attribute :replaces, :string, default: "gbl_replaces_drsim"
+      attribute :resource_class, :string, default: "gbl_resourceClass_drsim"
+      attribute :resource_type, :string, default: "gbl_resourceType_drsim"
+      attribute :rights, :string, default: "gbl_rights_drsim"
+      attribute :rights_holder, :string, default: "gbl_rightsHolder_drsim"
+      attribute :source, :string, default: "gbl_source_drsim"
+      attribute :spatial_coverage, :string, default: "gbl_spatialCoverage_drsim"
+      attribute :geometry, :string, default: "gbl_geometry_drsim"
+      attribute :subject, :string, default: "gbl_subject_drsim"
+      attribute :suppressed, :string, default: "gbl_suppressed_drsim"
+      attribute :temporal_coverage, :string, default: "gbl_temporalCoverage_drsim"
+      attribute :title, :string, default: "gbl_title_drsim"
+      attribute :version, :string, default: "gbl_version_drsim"
+      attribute :wxs_identifier, :string, default: "gbl_wxsIdentifier_drsim"
+    end
+  end
+end

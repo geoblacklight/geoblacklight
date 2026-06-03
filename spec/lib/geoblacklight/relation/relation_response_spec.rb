@@ -30,7 +30,7 @@ describe Geoblacklight::Relation::RelationResponse do
 
   describe "#respond_to_missing?" do
     it "returns true for configured relationships" do
-      Settings.RELATIONSHIPS_SHOWN.each_key do |key|
+      Geoblacklight.configuration.relationships_shown.each_key do |key|
         expect(relation_resp).to respond_to(key)
       end
     end
@@ -43,23 +43,20 @@ describe Geoblacklight::Relation::RelationResponse do
   describe "#query_type" do
     it "fails for a bad query type request" do
       # Cache the existing relationship values and add a test value
-      relationships = Settings.RELATIONSHIPS_SHOWN
-      Settings.add_source!({
-        RELATIONSHIPS_SHOWN: {
-          BAD: {
-            field: "dct_source_sm",
-            query_type: "bad_query_type",
-            icon: "pagelines-brands",
-            label: "geoblacklight.relations.source_ancestor"
-          }
-        }
-      })
-      Settings.reload!
+      relationships = Geoblacklight.configuration.relationships_shown
+      Geoblacklight.configuration.relationships_shown = {
+        BAD: Config::Options.new({
+          field: "dct_source_sm",
+          query_type: "bad_query_type",
+          icon: "pagelines-brands",
+          label: "geoblacklight.relations.source_ancestor"
+        })
+      }
 
       expect { relation_resp.BAD }.to raise_error(ArgumentError)
 
       # Restore relationship values
-      Settings.RELATIONSHIPS_SHOWN = relationships
+      Geoblacklight.configuration.relationships_shown = relationships
     end
   end
 end

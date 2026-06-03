@@ -10,8 +10,9 @@ module Geoblacklight
       end
 
       def create_search_params
-        {fq: ["{!join from=#{@field} to=#{Settings.FIELDS.ID}}#{Settings.FIELDS.ID}:#{@search_id}"],
-         fl: [Settings.FIELDS.TITLE, Settings.FIELDS.ID, Settings.FIELDS.RESOURCE_TYPE]}
+        {fq: ["{!join from=#{@field} to=#{Geoblacklight.configuration.fields.id}}#{Geoblacklight.configuration.fields.id}:#{@search_id}"],
+         fl: [Geoblacklight.configuration.fields.title, Geoblacklight.configuration.fields.id,
+           Geoblacklight.configuration.fields.resource_type]}
       end
 
       def execute_query

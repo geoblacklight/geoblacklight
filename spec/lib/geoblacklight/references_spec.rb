@@ -3,8 +3,8 @@
 require "spec_helper"
 
 describe Geoblacklight::References do
-  let(:references_field) { Settings.FIELDS.REFERENCES }
-  let(:file_format_field) { Settings.FIELDS.FORMAT }
+  let(:references_field) { Geoblacklight.configuration.fields.references }
+  let(:file_format_field) { Geoblacklight.configuration.fields.format }
   let(:typical_ogp_shapefile) do
     described_class.new(
       SolrDocument.new(
@@ -134,9 +134,11 @@ describe Geoblacklight::References do
     end
     context "with an overridden order for the formats" do
       before do
+        allow(Geoblacklight.configuration).to receive_messages(
+          metadata_shown: %w[iso19139 mods]
+        )
         stub_const("Settings", Module.new)
         allow(Settings).to receive_messages(
-          METADATA_SHOWN: %w[iso19139 mods],
           FIELDS: OpenStruct.new(FORMAT: "dct_format_s")
         )
       end

@@ -4,7 +4,7 @@ require "rails/generators"
 
 module Geoblacklight
   class Install < Rails::Generators::Base
-    source_root File.expand_path("../templates", __FILE__)
+    source_root File.expand_path("templates", __dir__)
     desc "Install Geoblacklight"
 
     def allow_geoblacklight_params
@@ -13,7 +13,7 @@ module Geoblacklight
 
         def allow_geoblacklight_params
           # Blacklight::Parameters will pass these to params.permit
-          blacklight_config.search_state_fields.append(Settings.GBL_PARAMS)
+          blacklight_config.search_state_fields.append(Geoblacklight.configuration.gbl_params)
         end
       PARAMS
 
@@ -21,7 +21,8 @@ module Geoblacklight
     end
 
     def raise_unpermitted_params
-      inject_into_file "config/environments/test.rb", "config.action_controller.action_on_unpermitted_parameters = :raise\n", before: /^end/
+      inject_into_file "config/environments/test.rb",
+        "config.action_controller.action_on_unpermitted_parameters = :raise\n", before: /^end/
     end
 
     def mount_geoblacklight_engine
@@ -77,7 +78,7 @@ module Geoblacklight
 
     def add_unique_key
       inject_into_file "app/models/solr_document.rb", after: "# self.unique_key = 'id'" do
-        "\n  self.unique_key = Settings.FIELDS.ID"
+        "\n  self.unique_key = Geoblacklight.configuration.fields.id"
       end
     end
 

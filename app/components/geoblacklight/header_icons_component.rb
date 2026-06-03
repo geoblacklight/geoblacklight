@@ -4,14 +4,16 @@ module Geoblacklight
   class HeaderIconsComponent < ViewComponent::Base
     attr_reader :document, :fields
 
-    def initialize(document:, fields: [Settings.FIELDS.RESOURCE_CLASS, Settings.FIELDS.ACCESS_RIGHTS])
+    def initialize(document:,
+      fields: [Geoblacklight.configuration.fields.resource_class,
+        Geoblacklight.configuration.fields.access_rights])
       @document = document
       @fields = fields
       super()
     end
 
     def icon(field)
-      return resource_icon if field == Settings.FIELDS.RESOURCE_CLASS
+      return resource_icon if field == Geoblacklight.configuration.fields.resource_class
 
       helpers.geoblacklight_icon(@document[field], classes: "svg_tooltip")
     end

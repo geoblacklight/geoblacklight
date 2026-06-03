@@ -6,7 +6,7 @@ describe Geoblacklight::ItemViewer do
   let(:document) { SolrDocument.new(document_attributes) }
   let(:document_attributes) { {} }
   let(:references) { document.references }
-  let(:references_field) { Settings.FIELDS.REFERENCES }
+  let(:references_field) { Geoblacklight.configuration.fields.references }
   let(:item_viewer) { described_class.new(references) }
   describe "viewer_preference" do
     describe "for no references" do

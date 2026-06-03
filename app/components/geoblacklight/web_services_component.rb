@@ -12,7 +12,7 @@ module Geoblacklight
     end
 
     def render?
-      Settings.WEBSERVICES_SHOWN.include? @type
+      Geoblacklight.configuration.webservices_shown.include? @type
     end
 
     def render_web_services

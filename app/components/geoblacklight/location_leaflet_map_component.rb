@@ -4,7 +4,7 @@ module Geoblacklight
   class LocationLeafletMapComponent < ViewComponent::Base
     def initialize(
       id: "leaflet-viewer",
-      map_geometry: Settings.HOMEPAGE_MAP_GEOM,
+      map_geometry: Geoblacklight.configuration.homepage_map_geom,
       classes: "",
       page: nil,
       geosearch: nil

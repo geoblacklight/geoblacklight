@@ -4,12 +4,18 @@ require "spec_helper"
 
 describe Geoblacklight::Relation::Ancestors do
   let(:repository) { Blacklight::Solr::Repository.new(CatalogController.blacklight_config) }
-  let(:ancestors) { described_class.new("nyu_2451_34502", Settings.FIELDS.SOURCE, repository) }
-  let(:empty_ancestors) { described_class.new("harvard-g7064-s2-1834-k3", Settings.FIELDS.SOURCE, repository) }
+  let(:ancestors) { described_class.new("nyu_2451_34502", Geoblacklight.configuration.fields.source, repository) }
+  let(:empty_ancestors) do
+    described_class.new("harvard-g7064-s2-1834-k3", Geoblacklight.configuration.fields.source, repository)
+  end
 
   describe "#create_search_params" do
     it "assembles the correct search params for finding ancestor documents" do
-      expect(ancestors.create_search_params).to eq(fq: ["{!join from=#{Settings.FIELDS.SOURCE} to=#{Settings.FIELDS.ID}}#{Settings.FIELDS.ID}:nyu_2451_34502"], fl: [Settings.FIELDS.TITLE.to_s, Settings.FIELDS.ID, Settings.FIELDS.RESOURCE_TYPE])
+      expect(ancestors.create_search_params).to eq(
+        fq: ["{!join from=#{Geoblacklight.configuration.fields.source} to=#{Geoblacklight.configuration.fields.id}}#{Geoblacklight.configuration.fields.id}:nyu_2451_34502"], fl: [
+          Geoblacklight.configuration.fields.title, Geoblacklight.configuration.fields.id, Geoblacklight.configuration.fields.resource_type
+        ]
+      )
     end
   end
 

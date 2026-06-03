@@ -12,6 +12,6 @@ class WmsController < ApplicationController
   private
 
   def wms_params
-    params.permit(Settings.GBL_PARAMS)
+    params.permit(Geoblacklight.configuration.gbl_params)
   end
 end

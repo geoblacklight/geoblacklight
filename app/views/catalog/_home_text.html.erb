@@ -1,19 +1,19 @@
-<div class='container'>
-  <div class='row text-center'>
-    <div class='col-sm'>
+<div class="container">
+  <div class="row text-center">
+    <div class="col-sm">
       <%= content_tag :h3, t('geoblacklight.home.category_heading') %>
-      <div class='row'>
-        <%= render(Geoblacklight::HomepageFeatureFacetComponent.new(icon: 'home', label: 'geoblacklight.home.institution', facet_field: Settings.FIELDS.PROVIDER, response: @response)) %>
+      <div class="row">
+        <%= render(Geoblacklight::HomepageFeatureFacetComponent.new(icon: 'home', label: 'geoblacklight.home.institution', facet_field: Geoblacklight.configuration.fields.provider, response: @response)) %>
 
-        <%= render(Geoblacklight::HomepageFeatureFacetComponent.new(icon: 'arrow-circle-down', label: 'geoblacklight.home.data_type', facet_field: Settings.FIELDS.RESOURCE_TYPE, response: @response)) %>
+        <%= render(Geoblacklight::HomepageFeatureFacetComponent.new(icon: 'arrow-circle-down', label: 'geoblacklight.home.data_type', facet_field: Geoblacklight.configuration.fields.resource_type, response: @response)) %>
       </div>
-      <div class='row'>
-        <%= render(Geoblacklight::HomepageFeatureFacetComponent.new(icon: 'globe', label: 'geoblacklight.home.placename', facet_field: Settings.FIELDS.SPATIAL_COVERAGE, response: @response)) %>
+      <div class="row">
+        <%= render(Geoblacklight::HomepageFeatureFacetComponent.new(icon: 'globe', label: 'geoblacklight.home.placename', facet_field: Geoblacklight.configuration.fields.spatial_coverage, response: @response)) %>
 
-        <%= render(Geoblacklight::HomepageFeatureFacetComponent.new(icon: 'tags', label: 'geoblacklight.home.subject', facet_field: Settings.FIELDS.SUBJECT, response: @response)) %>
+        <%= render(Geoblacklight::HomepageFeatureFacetComponent.new(icon: 'tags', label: 'geoblacklight.home.subject', facet_field: Geoblacklight.configuration.fields.subject, response: @response)) %>
       </div>
     </div>
-    <div class='col-sm'>
+    <div class="col-sm">
       <%= content_tag :h3, t('geoblacklight.home.map_heading') %>
       <%= render(Geoblacklight::LocationLeafletMapComponent.new(page: 'home', geosearch: { dynamic: false }, classes: 'border')) %>
     </div>

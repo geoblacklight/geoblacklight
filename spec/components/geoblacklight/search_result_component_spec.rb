@@ -12,7 +12,6 @@ RSpec.describe Geoblacklight::SearchResultComponent, type: :component do
       config.add_index_field "multi_display"
     end
   end
-  let(:solr_fields) { Settings.FIELDS }
   let(:presenter) do
     Blacklight::DocumentPresenter.new(document, request_context, blacklight_config)
   end

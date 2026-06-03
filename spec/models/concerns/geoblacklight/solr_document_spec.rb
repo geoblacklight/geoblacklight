@@ -4,9 +4,9 @@ require "spec_helper"
 
 describe Geoblacklight::SolrDocument do
   let(:document) { SolrDocument.new(document_attributes) }
-  let(:rights_field) { Settings.FIELDS.ACCESS_RIGHTS }
-  let(:provider_field) { Settings.FIELDS.PROVIDER }
-  let(:references_field) { Settings.FIELDS.REFERENCES }
+  let(:rights_field) { Geoblacklight.configuration.fields.access_rights }
+  let(:provider_field) { Geoblacklight.configuration.fields.provider }
+  let(:references_field) { Geoblacklight.configuration.fields.references }
   describe "#available?" do
     let(:document_attributes) { {} }
     describe "a public document" do

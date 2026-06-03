@@ -37,7 +37,7 @@ describe GeoblacklightHelper, type: :helper do
 
   describe "#snippit" do
     let(:document) { SolrDocument.new(document_attributes) }
-    let(:references_field) { Settings.FIELDS.REFERENCES }
+    let(:references_field) { Geoblacklight.configuration.fields.references }
     context "as a String" do
       let(:document_attributes) do
         {
@@ -85,7 +85,7 @@ describe GeoblacklightHelper, type: :helper do
 
   describe "#leaflet_options" do
     it "returns a hash of options for leaflet" do
-      expect(leaflet_options[:LAYERS][:INDEX].keys).to eq([:DEFAULT, :UNAVAILABLE, :SELECTED])
+      expect(leaflet_options[:LAYERS][:INDEX].keys).to eq(%i[DEFAULT UNAVAILABLE SELECTED])
     end
   end
 
@@ -119,7 +119,8 @@ describe GeoblacklightHelper, type: :helper do
       end
 
       it "renders the partial with metadata content" do
-        expect(helper).to receive(:render).with(partial: "catalog/metadata/markup", locals: {content: "<data></data>"})
+        expect(helper).to receive(:render).with(partial: "catalog/metadata/markup",
+          locals: {content: "<data></data>"})
         helper.render_transformed_metadata(metadata)
       end
     end

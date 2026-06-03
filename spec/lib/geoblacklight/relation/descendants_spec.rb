@@ -4,12 +4,17 @@ require "spec_helper"
 
 describe Geoblacklight::Relation::Descendants do
   let(:repository) { Blacklight::Solr::Repository.new(CatalogController.blacklight_config) }
-  let(:descendants) { described_class.new("nyu_2451_34636", Settings.FIELDS.SOURCE, repository) }
-  let(:empty_descendants) { described_class.new("harvard-g7064-s2-1834-k3", Settings.FIELDS.SOURCE, repository) }
+  let(:descendants) { described_class.new("nyu_2451_34636", Geoblacklight.configuration.fields.source, repository) }
+  let(:empty_descendants) do
+    described_class.new("harvard-g7064-s2-1834-k3", Geoblacklight.configuration.fields.source, repository)
+  end
 
   describe "#create_search_params" do
     it "assembles the correct search params for finding descendant documents" do
-      expect(descendants.create_search_params).to eq(fq: "#{Settings.FIELDS.SOURCE}:nyu_2451_34636", fl: [Settings.FIELDS.TITLE.to_s, Settings.FIELDS.ID, Settings.FIELDS.RESOURCE_TYPE])
+      expect(descendants.create_search_params).to eq(fq: "#{Geoblacklight.configuration.fields.source}:nyu_2451_34636",
+        fl: [
+          Geoblacklight.configuration.fields.title, Geoblacklight.configuration.fields.id, Geoblacklight.configuration.fields.resource_type
+        ])
     end
   end
 

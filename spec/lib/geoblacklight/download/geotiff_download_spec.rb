@@ -3,7 +3,10 @@
 require "spec_helper"
 
 describe Geoblacklight::GeotiffDownload do
-  let(:document) { SolrDocument.new(Settings.FIELDS.ID => "test", Settings.FIELDS.WXS_IDENTIFIER => "stanford-test", Settings.FIELDS.GEOMETRY => "ENVELOPE(-180, 180, 90, -90)") }
+  let(:document) do
+    SolrDocument.new(Geoblacklight.configuration.fields.id => "test", Geoblacklight.configuration.fields.wxs_identifier => "stanford-test",
+      Geoblacklight.configuration.fields.geometry => "ENVELOPE(-180, 180, 90, -90)")
+  end
   let(:download) { described_class.new(document) }
   describe "#initialize" do
     it "initializes as a GeotiffDownload object with specific options" do
