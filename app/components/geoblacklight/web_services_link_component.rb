@@ -8,7 +8,7 @@ module Geoblacklight
     end
 
     def render?
-      (Settings.WEBSERVICES_SHOWN & @document.references.refs.map(&:type).map(&:to_s)).any?
+      (Geoblacklight.configuration.webservices_shown & @document.references.refs.map(&:type).map(&:to_s)).any?
     end
 
     def web_services_link

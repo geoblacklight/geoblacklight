@@ -6,11 +6,11 @@ module Geoblacklight
       super()
       manifest_ref = document.item_viewer&.iiif_manifest
       @manifest = manifest_ref&.endpoint || ""
-      @href_link = Settings.IIIF_DRAG_DROP_LINK&.gsub("@manifest", @manifest)
+      @href_link = Geoblacklight.configuration.iiif_drag_drop_link&.gsub("@manifest", @manifest)
     end
 
     def render?
-      Settings.IIIF_DRAG_DROP_LINK.present? && @manifest.present?
+      Geoblacklight.configuration.iiif_drag_drop_link.present? && @manifest.present?
     end
   end
 end

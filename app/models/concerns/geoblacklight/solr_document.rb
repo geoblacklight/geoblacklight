@@ -15,20 +15,20 @@ module Geoblacklight
     delegate :viewer_endpoint, to: :item_viewer
 
     included do
-      attribute :display_note, :array, Settings.FIELDS.DISPLAY_NOTE
-      attribute :geom_field, :string, Settings.FIELDS.GEOMETRY
-      attribute :wxs_identifier, :string, Settings.FIELDS.WXS_IDENTIFIER
-      attribute :file_format, :string, Settings.FIELDS.FORMAT
-      attribute :rights_field_data, :string, Settings.FIELDS.ACCESS_RIGHTS
-      attribute :provider, :string, Settings.FIELDS.PROVIDER
-      attribute :resource_type, :array, Settings.FIELDS.RESOURCE_TYPE
-      attribute :resource_class, :array, Settings.FIELDS.RESOURCE_CLASS
-      attribute :title, :string, Settings.FIELDS.TITLE
-      attribute :creator, :array, Settings.FIELDS.CREATOR
-      attribute :publisher, :string, Settings.FIELDS.PUBLISHER
-      attribute :identifiers, :array, Settings.FIELDS.IDENTIFIER
-      attribute :issued, :string, Settings.FIELDS.DATE_ISSUED
-      attribute :format, :string, Settings.FIELDS.FORMAT
+      attribute :display_note, :array, Geoblacklight.configuration.fields.DISPLAY_NOTE
+      attribute :geom_field, :string, Geoblacklight.configuration.fields.GEOMETRY
+      attribute :wxs_identifier, :string, Geoblacklight.configuration.fields.WXS_IDENTIFIER
+      attribute :file_format, :string, Geoblacklight.configuration.fields.FORMAT
+      attribute :rights_field_data, :string, Geoblacklight.configuration.fields.ACCESS_RIGHTS
+      attribute :provider, :string, Geoblacklight.configuration.fields.PROVIDER
+      attribute :resource_type, :array, Geoblacklight.configuration.fields.RESOURCE_TYPE
+      attribute :resource_class, :array, Geoblacklight.configuration.fields.RESOURCE_CLASS
+      attribute :title, :string, Geoblacklight.configuration.fields.TITLE
+      attribute :creator, :array, Geoblacklight.configuration.fields.CREATOR
+      attribute :publisher, :string, Geoblacklight.configuration.fields.PUBLISHER
+      attribute :identifiers, :array, Geoblacklight.configuration.fields.IDENTIFIER
+      attribute :issued, :string, Geoblacklight.configuration.fields.DATE_ISSUED
+      attribute :format, :string, Geoblacklight.configuration.fields.FORMAT
     end
 
     def available?
@@ -60,7 +60,7 @@ module Geoblacklight
     end
 
     def same_institution?
-      provider&.casecmp?(Settings.INSTITUTION.downcase)
+      provider&.casecmp?(Geoblacklight.configuration.institution.downcase)
     end
 
     def iiif_download

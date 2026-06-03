@@ -41,7 +41,7 @@ module Geoblacklight
     end
 
     def prefixes
-      Settings.DISPLAY_NOTES_SHOWN.map { |key, value| [value.note_prefix, [value.bootstrap_alert_class, value.icon]] }.to_h
+      Geoblacklight.configuration.display_notes_shown.map { |key, value| [value.note_prefix, [value.bootstrap_alert_class, value.icon]] }.to_h
     end
   end
 end

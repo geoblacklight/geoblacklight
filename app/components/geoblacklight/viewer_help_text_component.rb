@@ -40,7 +40,7 @@ module Geoblacklight
     end
 
     def render?
-      Settings&.HELP_TEXT&.public_send(@feature)&.include?(@key)
+      Geoblacklight.configuration&.help_text&.public_send(@feature)&.include?(@key)
     end
   end
 end

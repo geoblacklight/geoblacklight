@@ -18,7 +18,7 @@ module GeoblacklightHelper
   # @return [SVG or HTML tag]
   def geoblacklight_icon(name, **args)
     icon_name = name ? name.to_s.parameterize : "none"
-    icon_name = Settings.ICON_MAPPING && Settings.ICON_MAPPING[icon_name] || icon_name
+    icon_name = Geoblacklight.configuration.icon_mapping && Geoblacklight.configuration.icon_mapping[icon_name] || icon_name
     camel_icon = icon_name.tr("-", "_").camelize.delete(" ")
     begin
       render "Blacklight::Icons::#{camel_icon}Component".constantize.new(name: icon_name, **args)
@@ -57,7 +57,7 @@ module GeoblacklightHelper
   # Returns a hash of the leaflet plugin settings to pass to the viewer.
   # @return[Hash]
   def leaflet_options
-    Settings.LEAFLET
+    Geoblacklight.configuration.leaflet
   end
 
   ##
@@ -97,8 +97,8 @@ module GeoblacklightHelper
 
   ## Returns the icon used based off a Settings strategy
   def relations_icon(document, icon)
-    icon_html = render Geoblacklight::HeaderIconsComponent.new(document: document, fields: [Settings.FIELDS.GEOM_TYPE]) if Settings.USE_GEOM_FOR_RELATIONS_ICON
-    return icon_html unless !Settings.USE_GEOM_FOR_RELATIONS_ICON || icon_html.include?("icon-missing")
+    icon_html = render Geoblacklight::HeaderIconsComponent.new(document: document, fields: [Geoblacklight.configuration.fields.GEOM_TYPE]) if Geoblacklight.configuration.use_geom_for_relations_icon
+    return icon_html unless !Geoblacklight.configuration.use_geom_for_relations_icon || icon_html.include?("icon-missing")
     geoblacklight_icon(icon, **{})
   end
 
