@@ -89,10 +89,14 @@ module Geoblacklight
           "#{viewer_name}-url-value" => @document.viewer_endpoint,
           "#{viewer_name}-map-geom-value" => @document.geometry.geojson,
           "#{viewer_name}-layer-id-value" => @document.wxs_identifier,
-          "#{viewer_name}-options-value" => helpers.leaflet_options,
+          "#{viewer_name}-options-value" => leaflet_options.to_h,
           "#{viewer_name}-page-value" => params[:action]&.upcase,
           "#{viewer_name}-draw-initial-bounds-value" => true
         }.compact)
+    end
+
+    def leaflet_options
+      Geoblacklight.configuration.leaflet_options
     end
   end
 end

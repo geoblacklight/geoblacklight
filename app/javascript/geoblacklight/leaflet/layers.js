@@ -129,7 +129,7 @@ export const indexMapLayer = async (url, leafletOptions) => {
       }
       if (feature.properties.available !== null) {
         layer.on("click", (e) => {
-          layer.setStyle(leafletOptions.LAYERS.INDEX.SELECTED)
+          layer.setStyle(leafletOptions.layers.index.SELECTED)
           if (prevLayer !== null) {
             leafletOptions.opacity = layer.options.fillOpacity
             geoJSONLayer.resetStyle(prevLayer)
