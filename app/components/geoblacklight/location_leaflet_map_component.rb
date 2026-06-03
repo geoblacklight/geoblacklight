@@ -4,7 +4,7 @@ module Geoblacklight
   class LocationLeafletMapComponent < ViewComponent::Base
     def initialize(
       id: "leaflet-viewer",
-      map_geometry: Geoblacklight.configuration.homepage_map_geom,
+      map_geometry: config.homepage_map_geom,
       classes: "",
       page: nil,
       geosearch: nil
@@ -26,9 +26,13 @@ module Geoblacklight
 
     # Add top-level geosearch control to leaflet options if configured
     def leaflet_options
-      options = helpers.leaflet_options.deep_dup
-      options["CONTROLS"] = {"Geosearch" => @geosearch} if @geosearch
-      options.to_json
+      config.leaflet_options.deep_dup.tap do |options|
+        options.controls = {"Geosearch" => @geosearch} if @geosearch
+      end
+    end
+
+    def config
+      Geoblacklight.configuration
     end
 
     def viewer_tag
@@ -41,7 +45,7 @@ module Geoblacklight
           "leaflet-viewer-map-geom-value" => search_bbox || @map_geometry,
           "leaflet-viewer-data-map-value" => @data_map,
           "leaflet-viewer-page-value" => params[:action]&.upcase,
-          "leaflet-viewer-options-value" => leaflet_options,
+          "leaflet-viewer-options-value" => leaflet_options.to_h,
           "leaflet-viewer-catalog-base-url-value" => (helpers.search_catalog_url if @geosearch)
         }.compact)
     end

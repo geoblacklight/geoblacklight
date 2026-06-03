@@ -7,5 +7,9 @@ module Geoblacklight
       @title = title
       super()
     end
+
+    def sidebar?
+      Geoblacklight.configuration.leaflet_options.sidebar
+    end
   end
 end

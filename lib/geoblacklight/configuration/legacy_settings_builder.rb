@@ -31,10 +31,19 @@ module Geoblacklight
           config.timeout_wms = Settings.TIMEOUT_WMS
 
           build_fields(config)
+          build_leaflet_options(config)
         end
       end
 
       private
+
+      def build_leaflet_options(config)
+        config.leaflet_options.bounds_overlay = Settings.LEAFLET.BOUNDSOVERLAY.to_h
+        config.leaflet_options.selected_color = Settings.LEAFLET.SELECTED_COLOR
+        config.leaflet_options.sleep = Settings.LEAFLET.SLEEP.to_h.transform_keys(&:downcase)
+        config.leaflet_options.sidebar = Settings.LEAFLET.SIDEBAR
+        config.leaflet_options.layers = Settings.LEAFLET.LAYERS.to_h.transform_keys(&:downcase)
+      end
 
       def build_fields(config)
         config.fields.access_rights = Settings.FIELDS.ACCESS_RIGHTS

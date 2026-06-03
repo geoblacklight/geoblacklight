@@ -61,14 +61,14 @@ export default class LeafletViewerController extends Controller {
     if (this.map) return
 
     // Set up the map and fit to bounds
-    const sleepSettings = this.optionsValue.SLEEP || { SLEEP: false }
+    const sleepSettings = this.optionsValue.sleep || { sleep: false }
     this.map = map(this.element, sleepSettings)
-    if (sleepSettings.SLEEP) this.map.addHandler("SLEEP", Sleep)
+    if (sleepSettings.sleep) this.map.addHandler("SLEEP", Sleep)
 
     this.map.addLayer(this.basemap)
     this.map.addLayer(this.overlay)
     this.fitBounds(this.bounds)
-    this.map.options.selected_color = this.optionsValue.SELECTED_COLOR || "blue"
+    this.map.options.selected_color = this.optionsValue.selected_color || "blue"
 
     // If the data is available, add the preview and set up inspection
     // Otherwise just draw the bounds, if configured to do so
@@ -108,14 +108,14 @@ export default class LeafletViewerController extends Controller {
     const basemapName = this.basemapValue || "positron"
     return tileLayer(basemaps[basemapName].url, {
       ...basemaps[basemapName],
-      detectRetina: this.optionsValue.LAYERS.DETECT_RETINA || false,
+      detectRetina: this.optionsValue.layers.detect_retina || false,
     })
   }
 
   // Add the configured controls to the map
   addControls() {
     // Add any top-level controls (e.g. geosearch) first
-    const globalControls = this.optionsValue.CONTROLS || {}
+    const globalControls = this.optionsValue.controls || {}
     Object.entries(globalControls).forEach(([controlName, controlOptions]) => {
       const control = this.getControl(controlName, controlOptions)
       if (control) this.addControl(control)
@@ -142,7 +142,10 @@ export default class LeafletViewerController extends Controller {
     if (controlName == "Opacity") return new LayerOpacityControl(this.previewOverlay)
     if (controlName == "Fullscreen") return new FullScreen({ position: "bottomleft", ...controlOptions })
     if (controlName == "Geosearch")
-      return new GeoSearchControl({ baseUrl: this.catalogBaseUrlValue, ...controlOptions })
+      return new GeoSearchControl({
+        baseUrl: this.catalogBaseUrlValue,
+        ...controlOptions,
+      })
     console.error(`Unsupported control name: "${controlName}"`)
   }
 
@@ -150,7 +153,7 @@ export default class LeafletViewerController extends Controller {
   addBoundsOverlay(bounds) {
     const hasMapGeomValue = Object.keys(this.mapGeomValue).length > 0 && !this.map.geosearch
     var defaultOptions = hasMapGeomValue ? DEFAULT_GEOM_OVERLAY_OPTIONS : {}
-    const overlayOptions = this.optionsValue.BOUNDSOVERLAY || {}
+    const overlayOptions = this.optionsValue.bounds_overlay || {}
     const options = { ...defaultOptions, ...overlayOptions[this.pageValue] }
     const boundsOverlay = polygon(
       [bounds.getSouthWest(), bounds.getSouthEast(), bounds.getNorthEast(), bounds.getNorthWest()],
@@ -198,7 +201,7 @@ export default class LeafletViewerController extends Controller {
     this.previewOverlay = await this.getPreviewOverlay(this.protocolValue, this.urlValue, {
       layerId: this.layerIdValue,
       opacity: this.optionsValue.opacity || DEFAULT_OPACITY,
-      detectRetina: this.optionsValue.LAYERS.DETECT_RETINA || false,
+      detectRetina: this.optionsValue.layers.detect_retina || false,
     })
     if (this.previewOverlay) this.overlay.addLayer(this.previewOverlay)
   }

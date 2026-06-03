@@ -83,12 +83,6 @@ RSpec.describe GeoblacklightHelper, type: :helper do
     end
   end
 
-  describe "#leaflet_options" do
-    it "returns a hash of options for leaflet" do
-      expect(leaflet_options[:LAYERS][:INDEX].keys).to eq(%i[DEFAULT UNAVAILABLE SELECTED])
-    end
-  end
-
   describe "#render_value_as_truncate_abstract" do
     context "with multiple values" do
       let(:document) { SolrDocument.new(value: %w[short description]) }

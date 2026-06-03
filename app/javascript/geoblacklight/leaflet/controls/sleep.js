@@ -9,14 +9,14 @@ export default class Sleep extends Handler {
     )
     const button = DomUtil.create("button", "btn btn-primary wake-button", container)
 
-    button.innerHTML = this._map.options.MESSAGE
+    button.innerHTML = this._map.options.message
     button.setAttribute("tabindex", "0")
     button.style.zIndex = 2000
     container.style.zIndex = 1999
-    const background = String(this._map.options.BACKGROUND)
+    const background = String(this._map.options.background)
     container.style.background = background
     this.container = container
-    if (this._map.options.MARGIN_DISTANCE) {
+    if (this._map.options.margin_distance) {
       this.updateBasedOnSize()
     } else {
       this.sleepMap()
@@ -50,7 +50,7 @@ export default class Sleep extends Handler {
     const rect = this._map._container.getBoundingClientRect()
     // sometimes the left/right side has larger margin, so we take an average
     const calculation = (window.innerWidth - rect.right + rect.left) / 2
-    if (calculation < this._map.options.MARGIN_DISTANCE) {
+    if (calculation < this._map.options.margin_distance) {
       this.sleepMap()
     } else {
       this.wakeMap()
@@ -62,7 +62,7 @@ export default class Sleep extends Handler {
     let timer
     let sleeptimer
 
-    if (_this._map.options.MARGIN_DISTANCE) {
+    if (_this._map.options.margin_distance) {
       window.addEventListener("resize", (event) => {
         _this.updateBasedOnSize()
       })
@@ -76,13 +76,13 @@ export default class Sleep extends Handler {
       _this.wakeMap()
     })
 
-    if (this._map.options.HOVERTOWAKE) {
+    if (this._map.options.hovertowake) {
       DomEvent.on(this._map._container, "mouseenter", (e) => {
         clearTimeout(sleeptimer)
 
         timer = setTimeout(function () {
           _this.wakeMap()
-        }, _this._map.options.WAKETIME)
+        }, _this._map.options.waketime)
       })
 
       DomEvent.on(this._map._container, "mouseleave", (e) => {
@@ -90,7 +90,7 @@ export default class Sleep extends Handler {
 
         sleeptimer = setTimeout(function () {
           _this.sleepMap()
-        }, _this._map.options.SLEEPTIME)
+        }, _this._map.options.sleeptime)
       })
     }
 

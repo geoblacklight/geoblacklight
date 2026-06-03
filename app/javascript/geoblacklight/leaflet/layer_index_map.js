@@ -102,8 +102,8 @@ const indexMapTemplate = (data) => {
 export const availabilityStyle = (availability, leafletOptions) => {
   var style =
     availability || typeof availability === "undefined"
-      ? leafletOptions.LAYERS.INDEX.DEFAULT
-      : leafletOptions.LAYERS.INDEX.UNAVAILABLE
+      ? leafletOptions.layers.index.DEFAULT
+      : leafletOptions.layers.index.UNAVAILABLE
   style["fillOpacity"] = leafletOptions.opacity || 0.65
   style["opacity"] = leafletOptions.opacity || 0.65
   return style
