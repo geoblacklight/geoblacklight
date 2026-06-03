@@ -77,7 +77,7 @@ module Geoblacklight
 
     def add_unique_key
       inject_into_file "app/models/solr_document.rb", after: "# self.unique_key = 'id'" do
-        "\n  self.unique_key = Settings.FIELDS.UNIQUE_KEY"
+        "\n  self.unique_key = Settings.FIELDS.ID"
       end
     end
 
