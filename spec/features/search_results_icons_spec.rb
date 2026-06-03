@@ -11,7 +11,6 @@ feature "search results display document iconography" do
     )
     first_result = page.all("span.status-icons > span")
     expect(first_result[0][:class]).to include "blacklight-icons-line"
-    expect(first_result[1][:class]).to include "blacklight-icons-stanford"
-    expect(first_result[2][:class]).to include "blacklight-icons-restricted"
+    expect(first_result[1][:class]).to include "blacklight-icons-restricted"
   end
 end

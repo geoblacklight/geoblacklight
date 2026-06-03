@@ -18,7 +18,6 @@ module GeoblacklightHelper
   # @return [SVG or HTML tag]
   def geoblacklight_icon(name, **args)
     icon_name = name ? name.to_s.parameterize : "none"
-    icon_name = Settings.ICON_MAPPING && Settings.ICON_MAPPING[icon_name] || icon_name
     camel_icon = icon_name.tr("-", "_").camelize.delete(" ")
     begin
       render "Blacklight::Icons::#{camel_icon}Component".constantize.new(name: icon_name, **args)

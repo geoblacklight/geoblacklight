@@ -14,13 +14,8 @@ RSpec.describe Geoblacklight::HeaderIconsComponent, type: :component do
     {
       "gbl_resourceClass_sm" => resource_class,
       "gbl_resourceType_sm" => resource_type,
-      "schema_provider_s" => "Stanford",
       "dct_accessRights_s" => "Public"
     }
-  end
-
-  it "renders the provider icon" do
-    expect(rendered).to have_css(".blacklight-icons-stanford")
   end
 
   it "renders the access rights icon" do

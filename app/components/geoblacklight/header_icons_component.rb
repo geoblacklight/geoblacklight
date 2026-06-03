@@ -4,7 +4,7 @@ module Geoblacklight
   class HeaderIconsComponent < ViewComponent::Base
     attr_reader :document, :fields
 
-    def initialize(document:, fields: [Settings.FIELDS.RESOURCE_CLASS, Settings.FIELDS.PROVIDER, Settings.FIELDS.ACCESS_RIGHTS])
+    def initialize(document:, fields: [Settings.FIELDS.RESOURCE_CLASS, Settings.FIELDS.ACCESS_RIGHTS])
       @document = document
       @fields = fields
       super()
