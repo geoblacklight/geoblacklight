@@ -9,7 +9,6 @@ module Geoblacklight
 
       def sidebar_buttons
         [
-          Geoblacklight::WebServicesLinkComponent.new(document:),
           Geoblacklight::DownloadLinksComponent.new(document:),
           Geoblacklight::LoginLinkComponent.new(document:)
         ]
