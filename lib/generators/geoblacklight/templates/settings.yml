@@ -230,7 +230,6 @@ WMS_PARAMS:
 
 # Settings for leaflet
 LEAFLET:
-  MAP:
   BOUNDSOVERLAY:
     INDEX:
       color: "#3388ff"
