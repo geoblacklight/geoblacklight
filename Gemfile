@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Specify your gem's dependencies in geoblacklight.gemspec
-gemspec
+gemspec path: File.expand_path(".")
 
 # BEGIN ENGINE_CART BLOCK
 # engine_cart: 2.6.0
