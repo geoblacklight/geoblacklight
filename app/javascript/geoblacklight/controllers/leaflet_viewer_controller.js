@@ -56,11 +56,6 @@ export default class LeafletViewerController extends Controller {
     this.loadMap()
   }
 
-  get config() {
-    if (!this.optionsValue.VIEWERS || !this.hasProtocolValue) return {}
-    return this.optionsValue.VIEWERS[this.protocolValue.toUpperCase()]
-  }
-
   // Create the map, add layers, fit the bounds
   async loadMap() {
     if (this.map) return
