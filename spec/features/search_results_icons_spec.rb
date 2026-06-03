@@ -9,7 +9,7 @@ feature "search results display document iconography" do
       search_field: "all_fields",
       q: "stanford-cg357zz0321"
     )
-    first_result = page.all("span.status-icons > span")
+    first_result = page.all(".status-icons > span")
     expect(first_result[0][:class]).to include "blacklight-icons-line"
     expect(first_result[1][:class]).to include "blacklight-icons-restricted"
   end

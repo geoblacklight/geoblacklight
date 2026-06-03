@@ -1,0 +1,54 @@
+/* Search page styles */
+
+/* Search result header */
+.documents-list {
+  --bl-results-document-margin-top: 0;
+}
+
+.documents-list .document {
+  border: 0;
+  padding-bottom: var(--bl-results-document-padding-top);
+}
+
+.blacklight-catalog-index .documentHeader {
+  flex: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  gap: 0.25em;
+}
+
+.blacklight-catalog-index .index_title {
+  margin: 0 0 0 0.25em;
+  font-size: 1.25rem;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.blacklight-catalog-index .documentHeader .status-icons {
+  flex: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.2em;
+}
+
+/* More info dropdown and area */
+.blacklight-catalog-index .documentHeader .dropdown-toggle {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.blacklight-catalog-index .documentHeader .dropdown-toggle::after {
+  vertical-align: top;
+  margin-left: -0.25em;
+  margin-top: 0.25em;
+}
+
+.more-info-area > div {
+  padding-left: var(--bl-results-document-padding-top);
+  padding-right: var(--bl-results-document-padding-top);
+  padding-bottom: var(--bl-results-document-padding-top);
+}

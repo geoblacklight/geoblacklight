@@ -14,15 +14,16 @@
   itemtype: @document.itemtype,
   class: classes.flatten.join(' ') do %>
 
-    <%= content_tag :div, class: 'documentHeader index-split d-flex flex-grow-1', data: { layer_id: @document.id, geom: @document.geometry.geojson } do %>
-      <h3 class="index_title d-flex flex-grow-1">
-        <span class="document-counter">
-          <%= t('blacklight.search.documents.counter', :counter => @counter) if @counter %>
-        </span>
+    <%= content_tag :div, class: 'documentHeader index-split', data: { layer_id: @document.id, geom: @document.geometry.geojson } do %>
+      <div class="document-counter">
+        <%= t('blacklight.search.documents.counter', :counter => @counter) if @counter %>
+      </div>
+
+      <h3 class="index_title">
         <%= helpers.link_to_document(@document, counter: @counter, itemprop: "name") %>
       </h3>
 
-      <span class='status-icons'>
+      <div class='status-icons'>
         <%= render Geoblacklight::HeaderIconsComponent.new(document: @document) %>
         <button
             class="btn dropdown-toggle collapsed"
@@ -31,8 +32,9 @@
             aria-label="<%= t('geoblacklight.metadata.toggle_summary') %>"
             aria-expanded="false"
             aria-controls="doc-<%= @document.id %>-fields-collapse">
-          </button>
-      </span>
+        </button>
+      </div>
+      
     <% end %>
   <% end %>
   <div class='more-info-area border-bottom'>

@@ -1,0 +1,36 @@
+/* Styles for index maps */
+
+/* Outline the border of the clickable areas to improve contrast */
+.viewer[data-leaflet-viewer-protocol-value="IndexMap"] {
+  .leaflet-interactive {
+    stroke: black;
+  }
+}
+
+/* Index map legend */
+.index-map-legend {
+  margin-bottom: 0.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.5em;
+
+  @media(min-width: 992px) {
+    flex-direction: row;
+    gap: 1em;
+  }
+}
+
+.index-map-legend-info {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.5em;
+}
+
+.index-map-legend-swatch {
+  display: inline-block;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  width: 1.5em;
+  height: 1.5em;
+}
