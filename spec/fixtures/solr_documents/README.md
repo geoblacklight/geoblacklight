@@ -43,7 +43,6 @@ If you add a new document, please add it to the table below, and indicate its pu
 | [princeton-child3](princeton-child3.json) | Princeton, Mercer County, New Jersey (Sheet 3) | princeton-n009w382v-fake1 | Child record for testing the gbl_suppressed_b property
 | [princeton-child4](princeton-child4.json) | Princeton, Mercer County, New Jersey (Sheet 4) | princeton-n009w382v-fake2 | Child record for testing the gbl_suppressed_b property
 | [princeton-parent](princeton-parent.json) | Princeton, Mercer County, New Jersey | princeton-1r66j405w | Parent record for testing the gbl_suppressed_b property
-| [public_direct_download](public_direct_download.json) | 2005 Rural Poverty GIS Database: Uganda | stanford-cz128vq0535 | includes a tentative dcat_distribution_sm property
 | [public_iiif_princeton](public_iiif_princeton.json) | The provinces of New York and New Jersey, with part of Pensilvania, and the Province of Quebec | princeton-02870w62c | Scanned map with IIIF       
 | [public_polygon_mit](public_polygon_mit.json) | Massachusetts (ZCTA - 5 digit zip code tabulation area, 2000) | mit-f6rqs4ucovjk2 | Polygon shapefile with WMS and WFS
 | [restricted-line](restricted-line.json) | 10 Meter Contours: Russian River Basin, California | stanford-cg357zz0321 | Restricted line layer with WFS, WMS and metadata in MODS and ISO 19139  
