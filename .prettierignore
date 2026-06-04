@@ -1,0 +1,4 @@
+node_modules
+coverage
+.internal_test_app
+vendor

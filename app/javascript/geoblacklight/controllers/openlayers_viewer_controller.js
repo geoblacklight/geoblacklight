@@ -1,12 +1,12 @@
-import { Map } from "ol";
-import TileLayer from "ol/layer/Tile";
-import XYZ from "ol/source/XYZ";
-import GeoJSON from "ol/format/GeoJSON";
-import { FullScreen, defaults as defaultControls } from "ol/control";
-import { pmTilesLayer, cogLayer } from "geoblacklight/openlayers/layers";
-import basemaps from "geoblacklight/openlayers/basemaps";
-import { Controller } from "@hotwired/stimulus";
-import { pmTilesInspection } from "geoblacklight/openlayers/inspection";
+import { Map } from "ol"
+import TileLayer from "ol/layer/Tile"
+import XYZ from "ol/source/XYZ"
+import GeoJSON from "ol/format/GeoJSON"
+import { FullScreen, defaults as defaultControls } from "ol/control"
+import { pmTilesLayer, cogLayer } from "geoblacklight/openlayers/layers"
+import basemaps from "geoblacklight/openlayers/basemaps"
+import { Controller } from "@hotwired/stimulus"
+import { pmTilesInspection } from "geoblacklight/openlayers/inspection"
 
 export default class OpenlayersViewerController extends Controller {
   static values = {
@@ -14,16 +14,16 @@ export default class OpenlayersViewerController extends Controller {
     protocol: String,
     basemap: String,
     mapGeom: String,
-  };
+  }
 
   async connect() {
     // Set up layers
-    this.basemap = this.getBasemap();
-    this.overlay = this.getPreviewOverlay(this.protocolValue, this.urlValue);
+    this.basemap = this.getBasemap()
+    this.overlay = this.getPreviewOverlay(this.protocolValue, this.urlValue)
 
-    await this.getBounds();
+    await this.getBounds()
     // Load the map
-    this.loadMap();
+    this.loadMap()
   }
 
   // Create the map, add layers, and fit the bounds
@@ -32,38 +32,35 @@ export default class OpenlayersViewerController extends Controller {
       target: this.element,
       controls: defaultControls().extend([new FullScreen()]),
       layers: [this.basemap, this.overlay],
-    });
-    this.map.getView().fit(this.extent, this.map.getSize());
+    })
+    this.map.getView().fit(this.extent, this.map.getSize())
     this.addInspection()
   }
 
   addInspection() {
-    if (this.protocolValue == "Pmtiles") return pmTilesInspection(this.map);
+    if (this.protocolValue == "Pmtiles") return pmTilesInspection(this.map)
   }
 
   async getBounds() {
-    if (this.protocolValue == 'Cog') {
-      const view = await this.overlay.getSource().getView();
-      this.extent = view.extent;
+    if (this.protocolValue == "Cog") {
+      const view = await this.overlay.getSource().getView()
+      this.extent = view.extent
     } else {
-      this.extent = new GeoJSON()
-      .readFeatures(this.mapGeomValue)[0]
-      .getGeometry()
-      .getExtent();
+      this.extent = new GeoJSON().readFeatures(this.mapGeomValue)[0].getGeometry().getExtent()
     }
   }
 
   // Select the configured basemap to use
   getBasemap() {
-    const basemap = basemaps[this.basemapValue || "positron"];
-    const layer = new TileLayer({ source: new XYZ(basemap) });
-    return layer;
+    const basemap = basemaps[this.basemapValue || "positron"]
+    const layer = new TileLayer({ source: new XYZ(basemap) })
+    return layer
   }
 
   // Generate a layer based on the protocol
   getPreviewOverlay(protocol, url) {
-    if (protocol === "Pmtiles") return pmTilesLayer(url);
-    if (protocol === "Cog") return cogLayer(url);
-    console.error(`Unsupported protocol name: "${protocol}"`);
+    if (protocol === "Pmtiles") return pmTilesLayer(url)
+    if (protocol === "Cog") return cogLayer(url)
+    console.error(`Unsupported protocol name: "${protocol}"`)
   }
 }

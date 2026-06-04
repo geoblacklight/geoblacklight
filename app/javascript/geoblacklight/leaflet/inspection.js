@@ -1,17 +1,17 @@
-import { identifyFeatures } from "esri-leaflet";
-import { appendErrorMessage, appendLoadingMessage, getLayerOpacity, linkify } from "geoblacklight/leaflet/utils";
+import { identifyFeatures } from "esri-leaflet"
+import { appendErrorMessage, appendLoadingMessage, getLayerOpacity, linkify } from "geoblacklight/leaflet/utils"
 
 export const wmsInspection = (map, url, layerId, layer) => {
   // add crosshair class for map items
-  map.getContainer().classList.add('leaflet-clickable');
+  map.getContainer().classList.add("leaflet-clickable")
 
   // Inspect on click
   map.on("click", async (e) => {
-    const spinner = document.createElement("tbody");
-    spinner.className = "attribute-table-body";
+    const spinner = document.createElement("tbody")
+    spinner.className = "attribute-table-body"
     spinner.innerHTML =
-      '<tr><td colspan="2"><div class="spinner-border" role="status"><span class="visually-hidden">Inspecting</span></div></td></tr>';
-    document.querySelector(".attribute-table-body").replaceWith(spinner);
+      '<tr><td colspan="2"><div class="spinner-border" role="status"><span class="visually-hidden">Inspecting</span></div></td></tr>'
+    document.querySelector(".attribute-table-body").replaceWith(spinner)
 
     const wmsoptions = {
       URL: url,
@@ -22,75 +22,84 @@ export const wmsInspection = (map, url, layerId, layer) => {
       QUERY_LAYERS: layerId,
       X: Math.round(e.containerPoint.x),
       Y: Math.round(e.containerPoint.y),
-    };
+    }
 
     try {
       const response = await fetch("/wms/handle", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "X-CSRF-Token": document
-            .querySelector('meta[name="csrf-token"]')
-            .getAttribute("content"),
+          "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
         },
         body: JSON.stringify(wmsoptions),
-      });
+      })
 
-      if (!response.ok) throw new Error("Network response was not ok.");
+      if (!response.ok) throw new Error("Network response was not ok.")
 
-      const response_data = await response.json();
+      const response_data = await response.json()
 
-      if (response_data.hasOwnProperty("error") || response_data.hasOwnProperty('exceptions') || response_data.features.length === 0) {
+      if (
+        response_data.hasOwnProperty("error") ||
+        response_data.hasOwnProperty("exceptions") ||
+        response_data.features.length === 0
+      ) {
         document.querySelector(".attribute-table-body").innerHTML =
-          '<tr><td colspan="2">Could not find that feature</td></tr>';
-        return;
+          '<tr><td colspan="2">Could not find that feature</td></tr>'
+        return
       }
-      const data = response_data.features[0];
-      if (!data.isHTML) overlayLayer(map, data, layer);
+      const data = response_data.features[0]
+      if (!data.isHTML) overlayLayer(map, data, layer)
 
-      populateAttributeTable(data);
+      populateAttributeTable(data)
     } catch (error) {
-      console.error("Fetch error: ", error);
+      console.error("Fetch error: ", error)
     }
-  });
+  })
 }
 
 export const overlayLayer = (map, data, layer) => {
-  const highlightLayerOld = Object.values(map._layers).filter(layer => layer.options.highlightLayer);
-  if (highlightLayerOld[0]) highlightLayerOld.map(layer => map.removeLayer(layer));
-  if (!data) return;
+  const highlightLayerOld = Object.values(map._layers).filter((layer) => layer.options.highlightLayer)
+  if (highlightLayerOld[0]) highlightLayerOld.map((layer) => map.removeLayer(layer))
+  if (!data) return
 
-  let overlayLayer;
+  let overlayLayer
 
-  const opacity = getLayerOpacity(layer);
-  const color = map.options.selected_color;
+  const opacity = getLayerOpacity(layer)
+  const color = map.options.selected_color
 
   if (data._latlngs) {
-    overlayLayer = L.polygon(data._latlngs, {color: color, weight: 2, layer: true, fillOpacity: opacity, addToOpacitySlider: true, highlightLayer: true });
+    overlayLayer = L.polygon(data._latlngs, {
+      color: color,
+      weight: 2,
+      layer: true,
+      fillOpacity: opacity,
+      addToOpacitySlider: true,
+      highlightLayer: true,
+    })
   } else {
     overlayLayer = L.geoJSON(data, {
       color: color,
       opacity: opacity,
       addToOpacitySlider: true,
       highlightLayer: true,
-      pointToLayer: function(feature, latlng) {
+      pointToLayer: function (feature, latlng) {
         return L.circleMarker(latlng, {
           radius: 8,
           fillColor: color,
           color: color,
           weight: 1,
           opacity: opacity,
-          fillOpacity: opacity
-        });
-      }
-    });
+          fillOpacity: opacity,
+        })
+      },
+    })
   }
-  L.layerGroup([overlayLayer]).addTo(map);
+  L.layerGroup([overlayLayer]).addTo(map)
 }
 
 export const tiledMapLayerInspection = (map, layer) => {
   this.map.on("click", (e) => {
-    this.appendLoadingMessage();
+    this.appendLoadingMessage()
 
     // Query layer at click location
     identifyFeatures({
@@ -103,21 +112,21 @@ export const tiledMapLayerInspection = (map, layer) => {
       .at(e.latlng)
       .run((error, featureCollection) => {
         if (error) {
-          this.appendErrorMessage();
+          this.appendErrorMessage()
         } else {
-          this.populateAttributeTable(featureCollection.features[0]);
+          this.populateAttributeTable(featureCollection.features[0])
         }
-      });
-  });
+      })
+  })
 }
 
 export const dynamicMapLayerInspection = (map, layer, layerId) => {
   // add crosshair class for map items
-  map.getContainer().classList.add('leaflet-clickable');
+  map.getContainer().classList.add("leaflet-clickable")
 
   // Inspect on click
   map.on("click", (e) => {
-    appendLoadingMessage();
+    appendLoadingMessage()
 
     // Query layer at click location
     const identify = identifyFeatures({
@@ -127,40 +136,40 @@ export const dynamicMapLayerInspection = (map, layer, layerId) => {
       .tolerance(2)
       .returnGeometry(true)
       .on(map)
-      .at(e.latlng);
+      .at(e.latlng)
 
     // Query specific layer if dynamicLayerId is set
     if (layerId) {
-      identify.layers("all: " + layerId);
+      identify.layers("all: " + layerId)
     }
 
     identify.run((error, featureCollection, response) => {
       if (error || response.results < 1) {
-        appendErrorMessage();
+        appendErrorMessage()
       } else {
-        overlayLayer(map, featureCollection.features[0], layer);
-        populateAttributeTable(featureCollection.features[0]);
+        overlayLayer(map, featureCollection.features[0], layer)
+        populateAttributeTable(featureCollection.features[0])
       }
-    });
-  });
+    })
+  })
 }
 
 export const featureLayerInspection = (map, layer) => {
   // add crosshair class for map items
-  layer.on('load', function() {
-    this.eachFeature(function(layer) {
-      var overlay = layer._path ? layer._path : layer._icon;
+  layer.on("load", function () {
+    this.eachFeature(function (layer) {
+      var overlay = layer._path ? layer._path : layer._icon
       if (overlay) {
-        overlay.classList.add('leaflet-clickable');
+        overlay.classList.add("leaflet-clickable")
       }
-    });
-  });
+    })
+  })
 
   // Inspect on click
   layer.on("click", (e) => {
-    const distance = 3000 / (1 + map.getZoom());
+    const distance = 3000 / (1 + map.getZoom())
 
-    appendLoadingMessage();
+    appendLoadingMessage()
 
     // Query layer at click location
     layer
@@ -169,27 +178,27 @@ export const featureLayerInspection = (map, layer) => {
       .nearby(e.latlng, distance)
       .run((error, featureCollection) => {
         if (error || !featureCollection.features.length) {
-          appendErrorMessage();
+          appendErrorMessage()
         } else {
-          overlayLayer(map, featureCollection.features[0], layer);
-          populateAttributeTable(featureCollection.features[0]);
+          overlayLayer(map, featureCollection.features[0], layer)
+          populateAttributeTable(featureCollection.features[0])
         }
-      });
-  });
+      })
+  })
 }
 
 const populateAttributeTable = (feature) => {
-  let html = '<tbody class="attribute-table-body">';
+  let html = '<tbody class="attribute-table-body">'
 
   // Step through properties and append to table
   Object.keys(feature.properties).forEach((property) => {
     html += `<tr><td>${property}</td>
-               <td>${linkify(feature.properties[property])}</td></tr>`;
-  });
-  html += "</tbody>";
+               <td>${linkify(feature.properties[property])}</td></tr>`
+  })
+  html += "</tbody>"
 
-  const tableBody = document.querySelector(".attribute-table-body");
+  const tableBody = document.querySelector(".attribute-table-body")
   if (tableBody) {
-    tableBody.outerHTML = html; // Replace existing table body with new content
+    tableBody.outerHTML = html // Replace existing table body with new content
   }
 }

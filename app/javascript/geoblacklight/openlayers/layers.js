@@ -1,13 +1,13 @@
-import VectorTile from "ol/layer/VectorTile";
-import { Style, Stroke, Fill, Circle } from "ol/style";
-import { PMTilesVectorSource } from "ol-pmtiles";
-import { useGeographic } from "ol/proj";
-import GeoTIFF from "ol/source/GeoTIFF";
-import WebGLTileLayer from "ol/layer/WebGLTile";
+import VectorTile from "ol/layer/VectorTile"
+import { Style, Stroke, Fill, Circle } from "ol/style"
+import { PMTilesVectorSource } from "ol-pmtiles"
+import { useGeographic } from "ol/proj"
+import GeoTIFF from "ol/source/GeoTIFF"
+import WebGLTileLayer from "ol/layer/WebGLTile"
 
 // Create a new PMTiles layer
 export const pmTilesLayer = (url) => {
-  useGeographic();
+  useGeographic()
   return new VectorTile({
     declutter: true,
     source: new PMTilesVectorSource({ url }),
@@ -30,8 +30,8 @@ export const pmTilesLayer = (url) => {
         }),
       }),
     }),
-  });
-};
+  })
+}
 
 // Create a new cloud-optimized GeoTIFF (COG) layer
 export const cogLayer = (url) => {
@@ -40,5 +40,5 @@ export const cogLayer = (url) => {
       sources: [{ url }],
       convertToRGB: true,
     }),
-  });
-};
+  })
+}

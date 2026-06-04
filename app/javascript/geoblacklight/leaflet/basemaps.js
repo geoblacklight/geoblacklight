@@ -65,10 +65,9 @@ export default {
   },
   openstreetmapStandard: {
     url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
-    attribution:
-      '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     maxZoom: 19,
     worldCopyJump: true,
     retina: "@2x",
   },
-};
+}
