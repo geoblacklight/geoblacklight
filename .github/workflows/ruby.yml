@@ -29,9 +29,9 @@ jobs:
         with:
           node-version: "24"
       - name: Install dependencies
-        run: yarn install
+        run: npm install
       - name: Run Prettier check
-        run: yarn lint
+        run: npm run lint
 
   aardvark-fixture-linter:
     runs-on: ubuntu-latest
