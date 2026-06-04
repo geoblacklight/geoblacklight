@@ -1,0 +1,34 @@
+---
+:scope:
+:url: http://stor.artstor.org/stor/e6d1510d-de11-436a-9bfd-3dcdfbbc6296_size2
+:body: ''
+:status: 302
+:method: get
+:headers:
+  Connection: close
+  Content-Length: '3395'
+  server: envoy
+  access-control-allow-headers: DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,x-jstor-requestid,x-jstor-client-id,x-jstor-uuid
+  x-envoy-upstream-service-time: '54'
+  content-type: text/html; charset=utf-8
+  location: https://sequoia-forum-media.s3.amazonaws.com/prod.cirrostratus.org/2015/06/03/10/e6d1510d-de11-436a-9bfd-3dcdfbbc6296_size2.jpg?response-content-type=image%2Fjpeg&AWSAccessKeyId=ASIAYU7NIXDB6TXFJDJX&Signature=idvaalX8a9ypI5QY1Q9WisgWGuw%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEJX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQDRQNw5IIiZfVrAF0ADp1YVm5%2FJeceUbKplEPpVa%2FGfuQIgR7Yzgc2TxdQ8EAbbvzivYYZOTVJbuzz11haTKC0y5gcqhwUIXhAAGgw1OTQ4MTM2OTYxOTUiDG%2F4%2BpqyqdmeWw19ayrkBJ1ZJbH5CyLIRv7BUsE%2FYL1vQ%2BWfLF4fpNa%2Bg9Av1N0TW0e4XQRZ9frMAu0Cn3zmzoGkWlO1l4iNUz7rMzp80ZAK%2BfTAHcGC0UJBtXvHlv5P4dLw2qpbbOR2v6PyW9Aq6AmWafqvXpTODv6sNSK06RyxonqYOHiunjtWyLc8maM8%2FCUTMq558khrNXjThcH6nsPN43%2ByHf2nTCaLoRFawfNKuV8nz9QBSlQmRuUFfSClp5OloHcVZHfPOuSHuX9duf3vR5WjLoIIuemw0MVRRCFP88ONIv3fXd60gOS9URKIdbHiWsA5Rwg8TdhYI5U%2Bs0Jdo5zh51U%2FUAbKF0T6F2K8VcMgbyQVOE6295N0ILC5asISsEukM8ZCRp2Ymfq9ph9JRe2uf90lsLtlvXDs%2BYEzGlWvxd5SL%2FrXWBqIclBBAxdjfHL8WgJD0P4KpxbEnL1VPE598faGfikQYX6bl8R2%2FYXRgA8RNXxKBuUyyR93%2BpT1LfShcNI0BxCKI7hWgjsWl4fruD4ekfLL3ZIF959fjK32XqB%2FFwCNMq4tDGHsSCRDtl27ewo4RSFXZoMwbUdRoEZnPIueNafiMoHtifM0g2a7m%2FsvRJYoirWlPrzm8mwrmvlksZVDrLdAaM7dlww1wJVIlppihjnr2ro0BIXfi3zpKFkdlAl5q8ZWKdd4PL3MFwiZrugdbMEck%2BwPY2Vk6Gabd1nKtoZ%2FHKIJ%2FiF8%2BDweg87H%2BsHJowmaUYd0Osa1mgMd%2BP1nYjef8nQeumSgKfRUI8B%2FYIK10rdWwnAZ3H7Qt5h8cTyAvB8FRQZj6S%2Bg9zD1wIfRBjqYAVbIZH9bFYemMt1%2BlpfjpN9%2B%2Buk6Wtx8yrq9IPltoq7cDcZqaWDpA3o4BmL81I5bNSy4TfVXwIEL423Qfo34SshL0Gh9gdxlwxWiZQqErZhHxM9xmKu47L4l4mZe8s3hvb7FAl%2FN6O6kaSIjfAIMXv7A02F%2Bw5GDkSZKFmtKeq5cWtcIk5mRQ5%2FaiM7f3nEcdQhN71GlOcTf&Expires=1780610771
+  access-control-allow-origin: "*"
+  Backend-IP: 151.101.41.51
+  Accept-Ranges: bytes
+  Age: '0'
+  Date: Thu, 04 Jun 2026 21:06:11 GMT
+  Via: 1.1 varnish
+  Set-Cookie: _pxhd=wzIS1rkNlbKXNTTYtYljQ7OjWWXbFGvQkyYzGFEHGrgU6EtmWszhDqJpZLm54bXlGlEn1lFg/68d-MJED9JFrw==:AR6DHyxHAOzEShsaZom1NctuPKDQ26YLwAYIMQzuNuqnc/Q1Nb2qD5NBb2XOrNmVxAJXtrxBlix4iaH-O4MUpnCSzxJNnj4jBzUI9v1AksY=;
+    Expires=Fri, 04 Jun 2027 21:06:11 GMT; path=/;
+  X-JSTOR-RequestId: 0e8234ca71922c84c7452f04c36732db
+  X-Served-By: cache-sjc10079-SJC, cache-sjc1000089-SJC
+  X-Cache: MISS, MISS
+  X-Cache-Hits: 0, 0
+  Vary: Fastly-SSL,Origin,X-Requested-Host
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+:content: |
+  <!doctype html>
+  <html lang=en>
+  <title>Redirecting...</title>
+  <h1>Redirecting...</h1>
+  <p>You should be redirected automatically to the target URL: <a href="https://sequoia-forum-media.s3.amazonaws.com/prod.cirrostratus.org/2015/06/03/10/e6d1510d-de11-436a-9bfd-3dcdfbbc6296_size2.jpg?response-content-type=image%2Fjpeg&amp;AWSAccessKeyId=ASIAYU7NIXDB6TXFJDJX&amp;Signature=idvaalX8a9ypI5QY1Q9WisgWGuw%3D&amp;x-amz-security-token=IQoJb3JpZ2luX2VjEJX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQDRQNw5IIiZfVrAF0ADp1YVm5%2FJeceUbKplEPpVa%2FGfuQIgR7Yzgc2TxdQ8EAbbvzivYYZOTVJbuzz11haTKC0y5gcqhwUIXhAAGgw1OTQ4MTM2OTYxOTUiDG%2F4%2BpqyqdmeWw19ayrkBJ1ZJbH5CyLIRv7BUsE%2FYL1vQ%2BWfLF4fpNa%2Bg9Av1N0TW0e4XQRZ9frMAu0Cn3zmzoGkWlO1l4iNUz7rMzp80ZAK%2BfTAHcGC0UJBtXvHlv5P4dLw2qpbbOR2v6PyW9Aq6AmWafqvXpTODv6sNSK06RyxonqYOHiunjtWyLc8maM8%2FCUTMq558khrNXjThcH6nsPN43%2ByHf2nTCaLoRFawfNKuV8nz9QBSlQmRuUFfSClp5OloHcVZHfPOuSHuX9duf3vR5WjLoIIuemw0MVRRCFP88ONIv3fXd60gOS9URKIdbHiWsA5Rwg8TdhYI5U%2Bs0Jdo5zh51U%2FUAbKF0T6F2K8VcMgbyQVOE6295N0ILC5asISsEukM8ZCRp2Ymfq9ph9JRe2uf90lsLtlvXDs%2BYEzGlWvxd5SL%2FrXWBqIclBBAxdjfHL8WgJD0P4KpxbEnL1VPE598faGfikQYX6bl8R2%2FYXRgA8RNXxKBuUyyR93%2BpT1LfShcNI0BxCKI7hWgjsWl4fruD4ekfLL3ZIF959fjK32XqB%2FFwCNMq4tDGHsSCRDtl27ewo4RSFXZoMwbUdRoEZnPIueNafiMoHtifM0g2a7m%2FsvRJYoirWlPrzm8mwrmvlksZVDrLdAaM7dlww1wJVIlppihjnr2ro0BIXfi3zpKFkdlAl5q8ZWKdd4PL3MFwiZrugdbMEck%2BwPY2Vk6Gabd1nKtoZ%2FHKIJ%2FiF8%2BDweg87H%2BsHJowmaUYd0Osa1mgMd%2BP1nYjef8nQeumSgKfRUI8B%2FYIK10rdWwnAZ3H7Qt5h8cTyAvB8FRQZj6S%2Bg9zD1wIfRBjqYAVbIZH9bFYemMt1%2BlpfjpN9%2B%2Buk6Wtx8yrq9IPltoq7cDcZqaWDpA3o4BmL81I5bNSy4TfVXwIEL423Qfo34SshL0Gh9gdxlwxWiZQqErZhHxM9xmKu47L4l4mZe8s3hvb7FAl%2FN6O6kaSIjfAIMXv7A02F%2Bw5GDkSZKFmtKeq5cWtcIk5mRQ5%2FaiM7f3nEcdQhN71GlOcTf&amp;Expires=1780610771">https://sequoia-forum-media.s3.amazonaws.com/prod.cirrostratus.org/2015/06/03/10/e6d1510d-de11-436a-9bfd-3dcdfbbc6296_size2.jpg?response-content-type=image%2Fjpeg&amp;AWSAccessKeyId=ASIAYU7NIXDB6TXFJDJX&amp;Signature=idvaalX8a9ypI5QY1Q9WisgWGuw%3D&amp;x-amz-security-token=IQoJb3JpZ2luX2VjEJX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQDRQNw5IIiZfVrAF0ADp1YVm5%2FJeceUbKplEPpVa%2FGfuQIgR7Yzgc2TxdQ8EAbbvzivYYZOTVJbuzz11haTKC0y5gcqhwUIXhAAGgw1OTQ4MTM2OTYxOTUiDG%2F4%2BpqyqdmeWw19ayrkBJ1ZJbH5CyLIRv7BUsE%2FYL1vQ%2BWfLF4fpNa%2Bg9Av1N0TW0e4XQRZ9frMAu0Cn3zmzoGkWlO1l4iNUz7rMzp80ZAK%2BfTAHcGC0UJBtXvHlv5P4dLw2qpbbOR2v6PyW9Aq6AmWafqvXpTODv6sNSK06RyxonqYOHiunjtWyLc8maM8%2FCUTMq558khrNXjThcH6nsPN43%2ByHf2nTCaLoRFawfNKuV8nz9QBSlQmRuUFfSClp5OloHcVZHfPOuSHuX9duf3vR5WjLoIIuemw0MVRRCFP88ONIv3fXd60gOS9URKIdbHiWsA5Rwg8TdhYI5U%2Bs0Jdo5zh51U%2FUAbKF0T6F2K8VcMgbyQVOE6295N0ILC5asISsEukM8ZCRp2Ymfq9ph9JRe2uf90lsLtlvXDs%2BYEzGlWvxd5SL%2FrXWBqIclBBAxdjfHL8WgJD0P4KpxbEnL1VPE598faGfikQYX6bl8R2%2FYXRgA8RNXxKBuUyyR93%2BpT1LfShcNI0BxCKI7hWgjsWl4fruD4ekfLL3ZIF959fjK32XqB%2FFwCNMq4tDGHsSCRDtl27ewo4RSFXZoMwbUdRoEZnPIueNafiMoHtifM0g2a7m%2FsvRJYoirWlPrzm8mwrmvlksZVDrLdAaM7dlww1wJVIlppihjnr2ro0BIXfi3zpKFkdlAl5q8ZWKdd4PL3MFwiZrugdbMEck%2BwPY2Vk6Gabd1nKtoZ%2FHKIJ%2FiF8%2BDweg87H%2BsHJowmaUYd0Osa1mgMd%2BP1nYjef8nQeumSgKfRUI8B%2FYIK10rdWwnAZ3H7Qt5h8cTyAvB8FRQZj6S%2Bg9zD1wIfRBjqYAVbIZH9bFYemMt1%2BlpfjpN9%2B%2Buk6Wtx8yrq9IPltoq7cDcZqaWDpA3o4BmL81I5bNSy4TfVXwIEL423Qfo34SshL0Gh9gdxlwxWiZQqErZhHxM9xmKu47L4l4mZe8s3hvb7FAl%2FN6O6kaSIjfAIMXv7A02F%2Bw5GDkSZKFmtKeq5cWtcIk5mRQ5%2FaiM7f3nEcdQhN71GlOcTf&amp;Expires=1780610771</a>. If not, click the link.

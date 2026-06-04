@@ -33,27 +33,56 @@ require "rspec/rails"
 require "capybara/rspec"
 require "selenium-webdriver"
 
+require "billy/capybara/rspec"
+
 # Setup webmock for specific tests
 require "webmock/rspec"
 WebMock.allow_net_connect!(net_http_connect_on_start: true)
 
-Capybara.register_driver :chrome_headless do |app|
-  # Set up Chrome options
+# Configure Billy
+Billy.configure do |c|
+  c.cache = true
+  c.cache_path = "spec/fixtures/billy"
+  c.persist_cache = true
+  # Add domains that should not be cached or should be allowed
+  c.whitelist = [
+    "127.0.0.1",
+    "localhost",
+    /.*esm\.sh/,
+    /.*cdn\.jsdelivr\.net/,
+    /.*cdn\.skypack\.dev/,
+    /.*ga\.jspm\.io/,
+    /.*unpkg\.com/,
+    /.*googleapis\.com/,
+    /.*google\.com/,
+    /.*cloudflare\.com/,
+    /.*edgedl\.me\.gvt1\.com/,
+    /.*googletagmanager\.com/,
+    /.*honeybadger\.io/,
+    /.*stanford\.edu/,
+    /.*openstreetmap\.org/,
+    /.*openstreetmap\.fr/
+  ]
+end
+
+Capybara.default_max_wait_time = 15
+
+Capybara.register_driver :chrome_headless_billy do |app|
   options = Selenium::WebDriver::Chrome::Options.new
-  options.add_argument("--headless")
+  # options.add_argument("--headless")
   options.add_argument("--disable-gpu")
   options.add_argument("--no-sandbox")
   options.add_argument("--window-size=1280,1024")
+  options.add_argument("--proxy-server=#{Billy.proxy.host}:#{Billy.proxy.port}")
+  options.add_argument("--ignore-certificate-errors")
 
-  # Allow longer TCP reads to prevent timeout in the case of loading fixture
-  # eee6150b-ce2f-4837-9d17-ce72a0c1c26f, as part of relations_spec.rb
   client = Selenium::WebDriver::Remote::Http::Default.new
-  client.read_timeout = 120 # seconds
+  client.read_timeout = 60
 
   Capybara::Selenium::Driver.new(app, browser: :chrome, options: options, http_client: client)
 end
 
-Capybara.javascript_driver = :chrome_headless
+Capybara.javascript_driver = :chrome_headless_billy
 
 require "geoblacklight"
 

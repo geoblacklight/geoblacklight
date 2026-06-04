@@ -1,0 +1,21 @@
+---
+:scope:
+:url: https://map-tiles-staging.princeton.edu/2a91d82c541c426cb787cc62afe8f248/mosaicjson/tilejson.json
+:body: ''
+:status: 500
+:method: get
+:headers:
+  Content-Type: text/plain; charset=utf-8
+  Content-Length: '21'
+  Connection: close
+  Date: Thu, 04 Jun 2026 20:53:02 GMT
+  X-Amzn-Trace-Id: Root=1-6a21e5ae-5aa841ac4e6233545aa4674f;Parent=07ad687d6d1ad362;Sampled=0;Lineage=1:5e931e06:0
+  x-amzn-RequestId: 95029722-b14f-4583-8336-d204e7cc9e7e
+  X-Cache: Error from cloudfront
+  Via: 1.1 5fa19949620deb5ea219d7070e76b034.cloudfront.net (CloudFront)
+  X-Amz-Cf-Pop: SFO53-P12
+  X-Amz-Cf-Id: NjYxB11qw-1ciSvlv9avowM5v6qHIvBh3B4XEuG1Y9VPbG3XusDzvA==
+  Cache-Control: public, max-age= 31536000
+  Access-Control-Allow-Origin: "*"
+  Access-Control-Expose-Headers: "*"
+:content: Internal Server Error

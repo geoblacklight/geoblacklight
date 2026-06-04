@@ -1,0 +1,13 @@
+---
+:scope:
+:url: https://geodata.mit.edu/geoserver/wms?service=WMS&request=GetMap&layers=mit%3ASDE_DATA_US_MA_E25ZCTA5DCT_2000&styles=&format=image%2Fpng&transparent=true&version=1.1.1&tiled=true&CRS=EPSG%3A3857&width=256&height=256&srs=EPSG%3A3857&bbox=-7827151.69640205,5322463.153553395,-7670608.662474009,5479006.187481435
+:body: ''
+:status: 410
+:method: get
+:headers:
+  Server: awselb/2.0
+  Date: Thu, 04 Jun 2026 21:03:19 GMT
+  Content-Type: text/plain; charset=utf-8
+  Content-Length: '71'
+  Connection: close
+:content: Domain no longer active. Please visit https://geodata.libraries.mit.edu

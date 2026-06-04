@@ -42,4 +42,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "webmock", "~> 3.14"
   spec.add_development_dependency "database_cleaner"
   spec.add_development_dependency "axe-core-rspec"
+  spec.add_development_dependency "puffing-billy"
 end

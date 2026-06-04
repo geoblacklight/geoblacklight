@@ -33,6 +33,9 @@ feature "Display related documents" do
   end
 
   scenario "Relationship browse link returns relationship-scoped results", js: true do
+    proxy.stub("https://mapsweb.lib.purdue.edu:443/arcgis/rest/services/Purdue/wabashaerial/ImageServer")
+      .and_return(body: '{"currentVersion":10.3,"serviceDescription":"Wabash"}', content_type: "application/json")
+
     # Wabash Topo parent record
     visit solr_document_path("eee6150b-ce2f-4837-9d17-ce72a0c1c26f")
 

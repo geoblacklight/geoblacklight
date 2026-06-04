@@ -1,0 +1,21 @@
+---
+:scope:
+:url: https://geodata.md.gov/imap/rest/services/Transportation/MD_Transit/FeatureServer/18/?f=json
+:body: ''
+:status: 302
+:method: get
+:headers:
+  Content-Type: text/html; charset=UTF-8
+  Location: https://mdgeodata.md.gov/Deprecation
+  Server: Microsoft-IIS/10.0
+  X-Powered-By: ASP.NET
+  Date: Thu, 04 Jun 2026 20:45:18 GMT
+  Connection: close
+  Content-Length: '159'
+  Set-Cookie: BIGipServerqMNcEZWVFJeIvghL453OSg=!xC2hJZVRANyAHfu3t0XzzVAGPY810oCPRY0yJow2+Mt+hDlmLWuXxuhjiwqmfBXD6P5mOUrm8KE6vA==;
+    path=/; Httponly; Secure
+  X-Pool: "/Common/DOIT-GIS-gis-wa-imap01p.hosting.md.gov"
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+:content: |-
+  <head><title>Document Moved</title></head>
+  <body><h1>Object Moved</h1>This document may be found <a HREF="https://mdgeodata.md.gov/Deprecation">here</a></body>
