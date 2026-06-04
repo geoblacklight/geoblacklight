@@ -1,0 +1,21 @@
+---
+:scope:
+:url: https://iiif-cloud.princeton.edu/iiif/2/6c%2F52%2F12%2F6c5212e81bc845f59bb1cdc740a88bad%2Fintermediate_file/info.json
+:body: ''
+:status: 200
+:method: get
+:headers:
+  Content-Type: application/json
+  Transfer-Encoding: chunked
+  Connection: close
+  Date: Thu, 04 Jun 2026 21:01:31 GMT
+  x-amzn-RequestId: a9d9e9d4-54b4-467b-a37b-ba86d5b3c3a5
+  X-Amzn-Trace-Id: Root=1-6a21e7ab-2727e0752e3444a21ea0f553;Parent=7d7b9ee28466d941;Sampled=0;Lineage=1:29190b9b:0
+  X-Cache: Miss from cloudfront
+  Via: 1.1 a441f3c3c4dcd453392dda3af11ddcce.cloudfront.net (CloudFront)
+  X-Amz-Cf-Pop: SFO53-P12
+  X-Amz-Cf-Id: WxM3dWYvB75ojX5WGfsTL4hjpbiWS157bzxuazDW1R9K6d811epqgg==
+  Cache-Control: max-age=31536000
+  Access-Control-Allow-Origin: "*"
+  Access-Control-Expose-Headers: "*"
+:content: '{"@context":"http://iiif.io/api/image/2/context.json","@id":"https://iiif-cloud.princeton.edu/iiif/2/6c%2F52%2F12%2F6c5212e81bc845f59bb1cdc740a88bad%2Fintermediate_file","protocol":"http://iiif.io/api/image","width":5207,"height":12982,"sizes":[{"width":5207,"height":12982},{"width":2603,"height":6491},{"width":1301,"height":3245},{"width":650,"height":1622},{"width":325,"height":811},{"width":162,"height":405},{"width":81,"height":202}],"tiles":[{"width":512,"height":512,"scaleFactors":[1,2,4,8,16,32,64]}],"profile":["http://iiif.io/api/image/2/level2.json",{"formats":["jpg","jpeg","tif","tiff","png","webp"],"qualities":["color","gray","bitonal","default"],"supports":["baseUriRedirect","canonicalLinkHeader","cors","jsonldMediaType","mirroring","profileLinkHeader","regionByPct","regionByPx","regionSquare","rotationArbitrary","rotationBy90s","sizeAboveFull","sizeByConfinedWh","sizeByDistortedWh","sizeByForcedWh","sizeByH","sizeByPct","sizeByW","sizeByWh","sizeByWhListed"]}]}'

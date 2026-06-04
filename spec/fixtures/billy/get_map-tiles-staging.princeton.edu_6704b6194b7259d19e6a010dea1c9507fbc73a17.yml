@@ -1,0 +1,22 @@
+---
+:scope:
+:url: https://map-tiles-staging.princeton.edu/2a91d82c541c426cb787cc62afe8f248/mosaicjson/WMTSCapabilities.xml
+:body: ''
+:status: 404
+:method: get
+:headers:
+  Content-Type: application/json
+  Content-Length: '22'
+  Connection: close
+  Date: Thu, 04 Jun 2026 20:52:38 GMT
+  x-amzn-RequestId: 1657528f-2fe0-442c-8968-10ad420783ea
+  x-amzn-Remapped-content-length: '22'
+  X-Amzn-Trace-Id: Root=1-6a21e596-16d19e256e6b3aee6df9a62a;Parent=4247eb82441a31dd;Sampled=0;Lineage=1:5e931e06:0
+  X-Cache: Error from cloudfront
+  Via: 1.1 a441f3c3c4dcd453392dda3af11ddcce.cloudfront.net (CloudFront)
+  X-Amz-Cf-Pop: SFO53-P12
+  X-Amz-Cf-Id: DXg_yt1o1XwbkNaR1RSp4HVyO3siZW1NmdgHqre8CDbzrZKcIYx1_Q==
+  Cache-Control: public, max-age= 31536000
+  Access-Control-Allow-Origin: "*"
+  Access-Control-Expose-Headers: "*"
+:content: '{"detail":"Not Found"}'

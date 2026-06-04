@@ -1,0 +1,23 @@
+---
+:scope:
+:url: https://iiif-cloud.princeton.edu/iiif/2/26%2F35%2Ffb%2F2635fb5da2074099af3c7748702ee2d0%2Fintermediate_file/8192,0,155,8192/9,/0/default.jpg
+:body: ''
+:status: 200
+:method: get
+:headers:
+  Content-Type: image/jpeg
+  Transfer-Encoding: chunked
+  Connection: close
+  Date: Thu, 04 Jun 2026 21:02:06 GMT
+  x-amzn-RequestId: 412871e3-912b-4c02-99ce-5d31cf809433
+  Link: "<https://iiif-cloud.princeton.edu/iiif/2/26%2F35%2Ffb%2F2635fb5da2074099af3c7748702ee2d0%2Fintermediate_file/[object%20Object]/9,475/0/default.jpg>;
+    rel=canonical,<http://iiif.io/api/image/2/level2.json>; rel=profile"
+  X-Amzn-Trace-Id: Root=1-6a21e7cd-5d3e5bd947198261484a172c;Parent=2f12a421934bf527;Sampled=0;Lineage=1:29190b9b:0
+  X-Cache: Miss from cloudfront
+  Via: 1.1 b199cb525564b27dcd50d9bb35c846f8.cloudfront.net (CloudFront)
+  X-Amz-Cf-Pop: SFO53-P12
+  X-Amz-Cf-Id: cxm6UjuowpRzhMWBmbWjYNrR5KmNTkH8dnZTHac-VkzcYs4WNy_Org==
+  Cache-Control: max-age=31536000
+  Vary: Origin
+:content: !binary |-
+  /9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAHbAAkDASIAAhEBAxEB/8QAHAAAAwEAAwEBAAAAAAAAAAAAAwQFAgABBgcI/8QAOBAAAQMBBQYBCgUFAAAAAAAAAQACEQMEEiExUQUTIkFhkZIUFTJSU3GBocHRBiNi4fBUk6Kx0v/EABkBAAMBAQEAAAAAAAAAAAAAAAABAgMEBf/EAB0RAAICAwEBAQAAAAAAAAAAAAABAkEDETEhEjL/2gAMAwEAAhEDEQA/AP0nYrSy2WanXpeg8SRoUWTqvnWxtrVdm2hgLy6zl3HTORHTRe18+2D+vHhXNizxmtm+TC4PSPnlRgwnA5ofFoiPIJE4rrg9X5rzMNnfOjdSkBEZIUe9OHkh4aJYX4yp0EKxdRy3mclmG6lTiseSjTnQCM0GeiM4SJMLF4aJ4rDJQesJEiUv3T9p4RGqmw/2nzV4l0ib4VKxlpGqT3Q0HZPVhwlKQjC/GOS2kO1hBcISsHRN1MAUteGqWGwb8Q1aQWPcDh7kpAVDaLYqEhT7xTxLWxPiKO0QAZxlTsFV2o2QOqlwnCxUittIGBpJUuCrG0DNIzqpV73JwsUfyirtPFpUmCqe0CYKmSUoWC4iptJuBIUpX7UwOp91K3QTguk/XiLNUSwpK4nanolLKoWRSGngAQMInDRK4Jlxwdn8UrCIWTQzU9EpdHquIaUteKIWVSG6reEpaE1UPCUuiFg+IYfl70vBXmaX4sNprsZZtmWwh1QNJqNu3QTiV6HeM9Z3YfdOC6KkAqBzTIz6IGOju5VWozAoNw6qYN+lNrSCG0tdbH2a6Q4NvXuWOC6vjUdv2XN41u0qjQ8XzTDrhbBwMTP0XJPrO/tq4GdA2tPnKo+GXd2MnG9npkiXTp/khCRtSpepmLgAqA85yifojb0fwn/pEQoTe1vnSq8Nc2oWBpOMOHTqmpdq3xhT2itTtrQ8M3bjg5rACXRM9E1db7NvhWeKf1stx8MVjep2ao6Rxgmc8RH1Xc/pcs7Uq0m0SKj23r7XBt6CYIyCLdq/xp+yywLxlviONo06dU0Q+i2oyHlgpRDYPXnHzRfJm+yHdv2S1KzVbPtavXJ3lKq0kcA/LMtwnMyjSP1/P7rohFLejP6ehiqBAMA4meqX+JTVQEgpe6UQsVDb/RKAjVMigpQsVBXvYZYHAv0QsNAgVTTZtNt2gBUdTLnVJgmOUc0W47Q+EKohR1aN/wCV0d05m54t4DnlhGI/0uvD3/ZYr1KRt1BrnVRXLXOETDgNe61B1b3KIWFGPzRan36d+jm18twwGEZ8lr4M8KIXGCSsXuiIe7ChlzMEGBomjl3QITx2D4f/2Q==

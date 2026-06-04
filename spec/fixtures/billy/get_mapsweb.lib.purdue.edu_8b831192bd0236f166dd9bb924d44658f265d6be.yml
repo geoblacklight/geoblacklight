@@ -1,0 +1,26 @@
+---
+:scope:
+:url: https://mapsweb.lib.purdue.edu/arcgis/rest/services/Purdue/wabashaerial/ImageServer/?f=json
+:body: ''
+:status: 200
+:method: get
+:headers:
+  Cache-Control: must-revalidate,max-age=0,public
+  Content-Length: '4478'
+  Content-Type: application/json; charset=UTF-8
+  ETag: '"8ef13208"'
+  Vary: Origin
+  Server: Microsoft-IIS/10.0
+  X-Content-Type-Options: nosniff
+  Access-Control-Allow-Origin: http://127.0.0.1:62096
+  Access-Control-Allow-Credentials: 'true'
+  Set-Cookie: AGS_ROLES="sym-gcm|1|at3iN_Yz-RkIL_rI1P6_xg==|wXtDqQ4FskbbRMKh5JZ_1I-256PG-XvNdb01YbVP";
+    Version=1; Max-Age=60; Expires=Thu, 04 Jun 2026 20:39:28 GMT; Path=/arcgis/rest;
+    Secure; HttpOnly
+  Date: Thu, 04 Jun 2026 20:38:28 GMT
+  Connection: close
+:content: '{"currentVersion":11.4,"serviceDescription":"Purdue/wabashaerial","name":"Purdue/wabashaerial","description":"","extent":{"xmin":-87.55193800000016,"ymin":39.39480147199999,"xmax":-86.25536682000016,"ymax":40.78333962399999,"spatialReference":{"wkid":4326,"latestWkid":4326}},"initialExtent":{"xmin":-87.55193800000016,"ymin":39.39480147199999,"xmax":-86.25536682000016,"ymax":40.78333962399999,"spatialReference":{"wkid":4326,"latestWkid":4326}},"fullExtent":{"xmin":-87.55193800000016,"ymin":39.39480147199999,"xmax":-86.25536682000016,"ymax":40.78333962399999,"spatialReference":{"wkid":4326,"latestWkid":4326}},"sortableFields":"MinPS,MaxPS,LowPS,HighPS,CenterX,CenterY,ZOrder,Shape.STArea(),Shape.STLength()","bandCount":1,"pixelType":"U8","minValues":[0],"maxValues":[255],"meanValues":[193.87019035581707],"stdvValues":[69.52335974765496],"hasMultidimensions":false,"pixelSizeX":6.854000000000004E-6,"pixelSizeY":6.854000000000012E-6,"meanPixelSize":0.7629837898970978,"datasetFormat":"AMD","uncompressedSize":38323571960,"blockWidth":2048,"blockHeight":256,"compressionType":"None","bandNames":["Band_1"],"allowCopy":true,"allowAnalysis":true,"itemAccess":false,"inspectionCapabilities":"","noDataValue":256,"noDataValues":[256],"minPixelSize":0,"maxPixelSize":0,"copyrightText":"","serviceDataType":"esriImageServiceDataTypeGeneric","serviceSourceType":"esriImageServiceSourceTypeMosaicDataset","objectIdField":"OBJECTID","fields":[{"name":"OBJECTID","type":"esriFieldTypeOID","alias":"OBJECTID","domain":null},{"name":"Name","type":"esriFieldTypeString","alias":"Name","domain":null,"length":200},{"name":"MinPS","type":"esriFieldTypeDouble","alias":"MinPS","domain":null},{"name":"MaxPS","type":"esriFieldTypeDouble","alias":"MaxPS","domain":null},{"name":"LowPS","type":"esriFieldTypeDouble","alias":"LowPS","domain":null},{"name":"HighPS","type":"esriFieldTypeDouble","alias":"HighPS","domain":null},{"name":"Category","type":"esriFieldTypeInteger","alias":"Category","domain":{"type":"codedValue","name":"MosaicCatalogItemCategoryDomain","description":"Catalog
+  item categories.","codedValues":[{"name":"Unknown","code":0},{"name":"Primary","code":1},{"name":"Overview","code":2},{"name":"Unprocessed
+  Overview","code":3},{"name":"Partial Overview","code":4},{"name":"Uploaded","code":253},{"name":"Incomplete","code":254},{"name":"Custom","code":255}],"mergePolicy":"esriMPTDefaultValue","splitPolicy":"esriSPTDefaultValue"}},{"name":"Tag","type":"esriFieldTypeString","alias":"Tag","domain":null,"length":100},{"name":"GroupName","type":"esriFieldTypeString","alias":"GroupName","domain":null,"length":100},{"name":"ProductName","type":"esriFieldTypeString","alias":"ProductName","domain":null,"length":100},{"name":"CenterX","type":"esriFieldTypeDouble","alias":"CenterX","domain":null},{"name":"CenterY","type":"esriFieldTypeDouble","alias":"CenterY","domain":null},{"name":"ZOrder","type":"esriFieldTypeInteger","alias":"ZOrder","domain":null},{"name":"Shape","type":"esriFieldTypeGeometry","alias":"Shape","domain":null},{"name":"Shape.STArea()","type":"esriFieldTypeDouble","alias":"Shape.STArea()","domain":null},{"name":"Shape.STLength()","type":"esriFieldTypeDouble","alias":"Shape.STLength()","domain":null}],"capabilities":"Image,Metadata,Catalog,Mensuration","defaultMosaicMethod":"Northwest","allowedMosaicMethods":"NorthWest,Center,LockRaster,ByAttribute,Nadir,Viewpoint,Seamline,None","sortField":"","sortValue":null,"sortAscending":true,"mosaicOperator":"First","maxDownloadSizeLimit":2048,"defaultCompressionQuality":75,"defaultResamplingMethod":"Bilinear","maxImageHeight":4100,"maxImageWidth":15000,"maxRecordCount":1000,"maxDownloadImageCount":20,"maxMosaicImageCount":20,"allowRasterFunction":true,"rasterFunctionInfos":[{"name":"None","description":"A
+  No-Op Function.","help":""}],"rasterTypeInfos":[{"name":"Raster Dataset","description":"Supports
+  all ArcGIS Raster Datasets","help":""}],"mensurationCapabilities":"Basic","hasHistograms":true,"hasColormap":false,"hasRasterAttributeTable":false,"minScale":0,"maxScale":0,"exportTilesAllowed":false,"supportsStatistics":true,"supportsAdvancedQueries":true,"editFieldsInfo":null,"ownershipBasedAccessControlForRasters":null,"allowComputeTiePoints":false,"useStandardizedQueries":true,"advancedQueryCapabilities":{"useStandardizedQueries":true,"supportsStatistics":true,"supportsOrderBy":true,"supportsDistinct":true,"supportsPagination":true},"spatialReference":{"wkid":4326,"latestWkid":4326}}'

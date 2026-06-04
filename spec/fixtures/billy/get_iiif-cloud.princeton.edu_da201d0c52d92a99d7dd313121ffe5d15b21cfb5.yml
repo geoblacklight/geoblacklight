@@ -1,0 +1,23 @@
+---
+:scope:
+:url: https://iiif-cloud.princeton.edu/iiif/2/26%2F35%2Ffb%2F2635fb5da2074099af3c7748702ee2d0%2Fintermediate_file/8192,8192,155,1878/9,/0/default.jpg
+:body: ''
+:status: 200
+:method: get
+:headers:
+  Content-Type: image/jpeg
+  Transfer-Encoding: chunked
+  Connection: close
+  Date: Thu, 04 Jun 2026 21:02:06 GMT
+  x-amzn-RequestId: 707497f1-b91b-4f32-a76b-ca0a1a8c0291
+  Link: "<https://iiif-cloud.princeton.edu/iiif/2/26%2F35%2Ffb%2F2635fb5da2074099af3c7748702ee2d0%2Fintermediate_file/[object%20Object]/9,109/0/default.jpg>;
+    rel=canonical,<http://iiif.io/api/image/2/level2.json>; rel=profile"
+  X-Amzn-Trace-Id: Root=1-6a21e7cd-2efa94411b196bd55b2d45a3;Parent=58a7b9d749e5a6c7;Sampled=0;Lineage=1:29190b9b:0
+  X-Cache: Miss from cloudfront
+  Via: 1.1 d17c184839dfdf966b08e3b020308166.cloudfront.net (CloudFront)
+  X-Amz-Cf-Pop: SFO53-P12
+  X-Amz-Cf-Id: Nq7OCapMVGu9FJIuxn70SJtKhbtb77SKQNY6NM__L4BBzGv4N4cZBg==
+  Cache-Control: max-age=31536000
+  Vary: Origin
+:content: !binary |-
+  /9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCABtAAkDASIAAhEBAxEB/8QAGQABAQEAAwAAAAAAAAAAAAAAAwQFAAEI/8QALxAAAQMBBAcHBQAAAAAAAAAAAQACAxEEEiExIlFSYZGS0QUTFBUyQUJiY5Oxwf/EABgBAAMBAQAAAAAAAAAAAAAAAAABAgQF/8QAGxEAAQUBAQAAAAAAAAAAAAAAAAECESFBAzH/2gAMAwEAAhEDEQA/APQbjgUCY+k/1CuSzTZgzsihVDskCTNDBfiUdEr8ip6b0M0MGkyKCpSuJAKG9uQzRxRQ7Eeyn48D0Rlt2hdLI+m07BcvN1N5kc1mYKVKQzILRC+eJrYZA57iCXgkjotG+dR5ihb3znFxjY01xN+p/SS6zYbylRyqRr4hDHZZdM2qeSXCjdMinCi78LD9z8r+q37F2Y2eNrpJTQ40AorfJbL9fFaWc3LZDuiJR//Z
