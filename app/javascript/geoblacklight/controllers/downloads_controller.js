@@ -10,13 +10,12 @@ export default class extends Controller {
     ev.target.classList.add("download-in-progress")
     const url = ev.target.dataset.downloadPath
     ev.target.removeAttribute("href")
-    ev.target.innerHTML =
-      '<div class="spinner-border spinner-border-sm float-end"></div> Preparing download...'
+    ev.target.innerHTML = '<div class="spinner-border spinner-border-sm float-end"></div> Preparing download...'
 
     fetch(url)
-      .then(response => {
+      .then((response) => {
         if (!response.ok) {
-          return response.json().then(errorData => {
+          return response.json().then((errorData) => {
             const exception = new Error("Network response was not ok")
             exception.data = errorData // Attach the parsed JSON data to the error object
             throw exception
@@ -24,8 +23,8 @@ export default class extends Controller {
         }
         return response.json()
       })
-      .then(data => this.complete(data, ev.target))
-      .catch(error => this.error(error, ev.target))
+      .then((data) => this.complete(data, ev.target))
+      .catch((error) => this.error(error, ev.target))
   }
 
   complete(data, target) {

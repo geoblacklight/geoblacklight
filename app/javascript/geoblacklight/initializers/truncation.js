@@ -5,31 +5,31 @@
 class Truncator {
   constructor(element, { lines, id }) {
     // if the element is already small enough, don't truncate it
-    const minHeight = lines * parseFloat(window.getComputedStyle(element).fontSize);
-    if (element.getBoundingClientRect().height <= minHeight) return;
+    const minHeight = lines * parseFloat(window.getComputedStyle(element).fontSize)
+    if (element.getBoundingClientRect().height <= minHeight) return
 
     // set a unique ID for the element if it doesn't have one
-    this.element = element;
-    this.element.id ||= id;
+    this.element = element
+    this.element.id ||= id
 
     // add the button
-    this.button = document.createElement("button");
-    this.button.classList.add("btn", "btn-link", "p-0", "border-0");
-    this.button.dataset.bsToggle = "collapse";
-    this.button.dataset.bsTarget = `#${this.element.id}`;
-    this.button.setAttribute("aria-expanded", "false");
-    this.button.setAttribute("aria-controls", this.element.id);
-    this.button.textContent = "Read more";
-    this.button.addEventListener("click", this.toggle.bind(this));
-    element.parentNode.insertBefore(this.button, element.nextSibling);
+    this.button = document.createElement("button")
+    this.button.classList.add("btn", "btn-link", "p-0", "border-0")
+    this.button.dataset.bsToggle = "collapse"
+    this.button.dataset.bsTarget = `#${this.element.id}`
+    this.button.setAttribute("aria-expanded", "false")
+    this.button.setAttribute("aria-controls", this.element.id)
+    this.button.textContent = "Read more"
+    this.button.addEventListener("click", this.toggle.bind(this))
+    element.parentNode.insertBefore(this.button, element.nextSibling)
 
     // start collapsed
-    this.element.classList.add("collapse");
+    this.element.classList.add("collapse")
   }
 
   toggle() {
-    if (this.button.textContent == "Read more") this.button.textContent = "Close";
-    else this.button.textContent = "Read more";
+    if (this.button.textContent == "Read more") this.button.textContent = "Close"
+    else this.button.textContent = "Read more"
   }
 }
 
@@ -40,6 +40,6 @@ export default function initializeTruncation() {
     new Truncator(element, {
       lines: 12,
       id: `truncate-${i}`,
-    });
-  });
+    })
+  })
 }

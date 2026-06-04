@@ -1,0 +1,15 @@
+{
+  "name": "geoblacklight",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/geoblacklight/geoblacklight.git",
+  "author": "Justin Coyne <jcoyne@justincoyne.com>",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "prettier": "^3.8.3"
+  },
+  "scripts": {
+    "lint": "prettier --check \"**/*.js\""
+  },
+  "private": true
+}
