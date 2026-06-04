@@ -45,12 +45,7 @@ Capybara.register_driver :chrome_headless do |app|
   options.add_argument("--no-sandbox")
   options.add_argument("--window-size=1280,1024")
 
-  # Allow longer TCP reads to prevent timeout in the case of loading fixture
-  # eee6150b-ce2f-4837-9d17-ce72a0c1c26f, as part of relations_spec.rb
-  client = Selenium::WebDriver::Remote::Http::Default.new
-  client.read_timeout = 120 # seconds
-
-  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options, http_client: client)
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
 end
 
 Capybara.javascript_driver = :chrome_headless
