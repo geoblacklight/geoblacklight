@@ -21,7 +21,7 @@ DISPLAY_NOTES_SHOWN:
 
 # Solr field mappings (Added DISPLAY_NOTE)
 FIELDS:
-  :DISPLAY_NOTE: 'gbl_displayNote_sm'
+  :DISPLAY_NOTE: "gbl_displayNote_sm"
 
 # Relationships to display
 RELATIONSHIPS_SHOWN:
@@ -100,5 +100,5 @@ RELATIONSHIPS_SHOWN:
 
 # Enable catalog#show sidebar static map for items with the following viewer protocols
 SIDEBAR_STATIC_MAP:
-  - 'iiif'
-  - 'iiif_manifest'
+  - "iiif"
+  - "iiif_manifest"

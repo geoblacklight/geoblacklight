@@ -1,47 +1,27 @@
 {
   "dct_title_s": "Princeton, Mercer County, New Jersey (Sheet 2)",
-  "dct_alternative_sm": [
-    "princeton-child2"
-  ],
+  "dct_alternative_sm": ["princeton-child2"],
   "dct_description_sm": [
     "Child record for testing the gbl_suppressed_b property. ",
     "Title taken from sheet 1 of 1927 map. \"Feb. 1885.\" Includes location map and key. Oriented with the north to the upper left."
   ],
-  "dct_language_sm": [
-    "eng"
-  ],
-  "dct_creator_sm": [
-    "Sanborn Map Company"
-  ],
-  "dct_publisher_sm": [
-    "New York : Sanborn Map & Publishing Co., Limited, 1885."
-  ],
+  "dct_language_sm": ["eng"],
+  "dct_creator_sm": ["Sanborn Map Company"],
+  "dct_publisher_sm": ["New York : Sanborn Map & Publishing Co., Limited, 1885."],
   "schema_provider_s": "Princeton",
-  "gbl_resourceClass_sm": [
-    "Maps"
-  ],
-  "dct_subject_sm": [
-    "Real property-New Jersey-Princeton-Maps",
-    "Princeton (N.J.)-Maps"
-  ],
-  "dcat_keyword_sm": [
-    "GBL Fixture records"
-  ],
+  "gbl_resourceClass_sm": ["Maps"],
+  "dct_subject_sm": ["Real property-New Jersey-Princeton-Maps", "Princeton (N.J.)-Maps"],
+  "dcat_keyword_sm": ["GBL Fixture records"],
   "locn_geometry": "ENVELOPE(-74.68,-74.63,40.37,40.33)",
   "dcat_bbox": "ENVELOPE(-74.68,-74.63,40.37,40.33)",
   "dcat_centroid": "40.349999999999994,-74.655",
-  "dct_source_sm": [
-    "princeton-1r66j405w"
-  ],
+  "dct_source_sm": ["princeton-1r66j405w"],
   "dct_accessRights_s": "Public",
   "dct_format_s": "TIFF",
   "gbl_wxsIdentifier_s": "public-figgy:p-db890be9-02bf-43c1-85c8-69c0684e25f6",
   "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://figgy.princeton.edu/downloads/db890be9-02bf-43c1-85c8-69c0684e25f6/file/dc08e083-5044-4949-bdd1-9d16a1fef818\",\"http://iiif.io/api/image\":\"https://libimages1.princeton.edu/loris/figgy_prod/a6%2Fb9%2Ff9%2Fa6b9f96251724546ae37ea3fa37a5e57%2Fintermediate_file.jp2/info.json\",\"http://schema.org/url\":\"https://catalog.princeton.edu/catalog/4266648\",\"http://iiif.io/api/presentation#manifest\":\"https://figgy.princeton.edu/concern/scanned_maps/68e90289-74ce-4f21-89e5-852f3e96ce35/manifest\"}",
   "id": "princeton-jq085m62x",
-  "dct_identifier_sm": [
-    "ark:/88435/jq085m62x",
-    "HMC04 (Princeton)"
-  ],
+  "dct_identifier_sm": ["ark:/88435/jq085m62x", "HMC04 (Princeton)"],
   "gbl_mdModified_dt": "2021-06-01T22:14:16Z",
   "gbl_mdVersion_s": "Aardvark",
   "gbl_suppressed_b": true

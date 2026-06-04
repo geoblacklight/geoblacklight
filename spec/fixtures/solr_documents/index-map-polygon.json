@@ -1,48 +1,21 @@
 {
   "dct_title_s": "Index of Digital Elevation Models (DEM), New York",
-  "dct_alternative_sm": [
-    "index-map-polygon"
-  ],
+  "dct_alternative_sm": ["index-map-polygon"],
   "dct_description_sm": [
     "GeoJSON index map of polygons, with a downloadUrl for the index itself. ",
     "This is an index of all the available DEM (digital elevation model) tiles within New York state. Download links are provided for each tile, but this record doesn't include a downloadUrl for the index map itself."
   ],
-  "dct_creator_sm": [
-    "U.S. Geological Survey"
-  ],
-  "dct_publisher_sm": [
-    "U.S. Geological Survey"
-  ],
+  "dct_creator_sm": ["U.S. Geological Survey"],
+  "dct_publisher_sm": ["U.S. Geological Survey"],
   "schema_provider_s": "Cornell",
-  "gbl_resourceClass_sm": [
-    "Datasets"
-  ],
-  "gbl_resourceType_sm": [
-    "Raster data",
-    "Index maps",
-    "Digital elevation models",
-    "Digital terrain models"
-  ],
-  "dct_subject_sm": [
-    "Hypsography",
-    "Altitude",
-    "Topography"
-  ],
-  "dcat_keyword_sm": [
-    "GBL Fixture records"
-  ],
-  "dct_temporal_sm": [
-    "1995"
-  ],
-  "gbl_indexYear_im": [
-    1995
-  ],
-  "gbl_dateRange_drsim": [
-    "[1995 TO 1995]"
-  ],
-  "dct_spatial_sm": [
-    "New York"
-  ],
+  "gbl_resourceClass_sm": ["Datasets"],
+  "gbl_resourceType_sm": ["Raster data", "Index maps", "Digital elevation models", "Digital terrain models"],
+  "dct_subject_sm": ["Hypsography", "Altitude", "Topography"],
+  "dcat_keyword_sm": ["GBL Fixture records"],
+  "dct_temporal_sm": ["1995"],
+  "gbl_indexYear_im": [1995],
+  "gbl_dateRange_drsim": ["[1995 TO 1995]"],
+  "dct_spatial_sm": ["New York"],
   "locn_geometry": "ENVELOPE(-79.750232,-71.750494,44.999963,40.499893)",
   "dcat_bbox": "ENVELOPE(-79.750232,-71.750494,44.999963,40.499893)",
   "dcat_centroid": "42.749928,-75.750363",
@@ -51,9 +24,7 @@
   "gbl_wxsIdentifier_s": "cugir008186",
   "dct_references_s": "{\"http://www.opengis.net/cat/csw/csdgm\":\"https://s3.amazonaws.com/cugir-data/00/81/86/fgdc.xml\",\"http://www.w3.org/1999/xhtml\":\"https://s3.amazonaws.com/cugir-data/00/81/86/fgdc.html\",\"https://openindexmaps.org\":\"https://raw.githubusercontent.com/geoblacklight/geoblacklight/main/spec/fixtures/index_maps/index-map-polygon.geojson\"}",
   "id": "cugir-008186-no-downloadurl",
-  "dct_identifier_sm": [
-    "http://cugir.library.cornell.edu/catalog/cugir-008186#no-downloadUrl"
-  ],
+  "dct_identifier_sm": ["http://cugir.library.cornell.edu/catalog/cugir-008186#no-downloadUrl"],
   "gbl_mdModified_dt": "2021-06-01T22:14:16Z",
   "gbl_mdVersion_s": "Aardvark"
 }

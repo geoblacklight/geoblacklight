@@ -5,18 +5,10 @@
   "dct_description_sm": [
     "This record serves as the ID for each item relation in the record titled \"All Relationships\""
   ],
-  "dct_creator_sm": [
-    "GeoBlacklight Community"
-  ],
-  "gbl_resourceClass_sm": [
-    "Other"
-  ],
-  "dct_temporal_sm": [
-    "1900"
-  ],
-  "dct_spatial_sm": [
-    "United States"
-  ],
+  "dct_creator_sm": ["GeoBlacklight Community"],
+  "gbl_resourceClass_sm": ["Other"],
+  "dct_temporal_sm": ["1900"],
+  "dct_spatial_sm": ["United States"],
   "dct_format_s": "Shapefile",
   "gbl_georeferenced_b": false,
   "dct_references_s": "{\"http://schema.org/url\":\"https://example.com\"}",

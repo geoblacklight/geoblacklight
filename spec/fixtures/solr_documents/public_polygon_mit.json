@@ -1,36 +1,15 @@
 {
   "dct_title_s": "Massachusetts (ZCTA - 5 digit zip code tabulation area, 2000)",
-  "dct_alternative_sm": [
-    "public_polygon_mit"
-  ],
-  "dct_description_sm": [
-    "Polygon shapefile with WMS and WFS"
-  ],
-  "dct_creator_sm": [
-    "United States. Bureau of the Census"
-  ],
-  "dct_publisher_sm": [
-    "United States. Bureau of the Census"
-  ],
+  "dct_alternative_sm": ["public_polygon_mit"],
+  "dct_description_sm": ["Polygon shapefile with WMS and WFS"],
+  "dct_creator_sm": ["United States. Bureau of the Census"],
+  "dct_publisher_sm": ["United States. Bureau of the Census"],
   "schema_provider_s": "MIT",
-  "gbl_resourceClass_sm": [
-    "Maps"
-  ],
-  "gbl_resourceType_sm": [
-    "Polygon data"
-  ],
-  "dct_subject_sm": [
-    "Zip codes",
-    "Census data",
-    "Demographic surveys",
-    "Population"
-  ],
-  "dcat_keyword_sm": [
-    "GBL Fixture records"
-  ],
-  "dct_spatial_sm": [
-    "Massachusetts"
-  ],
+  "gbl_resourceClass_sm": ["Maps"],
+  "gbl_resourceType_sm": ["Polygon data"],
+  "dct_subject_sm": ["Zip codes", "Census data", "Demographic surveys", "Population"],
+  "dcat_keyword_sm": ["GBL Fixture records"],
+  "dct_spatial_sm": ["Massachusetts"],
   "locn_geometry": "ENVELOPE(-73.533237,-69.898565,42.888068,41.230345)",
   "dcat_bbox": "ENVELOPE(-73.533237,-69.898565,42.888068,41.230345)",
   "dcat_centroid": "42.0592065,-71.715901",

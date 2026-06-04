@@ -1,99 +1,99 @@
 en:
   geoblacklight:
-    bbox_label: 'Bounding Box'
-    location: 'Location'
+    bbox_label: "Bounding Box"
+    location: "Location"
     clipboard:
       citation: Citation copied to clipboard
       web_service: Web service copied to clipboard
     download:
-      download: 'Download'
-      download_link: 'Original %{download_format}'
-      success: 'Your file %{title} is ready for download'
-      error: 'Sorry, the requested file could not be downloaded.'
-      export_formats: 'Export Formats'
-      export_link: 'Export %{download_format}'
-      export_shapefile_link: 'Shapefile'
-      export_kmz_link: 'KMZ'
-      export_geojson_link: 'GeoJSON'
-      export_geotiff_link: 'GeoTIFF'
-      export_csv_link: 'CSV'
+      download: "Download"
+      download_link: "Original %{download_format}"
+      success: "Your file %{title} is ready for download"
+      error: "Sorry, the requested file could not be downloaded."
+      export_formats: "Export Formats"
+      export_link: "Export %{download_format}"
+      export_shapefile_link: "Shapefile"
+      export_kmz_link: "KMZ"
+      export_geojson_link: "GeoJSON"
+      export_geotiff_link: "GeoTIFF"
+      export_csv_link: "CSV"
     home:
-      headline: 'Explore and discover...'
-      search_heading: 'Find the maps and data you need'
-      category_heading: 'Find by...'
-      map_heading: 'Find by location'
-      institution: 'Institution'
-      data_type: 'Data type'
-      placename: 'Placename'
-      subject: 'Subject'
-      version: 'GeoBlacklight version %{version}'
+      headline: "Explore and discover..."
+      search_heading: "Find the maps and data you need"
+      category_heading: "Find by..."
+      map_heading: "Find by location"
+      institution: "Institution"
+      data_type: "Data type"
+      placename: "Placename"
+      subject: "Subject"
+      version: "GeoBlacklight version %{version}"
     tools:
-      login_to_view: 'Login to View and Download'
-      open_arcgis: 'Open in ArcGIS Online'
+      login_to_view: "Login to View and Download"
+      open_arcgis: "Open in ArcGIS Online"
     formats:
-      arcgrid: 'ArcGRID'
-      geojson: 'GeoJSON'
-      geotiff: 'GeoTIFF'
-      kmz: 'KMZ'
-      shapefile: 'Shapefile'
-      jpg: 'JPG'
-      csv: 'CSV'
-      esri_geodatabase: 'ESRI Geodatabase'
-      sqlite_database: 'SQLite Database'
+      arcgrid: "ArcGRID"
+      geojson: "GeoJSON"
+      geotiff: "GeoTIFF"
+      kmz: "KMZ"
+      shapefile: "Shapefile"
+      jpg: "JPG"
+      csv: "CSV"
+      esri_geodatabase: "ESRI Geodatabase"
+      sqlite_database: "SQLite Database"
     map:
-      label: 'Zoomable map'
+      label: "Zoomable map"
     references:
-      wms: 'Web Mapping Service (WMS)'
-      wms_abv: 'WMS'
-      wms_label: 'layers'
-      wfs: 'Web Feature Service (WFS)'
-      wfs_abv: 'WFS'
-      wfs_label: 'typeNames'
-      iiif: 'International Image Interoperability Framework (IIIF)'
-      iso19139: 'ISO 19139'
-      mods: 'MODS'
-      fgdc: 'FGDC'
-      html: 'HTML'
-      feature_layer: 'ArcGIS Feature Layer'
-      tiled_map_layer: 'ArcGIS Tiled Map Layer'
-      dynamic_map_layer: 'ArcGIS Dynamic Map Layer'
-      image_map_layer: 'ArcGIS Image Map Layer'
-      data_dictionary: 'Documentation'
-      services: 'Web services'
-      tms: 'Tile Map Service'
-      tilejson: 'TileJSON Document'
-      xyz: 'XYZ Tiles'
-      wmts: 'Web Map Tile Service'
-      pmtiles: 'PMTiles Layer'
-      cog: 'COG Layer'
+      wms: "Web Mapping Service (WMS)"
+      wms_abv: "WMS"
+      wms_label: "layers"
+      wfs: "Web Feature Service (WFS)"
+      wfs_abv: "WFS"
+      wfs_label: "typeNames"
+      iiif: "International Image Interoperability Framework (IIIF)"
+      iso19139: "ISO 19139"
+      mods: "MODS"
+      fgdc: "FGDC"
+      html: "HTML"
+      feature_layer: "ArcGIS Feature Layer"
+      tiled_map_layer: "ArcGIS Tiled Map Layer"
+      dynamic_map_layer: "ArcGIS Dynamic Map Layer"
+      image_map_layer: "ArcGIS Image Map Layer"
+      data_dictionary: "Documentation"
+      services: "Web services"
+      tms: "Tile Map Service"
+      tilejson: "TileJSON Document"
+      xyz: "XYZ Tiles"
+      wmts: "Web Map Tile Service"
+      pmtiles: "PMTiles Layer"
+      cog: "COG Layer"
     relations:
-      member_of_ancestors: 'Belongs to collection...'
-      member_of_descendants: 'Collection records...'
-      part_of_ancestors: 'Is part of...'
-      part_of_descendants: 'Has part...'
-      relation_ancestors: 'Related records...'
-      relation_descendants: 'Related records...'
-      replaces_ancestors: 'Replaces...'
-      replaces_descendants: 'Is replaced by...'
-      source_ancestors: 'Source records...'
-      source_descendants: 'Derived records...'
-      version_of_ancestors: 'Is version of...'
-      version_of_descendants: 'Has version...'
+      member_of_ancestors: "Belongs to collection..."
+      member_of_descendants: "Collection records..."
+      part_of_ancestors: "Is part of..."
+      part_of_descendants: "Has part..."
+      relation_ancestors: "Related records..."
+      relation_descendants: "Related records..."
+      replaces_ancestors: "Replaces..."
+      replaces_descendants: "Is replaced by..."
+      source_ancestors: "Source records..."
+      source_descendants: "Derived records..."
+      version_of_ancestors: "Is version of..."
+      version_of_descendants: "Has version..."
       browse_all_no_count: "Browse all records..."
       browse_all: "Browse all %{count} records..."
     modal:
       copy-citation: "Copy Citation"
     metadata:
-      toggle_summary: 'Toggle summary'
-      view_metadata: 'View Metadata'
-      more_details: 'More details at'
-      metadata_error: 'The metadata view for selected schema is not available'
-      metadata_trace: 'Please select another metadata view. Alternately, try downloading the file or reaching out to the holding institution.'
+      toggle_summary: "Toggle summary"
+      view_metadata: "View Metadata"
+      more_details: "More details at"
+      metadata_error: "The metadata view for selected schema is not available"
+      metadata_trace: "Please select another metadata view. Alternately, try downloading the file or reaching out to the holding institution."
     show:
-      attribute: 'Attribute'
-      value: 'Value'
-      click_map: 'Click on map to inspect values'
-      table_name: 'Map data'
+      attribute: "Attribute"
+      value: "Value"
+      click_map: "Click on map to inspect values"
+      table_name: "Map data"
     help_text:
       viewer_protocol:
         cog:

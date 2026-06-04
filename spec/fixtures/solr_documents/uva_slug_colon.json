@@ -1,38 +1,20 @@
 {
   "dct_title_s": "Norfolk 2005 Police Stations",
-  "dct_alternative_sm": [
-    "uva_slug_colon"
-  ],
+  "dct_alternative_sm": ["uva_slug_colon"],
   "dct_description_sm": [
     "Multipoint dataset with WMS and WFS and a colon in the slug and layer ID. ",
     "Police stations for Norfolk, Virginia."
   ],
-  "dct_language_sm": [
-    "eng"
-  ],
+  "dct_language_sm": ["eng"],
   "schema_provider_s": "UVa",
-  "gbl_resourceClass_sm": [
-    "Datasets"
-  ],
-  "gbl_resourceType_sm": [
-    "Multipoint data"
-  ],
-  "dcat_theme_sm": [
-    "Location"
-  ],
-  "dcat_keyword_sm": [
-    "GBL Fixture records"
-  ],
-  "dct_temporal_sm": [
-    "2015-2018"
-  ],
+  "gbl_resourceClass_sm": ["Datasets"],
+  "gbl_resourceType_sm": ["Multipoint data"],
+  "dcat_theme_sm": ["Location"],
+  "dcat_keyword_sm": ["GBL Fixture records"],
+  "dct_temporal_sm": ["2015-2018"],
   "dct_issued_s": "2008-10-17",
-  "gbl_indexYear_im": [
-    2015
-  ],
-  "gbl_dateRange_drsim": [
-    "[2015 TO 2018]"
-  ],
+  "gbl_indexYear_im": [2015],
+  "gbl_dateRange_drsim": ["[2015 TO 2018]"],
   "locn_geometry": "ENVELOPE(-76.346,-76.176,36.971,36.82)",
   "dcat_bbox": "ENVELOPE(-76.346,-76.176,36.971,36.82)",
   "dcat_centroid": "36.8955,-76.261",
@@ -41,9 +23,7 @@
   "gbl_wxsIdentifier_s": "Norfolk:police_point",
   "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://gis.lib.virginia.edu/geoserver/ows?service=WFS\\\\u0026typeName=Norfolk:police_point\\\\u0026request=GetFeature\\\\u0026outputFormat=shape-zip\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"https://opengeometadata.github.io/edu.virginia/382/13/iso19139.xml\",\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"http://gis.lib.virginia.edu/geoserver/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"http://www.opengis.net/def/serviceType/ogc/wms:http://gis.lib.virginia.edu/geoserver/wms\"}",
   "id": "uva-Norfolk:police_point",
-  "dct_identifier_sm": [
-    "315fc8ee-3b57-4ebb-aa24-4300f1c42dc9-13"
-  ],
+  "dct_identifier_sm": ["315fc8ee-3b57-4ebb-aa24-4300f1c42dc9-13"],
   "gbl_mdModified_dt": "2021-06-01T22:14:17Z",
   "gbl_mdVersion_s": "Aardvark"
 }

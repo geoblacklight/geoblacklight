@@ -1,55 +1,24 @@
 {
   "dct_title_s": "10 Meter Contours: Russian River Basin, California",
-  "dct_alternative_sm": [
-    "restricted-line"
-  ],
+  "dct_alternative_sm": ["restricted-line"],
   "dct_description_sm": [
     "Restricted line layer with WFS, WMS and metadata in MODS and ISO 19139. ",
     "This line shapefile contains contours that were derived from a mosiac of 10 meter digital elevation models for the extent of the Russian River basin, located in Sonoma and Mendocino Counties, California.This layer can be used for watershed analysis and planning in the Russian River region of California."
   ],
-  "dct_language_sm": [
-    "eng"
-  ],
-  "dct_creator_sm": [
-    "United States. National Oceanic and Atmospheric Administration",
-    "Circuit Rider Productions"
-  ],
-  "dct_publisher_sm": [
-    "Circuit Rider Productions"
-  ],
+  "dct_language_sm": ["eng"],
+  "dct_creator_sm": ["United States. National Oceanic and Atmospheric Administration", "Circuit Rider Productions"],
+  "dct_publisher_sm": ["Circuit Rider Productions"],
   "schema_provider_s": "Stanford",
-  "gbl_resourceClass_sm": [
-    "Datasets"
-  ],
-  "gbl_resourceType_sm": [
-    "Line data"
-  ],
-  "dct_subject_sm": [
-    "Contours (Cartography)",
-    "Elevation",
-    "Inland Waters"
-  ],
-  "dcat_theme_sm": [
-    "Elevation",
-    "Inland Waters"
-  ],
-  "dcat_keyword_sm": [
-    "GBL Fixture records"
-  ],
-  "dct_temporal_sm": [
-    "2002"
-  ],
+  "gbl_resourceClass_sm": ["Datasets"],
+  "gbl_resourceType_sm": ["Line data"],
+  "dct_subject_sm": ["Contours (Cartography)", "Elevation", "Inland Waters"],
+  "dcat_theme_sm": ["Elevation", "Inland Waters"],
+  "dcat_keyword_sm": ["GBL Fixture records"],
+  "dct_temporal_sm": ["2002"],
   "dct_issued_s": "2002",
-  "gbl_indexYear_im": [
-    2002
-  ],
-  "gbl_dateRange_drsim": [
-    "[2002 TO 2002]"
-  ],
-  "dct_spatial_sm": [
-    "Sonoma County (Calif.)",
-    "Mendocino County (Calif.)"
-  ],
+  "gbl_indexYear_im": [2002],
+  "gbl_dateRange_drsim": ["[2002 TO 2002]"],
+  "dct_spatial_sm": ["Sonoma County (Calif.)", "Mendocino County (Calif.)"],
   "locn_geometry": "ENVELOPE(-123.387366,-122.52958,39.398403,38.302994)",
   "dcat_bbox": "ENVELOPE(-123.387366,-122.52958,39.398403,38.302994)",
   "dcat_centroid": "38.8506985,-122.958473",
@@ -61,9 +30,7 @@
   "gbl_wxsIdentifier_s": "druid:cg357zz0321",
   "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://stacks.stanford.edu/file/druid:cg357zz0321/data.zip\",\"http://schema.org/url\":\"http://purl.stanford.edu/cg357zz0321\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"https://raw.githubusercontent.com/OpenGeoMetadata/edu.stanford.purl/master/cg/357/zz/0321/iso19139.xml\",\"http://www.loc.gov/mods/v3\":\"http://purl.stanford.edu/cg357zz0321.mods\",\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"https://geowebservices-restricted.stanford.edu/geoserver/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://geowebservices-restricted.stanford.edu/geoserver/wms\"}",
   "id": "stanford-cg357zz0321",
-  "dct_identifier_sm": [
-    "http://purl.stanford.edu/cg357zz0321"
-  ],
+  "dct_identifier_sm": ["http://purl.stanford.edu/cg357zz0321"],
   "gbl_mdModified_dt": "2021-06-01T22:14:16Z",
   "gbl_mdVersion_s": "Aardvark"
 }

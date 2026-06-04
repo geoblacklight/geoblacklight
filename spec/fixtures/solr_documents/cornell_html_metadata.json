@@ -1,51 +1,28 @@
 {
   "dct_title_s": "Air Monitoring Stations, Adirondack Park, 2000",
-  "dct_alternative_sm": [
-    "cornell_html_metadata"
-  ],
+  "dct_alternative_sm": ["cornell_html_metadata"],
   "dct_description_sm": [
     "Point dataset with WMS, WFS, direct download, and FGDC metadata XML and HTML. ",
     "This dataset shows the location of each ambient air quality monitoring station currently being operated by the Bureau of Air Quality Surveillance (BAQS), Division of Air Resources, New York State Department of Environmental Conservation."
   ],
-  "dct_creator_sm": [
-    "New York State Department of Energy Conservation Bureau of Air Quality Surveillance"
-  ],
-  "dct_publisher_sm": [
-    "Geographic Data Presentation Form: Map"
-  ],
+  "dct_creator_sm": ["New York State Department of Energy Conservation Bureau of Air Quality Surveillance"],
+  "dct_publisher_sm": ["Geographic Data Presentation Form: Map"],
   "schema_provider_s": "Cornell",
-  "gbl_resourceClass_sm": [
-    "Datasets"
-  ],
-  "gbl_resourceType_sm": [
-    "Point data"
-  ],
+  "gbl_resourceClass_sm": ["Datasets"],
+  "gbl_resourceType_sm": ["Point data"],
   "dct_subject_sm": [
     "Air quality monitoring stations",
     "Air quality management",
     "Air--Pollution--Measurement",
     "New York State--Dept Energy Conservation"
   ],
-  "dcat_theme_sm": [
-    "Environment",
-    "Climate"
-  ],
-  "dcat_keyword_sm": [
-    "GBL Fixture records"
-  ],
-  "dct_temporal_sm": [
-    "2000-Pres"
-  ],
+  "dcat_theme_sm": ["Environment", "Climate"],
+  "dcat_keyword_sm": ["GBL Fixture records"],
+  "dct_temporal_sm": ["2000-Pres"],
   "dct_issued_s": "2000-06-00",
-  "gbl_indexYear_im": [
-    2000
-  ],
-  "gbl_dateRange_drsim": [
-    "[2000 TO *]"
-  ],
-  "dct_spatial_sm": [
-    "New York"
-  ],
+  "gbl_indexYear_im": [2000],
+  "gbl_dateRange_drsim": ["[2000 TO *]"],
+  "dct_spatial_sm": ["New York"],
   "locn_geometry": "ENVELOPE(-74.989258,-73.858335,44.67778,43.452994)",
   "dcat_bbox": "ENVELOPE(-74.989258,-73.858335,44.67778,43.452994)",
   "dcat_centroid": "44.065387,-74.42379650000001",
@@ -55,9 +32,7 @@
   "gbl_wxsIdentifier_s": "cugir007741",
   "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://s3.amazonaws.com/cugir-data/00/77/41/cugir-007741.zip\",\"http://www.opengis.net/cat/csw/csdgm\":\"https://s3.amazonaws.com/cugir-data/00/77/41/fgdc.xml\",\"http://www.w3.org/1999/xhtml\":\"https://s3.amazonaws.com/cugir-data/00/77/41/fgdc.html\",\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"https://cugir.library.cornell.edu/geoserver/cugir/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://cugir.library.cornell.edu/geoserver/cugir/wms\"}",
   "id": "cugir-007741",
-  "dct_identifier_sm": [
-    "https://cugir.library.cornell.edu/catalog/cugir-007741"
-  ],
+  "dct_identifier_sm": ["https://cugir.library.cornell.edu/catalog/cugir-007741"],
   "gbl_mdModified_dt": "2021-06-01T22:14:15Z",
   "gbl_mdVersion_s": "Aardvark"
 }
