@@ -1,48 +1,23 @@
 {
   "dct_title_s": "Abandoned Quarries: Indiana",
-  "dct_alternative_sm": [
-    "esri-dynamic-layer-single-layer"
-  ],
+  "dct_alternative_sm": ["esri-dynamic-layer-single-layer"],
   "dct_description_sm": [
     "ArcGIS Dynamic Map Layer with single layer indicated. ",
     "QUARRIES_ABANDONED_IN was derived from a comma-delimited text file named \"QUALOC.TXT\" contained on the following CD-ROM publication: Hasenmueller, W.A., and Ault, C.H., 2001, Abandoned Industrial Minerals Quarries in Indiana, 2nd Edition, Digital Version, Computer Database 2, Indiana Geological Survey. The field named \"QUANUM\" can be used to link this data to the following tables available in the publication cited above: bibliography (QUAREF.TXT), history of operation (QUAHIS.TXT), and stratigraphy (QUASTR.TXT). It contains all abandoned quarry locations within QUALOC.TXT that have locational information that is adequate to determine UTM coordinate values."
   ],
-  "dct_language_sm": [
-    "eng"
-  ],
-  "dct_creator_sm": [
-    "Indiana Geological Survey"
-  ],
-  "dct_publisher_sm": [
-    "Indiana Geological Survey"
-  ],
+  "dct_language_sm": ["eng"],
+  "dct_creator_sm": ["Indiana Geological Survey"],
+  "dct_publisher_sm": ["Indiana Geological Survey"],
   "schema_provider_s": "Purdue University",
-  "gbl_resourceClass_sm": [
-    "Datasets",
-    "Web services"
-  ],
-  "gbl_resourceType_sm": [
-    "Point data"
-  ],
-  "dcat_theme_sm": [
-    "Geology"
-  ],
-  "dcat_keyword_sm": [
-    "GBL Fixture records"
-  ],
-  "dct_temporal_sm": [
-    "2003"
-  ],
+  "gbl_resourceClass_sm": ["Datasets", "Web services"],
+  "gbl_resourceType_sm": ["Point data"],
+  "dcat_theme_sm": ["Geology"],
+  "dcat_keyword_sm": ["GBL Fixture records"],
+  "dct_temporal_sm": ["2003"],
   "dct_issued_s": "2003-05-30",
-  "gbl_indexYear_im": [
-    2003
-  ],
-  "gbl_dateRange_drsim": [
-    "[2003 TO 2003]"
-  ],
-  "dct_spatial_sm": [
-    "Indiana"
-  ],
+  "gbl_indexYear_im": [2003],
+  "gbl_dateRange_drsim": ["[2003 TO 2003]"],
+  "dct_spatial_sm": ["Indiana"],
   "locn_geometry": "ENVELOPE(-87.9324,-86.2569,39.8521,37.8626)",
   "dcat_bbox": "ENVELOPE(-87.9324,-86.2569,39.8521,37.8626)",
   "dcat_centroid": "38.85735,-87.09465",
@@ -50,9 +25,7 @@
   "dct_format_s": "Shapefile",
   "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://maps.indiana.edu/download/Geology/Industrial_Minerals_Quarries_Abandoned.zip\",\"http://www.opengis.net/cat/csw/csdgm\":\"https://maps.indiana.edu/metadata/Geology/Industrial_Minerals_Quarries_Abandoned.xml\",\"http://schema.org/url\":\"http://maps.indiana.edu/previewMaps/Geology/Industrial_Minerals_Quarries_Abandoned.html\",\"urn:x-esri:serviceType:ArcGIS#DynamicMapLayer\":\"https://maps.indiana.edu/arcgis/rest/services/Geology/Industrial_Minerals_Quarries_Abandoned/MapServer/0\"}",
   "id": "4669301e-b4b2-4c8b-bf40-01b968a2865b",
-  "dct_identifier_sm": [
-    "4669301e-b4b2-4c8b-bf40-01b968a2865b"
-  ],
+  "dct_identifier_sm": ["4669301e-b4b2-4c8b-bf40-01b968a2865b"],
   "gbl_mdModified_dt": "2021-06-01T22:14:15Z",
   "gbl_mdVersion_s": "Aardvark"
 }

@@ -8,14 +8,7 @@
       "title": "layer",
       "description": "A GIS data layer. See [this example](https://github.com/OpenGeoMetadata/edu.stanford.purl/blob/master/bb/099/zb/1450/geoblacklight.json) metadata layer.",
       "type": "object",
-      "required": [
-        "dc_title_s",
-        "dc_identifier_s",
-        "dc_rights_s",
-        "dct_provenance_s",
-        "layer_slug_s",
-        "solr_geom"
-      ],
+      "required": ["dc_title_s", "dc_identifier_s", "dc_rights_s", "dct_provenance_s", "layer_slug_s", "solr_geom"],
       "properties": {
         "uuid": {
           "type": "string",
@@ -39,10 +32,7 @@
         },
         "dc_rights_s": {
           "type": "string",
-          "enum": [
-            "Public",
-            "Restricted"
-          ],
+          "enum": ["Public", "Restricted"],
           "description": "Access rights for the layer."
         },
         "dct_provenance_s": {
@@ -68,15 +58,7 @@
         },
         "layer_geom_type_s": {
           "type": "string",
-          "enum": [
-            "Point",
-            "Line",
-            "Polygon",
-            "Raster",
-            "Scanned Map",
-            "Image",
-            "Mixed"
-          ],
+          "enum": ["Point", "Line", "Polygon", "Raster", "Scanned Map", "Image", "Mixed"],
           "description": "Geometry type for layer data, using controlled vocabulary. *Optional*"
         },
         "layer_modified_dt": {
@@ -134,11 +116,7 @@
         },
         "dc_type_s": {
           "type": "string",
-          "enum": [
-            "Dataset",
-            "Image",
-            "PhysicalObject"
-          ],
+          "enum": ["Dataset", "Image", "PhysicalObject"],
           "description": "Resource type of the layer, using DCMI Type Vocabulary, usually a `Dataset`. *Optional*"
         },
         "dct_spatial_sm": {
@@ -194,9 +172,7 @@
         "geoblacklight_version": {
           "type": "string",
           "description": "The version of the GeoBlacklight Schema to which this metadata record conforms.",
-          "enum": [
-            "1.0"
-          ]
+          "enum": ["1.0"]
         }
       }
     }
@@ -204,7 +180,8 @@
   "anyOf": [
     {
       "$ref": "#/definitions/layer"
-    }, {
+    },
+    {
       "type": "array",
       "items": {
         "$ref": "#/definitions/layer"

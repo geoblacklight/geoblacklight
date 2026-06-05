@@ -1,28 +1,16 @@
 {
   "dct_title_s": "East Asia and Oceania",
-  "dct_alternative_sm": [
-    "bbox-spans-180"
-  ],
+  "dct_alternative_sm": ["bbox-spans-180"],
   "dct_description_sm": [
     "Scanned map with IIIF and direct TIFF download that spans across the 180th meridian. ",
     "United States. Central Intelligence Agency. Map no. 802861 (A04678) 4-02."
   ],
-  "dct_language_sm": [
-    "eng"
-  ],
-  "dct_publisher_sm": [
-    "Washington, D.C. Central Intelligence Agency, 2002."
-  ],
+  "dct_language_sm": ["eng"],
+  "dct_publisher_sm": ["Washington, D.C. Central Intelligence Agency, 2002."],
   "schema_provider_s": "Princeton",
-  "gbl_resourceClass_sm": [
-    "Maps"
-  ],
-  "dct_subject_sm": [
-    "Asia, east — Maps"
-  ],
-  "dcat_keyword_sm": [
-    "GBL Fixture records"
-  ],
+  "gbl_resourceClass_sm": ["Maps"],
+  "dct_subject_sm": ["Asia, east — Maps"],
+  "dcat_keyword_sm": ["GBL Fixture records"],
   "locn_geometry": "ENVELOPE(-124.7333333,68,62.45,-53.23333333)",
   "dcat_bbox": "ENVELOPE(-124.7333333,68,62.45,-53.23333333)",
   "dcat_centroid": "4.608,-28.366",
@@ -31,9 +19,7 @@
   "gbl_wxsIdentifier_s": "public-figgy:a990e1b4-7f0e-44b8-ae2a-de7e93cdd74a",
   "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://figgy.princeton.edu/downloads/a990e1b4-7f0e-44b8-ae2a-de7e93cdd74a/file/36a2274c-e0c6-4901-a14f-7c422d15e194\",\"http://iiif.io/api/image\":\"https://libimages1.princeton.edu/loris/figgy_prod/2e%2Fa9%2F43%2F2ea943b0bd4348fc9954b299f1b359f6%2Fintermediate_file.jp2/info.json\",\"http://schema.org/url\":\"https://catalog.princeton.edu/catalog/6829320\",\"http://iiif.io/api/presentation#manifest\":\"https://figgy.princeton.edu/concern/scanned_maps/0c2e1053-22ef-409e-ad9a-7a4709a5efcb/manifest\"}",
   "id": "princeton-sx61dn82p",
-  "dct_identifier_sm": [
-    "ark:/88435/sx61dn82p"
-  ],
+  "dct_identifier_sm": ["ark:/88435/sx61dn82p"],
   "gbl_mdModified_dt": "2021-06-01T22:14:15Z",
   "gbl_mdVersion_s": "Aardvark"
 }

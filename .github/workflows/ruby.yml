@@ -7,7 +7,7 @@ on:
   pull_request:
 
 jobs:
-  linter:
+  standardrb-linter:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -20,7 +20,7 @@ jobs:
       - name: Run linter
         run: bundle exec standardrb
 
-  js-linter:
+  prettier-linter:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6

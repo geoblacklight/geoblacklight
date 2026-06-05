@@ -1,8 +1,6 @@
 {
   "dct_title_s": "Test record with additional download formats",
-  "dct_alternative_sm": [
-    "multiple-downloads"
-  ],
+  "dct_alternative_sm": ["multiple-downloads"],
   "dct_description_sm": [
     "This is a test record containing new-style references as nested child documents.  In addition to the origianl shapefile download, the references section contains additional PDF and KMZ downloads."
   ],
@@ -11,27 +9,17 @@
     "NYS Department of Agriculture and Markets"
   ],
   "schema_provider_s": "Cornell",
-  "gbl_resourceClass_sm": [
-    "Datasets"
-  ],
-  "gbl_resourceType_sm": [
-    "Polygon data"
-  ],
+  "gbl_resourceClass_sm": ["Datasets"],
+  "gbl_resourceType_sm": ["Polygon data"],
   "dct_subject_sm": [
     "New York State Agricultural District boundaries",
     "Agriculture and Markets",
     "Agricultural Districts Mapping Program"
   ],
-  "dcat_keyword_sm": [
-    "GBL Fixture records"
-  ],
-  "dct_temporal_sm": [
-    "2011"
-  ],
+  "dcat_keyword_sm": ["GBL Fixture records"],
+  "dct_temporal_sm": ["2011"],
   "dct_issued_s": "2011-02-28",
-  "dct_spatial_sm": [
-    "Broome County NY"
-  ],
+  "dct_spatial_sm": ["Broome County NY"],
   "locn_geometry": "ENVELOPE(-76.12987,-75.42034,42.414648,41.997963)",
   "dcat_bbox": "ENVELOPE(-76.12987,-75.42034,42.414648,41.997963)",
   "dcat_centroid": "42.2063055,-75.775105",

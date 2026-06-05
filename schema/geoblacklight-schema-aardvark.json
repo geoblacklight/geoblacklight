@@ -47,15 +47,7 @@
       "type": "array",
       "items": {
         "type": "string",
-        "enum": [
-          "Datasets",
-          "Maps",
-          "Imagery",
-          "Collections",
-          "Websites",
-          "Web services",
-          "Other"
-        ]
+        "enum": ["Datasets", "Maps", "Imagery", "Collections", "Websites", "Web services", "Other"]
       }
     },
     "gbl_resourceType_sm": {

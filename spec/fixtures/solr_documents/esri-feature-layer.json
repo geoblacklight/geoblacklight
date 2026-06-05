@@ -1,47 +1,23 @@
 {
   "dct_title_s": "Transit - Airports: Maryland",
-  "dct_alternative_sm": [
-    "esri-feature-layer"
-  ],
+  "dct_alternative_sm": ["esri-feature-layer"],
   "dct_description_sm": [
     "ArcGIS Feature Layer - point dataset. ",
     "This is a MD iMAP hosted service layer. Find more information at http://imap.maryland.gov. The Airports database is a geographic point database of aircraft landing facilities in the State of Maryland. Attribute data is provided on the physical and operational characteristics of the landing facility, current usage including enplanements and aircraft operations, congestion levels and usage categories. This geospatial data is derived from the FAA's National Airspace System Resource Aeronautical Data Product. This dataset only contains features located within the State of Maryland. Last Updated: 06/2013"
   ],
-  "dct_language_sm": [
-    "eng"
-  ],
-  "dct_creator_sm": [
-    "Maryland iMap"
-  ],
-  "dct_publisher_sm": [
-    "State of Maryland"
-  ],
+  "dct_language_sm": ["eng"],
+  "dct_creator_sm": ["Maryland iMap"],
+  "dct_publisher_sm": ["State of Maryland"],
   "schema_provider_s": "University of Maryland",
-  "gbl_resourceClass_sm": [
-    "Datasets"
-  ],
-  "gbl_resourceType_sm": [
-    "Point data"
-  ],
-  "dcat_theme_sm": [
-    "Transportation"
-  ],
-  "dcat_keyword_sm": [
-    "GBL Fixture records"
-  ],
-  "dct_temporal_sm": [
-    "2016"
-  ],
+  "gbl_resourceClass_sm": ["Datasets"],
+  "gbl_resourceType_sm": ["Point data"],
+  "dcat_theme_sm": ["Transportation"],
+  "dcat_keyword_sm": ["GBL Fixture records"],
+  "dct_temporal_sm": ["2016"],
   "dct_issued_s": "2016-02-16",
-  "gbl_indexYear_im": [
-    2016
-  ],
-  "gbl_dateRange_drsim": [
-    "[2016 TO 2016]"
-  ],
-  "dct_spatial_sm": [
-    "Maryland"
-  ],
+  "gbl_indexYear_im": [2016],
+  "gbl_dateRange_drsim": ["[2016 TO 2016]"],
+  "dct_spatial_sm": ["Maryland"],
   "locn_geometry": "ENVELOPE(-79.4539,-75.124,39.7194,37.9667)",
   "dcat_bbox": "ENVELOPE(-79.4539,-75.124,39.7194,37.9667)",
   "dcat_centroid": "38.843050000000005,-77.28895",
@@ -49,9 +25,7 @@
   "dct_format_s": "Shapefile",
   "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://data.imap.maryland.gov/datasets/f406332e63eb4478a9560ad86ae90327_18.zip\",\"urn:x-esri:serviceType:ArcGIS#FeatureLayer\":\"https://geodata.md.gov/imap/rest/services/Transportation/MD_Transit/FeatureServer/18\",\"http://schema.org/url\":\"http://data.imap.maryland.gov/datasets/f406332e63eb4478a9560ad86ae90327_18\"}",
   "id": "f406332e63eb4478a9560ad86ae90327_18",
-  "dct_identifier_sm": [
-    "f406332e63eb4478a9560ad86ae90327_18"
-  ],
+  "dct_identifier_sm": ["f406332e63eb4478a9560ad86ae90327_18"],
   "gbl_mdModified_dt": "2021-06-01T22:14:15Z",
   "gbl_mdVersion_s": "Aardvark"
 }
