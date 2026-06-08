@@ -11,7 +11,9 @@
     "build": "vite build",
     "watch": "vite build --watch"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/frontend.js",
   "module": "./dist/frontend.umd.cjs",
   "exports": {
@@ -28,7 +30,9 @@
     "@samvera/clover-iiif": "^2.3.2",
     "ol": "8.1.0",
     "ol-pmtiles": "^0.3.0",
-    "react": "^18.2.0"
+    "react": "^18.0",
+    "react-dom": "^18.0",
+    "swiper": "^9.0.0"
   },
   "devDependencies": {
     "vite": "^5.0.0"
