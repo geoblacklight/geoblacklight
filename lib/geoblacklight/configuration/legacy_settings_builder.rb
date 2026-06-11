@@ -56,7 +56,6 @@ module Geoblacklight
         config.fields.theme = Settings.FIELDS.THEME
         config.fields.keyword = Settings.FIELDS.KEYWORD
         config.fields.language = Settings.FIELDS.LANGUAGE
-        config.fields.layer_modified = Settings.FIELDS.LAYER_MODIFIED
         config.fields.license = Settings.FIELDS.LICENSE
         config.fields.member_of = Settings.FIELDS.MEMBER_OF
         config.fields.metadata_version = Settings.FIELDS.METADATA_VERSION

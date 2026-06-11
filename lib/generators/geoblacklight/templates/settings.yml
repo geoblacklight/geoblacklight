@@ -56,7 +56,6 @@ FIELDS:
   :THEME: "dcat_theme_sm"
   :KEYWORD: "dcat_keyword_sm"
   :LANGUAGE: "dct_language_sm"
-  :LAYER_MODIFIED: "gbl_mdModified_dt"
   :LICENSE: "dct_license_sm"
   :MEMBER_OF: "pcdm_memberOf_sm"
   :METADATA_VERSION: "gbl_mdVersion_s"

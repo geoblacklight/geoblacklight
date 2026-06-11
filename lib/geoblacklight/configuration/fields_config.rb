@@ -23,7 +23,6 @@ module Geoblacklight
       attribute :theme, :string, default: "gbl_theme_drsim"
       attribute :keyword, :string, default: "dct_keyword_sm"
       attribute :language, :string, default: "dct_language_s"
-      attribute :layer_modified, :string, default: "gbl_layerModified_drsim"
       attribute :license, :string, default: "dct_license_s"
       attribute :member_of, :string, default: "gbl_memberOf_drsim"
       attribute :metadata_version, :string, default: "gbl_metadataVersion_drsim"
