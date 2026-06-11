@@ -23,7 +23,7 @@
         <%= helpers.link_to_document(@document, counter: @counter, itemprop: "name") %>
       </h3>
 
-      <div class='status-icons'>
+      <div class="status-icons">
         <%= render Geoblacklight::HeaderIconsComponent.new(document: @document) %>
         <button
             class="btn dropdown-toggle collapsed"
@@ -34,11 +34,11 @@
             aria-controls="doc-<%= @document.id %>-fields-collapse">
         </button>
       </div>
-      
+
     <% end %>
   <% end %>
-  <div class='more-info-area border-bottom'>
-    <div id="doc-<%= @document.id %>-fields-collapse" class='collapse'>
+  <div class="more-info-area border-bottom">
+    <div id="doc-<%= @document.id %>-fields-collapse" class="collapse">
       <small itemprop="description">
         <%= index_fields_display %>
       </small>
