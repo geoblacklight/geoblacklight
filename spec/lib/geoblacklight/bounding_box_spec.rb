@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Geoblacklight::BoundingBox do
+RSpec.describe Geoblacklight::BoundingBox do
   describe "#initialize" do
     it "handles multiple input types as arguments" do
       expect(described_class.new("1", "1", "1", "1")).to be_an described_class

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Geoblacklight::SolrDocument::Citation do
+RSpec.describe Geoblacklight::SolrDocument::Citation do
   describe "#geoblacklight_citation" do
     let(:fixture) { JSON.parse(read_fixture("solr_documents/restricted-line.json")) }
     let(:document) { SolrDocument.new(fixture) }

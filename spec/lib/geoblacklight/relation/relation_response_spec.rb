@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Geoblacklight::Relation::RelationResponse do
+RSpec.describe Geoblacklight::Relation::RelationResponse do
   let(:repository) { Blacklight::Solr::Repository.new(CatalogController.blacklight_config) }
   let(:relation_resp) { described_class.new("nyu_2451_34502", repository) }
   let(:empty_relation_resp) { described_class.new("harvard-g7064-s2-1834-k3", repository) }

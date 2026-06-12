@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "Download display on show page" do
+RSpec.feature "Download display on show page" do
   scenario "with download String" do
     visit solr_document_path "2eddde2f-c222-41ca-bd07-2fd74a21f4de"
     find("#downloads-button").click

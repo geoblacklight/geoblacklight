@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Geoblacklight::WmsLayer do
+RSpec.describe Geoblacklight::WmsLayer do
   let(:wms_layer) { described_class.new(params) }
   let(:rails_4_params) { {"URL" => "http://www.example.com/", "X" => "277"} }
   let(:rails_5_params) { instance_double(ActionController::Parameters) }

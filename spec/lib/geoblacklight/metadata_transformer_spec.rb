@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Geoblacklight::MetadataTransformer do
+RSpec.describe Geoblacklight::MetadataTransformer do
   let(:klass) { instance_double(Class) }
   before do
     allow(metadata).to receive(:blank?).and_return(false)

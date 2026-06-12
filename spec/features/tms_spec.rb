@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "tms layer" do
+RSpec.feature "tms layer" do
   scenario "displays tms layer", js: true do
     visit solr_document_path("cugir-007957")
     expect(page).to have_css ".leaflet-control-zoom"

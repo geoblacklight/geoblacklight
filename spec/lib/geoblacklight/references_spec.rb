@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Geoblacklight::References do
+RSpec.describe Geoblacklight::References do
   let(:references_field) { Geoblacklight.configuration.fields.references }
   let(:file_format_field) { Geoblacklight.configuration.fields.format }
   let(:typical_ogp_shapefile) do

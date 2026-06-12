@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "tilejson layer" do
+RSpec.feature "tilejson layer" do
   before do
     WebMock.disable_net_connect!(allow_localhost: true, allow: "chromedriver.storage.googleapis.com")
   end

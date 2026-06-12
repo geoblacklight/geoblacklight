@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "Export features" do
+RSpec.feature "Export features" do
   feature "when esri web services are available" do
     feature "Open in ArcGIS Online" do
       scenario "shows up in tools" do

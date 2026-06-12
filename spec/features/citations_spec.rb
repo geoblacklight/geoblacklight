@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "Blacklight Citation" do
+RSpec.feature "Blacklight Citation" do
   scenario "citations can be copied", js: true do
     sign_in # NOTE: this seems to be required for clipboard permissions to be granted succesfully
     page.driver.browser.add_permission("clipboard-read", "granted")

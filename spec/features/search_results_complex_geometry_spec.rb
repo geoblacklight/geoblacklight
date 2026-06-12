@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "spatial search results with an WKT bounding box that crosses the anti-meridian" do
+RSpec.feature "spatial search results with an WKT bounding box that crosses the anti-meridian" do
   scenario "when searching within the covered area" do
     # BBox param is in China
     visit search_catalog_path(

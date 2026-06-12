@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "Index view", js: true do
+RSpec.feature "Index view", js: true do
   let(:subject_field) { Geoblacklight.configuration.fields.subject }
   before do
     visit search_catalog_path(q: "*")

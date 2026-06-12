@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe CatalogController, type: :controller do
+RSpec.describe CatalogController, type: :controller do
   describe "#web_services" do
     it "returns a document based off an id" do
       get :web_services, params: {id: "mit-f6rqs4ucovjk2"}

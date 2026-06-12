@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "spatial search results overlap ratio" do
+RSpec.feature "spatial search results overlap ratio" do
   scenario "result bboxes fully contained, overlap ratio applied to relevancy" do
     allow(Settings).to receive(:OVERLAP_RATIO_BOOST).and_return 200
 

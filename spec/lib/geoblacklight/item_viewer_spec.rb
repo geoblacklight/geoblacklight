@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Geoblacklight::ItemViewer do
+RSpec.describe Geoblacklight::ItemViewer do
   let(:document) { SolrDocument.new(document_attributes) }
   let(:document_attributes) { {} }
   let(:references) { document.references }

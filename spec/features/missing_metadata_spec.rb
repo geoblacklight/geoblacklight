@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "Missing metadata", js: true do
+RSpec.feature "Missing metadata", js: true do
   scenario "Yields error free results page for no spatial" do
     visit search_catalog_path(q: "ASTER Global Emissivity")
     expect(page).to have_css("#leaflet-viewer")

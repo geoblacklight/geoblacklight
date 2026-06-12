@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "Suppressed records" do
+RSpec.feature "Suppressed records" do
   scenario "are viewable" do
     visit solr_document_path "princeton-jq085m62x"
     expect(page).to have_css("#document")
