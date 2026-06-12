@@ -67,13 +67,6 @@ RSpec.configure do |config|
 
   config.use_transactional_fixtures = true
 
-  if Rails::VERSION::MAJOR >= 5
-    config.include ::Rails.application.routes.url_helpers
-    config.include ::Rails.application.routes.mounted_helpers
-  else
-    config.include BackportTestHelpers, type: :controller
-  end
-
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include ViewComponent::TestHelpers, type: :component
 end
