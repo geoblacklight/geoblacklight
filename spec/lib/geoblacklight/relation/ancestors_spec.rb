@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Geoblacklight::Relation::Ancestors do
+RSpec.describe Geoblacklight::Relation::Ancestors do
   let(:repository) { Blacklight::Solr::Repository.new(CatalogController.blacklight_config) }
   let(:ancestors) { described_class.new("nyu_2451_34502", Geoblacklight.configuration.fields.source, repository) }
   let(:empty_ancestors) do

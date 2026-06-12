@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "Layer opacity", js: true do
+RSpec.feature "Layer opacity", js: true do
   scenario "WMS layer should have opacity control" do
     visit solr_document_path("mit-f6rqs4ucovjk2")
     expect(page).to have_css("div.opacity-text", text: "75%")

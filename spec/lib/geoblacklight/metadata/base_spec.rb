@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Geoblacklight::Metadata::Base do
+RSpec.describe Geoblacklight::Metadata::Base do
   subject(:metadata) { described_class.new(reference) }
 
   let(:connection) { instance_double(Faraday::Connection) }

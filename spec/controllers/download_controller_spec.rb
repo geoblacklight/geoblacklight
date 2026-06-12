@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe DownloadController, type: :controller do
+RSpec.describe DownloadController, type: :controller do
   describe "#file" do
     describe "restricted file" do
       it "redirects to login for authentication" do

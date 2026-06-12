@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "Data dictionary download tool" do
+RSpec.feature "Data dictionary download tool" do
   feature "when data_dictionary reference present" do
     scenario "shows up in tools" do
       visit solr_document_path "nyu_2451_34502"

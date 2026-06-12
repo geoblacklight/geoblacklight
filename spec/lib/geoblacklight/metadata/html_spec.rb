@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Geoblacklight::Metadata::Html do
+RSpec.describe Geoblacklight::Metadata::Html do
   let(:url) { "https://s3.amazonaws.com/cugir-data/00/77/41/fgdc.html" }
   let(:metadata) do
     described_class.new(

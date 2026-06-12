@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Geoblacklight::GeojsonDownload do
+RSpec.describe Geoblacklight::GeojsonDownload do
   let(:document) { SolrDocument.new(Geoblacklight.configuration.fields.id => "test", :solr_wfs_url => "http://www.example.com/wfs", Geoblacklight.configuration.fields.wxs_identifier => "stanford-test", Geoblacklight.configuration.fields.geometry => "ENVELOPE(-180, 180, 90, -90)") }
   let(:download) { described_class.new(document) }
   describe "#initialize" do

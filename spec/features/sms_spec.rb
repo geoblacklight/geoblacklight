@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "SMS tool", js: true do
+RSpec.feature "SMS tool", js: true do
   scenario "shows up in tools" do
     visit solr_document_path "stanford-cg357zz0321"
     expect(page).to have_css "li.sms a", text: "SMS This"

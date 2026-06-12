@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "Attribute table values", js: true do
+RSpec.feature "Attribute table values", js: true do
   xscenario "are linkified" do
     # ArcGIS server returning an error. Wait until SVG elements are added
     visit solr_document_path "f406332e63eb4478a9560ad86ae90327_18"

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Geoblacklight::Download do
+RSpec.describe Geoblacklight::Download do
   subject(:download) { described_class.new(document, options) }
 
   let(:faraday_connection) { instance_double(Faraday::Connection) }

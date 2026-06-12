@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Geoblacklight::SolrDocument do
+RSpec.describe Geoblacklight::SolrDocument do
   let(:document) { SolrDocument.new(document_attributes) }
   let(:rights_field) { Geoblacklight.configuration.fields.access_rights }
   let(:provider_field) { Geoblacklight.configuration.fields.provider }

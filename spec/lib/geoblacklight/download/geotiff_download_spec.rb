@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Geoblacklight::GeotiffDownload do
+RSpec.describe Geoblacklight::GeotiffDownload do
   let(:document) do
     SolrDocument.new(Geoblacklight.configuration.fields.id => "test", Geoblacklight.configuration.fields.wxs_identifier => "stanford-test",
       Geoblacklight.configuration.fields.geometry => "ENVELOPE(-180, 180, 90, -90)")

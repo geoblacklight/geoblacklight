@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "Configurable basemap", js: true do
+RSpec.feature "Configurable basemap", js: true do
   scenario "defaults to positron" do
     visit root_path
     expect(page).to have_css "img[src*='carto']", visible: :all

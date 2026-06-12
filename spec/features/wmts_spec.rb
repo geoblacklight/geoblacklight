@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "wmts layer" do
+RSpec.feature "wmts layer" do
   before do
     WebMock.disable_net_connect!(allow_localhost: true, allow: "chromedriver.storage.googleapis.com")
   end

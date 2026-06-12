@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Geoblacklight::MetadataTransformer::Iso19139 do
+RSpec.describe Geoblacklight::MetadataTransformer::Iso19139 do
   subject do
     described_class.new(metadata)
   end
