@@ -3,8 +3,8 @@
 require "spec_helper"
 
 RSpec.describe Geoblacklight::ItemMapViewerComponent, type: :component do
-  subject(:rendered) do
-    render_inline_to_capybara_node(described_class.new(document:))
+  before do
+    render_inline(described_class.new(document: document))
   end
 
   context "IIIF viewer" do
@@ -12,7 +12,7 @@ RSpec.describe Geoblacklight::ItemMapViewerComponent, type: :component do
     let(:document) { SolrDocument.new(fixture) }
 
     it "uses the IIIF tag" do
-      expect(rendered).to have_css("div#mirador")
+      expect(page).to have_css("div#mirador")
     end
   end
 
@@ -21,7 +21,7 @@ RSpec.describe Geoblacklight::ItemMapViewerComponent, type: :component do
     let(:document) { SolrDocument.new(fixture) }
 
     it "uses the open layers tag" do
-      expect(rendered).to have_css("div#openlayers-viewer")
+      expect(page).to have_css("div#openlayers-viewer")
     end
   end
 
@@ -30,7 +30,7 @@ RSpec.describe Geoblacklight::ItemMapViewerComponent, type: :component do
     let(:document) { SolrDocument.new(fixture) }
 
     it "uses the IIIF tag" do
-      expect(rendered).to have_css("div#leaflet-viewer")
+      expect(page).to have_css("div#leaflet-viewer")
     end
   end
 end

@@ -6,13 +6,10 @@ RSpec.describe Geoblacklight::ViewerHelpTextComponent, type: :component do
   let(:feature) { "viewer_protocol" }
   let(:key) { "wms" }
 
-  subject(:rendered) do
-    render_inline_to_capybara_node(described_class.new(feature, key))
-  end
-
   context "when the help text exists for an existing viewer protocol" do
     it "shows correct help text title for wms" do
-      expect(rendered).to have_text(I18n.t("geoblacklight.help_text.viewer_protocol.wms.title"))
+      render_inline(described_class.new(feature, key))
+      expect(page).to have_text(I18n.t("geoblacklight.help_text.viewer_protocol.wms.title"))
     end
   end
 
@@ -22,7 +19,8 @@ RSpec.describe Geoblacklight::ViewerHelpTextComponent, type: :component do
     end
 
     it "shows missing help text class" do
-      expect(render_inline_to_capybara_node(described_class.new(feature, key))).to have_css(".translation-missing")
+      render_inline(described_class.new(feature, key))
+      expect(page).to have_css(".translation-missing")
     end
   end
 end

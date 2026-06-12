@@ -3,8 +3,8 @@
 require "spec_helper"
 
 RSpec.describe Geoblacklight::HeaderIconsComponent, type: :component do
-  subject(:rendered) do
-    render_inline_to_capybara_node(described_class.new(document: document))
+  before do
+    render_inline(described_class.new(document: document))
   end
 
   let(:document) { SolrDocument.new(document_attributes) }
@@ -19,7 +19,7 @@ RSpec.describe Geoblacklight::HeaderIconsComponent, type: :component do
   end
 
   it "renders the access rights icon" do
-    expect(rendered).to have_css(".blacklight-icons-public")
+    expect(page).to have_css(".blacklight-icons-public")
   end
 
   context "when there are no resource types with icons" do
@@ -27,7 +27,7 @@ RSpec.describe Geoblacklight::HeaderIconsComponent, type: :component do
     let(:resource_type) { ["Census data", "Statistical maps"] }
 
     it "renders the resource class icon" do
-      expect(rendered).to have_css(".blacklight-icons-datasets")
+      expect(page).to have_css(".blacklight-icons-datasets")
     end
   end
 
@@ -36,7 +36,7 @@ RSpec.describe Geoblacklight::HeaderIconsComponent, type: :component do
     let(:resource_type) { ["Raster data"] }
 
     it "renders the resource type icon" do
-      expect(rendered).to have_css(".blacklight-icons-raster")
+      expect(page).to have_css(".blacklight-icons-raster")
     end
   end
 
@@ -45,7 +45,7 @@ RSpec.describe Geoblacklight::HeaderIconsComponent, type: :component do
     let(:resource_type) { ["Nautical charts", "Raster data"] }
 
     it "renders the resource type that has an icon" do
-      expect(rendered).to have_css(".blacklight-icons-raster")
+      expect(page).to have_css(".blacklight-icons-raster")
     end
   end
 end
