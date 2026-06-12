@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "Metadata tools" do
+RSpec.feature "Metadata tools" do
   feature "when metadata references are available", js: true do
     let(:iso19139) { File.read(Rails.root.join("..", "spec", "fixtures", "iso19139", "stanford-cg357zz0321.xml")) }
     let(:fgdc) { File.read(Rails.root.join("..", "spec", "fixtures", "fgdc", "harvard-g7064-s2-1834-k3.xml")) }

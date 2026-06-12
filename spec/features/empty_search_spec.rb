@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "Empty search" do
+RSpec.feature "Empty search" do
   before do
     visit root_path
   end

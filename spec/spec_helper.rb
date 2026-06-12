@@ -63,6 +63,8 @@ FactoryBot.definition_file_paths = [File.expand_path("factories", __dir__)]
 FactoryBot.find_definitions
 
 RSpec.configure do |config|
+  config.disable_monkey_patching!
+
   config.use_transactional_fixtures = true
 
   if Rails::VERSION::MAJOR >= 5

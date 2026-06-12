@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Geoblacklight::FeatureInfoResponse do
+RSpec.describe Geoblacklight::FeatureInfoResponse do
   let(:response) { described_class.new(OpenStruct.new(body: "<html><body><table><th>Header1</th><th>Header2</th><td>value1</td><td>value2</td></body></html>", headers: {"content-type" => "all good"})) }
   let(:response_multiple_features) { described_class.new(OpenStruct.new(body: "<html><body><table><th>Header1</th><th>Header2</th><tr><td>value1</td><td>value2</td></tr><tr><td>value3</td><td>value4</td></tr></body></html>", headers: {"content-type" => "all good"})) }
   let(:error_response) { described_class.new(error: "bad stuff") }

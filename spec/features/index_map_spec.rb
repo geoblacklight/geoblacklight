@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "Index map", js: true do
+RSpec.feature "Index map", js: true do
   # Colors
   default_color = "#7FCDBB"
   selected_color = "#2C7FB8"

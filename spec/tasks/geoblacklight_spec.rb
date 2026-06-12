@@ -4,7 +4,7 @@ require "spec_helper"
 require "rake"
 require "fileutils"
 
-describe "geoblacklight.rake" do
+RSpec.describe "geoblacklight.rake" do
   describe "geoblacklight:downloads:mkdir" do
     before do
       Rails.application.load_tasks

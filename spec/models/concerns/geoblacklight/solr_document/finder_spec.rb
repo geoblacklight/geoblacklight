@@ -7,7 +7,7 @@ class MyDocument
   include Geoblacklight::SolrDocument::Finder
 end
 
-describe Geoblacklight::SolrDocument::Finder do
+RSpec.describe Geoblacklight::SolrDocument::Finder do
   let(:document_klass) { MyDocument }
 
   describe "#find" do

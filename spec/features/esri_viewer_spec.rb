@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "feature_layer reference", js: true do
+RSpec.feature "feature_layer reference", js: true do
   scenario "displays image map layer" do
     skip "spec depend on potentially flaky external services"
     visit solr_document_path "32653ed6-8d83-4692-8a06-bf13ffe2c018"

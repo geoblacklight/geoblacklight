@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Geoblacklight::SuppressedRecordsSearchBehavior do
+RSpec.describe Geoblacklight::SuppressedRecordsSearchBehavior do
   subject(:searcher) { search_builder.with(user_params) }
 
   let(:user_params) { {} }

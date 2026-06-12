@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "Blacklight Bookmarks" do
+RSpec.feature "Blacklight Bookmarks" do
   scenario "index has created bookmarks" do
     visit solr_document_path "harvard-g7064-s2-1834-k3"
     click_button "Bookmark"

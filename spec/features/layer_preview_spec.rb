@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "Layer preview", js: true do
+RSpec.feature "Layer preview", js: true do
   scenario "Restricted layer should show bounding box" do
     visit solr_document_path("stanford-cg357zz0321")
     within("#leaflet-viewer") do

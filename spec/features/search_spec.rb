@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "Search" do
+RSpec.feature "Search" do
   scenario "Suppressed records are hidden" do
     visit "/?q=Sanborn+Map+Company"
     expect(page).to have_css ".document", count: 1

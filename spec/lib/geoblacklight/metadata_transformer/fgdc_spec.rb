@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Geoblacklight::MetadataTransformer::Fgdc do
+RSpec.describe Geoblacklight::MetadataTransformer::Fgdc do
   subject do
     described_class.new(metadata)
   end

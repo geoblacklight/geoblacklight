@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "search results display document iconography" do
+RSpec.feature "search results display document iconography" do
   scenario "when viewing result row" do
     # Search returns fixture stanford-cg357zz0321
     visit search_catalog_path(

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "Home page", js: true do # use js: true for tests which require js, but it slows things down
+RSpec.feature "Home page", js: true do # use js: true for tests which require js, but it slows things down
   before do
     visit root_path
   end

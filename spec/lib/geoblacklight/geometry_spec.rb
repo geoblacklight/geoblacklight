@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Geoblacklight::Geometry do
+RSpec.describe Geoblacklight::Geometry do
   let(:wkt_geom) { "MULTIPOLYGON(((-180 81.66, -180 -12.93, -168.35 -12.93, -168.35 81.66, -180 81.66)), ((180 81.66, 25 81.66, 25 -12.93, 180 -12.93, 180 81.66)))" }
   let(:envelope_geom) { "ENVELOPE(25, -168.35, 81.66, -12.93)" }
   let(:invalid_geom) { "INVALID" }

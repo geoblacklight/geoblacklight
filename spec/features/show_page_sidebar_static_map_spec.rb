@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "Display sidebar static map on catalog#show page" do
+RSpec.feature "Display sidebar static map on catalog#show page" do
   scenario "Document viewer protocol: IIIF (show)" do
     visit solr_document_path "princeton-02870w62c"
     within ".page-sidebar" do

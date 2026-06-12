@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe GeoblacklightHelper, type: :helper do
+RSpec.describe GeoblacklightHelper, type: :helper do
   include BlacklightHelper
   include ActionView::Helpers::UrlHelper
   include ActionView::Helpers::TranslationHelper

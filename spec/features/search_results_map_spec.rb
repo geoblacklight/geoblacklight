@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-feature "search results map", js: true do
+RSpec.feature "search results map", js: true do
   scenario "view is scoped to Twin Cities metro area" do
     visit search_catalog_path(q: "Minneapolis")
     expect(page).to have_css "#leaflet-viewer"

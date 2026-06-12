@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Geoblacklight::SolrDocument::Inspection do
+RSpec.describe Geoblacklight::SolrDocument::Inspection do
   subject { SolrDocument.new }
 
   describe "#inspectable?" do
