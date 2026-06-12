@@ -4,13 +4,11 @@ require "spec_helper"
 
 RSpec.describe Geoblacklight::ArcgisComponent, type: :component do
   let(:component) { described_class.new(document: document, action: nil) }
-  subject(:rendered) do
-    render_inline_to_capybara_node(component)
-  end
   let(:document) { instance_double(SolrDocument, id: 123, arcgis_urls: ["https://www.stanford.edu"]) }
 
   it "shows link" do
-    expect(rendered).to have_css(
+    render_inline(component)
+    expect(page).to have_css(
       "a[href='#{Geoblacklight.configuration.arcgis_base_url}?urls=https%3A%2F%2Fwww.stanford.edu']", text: "Open in ArcGIS Online"
     )
   end

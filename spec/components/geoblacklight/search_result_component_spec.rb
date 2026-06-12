@@ -25,21 +25,18 @@ RSpec.describe Geoblacklight::SearchResultComponent, type: :component do
       multi_display: %w[blue blah]
     )
   end
-  subject(:rendered) do
-    render_inline_to_capybara_node(described_class.new(document: presenter))
-  end
-
   before do
     allow(request_context).to receive(:snippit)
     allow_any_instance_of(BlacklightHelper).to receive(:link_to_document)
     allow_any_instance_of(GeoblacklightHelper).to receive(:blacklight_config).and_return(blacklight_config)
+    render_inline(described_class.new(document: presenter))
   end
 
   describe "#index_fields_display" do
     let(:multi_valued_text) { document["multi_display"].join(" and ") }
     let(:combined_fields) { document["gbl_wxsIdentifier_s"] + ". " + document["period"] }
 
-    subject(:index_fields_display) { rendered.find("[itemprop=description]").text }
+    subject(:index_fields_display) { page.find("[itemprop=description]").text }
 
     context "with multi-valued field" do
       it "each value is separated by comma" do

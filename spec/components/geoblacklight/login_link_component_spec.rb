@@ -3,9 +3,6 @@
 require "spec_helper"
 
 RSpec.describe Geoblacklight::LoginLinkComponent, type: :component do
-  subject(:rendered) do
-    render_inline_to_capybara_node(described_class.new(document: document))
-  end
   let(:document) { instance_double(SolrDocument, id: 123) }
 
   context "when rendering is required" do
@@ -16,7 +13,8 @@ RSpec.describe Geoblacklight::LoginLinkComponent, type: :component do
     end
 
     it "shows download link" do
-      expect(rendered).to have_text(I18n.t("geoblacklight.tools.login_to_view"))
+      render_inline(described_class.new(document: document))
+      expect(page).to have_text(I18n.t("geoblacklight.tools.login_to_view"))
     end
   end
 
@@ -27,7 +25,8 @@ RSpec.describe Geoblacklight::LoginLinkComponent, type: :component do
     end
 
     it "does not render anything" do
-      expect(rendered).not_to have_text(I18n.t("geoblacklight.tools.login_to_view"))
+      render_inline(described_class.new(document: document))
+      expect(page).not_to have_text(I18n.t("geoblacklight.tools.login_to_view"))
     end
   end
 end

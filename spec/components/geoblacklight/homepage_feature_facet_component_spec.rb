@@ -3,10 +3,6 @@
 require "spec_helper"
 
 RSpec.describe Geoblacklight::HomepageFeatureFacetComponent, type: :component do
-  subject(:rendered) do
-    render_inline_to_capybara_node(described_class.new(**kargs))
-  end
-
   # Build a search
   let(:context) { {whatever: :value} }
   let(:service) { Blacklight::SearchService.new(config: blacklight_config, search_state:, **context) }
@@ -31,10 +27,11 @@ RSpec.describe Geoblacklight::HomepageFeatureFacetComponent, type: :component do
     end
 
     it "includes facet links" do
-      expect(rendered).to have_selector("div.category-block")
-      expect(rendered).to have_selector("div.category-icon")
-      expect(rendered).to have_selector("a.home-facet-link")
-      expect(rendered).to have_selector("a.more_facets_link")
+      render_inline(described_class.new(**kargs))
+      expect(page).to have_selector("div.category-block")
+      expect(page).to have_selector("div.category-icon")
+      expect(page).to have_selector("a.home-facet-link")
+      expect(page).to have_selector("a.more_facets_link")
     end
   end
 end
