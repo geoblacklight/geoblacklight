@@ -56,11 +56,7 @@ module Geoblacklight
     # Relationships to display
     attr_accessor :relationships_shown # typed as Hash
 
-    attribute :download_path, :string, default: Rails.root.join("tmp", "cache", "downloads")
-
-    def fields
-      @fields ||= FieldsConfig.new
-    end
+    attribute :download_path, :string, default: 'tmp/cache/downloads' #Rails.root.join("tmp", "cache", "downloads")
 
     def initialize
       super
@@ -77,6 +73,75 @@ module Geoblacklight
         EXCEPTIONS: "application/json",
         INFO_FORMAT: "application/json"
       }
+      @help_text = {
+        viewer_protocol: %w[
+          cog
+          dynamic_map_layer
+          feature_layer
+          iiif
+          iiif_manifest
+          image_map_layer
+          index_map
+          oembed
+          pmtiles
+          tiled_map_layer
+          tilejson
+          tms
+          wms
+          wmts
+          xyz
+        ]
+      }
+
+      @webservices_shown = %w[
+        wms
+        tms
+        wfs
+        xyz
+        wmts
+        tilejson
+        iiif
+        feature_layer
+        tiled_map_layer
+        dynamic_map_layer
+        image_map_layer
+        cog
+        pmtile
+      ]
+
+      @display_notes_shown = {
+        danger: DisplayNoteShownConfig.new(
+          bootstrap_alert_class: "alert-danger",
+          icon: "fire-solid",
+          note_prefix: "Danger: "
+        ),
+        info: DisplayNoteShownConfig.new(
+          bootstrap_alert_class: "alert-info",
+          icon: "circle-info-solid",
+          note_prefix: "Info: "
+        ),
+        tip: DisplayNoteShownConfig.new(
+          bootstrap_alert_class: "alert-success",
+          icon: "lightbulb-solid",
+          note_prefix: "Tip: "
+        ),
+        warning: DisplayNoteShownConfig.new(
+          bootstrap_alert_class: "alert-warning",
+          icon: "triangle-exclamation-solid",
+          note_prefix: "Warning: "
+        )
+      }
+    end
+
+    def fields
+      @fields ||= FieldsConfig.new
+    end
+
+    ##
+    # Returns Leaflet plugin settings to pass to the viewer.
+    # @return[Geoblacklight::Configuration::LeafletConfig]
+    def leaflet_options
+      @leaflet_options ||= Geoblacklight::Configuration::LeafletConfig.new
     end
   end
 end

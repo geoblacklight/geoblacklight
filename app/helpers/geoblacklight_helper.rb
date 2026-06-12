@@ -53,13 +53,6 @@ module GeoblacklightHelper
   end
 
   ##
-  # Returns a hash of the leaflet plugin settings to pass to the viewer.
-  # @return[Hash]
-  def leaflet_options
-    Settings.LEAFLET
-  end
-
-  ##
   # Renders the transformed metadata
   # (Renders a partial when the metadata isn't available)
   # @param [Geoblacklight::Metadata::Base] metadata the metadata object

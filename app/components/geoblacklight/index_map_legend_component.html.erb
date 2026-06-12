@@ -1,14 +1,14 @@
 <div class="index-map-legend">
   <div class="index-map-legend-info">
-    <div class="index-map-legend-swatch" style="background: <%= Settings.LEAFLET.LAYERS.INDEX.DEFAULT.color %>"></div>
-    <div><span class="visually-hidden"><%= Settings.LEAFLET.LAYERS.INDEX.DEFAULT.sr_color_name %> tile indicates </span>Map held by collection</div>
+    <div class="index-map-legend-swatch" style="background: <%= index_config.dig(:DEFAULT, :color) %>"></div>
+    <div><span class="visually-hidden"><%= index_config.dig(:DEFAULT, :sr_color_name) %> tile indicates </span>Map held by collection</div>
   </div>
   <div class="index-map-legend-info">
-    <div class="index-map-legend-swatch" style="background: <%= Settings.LEAFLET.LAYERS.INDEX.UNAVAILABLE.color %>"></div>
-    <div><span class="visually-hidden"><%= Settings.LEAFLET.LAYERS.INDEX.UNAVAILABLE.sr_color_name %> tile indicates </span>Map not held by collection</div>
+    <div class="index-map-legend-swatch" style="background: <%= index_config.dig(:UNAVAILABLE, :color) %>"></div>
+    <div><span class="visually-hidden"><%= index_config.dig(:UNAVAILABLE, :sr_color_name) %> tile indicates </span>Map not held by collection</div>
   </div>
   <div class="index-map-legend-info">
-    <div class="index-map-legend-swatch" style="background: <%= Settings.LEAFLET.LAYERS.INDEX.SELECTED.color %>"></div>
-    <div><span class="visually-hidden"><%= Settings.LEAFLET.LAYERS.INDEX.SELECTED.sr_color_name %> tile indicates </span>Selected map tile</div>
+    <div class="index-map-legend-swatch" style="background: <%= index_config.dig(:SELECTED, :color) %>"></div>
+    <div><span class="visually-hidden"><%= index_config.dig(:SELECTED, :sr_color_name) %> tile indicates </span>Selected map tile</div>
   </div>
 </div>
