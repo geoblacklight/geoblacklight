@@ -3,14 +3,22 @@
     <div class="col-sm">
       <%= content_tag :h3, t('geoblacklight.home.category_heading') %>
       <div class="row">
-        <%= render(Geoblacklight::HomepageFeatureFacetComponent.new(icon: 'home', label: 'geoblacklight.home.institution', facet_field: Geoblacklight.configuration.fields.provider, response: @response)) %>
+        <%= render(Geoblacklight::HomepageFeatureFacetComponent.new(icon: 'home', label: 'geoblacklight.home.institution',
+          facet_field_presenter: facet_field_presenter(blacklight_config.facet_fields[Geoblacklight.configuration.fields.provider], {}),
+          items: @response.aggregations[Geoblacklight.configuration.fields.provider].items)) %>
 
-        <%= render(Geoblacklight::HomepageFeatureFacetComponent.new(icon: 'arrow-circle-down', label: 'geoblacklight.home.data_type', facet_field: Geoblacklight.configuration.fields.resource_type, response: @response)) %>
+        <%= render(Geoblacklight::HomepageFeatureFacetComponent.new(icon: 'arrow-circle-down', label: 'geoblacklight.home.data_type',
+          facet_field_presenter: facet_field_presenter(blacklight_config.facet_fields[Geoblacklight.configuration.fields.resource_type], {}),
+          items: @response.aggregations[Geoblacklight.configuration.fields.resource_type].items)) %>
       </div>
       <div class="row">
-        <%= render(Geoblacklight::HomepageFeatureFacetComponent.new(icon: 'globe', label: 'geoblacklight.home.placename', facet_field: Geoblacklight.configuration.fields.spatial_coverage, response: @response)) %>
+        <%= render(Geoblacklight::HomepageFeatureFacetComponent.new(icon: 'globe', label: 'geoblacklight.home.placename',
+          facet_field_presenter: facet_field_presenter(blacklight_config.facet_fields[Geoblacklight.configuration.fields.spatial_coverage], {}),
+          items: @response.aggregations[Geoblacklight.configuration.fields.spatial_coverage].items)) %>
 
-        <%= render(Geoblacklight::HomepageFeatureFacetComponent.new(icon: 'tags', label: 'geoblacklight.home.subject', facet_field: Geoblacklight.configuration.fields.subject, response: @response)) %>
+        <%= render(Geoblacklight::HomepageFeatureFacetComponent.new(icon: 'tags', label: 'geoblacklight.home.subject',
+          facet_field_presenter: facet_field_presenter(blacklight_config.facet_fields[Geoblacklight.configuration.fields.subject], {}),
+          items: @response.aggregations[Geoblacklight.configuration.fields.subject].items)) %>
       </div>
     </div>
     <div class="col-sm">
