@@ -46,7 +46,7 @@ module Geoblacklight
           "leaflet-viewer-data-map-value" => @data_map,
           "leaflet-viewer-page-value" => params[:action]&.upcase,
           "leaflet-viewer-options-value" => leaflet_options.to_h,
-          "leaflet-viewer-catalog-base-url-value" => (helpers.search_catalog_url if @geosearch)
+          "leaflet-viewer-catalog-base-url-value" => (helpers.search_action_path if @geosearch)
         }.compact)
     end
   end
