@@ -84,11 +84,12 @@ en:
     modal:
       copy-citation: "Copy Citation"
     metadata:
-      toggle_summary: "Toggle summary"
-      view_metadata: "View Metadata"
-      more_details: "More details at"
-      metadata_error: "The metadata view for selected schema is not available"
-      metadata_trace: "Please select another metadata view. Alternately, try downloading the file or reaching out to the holding institution."
+      metadata_error: The metadata view for selected schema is not available
+      metadata_trace: Please select another metadata view. Alternately, try downloading the file or reaching out to the holding institution.
+      more_details: More details at
+      toggle_summary: Toggle summary
+      transform_error: HTML view for selected schema is not available
+      view_metadata: View Metadata
     show:
       attribute: "Attribute"
       value: "Value"
