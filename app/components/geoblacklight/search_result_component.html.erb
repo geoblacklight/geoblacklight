@@ -1,4 +1,4 @@
-<%# This template copies from Blacklight's components/document_component.html.erb 
+<%# This template copies from Blacklight's components/document_component.html.erb
       # for the wrapping `content_tag @component` structure
       # and adds custom layout within for the document header, status-icons and more-info areas %>
 
@@ -14,33 +14,33 @@
   itemtype: @document.itemtype,
   class: classes.flatten.join(' ') do %>
 
-    <%= content_tag :div, class: 'documentHeader index-split', data: { layer_id: @document.id, geom: @document.geometry.geojson } do %>
-      <div class="document-counter">
-        <%= t('blacklight.search.documents.counter', :counter => @counter) if @counter %>
-      </div>
-
-      <h3 class="index_title">
-        <%= helpers.link_to_document(@document, counter: @counter, itemprop: "name") %>
-      </h3>
-
-      <div class="status-icons">
-        <%= render Geoblacklight::HeaderIconsComponent.new(document: @document) %>
-        <button
-            class="btn dropdown-toggle collapsed"
-            data-bs-toggle="collapse"
-            data-bs-target="#doc-<%= @document.id %>-fields-collapse"
-            aria-label="<%= t('geoblacklight.metadata.toggle_summary') %>"
-            aria-expanded="false"
-            aria-controls="doc-<%= @document.id %>-fields-collapse">
-        </button>
-      </div>
-
-    <% end %>
-  <% end %>
-  <div class="more-info-area border-bottom">
-    <div id="doc-<%= @document.id %>-fields-collapse" class="collapse">
-      <small itemprop="description">
-        <%= index_fields_display %>
-      </small>
+  <%= content_tag :div, class: 'documentHeader index-split', data: { layer_id: @document.id, geom: @document.geometry.geojson } do %>
+    <div class="document-counter">
+      <%= t('blacklight.search.documents.counter', :counter => @counter) if @counter %>
     </div>
+
+    <h3 class="index_title">
+      <%= helpers.link_to_document(@document, counter: @counter, itemprop: "name") %>
+    </h3>
+
+    <div class="status-icons">
+      <%= render Geoblacklight::HeaderIconsComponent.new(document: @document) %>
+      <button
+          class="btn dropdown-toggle collapsed"
+          data-bs-toggle="collapse"
+          data-bs-target="#doc-<%= @document.id %>-fields-collapse"
+          aria-label="<%= t('geoblacklight.metadata.toggle_summary') %>"
+          aria-expanded="false"
+          aria-controls="doc-<%= @document.id %>-fields-collapse">
+      </button>
+    </div>
+
+  <% end %>
+<% end %>
+<div class="more-info-area border-bottom">
+  <div id="doc-<%= @document.id %>-fields-collapse" class="collapse">
+    <small itemprop="description">
+      <%= index_fields_display %>
+    </small>
   </div>
+</div>
