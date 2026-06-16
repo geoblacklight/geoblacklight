@@ -1,11 +1,15 @@
 /* Record show page styles */
 
 /* Document header */
-.blacklight-catalog-show .documentHeader h1 > * {
+.documentHeader h1 {
+  margin-bottom: 0.5em;
+}
+
+.documentHeader h1 > * {
   vertical-align: middle;
 }
 
-.blacklight-catalog-show .documentHeader .blacklight-icons {
+.documentHeader .blacklight-icons {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -14,7 +18,12 @@
 
 /* Attribute table */
 [data-sidebar=false] .attribute-data {
-  margin: 1rem 0;
+  margin-top: 1rem;
+}
+
+/* Metadata */
+.document-metadata {
+  margin-top: 1rem;
 }
 
 /* Sidebar */
