@@ -11,13 +11,15 @@
   height: 250px;
   pointer-events: none;
   cursor: default;
-}
-#static-map .leaflet-interactive {
-  pointer-events: none;
-  cursor: default;
-}
-#static-map .leaflet-control-container {
-  display: none;
+
+  .leaflet-interactive {
+    pointer-events: none;
+    cursor: default;
+  }
+
+  .leaflet-control-container {
+    display: none;
+  }
 }
 
 /* Prevent transparency of Leaflet's affiliations display to improve contrast */
