@@ -11,74 +11,52 @@ module Geoblacklight
     end
 
     def render?
-      downloadable? && (document.direct_download.present? || document.iiif_download.present? || document.download_types.present?)
+      download_links.any?
     end
 
-    def downloadable?
-      helpers.document_available? && @document.downloadable?
+    def download_links
+      (direct_download_links + generated_download_links).compact
     end
 
-    def download_link_file(label, id, url)
-      link_to(
-        label,
-        url,
-        "contentUrl" => url,
-        :data => {
-          download: "trigger",
-          download_type: "direct",
-          download_id: id
-        }
-      )
+    # Direct download links to files
+    def direct_download_links
+      direct_downloads = Array(document.direct_download&.dig(:download))
+      return [] unless direct_downloads.present?
+
+      # Use label and url for multiple downloads; label with format otherwise
+      direct_downloads.map do |entry|
+        if entry.is_a?(Hash)
+          link_to(entry["label"], entry["url"])
+        else
+          link_to(
+            t(
+              "geoblacklight.download.download_link",
+              download_format: t(document.file_format, scope: "geoblacklight.formats", default: document.file_format)
+            ),
+            entry
+          )
+        end
+      end
     end
 
-    # Generates the link markup for the IIIF JPEG download
-    # @return [String]
-    def download_link_iiif
-      link_to(
-        download_text("JPG"),
-        iiif_jpg_url,
-        "contentUrl" => iiif_jpg_url,
-        :data => {
-          download: "trigger"
-        }
-      )
-    end
-
-    def download_link_generated(download_type, document)
-      link_to(
-        t("geoblacklight.download.export_link", download_format: export_format_label(download_type)),
-        "",
-        data: {
-          download_path: download_path(document.id, type: download_type),
-          download: "trigger",
-          action: "downloads#download:once",
-          download_type: download_type,
-          download_id: document.id
-        }
-      )
-    end
-
-    ##
-    # Wraps download text with proper_case_format
-    #
-    def download_text(format)
-      download_format = proper_case_format(format)
-      value = t("geoblacklight.download.download_link", download_format: download_format)
-      value.html_safe
-    end
-
-    # Format labels are customized for exports - look up the appropriate key.
-    def export_format_label(format)
-      t("geoblacklight.download.export_#{format.to_s.parameterize(separator: "_")}_link")
-    end
-
-    # Looks up properly formatted names for formats
-    def proper_case_format(format)
-      t("geoblacklight.formats.#{format.to_s.parameterize(separator: "_")}")
-    end
-
-    def iiif_jpg_url
-      @document.references.iiif.endpoint.sub! "info.json", "full/full/0/default.jpg"
+    # Links to generated downloads from Geoserver
+    def generated_download_links
+      Array(document.references.downloads_by_format).map do |format, url|
+        link_to(
+          t(
+            "geoblacklight.download.export_link",
+            download_format: t(format, scope: "geoblacklight.formats", default: format)
+          ),
+          "",
+          data: {
+            download_path: download_path(document.id, type: format),
+            download: "trigger",
+            action: "downloads#download:once",
+            download_type: format,
+            download_id: document.id
+          }
+        )
+      end
     end
   end
 end

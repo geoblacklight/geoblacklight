@@ -33,6 +33,10 @@
     margin-top: 1rem;
   }
 
+  .card ul {
+    margin-bottom: 0;
+  }
+
   .card-header {
     font-weight: 500;
   }
