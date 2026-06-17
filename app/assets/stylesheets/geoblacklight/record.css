@@ -1,23 +1,24 @@
 /* Record show page styles */
 
 /* Document header */
-.documentHeader h1 {
-  margin-bottom: 0.5em;
-}
+.documentHeader {
+  h1 {
+    margin-bottom: 0.5em;
+    & > * {
+      vertical-align: middle;
+    }
+  }
 
-.documentHeader h1 > * {
-  vertical-align: middle;
-}
-
-.documentHeader .blacklight-icons {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  height: 1em;
+  .blacklight-icons {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 1em;
+  }
 }
 
 /* Attribute table */
-[data-sidebar=false] .attribute-data {
+[data-sidebar="false"] .attribute-data {
   margin-top: 1rem;
 }
 
@@ -27,10 +28,12 @@
 }
 
 /* Sidebar */
-.page-sidebar .card + .card {
-  margin-top: 1rem;
-}
+.page-sidebar {
+  .card + .card {
+    margin-top: 1rem;
+  }
 
-.page-sidebar .card-header {
-  font-weight: 500;
+  .card-header {
+    font-weight: 500;
+  }
 }

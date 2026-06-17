@@ -1,15 +1,16 @@
 /* Homepage styles */
 
 /* Category blocks */
-.category-icon .blacklight-icons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.category-icon .blacklight-icons svg {
-  width: 6rem;
-  height: 6rem;
+.category-icon {
+  .blacklight-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg {
+      width: 6rem;
+      height: 6rem;
+    }
+  }
 }
 
 /* Version display */
