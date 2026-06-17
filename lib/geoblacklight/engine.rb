@@ -7,6 +7,7 @@ require "faraday"
 require "geoblacklight/version"
 require "nokogiri"
 require "mime/types"
+require "geo_combine"
 
 module Geoblacklight
   class Engine < ::Rails::Engine
