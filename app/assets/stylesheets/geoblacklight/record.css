@@ -33,8 +33,13 @@
 
 /* Sidebar */
 .page-sidebar {
-  .card + .card {
+  .card + .card,
+  turbo-frame .card {
     margin-top: 1rem;
+  }
+
+  .card ul {
+    margin-bottom: 0;
   }
 
   .card-header {
@@ -42,6 +47,7 @@
   }
 }
 
+/* Login button */
 .login-btn {
   --gbl-login-btn-bg: rgba(var(--bs-body-color-rgb), 0.03);
 
@@ -51,4 +57,23 @@
   --bs-btn-hover-color: var(--gbl-login-btn-color);
   --bs-btn-hover-bg: var(--gbl-login-btn-bg);
   --bs-btn-hover-border-color: var(--bs-border-color-translucent);
+}
+
+/* Downloads */
+.download a {
+  display: block;
+
+  .title {
+    margin: 0;
+    display: inline;
+  }
+
+  .badge {
+    float: inline-end;
+    margin-top: 0.1em;
+  }
+
+  .badge + .title {
+    word-break: break-all;
+  }
 }
