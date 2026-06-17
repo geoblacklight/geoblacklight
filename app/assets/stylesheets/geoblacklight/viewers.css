@@ -1,6 +1,8 @@
 /* Styles for map viewers */
 
-#leaflet-viewer {
+/* Geo viewers */
+#leaflet-viewer,
+#openlayers-viewer {
   height: 500px;
 }
 
