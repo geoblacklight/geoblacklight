@@ -6,8 +6,11 @@ en:
       citation: Citation copied to clipboard
       web_service: Web service copied to clipboard
     download:
-      download: "Download"
-      download_link: "Original %{download_format}"
+      downloads: "Downloads"
+      original_link: "Original %{download_format}"
+      generated_link: "Generated %{download_format}"
+      iiif_image_link: "Full-size image"
+      iiif_manifest_link: "IIIF manifest"
     home:
       headline: "Explore and discover..."
       search_heading: "Find the maps and data you need"

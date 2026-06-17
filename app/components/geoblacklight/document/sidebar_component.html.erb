@@ -1,11 +1,5 @@
-<%= render_static_map_component %>
 <%= render_show_tools %>
 
-<div class="sidebar-buttons mt-3">
-  <% sidebar_buttons.each do | sidebar_button | %>
-    <%= render sidebar_button %>
-  <% end %>
-</div>
-
-<%= render_more_like_this %>
-<%= render Geoblacklight::Document::RelationsContainerComponent.new(document: document) %>
+<% panels.each do |panel| %>
+  <%= render panel %>
+<% end %>

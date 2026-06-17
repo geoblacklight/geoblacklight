@@ -1,0 +1,6 @@
+<li class="download list-group-item list-group-item-action">
+  <%= link_to url, class: 'nav-link', data: @data do %>
+    <% if file_type.present? %><span class="badge text-bg-secondary"><%= file_type %></span><% end %>
+    <p class="title"><%= title %></p>
+  <% end %>
+</li>

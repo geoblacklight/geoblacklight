@@ -10,7 +10,7 @@ RSpec.describe Geoblacklight::Document::SidebarComponent, type: :component do
   let(:document) { SolrDocument.new(JSON.parse(read_fixture(fixture))) }
 
   before do
-    allow_any_instance_of(Geoblacklight::DownloadLinksComponent).to receive(:render?).and_return(false)
+    allow_any_instance_of(Geoblacklight::Document::DownloadLinksComponent).to receive(:render?).and_return(false)
     allow_any_instance_of(Geoblacklight::LoginLinkComponent).to receive(:render?).and_return(false)
 
     allow(document).to receive(:more_like_this).and_return([])
