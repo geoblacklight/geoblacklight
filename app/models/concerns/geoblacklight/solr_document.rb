@@ -87,29 +87,5 @@ module Geoblacklight
     def geometry
       @geometry ||= Geoblacklight::Geometry.new(geom_field)
     end
-
-    ##
-    # Provides a convenience method to access a SolrDocument's References
-    # endpoint url without having to check and see if it is available
-    # :type => a string which if its a Geoblacklight::Constants::URI key
-    #          will return a coresponding Geoblacklight::Reference
-    def checked_endpoint(type)
-      type = references.public_send(type)
-      type.endpoint if type.present?
-    end
-
-    private
-
-    def method_missing(method, *args, &block)
-      if /.*_url$/.match?(method.to_s)
-        checked_endpoint(method.to_s.gsub("_url", ""))
-      else
-        super
-      end
-    end
-
-    def respond_to_missing?(method, *args, &block)
-      /.*_url$/.match?(method.to_s) || super
-    end
   end
 end
