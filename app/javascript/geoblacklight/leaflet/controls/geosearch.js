@@ -100,7 +100,11 @@ export default class GeoSearchControl extends Control {
     newUrl.search = params.toString()
 
     // If Turbo Drive is active, do the new page navigation without a full page reload
-    if (window.Turbo && opts.turbo) window.Turbo.visit(newUrl)
+    if (Turbo && opts.turbo) {
+      // prevent scroll to top on new page
+      Turbo.navigator.currentVisit.scrolled = true
+      Turbo.visit(newUrl)
+    }
     // Otherwise fall back to the traditional full page reload
     else window.location.href = newUrl
   }
