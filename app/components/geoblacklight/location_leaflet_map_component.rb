@@ -35,19 +35,28 @@ module Geoblacklight
       Geoblacklight.configuration
     end
 
+    # We don't want turbo-permanent on the home page.
+    def data_permanent
+      return {} unless helpers.has_search_parameters?
+      {turbo_permanent: true}
+    end
+
     def viewer_tag
-      tag.div(nil,
-        id: @id,
+      tag.div(id: @id,
         class: @classes,
-        data: {
-          "controller" => "leaflet-viewer",
-          "leaflet-viewer-basemap-value" => helpers.geoblacklight_basemap,
-          "leaflet-viewer-map-geom-value" => search_bbox || @map_geometry,
-          "leaflet-viewer-data-map-value" => @data_map,
-          "leaflet-viewer-page-value" => params[:action]&.upcase,
-          "leaflet-viewer-options-value" => leaflet_options.to_h,
-          "leaflet-viewer-catalog-base-url-value" => (helpers.search_action_path if @geosearch)
-        }.compact)
+        data: data_permanent.merge(leaflet_viewer_data_attributes))
+    end
+
+    def leaflet_viewer_data_attributes
+      {
+        "controller" => "leaflet-viewer",
+        "leaflet-viewer-basemap-value" => helpers.geoblacklight_basemap,
+        "leaflet-viewer-map-geom-value" => search_bbox || @map_geometry,
+        "leaflet-viewer-data-map-value" => @data_map,
+        "leaflet-viewer-page-value" => params[:action]&.upcase,
+        "leaflet-viewer-options-value" => leaflet_options.to_h,
+        "leaflet-viewer-catalog-base-url-value" => (helpers.search_action_path if @geosearch)
+      }.compact
     end
   end
 end
