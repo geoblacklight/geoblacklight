@@ -8,5 +8,4 @@
 </div>
 
 <%= render_more_like_this %>
-
-<%= render "relations_container", document: document %>
+<%= render Geoblacklight::Document::RelationsContainerComponent.new(document: document) %>
