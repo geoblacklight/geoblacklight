@@ -25,6 +25,7 @@ module Geoblacklight
           config.metadata_shown = Settings.METADATA_SHOWN
           config.webservices_shown = Settings.WEBSERVICES_SHOWN
           config.relationships_shown = Settings.RELATIONSHIPS_SHOWN
+          config.timeout_download = Settings.TIMEOUT_DOWNLOAD if Settings.TIMEOUT_DOWNLOAD
           config.download_path = Settings.DOWNLOAD_PATH if Settings.DOWNLOAD_PATH
           config.gbl_params = Settings.GBL_PARAMS
           config.wms_params = Settings.WMS_PARAMS.to_h
