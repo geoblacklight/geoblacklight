@@ -54,13 +54,14 @@ module Geoblacklight
     attr_accessor :webservices_shown # typed as Array
 
     # Relationships to display
-    attr_accessor :relationships_shown # typed as Hash
+    attr_accessor :relationships_shown # typed as RelationshipsConfig
 
     attribute :download_path, :string
 
     def initialize
       super
       self.download_path ||= Rails.root.join("tmp", "cache", "downloads")
+      @relationships_shown = RelationshipsConfig.new
       @gbl_params = [
         :bbox, :email, :file, :format, :id, :logo, :provider, :type,
         :BBOX, :HEIGHT, :LAYERS, :QUERY_LAYERS, :URL, :WIDTH, :X, :Y
