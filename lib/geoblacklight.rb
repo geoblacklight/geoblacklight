@@ -14,7 +14,7 @@ module Geoblacklight
     ::Rails.logger
   end
 
-  mattr_accessor :configuration_builder, default: Geoblacklight::Configuration::LegacySettingsBuilder
+  mattr_accessor :configuration_builder, default: Geoblacklight::Configuration::SettingsBuilder
 
   def self.configuration
     @configuration ||= configuration_builder.build
