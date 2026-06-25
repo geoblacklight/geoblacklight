@@ -107,7 +107,7 @@ module Geoblacklight
         dynamic_map_layer
         image_map_layer
         cog
-        pmtile
+        pmtiles
       ]
 
       @display_notes_shown = {
