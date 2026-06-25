@@ -15,7 +15,9 @@ module Geoblacklight
           config.arcgis_base_url = Settings.ARCGIS_BASE_URL
           config.bbox_within_boost = Settings.BBOX_WITHIN_BOOST
           config.overlap_ratio_boost = Settings.OVERLAP_RATIO_BOOST
-          config.display_notes_shown = Settings.DISPLAY_NOTES_SHOWN
+          config.display_notes_shown = Settings.DISPLAY_NOTES_SHOWN.to_h.transform_values do |value|
+            DisplayNoteShownConfig.new(value.to_h)
+          end
           config.institution = Settings.INSTITUTION
           config.help_text = Settings.HELP_TEXT.to_h
           config.sidebar_static_map = Settings.SIDEBAR_STATIC_MAP
