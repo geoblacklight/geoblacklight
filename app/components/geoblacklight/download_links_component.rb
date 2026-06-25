@@ -15,7 +15,7 @@ module Geoblacklight
     end
 
     def downloadable?
-      helpers.document_available? && @document.downloadable?
+      helpers.document_available?(@document) && @document.downloadable?
     end
 
     def download_link_file(label, id, url)
