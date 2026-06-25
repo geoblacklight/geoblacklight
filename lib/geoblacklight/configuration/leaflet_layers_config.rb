@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Geoblacklight
   class Configuration
     class LeafletLayersConfig
@@ -6,15 +8,25 @@ module Geoblacklight
 
       attribute :detect_retina, :boolean, default: true
 
-      attr_accessor :index
+      attr_reader :index
 
       def initialize(attributes = {})
         super
-        @index = attributes[:index]
+        self.index = attributes[:index]
+      end
+
+      def index=(values)
+        @index = (values || {}).transform_values do |val|
+          if val.is_a?(LayerConfig)
+            val
+          else
+            LayerConfig.new(val)
+          end
+        end
       end
 
       def to_h
-        attributes.merge({"index" => index})
+        attributes.merge({"index" => index.transform_values(&:to_h)})
       end
     end
   end
