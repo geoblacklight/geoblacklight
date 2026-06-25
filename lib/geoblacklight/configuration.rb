@@ -95,6 +95,8 @@ module Geoblacklight
         ]
       }
 
+      @vector_download_formats = ["Shapefile", "KMZ", "GeoJSON", "CSV"]
+      @metadata_shown = ["mods", "fgdc", "iso19139", "html"]
       @webservices_shown = %w[
         wms
         tms
@@ -133,6 +135,8 @@ module Geoblacklight
           note_prefix: "Warning: "
         )
       }
+
+      @sidebar_static_map = ["iiif", "iiif_manifest"]
     end
 
     def fields
