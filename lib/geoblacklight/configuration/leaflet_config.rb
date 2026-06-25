@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Geoblacklight
   class Configuration
     class LeafletConfig
@@ -13,24 +15,18 @@ module Geoblacklight
 
       DEFAULT_LAYERS_CONFIG = {
         index: {
-          DEFAULT: {
+          DEFAULT: LayerConfig.new(
             color: "#7FCDBB",
-            weight: 1,
-            radius: 4,
             sr_color_name: "Green"
-          },
-          UNAVAILABLE: {
-            weight: 1,
-            radius: 4,
+          ),
+          UNAVAILABLE: LayerConfig.new(
             color: "#EDF8B1",
             sr_color_name: "Yellow"
-          },
-          SELECTED: {
-            weight: 1,
-            radius: 4,
+          ),
+          SELECTED: LayerConfig.new(
             color: "#2C7FB8",
             sr_color_name: "Blue"
-          }
+          )
         }
       }.freeze
 
