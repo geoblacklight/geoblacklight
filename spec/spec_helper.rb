@@ -44,6 +44,11 @@ Capybara.register_driver :chrome_headless do |app|
   options.add_argument("--disable-gpu")
   options.add_argument("--no-sandbox")
   options.add_argument("--window-size=1280,1024")
+  # Return from #visit at DOMContentLoaded instead of waiting for the full
+  # window `load` event. GeoBlacklight pages pull basemap tiles and WMS/TMS
+  # layers from external hosts; in CI those requests can hang and prevent
+  # `load` from ever firing, causing Net::ReadTimeout on #visit.
+  options.page_load_strategy = :eager
 
   # Allow longer TCP reads to prevent timeout in the case of loading fixture
   # eee6150b-ce2f-4837-9d17-ce72a0c1c26f, as part of relations_spec.rb
