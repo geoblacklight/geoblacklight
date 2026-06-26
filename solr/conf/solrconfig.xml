@@ -117,37 +117,37 @@
       <str name="q.alt">*:*</str>
       <str name="qf">
         text^1
-        dct_description_ti^2
-        dct_creator_tmi^3
-        dct_publisher_ti^3
-        dct_isPartOf_tmi^4
-        dct_subject_tmi^5
-        dct_spatial_tmi^5
-        dct_temporal_tmi^5
-        dct_title_ti^6
-        dct_accessRights_ti^7
-        dct_provider_ti^8
-        gbl_resourceClass_ti^9
-        gbl_resourceType_ti^9
-        dct_identifier_ti^10
-        id_ti^10
+        dct_description_tei^2
+        dct_creator_teim^3
+        dct_publisher_tei^3
+        dct_isPartOf_teim^4
+        dct_subject_teim^5
+        dct_spatial_teim^5
+        dct_temporal_teim^5
+        dct_title_tei^6
+        dct_accessRights_tei^7
+        dct_provider_tei^8
+        gbl_resourceClass_tei^9
+        gbl_resourceType_tei^9
+        dct_identifier_tei^10
+        id_tei^10
       </str>
       <str name="pf"><!-- phrase boost within result set -->
         text^1
-        dct_description_ti^2
-        dct_creator_tmi^3
-        dct_publisher_ti^3
-        dct_isPartOf_tmi^4
-        dct_subject_tmi^5
-        dct_spatial_tmi^5
-        dct_temporal_tmi^5
-        dct_title_ti^6
-        dct_accessRights_ti^7
-        dct_provider_ti^8
-        gbl_resourceClass_ti^9
-        gbl_resourceType_ti^9
-        dct_identifier_ti^10
-        id_ti^10
+        dct_description_tei^2
+        dct_creator_teim^3
+        dct_publisher_tei^3
+        dct_isPartOf_teim^4
+        dct_subject_teim^5
+        dct_spatial_teim^5
+        dct_temporal_teim^5
+        dct_title_tei^6
+        dct_accessRights_tei^7
+        dct_provider_tei^8
+        gbl_resourceClass_tei^9
+        gbl_resourceType_tei^9
+        dct_identifier_tei^10
+        id_tei^10
       </str>
       <bool name="facet">true</bool>
       <int name="facet.mincount">1</int>
