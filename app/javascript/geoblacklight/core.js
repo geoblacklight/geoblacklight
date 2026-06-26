@@ -1,6 +1,5 @@
 // Initializers
 import initializePopovers from "geoblacklight/initializers/popovers"
-import initializeRelations from "geoblacklight/initializers/relations"
 import initializeTooltips from "geoblacklight/initializers/tooltips"
 import initializeTruncation from "geoblacklight/initializers/truncation"
 import initializeMetadataDownload from "geoblacklight/initializers/metadata_download"
@@ -44,7 +43,6 @@ Geoblacklight.listeners().forEach((listener) =>
 
 // Register our initializers
 Geoblacklight.onLoad(initializePopovers)
-Geoblacklight.onLoad(initializeRelations)
 Geoblacklight.onLoad(initializeTooltips)
 Geoblacklight.onLoad(initializeTruncation)
 Geoblacklight.onLoad(initializeMetadataDownload)
