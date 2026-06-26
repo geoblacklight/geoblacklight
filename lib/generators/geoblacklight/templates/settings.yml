@@ -1,23 +1,25 @@
 # ArcGIS Online Base URL
-ARCGIS_BASE_URL: "https://www.arcgis.com/apps/mapviewer/index.html"
+arcgis_base_url: "https://www.arcgis.com/apps/mapviewer/index.html"
 
 # Download path can be configured using this setting
-#DOWNLOAD_PATH: "./tmp/cache/downloads"
+#download_path: "./tmp/cache/downloads"
 
 # The bq boost value for spatial search matches within a bounding box
-BBOX_WITHIN_BOOST: "10"
+bbox_within_boost: "10"
 
 # The bf boost value for overlap ratio
-OVERLAP_RATIO_BOOST: "2"
+overlap_ratio_boost: "2"
 
 # Homepage Map Geometry
 # Leave null to default to entire world
 # Add a stringified GeoJSON object to scope initial render (example from UMass)
-HOMEPAGE_MAP_GEOM: null
-# HOMEPAGE_MAP_GEOM: '{"type":"Polygon","coordinates":[[[-73.58,42.93],[-73.58,41.20],[-69.90,41.20],[-69.90,42.93]]]}'
+homepage_map_geom: null
+# homepage_map_geom: '{"type":"Polygon","coordinates":[[[-73.58,42.93],[-73.58,41.20],[-69.90,41.20],[-69.90,42.93]]]}'
 
-# Non-search-field GeoBlacklight application permitted params
-GBL_PARAMS:
+# Non-search-field GeoBlacklight application permitted params.
+# Values are left mixed-case on purpose: the uppercase symbols are WMS/OGC
+# request parameter names (BBOX, WIDTH, etc.) and must match what clients send.
+gbl_params:
   - :bbox
   - :email
   - :file
@@ -36,68 +38,68 @@ GBL_PARAMS:
   - :Y
 
 # Solr field mappings
-FIELDS:
-  :ACCESS_RIGHTS: "dct_accessRights_s"
-  :ALTERNATIVE_TITLE: "dct_alternative_sm"
-  :CENTROID: "dcat_centroid"
-  :CREATOR: "dct_creator_sm"
-  :DATE_ISSUED: "dct_issued_s"
-  :DATE_RANGE: "gbl_dateRange_drsim"
-  :DESCRIPTION: "dct_description_sm"
-  :DISPLAY_NOTE: "gbl_displayNote_sm"
-  :FORMAT: "dct_format_s"
-  :FILE_SIZE: "gbl_fileSize_s"
-  :GEOREFERENCED: "gbl_georeferenced_b"
-  :ID: "id"
-  :IDENTIFIER: "dct_identifier_sm"
-  :INDEX_YEAR: "gbl_indexYear_im"
-  :IS_PART_OF: "dct_isPartOf_sm"
-  :IS_REPLACED_BY: "dct_isReplacedBy_sm"
-  :THEME: "dcat_theme_sm"
-  :KEYWORD: "dcat_keyword_sm"
-  :LANGUAGE: "dct_language_sm"
-  :LICENSE: "dct_license_sm"
-  :MEMBER_OF: "pcdm_memberOf_sm"
-  :METADATA_VERSION: "gbl_mdVersion_s"
-  :MODIFIED: "gbl_mdModified_dt"
-  :OVERLAP_FIELD: "solr_bboxtype"
-  :PUBLISHER: "dct_publisher_sm"
-  :PROVIDER: "schema_provider_s"
-  :REFERENCES: "dct_references_s"
-  :RELATION: "dct_relation_sm"
-  :REPLACES: "dct_replaces_sm"
-  :RESOURCE_CLASS: "gbl_resourceClass_sm"
-  :RESOURCE_TYPE: "gbl_resourceType_sm"
-  :RIGHTS: "dct_rights_sm"
-  :RIGHTS_HOLDER: "dct_rightsHolder_sm"
-  :SOURCE: "dct_source_sm"
-  :SPATIAL_COVERAGE: "dct_spatial_sm"
-  :GEOMETRY: "locn_geometry"
-  :SUBJECT: "dct_subject_sm"
-  :SUPPRESSED: "gbl_suppressed_b"
-  :TEMPORAL_COVERAGE: "dct_temporal_sm"
-  :TITLE: "dct_title_s"
-  :VERSION: "dct_isVersionOf_sm"
-  :WXS_IDENTIFIER: "gbl_wxsIdentifier_s"
+fields:
+  :access_rights: "dct_accessRights_s"
+  :alternative_title: "dct_alternative_sm"
+  :centroid: "dcat_centroid"
+  :creator: "dct_creator_sm"
+  :date_issued: "dct_issued_s"
+  :date_range: "gbl_dateRange_drsim"
+  :description: "dct_description_sm"
+  :display_note: "gbl_displayNote_sm"
+  :format: "dct_format_s"
+  :file_size: "gbl_fileSize_s"
+  :georeferenced: "gbl_georeferenced_b"
+  :id: "id"
+  :identifier: "dct_identifier_sm"
+  :index_year: "gbl_indexYear_im"
+  :is_part_of: "dct_isPartOf_sm"
+  :is_replaced_by: "dct_isReplacedBy_sm"
+  :theme: "dcat_theme_sm"
+  :keyword: "dcat_keyword_sm"
+  :language: "dct_language_sm"
+  :license: "dct_license_sm"
+  :member_of: "pcdm_memberOf_sm"
+  :metadata_version: "gbl_mdVersion_s"
+  :modified: "gbl_mdModified_dt"
+  :overlap_field: "solr_bboxtype"
+  :publisher: "dct_publisher_sm"
+  :provider: "schema_provider_s"
+  :references: "dct_references_s"
+  :relation: "dct_relation_sm"
+  :replaces: "dct_replaces_sm"
+  :resource_class: "gbl_resourceClass_sm"
+  :resource_type: "gbl_resourceType_sm"
+  :rights: "dct_rights_sm"
+  :rights_holder: "dct_rightsHolder_sm"
+  :source: "dct_source_sm"
+  :spatial_coverage: "dct_spatial_sm"
+  :geometry: "locn_geometry"
+  :subject: "dct_subject_sm"
+  :suppressed: "gbl_suppressed_b"
+  :temporal_coverage: "dct_temporal_sm"
+  :title: "dct_title_s"
+  :version: "dct_isVersionOf_sm"
+  :wxs_identifier: "gbl_wxsIdentifier_s"
 
 # Institution deployed at
-INSTITUTION: "Stanford"
+institution: "Stanford"
 
 # Metadata shown in tool panel
-METADATA_SHOWN:
+metadata_shown:
   - "mods"
   - "fgdc"
   - "iso19139"
   - "html"
 
 # (For external Download) timeout and open_timeout parameters for Faraday
-TIMEOUT_DOWNLOAD: 180
+timeout_download: 180
 
 # (For WMS inspection) timeout and open_timeout parameters for Faraday
-TIMEOUT_WMS: 4
+timeout_wms: 4
 
 # Web services shown in tool panel
-WEBSERVICES_SHOWN:
+webservices_shown:
   - "wms"
   - "tms"
   - "wfs"
@@ -113,7 +115,7 @@ WEBSERVICES_SHOWN:
   - "pmtiles"
 
 # Display Notes to display / Non-prefixed default bootstrap class is alert-secondary
-DISPLAY_NOTES_SHOWN:
+display_notes_shown:
   danger:
     bootstrap_alert_class: alert-danger
     icon: fire-solid
@@ -132,90 +134,91 @@ DISPLAY_NOTES_SHOWN:
     note_prefix: "Warning: "
 
 # Relationships to display
-RELATIONSHIPS_SHOWN:
-  MEMBER_OF_ANCESTORS:
+relationships_shown:
+  member_of_ancestors:
     field: pcdm_memberOf_sm
     icon: parent-item
-    inverse: :MEMBER_OF_DESCENDANTS
+    inverse: :member_of_descendants
     label: geoblacklight.relations.member_of_ancestors
     query_type: ancestors
-  MEMBER_OF_DESCENDANTS:
+  member_of_descendants:
     field: pcdm_memberOf_sm
     icon: child-item
-    inverse: :MEMBER_OF_ANCESTORS
+    inverse: :member_of_ancestors
     label: geoblacklight.relations.member_of_descendants
     query_type: descendants
-  PART_OF_ANCESTORS:
+  part_of_ancestors:
     field: dct_isPartOf_sm
     icon: parent-item
-    inverse: :PART_OF_DESCENDANTS
+    inverse: :part_of_descendants
     label: geoblacklight.relations.part_of_ancestors
     query_type: ancestors
-  PART_OF_DESCENDANTS:
+  part_of_descendants:
     field: dct_isPartOf_sm
     icon: child-item
-    inverse: :PART_OF_ANCESTORS
+    inverse: :part_of_ancestors
     label: geoblacklight.relations.part_of_descendants
     query_type: descendants
-  RELATION_ANCESTORS:
+  relation_ancestors:
     field: dct_relation_sm
     icon: nil
-    inverse: :RELATION_DESCENDANTS
+    inverse: :relation_descendants
     label: geoblacklight.relations.relation_ancestors
     query_type: ancestors
-  RELATION_DESCENDANTS:
+  relation_descendants:
     field: dct_relation_sm
     icon: nil
-    inverse: :RELATION_ANCESTORS
+    inverse: :relation_ancestors
     label: geoblacklight.relations.relation_descendants
     query_type: descendants
-  REPLACES_ANCESTORS:
+  replaces_ancestors:
     field: dct_replaces_sm
     icon: nil
-    inverse: :REPLACES_DESCENDANTS
+    inverse: :replaces_descendants
     label: geoblacklight.relations.replaces_ancestors
     query_type: ancestors
-  REPLACES_DESCENDANTS:
+  replaces_descendants:
     field: dct_replaces_sm
     icon: nil
-    inverse: :REPLACES_ANCESTORS
+    inverse: :replaces_ancestors
     label: geoblacklight.relations.replaces_descendants
     query_type: descendants
-  SOURCE_ANCESTORS:
+  source_ancestors:
     field: dct_source_sm
     icon: parent-item
-    inverse: :SOURCE_DESCENDANTS
+    inverse: :source_descendants
     label: geoblacklight.relations.source_ancestors
     query_type: ancestors
-  SOURCE_DESCENDANTS:
+  source_descendants:
     field: dct_source_sm
     icon: child-item
-    inverse: :SOURCE_ANCESTORS
+    inverse: :source_ancestors
     label: geoblacklight.relations.source_descendants
     query_type: descendants
-  VERSION_OF_ANCESTORS:
+  version_of_ancestors:
     field: dct_isVersionOf_sm
     icon: parent-item
-    inverse: :VERSION_OF_DESCENDANTS
+    inverse: :version_of_descendants
     label: geoblacklight.relations.version_of_ancestors
     query_type: ancestors
-  VERSION_OF_DESCENDANTS:
+  version_of_descendants:
     field: dct_isVersionOf_sm
     icon: child-item
-    inverse: :VERSION_OF_ANCESTORS
+    inverse: :version_of_ancestors
     label: geoblacklight.relations.version_of_descendants
     query_type: descendants
 
 # Vector data download formats to be displayed
-DOWNLOAD_FORMATS:
-  VECTOR:
+download_formats:
+  vector:
     - "Shapefile"
     - "KMZ"
     - "GeoJSON"
     - "CSV"
 
-# WMS Parameters
-WMS_PARAMS:
+# WMS Parameters. Keys are OGC WMS request parameter names and are sent to
+# remote WMS servers, so they are intentionally left uppercase.
+wms_params:
   :SERVICE: "WMS"
   :VERSION: "1.1.1"
   :REQUEST: "GetFeatureInfo"
@@ -225,27 +228,31 @@ WMS_PARAMS:
   :INFO_FORMAT: "application/json"
 
 # Settings for leaflet
-LEAFLET:
-  BOUNDSOVERLAY:
+leaflet:
+  # Keys below are consumed by the JS viewer via the page value
+  # ("INDEX" / "SHOW" / "STATIC_MAP"), so they are intentionally left uppercase.
+  boundsoverlay:
     INDEX:
       color: "#3388ff"
     SHOW:
       color: "#3388ff"
     STATIC_MAP:
       color: "#3388ff"
-  SELECTED_COLOR: "#2C7FB8"
-  SLEEP:
-    SLEEP: true # set to false to disable
-    MARGIN_DISTANCE: 100 # set to zero / false if you want to disable this check
-    SLEEPTIME: 750
-    WAKETIME: 750
-    HOVERTOWAKE: false
-    MESSAGE: "Click to Wake"
-    BACKGROUND: "rgba(214, 214, 214, .7)"
-  SIDEBAR: false # set to true to display attribute table as sidebar on map
-  LAYERS:
-    DETECT_RETINA: true
-    INDEX:
+  selected_color: "#2C7FB8"
+  sleep:
+    sleep: true # set to false to disable
+    margin_distance: 100 # set to zero / false if you want to disable this check
+    sleeptime: 750
+    waketime: 750
+    hovertowake: false
+    message: "Click to Wake"
+    background: "rgba(214, 214, 214, .7)"
+  sidebar: false # set to true to display attribute table as sidebar on map
+  layers:
+    detect_retina: true
+    index:
+      # DEFAULT / UNAVAILABLE / SELECTED are consumed by the JS viewer and the
+      # index-map legend, so they are intentionally left uppercase.
       DEFAULT: &default
         color: "#7FCDBB"
         weight: 1
@@ -261,7 +268,7 @@ LEAFLET:
         sr_color_name: "Blue"
 
 # Toggle the help text feature that offers users context
-HELP_TEXT:
+help_text:
   viewer_protocol:
     - "cog"
     - "dynamic_map_layer"
@@ -280,8 +287,8 @@ HELP_TEXT:
     - "xyz"
 
 # Enable catalog#show sidebar static map for items with the following viewer protocols
-SIDEBAR_STATIC_MAP:
+sidebar_static_map:
   - "iiif"
   - "iiif_manifest"
 
-IIIF_DRAG_DROP_LINK: "@manifest?manifest=@manifest"
+iiif_drag_drop_link: "@manifest?manifest=@manifest"

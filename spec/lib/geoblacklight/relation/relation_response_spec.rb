@@ -14,13 +14,13 @@ RSpec.describe Geoblacklight::Relation::RelationResponse do
 
   describe "#method_missing" do
     it "returns a hash of ancestor documents" do
-      expect(relation_resp.SOURCE_ANCESTORS).to include("numFound")
-      expect(relation_resp.SOURCE_ANCESTORS).to include("docs")
+      expect(relation_resp.source_ancestors).to include("numFound")
+      expect(relation_resp.source_ancestors).to include("docs")
     end
 
     it "returns a hash of descendant documents" do
-      expect(relation_resp.SOURCE_DESCENDANTS).to include("numFound")
-      expect(relation_resp.SOURCE_DESCENDANTS).to include("docs")
+      expect(relation_resp.source_descendants).to include("numFound")
+      expect(relation_resp.source_descendants).to include("docs")
     end
 
     it "raises no method error" do
