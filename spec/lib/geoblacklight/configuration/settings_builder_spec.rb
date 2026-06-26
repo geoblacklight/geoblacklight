@@ -44,9 +44,35 @@ RSpec.describe Geoblacklight::Configuration::SettingsBuilder do
         }
       end
 
+      before { allow(Geoblacklight::Deprecation).to receive(:warn) }
+
       it "resolves uppercase keys even though the builder asks case-insensitively" do
         expect(config.institution).to eq("Stanford")
         expect(config.fields.title).to eq("dct_title_s")
+      end
+    end
+
+    describe "deprecation warnings" do
+      before { allow(Geoblacklight::Deprecation).to receive(:warn) }
+
+      it "warns when an uppercase key is resolved" do
+        described_class.new(settings: {INSTITUTION: "MIT"}).build
+        expect(Geoblacklight::Deprecation).to have_received(:warn).with(a_string_matching(/INSTITUTION/i))
+      end
+
+      it "warns about nested uppercase keys" do
+        described_class.new(settings: {fields: {TITLE: "dct_title_s"}}).build
+        expect(Geoblacklight::Deprecation).to have_received(:warn).with(a_string_matching(/TITLE/i))
+      end
+
+      it "does not warn when keys are lowercase" do
+        described_class.new(settings: {institution: "MIT", fields: {title: "x"}}).build
+        expect(Geoblacklight::Deprecation).not_to have_received(:warn)
+      end
+
+      it "does not warn when a lowercase key shadows an uppercase one" do
+        described_class.new(settings: {institution: "lower", INSTITUTION: "UPPER"}).build
+        expect(Geoblacklight::Deprecation).not_to have_received(:warn)
       end
     end
 
@@ -114,6 +140,38 @@ RSpec.describe Geoblacklight::Configuration::CaseInsensitiveSettings do
 
     it "returns the underlying hash" do
       expect(wrapper.to_h).to eq({FOO: "bar"})
+    end
+  end
+
+  describe "deprecation warnings" do
+    it "warns when an uppercase key is used" do
+      deprecation = double("deprecation")
+      expect(deprecation).to receive(:warn).with(a_string_matching(/INSTITUTION/i))
+      described_class.new({INSTITUTION: "MIT"}, deprecation: deprecation).institution
+    end
+
+    it "warns about nested uppercase keys" do
+      deprecation = double("deprecation")
+      allow(deprecation).to receive(:warn)
+      described_class.new({FIELDS: {TITLE: "x"}}, deprecation: deprecation).fields.title
+      expect(deprecation).to have_received(:warn).with(a_string_matching(/FIELDS/i))
+      expect(deprecation).to have_received(:warn).with(a_string_matching(/TITLE/i))
+    end
+
+    it "does not warn when the resolved key is lowercase" do
+      deprecation = double("deprecation")
+      expect(deprecation).not_to receive(:warn)
+      described_class.new({institution: "MIT"}, deprecation: deprecation).institution
+    end
+
+    it "does not warn when a lowercase key shadows an uppercase one" do
+      deprecation = double("deprecation")
+      expect(deprecation).not_to receive(:warn)
+      described_class.new({institution: "lower", INSTITUTION: "UPPER"}, deprecation: deprecation).institution
+    end
+
+    it "does not warn by default (no deprecation configured)" do
+      expect { described_class.new({INSTITUTION: "MIT"}).institution }.not_to raise_error
     end
   end
 end
