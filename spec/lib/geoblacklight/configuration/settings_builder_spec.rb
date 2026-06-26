@@ -6,8 +6,8 @@ RSpec.describe Geoblacklight::Configuration::SettingsBuilder do
 
     it { is_expected.to be_a(Geoblacklight::Configuration) }
 
-    it "reads values from the real Settings (uppercase) constant" do
-      expect(config.institution).to eq(Settings.INSTITUTION)
+    it "reads values from the real Settings (lowercase) constant" do
+      expect(config.institution).to eq(Settings.institution)
     end
   end
 
