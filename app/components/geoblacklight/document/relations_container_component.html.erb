@@ -1,1 +1,1 @@
-<%= tag.div(data: {relations: true, url: solr_document_path(document.id)}) %>
+<%= helpers.turbo_frame_tag "relations", src: relations_solr_document_path(document.id), target: "_top" %>

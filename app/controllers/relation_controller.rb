@@ -7,7 +7,7 @@ class RelationController < ApplicationController
 
   def index
     @relations = Geoblacklight::Relation::RelationResponse.new(params[:id], repository)
-    render layout: !request.xhr?
+    render layout: !(request.xhr? || request.headers["Turbo-Frame"].present?)
   end
 
   private
