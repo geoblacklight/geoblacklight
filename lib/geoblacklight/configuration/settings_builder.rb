@@ -8,7 +8,7 @@ module Geoblacklight
 
       def initialize(settings: Settings)
         @configuration = Configuration.new
-        @settings = CaseInsensitiveSettings.new(settings)
+        @settings = CaseInsensitiveSettings.new(settings, deprecation: Geoblacklight::Deprecation)
       end
 
       def build

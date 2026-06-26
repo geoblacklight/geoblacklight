@@ -8,9 +8,14 @@ module Geoblacklight
     # chained access (e.g. +settings.fields.access_rights+) resolves regardless
     # of the case used in settings.yml. Missing keys return +nil+, mirroring the
     # behavior of the underlying Config::Options object.
+    #
+    # When a +deprecation+ (e.g. an ActiveSupport::Deprecation) is provided, a
+    # deprecation warning is issued whenever an uppercase key has to be used
+    # because no lowercase equivalent is present.
     class CaseInsensitiveSettings
-      def initialize(settings)
+      def initialize(settings, deprecation: nil)
         @hash = settings.to_h
+        @deprecation = deprecation
       end
 
       def [](key)
@@ -32,9 +37,22 @@ module Geoblacklight
         keys = @hash.keys.select { |key| key.to_s.downcase == target }
         return nil if keys.empty?
 
-        key = keys.find { |candidate| candidate.to_s == candidate.to_s.downcase } || keys.first
+        key = keys.find { |candidate| candidate.to_s == candidate.to_s.downcase }
+        if key.nil?
+          key = keys.first
+          warn_deprecated(key)
+        end
         value = @hash[key]
-        value.is_a?(Hash) ? self.class.new(value) : value
+        value.is_a?(Hash) ? self.class.new(value, deprecation: @deprecation) : value
+      end
+
+      def warn_deprecated(key)
+        return unless @deprecation
+
+        @deprecation.warn(
+          "GeoBlacklight settings.yml key #{key} is uppercase; rename it to #{key.to_s.downcase}. " \
+          "Uppercase keys are deprecated and support will be removed in a future version."
+        )
       end
     end
   end
