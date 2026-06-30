@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = ">= 3.2.0"
   spec.required_rubygems_version = ">= 2.5.2"
 
-  spec.add_dependency "rails", ">= 6.1", "< 9"
+  spec.add_dependency "rails", ">= 8", "< 9"
   spec.add_dependency "blacklight", ">= 8.0", "< 10"
   spec.add_dependency "config"
   spec.add_dependency "faraday", "~> 2.0"
@@ -28,7 +28,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "mime-types"
   spec.add_dependency "rgeo-geojson"
   spec.add_dependency "rsolr"
-  spec.add_dependency "zeitwerk"
 
   spec.add_development_dependency "rails-controller-testing"
   spec.add_development_dependency "rspec-rails"
