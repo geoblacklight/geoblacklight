@@ -90,6 +90,112 @@ RSpec.describe Geoblacklight::Configuration::SettingsBuilder do
         expect(config.institution).to eq("Stanford")
       end
     end
+
+    describe "display_notes_shown" do
+      it "preserves the defaults when DISPLAY_NOTES_SHOWN is absent" do
+        expect(described_class.new(settings: {}).build.display_notes_shown).to(
+          include(:danger, :info, :tip, :warning)
+        )
+      end
+
+      it "builds DisplayNoteShownConfig objects from a lowercase hash" do
+        settings = {
+          display_notes_shown: {
+            danger: {
+              bootstrap_alert_class: "alert-danger",
+              icon: "fire-solid",
+              note_prefix: "Danger: "
+            }
+          }
+        }
+
+        result = described_class.new(settings: settings).build.display_notes_shown
+
+        expect(result.keys).to eq([:danger])
+        danger = result[:danger]
+        expect(danger).to be_a(Geoblacklight::Configuration::DisplayNoteShownConfig)
+        expect(danger.bootstrap_alert_class).to eq("alert-danger")
+        expect(danger.icon).to eq("fire-solid")
+        expect(danger.note_prefix).to eq("Danger: ")
+      end
+
+      it "builds each entry as a DisplayNoteShownConfig when multiple are given" do
+        settings = {
+          display_notes_shown: {
+            info: {bootstrap_alert_class: "alert-info", icon: "circle-info-solid", note_prefix: "Info: "},
+            tip: {bootstrap_alert_class: "alert-success", icon: "lightbulb-solid", note_prefix: "Tip: "}
+          }
+        }
+
+        result = described_class.new(settings: settings).build.display_notes_shown
+
+        expect(result.keys).to contain_exactly(:info, :tip)
+        expect(result.values).to all(be_a(Geoblacklight::Configuration::DisplayNoteShownConfig))
+        expect(result[:tip].note_prefix).to eq("Tip: ")
+      end
+
+      it "coerces non-hash values into hashes before constructing the config" do
+        struct = Struct.new(:bootstrap_alert_class, :icon, :note_prefix)
+        note = struct.new("alert-warning", "triangle-exclamation-solid", "Warning: ")
+
+        settings = {display_notes_shown: {warning: note}}
+
+        result = described_class.new(settings: settings).build.display_notes_shown[:warning]
+
+        expect(result).to be_a(Geoblacklight::Configuration::DisplayNoteShownConfig)
+        expect(result.bootstrap_alert_class).to eq("alert-warning")
+        expect(result.icon).to eq("triangle-exclamation-solid")
+        expect(result.note_prefix).to eq("Warning: ")
+      end
+
+      it "supports partially-specified notes by leaving unset attributes blank" do
+        settings = {display_notes_shown: {custom: {icon: "star-solid"}}}
+
+        result = described_class.new(settings: settings).build.display_notes_shown[:custom]
+
+        expect(result).to be_a(Geoblacklight::Configuration::DisplayNoteShownConfig)
+        expect(result.icon).to eq("star-solid")
+        expect(result.bootstrap_alert_class).to be_nil
+        expect(result.note_prefix).to be_nil
+      end
+
+      it "replaces the defaults entirely rather than merging" do
+        settings = {display_notes_shown: {custom: {icon: "star-solid"}}}
+
+        result = described_class.new(settings: settings).build.display_notes_shown
+
+        expect(result.keys).to eq([:custom])
+        expect(result).not_to include(:danger, :info, :tip, :warning)
+      end
+
+      it "handles an empty display_notes_shown hash" do
+        settings = {display_notes_shown: {}}
+
+        expect(described_class.new(settings: settings).build.display_notes_shown).to eq({})
+      end
+
+      it "resolves an uppercase DISPLAY_NOTES_SHOWN key for backwards compatibility" do
+        allow(Geoblacklight::Deprecation).to receive(:warn)
+
+        settings = {
+          DISPLAY_NOTES_SHOWN: {
+            danger: {
+              bootstrap_alert_class: "alert-danger",
+              icon: "fire-solid",
+              note_prefix: "Danger: "
+            }
+          }
+        }
+
+        result = described_class.new(settings: settings).build.display_notes_shown[:danger]
+
+        expect(result).to be_a(Geoblacklight::Configuration::DisplayNoteShownConfig)
+        expect(result.bootstrap_alert_class).to eq("alert-danger")
+        expect(result.icon).to eq("fire-solid")
+        expect(result.note_prefix).to eq("Danger: ")
+        expect(Geoblacklight::Deprecation).to have_received(:warn).with(a_string_matching(/DISPLAY_NOTES_SHOWN/i))
+      end
+    end
   end
 end
 
