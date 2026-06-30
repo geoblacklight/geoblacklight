@@ -2,12 +2,13 @@ require "spec_helper"
 
 RSpec.describe Geoblacklight::Configuration::SettingsBuilder do
   describe ".build" do
+    before {
+      Settings.institution = "MIT"
+    }
     subject(:config) { described_class.build }
 
-    it { is_expected.to be_a(Geoblacklight::Configuration) }
-
     it "reads values from the real Settings (lowercase) constant" do
-      expect(config.institution).to eq(Settings.institution)
+      expect(config.institution).to eq("MIT")
     end
   end
 

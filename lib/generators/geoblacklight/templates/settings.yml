@@ -1,294 +1,305 @@
-# ArcGIS Online Base URL
-arcgis_base_url: "https://www.arcgis.com/apps/mapviewer/index.html"
+# These settings are used to configure GeoBlacklight.
+# The values you see here are the defaults. If you want to override any of these,
+# uncomment them and make any changes.
+#
+# Alternatively, you can use a config/initializers/geoblacklight.rb file to
+# set these values directly on the GeoBlacklight::Configuration object.
+#   example:
+#     # config/initializers/geoblacklight.rb
+#     config = GeoBlacklight.configuration
+#     config.timeout_download = 10
 
-# Download path can be configured using this setting
-#download_path: "./tmp/cache/downloads"
+# # ArcGIS Online Base URL
+# arcgis_base_url: "https://www.arcgis.com/apps/mapviewer/index.html"
 
-# The bq boost value for spatial search matches within a bounding box
-bbox_within_boost: "10"
+# # File path for downloads
+# download_path: "<%= Rails.root.join('tmp', 'cache', 'downloads') %>"
 
-# The bf boost value for overlap ratio
-overlap_ratio_boost: "2"
+# # The bq boost value for spatial search matches within a bounding box
+# bbox_within_boost: "10"
 
-# Homepage Map Geometry
-# Leave null to default to entire world
-# Add a stringified GeoJSON object to scope initial render (example from UMass)
-homepage_map_geom: null
-# homepage_map_geom: '{"type":"Polygon","coordinates":[[[-73.58,42.93],[-73.58,41.20],[-69.90,41.20],[-69.90,42.93]]]}'
+# # The bf boost value for overlap ratio
+# overlap_ratio_boost: "2"
 
-# Non-search-field GeoBlacklight application permitted params.
-# Values are left mixed-case on purpose: the uppercase symbols are WMS/OGC
-# request parameter names (BBOX, WIDTH, etc.) and must match what clients send.
-gbl_params:
-  - :bbox
-  - :email
-  - :file
-  - :format
-  - :id
-  - :logo
-  - :provider
-  - :type
-  - :BBOX
-  - :HEIGHT
-  - :LAYERS
-  - :QUERY_LAYERS
-  - :URL
-  - :WIDTH
-  - :X
-  - :Y
+# # Homepage Map Geometry
+# # Leave null to default to entire world
+# # Add a stringified GeoJSON object to scope initial render (example from UMass)
+# homepage_map_geom: null
+# # homepage_map_geom: '{"type":"Polygon","coordinates":[[[-73.58,42.93],[-73.58,41.20],[-69.90,41.20],[-69.90,42.93]]]}'
 
-# Solr field mappings
-fields:
-  access_rights: "dct_accessRights_s"
-  alternative_title: "dct_alternative_sm"
-  centroid: "dcat_centroid"
-  creator: "dct_creator_sm"
-  date_issued: "dct_issued_s"
-  date_range: "gbl_dateRange_drsim"
-  description: "dct_description_sm"
-  display_note: "gbl_displayNote_sm"
-  format: "dct_format_s"
-  file_size: "gbl_fileSize_s"
-  georeferenced: "gbl_georeferenced_b"
-  id: "id"
-  identifier: "dct_identifier_sm"
-  index_year: "gbl_indexYear_im"
-  is_part_of: "dct_isPartOf_sm"
-  is_replaced_by: "dct_isReplacedBy_sm"
-  theme: "dcat_theme_sm"
-  keyword: "dcat_keyword_sm"
-  language: "dct_language_sm"
-  license: "dct_license_sm"
-  member_of: "pcdm_memberOf_sm"
-  metadata_version: "gbl_mdVersion_s"
-  modified: "gbl_mdModified_dt"
-  overlap_field: "solr_bboxtype"
-  publisher: "dct_publisher_sm"
-  provider: "schema_provider_s"
-  references: "dct_references_s"
-  relation: "dct_relation_sm"
-  replaces: "dct_replaces_sm"
-  resource_class: "gbl_resourceClass_sm"
-  resource_type: "gbl_resourceType_sm"
-  rights: "dct_rights_sm"
-  rights_holder: "dct_rightsHolder_sm"
-  source: "dct_source_sm"
-  spatial_coverage: "dct_spatial_sm"
-  geometry: "locn_geometry"
-  subject: "dct_subject_sm"
-  suppressed: "gbl_suppressed_b"
-  temporal_coverage: "dct_temporal_sm"
-  title: "dct_title_s"
-  version: "dct_isVersionOf_sm"
-  wxs_identifier: "gbl_wxsIdentifier_s"
+# # Non-search-field GeoBlacklight application permitted params.
+# # Values are left mixed-case on purpose: the uppercase symbols are WMS/OGC
+# # request parameter names (BBOX, WIDTH, etc.) and must match what clients send.
+# gbl_params:
+#   - :bbox
+#   - :email
+#   - :file
+#   - :format
+#   - :id
+#   - :logo
+#   - :provider
+#   - :type
+#   - :BBOX
+#   - :HEIGHT
+#   - :LAYERS
+#   - :QUERY_LAYERS
+#   - :URL
+#   - :WIDTH
+#   - :X
+#   - :Y
 
-# Institution deployed at
-institution: "Stanford"
+# # Solr field mappings
+# fields:
+#   access_rights: "dct_accessRights_s"
+#   alternative_title: "dct_alternative_sm"
+#   centroid: "dcat_centroid"
+#   creator: "dct_creator_sm"
+#   date_issued: "dct_issued_s"
+#   date_range: "gbl_dateRange_drsim"
+#   description: "dct_description_sm"
+#   display_note: "gbl_displayNote_sm"
+#   format: "dct_format_s"
+#   file_size: "gbl_fileSize_s"
+#   georeferenced: "gbl_georeferenced_b"
+#   id: "id"
+#   identifier: "dct_identifier_sm"
+#   index_year: "gbl_indexYear_im"
+#   is_part_of: "dct_isPartOf_sm"
+#   is_replaced_by: "dct_isReplacedBy_sm"
+#   theme: "dcat_theme_sm"
+#   keyword: "dcat_keyword_sm"
+#   language: "dct_language_sm"
+#   license: "dct_license_sm"
+#   member_of: "pcdm_memberOf_sm"
+#   metadata_version: "gbl_mdVersion_s"
+#   modified: "gbl_mdModified_dt"
+#   overlap_field: "solr_bboxtype"
+#   publisher: "dct_publisher_sm"
+#   provider: "schema_provider_s"
+#   references: "dct_references_s"
+#   relation: "dct_relation_sm"
+#   replaces: "dct_replaces_sm"
+#   resource_class: "gbl_resourceClass_sm"
+#   resource_type: "gbl_resourceType_sm"
+#   rights: "dct_rights_sm"
+#   rights_holder: "dct_rightsHolder_sm"
+#   source: "dct_source_sm"
+#   spatial_coverage: "dct_spatial_sm"
+#   geometry: "locn_geometry"
+#   subject: "dct_subject_sm"
+#   suppressed: "gbl_suppressed_b"
+#   temporal_coverage: "dct_temporal_sm"
+#   title: "dct_title_s"
+#   version: "dct_isVersionOf_sm"
+#   wxs_identifier: "gbl_wxsIdentifier_s"
 
-# Metadata shown in tool panel
-metadata_shown:
-  - "mods"
-  - "fgdc"
-  - "iso19139"
-  - "html"
+# # Institution deployed at
+# institution: "Stanford"
 
-# (For external Download) timeout and open_timeout parameters for Faraday
-timeout_download: 180
+# # Metadata shown in tool panel
+# metadata_shown:
+#   - "mods"
+#   - "fgdc"
+#   - "iso19139"
+#   - "html"
 
-# (For WMS inspection) timeout and open_timeout parameters for Faraday
-timeout_wms: 4
+# # (For external Download) timeout and open_timeout parameters for Faraday
+# timeout_download: 180
 
-# Web services shown in tool panel
-webservices_shown:
-  - "wms"
-  - "tms"
-  - "wfs"
-  - "xyz"
-  - "wmts"
-  - "tilejson"
-  - "iiif"
-  - "feature_layer"
-  - "tiled_map_layer"
-  - "dynamic_map_layer"
-  - "image_map_layer"
-  - "cog"
-  - "pmtiles"
+# # (For WMS inspection) timeout and open_timeout parameters for Faraday
+# timeout_wms: 4
 
-# Display Notes to display / Non-prefixed default bootstrap class is alert-secondary
-display_notes_shown:
-  danger:
-    bootstrap_alert_class: alert-danger
-    icon: fire-solid
-    note_prefix: "Danger: "
-  info:
-    bootstrap_alert_class: alert-info
-    icon: circle-info-solid
-    note_prefix: "Info: "
-  tip:
-    bootstrap_alert_class: alert-success
-    icon: lightbulb-solid
-    note_prefix: "Tip: "
-  warning:
-    bootstrap_alert_class: alert-warning
-    icon: triangle-exclamation-solid
-    note_prefix: "Warning: "
+# # Web services shown in tool panel
+# webservices_shown:
+#   - "wms"
+#   - "tms"
+#   - "wfs"
+#   - "xyz"
+#   - "wmts"
+#   - "tilejson"
+#   - "iiif"
+#   - "feature_layer"
+#   - "tiled_map_layer"
+#   - "dynamic_map_layer"
+#   - "image_map_layer"
+#   - "cog"
+#   - "pmtiles"
 
-# Relationships to display
-relationships_shown:
-  member_of_ancestors:
-    field: pcdm_memberOf_sm
-    icon: parent-item
-    inverse: :member_of_descendants
-    label: geoblacklight.relations.member_of_ancestors
-    query_type: ancestors
-  member_of_descendants:
-    field: pcdm_memberOf_sm
-    icon: child-item
-    inverse: :member_of_ancestors
-    label: geoblacklight.relations.member_of_descendants
-    query_type: descendants
-  part_of_ancestors:
-    field: dct_isPartOf_sm
-    icon: parent-item
-    inverse: :part_of_descendants
-    label: geoblacklight.relations.part_of_ancestors
-    query_type: ancestors
-  part_of_descendants:
-    field: dct_isPartOf_sm
-    icon: child-item
-    inverse: :part_of_ancestors
-    label: geoblacklight.relations.part_of_descendants
-    query_type: descendants
-  relation_ancestors:
-    field: dct_relation_sm
-    icon: nil
-    inverse: :relation_descendants
-    label: geoblacklight.relations.relation_ancestors
-    query_type: ancestors
-  relation_descendants:
-    field: dct_relation_sm
-    icon: nil
-    inverse: :relation_ancestors
-    label: geoblacklight.relations.relation_descendants
-    query_type: descendants
-  replaces_ancestors:
-    field: dct_replaces_sm
-    icon: nil
-    inverse: :replaces_descendants
-    label: geoblacklight.relations.replaces_ancestors
-    query_type: ancestors
-  replaces_descendants:
-    field: dct_replaces_sm
-    icon: nil
-    inverse: :replaces_ancestors
-    label: geoblacklight.relations.replaces_descendants
-    query_type: descendants
-  source_ancestors:
-    field: dct_source_sm
-    icon: parent-item
-    inverse: :source_descendants
-    label: geoblacklight.relations.source_ancestors
-    query_type: ancestors
-  source_descendants:
-    field: dct_source_sm
-    icon: child-item
-    inverse: :source_ancestors
-    label: geoblacklight.relations.source_descendants
-    query_type: descendants
-  version_of_ancestors:
-    field: dct_isVersionOf_sm
-    icon: parent-item
-    inverse: :version_of_descendants
-    label: geoblacklight.relations.version_of_ancestors
-    query_type: ancestors
-  version_of_descendants:
-    field: dct_isVersionOf_sm
-    icon: child-item
-    inverse: :version_of_ancestors
-    label: geoblacklight.relations.version_of_descendants
-    query_type: descendants
+# # Display Notes to display / Non-prefixed default bootstrap class is alert-secondary
+# display_notes_shown:
+#   danger:
+#     bootstrap_alert_class: alert-danger
+#     icon: fire-solid
+#     note_prefix: "Danger: "
+#   info:
+#     bootstrap_alert_class: alert-info
+#     icon: circle-info-solid
+#     note_prefix: "Info: "
+#   tip:
+#     bootstrap_alert_class: alert-success
+#     icon: lightbulb-solid
+#     note_prefix: "Tip: "
+#   warning:
+#     bootstrap_alert_class: alert-warning
+#     icon: triangle-exclamation-solid
+#     note_prefix: "Warning: "
 
-# Vector data download formats to be displayed
-download_formats:
-  vector:
-    - "Shapefile"
-    - "KMZ"
-    - "GeoJSON"
-    - "CSV"
+# # Relationships to display
+# relationships_shown:
+#   member_of_ancestors:
+#     field: pcdm_memberOf_sm
+#     icon: parent-item
+#     inverse: :member_of_descendants
+#     label: geoblacklight.relations.member_of_ancestors
+#     query_type: ancestors
+#   member_of_descendants:
+#     field: pcdm_memberOf_sm
+#     icon: child-item
+#     inverse: :member_of_ancestors
+#     label: geoblacklight.relations.member_of_descendants
+#     query_type: descendants
+#   part_of_ancestors:
+#     field: dct_isPartOf_sm
+#     icon: parent-item
+#     inverse: :part_of_descendants
+#     label: geoblacklight.relations.part_of_ancestors
+#     query_type: ancestors
+#   part_of_descendants:
+#     field: dct_isPartOf_sm
+#     icon: child-item
+#     inverse: :part_of_ancestors
+#     label: geoblacklight.relations.part_of_descendants
+#     query_type: descendants
+#   relation_ancestors:
+#     field: dct_relation_sm
+#     icon: nil
+#     inverse: :relation_descendants
+#     label: geoblacklight.relations.relation_ancestors
+#     query_type: ancestors
+#   relation_descendants:
+#     field: dct_relation_sm
+#     icon: nil
+#     inverse: :relation_ancestors
+#     label: geoblacklight.relations.relation_descendants
+#     query_type: descendants
+#   replaces_ancestors:
+#     field: dct_replaces_sm
+#     icon: nil
+#     inverse: :replaces_descendants
+#     label: geoblacklight.relations.replaces_ancestors
+#     query_type: ancestors
+#   replaces_descendants:
+#     field: dct_replaces_sm
+#     icon: nil
+#     inverse: :replaces_ancestors
+#     label: geoblacklight.relations.replaces_descendants
+#     query_type: descendants
+#   source_ancestors:
+#     field: dct_source_sm
+#     icon: parent-item
+#     inverse: :source_descendants
+#     label: geoblacklight.relations.source_ancestors
+#     query_type: ancestors
+#   source_descendants:
+#     field: dct_source_sm
+#     icon: child-item
+#     inverse: :source_ancestors
+#     label: geoblacklight.relations.source_descendants
+#     query_type: descendants
+#   version_of_ancestors:
+#     field: dct_isVersionOf_sm
+#     icon: parent-item
+#     inverse: :version_of_descendants
+#     label: geoblacklight.relations.version_of_ancestors
+#     query_type: ancestors
+#   version_of_descendants:
+#     field: dct_isVersionOf_sm
+#     icon: child-item
+#     inverse: :version_of_ancestors
+#     label: geoblacklight.relations.version_of_descendants
+#     query_type: descendants
 
-# WMS Parameters. Keys are OGC WMS request parameter names and are sent to
-# remote WMS servers, so they are intentionally left uppercase.
-wms_params:
-  SERVICE: "WMS"
-  VERSION: "1.1.1"
-  REQUEST: "GetFeatureInfo"
-  STYLES: ""
-  SRS: "EPSG:4326"
-  EXCEPTIONS: "application/json"
-  INFO_FORMAT: "application/json"
+# # Vector data download formats to be displayed
+# download_formats:
+#   vector:
+#     - "Shapefile"
+#     - "KMZ"
+#     - "GeoJSON"
+#     - "CSV"
 
-# Settings for leaflet
-leaflet:
-  # Keys below are consumed by the JS viewer via the page value
-  # ("INDEX" / "SHOW" / "STATIC_MAP"), so they are intentionally left uppercase.
-  boundsoverlay:
-    INDEX:
-      color: "#3388ff"
-    SHOW:
-      color: "#3388ff"
-    STATIC_MAP:
-      color: "#3388ff"
-  selected_color: "#2C7FB8"
-  sleep:
-    sleep: true # set to false to disable
-    margin_distance: 100 # set to zero / false if you want to disable this check
-    sleeptime: 750
-    waketime: 750
-    hovertowake: false
-    message: "Click to Wake"
-    background: "rgba(214, 214, 214, .7)"
-  sidebar: false # set to true to display attribute table as sidebar on map
-  layers:
-    detect_retina: true
-    index:
-      # DEFAULT / UNAVAILABLE / SELECTED are consumed by the JS viewer and the
-      # index-map legend, so they are intentionally left uppercase.
-      DEFAULT: &default
-        color: "#7FCDBB"
-        weight: 1
-        radius: 4
-        sr_color_name: "Green"
-      UNAVAILABLE:
-        <<: *default
-        color: "#EDF8B1"
-        sr_color_name: "Yellow"
-      SELECTED:
-        <<: *default
-        color: "#2C7FB8"
-        sr_color_name: "Blue"
+# # WMS Parameters. Keys are OGC WMS request parameter names and are sent to
+# # remote WMS servers, so they are intentionally left uppercase.
+# wms_params:
+#   SERVICE: "WMS"
+#   VERSION: "1.1.1"
+#   REQUEST: "GetFeatureInfo"
+#   STYLES: ""
+#   SRS: "EPSG:4326"
+#   EXCEPTIONS: "application/json"
+#   INFO_FORMAT: "application/json"
 
-# Toggle the help text feature that offers users context
-help_text:
-  viewer_protocol:
-    - "cog"
-    - "dynamic_map_layer"
-    - "feature_layer"
-    - "iiif"
-    - "iiif_manifest"
-    - "image_map_layer"
-    - "index_map"
-    - "oembed"
-    - "pmtiles"
-    - "tiled_map_layer"
-    - "tilejson"
-    - "tms"
-    - "wms"
-    - "wmts"
-    - "xyz"
+# # Settings for leaflet
+# leaflet:
+#   # Keys below are consumed by the JS viewer via the page value
+#   # ("INDEX" / "SHOW" / "STATIC_MAP"), so they are intentionally left uppercase.
+#   boundsoverlay:
+#     INDEX:
+#       color: "#3388ff"
+#     SHOW:
+#       color: "#3388ff"
+#     STATIC_MAP:
+#       color: "#3388ff"
+#   selected_color: "#2C7FB8"
+#   sleep:
+#     sleep: true # set to false to disable
+#     margin_distance: 100 # set to zero / false if you want to disable this check
+#     sleeptime: 750
+#     waketime: 750
+#     hovertowake: false
+#     message: "Click to Wake"
+#     background: "rgba(214, 214, 214, .7)"
+#   sidebar: false # set to true to display attribute table as sidebar on map
+#   layers:
+#     detect_retina: true
+#     index:
+#       # DEFAULT / UNAVAILABLE / SELECTED are consumed by the JS viewer and the
+#       # index-map legend, so they are intentionally left uppercase.
+#       DEFAULT: &default
+#         color: "#7FCDBB"
+#         weight: 1
+#         radius: 4
+#         sr_color_name: "Green"
+#       UNAVAILABLE:
+#         <<: *default
+#         color: "#EDF8B1"
+#         sr_color_name: "Yellow"
+#       SELECTED:
+#         <<: *default
+#         color: "#2C7FB8"
+#         sr_color_name: "Blue"
 
-# Enable catalog#show sidebar static map for items with the following viewer protocols
-sidebar_static_map:
-  - "iiif"
-  - "iiif_manifest"
+# # Toggle the help text feature that offers users context
+# help_text:
+#   viewer_protocol:
+#     - "cog"
+#     - "dynamic_map_layer"
+#     - "feature_layer"
+#     - "iiif"
+#     - "iiif_manifest"
+#     - "image_map_layer"
+#     - "index_map"
+#     - "oembed"
+#     - "pmtiles"
+#     - "tiled_map_layer"
+#     - "tilejson"
+#     - "tms"
+#     - "wms"
+#     - "wmts"
+#     - "xyz"
 
-iiif_drag_drop_link: "@manifest?manifest=@manifest"
+# # Enable catalog#show sidebar static map for items with the following viewer protocols
+# sidebar_static_map:
+#   - "iiif"
+#   - "iiif_manifest"
+
+# iiif_drag_drop_link: "@manifest?manifest=@manifest"
