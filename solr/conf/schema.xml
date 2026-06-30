@@ -66,15 +66,15 @@
     <fieldType name="string"  class="solr.StrField"  sortMissingLast="true" />
     <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>
 
-    <fieldType name="int"    class="solr.TrieIntField"     precisionStep="8" positionIncrementGap="0"/>
-    <fieldType name="float"  class="solr.TrieFloatField"   precisionStep="8" positionIncrementGap="0"/>
-    <fieldType name="long"   class="solr.TrieLongField"    precisionStep="8" positionIncrementGap="0"/>
-    <fieldType name="double" class="solr.TrieDoubleField"  precisionStep="8" positionIncrementGap="0"/>
+    <fieldType name="int"    class="solr.IntPointField"    docValues="true"/>
+    <fieldType name="float"  class="solr.FloatPointField"  docValues="true"/>
+    <fieldType name="long"   class="solr.LongPointField"   docValues="true"/>
+    <fieldType name="double" class="solr.DoublePointField" docValues="true"/>
 
     <!-- The format for this date field is of the form 1995-12-31T23:59:59Z.
          The trailing "Z" designates UTC time and is mandatory.
-         A Trie based date field for faster date range queries and date faceting. -->
-    <fieldType name="date" class="solr.TrieDateField" precisionStep="6" positionIncrementGap="0"/>
+         A Point based date field for faster date range queries and date faceting. -->
+    <fieldType name="date" class="solr.DatePointField" docValues="true"/>
 
     <!-- A DateRange based date field for truly faster date range queries. -->
     <fieldType name="dateRange" class="solr.DateRangeField"/>
