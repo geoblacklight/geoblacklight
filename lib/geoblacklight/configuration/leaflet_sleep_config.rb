@@ -9,7 +9,7 @@ module Geoblacklight
       attribute :sleeptime, :integer, default: 750
       attribute :waketime, :integer, default: 750
       attribute :hovertowake, :boolean, default: false
-      attribute :message, :string, default: "Click to Wake"
+      attribute :message, :string, default: -> { I18n.t("geoblacklight.map.sleep.click_to_wake") }
       attribute :background, :string, default: "rgba(214, 214, 214, .7)"
 
       def to_h

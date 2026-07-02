@@ -1,4 +1,4 @@
-import { linkify } from "geoblacklight/leaflet/utils"
+import { getInspectingText, getNotFoundText, linkify } from "geoblacklight/leaflet/utils"
 
 export const pmTilesInspection = (map) => {
   // add crosshair class for map items
@@ -11,14 +11,12 @@ export const pmTilesInspection = (map) => {
   map.on("click", (event) => {
     const spinner = document.createElement("tbody")
     spinner.className = "attribute-table-body"
-    spinner.innerHTML =
-      '<tr><td colspan="2"><div class="spinner-border" role="status"><span class="visually-hidden">Inspecting</span></div></td></tr>'
+    spinner.innerHTML = `<tr><td colspan="2"><div class="spinner-border" role="status"><span class="visually-hidden">${getInspectingText()}</span></div></td></tr>`
     document.querySelector(".attribute-table-body").replaceWith(spinner)
 
     const features = map.getFeaturesAtPixel(event.pixel)
     if (features.length == 0) {
-      document.querySelector(".attribute-table-body").innerHTML =
-        '<tr><td colspan="2">Could not find that feature</td></tr>'
+      document.querySelector(".attribute-table-body").innerHTML = `<tr><td colspan="2">${getNotFoundText()}</td></tr>`
       return
     }
 

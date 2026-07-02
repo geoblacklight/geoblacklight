@@ -11,7 +11,7 @@ module Geoblacklight
 
     def call
       link_to(
-        "Web services",
+        I18n.t("geoblacklight.references.services"),
         helpers.web_services_solr_document_path(id: document.id),
         class: "nav-link",
         data: {blacklight_modal: "trigger"}

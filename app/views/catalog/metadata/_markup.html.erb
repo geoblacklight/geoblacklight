@@ -1,6 +1,6 @@
 <div id="metadata-markup-container" class="container-fluid">
   <div class="alert alert-warning" role="alert">
-    <span class="visually-hidden">Error:</span>
+    <span class="visually-hidden"><%= t('geoblacklight.metadata.error_label') %></span>
     <span><%= t('geoblacklight.metadata.transform_error') %></span>
   </div>
   <%= CodeRay.scan(content, :xml).div.html_safe %>

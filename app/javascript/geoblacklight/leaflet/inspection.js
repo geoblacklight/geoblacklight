@@ -1,5 +1,12 @@
 import { identifyFeatures } from "esri-leaflet"
-import { appendErrorMessage, appendLoadingMessage, getLayerOpacity, linkify } from "geoblacklight/leaflet/utils"
+import {
+  appendErrorMessage,
+  appendLoadingMessage,
+  getInspectingText,
+  getLayerOpacity,
+  getNotFoundText,
+  linkify,
+} from "geoblacklight/leaflet/utils"
 
 export const wmsInspection = (map, url, layerId, layer) => {
   // add crosshair class for map items
@@ -9,8 +16,7 @@ export const wmsInspection = (map, url, layerId, layer) => {
   map.on("click", async (e) => {
     const spinner = document.createElement("tbody")
     spinner.className = "attribute-table-body"
-    spinner.innerHTML =
-      '<tr><td colspan="2"><div class="spinner-border" role="status"><span class="visually-hidden">Inspecting</span></div></td></tr>'
+    spinner.innerHTML = `<tr><td colspan="2"><div class="spinner-border" role="status"><span class="visually-hidden">${getInspectingText()}</span></div></td></tr>`
     document.querySelector(".attribute-table-body").replaceWith(spinner)
 
     const wmsoptions = {
@@ -43,8 +49,7 @@ export const wmsInspection = (map, url, layerId, layer) => {
         response_data.hasOwnProperty("exceptions") ||
         response_data.features.length === 0
       ) {
-        document.querySelector(".attribute-table-body").innerHTML =
-          '<tr><td colspan="2">Could not find that feature</td></tr>'
+        document.querySelector(".attribute-table-body").innerHTML = `<tr><td colspan="2">${getNotFoundText()}</td></tr>`
         return
       }
       const data = response_data.features[0]

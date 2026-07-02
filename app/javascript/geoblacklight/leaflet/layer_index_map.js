@@ -1,4 +1,4 @@
-const indexMapInfoTemplate = (data) => `
+const indexMapInfoTemplate = (data, labels) => `
   <div class="index-map-info">
     ${
       data.title
@@ -27,35 +27,35 @@ const indexMapInfoTemplate = (data) => `
         ${
           data.websiteUrl
             ? `
-          <dt class="col-sm-3">Website:</dt>
+          <dt class="col-sm-3">${labels.websiteLabel}</dt>
           <dd class="col-sm-9"><a href="${data.websiteUrl}">${data.websiteUrl}</a></dd>`
             : ""
         }
         ${
           data.downloadUrl
             ? `
-          <dt class="col-sm-3">Download:</dt>
+          <dt class="col-sm-3">${labels.downloadLabel}</dt>
           <dd class="col-sm-9"><a href="${data.downloadUrl}">${data.downloadUrl}</a></dd>`
             : ""
         }
         ${
           data.recordIdentifier
             ? `
-          <dt class="col-sm-3">Record Identifier:</dt>
+          <dt class="col-sm-3">${labels.recordIdentifierLabel}</dt>
           <dd class="col-sm-9">${data.recordIdentifier}</dd>`
             : ""
         }
         ${
           data.label
             ? `
-          <dt class="col-sm-3">Label:</dt>
+          <dt class="col-sm-3">${labels.labelLabel}</dt>
           <dd class="col-sm-9">${data.label}</dd>`
             : ""
         }
         ${
           data.note
             ? `
-          <dt class="col-sm-3">Note:</dt>
+          <dt class="col-sm-3">${labels.noteLabel}</dt>
           <dd class="col-sm-9">${data.note}</dd>`
             : ""
         }
@@ -63,16 +63,16 @@ const indexMapInfoTemplate = (data) => `
     </div>
   </div>`
 
-const indexMapDownloadTemplate = (data) =>
+const indexMapDownloadTemplate = (data, labels) =>
   data.downloadUrl
     ? `
   <li class="list-group-item download js-index-map-feature">
-    <h3 class="card-subtitle">Selected feature</h3>
+    <h3 class="card-subtitle">${labels.selectedFeature}</h3>
     <ul class="list-group list-group-flush list-group-nested">
       <li class="list-group-item download">
         <div class="download-link-container">
           <a class="btn btn-default download download-original" href="${data.downloadUrl}">
-            ${data.label ? data.label : "Download"}
+            ${data.label ? data.label : labels.downloadText}
           </a>
         </div>
       </li>
@@ -110,11 +110,14 @@ export const availabilityStyle = (availability, leafletOptions) => {
 }
 
 export const updateInformation = (properties) => {
-  indexMapTemplate(properties).then((updatedProperties) => {
-    const indexMapHtml = indexMapInfoTemplate(updatedProperties)
-    document.querySelector(".viewer-information").innerHTML = indexMapHtml
+  const informationContainer = document.querySelector(".viewer-information")
+  const labels = informationContainer.dataset
 
-    const indexMapDownloadHtml = indexMapDownloadTemplate(updatedProperties)
+  indexMapTemplate(properties).then((updatedProperties) => {
+    const indexMapHtml = indexMapInfoTemplate(updatedProperties, labels)
+    informationContainer.innerHTML = indexMapHtml
+
+    const indexMapDownloadHtml = indexMapDownloadTemplate(updatedProperties, labels)
     const downloadElement = document.querySelector(".js-download-list")
 
     if (Boolean(downloadElement)) {

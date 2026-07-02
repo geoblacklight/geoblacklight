@@ -13,37 +13,40 @@ module Geoblacklight
       attribute :sidebar, :boolean, default: false
       attribute :selected_color, :string, default: "#2C7FB8"
 
-      DEFAULT_LAYERS_CONFIG = {
-        index: {
-          DEFAULT: LayerConfig.new(
-            color: "#7FCDBB",
-            sr_color_name: "Green"
-          ),
-          UNAVAILABLE: LayerConfig.new(
-            color: "#EDF8B1",
-            sr_color_name: "Yellow"
-          ),
-          SELECTED: LayerConfig.new(
-            color: "#2C7FB8",
-            sr_color_name: "Blue"
-          )
-        }
-      }.freeze
-
       DEFAULT_SLEEP_CONFIG = {
         sleep: true, # set to false to disable
         margin_distance: 100, # set to zero / false if you want to disable this check
         sleeptime: 750,
         waketime: 750,
         hovertowake: false,
-        message: "Click to Wake",
         background: "rgba(214, 214, 214, .7)"
       }.freeze
+
+      # Built lazily (rather than as a frozen constant) so the sr_color_name
+      # values pick up the current I18n locale each time a config is built.
+      def self.default_layers_config
+        {
+          index: {
+            DEFAULT: LayerConfig.new(
+              color: "#7FCDBB",
+              sr_color_name: I18n.t("geoblacklight.map.legend.colors.default")
+            ),
+            UNAVAILABLE: LayerConfig.new(
+              color: "#EDF8B1",
+              sr_color_name: I18n.t("geoblacklight.map.legend.colors.unavailable")
+            ),
+            SELECTED: LayerConfig.new(
+              color: "#2C7FB8",
+              sr_color_name: I18n.t("geoblacklight.map.legend.colors.selected")
+            )
+          }
+        }
+      end
 
       def initialize
         super
         @sleep = LeafletSleepConfig.new(DEFAULT_SLEEP_CONFIG)
-        @layers = LeafletLayersConfig.new(DEFAULT_LAYERS_CONFIG)
+        @layers = LeafletLayersConfig.new(self.class.default_layers_config)
       end
 
       def sleep=(attributes)

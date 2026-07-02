@@ -4,6 +4,8 @@ import { debounce, boundsToBbox } from "geoblacklight/leaflet/utils"
 export const geosearchDefaultOptions = {
   dynamic: true,
   delay: 800,
+  search_here_text: "Search here",
+  search_when_moved_text: "Search when I move the map",
 }
 
 export default class GeoSearchControl extends Control {
@@ -51,7 +53,7 @@ export default class GeoSearchControl extends Control {
     staticButtonNode.setAttribute("href", "#")
     staticButtonNode.setAttribute("style", "display:none;")
     staticButtonNode.className = "btn btn-primary shadow"
-    staticButtonNode.textContent = "Search here"
+    staticButtonNode.textContent = this.options.search_here_text
     staticButtonNode.addEventListener("click", this.staticSearch.bind(this))
     return staticButtonNode
   }
@@ -61,7 +63,7 @@ export default class GeoSearchControl extends Control {
     const dynamicButtonNode = DomUtil.create("label")
     dynamicButtonNode.setAttribute("id", "gbl-dynamic-button")
     dynamicButtonNode.className = "btn shadow border form-check-label"
-    dynamicButtonNode.textContent = " Search when I move the map"
+    dynamicButtonNode.textContent = ` ${this.options.search_when_moved_text}`
     dynamicButtonNode.setAttribute("style", "display:none;")
     dynamicButtonNode.setAttribute("for", "gbl-dynamic-search-toggle")
     const input = DomUtil.create("input")
