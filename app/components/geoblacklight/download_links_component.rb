@@ -53,7 +53,10 @@ module Geoblacklight
           download: "trigger",
           action: "downloads#download:once",
           download_type: download_type,
-          download_id: document.id
+          download_id: document.id,
+          download_preparing_message: t("geoblacklight.download.preparing"),
+          download_ready_message: t("geoblacklight.download.ready", type: download_type),
+          download_failed_message: t("geoblacklight.download.failed", type: download_type)
         }
       )
     end

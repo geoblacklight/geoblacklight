@@ -11,6 +11,8 @@ class Truncator {
     // set a unique ID for the element if it doesn't have one
     this.element = element
     this.element.id ||= id
+    this.readMoreText = element.dataset.readMoreText
+    this.closeText = element.dataset.closeText
 
     // add the button
     this.button = document.createElement("button")
@@ -19,7 +21,7 @@ class Truncator {
     this.button.dataset.bsTarget = `#${this.element.id}`
     this.button.setAttribute("aria-expanded", "false")
     this.button.setAttribute("aria-controls", this.element.id)
-    this.button.textContent = "Read more"
+    this.button.textContent = this.readMoreText
     this.button.addEventListener("click", this.toggle.bind(this))
     element.parentNode.insertBefore(this.button, element.nextSibling)
 
@@ -28,8 +30,8 @@ class Truncator {
   }
 
   toggle() {
-    if (this.button.textContent == "Read more") this.button.textContent = "Close"
-    else this.button.textContent = "Read more"
+    if (this.button.textContent == this.readMoreText) this.button.textContent = this.closeText
+    else this.button.textContent = this.readMoreText
   }
 }
 

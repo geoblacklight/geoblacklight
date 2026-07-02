@@ -49,10 +49,16 @@ export const getTileJsonBounds = (doc) => {
   }
 }
 
+export const getInspectingText = () =>
+  document.getElementById("attribute-table")?.dataset.inspectingText || "Inspecting"
+
+export const getNotFoundText = () =>
+  document.getElementById("attribute-table")?.dataset.notFoundText || "Could not find that feature"
+
 export const appendLoadingMessage = () => {
   const spinner = `<tbody class="attribute-table-body"><tr><td colspan="2">
     <span id="attribute-table">
-    <div class="spinner-border" role="status"><span class="visually-hidden">Inspecting</span></div>
+    <div class="spinner-border" role="status"><span class="visually-hidden">${getInspectingText()}</span></div>
     </span>
     </td></tr></tbody>`
 
@@ -61,7 +67,7 @@ export const appendLoadingMessage = () => {
 
 export const appendErrorMessage = () => {
   document.querySelector(".attribute-table-body").innerHTML = `<tbody class="attribute-table-body">
-    <tr><td colspan="2">Could not find that feature</td></tr></tbody>`
+    <tr><td colspan="2">${getNotFoundText()}</td></tr></tbody>`
 }
 
 // Looks for strings that could be URLs and wraps them in <a> tags

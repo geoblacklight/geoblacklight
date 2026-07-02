@@ -27,8 +27,15 @@ module Geoblacklight
     # Add top-level geosearch control to leaflet options if configured
     def leaflet_options
       config.leaflet_options.deep_dup.tap do |options|
-        options.controls = {"Geosearch" => @geosearch} if @geosearch
+        options.controls = {"Geosearch" => geosearch_options} if @geosearch
       end
+    end
+
+    def geosearch_options
+      {
+        search_here_text: I18n.t("geoblacklight.map.geosearch.search_here"),
+        search_when_moved_text: I18n.t("geoblacklight.map.geosearch.search_when_moved")
+      }.merge(@geosearch)
     end
 
     def config

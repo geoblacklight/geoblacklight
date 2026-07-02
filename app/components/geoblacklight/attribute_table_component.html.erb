@@ -1,5 +1,5 @@
 <%= render Geoblacklight::AccordionComponent.new(id: 'attribute-table', title: t('geoblacklight.show.table_name')) do %>
-  <table id="attribute-table" class="table table-hover table-condensed table-striped mb-0 collapse show">
+  <table id="attribute-table" class="table table-hover table-condensed table-striped mb-0 collapse show" data-inspecting-text="<%= t('geoblacklight.show.inspecting') %>" data-not-found-text="<%= t('geoblacklight.show.not_found') %>">
     <thead>
       <tr>
         <th><%= t('geoblacklight.show.attribute') %></th>

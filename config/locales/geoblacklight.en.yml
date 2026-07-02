@@ -17,6 +17,9 @@ en:
       export_geojson_link: "GeoJSON"
       export_geotiff_link: "GeoTIFF"
       export_csv_link: "CSV"
+      preparing: "Preparing download..."
+      ready: "Download ready (%{type})"
+      failed: "Download failed (%{type})"
     home:
       headline: "Explore and discover..."
       search_heading: "Find the maps and data you need"
@@ -27,6 +30,7 @@ en:
       placename: "Placename"
       subject: "Subject"
       version: "GeoBlacklight version %{version}"
+      more_facets_link: "more »"
     tools:
       login_to_view: "Login to View and Download"
       open_arcgis: "Open in ArcGIS Online"
@@ -42,6 +46,27 @@ en:
       sqlite_database: "SQLite Database"
     map:
       label: "Zoomable map"
+      geosearch:
+        search_here: "Search here"
+        search_when_moved: "Search when I move the map"
+      index:
+        website_label: "Website:"
+        download_label: "Download:"
+        record_identifier_label: "Record Identifier:"
+        label_label: "Label:"
+        note_label: "Note:"
+        selected_feature: "Selected feature"
+      legend:
+        held: "Map held by collection"
+        not_held: "Map not held by collection"
+        selected: "Selected map tile"
+        sr_tile_indicates: "%{color} tile indicates "
+        colors:
+          default: "Green"
+          unavailable: "Yellow"
+          selected: "Blue"
+      sleep:
+        click_to_wake: "Click to Wake"
     references:
       wms: "Web Mapping Service (WMS)"
       wms_abv: "WMS"
@@ -84,17 +109,23 @@ en:
     modal:
       copy-citation: "Copy Citation"
     metadata:
+      error_label: "Error:"
       metadata_error: The metadata view for selected schema is not available
       metadata_trace: Please select another metadata view. Alternately, try downloading the file or reaching out to the holding institution.
       more_details: More details at
       toggle_summary: Toggle summary
       transform_error: HTML view for selected schema is not available
       view_metadata: View Metadata
+    truncate:
+      read_more: "Read more"
+      close: "Close"
     show:
       attribute: "Attribute"
       value: "Value"
       click_map: "Click on map to inspect values"
       table_name: "Map data"
+      inspecting: "Inspecting"
+      not_found: "Could not find that feature"
     help_text:
       viewer_protocol:
         cog:

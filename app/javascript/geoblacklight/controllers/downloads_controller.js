@@ -10,7 +10,7 @@ export default class extends Controller {
     ev.target.classList.add("download-in-progress")
     const url = ev.target.dataset.downloadPath
     ev.target.removeAttribute("href")
-    ev.target.innerHTML = '<div class="spinner-border spinner-border-sm float-end"></div> Preparing download...'
+    ev.target.innerHTML = `<div class="spinner-border spinner-border-sm float-end"></div> ${ev.target.dataset.downloadPreparingMessage}`
 
     fetch(url)
       .then((response) => {
@@ -31,7 +31,7 @@ export default class extends Controller {
     this.downloading = false
     target.classList.remove("download-in-progress")
     target.classList.add("download-complete")
-    target.innerHTML = `Download ready (${target.dataset.downloadType})`
+    target.innerHTML = target.dataset.downloadReadyMessage
     target.href = data[1]
     this.renderMessage(data[0])
     //target.click();
@@ -41,7 +41,7 @@ export default class extends Controller {
     this.downloading = false
     target.classList.remove("download-in-progress")
     target.classList.add("download-complete")
-    target.innerHTML = `Download failed (${target.dataset.downloadType})`
+    target.innerHTML = target.dataset.downloadFailedMessage
     console.log(exception)
 
     this.renderMessage(exception.data[0])

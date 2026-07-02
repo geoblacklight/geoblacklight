@@ -40,7 +40,10 @@ module GeoblacklightHelper
   # get_field_values method
   # @param [Hash] args from get_field_values
   def render_value_as_truncate_abstract(args)
-    tag.div class: "truncate-abstract" do
+    tag.div class: "truncate-abstract", data: {
+      read_more_text: t("geoblacklight.truncate.read_more"),
+      close_text: t("geoblacklight.truncate.close")
+    } do
       Array(args[:value]).flatten.join(" ")
     end
   end

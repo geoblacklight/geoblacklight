@@ -15,7 +15,7 @@ module Geoblacklight
         item_presenter = @facet_field_presenter.item_presenter(item)
         link_to(item_presenter.value, item_presenter.href, class: "home-facet-link")
       end
-      links << link_to("more »", facet_catalog_path(@facet_field_presenter.key), class: "more_facets_link")
+      links << link_to(I18n.t("geoblacklight.home.more_facets_link"), facet_catalog_path(@facet_field_presenter.key), class: "more_facets_link")
       safe_join(links, ", ")
     end
   end

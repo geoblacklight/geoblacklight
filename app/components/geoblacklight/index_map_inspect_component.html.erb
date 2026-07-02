@@ -1,5 +1,12 @@
 <%= render Geoblacklight::AccordionComponent.new(id: 'index-map-attributes', title: t('geoblacklight.show.table_name')) do %>
-  <div class="viewer-information px-3">
+  <div class="viewer-information px-3"
+    data-website-label="<%= t('geoblacklight.map.index.website_label') %>"
+    data-download-label="<%= t('geoblacklight.map.index.download_label') %>"
+    data-record-identifier-label="<%= t('geoblacklight.map.index.record_identifier_label') %>"
+    data-label-label="<%= t('geoblacklight.map.index.label_label') %>"
+    data-note-label="<%= t('geoblacklight.map.index.note_label') %>"
+    data-selected-feature="<%= t('geoblacklight.map.index.selected_feature') %>"
+    data-download-text="<%= t('geoblacklight.download.download') %>">
     <em><%= t('geoblacklight.show.click_map') %></em>
   </div>
 <% end %>
