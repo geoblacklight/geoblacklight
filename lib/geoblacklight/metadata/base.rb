@@ -48,7 +48,7 @@ module Geoblacklight
       # connection error
       def retrieve_metadata
         connection = Faraday.new(url: @reference.endpoint) do |conn|
-          conn.use Geoblacklight::FaradayMiddleware::FollowRedirects
+          conn.response :follow_redirects
           conn.adapter Faraday.default_adapter
         end
         begin

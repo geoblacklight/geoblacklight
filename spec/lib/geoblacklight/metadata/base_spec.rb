@@ -130,7 +130,7 @@ RSpec.describe Geoblacklight::Metadata::Base do
     before do
       allow(GeoCombine::Metadata).to receive(:new).and_return(geocombine_metadata)
 
-      allow(connection).to receive(:use)
+      allow(connection).to receive(:response)
       allow(connection).to receive(:adapter)
       allow(Faraday).to receive(:new).and_yield(connection).and_return(connection)
 
