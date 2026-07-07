@@ -1,0 +1,12 @@
+<%= render Blacklight::System::ModalComponent.new do |component| %>
+  <% component.with_title do %>
+    <%= t('geoblacklight.download.geoserver_export') %>
+  <% end %>
+  <% component.with_body do %>
+    <div class="modal-body export-modal-body">
+      <% @document.references.downloads_by_format.each do |format, entry| %>
+        <pre><%= format %>: <%= entry %></pre>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

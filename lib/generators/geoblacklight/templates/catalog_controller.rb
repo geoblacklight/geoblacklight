@@ -357,4 +357,15 @@ class CatalogController < ApplicationController
       end
     end
   end
+
+  # Renders the "Export via GeoServer" modal for a document
+  def export
+    @document = action_documents.first
+
+    respond_to do |format|
+      format.html do
+        return render layout: false if request.xhr?
+      end
+    end
+  end
 end
