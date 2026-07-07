@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "faraday", "~> 2.0"
   spec.add_dependency "coderay"
   spec.add_dependency "deprecation"
-  spec.add_dependency "geo_combine", "~> 0.9"
+  spec.add_dependency "geo_combine", "~> 0.10"
   spec.add_dependency "mime-types"
   spec.add_dependency "rgeo-geojson"
   spec.add_dependency "rsolr"
