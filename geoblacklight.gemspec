@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "blacklight", ">= 8.0", "< 10"
   spec.add_dependency "config"
   spec.add_dependency "faraday", "~> 2.0"
+  spec.add_dependency "faraday-follow_redirects"
   spec.add_dependency "coderay"
   spec.add_dependency "deprecation"
   spec.add_dependency "geo_combine", "~> 0.10"
