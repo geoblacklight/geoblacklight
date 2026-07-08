@@ -326,6 +326,8 @@ class CatalogController < ApplicationController
       if: proc { |_context, _config, options| options[:document]&.data_dictionary_download.present? }
     config.add_show_tools_partial :web_services, component: Geoblacklight::WebServicesLinkComponent,
       if: proc { |_context, _config, options| options[:document] && (gbl_config.webservices_shown & options[:document].references.refs.map(&:type).map(&:to_s)).any? }
+    config.add_show_tools_partial :export, component: Geoblacklight::Document::ExportLinkComponent,
+      if: proc { |_context, _config, options| options[:document]&.exportable? }
 
     # Configure basemap provider for GeoBlacklight maps (uses https only basemap
     # providers with open licenses)
