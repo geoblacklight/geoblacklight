@@ -165,19 +165,6 @@ RSpec.describe Geoblacklight::References do
       expect(typical_ogp_shapefile.download).to be_nil
     end
   end
-  describe "download_types" do
-    it "returns available downloads by format" do
-      types = complex_shapefile.download_types
-      expect(types.first[1]).to eq wfs: "http://hgl.harvard.edu:8080/geoserver/wfs"
-      expect(types.count).to eq 4
-      expect(direct_download_only.download_types).to be_nil
-    end
-    it "onlies return available downloads if no direct is present" do
-      types = typical_ogp_shapefile.download_types
-      expect(types.first[1]).to eq wfs: "http://hgl.harvard.edu:8080/geoserver/wfs"
-      expect(types.count).to eq 4
-    end
-  end
   describe "#esri_webservices" do
     it "returns webservices that are esri specific" do
       expect(some_esri_services.esri_webservices.length).to eq 3
@@ -191,45 +178,12 @@ RSpec.describe Geoblacklight::References do
   describe "#respond_to_missing?" do
     context "with a valid method" do
       it "returns true" do
-        expect(typical_ogp_shapefile.respond_to?(:download_types)).to be true
+        expect(typical_ogp_shapefile.respond_to?(:esri_webservices)).to be true
       end
     end
     context "with a invalid method" do
       it "returns false" do
         expect(typical_ogp_shapefile.respond_to?(:invalid)).to be false
-      end
-    end
-  end
-  describe "downloads_by_format" do
-    context "using default settings for vector download formats" do
-      it "returns shapefile" do
-        expect(typical_ogp_shapefile.downloads_by_format.count).to eq 4
-        expect(typical_ogp_shapefile.downloads_by_format[:csv][:wfs]).to eq "http://hgl.harvard.edu:8080/geoserver/wfs"
-        expect(typical_ogp_shapefile.downloads_by_format[:geojson][:wfs]).to eq "http://hgl.harvard.edu:8080/geoserver/wfs"
-        expect(typical_ogp_shapefile.downloads_by_format[:kmz][:wms]).to eq "http://hgl.harvard.edu:8080/geoserver/wms"
-        expect(typical_ogp_shapefile.downloads_by_format[:shapefile][:wfs]).to eq "http://hgl.harvard.edu:8080/geoserver/wfs"
-      end
-      it "returns geotiff" do
-        expect(typical_ogp_geotiff.downloads_by_format.count).to eq 1
-        expect(typical_ogp_geotiff.downloads_by_format[:geotiff][:wms]).to eq "http://hgl.harvard.edu:8080/geoserver/wms"
-      end
-      it "returns arcgrid as geotiff" do
-        expect(typical_arcgrid.downloads_by_format.count).to eq 1
-        expect(typical_arcgrid.downloads_by_format[:geotiff][:wms]).to eq "http://hgl.harvard.edu:8080/geoserver/wms"
-      end
-      it "does not return shapefile if wms and wfs are not present" do
-        expect(no_service_shapefile.downloads_by_format).to be_nil
-      end
-      it "does not return GeoTIFF if wms is not present" do
-        expect(direct_download_only.downloads_by_format).to be_nil
-      end
-    end
-    context "using custom settings which include incorrect settings" do
-      before do
-        allow(typical_ogp_shapefile).to receive(:format_list).and_return(["noformat"])
-      end
-      it "returns no formats for download" do
-        expect(typical_ogp_shapefile.downloads_by_format.count).to eq 0
       end
     end
   end

@@ -44,27 +44,6 @@ module Geoblacklight
     end
 
     ##
-    # Download hash based off of format type
-    # @return [Hash, nil]
-    def downloads_by_format
-      case format
-      when "Shapefile"
-        vector_download_formats
-      when "GeoTIFF"
-        geotiff_download_formats
-      when "ArcGRID"
-        arcgrid_download_formats
-      end
-    end
-
-    ##
-    # Generated download types from wxs services
-    # @return (see #downloads_by_format)
-    def download_types
-      downloads_by_format
-    end
-
-    ##
     # Returns all of the Esri webservices for given set of references
     def esri_webservices
       %w[tiled_map_layer dynamic_map_layer feature_layer image_map_layer].filter_map do |layer_type|
@@ -83,51 +62,6 @@ module Geoblacklight
       else
         JSON.parse(@document[reference_field])
       end
-    end
-
-    ##
-    # Download hash for a Shapefile file (currently only vector) with a wms and wfs reference
-    # present
-    # @return (see #downloads_by_format)
-    def vector_download_formats
-      return unless wms.present? && wfs.present?
-
-      download_formats = {}
-      format_list.each { |format| download_formats.merge!(web_service_hash(format)) }
-      download_formats
-    end
-
-    def format_list
-      Geoblacklight.configuration.vector_download_formats || []
-    end
-
-    def web_service_hash(format)
-      case format
-      when "Shapefile"
-        {shapefile: wfs.to_hash}
-      when "KMZ"
-        {kmz: wms.to_hash}
-      when "GeoJSON"
-        {geojson: wfs.to_hash}
-      when "CSV"
-        {csv: wfs.to_hash}
-      else
-        {}
-      end
-    end
-
-    ##
-    # Download hash for a GeoTiff file with a WMS reference present
-    # @return (see #downloads_by_format)
-    def geotiff_download_formats
-      {geotiff: wms.to_hash} if wms.present?
-    end
-
-    ##
-    # Download hash for an ArcGRID file with a WMS reference present
-    # @return (see #downloads_by_format)
-    def arcgrid_download_formats
-      {geotiff: wms.to_hash} if wms.present?
     end
 
     ##

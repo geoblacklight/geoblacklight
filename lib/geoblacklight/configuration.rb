@@ -15,9 +15,6 @@ module Geoblacklight
     # Institution deployed at
     attribute :institution, :string, default: "Stanford"
 
-    # (For external Download) timeout and open_timeout parameters for Faraday
-    attribute :timeout_download, :integer, default: 180
-
     # (For WMS inspection) timeout and open_timeout parameters for Faraday
     attribute :timeout_wms, :integer, default: 4
 
@@ -44,9 +41,6 @@ module Geoblacklight
     #   config.homepage_map_geom = '{"type":"Polygon","coordinates":[[[-73.58,42.93],[-73.58,41.20],[-69.90,41.20],[-69.90,42.93]]]}'
     attribute :homepage_map_geom, :string
 
-    # Vector data download formats to be displayed
-    attr_accessor :vector_download_formats  # typed as Array
-
     # Metadata shown in tool panel
     attr_accessor :metadata_shown # typed as Array
 
@@ -56,11 +50,8 @@ module Geoblacklight
     # Relationships to display
     attr_accessor :relationships_shown # typed as RelationshipsConfig
 
-    attribute :download_path, :string
-
     def initialize
       super
-      self.download_path ||= Rails.root.join("tmp", "cache", "downloads")
       @relationships_shown = RelationshipsConfig.new
       @gbl_params = [
         :bbox, :email, :file, :format, :id, :logo, :provider, :type,
@@ -95,7 +86,6 @@ module Geoblacklight
         ]
       }
 
-      @vector_download_formats = ["Shapefile", "KMZ", "GeoJSON", "CSV"]
       @metadata_shown = ["mods", "fgdc", "iso19139", "html"]
       @webservices_shown = %w[
         wms

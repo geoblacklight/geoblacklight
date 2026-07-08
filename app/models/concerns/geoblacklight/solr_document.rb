@@ -10,7 +10,6 @@ module Geoblacklight
     include Geoblacklight::SolrDocument::Arcgis
     include Geoblacklight::SolrDocument::Citation
 
-    delegate :download_types, to: :references
     delegate :viewer_protocol, to: :item_viewer
     delegate :viewer_endpoint, to: :item_viewer
 
@@ -45,7 +44,7 @@ module Geoblacklight
     end
 
     def downloadable?
-      (direct_download || download_types.present? || iiif_download) && available?
+      (direct_download || iiif_download) && available?
     end
 
     def references

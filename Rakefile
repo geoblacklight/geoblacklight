@@ -52,7 +52,6 @@ namespace :geoblacklight do
     task seed: ["engine_cart:generate"] do
       within_test_app do
         system "bundle exec rake geoblacklight:index:seed"
-        system "bundle exec rake geoblacklight:downloads:mkdir"
       end
     end
   end

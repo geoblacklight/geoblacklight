@@ -4,121 +4,62 @@ require "spec_helper"
 
 RSpec.describe Geoblacklight::DownloadLinksComponent, type: :component do
   let(:downloadable) { true }
-  let(:document) { instance_double(SolrDocument, id: 123, downloadable?: downloadable) }
-  let(:component) { described_class.new(document: document) }
+  let(:direct_download) { nil }
+  let(:iiif_download) { nil }
+  let(:file_format) { nil }
+  let(:document) do
+    instance_double(
+      SolrDocument, id: 123,
+      downloadable?: downloadable,
+      direct_download: direct_download,
+      iiif_download: iiif_download,
+      file_format: file_format
+    )
+  end
+  subject(:component) { described_class.new(document: document) }
 
   before do
     allow_any_instance_of(GeoblacklightHelper).to receive(:document_available?).and_return(true)
+    render_inline(component)
   end
 
-  context "when rendering is required" do
-    before do
-      allow(document).to receive(:direct_download).and_return(test: :test)
-      allow(document).to receive(:iiif_download).and_return({})
-      allow(document).to receive(:download_types).and_return(shapefile: {})
-    end
+  context "when not downloadable" do
+    let(:downloadable) { false }
 
-    it "shows download link" do
-      render_inline(component)
-      expect(page).to have_text("Download")
-      expect(page).to have_text("Export Shapefile")
+    it "does not render the component" do
+      is_expected.to_not be_render
     end
   end
 
-  context "when rendering is not required" do
-    context "because there are no download links" do
-      before do
-        allow(document).to receive(:direct_download).and_return({})
-        allow(document).to receive(:iiif_download).and_return({})
-        allow(document).to receive(:download_types).and_return({})
-      end
-
-      it "does not render anything" do
-        render_inline(component)
-        expect(page).not_to have_text("Download")
-        expect(page).not_to have_text("Export Shapefile")
-      end
-    end
-
-    context "because you aren't allowed" do
-      let(:downloadable) { false }
-
-      it "does not render anything" do
-        render_inline(component)
-        expect(page).not_to have_text("Download")
-        expect(page).not_to have_text("Export Shapefile")
-      end
+  context "with no download links and no IIIF links" do
+    it "does not render the component" do
+      is_expected.to_not be_render
     end
   end
 
-  describe "#download_link_file" do
-    let(:label) { "Test Link Text" }
-    let(:id) { "test-id" }
-    let(:url) { "http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip" }
+  context "with a single bare link" do
+    let(:direct_download) { {download: "file.zip"} }
+    let(:file_format) { "Shapefile" }
 
-    it "generates a link to download the original file" do
-      expect(component.download_link_file(label, id,
-        url)).to eq '<a contentUrl="http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip" data-download="trigger" data-download-type="direct" data-download-id="test-id" href="http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip">Test Link Text</a>'
+    it "renders a download link using the format to label it" do
+      expect(page).to have_link("Original Shapefile", href: "file.zip")
     end
   end
 
-  describe "#download_link_iiif" do
-    let(:references_field) { Geoblacklight.configuration.fields.references }
-    let(:document_attributes) do
-      {
-        references_field => {
-          "http://iiif.io/api/image" => "https://example.edu/image/info.json"
-        }.to_json
-      }
-    end
-    let(:document) { SolrDocument.new(document_attributes, downloadable?: downloadable) }
+  context "with multiple labelled download links available" do
+    let(:direct_download) { {download: [{"label" => "File 1", "url" => "file.zip"}, {"label" => "File 2", "url" => "file2.json"}]} }
 
-    before do
-      allow(component).to receive(:download_text).and_return("Original JPG")
-      allow_any_instance_of(Geoblacklight::Reference).to receive(:to_hash).and_return(iiif: "https://example.edu/image/info.json")
+    it "renders a labelled download link for each" do
+      expect(page).to have_link("File 1", href: "file.zip")
+      expect(page).to have_link("File 2", href: "file2.json")
     end
+  end
+
+  context "with a IIIF link" do
+    let(:iiif_download) { {iiif: "https://example.edu/image/info.json"} }
 
     it "generates a link to download the JPG file from the IIIF server" do
-      expect(component.download_link_iiif).to eq '<a contentUrl="https://example.edu/image/full/full/0/default.jpg" data-download="trigger" href="https://example.edu/image/full/full/0/default.jpg">Original JPG</a>'
-    end
-  end
-
-  describe "#iiif_jpg_url" do
-    let(:references_field) { Geoblacklight.configuration.fields.references }
-    let(:document_attributes) do
-      {
-        references_field => {
-          "http://iiif.io/api/image" => "https://example.edu/image/info.json"
-        }.to_json
-      }
-    end
-    let(:document) { SolrDocument.new(document_attributes) }
-
-    it "returns JPG download URL when given URL to a IIIF info.json" do
-      expect(component.iiif_jpg_url).to eq "https://example.edu/image/full/full/0/default.jpg"
-    end
-  end
-
-  describe "#download_link_generated" do
-    let(:download_type) { "SHAPEFILE" }
-
-    before do
-      allow(component).to receive(:download_path).and_return("/download/test-id?type=SHAPEFILE")
-      allow(component).to receive(:export_format_label).and_return("Shapefile Export Customization")
-      allow(document).to receive(:id).and_return("test-id")
-      allow(document).to receive(:to_s).and_return("test-id")
-    end
-
-    it "generates a link to download the JPG file from the IIIF server" do
-      # Stub I18n to ensure the link can be customized via `export_` labels.
-      allow(component).to receive(:t).with("geoblacklight.download.export_shapefile_link").and_return("Shapefile Export Customization")
-      allow(component).to receive(:t).with("geoblacklight.download.export_link",
-        {download_format: "Shapefile Export Customization"}).and_return("Export Shapefile Export Customization")
-      allow(component).to receive(:t).with("geoblacklight.download.preparing").and_return("Preparing download...")
-      allow(component).to receive(:t).with("geoblacklight.download.ready", {type: "SHAPEFILE"}).and_return("Download ready (SHAPEFILE)")
-      allow(component).to receive(:t).with("geoblacklight.download.failed", {type: "SHAPEFILE"}).and_return("Download failed (SHAPEFILE)")
-      expect(component.download_link_generated(download_type,
-        document)).to eq '<a data-download-path="/download/test-id?type=SHAPEFILE" data-download="trigger" data-action="downloads#download:once" data-download-type="SHAPEFILE" data-download-id="test-id" data-download-preparing-message="Preparing download..." data-download-ready-message="Download ready (SHAPEFILE)" data-download-failed-message="Download failed (SHAPEFILE)" href="">Export Shapefile Export Customization</a>'
+      expect(page).to have_link("Original JPG", href: "https://example.edu/image/full/full/0/default.jpg")
     end
   end
 end

@@ -1,4 +1,4 @@
-<div data-controller="downloads" class="downloads-sidebar">
+<div class="downloads-sidebar">
     <%# the dropdown-toggle class gives us the little arrow %>
     <button type="button" class="btn btn-primary dropdown-toggle sidebar-btn" id="downloads-button" data-bs-toggle="collapse" data-bs-target="#downloads-collapse" aria-expanded="false" aria-controls="downloads-collapse">
     <%= t('geoblacklight.download.download') %>
@@ -9,22 +9,16 @@
             <% if document.direct_download.present? %>
             <% if document.direct_download[:download].is_a? Array %>
                 <% document.direct_download[:download].each do |download| %>
-                <%= download_link_file(download['label'], document.id, download['url']) %>
+                <%= link_to(download['label'], download['url']) %>
                 <% end %>
             <% end %>
             <% if document.direct_download[:download].is_a? String %>
-                <%= download_link_file(download_text(document.file_format), document.id, document.direct_download[:download]) %>
+                <%= link_to(download_text(document.file_format), document.direct_download[:download]) %>
             <% end %>
             <% end %>
 
             <% if document.iiif_download.present? %>
-            <%= download_link_iiif %>
-            <% end %>
-
-            <% if document.download_types.present? %>
-            <% document.download_types.each do |type| %>
-                <%= download_link_generated(type.first, document) %>
-            <% end %>
+                <%= link_to(download_text("JPG"), iiif_jpg_url) %>
             <% end %>
         </div>
     </div>

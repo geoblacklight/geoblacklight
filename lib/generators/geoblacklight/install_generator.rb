@@ -39,11 +39,6 @@ module Geoblacklight
         namespace :wms do
           concerns :gbl_wms
         end
-        concern :gbl_downloadable, Geoblacklight::Routes::Downloadable.new
-        namespace :download do
-          concerns :gbl_downloadable
-        end
-        resources :download, only: [:show]
       ROUTES
 
       inject_into_file "config/routes.rb", routes, before: /^end/
@@ -86,10 +81,6 @@ module Geoblacklight
       inject_into_file "app/models/search_builder.rb", after: "include Blacklight::Solr::SearchBuilderBehavior" do
         "\n  include Geoblacklight::SuppressedRecordsSearchBehavior"
       end
-    end
-
-    def create_downloads_directory
-      FileUtils.mkdir_p("tmp/cache/downloads") unless File.directory?("tmp/cache/downloads")
     end
 
     def update_application_name
