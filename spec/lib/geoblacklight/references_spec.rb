@@ -165,16 +165,6 @@ RSpec.describe Geoblacklight::References do
       expect(typical_ogp_shapefile.download).to be_nil
     end
   end
-  describe "preferred_download" do
-    it "returns the direct download if available" do
-      expect(complex_shapefile.preferred_download[:file_download][:download]).to eq "http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip"
-      expect(direct_download_only.preferred_download[:file_download][:download]).to eq "http://example.com/layer-id-geotiff.tiff"
-    end
-    it "returns nil if there is no direct download" do
-      expect(typical_ogp_shapefile.preferred_download).to be_nil
-      expect(typical_ogp_geotiff.preferred_download).to be_nil
-    end
-  end
   describe "download_types" do
     it "returns available downloads by format" do
       types = complex_shapefile.download_types

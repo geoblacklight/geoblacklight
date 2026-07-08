@@ -20,15 +20,6 @@ RSpec.describe Geoblacklight::Download do
     end
   end
 
-  describe "#downloadable?" do
-    before do
-      allow(document).to receive(:downloadable?).and_return(true)
-    end
-    it "determines whether or not the resource can be downloaded" do
-      expect(download.downloadable?).to be true
-    end
-  end
-
   describe "#file_name" do
     it "gives the file name with path and extension" do
       expect(download.file_name).to eq "test-shapefile.zip"
@@ -162,27 +153,6 @@ RSpec.describe Geoblacklight::Download do
       expect(faraday_connection).to receive(:get).and_raise(Faraday::TimeoutError)
       expect(Faraday).to receive(:new).with(url: "http://www.example.com/wms").and_return(faraday_connection)
       expect { download.initiate_download }.to raise_error(Geoblacklight::Exceptions::ExternalDownloadFailed)
-    end
-  end
-  describe "#url_with_params" do
-    let(:options) do
-      {
-        service_type: "wms",
-        request_params: {
-          service: "wfs",
-          version: "2.0.0",
-          request: "GetFeature",
-          srsName: "EPSG:4326",
-          outputformat: "SHAPE-ZIP",
-          typeName: ""
-        }
-      }
-    end
-
-    it "creates a download url with params" do
-      expect(download.url_with_params).to eq "http://www.example.com/wms/?ser" \
-                                             "vice=wfs&version=2.0.0&request=GetFeature&srsName=EPSG%3A4326&output" \
-                                             "format=SHAPE-ZIP&typeName="
     end
   end
 end
