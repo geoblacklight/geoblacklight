@@ -44,13 +44,6 @@ module Geoblacklight
     end
 
     ##
-    # Preferred download (should be a file download)
-    # @return [Hash, nil]
-    def preferred_download
-      file_download if download.present?
-    end
-
-    ##
     # Download hash based off of format type
     # @return [Hash, nil]
     def downloads_by_format
@@ -90,13 +83,6 @@ module Geoblacklight
       else
         JSON.parse(@document[reference_field])
       end
-    end
-
-    ##
-    # Download hash for a static file download
-    # @return (see #downloads_by_format)
-    def file_download
-      {file_download: download.to_hash}
     end
 
     ##
