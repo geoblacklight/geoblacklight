@@ -16,7 +16,7 @@ class TestAppGenerator < Rails::Generators::Base
   # Install blacklight
   def run_blacklight_generator
     say_status("warning", "GENERATING BL", :yellow)
-    generate "blacklight:install", "--devise", "--skip-solr"
+    generate "blacklight:install", "--devise"
   end
 
   # Install geoblacklight
