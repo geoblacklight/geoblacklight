@@ -44,7 +44,7 @@ module GeoblacklightHelper
       read_more_text: t("geoblacklight.truncate.read_more"),
       close_text: t("geoblacklight.truncate.close")
     } do
-      Array(args[:value]).flatten.join(" ")
+      Array(args[:value]).flatten.collect { |v| concat tag.p(v) }
     end
   end
 
