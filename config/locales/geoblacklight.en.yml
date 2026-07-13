@@ -8,18 +8,6 @@ en:
     download:
       download: "Download"
       download_link: "Original %{download_format}"
-      success: "Your file %{title} is ready for download"
-      error: "Sorry, the requested file could not be downloaded."
-      export_formats: "Export Formats"
-      export_link: "Export %{download_format}"
-      export_shapefile_link: "Shapefile"
-      export_kmz_link: "KMZ"
-      export_geojson_link: "GeoJSON"
-      export_geotiff_link: "GeoTIFF"
-      export_csv_link: "CSV"
-      preparing: "Preparing download..."
-      ready: "Download ready (%{type})"
-      failed: "Download failed (%{type})"
     home:
       headline: "Explore and discover..."
       search_heading: "Find the maps and data you need"

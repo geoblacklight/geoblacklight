@@ -7,13 +7,10 @@
 #   example:
 #     # config/initializers/geoblacklight.rb
 #     config = GeoBlacklight.configuration
-#     config.timeout_download = 10
+#     config.bbox_within_boost = "10"
 
 # # ArcGIS Online Base URL
 # arcgis_base_url: "https://www.arcgis.com/apps/mapviewer/index.html"
-
-# # File path for downloads
-# download_path: "<%= Rails.root.join('tmp', 'cache', 'downloads') %>"
 
 # # The bq boost value for spatial search matches within a bounding box
 # bbox_within_boost: "10"
@@ -102,9 +99,6 @@
 #   - "fgdc"
 #   - "iso19139"
 #   - "html"
-
-# # (For external Download) timeout and open_timeout parameters for Faraday
-# timeout_download: 180
 
 # # (For WMS inspection) timeout and open_timeout parameters for Faraday
 # timeout_wms: 4
@@ -218,14 +212,6 @@
 #     inverse: :version_of_ancestors
 #     label: geoblacklight.relations.version_of_descendants
 #     query_type: descendants
-
-# # Vector data download formats to be displayed
-# download_formats:
-#   vector:
-#     - "Shapefile"
-#     - "KMZ"
-#     - "GeoJSON"
-#     - "CSV"
 
 # # WMS Parameters. Keys are OGC WMS request parameter names and are sent to
 # # remote WMS servers, so they are intentionally left uppercase.

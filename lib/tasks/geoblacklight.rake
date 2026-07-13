@@ -51,36 +51,6 @@ namespace :geoblacklight do
     end
   end
 
-  namespace :downloads do
-    desc "Delete all cached downloads"
-    task delete: :environment do
-      FileUtils.rm_rf Dir.glob(Rails.root.join("tmp", "cache", "downloads", "*"))
-    end
-    desc "Create download directory"
-    task mkdir: :environment do
-      FileUtils.mkdir_p(Rails.root.join("tmp", "cache", "downloads"), verbose: true)
-    end
-    desc "Precaches a download"
-    task :precache, %i[doc_id download_type timeout] => [:environment] do |_t, args|
-      unless args[:doc_id] && args[:download_type] && args[:timeout]
-        raise "Please supply required arguments [document_id, download_type and timeout]"
-      end
-
-      document = Geoblacklight::SolrDocument.find(args[:doc_id])
-      raise Blacklight::Exceptions::RecordNotFound if document[:id] != args[:doc_id]
-
-      download = "Geoblacklight::#{args[:download_type].capitalize}Download"
-        .constantize.new(document, timeout: args[:timeout].to_i)
-      download.get
-      Rails.logger.info "Successfully downloaded #{download.file_name}"
-      Rails.logger.info Geoblacklight::ShapefileDownload.file_path.to_s
-    rescue Geoblacklight::Exceptions::ExternalDownloadFailed => e
-      Rails.logger.error e.message + " " + e.url
-    rescue NameError
-      Rails.logger.error "Could not find that download type \"#{args[:download_type]}\""
-    end
-  end
-
   desc "Stdout output asset paths"
   task application_asset_paths: [:environment] do
     puts Rails.application.config.assets.paths

@@ -20,7 +20,6 @@ RSpec.describe Geoblacklight::Configuration::SettingsBuilder do
         {
           institution: "MIT",
           fields: {title: "my_title_s"},
-          download_formats: {vector: ["GeoJSON"]},
           leaflet: {selected_color: "#abc123", sidebar: true}
         }
       end
@@ -31,7 +30,6 @@ RSpec.describe Geoblacklight::Configuration::SettingsBuilder do
 
       it "resolves nested lowercase keys" do
         expect(config.fields.title).to eq("my_title_s")
-        expect(config.vector_download_formats).to eq(["GeoJSON"])
         expect(config.leaflet_options.selected_color).to eq("#abc123")
         expect(config.leaflet_options.sidebar).to be true
       end

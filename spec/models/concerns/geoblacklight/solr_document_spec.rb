@@ -105,13 +105,6 @@ RSpec.describe Geoblacklight::SolrDocument do
       expect(document.references).to be_an Geoblacklight::References
     end
   end
-  describe "download_types" do
-    let(:document_attributes) { {} }
-    it "calls download_types" do
-      expect_any_instance_of(Geoblacklight::References).to receive(:download_types)
-      document.download_types
-    end
-  end
   describe "direct_download" do
     let(:document_attributes) { {} }
     describe "with a direct download" do
