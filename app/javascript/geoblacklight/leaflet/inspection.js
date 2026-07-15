@@ -1,4 +1,5 @@
 import { identifyFeatures } from "esri-leaflet";
+import { polygon, geoJSON, circleMarker, layerGroup } from "leaflet";
 import { appendErrorMessage, appendLoadingMessage, getLayerOpacity, linkify } from "geoblacklight/leaflet/utils";
 
 export const wmsInspection = (map, url, layerId, layer) => {
@@ -66,15 +67,15 @@ export const overlayLayer = (map, data, layer) => {
   const color = map.options.selected_color;
 
   if (data._latlngs) {
-    overlayLayer = L.polygon(data._latlngs, {color: color, weight: 2, layer: true, fillOpacity: opacity, addToOpacitySlider: true, highlightLayer: true });
+    overlayLayer = polygon(data._latlngs, {color: color, weight: 2, layer: true, fillOpacity: opacity, addToOpacitySlider: true, highlightLayer: true });
   } else {
-    overlayLayer = L.geoJSON(data, {
+    overlayLayer = geoJSON(data, {
       color: color,
       opacity: opacity,
       addToOpacitySlider: true,
       highlightLayer: true,
       pointToLayer: function(feature, latlng) {
-        return L.circleMarker(latlng, {
+        return circleMarker(latlng, {
           radius: 8,
           fillColor: color,
           color: color,
@@ -85,7 +86,7 @@ export const overlayLayer = (map, data, layer) => {
       }
     });
   }
-  L.layerGroup([overlayLayer]).addTo(map);
+  layerGroup([overlayLayer]).addTo(map);
 }
 
 export const tiledMapLayerInspection = (map, layer) => {
