@@ -19,6 +19,10 @@ module Geoblacklight
         (direct_download_links + iiif_download_links).compact
       end
 
+      def child_component
+        Geoblacklight::Document::DownloadLinkComponent
+      end
+
       # Direct download links to files
       def direct_download_links
         direct_downloads = Array(document.direct_download&.dig(:download))
@@ -27,12 +31,12 @@ module Geoblacklight
         # Use label and url for multiple downloads; use format to label otherwise
         direct_downloads.map do |entry|
           if entry.is_a?(Hash)
-            Geoblacklight::Document::DownloadLinkComponent.new(
+            child_component.new(
               title: entry["label"],
               url: entry["url"]
             )
           else
-            Geoblacklight::Document::DownloadLinkComponent.new(
+            child_component.new(
               url: entry,
               data_file_type: document.file_format
             )
@@ -43,11 +47,11 @@ module Geoblacklight
       # Links to IIIF image and manifest downloads
       def iiif_download_links
         [
-          document.iiif_download.present? && Geoblacklight::Document::DownloadLinkComponent.new(
+          document.iiif_download.present? && child_component.new(
             title: t("geoblacklight.download.iiif_image_link"),
             url: document.iiif_download[:iiif].sub(/\/info\.json$/, "/full/full/0/default.jpg")
           ),
-          document.references.iiif_manifest.present? && Geoblacklight::Document::DownloadLinkComponent.new(
+          document.references.iiif_manifest.present? && child_component.new(
             title: t("geoblacklight.download.iiif_manifest_link"),
             url: document.references.iiif_manifest.endpoint,
             file_type: "JSON"
