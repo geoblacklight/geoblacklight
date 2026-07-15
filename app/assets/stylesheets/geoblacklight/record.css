@@ -47,6 +47,12 @@
   }
 }
 
+.relations {
+  .list-group {
+    --bs-list-group-border-width: 0;
+  }
+}
+
 /* Login button */
 .login-btn {
   --gbl-login-btn-bg: rgba(var(--bs-body-color-rgb), 0.03);

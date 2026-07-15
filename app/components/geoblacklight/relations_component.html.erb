@@ -5,7 +5,7 @@
 
   <ul class="list-group list-group-flush">
     <% relationship_type_results['docs'][0..2].map { |hash| SolrDocument.new(hash) }.each do |doc| %>
-      <li class="list-group-item border-bottom-0">
+      <li class="list-group-item">
         <%= link_to solr_document_path(doc) do %>
           <%= helpers.geoblacklight_icon(rel_type_info.icon) unless rel_type_info.icon.nil? %>
           <%= doc.title %>
@@ -13,7 +13,7 @@
       </li>
     <% end %>
     <% unless (relationship_type_results['numFound'].to_i <= 3) %>
-      <li class="list-group-item border-bottom-0">
+      <li class="list-group-item">
         <%= link_to search_catalog_path({f: {"#{Geoblacklight.configuration.relationships_shown.public_send(relationship_type).field}" => [relations.link_id]}}) do %>
           <%= t('geoblacklight.relations.browse_all', count: relationship_type_results['numFound']) %>
         <% end %>
