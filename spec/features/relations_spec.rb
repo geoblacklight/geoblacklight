@@ -33,10 +33,9 @@ feature "Display related documents" do
   end
 
   scenario "Relationship browse link returns relationship-scoped results", js: true do
-    # Wabash Topo parent record
-    visit solr_document_path("eee6150b-ce2f-4837-9d17-ce72a0c1c26f")
+    visit solr_document_path("princeton-1r66j405w")
 
-    expect(page).to have_content(:all, "Has part...")
+    expect(page).to have_content(:all, "Derived records...")
     expect(page).to have_link("Browse all 4 records...", visible: :all)
     click_link("Browse all 4 records...", visible: :all)
 
