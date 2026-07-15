@@ -1,5 +1,7 @@
 <div data-controller="downloads" class="downloads card">
-  <div class="card-header"><%= t("geoblacklight.download.downloads") %></div>
+  <div class="card-header">
+    <h2 class="mb-0 h6"><%= t("geoblacklight.download.downloads") %></h2>
+  </div>
   <ul class="list-group list-group-flush">
     <% download_links.each do |link| %>
       <%= render link %>
