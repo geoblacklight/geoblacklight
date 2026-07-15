@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module Geoblacklight
-  VERSION = "6.0.0-alpha.5"
+  VERSION = "6.0.0-alpha.6"
 end
