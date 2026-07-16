@@ -33,8 +33,7 @@
 
 /* Sidebar */
 .page-sidebar {
-  .card + .card,
-  turbo-frame .card {
+  > * + * {
     margin-top: 1rem;
   }
 
@@ -45,6 +44,10 @@
   .card-header {
     font-weight: 500;
   }
+}
+
+#relations {
+  display: block;
 }
 
 .relations {

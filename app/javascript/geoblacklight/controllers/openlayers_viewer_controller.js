@@ -13,6 +13,7 @@ export default class OpenlayersViewerController extends Controller {
     url: String,
     protocol: String,
     basemap: String,
+    darkBasemap: String,
     mapGeom: String,
   }
 
@@ -24,6 +25,10 @@ export default class OpenlayersViewerController extends Controller {
     await this.getBounds()
     // Load the map
     this.loadMap()
+
+    // Check for changes to dark/light mode and update the basemap accordingly
+    const observer = new MutationObserver(() => this.map.getLayers().setAt(0, this.getBasemap()))
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-bs-theme"] })
   }
 
   // Create the map, add layers, and fit the bounds
@@ -52,8 +57,11 @@ export default class OpenlayersViewerController extends Controller {
 
   // Select the configured basemap to use
   getBasemap() {
-    const basemap = basemaps[this.basemapValue || "positron"]
-    const layer = new TileLayer({ source: new XYZ(basemap) })
+    if (document.documentElement.getAttribute("data-bs-theme") === "dark")
+      this.basemapName = this.darkBasemapValue || "dark_matter"
+    else this.basemapName = this.basemapValue || "positron"
+
+    const layer = new TileLayer({ source: new XYZ(basemaps[this.basemapName]) })
     return layer
   }
 

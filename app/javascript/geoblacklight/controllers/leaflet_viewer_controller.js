@@ -55,6 +55,13 @@ export default class LeafletViewerController extends Controller {
 
     // Load the map
     this.loadMap()
+
+    // Check for changes to dark/light mode and update the basemap accordingly
+    const observer = new MutationObserver(() => {
+      this.map.removeLayer(this.basemap)
+      this.map.addLayer(this.getBasemap())
+    })
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-bs-theme"] })
   }
 
   // Create the map, add layers, fit the bounds
