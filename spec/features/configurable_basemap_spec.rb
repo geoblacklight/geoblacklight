@@ -10,7 +10,7 @@ RSpec.feature "Configurable basemap", js: true do
 
   feature "without provided basemap config" do
     before do
-      CatalogController.blacklight_config.basemap_provider = nil
+      Geoblacklight.configuration.basemap_provider = nil
     end
     scenario "has Carto map" do
       visit root_path
@@ -18,21 +18,21 @@ RSpec.feature "Configurable basemap", js: true do
     end
   end
 
-  feature "using darkMatter" do
+  feature "using dark matter" do
     before do
-      CatalogController.blacklight_config.basemap_provider = "darkMatter"
+      Geoblacklight.configuration.basemap_provider = "dark_matter"
     end
-    scenario "has darkMatter map" do
+    scenario "has dark matter map" do
       visit root_path
       expect(page).to have_css "img[src*='dark_all']", visible: :all
     end
   end
 
-  feature "using openstreetmapHot" do
+  feature "using openstreetmap hot" do
     before do
-      CatalogController.blacklight_config.basemap_provider = "openstreetmapHot"
+      Geoblacklight.configuration.basemap_provider = "openstreetmap_hot"
     end
-    scenario "has openstreetmapHot map" do
+    scenario "has openstreetmap hot map" do
       visit root_path
       expect(page).to have_css "img[src*='hot']", visible: :all
     end

@@ -35,6 +35,24 @@ module Geoblacklight
 
     attribute :iiif_drag_drop_link, :string, default: "@manifest?manifest=@manifest"
 
+    # Configure basemap provider for GeoBlacklight maps
+    # Valid basemaps include:
+    # 'positron'
+    # 'dark_matter'
+    # 'positron_lite'
+    # 'world_antique'
+    # 'world_eco'
+    # 'flat_blue'
+    # 'midnight_commander'
+    # 'openstreetmap_hot'
+    # 'openstreetmap_standard'
+
+    # Basemap used in light mode
+    attribute :basemap_provider, :string, default: "positron"
+
+    # Basemap used in dark mode
+    attribute :dark_basemap_provider, :string, default: "dark_matter"
+
     # Homepage Map Geometry
     # Leave null to default to entire world
     # Add a stringified GeoJSON object to scope initial render (example from UMass)

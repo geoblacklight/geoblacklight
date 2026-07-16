@@ -1,5 +1,5 @@
 export default {
-  darkMatter: {
+  dark_matter: {
     url: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{retina}.png",
     attribution:
       '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://carto.com/attributions">Carto</a>',
@@ -15,7 +15,7 @@ export default {
     worldCopyJump: true,
     retina: "@2x",
   },
-  positronLite: {
+  positron_lite: {
     url: "https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{retina}.png",
     attribution:
       '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://carto.com/attributions">Carto</a>',
@@ -23,7 +23,7 @@ export default {
     worldCopyJump: true,
     retina: "@2x",
   },
-  worldAntique: {
+  world_antique: {
     url: "https://cartocdn_{s}.global.ssl.fastly.net/base-antique/{z}/{x}/{y}{retina}.png",
     attribution:
       '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://carto.com/attributions">Carto</a>',
@@ -31,7 +31,7 @@ export default {
     worldCopyJump: true,
     retina: "@2x",
   },
-  worldEco: {
+  world_eco: {
     url: "https://cartocdn_{s}.global.ssl.fastly.net/base-eco/{z}/{x}/{y}{retina}.png",
     attribution:
       '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://carto.com/attributions">Carto</a>',
@@ -39,7 +39,7 @@ export default {
     worldCopyJump: true,
     retina: "@2x",
   },
-  flatBlue: {
+  flat_blue: {
     url: "https://cartocdn_{s}.global.ssl.fastly.net/base-flatblue/{z}/{x}/{y}{retina}.png",
     attribution:
       '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://carto.com/attributions">Carto</a>',
@@ -47,7 +47,7 @@ export default {
     worldCopyJump: true,
     retina: "@2x",
   },
-  midnightCommander: {
+  midnight_commander: {
     url: "https://cartocdn_{s}.global.ssl.fastly.net/base-midnight/{z}/{x}/{y}{retina}.png",
     attribution:
       '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://carto.com/attributions">Carto</a>',
@@ -55,7 +55,7 @@ export default {
     worldCopyJump: true,
     retina: "@2x",
   },
-  openstreetmapHot: {
+  openstreetmap_hot: {
     url: "https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png",
     attribution:
       '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>',
@@ -63,7 +63,7 @@ export default {
     worldCopyJump: true,
     retina: "@2x",
   },
-  openstreetmapStandard: {
+  openstreetmap_standard: {
     url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     maxZoom: 19,

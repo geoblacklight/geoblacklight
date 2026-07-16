@@ -84,7 +84,8 @@ module Geoblacklight
         data: {
           "controller" => viewer_name,
           "#{viewer_name}-available-value" => helpers.document_available?(@document),
-          "#{viewer_name}-basemap-value" => helpers.geoblacklight_basemap,
+          "#{viewer_name}-basemap-value" => Geoblacklight.configuration.basemap_provider,
+          "#{viewer_name}-dark-basemap-value" => Geoblacklight.configuration.dark_basemap_provider,
           "#{viewer_name}-protocol-value" => protocol,
           "#{viewer_name}-url-value" => @document.viewer_endpoint,
           "#{viewer_name}-map-geom-value" => @document.geometry.geojson,

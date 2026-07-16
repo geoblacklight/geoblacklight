@@ -25,7 +25,8 @@ module Geoblacklight
         class: "viewer border",
         data: {
           "controller" => "leaflet-viewer",
-          "leaflet-viewer-basemap-value" => helpers.geoblacklight_basemap,
+          "leaflet-viewer-basemap-value" => Geoblacklight.configuration.basemap_provider,
+          "leaflet-viewer-dark-basemap-value" => Geoblacklight.configuration.dark_basemap_provider,
           "leaflet-viewer-page-value" => "STATIC_MAP",
           "leaflet-viewer-map-geom-value" => @document.geometry.geojson,
           "leaflet-viewer-options-value" => leaflet_options.to_h,
