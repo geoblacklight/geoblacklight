@@ -9,6 +9,7 @@ RSpec.describe Geoblacklight::ViewerHelpTextComponent, type: :component do
   context "when the help text exists for an existing viewer protocol" do
     it "shows correct help text title for wms" do
       render_inline(described_class.new(feature, key))
+      expect(page).to have_css(".help-text", count: 1)
       expect(page).to have_text(I18n.t("geoblacklight.help_text.viewer_protocol.wms.title"))
     end
   end

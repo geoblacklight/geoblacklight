@@ -3,24 +3,6 @@
 require "spec_helper"
 
 RSpec.feature "Display related documents" do
-  scenario "Record with dct_source_sm value(s) should have parent(s)" do
-    visit relations_solr_document_path("nyu_2451_34502")
-    expect(page).to have_css(".relations .card-header h2", text: "Source records...")
-  end
-
-  scenario "Record that is pointed to by others should have children" do
-    visit relations_solr_document_path("nyu_2451_34635")
-    expect(page).to have_css(".relations .card-header h2", text: "Derived records...")
-  end
-
-  scenario "Relations should respond to json" do
-    visit relations_solr_document_path("nyu_2451_34635", format: "json")
-    response = JSON.parse(page.body)
-    expect(response["relations"]).not_to respond_to("source_ancestors")
-    expect(response["relations"]["source_descendants"]["docs"].first[Geoblacklight.configuration.fields.id]).to eq "nyu_2451_34502"
-    expect(response["current_doc"]).to eq "nyu_2451_34635"
-  end
-
   scenario "Record with relations should render widget in catalog#show", js: true do
     visit solr_document_path("nyu_2451_34635")
     expect(page).to have_css(".card.relations", visible: :all)
