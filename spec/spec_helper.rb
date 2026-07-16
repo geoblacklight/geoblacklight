@@ -59,6 +59,8 @@ end
 
 Capybara.javascript_driver = :chrome_headless
 
+Capybara.default_max_wait_time = ENV["CI"] ? 10 : 2
+
 require "geoblacklight"
 
 Dir["./spec/support/**/*.rb"].sort.each { |f| require f }
