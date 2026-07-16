@@ -14,4 +14,3 @@ Include what version of GeoBlacklight related to this issue (1.3.0, main, etc.) 
 ### Related work
 
 Link to related tickets or prior related work here.
-

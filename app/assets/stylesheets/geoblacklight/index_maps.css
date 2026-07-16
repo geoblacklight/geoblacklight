@@ -16,7 +16,7 @@
   align-items: flex-start;
   gap: 0.5em;
 
-  @media(min-width: 992px) {
+  @media (min-width: 992px) {
     flex-direction: row;
     gap: 1em;
   }
