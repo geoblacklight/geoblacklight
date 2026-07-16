@@ -23,18 +23,6 @@ RSpec.describe GeoblacklightHelper, type: :helper do
     end
   end
 
-  describe "#geoblacklight_basemap" do
-    let(:blacklight_config) { double }
-    it "without configuration" do
-      expect(blacklight_config).to receive(:basemap_provider).and_return(nil)
-      expect(geoblacklight_basemap).to eq "positron"
-    end
-    it "with custom configuration" do
-      expect(blacklight_config).to receive(:basemap_provider).and_return("positron")
-      expect(geoblacklight_basemap).to eq "positron"
-    end
-  end
-
   describe "#snippit" do
     let(:document) { SolrDocument.new(document_attributes) }
     let(:references_field) { Geoblacklight.configuration.fields.references }

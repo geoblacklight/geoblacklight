@@ -49,13 +49,6 @@ module GeoblacklightHelper
   end
 
   ##
-  # Selects the basemap used for map displays
-  # @return [String]
-  def geoblacklight_basemap
-    blacklight_config.basemap_provider || "positron"
-  end
-
-  ##
   # Renders the transformed metadata
   # (Renders a partial when the metadata isn't available)
   # @param [Geoblacklight::Metadata::Base] metadata the metadata object

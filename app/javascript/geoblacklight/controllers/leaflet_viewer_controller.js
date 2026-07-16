@@ -34,6 +34,7 @@ export default class LeafletViewerController extends Controller {
     available: Boolean,
     options: Object,
     basemap: String,
+    darkBasemap: String,
     mapGeom: Object,
     page: String,
     layerId: String,
@@ -103,11 +104,14 @@ export default class LeafletViewerController extends Controller {
     this.element.dataset.bounds = this.bounds.toBBoxString()
   }
 
-  // Select the configured basemap to use
+  // Select the configured basemaps to use
   getBasemap() {
-    const basemapName = this.basemapValue || "positron"
-    return tileLayer(basemaps[basemapName].url, {
-      ...basemaps[basemapName],
+    if (document.documentElement.getAttribute("data-bs-theme") === "dark")
+      this.basemapName = this.darkBasemapValue || "dark_matter"
+    else this.basemapName = this.basemapValue || "positron"
+
+    return tileLayer(basemaps[this.basemapName].url, {
+      ...basemaps[this.basemapName],
       detectRetina: this.optionsValue.layers.detect_retina || false,
     })
   }

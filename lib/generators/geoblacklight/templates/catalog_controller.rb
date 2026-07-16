@@ -327,21 +327,6 @@ class CatalogController < ApplicationController
     config.add_show_tools_partial :web_services, component: Geoblacklight::WebServicesLinkComponent,
       if: proc { |_context, _config, options| options[:document] && (gbl_config.webservices_shown & options[:document].references.refs.map(&:type).map(&:to_s)).any? }
 
-    # Configure basemap provider for GeoBlacklight maps (uses https only basemap
-    # providers with open licenses)
-    # Valid basemaps include:
-    # 'positron'
-    # 'darkMatter'
-    # 'positronLite'
-    # 'worldAntique'
-    # 'worldEco'
-    # 'flatBlue'
-    # 'midnightCommander'
-    # 'openstreetmapHot'
-    # 'openstreetmapStandard'
-
-    config.basemap_provider = "positron"
-
     # Configuration for autocomplete suggestor
     config.autocomplete_enabled = true
     config.autocomplete_path = "suggest"
