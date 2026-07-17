@@ -32,6 +32,6 @@
     left: 0;
     width: 100%;
     height: 2rem;
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--bs-body-bg));
   }
 }

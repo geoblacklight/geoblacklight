@@ -6,6 +6,57 @@
   height: 500px;
 }
 
+.leaflet-container {
+  background: var(--bs-body-bg);
+}
+
+/* Contrast fix for darkMatter theme in Leaflet */
+[data-bs-theme="dark"] .leaflet-tile-pane img[src*='dark_all'] {
+  filter: brightness(2.5) contrast(200%);
+}
+
+/* Dark mode styles for leaflet controls */
+.leaflet-touch .leaflet-bar {
+  border: 2px solid var(--bs-border-color);
+}
+
+.leaflet-bar a {
+  color: var(--bs-body-color);
+  background-color: var(--bs-body-bg);
+
+  &:hover {
+    color: var(--bs-body-color);
+    background-color: color-mix(in srgb, var(--bs-body-bg), var(--bs-body-color) 10%);
+  }
+
+  &.leaflet-disabled {
+    color: color-mix(in srgb, var(--bs-body-color), var(--bs-body-bg) 50%);
+    background-color: var(--bs-body-bg);
+    cursor: not-allowed;
+
+    &:hover {
+      color: color-mix(in srgb, var(--bs-body-color), var(--bs-body-bg) 50%);
+      background-color: var(--bs-body-bg);
+    }
+  }
+}
+
+[data-bs-theme="dark"] .leaflet-bar a.leaflet-fullscreen-icon {
+  color: var(--bs-body-bg);
+  background-color: var(--bs-body-color);
+  filter: invert(1);
+
+  &:hover {
+    background-color: color-mix(in srgb, var(--bs-body-color), black  10%);
+  }
+}
+
+/* Dark mode responsiveness for openlayers viewer */
+:root {
+  --ol-foreground-color: var(--bs-body-color);
+  --ol-background-color: var(--bs-body-bg);
+}
+
 /* Hide attribution and controls and disable interaction on the static map */
 #static-map {
   height: 250px;
@@ -24,7 +75,12 @@
 
 /* Prevent transparency of Leaflet's affiliations display to improve contrast */
 .leaflet-container .leaflet-control-attribution {
-  background: white;
+  background: var(--bs-body-bg);
+  color: var(--bs-body-color);
+
+  a {
+    color: var(--bs-link-color);
+  }
 }
 
 /* Fix text color on buttons inside the map to match Bootstrap */
@@ -38,7 +94,7 @@
 
 /* Blur the background of the dynamic search toggle to improve contrast */
 #gbl-dynamic-button {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(var(--bs-body-bg-rgb), 0.7);
   backdrop-filter: blur(5px);
 }
 
