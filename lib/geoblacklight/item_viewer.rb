@@ -77,7 +77,7 @@ module Geoblacklight
     end
 
     def viewer_preference
-      [cog, pmtiles, oembed, index_map, tilejson, xyz, wmts, tms, wms, iiif_manifest, iiif, tiled_map_layer, dynamic_map_layer,
+      [oembed, cog, pmtiles, index_map, tilejson, xyz, wmts, tms, wms, iiif_manifest, iiif, tiled_map_layer, dynamic_map_layer,
         image_map_layer, feature_layer].compact.map(&:to_hash).first
     end
   end
