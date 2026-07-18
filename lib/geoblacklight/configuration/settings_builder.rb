@@ -19,7 +19,6 @@ module Geoblacklight
           assign(config, :display_notes_shown, build_display_notes)
           assign(config, :institution, settings.INSTITUTION)
           assign(config, :help_text, settings.HELP_TEXT&.to_h)
-          assign(config, :sidebar_static_map, settings.SIDEBAR_STATIC_MAP)
           assign(config, :iiif_drag_drop_link, settings.IIIF_DRAG_DROP_LINK)
           assign(config, :homepage_map_geom, settings.HOMEPAGE_MAP_GEOM)
           assign(config, :metadata_shown, settings.METADATA_SHOWN)

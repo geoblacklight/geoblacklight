@@ -29,6 +29,7 @@ module Geoblacklight
       attribute :identifiers, :array, field_config.identifier
       attribute :issued, :string, field_config.date_issued
       attribute :format, :string, field_config.format
+      attribute :georeferenced?, :boolean, field_config.georeferenced
     end
 
     def available?
@@ -45,6 +46,10 @@ module Geoblacklight
 
     def downloadable?
       (direct_download || iiif_download) && available?
+    end
+
+    def iiif_preview?
+      viewer_protocol == "iiif" || viewer_protocol == "iiif_manifest"
     end
 
     def previewable?
