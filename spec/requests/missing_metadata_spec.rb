@@ -22,7 +22,7 @@ RSpec.describe "Records with missing metadata", type: :request do
       get solr_document_path(document_id)
 
       expect(response).to have_http_status(:ok)
-      expect(response_page).to have_css("#leaflet-viewer")
+      expect(response_page).to have_css("dl.document-metadata")
     end
   end
 end

@@ -1,0 +1,6 @@
+<div id="viewer-container">
+  <%= render Geoblacklight::ViewerHelpTextComponent.new('viewer_protocol', @document.viewer_protocol) %>
+  <%= render Geoblacklight::IndexMapLegendComponent.new(document: @document) %>
+  <%= render Geoblacklight::ItemMapViewerComponent.new(document: @document) %>
+  <%= render Geoblacklight::IiifDragDropComponent.new(document: @document) %>
+</div>

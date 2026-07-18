@@ -47,6 +47,10 @@ module Geoblacklight
       (direct_download || iiif_download) && available?
     end
 
+    def previewable?
+      viewer_endpoint.present?
+    end
+
     def references
       References.new(self)
     end

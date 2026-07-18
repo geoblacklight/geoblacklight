@@ -89,4 +89,14 @@ RSpec.describe Geoblacklight::DocumentComponent, type: :component do
       expect(page).to have_css("div#leaflet-viewer")
     end
   end
+
+  context "when the document does not have previewable content" do
+    let(:fixture) { "solr_documents/actual-papermap1.json" }
+
+    it "does not render the viewer" do
+      expect(page).not_to have_css("div#leaflet-viewer")
+      expect(page).not_to have_css("div#openlayers-viewer")
+      expect(page).not_to have_css("div#mirador")
+    end
+  end
 end
