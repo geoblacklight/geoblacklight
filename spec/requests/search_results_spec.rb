@@ -8,7 +8,7 @@ RSpec.describe "Search results", type: :request do
   end
 
   def result_ids
-    response_page.all("div.documentHeader").map { |element| element["data-layer-id"] }
+    response_page.all(".documentHeader").map { |element| element["data-layer-id"] }
   end
 
   it "handles a WKT bounding box that crosses the anti-meridian" do
@@ -28,9 +28,8 @@ RSpec.describe "Search results", type: :request do
   it "renders the geometry and access icons for a result" do
     get search_catalog_path(search_field: "all_fields", q: "stanford-cg357zz0321")
 
-    icons = response_page.all(".status-icons > span")
-    expect(icons[0][:class]).to include("blacklight-icons-line")
-    expect(icons[1][:class]).to include("blacklight-icons-restricted")
+    expect(response_page).to have_css(".status-icons .blacklight-icons-line")
+    expect(response_page).to have_css(".status-icons .blacklight-icons-restricted")
   end
 
   it "uses overlap ratio to rank fully contained bounding boxes" do
