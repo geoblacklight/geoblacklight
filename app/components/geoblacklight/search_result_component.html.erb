@@ -12,9 +12,10 @@
   },
   itemscope: true,
   itemtype: @document.itemtype,
-  class: classes.flatten.join(' ') do %>
+  class: classes do %>
 
-  <%= content_tag :div, class: 'documentHeader index-split', data: { layer_id: @document.id, geom: @document.geometry.geojson } do %>
+  <%= content_tag :div, class: 'document-main-section' do %>
+  <%= content_tag :header, class: 'documentHeader index-split', data: { layer_id: @document.id, geom: @document.geometry.geojson } do %>
     <div class="document-counter">
       <%= t('blacklight.search.documents.counter', :counter => @counter) if @counter %>
     </div>
@@ -23,18 +24,18 @@
       <%= helpers.link_to_document(@document, counter: @counter, itemprop: "name") %>
     </h3>
 
-    <div class="status-icons">
-      <%= render Geoblacklight::HeaderIconsComponent.new(document: @document) %>
-      <button
-          class="btn dropdown-toggle collapsed"
-          data-bs-toggle="collapse"
-          data-bs-target="#doc-<%= @document.id %>-fields-collapse"
-          aria-label="<%= t('geoblacklight.metadata.toggle_summary') %>"
-          aria-expanded="false"
-          aria-controls="doc-<%= @document.id %>-fields-collapse">
-      </button>
-    </div>
-
+    <button
+        class="btn dropdown-toggle collapsed"
+        data-bs-toggle="collapse"
+        data-bs-target="#doc-<%= @document.id %>-fields-collapse"
+        aria-label="<%= t('geoblacklight.metadata.toggle_summary') %>"
+        aria-expanded="false"
+        aria-controls="doc-<%= @document.id %>-fields-collapse">
+    </button>
+  <% end %>
+  <div class="status-icons mx-4 mt-2">
+    <%= render Geoblacklight::HeaderIconsComponent.new(document: @document) %>
+  </div>
   <% end %>
 <% end %>
 <div class="more-info-area border-bottom">
