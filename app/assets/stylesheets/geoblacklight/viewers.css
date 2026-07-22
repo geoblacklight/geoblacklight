@@ -1,9 +1,31 @@
 /* Styles for map viewers */
 
-/* Geo viewers */
-#leaflet-viewer,
-#openlayers-viewer {
+/* Viewers */
+.viewer {
   height: 500px;
+}
+
+.leaflet-viewer,
+.openlayers-viewer,
+.mirador-viewer,
+.openseadragon-viewer {
+  border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color);
+}
+
+.leaflet-viewer,
+.openseadragon-viewer {
+  border-radius: var(--bs-border-radius);
+}
+
+/* Locator map on search results */
+search .location-viewer {
+  border: none;
+  border-radius: 0;
+
+  @media (min-width: 992px) {
+    height: unset;
+    aspect-ratio: 1;
+  }
 }
 
 .leaflet-container {
@@ -96,6 +118,11 @@
 #gbl-dynamic-button {
   background: rgba(var(--bs-body-bg-rgb), 0.7);
   backdrop-filter: blur(5px);
+
+  /* Make sure it can fit inside the facet on very small screens */
+  @media (min-width: 992px) and (max-width: 1199px) {
+    --bs-btn-font-size: var(--bs-small-font-size);
+  }
 }
 
 /* IIIF viewers */
