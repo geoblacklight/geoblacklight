@@ -76,11 +76,11 @@ module GeoblacklightHelper
   # Renders a reference url for a document
   # @param [Hash] document, field_name
   def render_references_url(args)
-    return unless args[:document]&.references&.url
-    link_to(
-      args[:document].references.url.endpoint,
-      args[:document].references.url.endpoint
-    )
+    url = args[:document]&.references&.url
+    return unless url
+
+    endpoint = url.endpoint
+    link_to(endpoint, endpoint)
   end
 
   ## Returns the data-page attribute value used as the JS map selector
