@@ -1,6 +1,28 @@
 # frozen_string_literal: true
 
 module GeoblacklightHelper
+  include Blacklight::LayoutHelperBehavior
+
+  # Let the facets take up more space for the locator map
+  def sidebar_classes
+    "page-sidebar col-lg-4 order-first"
+  end
+
+  # Make the search results take up less space so the facets can take more
+  def main_content_classes
+    "col-lg-8"
+  end
+
+  # Needed so we keep the defaults instead of using sidebar_classes
+  def show_sidebar_classes
+    "page-sidebar col-lg-3"
+  end
+
+  # Needed so we keep the defaults instead of using main_content_classes
+  def show_content_classes
+    "col-lg-9 show-document"
+  end
+
   def document_available?(document)
     document.public? || (document.same_institution? && user_signed_in?)
   end

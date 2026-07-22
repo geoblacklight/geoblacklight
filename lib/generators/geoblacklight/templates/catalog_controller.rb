@@ -86,6 +86,23 @@ class CatalogController < ApplicationController
 
     # FACETS
 
+    # GEOBLACKLIGHT APPLICATION FACETS
+
+    # Map-Based "Search Here" Feature
+    # component:           - Defines how the facet appears in the sidebar
+    # item_presenter       - Defines how the facet values appear in the constraints section
+    # filter_query_builder - Defines the query generated for Solr
+    # filter_class         - Defines how to add/remove facet from query
+    # label                - Defines the label used for the facet
+    config.add_facet_field field_config.geometry, component: Geoblacklight::Facets::BboxFieldComponent,
+      item_presenter: Geoblacklight::BboxItemPresenter,
+      filter_class: Geoblacklight::BboxFilterField,
+      filter_query_builder: Geoblacklight::BboxFilterQuery,
+      within_boost: gbl_config.bbox_within_boost,
+      overlap_boost: gbl_config.overlap_ratio_boost,
+      overlap_field: field_config.overlap_field,
+      label: "Bounding Box"
+
     # DEFAULT FACETS
     config.add_facet_field field_config.index_year, label: "Year", limit: 10
     config.add_facet_field field_config.spatial_coverage, label: "Place", limit: 8
@@ -103,21 +120,6 @@ class CatalogController < ApplicationController
     # If you wish to add a date range filter, first run `bundle add blacklight_range_limit && bin/rails generate blacklight_range_limit:install`
     # Then uncomment the following line:
     # config.add_facet_field field_config.index_year, label: "Date", range: true
-
-    # GEOBLACKLIGHT APPLICATION FACETS
-
-    # Map-Based "Search Here" Feature
-    # item_presenter       - Defines how the facet appears in the GBL UI
-    # filter_query_builder - Defines the query generated for Solr
-    # filter_class         - Defines how to add/remove facet from query
-    # label                - Defines the label used in contstraints container
-    config.add_facet_field field_config.geometry, item_presenter: Geoblacklight::BboxItemPresenter,
-      filter_class: Geoblacklight::BboxFilterField,
-      filter_query_builder: Geoblacklight::BboxFilterQuery,
-      within_boost: gbl_config.bbox_within_boost,
-      overlap_boost: gbl_config.overlap_ratio_boost,
-      overlap_field: field_config.overlap_field,
-      label: "Bounding Box"
 
     # Item Relationship Facets
     # * Not displayed to end user (show: false)

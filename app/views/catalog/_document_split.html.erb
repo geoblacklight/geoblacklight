@@ -1,7 +1,7 @@
 <div class="row">
   <div
     id="documents"
-    class="documents-list col-md-6"
+    class="documents-list"
     data-controller="search-results"
     data-action="leaflet-viewer:loaded@window->search-results#fitResultBounds"
     data-search-results-leaflet-viewer-outlet=".leaflet-viewer"
@@ -13,9 +13,4 @@
       <% end %>
     </div>
   </div>
-  <% if results_js_map_selector(controller.controller_name) == "index" %>
-    <%= render(Geoblacklight::LocationLeafletMapComponent.new(page: 'index', geosearch: { dynamic: true }, classes: 'col-md-6 sticky-top position-sticky leaflet-viewer border')) %>
-  <% else %>
-    <%= render(Geoblacklight::LocationLeafletMapComponent.new(page: 'index', classes: 'col-md-6 leaflet-viewer border')) %>
-  <% end %>
 </div>

@@ -3,14 +3,10 @@
 module Geoblacklight
   class LocationLeafletMapComponent < ViewComponent::Base
     def initialize(
-      id: "leaflet-viewer",
       map_geometry: config.homepage_map_geom,
-      classes: "",
       page: nil,
       geosearch: nil
     )
-      @id = id
-      @classes = classes
       @map_geometry = map_geometry if map_geometry != "null"
       @page = page
       @geosearch = geosearch
@@ -49,9 +45,11 @@ module Geoblacklight
     end
 
     def viewer_tag
-      tag.div(id: @id,
-        class: @classes,
-        data: data_permanent.merge(leaflet_viewer_data_attributes))
+      tag.div(
+        id: "leaflet-viewer",
+        class: "viewer leaflet-viewer location-viewer",
+        data: data_permanent.merge(leaflet_viewer_data_attributes)
+      )
     end
 
     def leaflet_viewer_data_attributes
@@ -61,7 +59,7 @@ module Geoblacklight
         "leaflet-viewer-dark-basemap-value" => Geoblacklight.configuration.dark_basemap_provider,
         "leaflet-viewer-map-geom-value" => search_bbox || @map_geometry,
         "leaflet-viewer-data-map-value" => @data_map,
-        "leaflet-viewer-page-value" => params[:action]&.upcase,
+        "leaflet-viewer-page-value" => @page || params[:action],
         "leaflet-viewer-options-value" => leaflet_options.to_h,
         "leaflet-viewer-catalog-base-url-value" => (helpers.search_action_path if @geosearch)
       }.compact
