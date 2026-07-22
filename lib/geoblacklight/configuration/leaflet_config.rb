@@ -9,8 +9,9 @@ module Geoblacklight
       attr_accessor :bounds_overlay, :controls
 
       attr_reader :sleep, :layers
-      # set to true to display attribute table as sidebar on map
-      attribute :sidebar, :boolean, default: false
+
+      # set to false to display attribute table as a separate panel below the map
+      attribute :sidebar, :boolean, default: true
       attribute :selected_color, :string, default: "#2C7FB8"
 
       DEFAULT_SLEEP_CONFIG = {
