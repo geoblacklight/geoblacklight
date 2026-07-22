@@ -71,15 +71,6 @@ RSpec.describe GeoblacklightHelper, type: :helper do
     end
   end
 
-  describe "#render_value_as_truncate_abstract" do
-    context "with multiple values" do
-      let(:document) { SolrDocument.new(value: %w[short description]) }
-      it "wraps in correct DIV class" do
-        expect(helper.render_value_as_truncate_abstract(document)).to eq '<div class="truncate-abstract" data-read-more-text="Read more" data-close-text="Close"><p>short</p><p>description</p></div>'
-      end
-    end
-  end
-
   describe "#results_js_map_selector" do
     context "viewing bookmarks" do
       let(:controller_name) { "bookmarks" }

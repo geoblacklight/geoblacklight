@@ -152,6 +152,7 @@ class CatalogController < ApplicationController
     # item_prop: [String] property given to span with Schema.org item property
     # link_to_search: [Boolean] that can be passed to link to a facet search
     # helper_method: [Symbol] method that can be used to render the value
+    # component: [ViewComponent::Base] component that can be used to render the field
 
     # DEFAULT FIELDS
     # The following fields all feature string values. If there is a value present in the metadata, they fields will show up on the item show page.
@@ -160,7 +161,7 @@ class CatalogController < ApplicationController
     config.add_show_field field_config.alternative_title, label: "Alternative Title",
       itemprop: "alt_title"
     config.add_show_field field_config.description, label: "Description", itemprop: "description",
-      helper_method: :render_value_as_truncate_abstract
+      component: Geoblacklight::MetadataDescriptionMarkdownComponent
     config.add_show_field field_config.creator, label: "Creator", itemprop: "creator"
     config.add_show_field field_config.publisher, label: "Publisher", itemprop: "publisher"
     config.add_show_field field_config.provider, label: "Provider", link_to_facet: true
