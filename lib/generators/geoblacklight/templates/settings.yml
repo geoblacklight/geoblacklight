@@ -283,9 +283,4 @@
 #     - "wmts"
 #     - "xyz"
 
-# # Enable catalog#show sidebar static map for items with the following viewer protocols
-# sidebar_static_map:
-#   - "iiif"
-#   - "iiif_manifest"
-
 # iiif_drag_drop_link: "@manifest?manifest=@manifest"

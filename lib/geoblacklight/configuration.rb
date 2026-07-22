@@ -30,9 +30,6 @@ module Geoblacklight
     # WMS Parameters
     attr_accessor :wms_params # typed as Hash
 
-    # Enable catalog#show sidebar static map for items with the following viewer protocols
-    attr_accessor :sidebar_static_map # typed as Array
-
     attribute :iiif_drag_drop_link, :string, default: "@manifest?manifest=@manifest"
 
     # Configure basemap provider for GeoBlacklight maps
@@ -143,8 +140,6 @@ module Geoblacklight
           note_prefix: "Warning: "
         )
       }
-
-      @sidebar_static_map = ["iiif", "iiif_manifest"]
     end
 
     def fields

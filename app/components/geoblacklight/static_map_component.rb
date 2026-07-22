@@ -9,8 +9,10 @@ module Geoblacklight
       super()
     end
 
+    # If there's no preview using the big map, or there is a IIIF preview that
+    # is not georeferenced, we need to see where the item is located.
     def render?
-      Geoblacklight.configuration.sidebar_static_map&.any? { |vp| @document.viewer_protocol == vp }
+      !@document.previewable? || (@document.iiif_preview? && !@document.georeferenced?)
     end
 
     def before_render
