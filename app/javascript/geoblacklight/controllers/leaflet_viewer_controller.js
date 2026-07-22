@@ -45,6 +45,10 @@ export default class LeafletViewerController extends Controller {
     // Use leaflet icon images from CDN
     Icon.Default.imagePath = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/"
 
+    // The map can be turbo-permanent; if we're reconnected but the map already
+    // exists, no need to destroy and recreate the layers and controls.
+    if (this.map) return
+
     // Set up layers
     this.basemap = this.getBasemap()
     this.overlay = layerGroup()
