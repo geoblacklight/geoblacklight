@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Geoblacklight
-  # Display expandable file download links in sidebar
+  # Display links to records related to this one
   class RelationsComponent < ViewComponent::Base
     attr_reader :relations, :relationship_type, :rel_type_info
 

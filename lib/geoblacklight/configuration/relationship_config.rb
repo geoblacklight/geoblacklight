@@ -6,7 +6,6 @@ module Geoblacklight
       include ActiveModel::Attributes
 
       attribute :field, :string
-      attribute :icon, :string
       attribute :inverse, :string
       attribute :label, :string
       attribute :query_type, :string

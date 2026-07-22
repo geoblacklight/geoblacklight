@@ -46,13 +46,26 @@
   }
 }
 
+/* Relations */
 #relations {
   display: block;
-}
 
-.relations {
-  .list-group {
-    --bs-list-group-border-width: 0;
+  .relation-type {
+    font-weight: 500;
+  }
+
+  .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+  }
+
+  .list-item {
+    margin-top: 0.25em;
+
+    &:last-of-type {
+      margin-bottom: 0.25em;
+    }
   }
 }
 
