@@ -35,20 +35,6 @@ module GeoblacklightHelper
   end
 
   ##
-  # Render value for a document's field as a truncate abstract
-  # div. Arguments come from Blacklight::DocumentPresenter's
-  # get_field_values method
-  # @param [Hash] args from get_field_values
-  def render_value_as_truncate_abstract(args)
-    tag.div class: "truncate-abstract", data: {
-      read_more_text: t("geoblacklight.truncate.read_more"),
-      close_text: t("geoblacklight.truncate.close")
-    } do
-      Array(args[:value]).flatten.collect { |v| concat tag.p(v) }
-    end
-  end
-
-  ##
   # Renders a reference url for a document
   # @param [Hash] document, field_name
   def render_references_url(args)

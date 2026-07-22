@@ -3,6 +3,7 @@
 require "blacklight"
 require "coderay"
 require "config"
+require "commonmarker"
 require "faraday"
 require "faraday/follow_redirects"
 require "geoblacklight/version"

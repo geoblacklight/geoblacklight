@@ -3,6 +3,14 @@
 require "spec_helper"
 
 RSpec.describe CatalogController, type: :controller do
+  describe ".blacklight_config" do
+    it "uses the metadata description component for the description field" do
+      description_field = described_class.blacklight_config.show_fields[Geoblacklight.configuration.fields.description]
+
+      expect(description_field.component).to eq Geoblacklight::MetadataDescriptionMarkdownComponent
+    end
+  end
+
   describe "#web_services" do
     it "returns a document based off an id" do
       get :web_services, params: {id: "mit-f6rqs4ucovjk2"}
