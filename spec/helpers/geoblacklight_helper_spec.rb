@@ -80,61 +80,6 @@ RSpec.describe GeoblacklightHelper, type: :helper do
     end
   end
 
-  describe "#render_transformed_metadata" do
-    let(:metadata) { instance_double(Geoblacklight::Metadata::Base) }
-    context "with valid XML data" do
-      before do
-        allow(metadata).to receive(:transform).and_return("<div>test</div>")
-      end
-
-      it "renders the partial with metadata content" do
-        expect(helper).to receive(:render)
-          .with(partial: "catalog/metadata/content", locals: {content: "<div>test</div>"})
-        helper.render_transformed_metadata(metadata)
-      end
-    end
-
-    context "with valid XML data without an HTML transform" do
-      before do
-        allow(metadata).to receive(:transform).and_raise(Geoblacklight::MetadataTransformer::TransformError)
-        allow(metadata).to receive(:to_xml).and_return("<data></data>")
-      end
-
-      it "renders the partial with metadata content" do
-        expect(helper).to receive(:render).with(partial: "catalog/metadata/markup",
-          locals: {content: "<data></data>"})
-        helper.render_transformed_metadata(metadata)
-      end
-    end
-
-    context "without XML data" do
-      before do
-        allow(metadata).to receive(:transform).and_raise(Geoblacklight::MetadataTransformer::ParseError)
-      end
-
-      it "renders the partial with metadata content" do
-        expect(helper).to receive(:render).with(partial: "catalog/metadata/missing")
-        helper.render_transformed_metadata(metadata)
-      end
-    end
-  end
-
-  describe "#first_metadata?" do
-    let(:metadata) { instance_double(Geoblacklight::Metadata::Base) }
-    let(:references) { instance_double(Geoblacklight::References) }
-    let(:document) { instance_double(SolrDocument) }
-
-    before do
-      allow(document).to receive(:references).and_return(references)
-      allow(references).to receive(:shown_metadata).and_return([metadata])
-      allow(metadata).to receive(:type).and_return("fgdc")
-    end
-
-    it "confirms that a metadata resource is the first item reference" do
-      expect(helper.first_metadata?(document, metadata)).to be true
-    end
-  end
-
   describe "#results_js_map_selector" do
     context "viewing bookmarks" do
       let(:controller_name) { "bookmarks" }

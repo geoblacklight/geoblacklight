@@ -49,30 +49,6 @@ module GeoblacklightHelper
   end
 
   ##
-  # Renders the transformed metadata
-  # (Renders a partial when the metadata isn't available)
-  # @param [Geoblacklight::Metadata::Base] metadata the metadata object
-  # @return [String]
-  def render_transformed_metadata(metadata)
-    render partial: "catalog/metadata/content", locals: {content: metadata.transform.html_safe}
-  rescue Geoblacklight::MetadataTransformer::TransformError => transform_err
-    Geoblacklight.logger.warn transform_err.message
-    render partial: "catalog/metadata/markup", locals: {content: metadata.to_xml}
-  rescue => err
-    Geoblacklight.logger.warn err.message
-    render partial: "catalog/metadata/missing"
-  end
-
-  ##
-  # Determines whether or not the metadata is the first within the array of References
-  # @param [SolrDocument] document the Solr Document for the item
-  # @param [Geoblacklight::Metadata::Base] metadata the object for the metadata resource
-  # @return [Boolean]
-  def first_metadata?(document, metadata)
-    document.references.shown_metadata.first.type == metadata.type
-  end
-
-  ##
   # Renders a reference url for a document
   # @param [Hash] document, field_name
   def render_references_url(args)
