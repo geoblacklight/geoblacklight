@@ -16,12 +16,7 @@
       <% @document.display_note.each do |display_note| %>
         <%= render Geoblacklight::DisplayNoteComponent.new(display_note: display_note) %>
       <% end %>
-      <div id="viewer-container">
-        <%= render Geoblacklight::ViewerHelpTextComponent.new('viewer_protocol', @document.viewer_protocol) %>
-        <%= render Geoblacklight::IndexMapLegendComponent.new(document: @document) %>
-        <%= render Geoblacklight::ItemMapViewerComponent.new(document: @document) %>
-        <%= render Geoblacklight::IiifDragDropComponent.new(document: @document) %>
-      </div>
+      <%= render Geoblacklight::Document::PreviewComponent.new(document: @document) %>
       <%= render Geoblacklight::AttributeTableComponent.new(document: @document) %>
       <%= render Geoblacklight::IndexMapInspectComponent.new(document: @document) %>
       <%= embed %>
