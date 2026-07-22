@@ -4,7 +4,7 @@
   <% end %>
   <% component.with_body do %>
     <div class="modal-body metadata-body">
-      <%= render partial: 'metadata' %>
+      <%= render Geoblacklight::MetadataComponent.new(document: @documents.first) %>
     </div>
   <% end %>
   <% component.with_footer do %>

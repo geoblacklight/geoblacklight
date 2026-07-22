@@ -1,25 +1,23 @@
-<% document ||= @documents.first %>
-
 <div class="metadata-view">
   <div class="container-fluid">
     <ul class="nav nav-pills" role="tablist">
-      <% document.references.shown_metadata.each do |metadata| %>
+      <% @document.references.shown_metadata.each do |metadata| %>
         <li role="presentation" class="nav-item">
-          <a class="pill-metadata nav-link <%= first_metadata?(document, metadata) ? 'active' : nil %>"
+          <a class="pill-metadata nav-link <%= first_metadata?(metadata) ? 'active' : nil %>"
              href="#<%= metadata.type %>"
              aria-controls="<%= metadata.type %>"
              role="tab"
              data-bs-toggle="pill"
              data-ref-endpoint="<%= metadata.endpoint %>"
-             data-ref-download="#btn-metadata-download"><%= formatted_name_reference(metadata.type) %></a>
+             data-ref-download="#btn-metadata-download"><%= helpers.formatted_name_reference(metadata.type) %></a>
         </li>
       <% end %>
     </ul>
   </div>
 
   <div class="tab-content">
-    <% document.references.shown_metadata.each do |metadata| %>
-      <div role="tabpanel" class="tab-pane<%= first_metadata?(document, metadata) ? ' active' : nil %>" id="<%= metadata.type %>">
+    <% @document.references.shown_metadata.each do |metadata| %>
+      <div role="tabpanel" class="tab-pane<%= first_metadata?(metadata) ? ' active' : nil %>" id="<%= metadata.type %>">
         <%= render_transformed_metadata(metadata) %>
       </div>
     <% end %>
