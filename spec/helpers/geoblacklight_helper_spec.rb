@@ -117,6 +117,27 @@ RSpec.describe GeoblacklightHelper, type: :helper do
         helper.render_transformed_metadata(metadata)
       end
     end
+
+    context "with an unsupported metadata type" do
+      before do
+        allow(metadata).to receive(:transform).and_raise(Geoblacklight::MetadataTransformer::TypeError)
+      end
+
+      it "renders the missing metadata partial" do
+        expect(helper).to receive(:render).with(partial: "catalog/metadata/missing")
+        helper.render_transformed_metadata(metadata)
+      end
+    end
+
+    context "with an unexpected error" do
+      before do
+        allow(metadata).to receive(:transform).and_raise(ArgumentError)
+      end
+
+      it "raises the error" do
+        expect { helper.render_transformed_metadata(metadata) }.to raise_error(ArgumentError)
+      end
+    end
   end
 
   describe "#first_metadata?" do
