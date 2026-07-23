@@ -100,6 +100,10 @@ class CatalogController < ApplicationController
     config.add_facet_field field_config.provider, label: "Provider", limit: 8
     config.add_facet_field field_config.georeferenced, label: "Georeferenced", limit: 3
 
+    # If you wish to add a date range filter, first run `bundle add blacklight_range_limit && bin/rails generate blacklight_range_limit:install`
+    # Then uncomment the following line:
+    # config.add_facet_field field_config.index_year, label: "Date", range: true
+
     # GEOBLACKLIGHT APPLICATION FACETS
 
     # Map-Based "Search Here" Feature
