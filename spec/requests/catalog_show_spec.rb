@@ -12,7 +12,7 @@ RSpec.describe "Catalog show page", type: :request do
   end
 
   it "omits the data dictionary tool when no reference is present" do
-    get solr_document_path("stanford-cg357zz0321")
+    get solr_document_path("berkeley-s76d73")
 
     expect(response_page).to have_no_css("li.data_dictionary a", text: "Documentation")
   end

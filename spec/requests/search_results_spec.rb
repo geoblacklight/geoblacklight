@@ -26,7 +26,7 @@ RSpec.describe "Search results", type: :request do
   end
 
   it "renders the geometry and access icons for a result" do
-    get search_catalog_path(search_field: "all_fields", q: "stanford-cg357zz0321")
+    get search_catalog_path(search_field: "all_fields", q: "berkeley-s76d73")
 
     icons = response_page.all(".status-icons > span")
     expect(icons[0][:class]).to include("blacklight-icons-line")
