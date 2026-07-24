@@ -33,7 +33,7 @@ search .location-viewer {
 }
 
 /* Contrast fix for darkMatter theme in Leaflet */
-[data-bs-theme="dark"] .leaflet-tile-pane img[src*='dark_all'] {
+[data-bs-theme="dark"] .leaflet-tile-pane img[src*="dark_all"] {
   filter: brightness(2.5) contrast(200%);
 }
 
@@ -69,7 +69,7 @@ search .location-viewer {
   filter: invert(1);
 
   &:hover {
-    background-color: color-mix(in srgb, var(--bs-body-color), black  10%);
+    background-color: color-mix(in srgb, var(--bs-body-color), black 10%);
   }
 }
 
