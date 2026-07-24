@@ -1,36 +1,74 @@
 {
-  "dct_title_s": "Dabao Kinbōzu, Maps Index",
-  "dct_alternative_sm": ["index-map-stanford"],
+  "id": "stanford-bc576pk4911",
+  "dct_title_s": "Clearwater, Los Angeles Co., Cal., Sept. 1927, including Hynes, Maps Index",
   "dct_description_sm": [
-    "old-style (pre-GeoJSON) index map of rectangular polygons. ",
-    "This polygon GeoJSON file is an index to 1:50000 scale maps of Davao (Philippines), titled \\'Dabao Kinbōzu -- ダバオ近傍圖/Dabao Kinbōzu.’ This map series was originally produced by the Japanese Land Survey Department of the General Staff Headquarters in 1944. Stanford University Libraries holds a large collection of Japanese military and imperial maps, referred to as gaihōzu, or \"maps of outer lands.\" These maps were produced starting in the early Meiji (1868-1912) era and the end of World War II by the Land Survey Department of the General Staff Headquarters, the former Japanese Army. The Library is in the process of scanning and making available all of the maps in the collection. To create this index, footprints were generated using the fishnet tool, and metadata were supplied for the digitized paper maps by Stanford University Libraries. After the footprints were created, the GeoJSON was trimmed and labeled according to the sources.This layer provides an index map that can be used to locate individual scanned map sheets."
+    "This is an index to the map series 'Clearwater, Los Angeles Co., Cal., Sept. 1927, including Hynes'. The maps were created by the Sanborn Map Company (1927). This layer provides an index map that can be used to locate individual scanned map sheets."
   ],
-  "dct_language_sm": ["eng"],
-  "dct_creator_sm": ["Stanford Geospatial Center"],
-  "dct_publisher_sm": ["Stanford Digital Repository"],
+  "dct_language_sm": [
+    "eng"
+  ],
+  "dct_creator_sm": [
+    "Stanford Geospatial Center"
+  ],
+  "dct_publisher_sm": [
+    "Stanford Digital Repository"
+  ],
+  "dct_issued_s": "2025",
+  "dct_subject_sm": [
+    "Grids (Cartography)",
+    "Fire insurance",
+    "Cities and towns",
+    "Fire risk assessment",
+    "Index maps",
+    "Boundaries"
+  ],
+  "dct_spatial_sm": [
+    "Los Angeles County (Calif.)",
+    "Clearwater (Calif.)"
+  ],
+  "dcat_theme_sm": [
+    "Boundaries"
+  ],
+  "dct_temporal_sm": [
+    "1927"
+  ],
+  "gbl_dateRange_drsim": [
+    "[1927 TO 1927]"
+  ],
+  "gbl_indexYear_im": [
+    1927
+  ],
+  "date_hierarchy_sm": [
+    "1900-1999",
+    "1900-1999:1920-1929",
+    "1900-1999:1920-1929:1927"
+  ],
   "schema_provider_s": "Stanford",
-  "gbl_resourceClass_sm": ["Datasets"],
-  "gbl_resourceType_sm": ["Polygon data", "Military maps", "Topographic maps", "Index maps"],
-  "dct_subject_sm": ["Grids (Cartography)"],
-  "dcat_theme_sm": ["Boundaries"],
-  "dcat_keyword_sm": ["GBL Fixture records"],
-  "dct_temporal_sm": ["1944"],
-  "dct_issued_s": "1905-07-08",
-  "gbl_indexYear_im": [1944],
-  "gbl_dateRange_drsim": ["[1944 TO 1944]"],
-  "dct_spatial_sm": ["Davao (Philippines)"],
-  "locn_geometry": "ENVELOPE(125,126,7.3333,6.6666)",
-  "dcat_bbox": "ENVELOPE(125,126,7.3333,6.6666)",
-  "dcat_centroid": "6.99995,125.5",
+  "dct_identifier_sm": [
+    "https://purl.stanford.edu/bc576pk4911"
+  ],
+  "gbl_georeferenced_b": true,
+  "gbl_resourceClass_sm": [
+    "Datasets",
+    "Maps"
+  ],
+  "gbl_resourceType_sm": [
+    "Polygon data"
+  ],
+  "dct_format_s": "Shapefile",
+  "locn_geometry": "ENVELOPE(-118.168611, -118.164722, 33.897222, 33.883056)",
+  "dcat_bbox": "ENVELOPE(-118.168611, -118.164722, 33.897222, 33.883056)",
+  "pcdm_memberOf_sm": [
+    "stanford-wk761dz8051"
+  ],
   "dct_rights_sm": [
-    "These data are licensed by Stanford Libraries and are available to Stanford University affiliates only. Affiliates are limited to current faculty, staff and students. These data may not be reproduced or used for any purpose without permission. For more information please contact brannerlibrary@stanford.edu"
+    "This item is in the public domain.  There are no restrictions on use."
+  ],
+  "dct_rightsHolder_sm": [
+    "This work is in the Public Domain, meaning that it is not subject to copyright."
   ],
   "dct_accessRights_s": "Public",
-  "dct_format_s": "GeoJSON",
-  "gbl_wxsIdentifier_s": "druid:fb897vt9938",
-  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://gist.githubusercontent.com/mejackreed/4a44f1f7cc4fbb926068738e903a9e96/raw/fedfb0e599d647920f084627b7dca8f88a358757/stanford-fb897vt9938.geojson\",\"http://www.w3.org/1999/xhtml\":\"http://opengeometadata.stanford.edu/metadata/edu.stanford.purl/druid:fb897vt9938/default.html\",\"http://schema.org/url\":\"http://purl.stanford.edu/fb897vt9938\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"http://opengeometadata.stanford.edu/metadata/edu.stanford.purl/druid:fb897vt9938/iso19139.xml\",\"http://www.loc.gov/mods/v3\":\"http://purl.stanford.edu/fb897vt9938.mods\",\"https://openindexmaps.org\":\"https://raw.githubusercontent.com/geoblacklight/geoblacklight/main/spec/fixtures/index_maps/index-map-stanford.geojson\"}",
-  "id": "stanford-fb897vt9938",
-  "dct_identifier_sm": ["http://purl.stanford.edu/fb897vt9938"],
-  "gbl_mdModified_dt": "2021-06-01T22:14:16Z",
-  "gbl_mdVersion_s": "Aardvark"
+  "gbl_mdModified_dt": "2026-07-23T17:25:13Z",
+  "gbl_mdVersion_s": "Aardvark",
+  "dct_references_s": "{\"http://schema.org/url\":\"https://purl.stanford.edu/bc576pk4911\",\"http://schema.org/thumbnailUrl\":\"https://stacks.stanford.edu/image/iiif/bc576pk4911%2FSANB_a2725322/full/!400,400/0/default.jpg\",\"https://schema.org/relatedLink\":\"https://searchworks.stanford.edu/view/bc576pk4911\",\"https://openindexmaps.org\":\"https://stacks.stanford.edu/file/druid:bc576pk4911/index_map.geojson\",\"http://www.isotc211.org/schemas/2005/gmd\":\"https://stacks.stanford.edu/file/druid:bc576pk4911/SANB_a2725322-iso19139.xml\",\"http://www.isotc211.org/schemas/2005/gco\":\"https://stacks.stanford.edu/file/druid:bc576pk4911/SANB_a2725322-iso19110.xml\",\"http://www.opengis.net/cat/csw/csdgm\":\"https://stacks.stanford.edu/file/druid:bc576pk4911/SANB_a2725322-fgdc.xml\",\"http://www.loc.gov/mods/v3\":\"https://purl.stanford.edu/bc576pk4911.mods\",\"http://schema.org/downloadUrl\":[{\"url\":\"https://stacks.stanford.edu/object/bc576pk4911\",\"label\":\"Zipped object\"}]}"
 }

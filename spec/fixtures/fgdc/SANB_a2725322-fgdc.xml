@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin/>
+        <pubdate>20250814</pubdate>
+        <title>Clearwater, Los Angeles Co., Cal., Sept. 1927, including Hynes, Maps Index</title>
+        <geoform>vector digital data</geoform>
+        <pubinfo>
+          <pubplace/>
+          <publish>Stanford Digital Repository</publish>
+        </pubinfo>
+        <onlink>https://purl.stanford.edu/bc576pk4911</onlink>
+        <lworkcit>
+          <citeinfo>
+            <title>Sanborn Index Maps</title>
+          </citeinfo>
+        </lworkcit>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>This is an index to the map series 'Clearwater, Los Angeles Co., Cal., Sept. 1927, including Hynes'. The maps were created by the Sanborn Map Company (1927). This layer provides an index map that can be used to locate individual scanned map sheets.</abstract>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <sngdate>
+          <caldate>19270101</caldate>
+        </sngdate>
+      </timeinfo>
+      <current>ground condition</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>As needed</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>-118.168715</westbc>
+        <eastbc>-118.164620</eastbc>
+        <northbc>33.897317</northbc>
+        <southbc>33.883095</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>lcsh</themekt>
+        <themekey>Grids (Cartography)</themekey>
+        <themekey>Fire insurance</themekey>
+        <themekey>Cities and towns</themekey>
+        <themekey>Fire risk assessment</themekey>
+        <themekey>Index maps</themekey>
+      </theme>
+      <theme>
+        <themekt>ISO 19115 Topic Categories</themekt>
+        <themekey>boundaries</themekey>
+      </theme>
+      <place>
+        <placekt>geonames</placekt>
+        <placekey>Los Angeles County (Calif.)</placekey>
+        <placekey>Clearwater (Calif.)</placekey>
+      </place>
+    </keywords>
+    <accconst>This work is in the Public Domain, meaning that it is not subject to copyright.</accconst>
+    <useconst>None</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>Stanford Geospatial Center</cntorg>
+        </cntorgp>
+        <cntemail>brannerlibrary@stanford.edu</cntemail>
+      </cntinfo>
+    </ptcontac>
+    <native>Microsoft Windows 10 Version 10.0 (Build 17763) ; Esri ArcGIS 13.3.0.52636</native>
+  </idinfo>
+  <dataqual>
+    <lineage>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <title>Clearwater, Los Angeles Co., Cal., Sept. 1927, including Hynes</title>
+          </citeinfo>
+        </srccite>
+        <typesrc>None</typesrc>
+        <srccitea>Clearwater, Los Angeles Co., Cal., Sept. 1927, including Hynes</srccitea>
+        <srccontr>Map series</srccontr>
+      </srcinfo>
+    </lineage>
+  </dataqual>
+  <spdoinfo>
+    <direct>Vector</direct>
+    <ptvctinf>
+      <sdtsterm>
+        <sdtstype>GT-polygon composed of chains</sdtstype>
+        <ptvctcnt>2</ptvctcnt>
+      </sdtsterm>
+    </ptvctinf>
+  </spdoinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>SANB_a2725322</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>FID</attrlabl>
+        <attrdef/>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Shape</attrlabl>
+        <attrdef/>
+        <attrdef>Feature geometry.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Coordinates defining the features.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Id</attrlabl>
+        <attrdef/>
+      </attr>
+      <attr>
+        <attrlabl>label</attrlabl>
+        <attrdef>Map sheet number</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>call_short</attrlabl>
+        <attrdef/>
+      </attr>
+      <attr>
+        <attrlabl>call_num</attrlabl>
+        <attrdef>Call number</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>recId</attrlabl>
+        <attrdef>DRUID</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>websiteUrl</attrlabl>
+        <attrdef>PURL</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>title</attrlabl>
+        <attrdef/>
+      </attr>
+      <attr>
+        <attrlabl>ckey</attrlabl>
+        <attrdef/>
+      </attr>
+      <attr>
+        <attrlabl>available</attrlabl>
+        <attrdef>Available</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>iiifUrl</attrlabl>
+        <attrdef>IIIF URL</attrdef>
+      </attr>
+    </detailed>
+  </eainfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>Stanford Geospatial Center</cntorg>
+        </cntorgp>
+        <cntaddr>
+          <addrtype>physical</addrtype>
+          <address>Branner Earth Sciences Library</address>
+          <address>Mitchell Building, 2nd Floor</address>
+          <address>397 Panama Mall</address>
+          <city>Stanford</city>
+          <state>California</state>
+          <postal>94305</postal>
+        </cntaddr>
+        <cntvoice>650-723-2746</cntvoice>
+        <cntemail>brannerlibrary@stanford.edu</cntemail>
+      </cntinfo>
+    </distrib>
+    <distliab>See access and use constraints information.</distliab>
+  </distinfo>
+  <metainfo>
+    <metd>20250814</metd>
+    <metc>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>Stanford Geospatial Center</cntorg>
+        </cntorgp>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>Mitchell Bldg. 2nd floor</address>
+          <address>397 Panama Mall</address>
+          <city>Stanford</city>
+          <state>California</state>
+          <postal>94305</postal>
+          <country>US</country>
+        </cntaddr>
+        <cntvoice>650-723-2746</cntvoice>
+        <cntemail>brannerlibrary@stanford.edu</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

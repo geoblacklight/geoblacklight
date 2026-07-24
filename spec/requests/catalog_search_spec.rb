@@ -27,7 +27,7 @@ RSpec.describe "Catalog search", type: :request do
   it "hides suppressed records from ordinary search results" do
     get search_catalog_path(q: "Sanborn Map Company")
 
-    expect(response_page).to have_css(".document", count: 1)
+    expect(response_page).to have_css(".document", count: 2)
   end
 
   it "sorts the highest index year first and missing years last" do

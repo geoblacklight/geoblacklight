@@ -1,0 +1,98 @@
+<mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink" version="3.7" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd">
+    <titleInfo>
+      <title>Clearwater, Los Angeles Co., Cal., Sept. 1927, including Hynes, Maps Index</title>
+    </titleInfo>
+    <name type="corporate">
+      <namePart>Stanford Geospatial Center</namePart>
+      <role>
+        <roleTerm authority="marcrelator" type="text">creator</roleTerm>
+      </role>
+    </name>
+    <genre valueURI="http://id.loc.gov/authorities/genreForms/gf2011026297" authority="lcgft">Geospatial data</genre>
+    <genre valueURI="http://rdvocab.info/termList/RDAContentType/1001" authority="rdacontent">cartographic dataset</genre>
+    <genre>Dataset</genre>
+    <typeOfResource>cartographic</typeOfResource>
+    <typeOfResource>software, multimedia</typeOfResource>
+    <physicalDescription>
+      <digitalOrigin>born digital</digitalOrigin>
+      <form>Shapefile</form>
+    </physicalDescription>
+    <language>
+      <languageTerm authority="iso639-2b" type="code">eng</languageTerm>
+    </language>
+    <abstract displayLabel="Abstract">This is an index to the map series 'Clearwater, Los Angeles Co., Cal., Sept. 1927, including Hynes'. The maps were created by the Sanborn Map Company (1927). This layer provides an index map that can be used to locate individual scanned map sheets.</abstract>
+    <subject authority="geonames">
+      <geographic authority="geonames" authorityURI="http://www.geonames.org/ontology#">Los Angeles County (Calif.)</geographic>
+    </subject>
+    <subject authority="geonames">
+      <geographic authority="geonames" authorityURI="http://www.geonames.org/ontology#">Clearwater (Calif.)</geographic>
+    </subject>
+    <subject authority="lcsh">
+      <topic authority="lcsh" authorityURI="http://id.loc.gov/authorities/subjects.html">Grids (Cartography)</topic>
+    </subject>
+    <subject authority="lcsh">
+      <topic authority="lcsh" authorityURI="http://id.loc.gov/authorities/subjects.html">Fire insurance</topic>
+    </subject>
+    <subject authority="lcsh">
+      <topic authority="lcsh" authorityURI="http://id.loc.gov/authorities/subjects.html">Cities and towns</topic>
+    </subject>
+    <subject authority="lcsh">
+      <topic authority="lcsh" authorityURI="http://id.loc.gov/authorities/subjects.html">Fire risk assessment</topic>
+    </subject>
+    <subject authority="lcsh">
+      <topic authority="lcsh" authorityURI="http://id.loc.gov/authorities/subjects.html">Index maps</topic>
+    </subject>
+    <subject authority="ISO19115TopicCategory">
+      <topic authority="ISO19115TopicCategory" authorityURI="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_TopicCategoryCode">Boundaries</topic>
+    </subject>
+    <subject>
+      <temporal encoding="w3cdtf">1927</temporal>
+    </subject>
+    <subject>
+      <cartographics>
+        <projection>EPSG::4326</projection>
+        <coordinates>W 118°10ʹ7ʺ--W 118°9ʹ53ʺ/N 33°53ʹ50ʺ--N 33°52ʹ59ʺ</coordinates>
+      </cartographics>
+    </subject>
+    <originInfo>
+      <dateIssued encoding="w3cdtf" keyDate="yes">2025</dateIssued>
+      <publisher>Stanford Digital Repository</publisher>
+    </originInfo>
+    <location>
+      <url usage="primary display">https://purl.stanford.edu/bc576pk4911</url>
+    </location>
+    <note type="contact" displayLabel="Contact">brannerlibrary@stanford.edu</note>
+    <recordInfo>
+      <languageOfCataloging>
+        <languageTerm authority="iso639-2b" type="code">eng</languageTerm>
+      </languageOfCataloging>
+      <recordContentSource>Stanford</recordContentSource>
+      <recordCreationDate encoding="w3cdtf">2025-08-14</recordCreationDate>
+      <recordIdentifier>edu.stanford.purl:bc576pk4911</recordIdentifier>
+    </recordInfo>
+    <extension displayLabel="geo">
+      <rdf:RDF xmlns:gml="http://www.opengis.net/gml/3.2/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+        <rdf:Description rdf:about="http://purl.stanford.edu/bc576pk4911">
+          <dc:format>application/x-esri-shapefile; format=Shapefile</dc:format>
+          <dc:type>Dataset#Polygon</dc:type>
+          <gml:boundedBy>
+            <gml:Envelope gml:srsName="EPSG:4326">
+              <gml:lowerCorner>-118.168715 33.883095</gml:lowerCorner>
+              <gml:upperCorner>-118.16462 33.897317</gml:upperCorner>
+            </gml:Envelope>
+          </gml:boundedBy>
+        </rdf:Description>
+      </rdf:RDF>
+    </extension>
+    <relatedItem type="host">
+      <titleInfo>
+        <title>Sanborn Index Maps</title>
+      </titleInfo>
+      <location>
+        <url>https://purl.stanford.edu/wk761dz8051</url>
+      </location>
+      <typeOfResource collection="yes"/>
+    </relatedItem>
+    <accessCondition type="useAndReproduction">This item is in the public domain.  There are no restrictions on use.</accessCondition>
+    <accessCondition type="copyright">This work is in the Public Domain, meaning that it is not subject to copyright.</accessCondition>
+  </mods>
