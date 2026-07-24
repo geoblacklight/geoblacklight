@@ -3,40 +3,33 @@
 require "spec_helper"
 
 RSpec.describe "Metadata", type: :request do
-  let(:response_page) { Capybara.string(response.body) }
+  subject(:response_page) { Capybara.string(response.body) }
 
-  let(:iso19139) { File.read(Rails.root.join("..", "spec", "fixtures", "iso19139", "stanford-cg357zz0321.xml")) }
-  let(:fgdc) { File.read(Rails.root.join("..", "spec", "fixtures", "fgdc", "harvard-g7064-s2-1834-k3.xml")) }
-  let(:mods) { File.read(Rails.root.join("..", "spec", "fixtures", "mods", "stanford-cg357zz0321.mods")) }
+  let(:mods) { File.read(Rails.root.join("..", "spec", "fixtures", "mods", "stanford-bc576pk4911.mods")) }
+  let(:fgdc) { File.read(Rails.root.join("..", "spec", "fixtures", "fgdc", "SANB_a2725322-fgdc.xml")) }
+  let(:iso19139) { File.read(Rails.root.join("..", "spec", "fixtures", "iso19139", "SANB_a2725322-iso19139.xml")) }
 
   before do
     allow(Faraday).to receive(:new).and_call_original
-    stub_metadata_request("https://raw.githubusercontent.com/OpenGeoMetadata/edu.stanford.purl/master/cg/357/zz/0321/iso19139.xml", iso19139)
-    stub_metadata_request("https://raw.githubusercontent.com/OpenGeoMetadata/edu.harvard/master/217/121/227/77/fgdc.xml", fgdc)
-    stub_metadata_request("http://purl.stanford.edu/cg357zz0321.mods", mods)
+    stub_metadata_request("http://purl.stanford.edu/bc576pk4911.mods", mods)
+    stub_metadata_request("https://stacks.stanford.edu/file/druid:bc576pk4911/SANB_a2725322-fgdc.xml", fgdc)
+    stub_metadata_request("https://stacks.stanford.edu/file/druid:bc576pk4911/SANB_a2725322-iso19139.xml", iso19139)
+    get metadata_solr_document_path("stanford-bc576pk4911")
+  end
+
+  it "renders syntax-highlighted MODS" do
+    is_expected.to have_css(".pill-metadata", text: "MODS")
+    is_expected.to have_css(".CodeRay")
   end
 
   it "renders FGDC metadata as HTML" do
-    get metadata_solr_document_path("harvard-g7064-s2-1834-k3")
-
-    expect(response_page).to have_css(".pill-metadata", text: "FGDC")
-    expect(response_page).to have_css("dt", text: "Identification Information")
-    expect(response_page).to have_css("dt", text: "Metadata Reference Information")
+    is_expected.to have_css(".pill-metadata", text: "FGDC")
+    is_expected.to have_css("dd", text: "FGDC Content Standard for Digital Geospatial Metadata")
   end
 
-  context "when the metadata is XML" do
-    let(:mods) { File.read(Rails.root.join("..", "spec", "fixtures", "mods", "fb897vt9938.mods")) }
-
-    before do
-      stub_metadata_request("http://purl.stanford.edu/fb897vt9938.mods", mods)
-    end
-
-    it "renders syntax-highlighted MODS" do
-      get metadata_solr_document_path("stanford-cg357zz0321")
-
-      expect(response_page).to have_css(".pill-metadata", text: "MODS")
-      expect(response_page).to have_css(".CodeRay")
-    end
+  it "renders ISO19139 metadata as HTML" do
+    is_expected.to have_css(".pill-metadata", text: "ISO 19139")
+    is_expected.to have_css("dd", text: "ISO 19139 Geographic Information - Metadata - Implementation Specification")
   end
 
   def stub_metadata_request(url, body)
