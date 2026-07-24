@@ -15,7 +15,7 @@ RSpec.describe Geoblacklight::Document::CitationComponent, type: :component do
 
       it "creates a citation with the identifier link" do
         expect(page)
-          .to have_text "United States. National Oceanic and Atmospheric Administration. Circuit Rider Productions. (2002). 10 Meter Contours: Russian River Basin, California. [Shapefile]. Circuit Rider Productions. http://purl.stanford.edu/cg357zz032"
+          .to have_text "East View Geospatial. (2010-04-01). Roads, Port-au-Prince, Haiti, 2010. [Shapefile]. East View Geospatial. https://spatial.lib.berkeley.edu/viewpublic/berkeley-s76d73"
       end
     end
 

@@ -25,13 +25,13 @@ RSpec.describe "Web services", type: :request do
   end
 
   it "renders WMS and WFS service values" do
-    get web_services_solr_document_path("stanford-cg357zz0321")
+    get web_services_solr_document_path("berkeley-s76d73")
 
     expect(response_page).to have_css("label", text: "Web Feature Service (WFS)", visible: :all)
-    expect(response_page).to have_css('input[value="https://geowebservices-restricted.stanford.edu/geoserver/wfs"]', visible: :all)
-    expect(response_page).to have_css('input[value="druid:cg357zz0321"]', count: 2, visible: :all)
+    expect(response_page).to have_css('input[value="https://geoservices-secure.lib.berkeley.edu/geoserver/wfs"]', visible: :all)
+    expect(response_page).to have_css('input[value="s76d73"]', count: 2, visible: :all)
     expect(response_page).to have_css("label", text: "Web Mapping Service (WMS)", visible: :all)
-    expect(response_page).to have_css('input[value="https://geowebservices-restricted.stanford.edu/geoserver/wms"]', visible: :all)
+    expect(response_page).to have_css('input[value="https://geoservices-secure.lib.berkeley.edu/geoserver/wms"]', visible: :all)
   end
 
   {

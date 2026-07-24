@@ -9,7 +9,7 @@ RSpec.describe Geoblacklight::SolrDocument::Citation do
 
     it "creates a citation" do
       expect(document.geoblacklight_citation("http://example.com"))
-        .to eq "United States. National Oceanic and Atmospheric Administration. Circuit Rider Productions. (2002). 10 Meter Contours: Russian River Basin, California. [Shapefile]. Circuit Rider Productions. http://purl.stanford.edu/cg357zz0321"
+        .to eq "East View Geospatial. (2010-04-01). Roads, Port-au-Prince, Haiti, 2010. [Shapefile]. East View Geospatial. https://spatial.lib.berkeley.edu/viewpublic/berkeley-s76d73"
     end
   end
 end

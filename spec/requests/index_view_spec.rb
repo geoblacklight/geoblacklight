@@ -11,7 +11,7 @@ RSpec.describe "Catalog index view", type: :request do
 
   it "renders documents and the map container" do
     expect(response_page).to have_css("#documents")
-    expect(response_page).to have_css(".document", count: 5)
+    expect(response_page).to have_css(".document", count: 4)
     expect(response_page).to have_css("#leaflet-viewer")
   end
 

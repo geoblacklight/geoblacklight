@@ -1,36 +1,44 @@
 {
-  "dct_title_s": "10 Meter Contours: Russian River Basin, California",
-  "dct_alternative_sm": ["restricted-line"],
-  "dct_description_sm": [
-    "Restricted line layer with WFS, WMS and metadata in MODS and ISO 19139. ",
-    "This line shapefile contains contours that were derived from a mosiac of 10 meter digital elevation models for the extent of the Russian River basin, located in Sonoma and Mendocino Counties, California.This layer can be used for watershed analysis and planning in the Russian River region of California."
+  "dct_creator_sm": [
+    "East View Geospatial"
   ],
-  "dct_language_sm": ["eng"],
-  "dct_creator_sm": ["United States. National Oceanic and Atmospheric Administration", "Circuit Rider Productions"],
-  "dct_publisher_sm": ["Circuit Rider Productions"],
-  "schema_provider_s": "Stanford",
-  "gbl_resourceClass_sm": ["Datasets"],
-  "gbl_resourceType_sm": ["Line data"],
-  "dct_subject_sm": ["Contours (Cartography)", "Elevation", "Inland Waters"],
-  "dcat_theme_sm": ["Elevation", "Inland Waters"],
-  "dcat_keyword_sm": ["GBL Fixture records"],
-  "dct_temporal_sm": ["2002"],
-  "dct_issued_s": "2002",
-  "gbl_indexYear_im": [2002],
-  "gbl_dateRange_drsim": ["[2002 TO 2002]"],
-  "dct_spatial_sm": ["Sonoma County (Calif.)", "Mendocino County (Calif.)"],
-  "locn_geometry": "ENVELOPE(-123.387366,-122.52958,39.398403,38.302994)",
-  "dcat_bbox": "ENVELOPE(-123.387366,-122.52958,39.398403,38.302994)",
-  "dcat_centroid": "38.8506985,-122.958473",
-  "dct_rights_sm": [
-    "These data are licensed by Stanford Libraries and are available to Stanford University affiliates only. Affiliates are limited to current faculty, staff and students. These data may not be reproduced or used for any purpose without permission. For more information please contact brannerlibrary@stanford.edu"
+  "dct_description_sm": [
+    "This line dataset shows the road network in Port-au-Prince, Haiti, consisting of primary roads, secondary roads, and narrow local roads, tracks and trails, and lists the names of some roads. It was created in 2010 after the earthquake. The data was mapped at a scale of 1:12,500."
+  ],
+  "dct_format_s": "Shapefile",
+  "dct_identifier_sm": [
+    "https://spatial.lib.berkeley.edu/viewpublic/berkeley-s76d73"
+  ],
+  "dct_publisher_sm": [
+    "East View Geospatial"
   ],
   "dct_accessRights_s": "Restricted",
-  "dct_format_s": "Shapefile",
-  "gbl_wxsIdentifier_s": "druid:cg357zz0321",
-  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://stacks.stanford.edu/file/druid:cg357zz0321/data.zip\",\"http://schema.org/url\":\"http://purl.stanford.edu/cg357zz0321\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"https://raw.githubusercontent.com/OpenGeoMetadata/edu.stanford.purl/master/cg/357/zz/0321/iso19139.xml\",\"http://www.loc.gov/mods/v3\":\"http://purl.stanford.edu/cg357zz0321.mods\",\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"https://geowebservices-restricted.stanford.edu/geoserver/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://geowebservices-restricted.stanford.edu/geoserver/wms\"}",
-  "id": "stanford-cg357zz0321",
-  "dct_identifier_sm": ["http://purl.stanford.edu/cg357zz0321"],
-  "gbl_mdModified_dt": "2021-06-01T22:14:16Z",
-  "gbl_mdVersion_s": "Aardvark"
+  "dct_subject_sm": [
+    "Transportation",
+    "Roads",
+    "Streets"
+  ],
+  "dct_title_s": "Roads, Port-au-Prince, Haiti, 2010",
+  "dct_issued_s": "2010-04-01",
+  "schema_provider_s": "University of California Berkeley",
+  "dct_references_s": "{\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"https://geoservices-secure.lib.berkeley.edu/geoserver/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://geoservices-secure.lib.berkeley.edu/geoserver/wms\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"https://spatial.lib.berkeley.edu/metadata/berkeley-s76d73/iso19139.xml\",\"http://schema.org/downloadUrl\":\"https://spatial.lib.berkeley.edu/UCB/berkeley-s76d73/data.zip\"}",
+  "dct_spatial_sm": [
+    "Port-au-prince (Haiti)"
+  ],
+  "gbl_resourceType_sm": [
+    "Line data",
+    "Vector data"
+  ],
+  "gbl_wxsIdentifier_s": "s76d73",
+  "gbl_mdModified_dt": "2019-01-10T23:34:35.206Z",
+  "id": "berkeley-s76d73",
+  "locn_geometry": "ENVELOPE(-72.429028, -72.190757, 18.667664, 18.420145)",
+  "dcat_bbox": "ENVELOPE(-72.429028, -72.190757, 18.667664, 18.420145)",
+  "gbl_indexYear_im": [
+    2010
+  ],
+  "gbl_mdVersion_s": "Aardvark",
+  "gbl_resourceClass_sm": [
+    "Datasets"
+  ]
 }
