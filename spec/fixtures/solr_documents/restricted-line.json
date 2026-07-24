@@ -28,7 +28,7 @@
   "dct_accessRights_s": "Restricted",
   "dct_format_s": "Shapefile",
   "gbl_wxsIdentifier_s": "druid:cg357zz0321",
-  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://stacks.stanford.edu/file/druid:cg357zz0321/data.zip\",\"http://schema.org/url\":\"http://purl.stanford.edu/cg357zz0321\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"https://raw.githubusercontent.com/OpenGeoMetadata/edu.stanford.purl/master/cg/357/zz/0321/iso19139.xml\",\"http://www.loc.gov/mods/v3\":\"http://purl.stanford.edu/cg357zz0321.mods\",\"http://www.opengis.net/def/serviceType/ogc/wfs\":\"https://geowebservices-restricted.stanford.edu/geoserver/wfs\",\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://geowebservices-restricted.stanford.edu/geoserver/wms\"}",
+  "dct_references_s": "{\"http://schema.org/url\":\"https://purl.stanford.edu/cg357zz0321\",\"http://schema.org/thumbnailUrl\":\"https://stacks.stanford.edu/image/iiif/cg357zz0321%2Frr_contours/full/!400,400/0/default.jpg\",\"https://schema.org/relatedLink\":\"https://searchworks.stanford.edu/view/cg357zz0321\",\"http://www.isotc211.org/schemas/2005/gmd\":\"https://stacks.stanford.edu/file/druid:cg357zz0321/rr_contours-iso19139.xml\",\"http://www.isotc211.org/schemas/2005/gco\":\"https://stacks.stanford.edu/file/druid:cg357zz0321/rr_contours-iso19110.xml\",\"https://github.com/protomaps/PMTiles\":\"https://stacks.stanford.edu/file/druid:cg357zz0321/rr_contours.pmtiles\",\"http://schema.org/downloadUrl\":[{\"url\":\"https://stacks.stanford.edu/object/cg357zz0321\",\"label\":\"Zipped object\"}]}",
   "id": "stanford-cg357zz0321",
   "dct_identifier_sm": ["http://purl.stanford.edu/cg357zz0321"],
   "gbl_mdModified_dt": "2021-06-01T22:14:16Z",

@@ -2,15 +2,14 @@
   "dct_title_s": "Dabao Kinbōzu, Maps Index",
   "dct_alternative_sm": ["index-map-stanford"],
   "dct_description_sm": [
-    "old-style (pre-GeoJSON) index map of rectangular polygons. ",
-    "This polygon GeoJSON file is an index to 1:50000 scale maps of Davao (Philippines), titled \\'Dabao Kinbōzu -- ダバオ近傍圖/Dabao Kinbōzu.’ This map series was originally produced by the Japanese Land Survey Department of the General Staff Headquarters in 1944. Stanford University Libraries holds a large collection of Japanese military and imperial maps, referred to as gaihōzu, or \"maps of outer lands.\" These maps were produced starting in the early Meiji (1868-1912) era and the end of World War II by the Land Survey Department of the General Staff Headquarters, the former Japanese Army. The Library is in the process of scanning and making available all of the maps in the collection. To create this index, footprints were generated using the fishnet tool, and metadata were supplied for the digitized paper maps by Stanford University Libraries. After the footprints were created, the GeoJSON was trimmed and labeled according to the sources.This layer provides an index map that can be used to locate individual scanned map sheets."
+    "This polygon shapefile is an index to 1:50000 scale maps of Davao (Philippines), titled \\'Dabao Kinbōzu -- ダバオ近傍圖/Dabao Kinbōzu.’ This map series was originally produced by the Japanese Land Survey Department of the General Staff Headquarters in 1944. Stanford University Libraries holds a large collection of Japanese military and imperial maps, referred to as gaihōzu, or \"maps of outer lands.\" These maps were produced starting in the early Meiji (1868-1912) era and the end of World War II by the Land Survey Department of the General Staff Headquarters, the former Japanese Army. The Library is in the process of scanning and making available all of the maps in the collection. To create this index, footprints were generated using the fishnet tool, and metadata were supplied for the digitized paper maps by Stanford University Libraries. After the footprints were created, the GeoJSON was trimmed and labeled according to the sources. This layer provides an index map that can be used to locate individual scanned map sheets."
   ],
   "dct_language_sm": ["eng"],
   "dct_creator_sm": ["Stanford Geospatial Center"],
   "dct_publisher_sm": ["Stanford Digital Repository"],
   "schema_provider_s": "Stanford",
-  "gbl_resourceClass_sm": ["Datasets"],
-  "gbl_resourceType_sm": ["Polygon data", "Military maps", "Topographic maps", "Index maps"],
+  "gbl_resourceClass_sm": ["Maps"],
+  "gbl_resourceType_sm": ["Military maps", "Topographic maps", "Index maps"],
   "dct_subject_sm": ["Grids (Cartography)"],
   "dcat_theme_sm": ["Boundaries"],
   "dcat_keyword_sm": ["GBL Fixture records"],
@@ -28,9 +27,9 @@
   "dct_accessRights_s": "Public",
   "dct_format_s": "GeoJSON",
   "gbl_wxsIdentifier_s": "druid:fb897vt9938",
-  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://gist.githubusercontent.com/mejackreed/4a44f1f7cc4fbb926068738e903a9e96/raw/fedfb0e599d647920f084627b7dca8f88a358757/stanford-fb897vt9938.geojson\",\"http://www.w3.org/1999/xhtml\":\"http://opengeometadata.stanford.edu/metadata/edu.stanford.purl/druid:fb897vt9938/default.html\",\"http://schema.org/url\":\"http://purl.stanford.edu/fb897vt9938\",\"http://www.isotc211.org/schemas/2005/gmd/\":\"http://opengeometadata.stanford.edu/metadata/edu.stanford.purl/druid:fb897vt9938/iso19139.xml\",\"http://www.loc.gov/mods/v3\":\"http://purl.stanford.edu/fb897vt9938.mods\",\"https://openindexmaps.org\":\"https://raw.githubusercontent.com/geoblacklight/geoblacklight/main/spec/fixtures/index_maps/index-map-stanford.geojson\"}",
-  "id": "stanford-fb897vt9938",
-  "dct_identifier_sm": ["http://purl.stanford.edu/fb897vt9938"],
+  "dct_references_s": "{\"http://schema.org/url\":\"https://purl.stanford.edu/bs983qk3369\",\"http://schema.org/thumbnailUrl\":\"https://stacks.stanford.edu/image/iiif/bs983qk3369%2Findex_10532136/full/!400,400/0/default.jpg\",\"https://schema.org/relatedLink\":\"https://searchworks.stanford.edu/view/bs983qk3369\",\"http://www.isotc211.org/schemas/2005/gmd\":\"https://stacks.stanford.edu/file/druid:bs983qk3369/index_10532136-iso19139.xml\",\"http://www.isotc211.org/schemas/2005/gco\":\"https://stacks.stanford.edu/file/druid:bs983qk3369/index_10532136-iso19110.xml\",\"https://github.com/protomaps/PMTiles\":\"https://stacks.stanford.edu/file/druid:bs983qk3369/index_10532136.pmtiles\",\"http://schema.org/downloadUrl\":[{\"url\":\"https://stacks.stanford.edu/object/bs983qk3369\",\"label\":\"Zipped object\"}]}",
+  "id": "stanford-bs983qk3369",
+  "dct_identifier_sm": ["http://purl.stanford.edu/bs983qk3369"],
   "gbl_mdModified_dt": "2021-06-01T22:14:16Z",
   "gbl_mdVersion_s": "Aardvark"
 }
