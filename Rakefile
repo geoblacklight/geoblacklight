@@ -51,7 +51,7 @@ namespace :geoblacklight do
   namespace :internal do
     task seed: ["engine_cart:generate"] do
       within_test_app do
-        system "bundle exec rake geoblacklight:index:seed"
+        system "bin/rake geoblacklight:index:seed"
       end
     end
   end
@@ -75,7 +75,7 @@ namespace :geoblacklight do
     desc "Stdout output asset paths"
     task :asset_paths do
       within_test_app do
-        system "bundle exec rake geoblacklight:application_asset_paths"
+        system "bin/rake geoblacklight:application_asset_paths"
       end
     end
   end
