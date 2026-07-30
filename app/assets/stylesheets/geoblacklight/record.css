@@ -70,19 +70,12 @@
 
 /* Downloads */
 .download a {
-  display: block;
+  .badge {
+    display: inline;
+    margin-inline-end: 0.5em;
+  }
 
   .title {
-    margin: 0;
-    display: inline;
-  }
-
-  .badge {
-    float: inline-end;
-    margin-top: 0.1em;
-  }
-
-  .badge + .title {
-    word-break: break-all;
+    overflow-wrap: break-word;
   }
 }
