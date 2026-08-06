@@ -7,6 +7,43 @@
   .document {
     border: 0;
     padding-bottom: var(--bl-results-document-padding-top);
+
+    .document-thumbnail {
+      padding: 0;
+      margin: 0 1rem 0 0;
+
+      a {
+        color: var(--bs-body-color);
+        background-color: var(--bs-body-bg);
+        text-decoration: none;
+        border: var(--bs-border-width) solid var(--bs-border-color);
+        border-radius: var(--bs-border-radius);
+        box-shadow: var(--bs-box-shadow);
+        overflow: hidden;
+        display: flex;
+        place-content: center;
+        place-items: center;
+        width: 6rem;
+        height: 6rem;
+      }
+
+      img {
+        max-height: 6rem;
+        width: auto;
+        object-fit: cover;
+      }
+
+      .blacklight-icons {
+        display: block;
+        height: fit-content;
+        width: fit-content;
+
+        svg {
+          height: 3rem;
+          width: 3rem;
+        }
+      }
+    }
   }
 }
 

@@ -14,6 +14,7 @@
   itemtype: @document.itemtype,
   class: classes do %>
 
+  <%= thumbnail %>
   <%= content_tag :div, class: 'document-main-section' do %>
   <%= content_tag :header, class: 'documentHeader index-split', data: { layer_id: @document.id, geom: @document.geometry.geojson } do %>
     <div class="document-counter">

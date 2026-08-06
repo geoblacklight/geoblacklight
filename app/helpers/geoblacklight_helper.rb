@@ -76,4 +76,42 @@ module GeoblacklightHelper
       "index"
     end
   end
+
+  ##
+  # Blacklight view_config.thumbnail_method contract. Renders the document's
+  # configured thumbnail_url as an <img>, or nil if unavailable/disabled.
+  # @param [SolrDocument] document
+  # @param [Hash] image_options
+  # @return [String, nil]
+  def geoblacklight_thumbnail(document, image_options = {})
+    return unless Geoblacklight.configuration.thumbnails_enabled
+
+    url = document.thumbnail_url
+    return if url.blank?
+
+    image_tag url, {loading: "lazy"}.merge(image_options)
+  end
+
+  ##
+  # Blacklight view_config.default_thumbnail (Symbol) contract. Falls back to
+  # a placeholder icon based on the document's resource/data type.
+  # @param [SolrDocument] document
+  # @param [Hash] _image_options unused; icons aren't rendered as <img>
+  # @return [String, nil]
+  def geoblacklight_default_thumbnail(document, _image_options = {})
+    return unless Geoblacklight.configuration.thumbnails_enabled
+
+    default_thumbnail_icon(document)
+  end
+
+  private
+
+  ##
+  # @param [SolrDocument] document
+  # @return [String]
+  def default_thumbnail_icon(document)
+    dataset_type = document.resource_type&.find { |type| type.include?(" data") }&.gsub(" data", "")
+    name = [dataset_type, document.resource_class&.first].compact.first
+    geoblacklight_icon(name)
+  end
 end

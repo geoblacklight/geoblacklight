@@ -39,6 +39,8 @@ class CatalogController < ApplicationController
     # config.index.show_link = 'title_display'
     # config.index.record_display_type = 'format'
     config.index.document_component = Geoblacklight::SearchResultComponent
+    config.index.thumbnail_method = :geoblacklight_thumbnail
+    config.index.default_thumbnail = :geoblacklight_default_thumbnail
     config.index.title_field = field_config.title
 
     # solr field configuration for document/show views

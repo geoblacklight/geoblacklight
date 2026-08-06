@@ -99,6 +99,21 @@ RSpec.describe Geoblacklight::References do
       SolrDocument.new, :new_ref_field
     )
   end
+  let(:with_thumbnail) do
+    described_class.new(
+      SolrDocument.new(
+        references_field => {
+          "http://schema.org/thumbnailUrl" => "http://example.com/thumb.jpg",
+          "http://www.isotc211.org/schemas/2005/gmd/" => "http://example.com/iso19139.xml"
+        }.to_json
+      )
+    )
+  end
+  let(:malformed_references) do
+    described_class.new(
+      SolrDocument.new(references_field => "not valid json")
+    )
+  end
   describe "#initialize" do
     it "parses configured references field to @refs" do
       expect(typical_ogp_shapefile.instance_variable_get(:@refs)).to be_an Array
@@ -168,6 +183,26 @@ RSpec.describe Geoblacklight::References do
   describe "#esri_webservices" do
     it "returns webservices that are esri specific" do
       expect(some_esri_services.esri_webservices.length).to eq 3
+    end
+  end
+  describe "#find_by_uri" do
+    it "finds a reference by its literal URI key" do
+      reference = with_thumbnail.find_by_uri("http://schema.org/thumbnailUrl")
+      expect(reference).to be_an Geoblacklight::Reference
+      expect(reference.endpoint).to eq "http://example.com/thumb.jpg"
+    end
+    it "normalizes trailing slashes, like Reference#uri" do
+      reference = with_thumbnail.find_by_uri("http://www.isotc211.org/schemas/2005/gmd")
+      expect(reference.endpoint).to eq "http://example.com/iso19139.xml"
+    end
+    it "returns nil when no reference matches the URI" do
+      expect(with_thumbnail.find_by_uri("http://schema.org/notARealKey")).to be_nil
+    end
+  end
+  describe "#initialize with malformed JSON" do
+    it "does not raise and treats the references field as empty" do
+      expect { malformed_references }.not_to raise_error
+      expect(malformed_references.refs).to eq []
     end
   end
   describe "#method_missing" do
