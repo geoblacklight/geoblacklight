@@ -34,8 +34,6 @@ module Geoblacklight
       {type => endpoint}
     end
 
-    private
-
     ##
     # The URI used for this instance's creation
     # Remove any trailing slashes

@@ -32,6 +32,12 @@ module Geoblacklight
 
     attribute :iiif_drag_drop_link, :string, default: "@manifest?manifest=@manifest"
 
+    # Toggle thumbnail images in the search results (index) view
+    attribute :thumbnails_enabled, :boolean, default: true
+
+    # The dct_references_s URI key to use as a document's thumbnail image URL
+    attribute :thumbnail_reference_key, :string, default: "http://schema.org/thumbnailUrl"
+
     # Configure basemap provider for GeoBlacklight maps
     # Valid basemaps include:
     # 'positron'

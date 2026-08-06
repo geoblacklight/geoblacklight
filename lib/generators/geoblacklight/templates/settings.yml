@@ -284,3 +284,9 @@
 #     - "xyz"
 
 # iiif_drag_drop_link: "@manifest?manifest=@manifest"
+
+# # Toggle thumbnail images in the search results (index) view
+# thumbnails_enabled: true
+
+# # The dct_references_s URI key to use as a document's thumbnail image URL
+# thumbnail_reference_key: "http://schema.org/thumbnailUrl"

@@ -44,6 +44,17 @@ module Geoblacklight
     end
 
     ##
+    # Finds a reference by its literal dct:references URI key, rather than by
+    # its registered Constants::URI type. Needed for configurable URI keys
+    # (e.g. Geoblacklight.configuration.thumbnail_reference_key) that aren't
+    # necessarily registered in Constants::URI.
+    # @param [String] uri
+    # @return [Geoblacklight::Reference, nil]
+    def find_by_uri(uri)
+      @refs.find { |reference| reference.uri == uri }
+    end
+
+    ##
     # Returns all of the Esri webservices for given set of references
     def esri_webservices
       %w[tiled_map_layer dynamic_map_layer feature_layer image_map_layer].filter_map do |layer_type|
@@ -57,11 +68,12 @@ module Geoblacklight
     # Parses the references field of a document
     # @return [Hash]
     def parse_references
-      if @document[reference_field].nil?
-        {}
-      else
-        JSON.parse(@document[reference_field])
-      end
+      return {} if @document[reference_field].nil?
+
+      JSON.parse(@document[reference_field])
+    rescue JSON::ParserError
+      Geoblacklight.logger.warn("Could not parse #{reference_field} on document #{@document.id}: invalid JSON")
+      {}
     end
 
     ##

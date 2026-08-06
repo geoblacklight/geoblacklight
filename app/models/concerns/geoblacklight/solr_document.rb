@@ -84,6 +84,10 @@ module Geoblacklight
       references.url&.endpoint
     end
 
+    def thumbnail_url
+      references.find_by_uri(Geoblacklight.configuration.thumbnail_reference_key)&.endpoint
+    end
+
     def item_viewer
       ItemViewer.new(references)
     end

@@ -20,6 +20,8 @@ module Geoblacklight
           assign(config, :institution, settings.INSTITUTION)
           assign(config, :help_text, settings.HELP_TEXT&.to_h)
           assign(config, :iiif_drag_drop_link, settings.IIIF_DRAG_DROP_LINK)
+          assign(config, :thumbnails_enabled, settings.THUMBNAILS_ENABLED)
+          assign(config, :thumbnail_reference_key, settings.THUMBNAIL_REFERENCE_KEY)
           assign(config, :homepage_map_geom, settings.HOMEPAGE_MAP_GEOM)
           assign(config, :metadata_shown, settings.METADATA_SHOWN)
           assign(config, :webservices_shown, settings.WEBSERVICES_SHOWN)
