@@ -26,7 +26,7 @@ RSpec.describe Geoblacklight::Document::SidebarComponent, type: :component do
     let(:fixture) { "solr_documents/public_iiif_princeton.json" }
 
     it "renders the static map" do
-      expect(page).to have_css("#static-map")
+      expect(page).to have_css("#locator-map")
     end
 
     it "renders the Location label" do
@@ -38,7 +38,7 @@ RSpec.describe Geoblacklight::Document::SidebarComponent, type: :component do
     let(:fixture) { "solr_documents/restricted-line.json" }
 
     it "does not render the static map" do
-      expect(page).to have_no_css("#static-map")
+      expect(page).to have_no_css("#locator-map")
     end
 
     it "does not render the Location label" do
