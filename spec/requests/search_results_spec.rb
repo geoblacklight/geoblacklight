@@ -8,7 +8,7 @@ RSpec.describe "Search results", type: :request do
   end
 
   def result_ids
-    response_page.all(".documentHeader").map { |element| element["data-layer-id"] }
+    response_page.all(".document").map { |element| element["data-document-id"] }
   end
 
   it "handles a WKT bounding box that crosses the anti-meridian" do

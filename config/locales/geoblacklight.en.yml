@@ -39,8 +39,7 @@ en:
     map:
       label: "Zoomable map"
       geosearch:
-        search_here: "Search here"
-        search_when_moved: "Search when I move the map"
+        search_help: "Shift + drag to search an area"
       index:
         website_label: "Website:"
         download_label: "Download:"
@@ -118,85 +117,3 @@ en:
       table_name: "Map data"
       inspecting: "Inspecting"
       not_found: "Could not find that feature"
-    help_text:
-      viewer_protocol:
-        cog:
-          title: COG Layer
-          content: A Cloud Optimized GeoTIFF
-        dynamic_map_layer:
-          title: ArcGIS Dynamic Map Layer
-          content: An ArcGIS Dynamic Map Layer represents vector data (points, lines, and polygons). Map image layers are dynamically rendered image tiles.
-        feature_layer:
-          title: ArcGIS Feature Layer
-          content: An ArcGIS Feature Layer Service displays vector data (points, lines, and polygons) as individual or collected features.
-        iiif:
-          title: IIIF Service
-          content: The International Image Interoperability Framework (IIIF) web service API displays an image from a server. This image can be panned and zoomed.
-        iiif_manifest:
-          title: IIIF Service
-          content: The International Image Interoperability Framework (IIIF) web service API displays an image from a server. This image can be panned and zoomed.
-        image_map_layer:
-          title: ArcGIS Image Map Layer
-          content: An ArcGIS Image Map Layer displays raster data (a grid of cells used to store imagery).
-        index_map:
-          title: Index Map
-          content: Index maps are a "table of contents" that allow users to select a specific map or item within a larger set and navigate to it for viewing or downloading.
-        oembed:
-          title: Embedded Content
-          content: This content is embedded through a third-party viewer.
-        pmtiles:
-          title: PMTiles Layer
-          content: A PMTiles layer is a single-file archive format for tiled data.
-        tiled_map_layer:
-          title: ArcGIS Tiled Map Layer
-          content: An ArcGIS Tiled Map Layer Service displays set of web-accessible tiles that reside on a server.
-        tilejson:
-          title: TileJSON
-          content: A JSON format used for describing tilesets.
-        tms:
-          title: Tile Map Service (TMS)
-          content: A Tile Map Service displays georeferenced map tiles as an image on a map.
-        wms:
-          title: Web Map Service (WMS)
-          content: A Web Map Service displays a geospatial dataset as map images.
-        wmts:
-          title: Web Map Tile Service (WMTS)
-          content: A Web Map Tile Service displays maps over the web using cached image tiles.
-        xyz:
-          title: XYZ Tiles
-          content: Also known as slippy map tiles, is a method of expressing map tile mosaics, indexed by (x,y) offsets and zoom levels (z).
-  blacklight:
-    icon:
-      american-geographical-society-library-uwm-libraries: American Geographical Society Library - UWM Libraries
-      arizona: The University of Arizona
-      arrow-circle-down: Arrow within a circle, pointing down
-      baruch-cuny: Baruch College
-      berkeley: University of California, Berkeley
-      cd-rom: CD-Rom
-      columbia: Columbia University
-      cornell: Cornell University
-      dvd-rom: DVD-Rom
-      esri-globe: Esri Global
-      george-mason: George Mason University
-      harvard: Harvard University
-      iiif-drag-drop: Drag icon to any IIIF viewer
-      indiana: Indiana University
-      lewis-clark: Lewis & Clark
-      massgis: MassGIS
-      mit: Massachusetts Institute of Technology
-      multilinestring: Multi-line string
-      multipoint: Multi-point
-      multipolygon: Multi-polygon
-      northwestern-university: Northwestern University
-      nyu: New York University
-      princeton: Princeton University
-      public: Public content
-      restricted: Restricted content
-      rutgers: Rutgers University
-      sms: SMS
-      stanford: Stanford University
-      texas: The University of Texas at Austin
-      tufts: Tufts University
-      triangle-exclamation-solid: Warning
-      ucla: University of California, Los Angeles
-      uva: University of Virginia

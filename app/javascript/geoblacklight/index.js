@@ -1,25 +1,22 @@
 // Stimulus controllers
-import OpenlayersViewerController from "geoblacklight/controllers/openlayers_viewer_controller"
 import OembedViewerController from "geoblacklight/controllers/oembed_viewer_controller"
-import LeafletViewerController from "geoblacklight/controllers/leaflet_viewer_controller"
-import SearchResultsController from "geoblacklight/controllers/search_results_controller"
+import OverviewMapController from "geoblacklight/controllers/overview_map_controller"
 import ClipboardController from "geoblacklight/controllers/clipboard_controller"
+
+// OpenGeoMetadata web components (each import registers the custom element it is named for)
+import "ogm-viewer"
+import "ogm-overview"
+import "ogm-locator"
 
 // GBL core
 import Core from "geoblacklight/core"
-
-// Other modules
-import openLayersBasemaps from "geoblacklight/openlayers/basemaps"
-import leafletBasemaps from "geoblacklight/leaflet/basemaps"
+import { onViewerRequest } from "geoblacklight/initializers/viewer_requests"
 
 export default {
-  OpenlayersViewerController,
   OembedViewerController,
-  LeafletViewerController,
-  SearchResultsController,
+  OverviewMapController,
   ClipboardController,
-  openLayersBasemaps,
-  leafletBasemaps,
   Core,
   onLoad: Core.onLoad,
+  onViewerRequest,
 }

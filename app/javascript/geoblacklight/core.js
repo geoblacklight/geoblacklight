@@ -3,13 +3,13 @@ import initializePopovers from "geoblacklight/initializers/popovers"
 import initializeTooltips from "geoblacklight/initializers/tooltips"
 import initializeTruncation from "geoblacklight/initializers/truncation"
 import initializeMetadataDownload from "geoblacklight/initializers/metadata_download"
+import initializeViewerTheme from "geoblacklight/initializers/viewer_theme"
+import initializeViewerRequests from "geoblacklight/initializers/viewer_requests"
 
 // Stimulus controllers
 import ClipboardController from "geoblacklight/controllers/clipboard_controller"
-import LeafletViewerController from "geoblacklight/controllers/leaflet_viewer_controller"
 import OembedViewerController from "geoblacklight/controllers/oembed_viewer_controller"
-import OpenlayersViewerController from "geoblacklight/controllers/openlayers_viewer_controller"
-import SearchResultsController from "geoblacklight/controllers/search_results_controller"
+import OverviewMapController from "geoblacklight/controllers/overview_map_controller"
 
 // Inspired by Blacklight's javascript/blacklight/core.js
 const Geoblacklight = (function () {
@@ -45,13 +45,13 @@ Geoblacklight.onLoad(initializePopovers)
 Geoblacklight.onLoad(initializeTooltips)
 Geoblacklight.onLoad(initializeTruncation)
 Geoblacklight.onLoad(initializeMetadataDownload)
+Geoblacklight.onLoad(initializeViewerTheme)
+Geoblacklight.onLoad(initializeViewerRequests)
 
 // Register our Stimulus controllers
 if (typeof Stimulus !== "undefined") {
-  Stimulus.register("openlayers-viewer", OpenlayersViewerController)
   Stimulus.register("oembed-viewer", OembedViewerController)
-  Stimulus.register("leaflet-viewer", LeafletViewerController)
-  Stimulus.register("search-results", SearchResultsController)
+  Stimulus.register("overview-map", OverviewMapController)
   Stimulus.register("clipboard", ClipboardController)
 } else {
   console.error(

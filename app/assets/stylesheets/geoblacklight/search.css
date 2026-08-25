@@ -45,6 +45,10 @@
       }
     }
   }
+
+  .document.highlighted {
+    background-color: var(--bs-secondary-bg);
+  }
 }
 
 .blacklight-catalog-index {

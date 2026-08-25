@@ -9,16 +9,17 @@ RSpec.feature "Home page", js: true do # use js: true for tests which require js
 
   scenario "map should be visible" do
     within "#main-container" do
-      expect(page).to have_css("#leaflet-viewer")
-      expect(page).to have_css("img.leaflet-tile", visible: :all)
+      expect(page).to have_css("#overview-map")
     end
+
+    # The map itself is drawn inside the element
+    expect(find("#overview-map").shadow_root).to have_css("canvas.maplibregl-canvas")
   end
 
-  scenario "clicking map search should create a spatial search" do
-    within "#leaflet-viewer" do
-      find(".search-control a").click
-      expect(page.current_url).to match(/bbox=/)
-    end
+  scenario "dragging a box over the map should create a spatial search" do
+    search_map_area
+
+    expect(page).to have_current_path(/bbox=/, url: true, wait: 10)
     expect(page).to have_css "#documents"
   end
 end
