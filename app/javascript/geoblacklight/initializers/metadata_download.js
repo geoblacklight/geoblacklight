@@ -28,23 +28,19 @@ export class GeoBlacklightMetadataDownloadButton {
 export default function initializeMetadataDownload() {
   const modal = document.getElementById("blacklight-modal")
 
-  modal.addEventListener("focus", (e) => {
-    if (!Array.from(e.target.classList).includes("show")) {
-      return
-    }
+  // Use Blacklight's dialog-based modal dispatches these custom events
+  modal.addEventListener("show.blacklight.blacklight-modal", (e) => {
     e.target.querySelectorAll(".metadata-body").forEach((el) => {
       el.closest(".modal-content").classList.add("metadata-modal")
     })
 
     e.target.querySelectorAll(".pill-metadata").forEach((element, i) => {
+      console.log(element)
       new GeoBlacklightMetadataDownloadButton(element, i)
     })
   })
 
-  modal.addEventListener("blur", (e) => {
-    if (Array.from(e.target.classList).includes("show")) {
-      return
-    }
+  modal.addEventListener("hide.blacklight.blacklight-modal", (e) => {
     e.target.querySelectorAll(".metadata-body").forEach((el) => {
       el.closest(".modal-content").classList.remove("metadata-modal")
     })

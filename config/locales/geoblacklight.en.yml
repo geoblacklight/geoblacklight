@@ -11,6 +11,7 @@ en:
       generated_link: "Generated %{download_format}"
       iiif_image_link: "Full-size image"
       iiif_manifest_link: "IIIF manifest"
+      download_metadata_new_tab: 'Download metadata (opens in a new tab)'
     home:
       headline: "Explore and discover..."
       search_heading: "Find the maps and data you need"
