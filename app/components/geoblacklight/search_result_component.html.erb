@@ -6,9 +6,8 @@
   id: @id,
   data: {
     'document-id': @document.id.to_s.parameterize,
-    'document-counter': @counter,
-    'search-results-target': 'result',
-    'action': 'mouseenter->search-results#previewResultOnMap mouseleave->search-results#clearPreview'
+    'map-id': @document.id.to_s,
+    'document-counter': @counter
   },
   itemscope: true,
   itemtype: @document.itemtype,
@@ -16,7 +15,7 @@
 
   <%= thumbnail %>
   <%= content_tag :div, class: 'document-main-section' do %>
-  <%= content_tag :header, class: 'documentHeader index-split', data: { layer_id: @document.id, geom: @document.geometry.geojson } do %>
+  <%= content_tag :header, class: 'documentHeader index-split' do %>
     <div class="document-counter">
       <%= t('blacklight.search.documents.counter', :counter => @counter) if @counter %>
     </div>

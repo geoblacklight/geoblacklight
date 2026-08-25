@@ -1,16 +1,16 @@
 <div class="row">
-  <div
-    id="documents"
-    class="documents-list"
-    data-controller="search-results"
-    data-action="leaflet-viewer:loaded@window->search-results#fitResultBounds"
-    data-search-results-leaflet-viewer-outlet=".leaflet-viewer"
-    >
+  <% document_presenters = documents.map { |doc| document_presenter(doc) } -%>
+  <%
+    overview_results = document_presenters.each_with_index.map do |presenter, index|
+      document = presenter.document
+      {id: document.id, place: index + 1, geometry: JSON.parse(document.geometry.geojson)}
+    end
+  -%>
+  <%= tag.div id: "documents", class: "documents-list", data: {overview_map_results: overview_results.to_json} do %>
     <div id="documents-container">
-      <% document_presenters = documents.map { |doc| document_presenter(doc) } -%>
       <% document_presenters.each_with_index do |presenter, index| %>
         <%= render blacklight_config.index.document_component.new(document: presenter, document_counter: index) %>
       <% end %>
     </div>
-  </div>
+  <% end %>
 </div>

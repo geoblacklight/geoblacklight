@@ -8,17 +8,6 @@ RSpec.feature "Index view", js: true do
     visit search_catalog_path(q: "*")
   end
 
-  scenario "hover on record should produce bounding box on map" do
-    # Needed to find an svg element on the page
-    visit search_catalog_path(f: {Geoblacklight.configuration.fields.provider => ["Stanford"]})
-    # BL7 has svg icons, so sniffing for SVG path won't return false
-    # expect(Nokogiri::HTML.parse(page.body).css('path').length).to eq 0
-    find(".documentHeader", match: :first).hover
-    within("#leaflet-viewer") do
-      expect(page).to have_css("path")
-    end
-  end
-
   scenario "click on a record area to expand collapse" do
     within("article", match: :first) do
       expect(page).to have_css(".collapsed")
@@ -27,10 +16,15 @@ RSpec.feature "Index view", js: true do
     end
   end
 
-  scenario "clicking map search should retain current search parameters" do
+  scenario "searching the map should retain current search parameters" do
     visit "/?f[#{subject_field}][]=Population"
-    find("#leaflet-viewer").double_click
+
+    # A reader searches by dragging a box over the map, which the line of text on it says
+    expect(find("#overview-map").shadow_root).to have_css(".maplibregl-ctrl-geosearch")
+    search_map_area
+
     within "#appliedParams" do
+      expect(page).to have_content("Bounding Box", wait: 10)
       expect(page).to have_content("Subject Population")
     end
   end

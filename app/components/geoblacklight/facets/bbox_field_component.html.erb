@@ -12,6 +12,7 @@
     </button>
   </h3>
   <div id="<%= html_id %>" role="region" aria-labelledby="<%= header_html_id %>" class="panel-collapse facet-content collapse show">
-    <%= render Geoblacklight::LocationLeafletMapComponent.new(geosearch: { dynamic: true }) %>
+    <%# No map_geometry: this map is pointed at the results, or at the area they are filtered to %>
+    <%= render Geoblacklight::OverviewMapComponent.new(geosearch: true, map_geometry: nil) %>
   </div>
 </div>
