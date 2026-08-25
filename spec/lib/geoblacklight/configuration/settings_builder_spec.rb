@@ -19,8 +19,7 @@ RSpec.describe Geoblacklight::Configuration::SettingsBuilder do
       let(:settings) do
         {
           institution: "MIT",
-          fields: {title: "my_title_s"},
-          leaflet: {selected_color: "#abc123", sidebar: true}
+          fields: {title: "my_title_s"}
         }
       end
 
@@ -30,8 +29,6 @@ RSpec.describe Geoblacklight::Configuration::SettingsBuilder do
 
       it "resolves nested lowercase keys" do
         expect(config.fields.title).to eq("my_title_s")
-        expect(config.leaflet_options.selected_color).to eq("#abc123")
-        expect(config.leaflet_options.sidebar).to be true
       end
     end
 

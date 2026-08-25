@@ -32,7 +32,6 @@ module Geoblacklight
           assign(config, :restricted_origins, settings.restricted_origins)
 
           build_fields(config)
-          build_leaflet_options(config)
         end
       end
 
@@ -54,16 +53,6 @@ module Geoblacklight
 
       def build_relationships
         RelationshipsConfig.new(settings.RELATIONSHIPS_SHOWN.to_h) if settings.RELATIONSHIPS_SHOWN
-      end
-
-      def build_leaflet_options(config)
-        return unless settings.LEAFLET
-
-        assign(config.leaflet_options, :bounds_overlay, settings.LEAFLET.BOUNDSOVERLAY&.to_h)
-        assign(config.leaflet_options, :selected_color, settings.LEAFLET.SELECTED_COLOR)
-        assign(config.leaflet_options, :sleep, settings.LEAFLET.SLEEP&.to_h&.transform_keys(&:downcase))
-        assign(config.leaflet_options, :sidebar, settings.LEAFLET.SIDEBAR)
-        assign(config.leaflet_options, :layers, settings.LEAFLET.LAYERS&.to_h&.transform_keys(&:downcase))
       end
 
       def build_fields(config)

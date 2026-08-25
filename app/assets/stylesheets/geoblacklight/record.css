@@ -17,11 +17,6 @@
   }
 }
 
-/* Attribute table */
-[data-sidebar="false"] .attribute-data {
-  margin-top: 1rem;
-}
-
 /* Metadata */
 .document-metadata {
   margin-top: 1rem;
