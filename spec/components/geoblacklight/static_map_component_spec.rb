@@ -15,8 +15,14 @@ RSpec.describe Geoblacklight::StaticMapComponent, type: :component do
   end
 
   context "when the protocol matches the sidebar_static_map setting" do
-    it "renders the static map" do
-      expect(rendered.css("#static-map")).to be_present
+    it "renders a locator map of where the record is" do
+      expect(rendered.css("ogm-locator#locator-map")).to be_present
+    end
+
+    it "points it at the same endpoint the item viewer reads its own metadata from" do
+      map = rendered.css("ogm-locator").first
+      expect(map["record-url"]).to eq Rails.application.routes.url_helpers.viewer_solr_document_path(document)
+      expect(map["theme"]).to eq "light"
     end
   end
 end

@@ -19,21 +19,10 @@ module Geoblacklight
       @label ||= t("geoblacklight.location")
     end
 
+    # The card is the label and the border; the map inside it is a locator, which is the viewer's own
+    # component for where a single record is.
     def viewer_tag
-      leaflet_options = Geoblacklight.configuration.leaflet_options.deep_dup
-      leaflet_options.sleep.sleep = false
-      tag.div(nil,
-        id: "static-map",
-        class: "viewer border",
-        data: {
-          "controller" => "leaflet-viewer",
-          "leaflet-viewer-basemap-value" => Geoblacklight.configuration.basemap_provider,
-          "leaflet-viewer-dark-basemap-value" => Geoblacklight.configuration.dark_basemap_provider,
-          "leaflet-viewer-page-value" => "STATIC_MAP",
-          "leaflet-viewer-map-geom-value" => @document.geometry.geojson,
-          "leaflet-viewer-options-value" => leaflet_options.to_h,
-          "leaflet-viewer-draw-initial-bounds-value" => true
-        })
+      render Geoblacklight::LocatorMapComponent.new(document: @document)
     end
   end
 end
