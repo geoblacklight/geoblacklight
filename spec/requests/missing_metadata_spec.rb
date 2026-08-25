@@ -9,7 +9,7 @@ RSpec.describe "Records with missing metadata", type: :request do
     get search_catalog_path(q: "ASTER Global Emissivity")
 
     expect(response).to have_http_status(:ok)
-    expect(response_page).to have_css("#leaflet-viewer")
+    expect(response_page).to have_css("#overview-map")
   end
 
   {

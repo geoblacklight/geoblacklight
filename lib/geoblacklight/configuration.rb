@@ -18,6 +18,16 @@ module Geoblacklight
     # (For WMS inspection) timeout and open_timeout parameters for Faraday
     attribute :timeout_wms, :integer, default: 4
 
+    # Services the item viewer should send cookies to when previewing restricted data a reader is
+    # allowed at, as URL prefixes - usually just the service's origin, e.g.
+    #   config.restricted_origins = ["https://geoserver-restricted.example.edu/"]
+    # List only services that require it: a credentialed request to one that doesn't expect it is
+    # refused by the browser rather than authorized. The service has to answer with
+    # Access-Control-Allow-Credentials and name this application's origin, since a wildcard is
+    # invalid with credentials. See the viewer_requests initializer for the other ways to authorize
+    # a request - a header, or a rewrite to a proxy of your own.
+    attr_accessor :restricted_origins # typed as Array
+
     # Display Notes to display / Non-prefixed default bootstrap class is alert-secondary
     attr_accessor :display_notes_shown # typed as Hash
 
@@ -106,6 +116,8 @@ module Geoblacklight
           xyz
         ]
       }
+
+      @restricted_origins = []
 
       @metadata_shown = ["mods", "fgdc", "iso19139", "html"]
       @webservices_shown = %w[

@@ -7,16 +7,10 @@ module Geoblacklight
       @document = document
     end
 
-    # If the conditions for this being IIIF content are met, dislay the IIIF viewer
-    # If it is oembed content, display the oembed viewer
-    # Otherwise display the base viewer which will take into account if it is open layers
-    # or generic content.
+    # Use the appropriate viewer based on the protocol of the document
     def display_tag
-      return iiif_manifest_tag if iiif_manifest?
-      return iiif_image_tag if iiif_image?
-      return oembed_tag if protocol == "Oembed"
-
-      base_tag
+      return oembed_tag if @document.viewer_protocol == "oembed"
+      ogm_viewer_tag
     end
 
     def render?
@@ -25,45 +19,6 @@ module Geoblacklight
 
     private
 
-    def protocol
-      @document.viewer_protocol&.camelize
-    end
-
-    def openlayers?
-      %w[Cog Pmtiles].include?(protocol)
-    end
-
-    def iiif_image?
-      protocol == "Iiif"
-    end
-
-    def iiif_manifest?
-      protocol == "IiifManifest"
-    end
-
-    # Use mirador as the IIIF manifest viewer due to bug in Clover; see:
-    # https://github.com/samvera-labs/clover-iiif/issues/294
-    def iiif_manifest_tag
-      tag.div(nil,
-        id: "mirador",
-        class: "viewer mirador-viewer",
-        data: {
-          manifest_url: @document.viewer_endpoint
-        })
-    end
-
-    # Use openseadragon for IIIF image content due to bug in Clover; see:
-    # https://github.com/samvera-labs/clover-iiif/issues/294
-    def iiif_image_tag
-      tag.div(nil,
-        id: "openseadragon",
-        class: "viewer openseadragon-viewer",
-        data: {
-          image_url: @document.viewer_endpoint
-        })
-    end
-
-    # Generate the viewer HTML for oEmbed content
     def oembed_tag
       tag.div(nil,
         id: "oembed-viewer",
@@ -74,30 +29,22 @@ module Geoblacklight
         })
     end
 
-    # The leaflet and openlayers viewers share a lot of the same data attributes
-    # so we can use a base tag for both of them and just vary a few names
-    def base_tag
-      viewer_name = openlayers? ? "openlayers-viewer" : "leaflet-viewer"
-      tag.div(nil,
-        id: viewer_name,
-        class: "viewer #{viewer_name}",
-        data: {
-          "controller" => viewer_name,
-          "#{viewer_name}-available-value" => helpers.document_available?(@document),
-          "#{viewer_name}-basemap-value" => Geoblacklight.configuration.basemap_provider,
-          "#{viewer_name}-dark-basemap-value" => Geoblacklight.configuration.dark_basemap_provider,
-          "#{viewer_name}-protocol-value" => protocol,
-          "#{viewer_name}-url-value" => @document.viewer_endpoint,
-          "#{viewer_name}-map-geom-value" => @document.geometry.geojson,
-          "#{viewer_name}-layer-id-value" => @document.wxs_identifier,
-          "#{viewer_name}-options-value" => leaflet_options.to_h,
-          "#{viewer_name}-page-value" => params[:action]&.upcase,
-          "#{viewer_name}-draw-initial-bounds-value" => true
-        }.compact)
+    def ogm_viewer_tag
+      tag.ogm_viewer(nil,
+        :class => "viewer ogm-viewer",
+        "hide-title" => true,
+        "theme" => helpers.geoblacklight_viewer_theme,
+        "record-url" => helpers.viewer_solr_document_path(@document),
+        :data => {restricted_origins: restricted_origins})
     end
 
-    def leaflet_options
-      Geoblacklight.configuration.leaflet_options
+    # URLs where the viewer will send credentials (cookies) to, in order to try
+    # to preview restricted data
+    def restricted_origins
+      origins = Geoblacklight.configuration.restricted_origins
+      return if origins.blank? || !@document.restricted? || !helpers.document_available?(@document)
+
+      origins.to_json
     end
   end
 end

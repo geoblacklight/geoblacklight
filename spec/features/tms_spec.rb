@@ -5,7 +5,7 @@ require "spec_helper"
 RSpec.feature "tms layer" do
   scenario "displays tms layer", js: true do
     visit solr_document_path("cugir-007957")
-    expect(page).to have_css ".leaflet-control-zoom"
-    expect(page).to have_css "img[src*='cugir.library.cornell.edu']", visible: :all
+
+    expect(preview_tabs).to include "Tiled Map Service (TMS)"
   end
 end

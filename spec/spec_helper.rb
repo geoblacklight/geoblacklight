@@ -40,10 +40,15 @@ WebMock.allow_net_connect!(net_http_connect_on_start: true)
 Capybara.register_driver :chrome_headless do |app|
   # Set up Chrome options
   options = Selenium::WebDriver::Chrome::Options.new
-  options.add_argument("--headless")
+  options.add_argument("--headless=new")
   options.add_argument("--disable-gpu")
   options.add_argument("--no-sandbox")
   options.add_argument("--window-size=1280,1024")
+  # Software WebGL, which the viewer and the overview map both need: they draw with MapLibre, and
+  # headless Chrome has no GPU to give them. SwiftShader is Chrome's own CPU renderer, and since
+  # Chrome 128 it has to be asked for by name before WebGL will fall back to it at all.
+  options.add_argument("--enable-unsafe-swiftshader")
+  options.add_argument("--use-angle=swiftshader")
   # Return from #visit at DOMContentLoaded instead of waiting for the full
   # window `load` event. GeoBlacklight pages pull basemap tiles and WMS/TMS
   # layers from external hosts; in CI those requests can hang and prevent

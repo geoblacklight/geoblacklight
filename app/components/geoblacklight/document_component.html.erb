@@ -17,8 +17,6 @@
         <%= render Geoblacklight::DisplayNoteComponent.new(display_note: display_note) %>
       <% end %>
       <%= render Geoblacklight::Document::PreviewComponent.new(document: @document) %>
-      <%= render Geoblacklight::AttributeTableComponent.new(document: @document) %>
-      <%= render Geoblacklight::IndexMapInspectComponent.new(document: @document) %>
       <%= embed %>
       <%= content %>
       <%= metadata %>

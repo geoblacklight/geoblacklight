@@ -1,12 +1,5 @@
 /* Styles for index maps */
 
-/* Outline the border of the clickable areas to improve contrast */
-.viewer[data-leaflet-viewer-protocol-value="IndexMap"] {
-  .leaflet-interactive {
-    stroke: black;
-  }
-}
-
 /* Index map legend */
 .index-map-legend {
   margin-bottom: 0.5em;
