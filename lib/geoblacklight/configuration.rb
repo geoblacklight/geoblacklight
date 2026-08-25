@@ -163,12 +163,5 @@ module Geoblacklight
     def fields
       @fields ||= FieldsConfig.new
     end
-
-    ##
-    # Returns Leaflet plugin settings to pass to the viewer.
-    # @return[Geoblacklight::Configuration::LeafletConfig]
-    def leaflet_options
-      @leaflet_options ||= Geoblacklight::Configuration::LeafletConfig.new
-    end
   end
 end

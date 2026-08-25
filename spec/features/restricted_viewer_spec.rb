@@ -9,7 +9,7 @@ RSpec.feature "Restricted item viewer", js: true do
     expect(page).to have_link("Login to View and Download")
 
     # The viewer was handed a record with no service references, so the only preview it can offer
-    # is the record's own extent - the same bounding box the Leaflet viewer drew here
+    # is the record's own extent
     previews = find("ogm-viewer").shadow_root.find("ogm-previews", visible: :all)
     expect(previews.shadow_root).to have_css("wa-tab", text: "Location", visible: :all)
   end

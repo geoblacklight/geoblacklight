@@ -252,7 +252,7 @@ RSpec.describe Geoblacklight::SolrDocument do
       end
     end
     let(:document_attributes) { {} }
-    it "returns leaflet protocol" do
+    it "returns no protocol" do
       expect(document.viewer_protocol).to be nil
     end
   end

@@ -233,46 +233,6 @@
 #   EXCEPTIONS: "application/json"
 #   INFO_FORMAT: "application/json"
 
-# # Settings for leaflet
-# leaflet:
-#   # Keys below are consumed by the JS viewer via the page value
-#   # ("INDEX" / "SHOW" / "STATIC_MAP"), so they are intentionally left uppercase.
-#   boundsoverlay:
-#     INDEX:
-#       color: "#3388ff"
-#     SHOW:
-#       color: "#3388ff"
-#     STATIC_MAP:
-#       color: "#3388ff"
-#   selected_color: "#2C7FB8"
-#   sleep:
-#     sleep: true # set to false to disable
-#     margin_distance: 100 # set to zero / false if you want to disable this check
-#     sleeptime: 750
-#     waketime: 750
-#     hovertowake: false
-#     message: "Click to Wake"
-#     background: "rgba(214, 214, 214, .7)"
-#   sidebar: false # set to true to display attribute table as sidebar on map
-#   layers:
-#     detect_retina: true
-#     index:
-#       # DEFAULT / UNAVAILABLE / SELECTED are consumed by the JS viewer and the
-#       # index-map legend, so they are intentionally left uppercase.
-#       DEFAULT: &default
-#         color: "#7FCDBB"
-#         weight: 1
-#         radius: 4
-#         sr_color_name: "Green"
-#       UNAVAILABLE:
-#         <<: *default
-#         color: "#EDF8B1"
-#         sr_color_name: "Yellow"
-#       SELECTED:
-#         <<: *default
-#         color: "#2C7FB8"
-#         sr_color_name: "Blue"
-
 # # Toggle the help text feature that offers users context
 # help_text:
 #   viewer_protocol:

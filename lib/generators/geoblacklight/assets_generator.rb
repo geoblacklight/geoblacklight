@@ -14,8 +14,8 @@ module Geoblacklight
       ES modules via importmap, and their dependencies are pinned to versions
       delivered via CDN.
 
-      CSS needed for Geoblacklight's dependencies (e.g. leaflet viewer) are
-      imported via CDN in the app's main bootstrap stylesheet. Geoblacklight's own
+      CSS needed for Geoblacklight's dependencies (e.g. Bootstrap) is imported
+      via CDN in the app's main bootstrap stylesheet. Geoblacklight's own
       stylesheet is imported from the frontend asset package installed via yarn.
     DESCRIPTION
 
