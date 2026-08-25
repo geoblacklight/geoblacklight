@@ -16,6 +16,22 @@ RSpec.describe Geoblacklight::BoundingBox do
       expect(example_box.to_envelope).to eq "ENVELOPE(-160, 120, 70, -80)"
     end
   end
+  describe "#to_geojson" do
+    let(:example_box) { described_class.new(-160, -80, 120, 70) }
+
+    it "creates a GeoJSON polygon around the bounding box" do
+      expect(JSON.parse(example_box.to_geojson)).to eq(
+        "type" => "Polygon",
+        "coordinates" => [[
+          [-160.0, -80.0],
+          [-160.0, 70.0],
+          [120.0, 70.0],
+          [120.0, -80.0],
+          [-160.0, -80.0]
+        ]]
+      )
+    end
+  end
   describe "#from_rectangle" do
     let(:example_box) { described_class.from_rectangle("-160 -80 120 70") }
     it "parses and creates a Geoblacklight::BoundingBox from a Solr lat-lon" do

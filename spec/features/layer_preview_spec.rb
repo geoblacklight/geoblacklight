@@ -3,17 +3,10 @@
 require "spec_helper"
 
 RSpec.feature "Layer preview", js: true do
-  scenario "Restricted layer should show bounding box" do
-    visit solr_document_path("berkeley-s76d73")
-    within("#leaflet-viewer") do
-      expect(page).to have_css("path")
-    end
-  end
-
-  scenario "Public layer should show wms layer not bounding box" do
+  # A restricted layer offers its location instead, which is spec/features/restricted_viewer_spec.rb
+  scenario "Public layer should be previewed as data" do
     visit solr_document_path("mit-f6rqs4ucovjk2")
-    within ".leaflet-tile-pane" do
-      expect(page).to have_css(".leaflet-layer", count: 2)
-    end
+
+    expect(preview_tabs).to include "Web Map Service (WMS)"
   end
 end

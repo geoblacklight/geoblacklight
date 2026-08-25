@@ -61,6 +61,7 @@ RSpec.feature "Accessibility testing", js: true do
   end
 
   def be_accessible
-    be_axe_clean.excluding("#clover-viewer")
+    # Viewers are tested separately
+    be_axe_clean.excluding(".viewer")
   end
 end

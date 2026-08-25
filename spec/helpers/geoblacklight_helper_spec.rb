@@ -7,6 +7,36 @@ RSpec.describe GeoblacklightHelper, type: :helper do
   include ActionView::Helpers::UrlHelper
   include ActionView::Helpers::TranslationHelper
 
+  describe "#geoblacklight_viewer_theme" do
+    before do
+      allow(helper).to receive(:blacklight_config).and_return(blacklight_config)
+    end
+
+    context "before Blacklight has a dark mode setting" do
+      let(:blacklight_config) { Object.new }
+
+      it "states Bootstrap's implicit light default" do
+        expect(helper.geoblacklight_viewer_theme).to eq "light"
+      end
+    end
+
+    context "when dark mode support is disabled" do
+      let(:blacklight_config) { Struct.new(:dark_mode_support).new(false) }
+
+      it "states light explicitly" do
+        expect(helper.geoblacklight_viewer_theme).to eq "light"
+      end
+    end
+
+    context "when dark mode support is enabled" do
+      let(:blacklight_config) { Struct.new(:dark_mode_support).new(true) }
+
+      it "leaves the theme to the Bootstrap synchronizer" do
+        expect(helper.geoblacklight_viewer_theme).to be_nil
+      end
+    end
+  end
+
   describe "#geoblacklight_icon" do
     it "supports in use cases" do
       {

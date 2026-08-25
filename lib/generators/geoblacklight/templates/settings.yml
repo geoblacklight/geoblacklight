@@ -18,6 +18,15 @@
 # # The bf boost value for overlap ratio
 # overlap_ratio_boost: "2"
 
+# # Services the item viewer should send cookies to when previewing restricted data a reader is
+# # allowed at, as URL prefixes - usually just the service's origin. List only services that
+# # require it: a credentialed request to one that doesn't expect it is refused by the browser
+# # rather than authorized, and the service has to answer with Access-Control-Allow-Credentials
+# # naming this application's origin. To authorize with a header or a proxy of your own instead,
+# # register a transform with Geoblacklight.onViewerRequest in your JavaScript entrypoint.
+# restricted_origins:
+#   - "https://geoserver-restricted.example.edu/"
+
 # # Homepage Map Geometry
 # # Leave null to default to entire world
 # # Add a stringified GeoJSON object to scope initial render (example from UMass)

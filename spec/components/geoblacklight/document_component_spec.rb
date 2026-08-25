@@ -42,51 +42,27 @@ RSpec.describe Geoblacklight::DocumentComponent, type: :component do
     end
   end
 
-  context "when the document is an index map" do
-    let(:fixture) { "solr_documents/index-map-stanford.json" }
-
-    it "renders the index map legend" do
-      expect(page).to have_css(".index-map-legend")
-    end
-
-    it "renders the index map inspection area" do
-      expect(page).to have_css(".viewer-information")
-    end
-  end
-
   context "when the document has a IIIF manifest" do
     let(:fixture) { "solr_documents/b1g_iiif_manifest.json" }
 
-    it "displays the IIIF help text" do
-      expect(page).to have_text(I18n.t("geoblacklight.help_text.viewer_protocol.iiif.title"))
-    end
-
-    it "uses the IIIF tag for the container" do
-      expect(page).to have_css("div#mirador")
+    it "uses the viewer for the container" do
+      expect(page).to have_css(".viewer")
     end
   end
 
   context "when the document has a pmtiles layer" do
     let(:fixture) { "solr_documents/public_pmtiles_princeton.json" }
 
-    it "displays the PM Tiles help text" do
-      expect(page).to have_text(I18n.t("geoblacklight.help_text.viewer_protocol.pmtiles.title"))
-    end
-
-    it "uses the Open Layers tag for the container" do
-      expect(page).to have_css("div#openlayers-viewer")
+    it "uses the viewer for the container" do
+      expect(page).to have_css(".viewer")
     end
   end
 
   context "when the document has a WMS layer" do
     let(:fixture) { "solr_documents/actual-polygon1.json" }
 
-    it "displays wms help text" do
-      expect(page).to have_text(I18n.t("geoblacklight.help_text.viewer_protocol.wms.title"))
-    end
-
-    it "uses the Leaflet tag for the container" do
-      expect(page).to have_css("div#leaflet-viewer")
+    it "uses the viewer for the container" do
+      expect(page).to have_css(".viewer")
     end
   end
 
@@ -94,9 +70,7 @@ RSpec.describe Geoblacklight::DocumentComponent, type: :component do
     let(:fixture) { "solr_documents/actual-papermap1.json" }
 
     it "does not render the viewer" do
-      expect(page).not_to have_css("div#leaflet-viewer")
-      expect(page).not_to have_css("div#openlayers-viewer")
-      expect(page).not_to have_css("div#mirador")
+      expect(page).not_to have_css(".viewer")
     end
   end
 end
