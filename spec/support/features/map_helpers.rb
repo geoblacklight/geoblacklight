@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "cgi"
+
 module Features
   module MapHelpers
     # An overview or locator map, once it has something on it. Both are handed what to draw a moment
