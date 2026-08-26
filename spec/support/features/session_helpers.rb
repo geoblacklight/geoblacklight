@@ -16,7 +16,10 @@ module Features
       fill_in "user_email", with: user.email
       fill_in "user_password", with: user.password
       click_button "Log in"
-      expect(page).to have_content "Signed in successfully."
+      # Wait for the persistent "Log Out" nav link rather than the one-shot
+      # "Signed in successfully." flash, which can render and then become
+      # non-visible before Capybara's default wait time elapses.
+      expect(page).to have_link "Log Out"
     end
   end
 end
