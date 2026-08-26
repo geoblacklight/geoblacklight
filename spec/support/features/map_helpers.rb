@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "cgi"
-
 module Features
   module MapHelpers
     # An overview or locator map, once it has something on it. Both are handed what to draw a moment
@@ -64,7 +62,7 @@ module Features
 
     # The area the query on screen asked after, as the bbox parameter states it
     def searched_bbox
-      CGI.parse(URI(page.current_url).query.to_s)["bbox"].first
+      URI.decode_www_form(URI(page.current_url).query.to_s).to_h["bbox"]
     end
   end
 end
