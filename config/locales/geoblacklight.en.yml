@@ -83,20 +83,49 @@ en:
       pmtiles: "PMTiles Layer"
       cog: "COG Layer"
     relations:
-      member_of_ancestors: "Belongs to collection..."
-      member_of_descendants: "Collection records..."
-      part_of_ancestors: "Is part of..."
-      part_of_descendants: "Has part..."
-      relation_ancestors: "Related records..."
-      relation_descendants: "Related records..."
-      replaces_ancestors: "Replaces..."
-      replaces_descendants: "Is replaced by..."
-      source_ancestors: "Source records..."
-      source_descendants: "Derived records..."
-      version_of_ancestors: "Is version of..."
-      version_of_descendants: "Has version..."
-      browse_all_no_count: "Browse all records..."
-      browse_all: "Browse all %{count} records..."
+      member_of_ancestors:
+        one: "In collection"
+        other: "In %{count} collections"
+      member_of_descendants:
+        one: "Contains"
+        other: "Contains %{count} items"
+      part_of_ancestors:
+        one: "Part of"
+        other: "Part of %{count} items"
+      part_of_descendants:
+        one: "Has part"
+        other: "Has %{count} parts"
+      relation_ancestors:
+        one: "Related to"
+        other: "Related to %{count} items"
+      relation_descendants:
+        one: "Related to"
+        other: "Related to %{count} items"
+      replaces_ancestors:
+        one: "Replaces"
+        other: "Replaces %{count} items"
+      replaces_descendants:
+        one: "Replaced by"
+        other: "Replaced by %{count} items"
+      source_ancestors:
+        one: "Sourced from"
+        other: "Sourced from %{count} items"
+      source_descendants:
+        one: "Source of"
+        other: "Source of %{count} items"
+      version_of_ancestors:
+        one: "Version of"
+        other: "Version of %{count} items"
+      version_of_descendants:
+        one: "Has version"
+        other: "Has %{count} versions"
+      browse:
+        member_of: "Browse all %{count} items in this collection"
+        part_of: "Browse all %{count} parts of this item"
+        relation: "Browse all %{count} items related to this item"
+        replaces: "Browse all %{count} items that replace this item"
+        source: "Browse all %{count} items sourced from this item"
+        version_of: "Browse all %{count} versions of this item"
     modal:
       copy-citation: "Copy Citation"
     metadata:

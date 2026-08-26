@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 module Geoblacklight
-  module Relation
+  module Relations
     class RelationResponse
-      attr_reader :search_id, :link_id
+      attr_reader :search_id, :link_id, :repository
+
       def initialize(id, repository)
         @link_id = id
         @search_id = RSolr.solr_escape(id)
@@ -29,9 +30,9 @@ module Geoblacklight
       def query_type(option)
         case option.query_type
         when "ancestors"
-          Geoblacklight::Relation::Ancestors
+          Geoblacklight::Relations::Ancestors
         when "descendants"
-          Geoblacklight::Relation::Descendants
+          Geoblacklight::Relations::Descendants
         else
           fail ArgumentError, "Bad RelationResponse query_type: #{option.query_type}. Only 'ancestors' or 'descendants' is allowed."
         end

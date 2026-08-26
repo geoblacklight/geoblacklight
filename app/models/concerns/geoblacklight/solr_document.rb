@@ -16,6 +16,7 @@ module Geoblacklight
     included do
       field_config = Geoblacklight.configuration.fields
       attribute :display_note, :array, field_config.display_note
+      attribute :description, :array, field_config.description
       attribute :geom_field, :string, field_config.geometry
       attribute :wxs_identifier, :string, field_config.wxs_identifier
       attribute :file_format, :string, field_config.format

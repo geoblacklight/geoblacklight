@@ -1,0 +1,14 @@
+<li class="list-group-item">
+  <%= link_to document.title, solr_document_path(document) %>
+  <div class="status-icons">
+    <%= render Geoblacklight::HeaderIconsComponent.new(document: document) %>
+  </div>
+  <% if document.description.present? %>
+    <div class="truncate-abstract description" data-read-more-text="<%= t("geoblacklight.truncate.read_more") %>" data-close-text="<%= t("geoblacklight.truncate.close") %>" data-max-lines=5>
+      <%= description %>
+    </div>
+  <% end %>
+  <% if render_sibling_link? %>
+    <%= link_to t("geoblacklight.relations.browse.#{browse_label_key}", count: sibling_count), sibling_search_path, class: "browse-all" %>
+  <% end %>
+</li>

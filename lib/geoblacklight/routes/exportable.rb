@@ -11,7 +11,7 @@ module Geoblacklight
         mapper.member do
           mapper.get "web_services"
           mapper.get "metadata"
-          mapper.get "relations" => "relation#index"
+          mapper.get "relations" => "relations#index"
           mapper.get "viewer" => "viewer_record#show"
         end
       end

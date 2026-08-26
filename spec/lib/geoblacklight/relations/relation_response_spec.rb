@@ -2,13 +2,34 @@
 
 require "spec_helper"
 
-RSpec.describe Geoblacklight::Relation::RelationResponse do
+RSpec.describe Geoblacklight::Relations::RelationResponse do
   let(:repository) { Blacklight::Solr::Repository.new(CatalogController.blacklight_config) }
   let(:relation_resp) { described_class.new("nyu_2451_34502", repository) }
-  let(:empty_relation_resp) { described_class.new("harvard-g7064-s2-1834-k3", repository) }
+
   describe "#initialize" do
     it "creates a RelationResponse" do
       expect(relation_resp).to be_an described_class
+    end
+
+    it "exposes the repository it was built with" do
+      expect(relation_resp.repository).to eq(repository)
+    end
+
+    it "exposes the unescaped id as link_id" do
+      expect(relation_resp.link_id).to eq("nyu_2451_34502")
+    end
+
+    context "with an id containing Solr special characters" do
+      let(:relation_resp) { described_class.new("ark:/12345/x6", repository) }
+
+      it "keeps link_id unescaped, for display and API responses" do
+        expect(relation_resp.link_id).to eq("ark:/12345/x6")
+      end
+
+      it "escapes search_id, for building Solr filter queries" do
+        expect(relation_resp.search_id).to eq(RSolr.solr_escape("ark:/12345/x6"))
+        expect(relation_resp.search_id).not_to eq("ark:/12345/x6")
+      end
     end
   end
 
@@ -23,7 +44,7 @@ RSpec.describe Geoblacklight::Relation::RelationResponse do
       expect(relation_resp.source_descendants).to include("docs")
     end
 
-    it "raises no method error" do
+    it "raises NoMethodError for an unconfigured relationship" do
       expect { relation_resp.FAIL }.to raise_error NoMethodError
     end
   end
@@ -36,26 +57,19 @@ RSpec.describe Geoblacklight::Relation::RelationResponse do
     end
 
     it "returns false for non-configured options" do
-      expect(relation_resp).not_to respond_to("fail")
+      expect(relation_resp).not_to respond_to("FAIL")
     end
   end
 
   describe "#query_type" do
     it "fails for a bad query type request" do
-      # Cache the existing relationship values and add a test value
       relationships = Geoblacklight.configuration.relationships_shown
-      Geoblacklight.configuration.relationships_shown = {
-        BAD: Config::Options.new({
-          field: "dct_source_sm",
-          query_type: "bad_query_type",
-          icon: "pagelines-brands",
-          label: "geoblacklight.relations.source_ancestor"
-        })
-      }
+      Geoblacklight.configuration.relationships_shown = Geoblacklight::Configuration::RelationshipsConfig.new(
+        BAD: {field: "dct_source_sm", query_type: "bad_query_type", label: "geoblacklight.relations.source_ancestors"}
+      )
 
       expect { relation_resp.BAD }.to raise_error(ArgumentError)
-
-      # Restore relationship values
+    ensure
       Geoblacklight.configuration.relationships_shown = relationships
     end
   end

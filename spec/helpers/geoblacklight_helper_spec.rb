@@ -101,6 +101,12 @@ RSpec.describe GeoblacklightHelper, type: :helper do
     end
   end
 
+  describe "#markdown_to_html" do
+    it "transforms markdown into HTML" do
+      expect(helper.markdown_to_html("a **short** description")).to eq "<p>a <strong>short</strong> description</p>\n"
+    end
+  end
+
   describe "#geoblacklight_thumbnail" do
     let(:references_field) { Geoblacklight.configuration.fields.references }
     let(:document) { SolrDocument.new(document_attributes) }
