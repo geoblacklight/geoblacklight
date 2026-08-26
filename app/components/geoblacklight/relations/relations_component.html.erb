@@ -1,0 +1,15 @@
+<div class="card relations">
+  <div class="card-header">
+    <h2 class="mb-0 h6"><%= t(rel_type_info.label, count: result_count) %></h2>
+  </div>
+  <ul class="list-group list-group-flush relation-list">
+    <% related_docs[0..2].each do |document| %>
+      <%= render Geoblacklight::Relations::RelationComponent.new(document: document, field: configuration.field, sibling_count: sibling_count(document), browse_label_key: browse_label_key) %>
+    <% end %>
+  </ul>
+  <% if result_count > 3 && configuration.query_type == "descendants" %>
+    <div class="card-footer">
+      <%= link_to t("geoblacklight.relations.browse.#{browse_label_key}", count: result_count), browse_all_path %>
+    </div>
+  <% end %>
+</div>

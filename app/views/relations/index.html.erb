@@ -1,5 +1,5 @@
 <%= turbo_frame_tag "relations" do %>
   <%- Geoblacklight.configuration.relationships_shown.each do |relationship_type, rel_type_info| %>
-    <%= render Geoblacklight::RelationsComponent.new(relations: @relations, relationship_type:, rel_type_info:) %>
+    <%= render Geoblacklight::Relations::RelationsComponent.new(relations: @relations, relationship_type:, rel_type_info:) %>
   <% end %>
 <% end %>

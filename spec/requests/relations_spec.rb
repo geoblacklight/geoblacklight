@@ -8,13 +8,13 @@ RSpec.describe "Document relations", type: :request do
   it "renders source ancestors" do
     get relations_solr_document_path("nyu_2451_34502")
 
-    expect(response_page).to have_css(".relations .card-header h2", text: "Source records...")
+    expect(response_page).to have_css(".relations .card-header h2", text: "Sourced from")
   end
 
   it "renders source descendants" do
     get relations_solr_document_path("nyu_2451_34635")
 
-    expect(response_page).to have_css(".relations .card-header h2", text: "Derived records...")
+    expect(response_page).to have_css(".relations .card-header h2", text: "Source of")
   end
 
   it "returns relations as JSON" do
@@ -24,5 +24,12 @@ RSpec.describe "Document relations", type: :request do
     expect(json["relations"]).not_to have_key("source_ancestors")
     expect(json.dig("relations", "source_descendants", "docs", 0, Geoblacklight.configuration.fields.id)).to eq("nyu_2451_34502")
     expect(json["current_doc"]).to eq("nyu_2451_34635")
+  end
+
+  it "echoes the current document id unescaped, even when it contains Solr special characters" do
+    get relations_solr_document_path("ark:12345", format: :json)
+
+    json = response.parsed_body
+    expect(json["current_doc"]).to eq("ark:12345")
   end
 end

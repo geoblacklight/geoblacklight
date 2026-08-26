@@ -47,6 +47,14 @@ module GeoblacklightHelper
   end
 
   ##
+  # Transform markdown into HTML
+  # @param [String] value markdown to transform
+  # @return [ActiveSupport::SafeBuffer] rendered HTML
+  def markdown_to_html(value)
+    Commonmarker.to_html(value).html_safe
+  end
+
+  ##
   # Returns an SVG icon or empty HTML span element
   # @return [SVG or HTML tag]
   def geoblacklight_icon(name, **args)

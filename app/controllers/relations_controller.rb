@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-class RelationController < ApplicationController
+class RelationsController < ApplicationController
   include Blacklight::Configurable
 
   copy_blacklight_config_from(CatalogController)
 
   def index
-    @relations = Geoblacklight::Relation::RelationResponse.new(params[:id], repository)
+    @relations = Geoblacklight::Relations::RelationResponse.new(params[:id], repository)
     render layout: !(request.xhr? || request.headers["Turbo-Frame"].present?)
   end
 

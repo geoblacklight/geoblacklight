@@ -4,8 +4,11 @@
 // Uses bootstrap's built-in collapse functionality; CSS is used to do the truncation
 class Truncator {
   constructor(element, { lines, id }) {
+    // this element was already processed on an earlier turbo:load/turbo:frame-load
+    if (element.classList.contains("collapse")) return
+
     // if the element is already small enough, don't truncate it
-    const minHeight = lines * parseFloat(window.getComputedStyle(element).fontSize)
+    const minHeight = lines * parseFloat(window.getComputedStyle(element).lineHeight)
     if (element.getBoundingClientRect().height <= minHeight) return
 
     // set a unique ID for the element if it doesn't have one
@@ -13,10 +16,11 @@ class Truncator {
     this.element.id ||= id
     this.readMoreText = element.dataset.readMoreText
     this.closeText = element.dataset.closeText
+    this.element.style.setProperty("--max-lines", lines)
 
     // add the button
     this.button = document.createElement("button")
-    this.button.classList.add("btn", "btn-link", "p-0", "border-0")
+    this.button.classList.add("btn", "btn-link", "p-0", "border-0", "read-more")
     this.button.dataset.bsToggle = "collapse"
     this.button.dataset.bsTarget = `#${this.element.id}`
     this.button.setAttribute("aria-expanded", "false")
@@ -40,7 +44,7 @@ class Truncator {
 export default function initializeTruncation() {
   document.querySelectorAll(".truncate-abstract").forEach((element, i) => {
     new Truncator(element, {
-      lines: 12,
+      lines: parseInt(element.dataset.maxLines, 10) || 8,
       id: `truncate-${i}`,
     })
   })

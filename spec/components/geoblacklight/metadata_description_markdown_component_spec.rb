@@ -29,10 +29,4 @@ RSpec.describe Geoblacklight::MetadataDescriptionMarkdownComponent, type: :compo
     expect(page).to have_css("div.truncate-abstract p", count: 2)
     expect(page).to have_css("div.truncate-abstract p strong", text: "short")
   end
-
-  describe "#markdown_to_html" do
-    it "transforms markdown into HTML" do
-      expect(component.markdown_to_html("a **short** description")).to eq "<p>a <strong>short</strong> description</p>\n"
-    end
-  end
 end

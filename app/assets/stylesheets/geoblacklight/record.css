@@ -41,13 +41,42 @@
   }
 }
 
+/* Relations */
 #relations {
   display: block;
-}
 
-.relations {
-  .list-group {
-    --bs-list-group-border-width: 0;
+  .card + .card {
+    margin-top: 1rem;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .list-group-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+    align-items: flex-start;
+  }
+
+  .description,
+  .read-more,
+  .browse-all,
+  .card-footer,
+  .status-icons {
+    font-size: calc(var(--bs-body-font-size) * 0.75); 
+  }
+
+  .description p {
+    display: inline;
+    margin: 0;
+  }
+
+  .read-more {
+    display: inline-block;
+    flex: none;
   }
 }
 
