@@ -35,7 +35,6 @@ export default function initializeMetadataDownload() {
     })
 
     e.target.querySelectorAll(".pill-metadata").forEach((element, i) => {
-      console.log(element)
       new GeoBlacklightMetadataDownloadButton(element, i)
     })
   })
