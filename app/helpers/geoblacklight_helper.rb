@@ -39,14 +39,6 @@ module GeoblacklightHelper
   end
 
   ##
-  # Blacklight catalog controller helper method to truncate field value to 150 chars
-  # @param [SolrDocument] args
-  # @return [String]
-  def snippit(args)
-    truncate(Array(args[:value]).flatten.join(" "), length: 150)
-  end
-
-  ##
   # Transform markdown into HTML
   # @param [String] value markdown to transform
   # @return [ActiveSupport::SafeBuffer] rendered HTML

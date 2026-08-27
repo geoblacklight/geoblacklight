@@ -65,7 +65,7 @@
   .read-more,
   .browse-all,
   .card-footer,
-  .status-icons {
+  .badges {
     font-size: calc(var(--bs-body-font-size) * 0.75); 
   }
 

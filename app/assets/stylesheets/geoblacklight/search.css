@@ -61,24 +61,12 @@
     line-height: 1.25;
     gap: 0.25em;
 
-    .status-icons {
+    .badges {
       flex: none;
       display: flex;
       justify-content: flex-start;
       align-items: center;
       gap: 0.2em;
-    }
-
-    /* More info dropdown and area */
-    .dropdown-toggle {
-      width: 1.5em;
-      height: 1.5em;
-    }
-
-    .dropdown-toggle::after {
-      vertical-align: top;
-      margin-left: -0.25em;
-      margin-top: 0.25em;
     }
   }
 
@@ -88,10 +76,19 @@
     flex-grow: 1;
     flex-shrink: 1;
   }
-}
 
-.more-info-area > div {
-  padding-left: var(--bl-results-document-padding-top);
-  padding-right: var(--bl-results-document-padding-top);
-  padding-bottom: var(--bl-results-document-padding-top);
+  .document-main-section {
+    .metadata {
+      padding: 0.5em 1.5em;
+    }
+
+    .badges {
+      margin-bottom: 0.5em;
+    }
+
+    .description p {
+      display: inline;
+      margin: 0;
+    }
+  }
 }

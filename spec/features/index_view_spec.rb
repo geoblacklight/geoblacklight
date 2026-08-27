@@ -8,14 +8,6 @@ RSpec.feature "Index view", js: true do
     visit search_catalog_path(q: "*")
   end
 
-  scenario "click on a record area to expand collapse" do
-    within("article", match: :first) do
-      expect(page).to have_css(".collapsed")
-      find("button").click
-      expect(page).not_to have_css(".collapsed")
-    end
-  end
-
   scenario "searching the map should retain current search parameters" do
     visit "/?f[#{subject_field}][]=Population"
 

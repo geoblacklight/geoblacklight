@@ -48,6 +48,11 @@ RSpec.describe "Catalog index view", type: :request do
 
   it "renders schema.org properties" do
     expect(response_page.first(".documentHeader")).to have_css("a[itemprop='name']")
-    expect(response_page.first(".more-info-area")).to have_css("small[itemprop='description']")
+    expect(response_page).to have_css(".metadata [itemprop='description']")
+  end
+
+  it "renders a truncated description alongside the badges for results that have one" do
+    expect(response_page).to have_css(".metadata .badges")
+    expect(response_page).to have_css(".metadata .description")
   end
 end
