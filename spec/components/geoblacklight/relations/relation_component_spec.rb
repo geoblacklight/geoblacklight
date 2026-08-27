@@ -21,7 +21,7 @@ RSpec.describe Geoblacklight::Relations::RelationComponent, type: :component do
     end
 
     it "renders the document's status icon badges" do
-      expect(page).to have_css(".status-icons")
+      expect(page).to have_css(".badges")
     end
 
     it "does not render a description block when there is no description" do

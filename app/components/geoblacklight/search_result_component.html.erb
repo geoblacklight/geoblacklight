@@ -1,6 +1,6 @@
 <%# This template copies from Blacklight's components/document_component.html.erb
       # for the wrapping `content_tag @component` structure
-      # and adds custom layout within for the document header, status-icons and more-info areas %>
+      # and adds custom layout within for the document header, badges and description area %>
 
 <%= content_tag @component,
   id: @id,
@@ -12,36 +12,17 @@
   itemscope: true,
   itemtype: @document.itemtype,
   class: classes do %>
-
+  <%= header %>
   <%= thumbnail %>
-  <%= content_tag :div, class: 'document-main-section' do %>
-  <%= content_tag :header, class: 'documentHeader index-split' do %>
-    <div class="document-counter">
-      <%= t('blacklight.search.documents.counter', :counter => @counter) if @counter %>
+  <div class="document-main-section">
+    <%= title %>
+    <div class="metadata">
+      <%= render Geoblacklight::HeaderIconsComponent.new(document: @document) %>
+      <% if document.description.present? %>
+        <div class="truncate-abstract description" data-read-more-text="<%= t("geoblacklight.truncate.read_more") %>" data-close-text="<%= t("geoblacklight.truncate.close") %>" data-max-lines=4 itemprop="description">
+          <%= description %>
+        </div>
+      <% end %>
     </div>
-
-    <h3 class="index_title">
-      <%= helpers.link_to_document(@document, counter: @counter, itemprop: "name") %>
-    </h3>
-
-    <button
-        class="btn dropdown-toggle collapsed"
-        data-bs-toggle="collapse"
-        data-bs-target="#doc-<%= @document.id %>-fields-collapse"
-        aria-label="<%= t('geoblacklight.metadata.toggle_summary') %>"
-        aria-expanded="false"
-        aria-controls="doc-<%= @document.id %>-fields-collapse">
-    </button>
-  <% end %>
-  <div class="status-icons mx-4 mt-2">
-    <%= render Geoblacklight::HeaderIconsComponent.new(document: @document) %>
   </div>
-  <% end %>
 <% end %>
-<div class="more-info-area border-bottom">
-  <div id="doc-<%= @document.id %>-fields-collapse" class="collapse">
-    <small itemprop="description">
-      <%= index_fields_display %>
-    </small>
-  </div>
-</div>

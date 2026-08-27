@@ -140,19 +140,6 @@ class CatalogController < ApplicationController
     # handler defaults, or have no facets.
     config.add_facet_fields_to_solr_request!
 
-    # SEARCH RESULTS FIELDS
-
-    # solr fields to be displayed in the index (search results) view
-    #   The ordering of the field names is the order of the display
-    # config.add_index_field field_config.provider, :label => 'Institution:'
-    # config.add_index_field field_config.rights, :label => 'Access:'
-    # # config.add_index_field 'Area', :label => 'Area:'
-    # config.add_index_field field_config.subject, :label => 'Keywords:'
-    config.add_index_field field_config.index_year
-    config.add_index_field field_config.creator
-    config.add_index_field field_config.description, helper_method: :snippit
-    config.add_index_field field_config.publisher
-
     # ITEM VIEW FIELDS
 
     # solr fields to be displayed in the show (single result) view

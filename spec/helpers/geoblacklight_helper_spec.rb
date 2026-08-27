@@ -53,54 +53,6 @@ RSpec.describe GeoblacklightHelper, type: :helper do
     end
   end
 
-  describe "#snippit" do
-    let(:document) { SolrDocument.new(document_attributes) }
-    let(:references_field) { Geoblacklight.configuration.fields.references }
-    context "as a String" do
-      let(:document_attributes) do
-        {
-          value: "This is a really long string that should get truncated when it gets rendered" \
-                 "in the index view to give a brief description of the contents of a particular document" \
-                 "indexed into Solr"
-        }
-      end
-      it "truncates longer strings to 150 characters" do
-        expect(helper.snippit(document).length).to eq 150
-      end
-      it "truncated string ends with ..." do
-        expect(helper.snippit(document)[-3..]).to eq "..."
-      end
-    end
-    context "as an Array" do
-      let(:document_attributes) do
-        {
-          value: ["This is a really long string that should get truncated when it gets rendered" \
-                  "in the index view to give a brief description of the contents of a particular document" \
-                  "indexed into Solr"]
-        }
-      end
-      it "truncates longer strings to 150 characters" do
-        expect(helper.snippit(document).length).to eq 150
-      end
-      it "truncated string ends with ..." do
-        expect(helper.snippit(document)[-3..]).to eq "..."
-      end
-    end
-    context "as a multivalued Array" do
-      let(:document_attributes) do
-        {
-          value: %w[short description]
-        }
-      end
-      it "uses both values" do
-        expect(helper.snippit(document)).to eq "short description"
-      end
-      it "does not truncate" do
-        expect(helper.snippit(document)[-3..]).not_to eq "..."
-      end
-    end
-  end
-
   describe "#markdown_to_html" do
     it "transforms markdown into HTML" do
       expect(helper.markdown_to_html("a **short** description")).to eq "<p>a <strong>short</strong> description</p>\n"

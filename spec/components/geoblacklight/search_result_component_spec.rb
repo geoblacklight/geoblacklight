@@ -4,29 +4,15 @@ require "spec_helper"
 
 RSpec.describe Geoblacklight::SearchResultComponent, type: :component do
   let(:request_context) { double(document_index_view_type: "list", action_name: :index) }
-  let(:blacklight_config) do
-    Blacklight::Configuration.new.configure do |config|
-      config.add_index_field "gbl_wxsIdentifier_s"
-      config.add_index_field "index_display"
-      config.add_index_field "period"
-      config.add_index_field "multi_display"
-    end
-  end
+  let(:blacklight_config) { Blacklight::Configuration.new }
   let(:presenter) do
     Blacklight::DocumentPresenter.new(document, request_context, blacklight_config)
   end
 
-  let(:document) do
-    SolrDocument.new(
-      id: 1,
-      gbl_wxsIdentifier_s: "druid:abc123",
-      non_index_field: "do not render",
-      period: "Ends with period.",
-      multi_display: %w[blue blah]
-    )
-  end
+  let(:document) { SolrDocument.new(id: 1, dct_description_sm: description) }
+  let(:description) { [] }
+
   before do
-    allow(request_context).to receive(:snippit)
     allow_any_instance_of(BlacklightHelper).to receive(:link_to_document) do |_instance, _doc, value = nil, *|
       value
     end
@@ -34,35 +20,28 @@ RSpec.describe Geoblacklight::SearchResultComponent, type: :component do
     render_inline(described_class.new(document: presenter))
   end
 
-  describe "#index_fields_display" do
-    let(:multi_valued_text) { document["multi_display"].join(" and ") }
-    let(:combined_fields) { document["gbl_wxsIdentifier_s"] + ". " + document["period"] }
+  describe "#description" do
+    it "does not render a description block when there is no description" do
+      expect(page).to have_no_css(".truncate-abstract")
+    end
 
-    subject(:index_fields_display) { page.find("[itemprop=description]").text }
+    context "when the document has a description" do
+      let(:description) { ["First paragraph.", "Second paragraph."] }
 
-    context "with multi-valued field" do
-      it "each value is separated by comma" do
-        expect(index_fields_display).to include(multi_valued_text)
+      it "renders each description value as its own paragraph" do
+        expect(page).to have_css(".truncate-abstract p", count: 2)
+        expect(page).to have_content("First paragraph.")
+        expect(page).to have_content("Second paragraph.")
       end
-    end
-    context "with document fields not configured as index field" do
-      it "does not render" do
-        expect(index_fields_display).not_to include(document["non_index_field"])
+
+      it "sets up the truncation data attributes for the JS initializer" do
+        expect(page).to have_css(
+          ".truncate-abstract[data-max-lines='4'][data-read-more-text='Read more'][data-close-text='Close']"
+        )
       end
-    end
-    context "with multiple document index fields present" do
-      it "separates fields by period followed by a space" do
-        expect(index_fields_display).to include(combined_fields)
-      end
-      context "with index field ending in period" do
-        it "renders only 1 period" do
-          expect(index_fields_display).to include(document["period"] + " ")
-        end
-      end
-    end
-    context "with document empty configured index field" do
-      it "does not render a period followed by a space" do
-        expect(index_fields_display).not_to include(". .")
+
+      it "exposes the description as schema.org markup" do
+        expect(page).to have_css(".truncate-abstract[itemprop='description']")
       end
     end
   end
