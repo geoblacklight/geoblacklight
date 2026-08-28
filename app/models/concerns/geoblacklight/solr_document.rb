@@ -9,6 +9,7 @@ module Geoblacklight
     include Geoblacklight::SolrDocument::Inspection
     include Geoblacklight::SolrDocument::Arcgis
     include Geoblacklight::SolrDocument::Citation
+    include Geoblacklight::SolrDocument::Thumbnail
 
     delegate :viewer_protocol, to: :item_viewer
     delegate :viewer_endpoint, to: :item_viewer
@@ -82,10 +83,6 @@ module Geoblacklight
 
     def external_url
       references.url&.endpoint
-    end
-
-    def thumbnail_url
-      references.find_by_uri(Geoblacklight.configuration.thumbnail_reference_key)&.endpoint
     end
 
     def item_viewer

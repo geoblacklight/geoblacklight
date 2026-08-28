@@ -125,53 +125,6 @@ RSpec.describe Geoblacklight::SolrDocument do
       expect(document.direct_download).to be_nil
     end
   end
-  describe "#thumbnail_url" do
-    describe "with a thumbnail reference at the default key" do
-      let(:document_attributes) do
-        {
-          references_field => {
-            "http://schema.org/thumbnailUrl" => "http://example.com/thumb.jpg"
-          }.to_json
-        }
-      end
-      it "returns the thumbnail URL" do
-        expect(document.thumbnail_url).to eq "http://example.com/thumb.jpg"
-      end
-    end
-    describe "without a dct_references_s field" do
-      let(:document_attributes) { {} }
-      it "returns nil" do
-        expect(document.thumbnail_url).to be_nil
-      end
-    end
-    describe "with a dct_references_s field missing the thumbnail key" do
-      let(:document_attributes) do
-        {
-          references_field => {
-            "http://schema.org/url" => "http://example.com/homepage"
-          }.to_json
-        }
-      end
-      it "returns nil" do
-        expect(document.thumbnail_url).to be_nil
-      end
-    end
-    describe "with a configured thumbnail_reference_key" do
-      let(:document_attributes) do
-        {
-          references_field => {
-            "http://example.com/custom-thumbnail-key" => "http://example.com/custom-thumb.jpg"
-          }.to_json
-        }
-      end
-      it "resolves the configured key instead of the default" do
-        allow(Geoblacklight.configuration).to receive_messages(
-          thumbnail_reference_key: "http://example.com/custom-thumbnail-key"
-        )
-        expect(document.thumbnail_url).to eq "http://example.com/custom-thumb.jpg"
-      end
-    end
-  end
   describe "#oembed" do
     describe "with an oembed url" do
       let(:document_attributes) do
