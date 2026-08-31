@@ -26,7 +26,7 @@ RSpec.describe "Viewer record", type: :request do
   end
 
   it "hands over a public record in full" do
-    get viewer_solr_document_path("mit-f6rqs4ucovjk2")
+    get viewer_solr_document_path("berkeley-s7pq31")
 
     expect(references.keys).to include("http://www.opengis.net/def/serviceType/ogc/wms")
   end

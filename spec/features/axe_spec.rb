@@ -11,7 +11,7 @@ RSpec.feature "Accessibility testing", js: true do
     end
 
     it "validates an item page" do
-      visit solr_document_path("tufts-cambridgegrid100-04")
+      visit solr_document_path("berkeley-s7st30")
       expect(page).to be_accessible
     end
 
@@ -22,7 +22,7 @@ RSpec.feature "Accessibility testing", js: true do
     end
 
     it "validates an bookmarks page" do
-      visit solr_document_path("tufts-cambridgegrid100-04")
+      visit solr_document_path("berkeley-s7st30")
       click_on "Bookmark"
       visit bookmarks_path
       expect(page).to be_accessible

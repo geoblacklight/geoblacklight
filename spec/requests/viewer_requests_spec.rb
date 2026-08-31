@@ -36,7 +36,7 @@ RSpec.describe "Viewer requests", type: :request do
 
   it "names none for a public record, which has nothing that needs authorizing" do
     sign_in FactoryBot.create(:user)
-    get solr_document_path("mit-f6rqs4ucovjk2")
+    get solr_document_path("berkeley-s7pq31")
 
     expect(restricted_origins).to be_nil
   end
