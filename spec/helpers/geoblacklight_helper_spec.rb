@@ -125,6 +125,20 @@ RSpec.describe GeoblacklightHelper, type: :helper do
       end
     end
 
+    context "with only a IIIF image reference" do
+      let(:document_attributes) do
+        {
+          references_field => {
+            "http://iiif.io/api/image" => "https://iiif.example.com/iiif/2/abc%2Fdef/info.json"
+          }.to_json
+        }
+      end
+      it "renders an image tag using the URL inferred from info.json" do
+        html = Capybara.string(helper.geoblacklight_thumbnail(document))
+        expect(html).to have_css "img[src='https://iiif.example.com/iiif/2/abc%2Fdef/full/400,/0/default.jpg']"
+      end
+    end
+
     context "without a thumbnail URL" do
       let(:document_attributes) { {} }
       it "returns nil" do
