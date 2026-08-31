@@ -1,9 +1,10 @@
+<% Geoblacklight.deprecation.warn("The catalog/_show_default_viewer_container partial is deprecated and will be removed in GeoBlacklight 5; remove it from config.show.partials and use Geoblacklight::ItemMapViewerComponent instead") %>
 <% document ||= @document %>
 <div class='row'>
   <div id='viewer-container' class="col-md-12">
 
-    <% if show_help_text?('viewer_protocol', document.viewer_protocol) %>
-      <%= render_help_text_entry('viewer_protocol', document.viewer_protocol) %>
+    <% if Geoblacklight.deprecation.silence { show_help_text?('viewer_protocol', document.viewer_protocol) } %>
+      <%= Geoblacklight.deprecation.silence { render_help_text_entry('viewer_protocol', document.viewer_protocol) } %>
     <% end %>
 
     <% if document.item_viewer.index_map %>
@@ -23,6 +24,6 @@
       </div>
     <% end %>
 
-    <%= viewer_container %>
+    <%= Geoblacklight.deprecation.silence { viewer_container } %>
   </div>
 </div>

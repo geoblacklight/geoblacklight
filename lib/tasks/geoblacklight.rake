@@ -24,6 +24,9 @@ namespace :geoblacklight do
 
   desc "Run Solr and GeoBlacklight for interactive development with Webpack enabled"
   task :webpack do |_t|
+    Geoblacklight.deprecation.warn(
+      "The geoblacklight:webpack rake task is deprecated and will be removed without replacement in GeoBlacklight 5"
+    )
     require "solr_wrapper"
     SolrWrapper.wrap(port: "8983") do |solr|
       solr.with_collection(name: "blacklight-core", dir: File.join(File.expand_path("../../", File.dirname(__FILE__)), "solr", "conf")) do
@@ -48,6 +51,11 @@ namespace :geoblacklight do
       docs = []
 
       if args.remote
+        Geoblacklight.deprecation.warn(
+          "The [:remote] argument to geoblacklight:index:seed is deprecated and will be " \
+          "removed in GeoBlacklight 5; the task always indexes the fixtures bundled with " \
+          "the installed gem"
+        )
         puts "Indexing - Remote test fixtures"
         JSON.parse(
           URI.parse("https://api.github.com/repos/geoblacklight/geoblacklight/contents/spec/fixtures/solr_documents").open.read
@@ -67,6 +75,9 @@ namespace :geoblacklight do
 
     desc "Ingests a GeoHydra transformed.json"
     task ingest_all: :environment do
+      Geoblacklight.deprecation.warn(
+        "The geoblacklight:index:ingest_all rake task is deprecated and will be removed without replacement in GeoBlacklight 5"
+      )
       docs = JSON.parse(File.read(Rails.root.join("tmp", "transformed.json")))
       docs.each do |doc|
         Blacklight.default_index.connection.add doc
@@ -76,6 +87,9 @@ namespace :geoblacklight do
 
     desc "Ingests a directory of geoblacklight.json files"
     task :ingest, [:directory] => :environment do |_t, args|
+      Geoblacklight.deprecation.warn(
+        "The geoblacklight:index:ingest rake task is deprecated and will be removed without replacement in GeoBlacklight 5"
+      )
       args.with_defaults(directory: "data")
       Dir.glob(File.join(args[:directory], "**", "geoblacklight.json")).each do |fn|
         puts "Ingesting #{fn}"
@@ -121,6 +135,9 @@ namespace :geoblacklight do
   namespace :solr do
     desc "Put sample data into solr"
     task seed: :environment do
+      Geoblacklight.deprecation.warn(
+        "The geoblacklight:solr:seed rake task is deprecated and will be removed in GeoBlacklight 5; use geoblacklight:index:seed instead"
+      )
       Rake::Task["geoblacklight:index:seed"].invoke
     end
   end

@@ -5,14 +5,20 @@ module GeoblacklightHelper
     @document.public? || (@document.same_institution? && user_signed_in?)
   end
 
+  # @deprecated
   def document_downloadable?
     document_available? && @document.downloadable?
   end
 
+  # @deprecated
   def iiif_jpg_url
     @document.references.iiif.endpoint.sub! "info.json", "full/full/0/default.jpg"
   end
+  Geoblacklight.deprecation.deprecate_methods(GeoblacklightHelper,
+    document_downloadable?: "use Geoblacklight::DownloadLinksComponent instead",
+    iiif_jpg_url: "use Geoblacklight::DownloadLinksComponent instead")
 
+  # @deprecated
   def download_link_file(label, id, url)
     link_to(
       label,
@@ -26,6 +32,7 @@ module GeoblacklightHelper
     )
   end
 
+  # @deprecated
   def download_link_hgl(text, document)
     link_to(
       text,
@@ -41,20 +48,24 @@ module GeoblacklightHelper
 
   # Generates the link markup for the IIIF JPEG download
   # @return [String]
+  # @deprecated
   def download_link_iiif
-    link_to(
-      download_text("JPG"),
-      iiif_jpg_url,
-      "contentUrl" => iiif_jpg_url,
-      :data => {
-        download: "trigger"
-      }
-    )
+    Geoblacklight.deprecation.silence do
+      link_to(
+        download_text("JPG"),
+        iiif_jpg_url,
+        "contentUrl" => iiif_jpg_url,
+        :data => {
+          download: "trigger"
+        }
+      )
+    end
   end
 
+  # @deprecated
   def download_link_generated(download_type, document)
     link_to(
-      t("geoblacklight.download.export_link", download_format: export_format_label(download_type)),
+      t("geoblacklight.download.export_link", download_format: Geoblacklight.deprecation.silence { export_format_label(download_type) }),
       "",
       data: {
         download_path: download_path(document.id, type: download_type),
@@ -64,6 +75,11 @@ module GeoblacklightHelper
       }
     )
   end
+  Geoblacklight.deprecation.deprecate_methods(GeoblacklightHelper,
+    download_link_file: "use Geoblacklight::DownloadLinksComponent instead",
+    download_link_iiif: "use Geoblacklight::DownloadLinksComponent instead",
+    download_link_generated: "use Geoblacklight::DownloadLinksComponent instead",
+    download_link_hgl: "the Harvard Geospatial Library download integration is removed without replacement in GeoBlacklight 5")
 
   ##
   # Blacklight catalog controller helper method to truncate field value to 150 chars
@@ -91,14 +107,19 @@ module GeoblacklightHelper
   ##
   # Looks up properly formatted names for formats
   #
+  # @deprecated
   def proper_case_format(format)
     t("geoblacklight.formats.#{format.to_s.parameterize(separator: "_")}")
   end
 
   # Format labels are customized for exports - look up the appropriate key.
+  # @deprecated
   def export_format_label(format)
     t("geoblacklight.download.export_#{format.to_s.parameterize(separator: "_")}_link")
   end
+  Geoblacklight.deprecation.deprecate_methods(GeoblacklightHelper,
+    proper_case_format: "use Geoblacklight::DownloadLinksComponent instead",
+    export_format_label: "use Geoblacklight::DownloadLinksComponent instead")
 
   ##
   # Looks up formatted names for references
@@ -111,15 +132,19 @@ module GeoblacklightHelper
   ##
   # Wraps download text with proper_case_format
   #
+  # @deprecated
   def download_text(format)
-    download_format = proper_case_format(format)
+    download_format = Geoblacklight.deprecation.silence { proper_case_format(format) }
     value = t("geoblacklight.download.download_link", download_format: download_format)
     value.html_safe
   end
+  Geoblacklight.deprecation.deprecate_methods(GeoblacklightHelper,
+    download_text: "use Geoblacklight::DownloadLinksComponent instead")
 
   ##
   # Deteremines if a feature should include help text popover
   # @return [Boolean]
+  # @deprecated
   def show_help_text?(feature, key)
     Settings&.HELP_TEXT&.send(feature)&.include?(key)
   end
@@ -127,6 +152,7 @@ module GeoblacklightHelper
   ##
   # Render help text popover for a given feature and translation key
   # @return [HTML tag]
+  # @deprecated
   def render_help_text_entry(feature, key)
     if I18n.exists?("geoblacklight.help_text.#{feature}.#{key}", locale)
       help_text = I18n.t("geoblacklight.help_text.#{feature}.#{key}")
@@ -139,20 +165,29 @@ module GeoblacklightHelper
       tag.span class: "help-text translation-missing"
     end
   end
+  Geoblacklight.deprecation.deprecate_methods(GeoblacklightHelper,
+    show_help_text?: "use Geoblacklight::ViewerHelpTextComponent instead",
+    render_help_text_entry: "use Geoblacklight::ViewerHelpTextComponent instead")
 
   ##
   # Determines if item view should render the sidebar static map
   # @return [Boolean]
+  # @deprecated
   def render_sidebar_map?(document)
     Settings.SIDEBAR_STATIC_MAP&.any? { |vp| document.viewer_protocol == vp }
   end
+  Geoblacklight.deprecation.deprecate_methods(GeoblacklightHelper,
+    render_sidebar_map?: "use Geoblacklight::StaticMapComponent instead")
 
   ##
   # Deteremines if item view should include attribute table
   # @return [Boolean]
+  # @deprecated
   def show_attribute_table?
     document_available? && @document.inspectable?
   end
+  Geoblacklight.deprecation.deprecate_methods(GeoblacklightHelper,
+    show_attribute_table?: "use Geoblacklight::AttributeTableComponent instead")
 
   ##
   # Render value for a document's field as a truncate abstract
@@ -176,6 +211,7 @@ module GeoblacklightHelper
   # Renders the partials for a Geoblacklight::Reference in the web services
   # modal
   # @param [Geoblacklight::Reference]
+  # @deprecated
   def render_web_services(reference)
     render(
       partial: "web_services_#{reference.type}",
@@ -184,6 +220,8 @@ module GeoblacklightHelper
   rescue ActionView::MissingTemplate
     render partial: "web_services_default", locals: {reference: reference}
   end
+  Geoblacklight.deprecation.deprecate_methods(GeoblacklightHelper,
+    render_web_services: "use Geoblacklight::WebServicesComponent instead")
 
   ##
   # Returns a hash of the leaflet plugin settings to pass to the viewer.
@@ -246,21 +284,26 @@ module GeoblacklightHelper
     end
   end
 
+  # @deprecated
   def viewer_container
-    if openlayers_container?
-      ol_viewer
-    elsif iiif_manifest_container?
-      iiif_manifest_viewer
-    else
-      leaflet_viewer
+    Geoblacklight.deprecation.silence do
+      if openlayers_container?
+        ol_viewer
+      elsif iiif_manifest_container?
+        iiif_manifest_viewer
+      else
+        leaflet_viewer
+      end
     end
   end
 
+  # @deprecated
   def openlayers_container?
     return false unless @document
     @document.item_viewer.pmtiles || @document.item_viewer.cog
   end
 
+  # @deprecated
   def leaflet_viewer
     tag.div(nil,
       id: "map",
@@ -276,6 +319,7 @@ module GeoblacklightHelper
       })
   end
 
+  # @deprecated
   def ol_viewer
     tag.div(nil,
       id: "ol-map",
@@ -291,12 +335,21 @@ module GeoblacklightHelper
       })
   end
 
+  # @deprecated
   def iiif_manifest_container?
     return false unless @document
     @document&.item_viewer&.viewer_preference&.key?(:iiif_manifest)
   end
 
+  # @deprecated
   def iiif_manifest_viewer
     tag.div(nil, id: "clover-viewer", iiif_content: @document.viewer_endpoint)
   end
+  Geoblacklight.deprecation.deprecate_methods(GeoblacklightHelper,
+    viewer_container: "use Geoblacklight::ItemMapViewerComponent instead",
+    openlayers_container?: "use Geoblacklight::ItemMapViewerComponent instead",
+    leaflet_viewer: "use Geoblacklight::ItemMapViewerComponent instead",
+    ol_viewer: "use Geoblacklight::ItemMapViewerComponent instead",
+    iiif_manifest_container?: "use Geoblacklight::ItemMapViewerComponent instead",
+    iiif_manifest_viewer: "use Geoblacklight::ItemMapViewerComponent instead")
 end

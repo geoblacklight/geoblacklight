@@ -1,4 +1,5 @@
+<% Geoblacklight.deprecation.warn("The catalog/_arcgis partial is deprecated and will be removed in GeoBlacklight 5; use Geoblacklight::ArcgisComponent instead") %>
 <% document ||= @document %>
-<%= link_to(arcgis_link(document.arcgis_urls)) do %>
+<%= link_to(Geoblacklight.deprecation.silence { arcgis_link(document.arcgis_urls) }) do %>
   <%= blacklight_icon('esri-globe') %><%= t('geoblacklight.tools.open_arcgis') %>
 <% end %>
