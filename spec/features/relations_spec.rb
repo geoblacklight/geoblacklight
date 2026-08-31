@@ -10,8 +10,15 @@ RSpec.feature "Display related documents" do
   end
 
   scenario "Record without relations should not render widget in catalog#show", js: true do
-    visit solr_document_path("harvard-g7064-s2-1834-k3")
-    expect(page).to have_no_css(".card.relations")
+    # Public polygon record, which carries none of the relationship fields
+    visit solr_document_path("berkeley-s7pq31")
+
+    # The card is rendered inside a lazily-fetched turbo-frame, so wait for the frame to
+    # report itself complete before asserting absence. A negative Capybara matcher is
+    # satisfied the instant the element is missing, so without this the assertion passes
+    # at t=0 for every record - including ones that do have relations.
+    expect(page).to have_css("turbo-frame#relations[complete]", visible: :all, wait: 10)
+    expect(page).to have_no_css(".card.relations", visible: :all)
   end
 
   scenario "Relationship browse link returns relationship-scoped results", js: true do

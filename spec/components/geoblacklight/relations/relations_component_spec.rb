@@ -19,7 +19,7 @@ RSpec.describe Geoblacklight::Relations::RelationsComponent, type: :component do
     end
 
     context "with a document that has no matching relations" do
-      let(:id) { "harvard-g7064-s2-1834-k3" }
+      let(:id) { "berkeley-s7pq31" }
       let(:relationship_type) { :source_ancestors }
 
       it "is false, so the component renders nothing" do

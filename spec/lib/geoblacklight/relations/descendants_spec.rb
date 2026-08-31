@@ -6,7 +6,7 @@ RSpec.describe Geoblacklight::Relations::Descendants do
   let(:repository) { Blacklight::Solr::Repository.new(CatalogController.blacklight_config) }
   let(:descendants) { described_class.new("nyu_2451_34636", Geoblacklight.configuration.fields.source, repository) }
   let(:empty_descendants) do
-    described_class.new("harvard-g7064-s2-1834-k3", Geoblacklight.configuration.fields.source, repository)
+    described_class.new("berkeley-s7pq31", Geoblacklight.configuration.fields.source, repository)
   end
 
   describe "#create_search_params" do
