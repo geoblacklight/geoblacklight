@@ -30,6 +30,23 @@ RSpec.describe "Catalog index view", type: :request do
       .to eq %w[1 2 3 4]
   end
 
+  context "on the second page of results" do
+    before { get search_catalog_path(bbox: "-180 -90 180 90", per_page: 10, page: 2) }
+
+    it "keeps counting from where the previous page left off" do
+      expect(response_page.all(".document").map { |result| result["data-document-counter"] })
+        .to eq (11..20).map(&:to_s)
+      expect(response_page.all(".document-counter").map { |counter| counter.text.strip })
+        .to eq (11..20).map { |number| "#{number}." }
+    end
+
+    it "gives the map those same numbers, so it draws 11 through 20" do
+      overview_results = JSON.parse(response_page.find("#documents")["data-overview-map-results"])
+
+      expect(overview_results.pluck("place")).to eq (11..20).to_a
+    end
+  end
+
   context "with a bounding box query" do
     before do
       get search_catalog_path(bbox: "-96 43 -92 46")
