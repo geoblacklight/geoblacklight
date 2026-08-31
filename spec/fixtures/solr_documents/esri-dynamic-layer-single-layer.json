@@ -23,9 +23,9 @@
   "dcat_centroid": "38.85735,-87.09465",
   "dct_accessRights_s": "Public",
   "dct_format_s": "Shapefile",
-  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://maps.indiana.edu/download/Geology/Industrial_Minerals_Quarries_Abandoned.zip\",\"http://www.opengis.net/cat/csw/csdgm\":\"https://maps.indiana.edu/metadata/Geology/Industrial_Minerals_Quarries_Abandoned.xml\",\"http://schema.org/url\":\"http://maps.indiana.edu/previewMaps/Geology/Industrial_Minerals_Quarries_Abandoned.html\",\"urn:x-esri:serviceType:ArcGIS#DynamicMapLayer\":\"https://maps.indiana.edu/arcgis/rest/services/Geology/Industrial_Minerals_Quarries_Abandoned/MapServer/0\"}",
+  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://hub.arcgis.com/api/v3/datasets/a6c471480f2b4b9fb7bda0d5bcdf8833_76/downloads/data?format=shp&spatialRefId=4326&where=1%3D1\",\"http://www.opengis.net/cat/csw/csdgm\":\"https://www.arcgis.com/sharing/rest/content/items/a6c471480f2b4b9fb7bda0d5bcdf8833/info/metadata/metadata.xml?format=default\",\"http://schema.org/url\":\"https://www.indianamap.org/maps/a6c471480f2b4b9fb7bda0d5bcdf8833\",\"urn:x-esri:serviceType:ArcGIS#DynamicMapLayer\":\"https://portal.igs.indiana.edu/arcgis/rest/services/Industrial_Minerals_Quarries_Abandoned/MapServer/76\"}",
   "id": "4669301e-b4b2-4c8b-bf40-01b968a2865b",
   "dct_identifier_sm": ["4669301e-b4b2-4c8b-bf40-01b968a2865b"],
-  "gbl_mdModified_dt": "2021-06-01T22:14:15Z",
+  "gbl_mdModified_dt": "2026-08-29T00:00:00Z",
   "gbl_mdVersion_s": "Aardvark"
 }
