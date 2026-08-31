@@ -23,7 +23,7 @@
   "dcat_centroid": "38.843050000000005,-77.28895",
   "dct_accessRights_s": "Public",
   "dct_format_s": "Shapefile",
-  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://data.imap.maryland.gov/datasets/f406332e63eb4478a9560ad86ae90327_18.zip\",\"urn:x-esri:serviceType:ArcGIS#FeatureLayer\":\"https://geodata.md.gov/imap/rest/services/Transportation/MD_Transit/FeatureServer/18\",\"http://schema.org/url\":\"http://data.imap.maryland.gov/datasets/f406332e63eb4478a9560ad86ae90327_18\"}",
+  "dct_references_s": "{\"http://schema.org/downloadUrl\":\"https://hub.arcgis.com/api/v3/datasets/f406332e63eb4478a9560ad86ae90327_18/downloads/data?format=shp&spatialRefId=4326&where=1%3D1\",\"urn:x-esri:serviceType:ArcGIS#FeatureLayer\":\"https://mdgeodata.md.gov/imap/rest/services/Transportation/MD_Transit/FeatureServer/18\",\"http://schema.org/url\":\"https://data.imap.maryland.gov/datasets/f406332e63eb4478a9560ad86ae90327_18\"}",
   "id": "f406332e63eb4478a9560ad86ae90327_18",
   "dct_identifier_sm": ["f406332e63eb4478a9560ad86ae90327_18"],
   "gbl_mdModified_dt": "2021-06-01T22:14:15Z",
