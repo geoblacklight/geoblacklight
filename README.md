@@ -10,9 +10,9 @@ communities. We're actively looking for community input and development partners
 
 ## Documentation
 
-Our full [GeoBlacklight Documentation](https://geoblacklight.org/latest/docs/) has how-to guides for installing, customizing, and maintaining a GeoBlacklight instance.
+Our full [GeoBlacklight Documentation](https://geoblacklight.org/documentation/) has how-to guides for installing, customizing, and maintaining a GeoBlacklight instance.
 
-See the [Quick Start](https://geoblacklight.org/latest/docs/geoblacklight_quick_start/) section to create a new GeoBlacklight application, or see [For Developers](https://geoblacklight.org/latest/docs/developers/) for more information about setting up a development environment.
+See the [Quick Start](https://geoblacklight.org/documentation/geoblacklight_quick_start/) section to create a new GeoBlacklight application, or see [For Developers](https://geoblacklight.org/documentation/developers/) for more information about setting up a development environment.
 
 ## Contributing
 
