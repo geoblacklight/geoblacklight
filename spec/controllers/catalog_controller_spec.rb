@@ -13,7 +13,7 @@ RSpec.describe CatalogController, type: :controller do
 
   describe "#web_services" do
     it "returns a document based off an id" do
-      get :web_services, params: {id: "mit-f6rqs4ucovjk2"}
+      get :web_services, params: {id: "berkeley-s7pq31"}
       expect(response).to have_http_status :ok
       expect(assigns(:documents)).not_to be_nil
     end
@@ -21,17 +21,17 @@ RSpec.describe CatalogController, type: :controller do
 
   describe "#raw" do
     it "returns a JSON representation of a Solr Document" do
-      get :raw, params: {id: "tufts-cambridgegrid100-04"}
+      get :raw, params: {id: "berkeley-s7st30"}
       expect(response).to have_http_status :ok
       expect(response.body).not_to be_empty
       response_values = JSON.parse(response.body)
       expect(response_values).to include "gbl_mdVersion_s" => "Aardvark"
-      expect(response_values).to include Geoblacklight.configuration.fields.title => "100 Foot Grid Cambridge MA 2004"
-      expect(response_values).to include Geoblacklight.configuration.fields.identifier => ["urn:geodata.tufts.edu:Tufts.CambridgeGrid100_04"]
+      expect(response_values).to include Geoblacklight.configuration.fields.title => "2000 Census Block Groups, Calaveras County, California, 2018"
+      expect(response_values).to include Geoblacklight.configuration.fields.identifier => ["https://geodata.lib.berkeley.edu/catalog/berkeley-s7st30"]
       expect(response_values).to include Geoblacklight.configuration.fields.access_rights => "Public"
-      expect(response_values).to include Geoblacklight.configuration.fields.provider => "Tufts"
-      expect(response_values).to include Geoblacklight.configuration.fields.id => "tufts-cambridgegrid100-04"
-      expect(response_values).to include Geoblacklight.configuration.fields.geometry => "ENVELOPE(-71.163984,-71.052581,42.408316,42.34757)"
+      expect(response_values).to include Geoblacklight.configuration.fields.provider => "University of California Berkeley"
+      expect(response_values).to include Geoblacklight.configuration.fields.id => "berkeley-s7st30"
+      expect(response_values).to include Geoblacklight.configuration.fields.geometry => "ENVELOPE(-120.99553605196368,-120.01994492166297,38.50999518077548,37.83228807647538)"
     end
   end
 end

@@ -41,7 +41,7 @@ RSpec.describe "Catalog show page", type: :request do
   end
 
   it "omits the metadata tool when no metadata reference is present" do
-    get solr_document_path("mit-f6rqs4ucovjk2")
+    get solr_document_path("berkeley-s7pq31")
 
     expect(response_page).to have_no_css("li.metadata a", text: "Metadata")
   end

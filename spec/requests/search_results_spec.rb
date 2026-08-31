@@ -55,8 +55,8 @@ RSpec.describe "Search results", type: :request do
       f: {Geoblacklight.configuration.fields.provider => ["Cornell"]}
     )
 
-    expect(result_ids.index("cugir-008186")).to be < 3
-    expect(result_ids.index("cugir-008186-no-downloadurl")).to be < 3
-    expect(result_ids.index("cugir-007741")).to eq(3)
+    expect(result_ids.index("cugir-008186")).to be < 4
+    expect(result_ids.index("cugir-008186-no-downloadurl")).to be < 4
+    expect(result_ids.index("cugir-007741")).to eq(4)
   end
 end
