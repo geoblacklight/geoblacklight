@@ -37,7 +37,12 @@ class DownloadController < ApplicationController
     send_file download_file_path_and_name, x_sendfile: true
   end
 
+  # @deprecated
   def hgl
+    Geoblacklight.deprecation.warn(
+      "DownloadController#hgl and the download_hgl route are deprecated; the Harvard " \
+      "Geospatial Library download integration is removed without replacement in GeoBlacklight 5"
+    )
     @response, @document = search_service.fetch params[:id]
     if params[:email]
       response = Geoblacklight::HglDownload.new(@document, params[:email]).get

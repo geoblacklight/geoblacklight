@@ -1,3 +1,4 @@
+<% Geoblacklight.deprecation.warn("The catalog/_show_default_display_note partial is deprecated and will be removed in GeoBlacklight 5; remove it from config.show.partials and use Geoblacklight::DocumentComponent instead") %>
 <% document ||= @document %>
 
 <% if document.display_note.present? %>

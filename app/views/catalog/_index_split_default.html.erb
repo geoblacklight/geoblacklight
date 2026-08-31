@@ -24,7 +24,7 @@
 <div class='more-info-area'>
   <div id="doc-<%= document.id %>-fields-collapse" class='collapse'>
     <small itemprop="description">
-      <%= geoblacklight_present(:index_fields_display, document) %>
+      <%= Geoblacklight.deprecation.silence { geoblacklight_present(:index_fields_display, document) } %>
     </small>
   </div>
 </div>

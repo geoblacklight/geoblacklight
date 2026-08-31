@@ -1,4 +1,5 @@
-<% if show_attribute_table? %>
+<% Geoblacklight.deprecation.warn("The catalog/_show_default_attribute_table partial is deprecated and will be removed in GeoBlacklight 5; remove it from config.show.partials and use Geoblacklight::AttributeTableComponent instead") %>
+<% if Geoblacklight.deprecation.silence { show_attribute_table? } %>
   <div class='row'>
     <div id='table-container' class='col-md-12'>
       <table id="attribute-table" class="table table-hover table-condensed table-striped table-bordered col-md-12">

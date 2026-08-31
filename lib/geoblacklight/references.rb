@@ -128,6 +128,13 @@ module Geoblacklight
     # Adds a call to references for defined URI keys
     def method_missing(m, *args, &b)
       if Geoblacklight::Constants::URI.key?(m)
+        if m == :hgl
+          Geoblacklight.deprecation.warn(
+            "Geoblacklight::References#hgl and Geoblacklight::Constants::URI[:hgl] are " \
+            "deprecated; the Harvard Geospatial Library download integration is removed " \
+            "without replacement in GeoBlacklight 5"
+          )
+        end
         references m
       else
         super

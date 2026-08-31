@@ -43,9 +43,14 @@ module Geoblacklight
       fetch(Settings.FIELDS.DISPLAY_NOTE, "")
     end
 
+    # @deprecated
     def hgl_download
-      references.hgl.to_hash if references.hgl.present?
+      Geoblacklight.deprecation.silence do
+        references.hgl.to_hash if references.hgl.present?
+      end
     end
+    Geoblacklight.deprecation.deprecate_methods(Geoblacklight::SolrDocument,
+      hgl_download: "the Harvard Geospatial Library download integration is removed without replacement in GeoBlacklight 5")
 
     def oembed
       references.oembed.endpoint if references.oembed.present?

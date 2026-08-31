@@ -1,3 +1,5 @@
+<%# This template is removed in GeoBlacklight 5. The deprecated download helpers it calls are silenced here so that a stock application is not warned once per request; Geoblacklight::DeprecatedConfiguration warns at boot if an application overrides it. %>
+<% Geoblacklight.deprecation.silence do %>
 <%# Renders the options of the downloads dropdown button %>
 <% document ||= @document %>
 
@@ -24,4 +26,5 @@
   <% document.download_types.each do |type| %>
     <%= download_link_generated(type.first, document) %>
   <% end %>
+<% end %>
 <% end %>

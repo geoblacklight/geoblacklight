@@ -1,11 +1,28 @@
 # frozen_string_literal: true
 
 require "active_support/dependencies"
+require "active_support/deprecation"
 require "geoblacklight/engine"
 
 module Geoblacklight
+  # Deprecator for GeoBlacklight's own deprecations. Anything deprecated here is
+  # slated for removal in GeoBlacklight 5.0.
+  #
+  # Downstream applications can configure its behavior the same way they would any
+  # other Rails deprecator, e.g. in config/application.rb:
+  #
+  #   config.active_support.deprecation = :raise
+  #
+  # or directly:
+  #
+  #   Geoblacklight.deprecation.behavior = :silence
+  def self.deprecation
+    @deprecation ||= ActiveSupport::Deprecation.new("5.0", "GeoBlacklight")
+  end
+
   require "geoblacklight/bounding_box"
   require "geoblacklight/constants"
+  require "geoblacklight/deprecated_configuration"
   require "geoblacklight/exceptions"
   require "geoblacklight/geometry"
   require "geoblacklight/view_helper_override"
