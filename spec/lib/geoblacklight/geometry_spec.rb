@@ -57,4 +57,19 @@ describe Geoblacklight::Geometry do
       end
     end
   end
+  describe "#bounding_box for a document with no geometry" do
+    it "warns that GeoBlacklight 5 raises instead of falling back to the whole world" do
+      expect(Geoblacklight.deprecation).to receive(:warn).with(
+        /#bounding_box falls back to the whole world extent/
+      )
+
+      expect(described_class.new("").bounding_box).to be_a String
+    end
+
+    it "does not warn for a document that has geometry" do
+      expect(Geoblacklight.deprecation).not_to receive(:warn)
+
+      described_class.new("ENVELOPE(-1,1,1,-1)").bounding_box
+    end
+  end
 end

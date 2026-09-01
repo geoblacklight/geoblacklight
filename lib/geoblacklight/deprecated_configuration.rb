@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "pathname"
+require "yaml"
 
 module Geoblacklight
   ##
@@ -56,11 +57,280 @@ module Geoblacklight
     }.freeze
 
     ##
+    # Settings whose default GeoBlacklight 5 changes. The installer only writes
+    # config/settings.yml once, so an application upgrading from 4.x carries its
+    # old value forward silently. We warn only when the value is still the 4.x
+    # default, so an application that has deliberately chosen a value is left alone.
+    CHANGED_SETTINGS = {
+      "ARCGIS_BASE_URL" => {
+        from: "https://www.arcgis.com/home/webmap/viewer.html",
+        to: "https://www.arcgis.com/apps/mapviewer/index.html",
+        because: "Esri retired the classic map viewer. The old URL still redirects and keeps the urls= " \
+                 "parameter, so \"Open in ArcGIS\" works today; update the setting so you stop relying " \
+                 "on that redirect"
+      },
+      "TIMEOUT_DOWNLOAD" => {
+        from: 16,
+        to: 180,
+        because: "16 seconds is too short for many generated downloads"
+      },
+      "WMS_PARAMS.INFO_FORMAT" => {
+        from: "text/html",
+        to: "application/json",
+        because: "GeoBlacklight 5 asks GetFeatureInfo for JSON. It still builds an attribute table from " \
+                 "an HTML response, but marks it isHTML, so it cannot highlight the clicked feature on " \
+                 "the map and cannot tell an empty result from a real one"
+      }
+    }.freeze
+
+    ##
+    # Individual setting values that stop matching anything in GeoBlacklight 5. These
+    # are only present when an application configured them deliberately, so the check
+    # is silent for a stock application.
+    STALE_SETTING_VALUES = {
+      "SIDEBAR_STATIC_MAP" => {
+        value: "map",
+        because: "Geoblacklight::StaticMapComponent will stop rendering the sidebar map for those documents"
+      },
+      "HELP_TEXT.viewer_protocol" => {
+        value: "map",
+        because: "Geoblacklight::ViewerHelpTextComponent will stop rendering help text for those documents"
+      }
+    }.freeze
+
+    ##
+    # Provider icon slugs that GeoBlacklight 5 renames, and routes through
+    # Settings.ICON_MAPPING. It ships no label for the new name.
+    ICON_RENAMES = {
+      "chicago" => "university-of-chicago",
+      "illinois" => "university-of-illinois-urbana-champaign",
+      "iowa" => "university-of-iowa",
+      "maryland" => "university-of-maryland",
+      "michigan" => "university-of-michigan",
+      "michigan-state" => "michigan-state-university",
+      "minnesota" => "university-of-minnesota",
+      "nebraska" => "university-of-nebraska-lincoln",
+      "ohio-state" => "the-ohio-state-university",
+      "penn-state" => "pennsylvania-state-university",
+      "purdue" => "purdue-university",
+      "wisconsin" => "university-of-wisconsin-madison"
+    }.freeze
+
+    ##
+    # Translation keys GeoBlacklight 5 stops looking up, mapped to what happens
+    # instead. An application that translated or reworded one of these keeps the
+    # translation in its own locale file, where GeoBlacklight 5 never reads it again,
+    # so the customization disappears with no error.
+    LOCALE_KEYS = {
+      "geoblacklight.citation.retrieved_from" =>
+        "GeoBlacklight 5 ends a citation with the document's identifier URL, its schema.org/url reference " \
+        "or the catalog URL, rather than with a translated suffix",
+      "geoblacklight.tools.open_carto" =>
+        "the Carto OneClick integration is removed without replacement",
+      "geoblacklight.references.services_close" =>
+        "GeoBlacklight 5 uses blacklight.modal.close"
+    }.merge(
+      %w[hgl_success hgl_request hgl_request_button hgl_close hgl_instructions hgl_email].to_h do |key|
+        ["geoblacklight.download.#{key}",
+          "the Harvard Geospatial Library download integration is removed without replacement"]
+      end
+    ).merge(
+      ICON_RENAMES.to_h do |short, long|
+        ["blacklight.icon.#{short}",
+          "GeoBlacklight 5 routes this provider through Settings.ICON_MAPPING and looks up " \
+          "blacklight.icon.#{long} instead"]
+      end
+    ).freeze
+
+    ##
+    # Readers that GeoBlacklight 5 declares with Blacklight's `attribute`. Those are
+    # defined directly on the SolrDocument class, and a method on the class wins over
+    # one from an included module, so an application concern that overrides any of
+    # these silently stops taking effect and `super` no longer reaches GeoBlacklight.
+    DOCUMENT_ATTRIBUTE_READERS = %w[
+      display_note geom_field wxs_identifier file_format rights_field_data provider
+      resource_type resource_class title creator publisher identifiers issued format
+    ].freeze
+
+    ##
+    # Settings that do not exist in 4.x but that GeoBlacklight 5 requires.
+    REQUIRED_SETTINGS = {
+      "DOWNLOAD_FORMATS.VECTOR" => "GeoBlacklight 5 builds the vector download list from this setting instead " \
+        "of hardcoding Shapefile, KMZ and GeoJSON, and Geoblacklight::References#vector_download_formats " \
+        "raises NoMethodError without it"
+    }.freeze
+
+    ##
     # Warn about every deprecated template and setting we can see.
     # @param root [Pathname] the application root to inspect
     def self.warn!(root = Rails.root)
-      warn_about_templates(root) if root
+      if root
+        warn_about_templates(root)
+        warn_about_helper_override(root)
+        warn_about_locale_keys(root)
+      end
       warn_about_settings
+      warn_about_changed_settings
+      warn_about_required_settings
+      warn_about_stale_setting_values
+      warn_about_document_overrides
+      warn_about_catalog_controller
+    end
+
+    ##
+    # GeoBlacklight 5 changes GeoblacklightHelper substantially: about twenty methods
+    # are removed, document_available? takes an argument, and viewer_protocol can be
+    # nil. An application that has copied the helper into app/helpers shadows
+    # GeoBlacklight's own, which also suppresses every method level deprecation in it,
+    # so this is the only warning such an application gets.
+    # @param root [Pathname] the application root to inspect
+    def self.warn_about_helper_override(root)
+      override = File.join(root, "app", "helpers", "geoblacklight_helper.rb")
+      return unless File.exist?(override)
+
+      Geoblacklight.deprecation.warn(
+        "#{relative_to(override, root)} overrides GeoblacklightHelper, which shadows GeoBlacklight's own " \
+        "copy and hides the deprecations for the helper methods GeoBlacklight 5 removes. Before upgrading: " \
+        "document_available? has to accept an optional document, and viewer_protocol can return nil, so " \
+        "viewer_protocol.camelize raises for a document with no viewer reference"
+      )
+    end
+
+    ##
+    # Show partials the 4.x install generator lists in the application's own
+    # CatalogController, all of which GeoBlacklight 5 removes.
+    SHOW_PARTIALS = %w[
+      show_default_display_note show_default_viewer_container
+      show_default_attribute_table show_default_viewer_information
+    ].freeze
+
+    ##
+    # Show tools the 4.x install generator registers with `partial:`. GeoBlacklight 5
+    # removes all three partials, and Blacklight 8 wants a `component:` instead.
+    SHOW_TOOL_PARTIALS = %w[arcgis carto data_dictionary].freeze
+
+    ##
+    # Everything the application's own CatalogController needs before GeoBlacklight 5,
+    # reported as a single to-do list. One warning per file the application has to
+    # edit keeps the boot output readable: a stock 4.x app trips every one of these
+    # checks, and warning separately would mean six lines on every rails, rake and
+    # rspec invocation. It is also why none of this is reported from the partials
+    # themselves, which would warn several times per request instead.
+    def self.warn_about_catalog_controller
+      return unless defined?(::CatalogController)
+
+      problems = catalog_controller_problems(::CatalogController)
+      return if problems.empty?
+
+      Geoblacklight.deprecation.warn(
+        "app/controllers/catalog_controller.rb needs these changes before GeoBlacklight 5: " +
+        problems.join("; ")
+      )
+    rescue
+      # A boot time diagnostic must never be the reason an application fails to start.
+      nil
+    end
+
+    ##
+    # @param controller [Class]
+    # @return [Array<String>]
+    def self.catalog_controller_problems(controller)
+      config = controller.blacklight_config
+      problems = []
+
+      if config.index.document_presenter_class.to_s == "Geoblacklight::DocumentPresenter"
+        problems << "remove `config.index.document_presenter_class = Geoblacklight::DocumentPresenter`, " \
+          "because GeoBlacklight 5 removes that class and the reference will not resolve"
+      end
+
+      stale = SHOW_PARTIALS & config.show.partials.map(&:to_s)
+      if stale.any?
+        problems << "remove #{stale.join(", ")} from `config.show.partials`, because GeoBlacklight 5 " \
+          "ships none of those partials"
+      end
+
+      if config.show.document_component.nil?
+        problems << "set `config.show.document_component = Geoblacklight::DocumentComponent`, or the record " \
+          "page loses the map viewer and the attribute table"
+      end
+      if config.index.document_component.nil?
+        problems << "set `config.index.document_component = Geoblacklight::SearchResultComponent`, or search " \
+          "results lose the map data attributes and the icons"
+      end
+      if config.header_component.to_s.start_with?("Blacklight::")
+        problems << "set `config.header_component = Geoblacklight::HeaderComponent`, because GeoBlacklight 5 " \
+          "renders the masthead there rather than from shared/_header_navbar"
+      end
+
+      config.show.document_actions.each do |key, action|
+        next unless action.component.nil?
+        next unless SHOW_TOOL_PARTIALS.include?(action.partial.to_s)
+        problems << "register the #{key.inspect} show tool with a `component:` rather than " \
+          "`partial: #{action.partial.to_s.inspect}`, because GeoBlacklight 5 removes that partial"
+      end
+
+      problems << web_services_problem(controller)
+      problems.compact
+    end
+
+    ##
+    # Blacklight 8's action_documents returns only the documents, so the 4.x
+    # destructuring leaves @documents nil.
+    # @param controller [Class]
+    # @return [String, nil]
+    def self.web_services_problem(controller)
+      source = controller.instance_method(:web_services).source_location&.first
+      return unless source && File.exist?(source)
+      return unless File.read(source).match?(/@response\s*,\s*@documents\s*=\s*action_documents/)
+
+      "replace `@response, @documents = action_documents` in #web_services with `@docs = action_documents`, " \
+        "because Blacklight 8 returns only the documents"
+    rescue
+      nil
+    end
+
+    ##
+    # Warn about application modules whose overrides of a SolrDocument reader stop
+    # winning in GeoBlacklight 5. Only module overrides are reported: a definition in
+    # the SolrDocument class body still takes precedence over the `attribute` reader.
+    def self.warn_about_document_overrides
+      return unless defined?(::SolrDocument)
+
+      document = ::SolrDocument
+      DOCUMENT_ATTRIBUTE_READERS.each do |reader|
+        next unless document.method_defined?(reader) || document.private_method_defined?(reader)
+
+        method = document.instance_method(reader)
+        # A C implemented method is Ruby's, not the application's: Kernel#format, for
+        # one, answers private_method_defined?("format") on any document class.
+        next if method.source_location.nil?
+
+        owner = method.owner
+        next if owner.is_a?(Class)
+        next if owner.name.to_s.start_with?("Geoblacklight", "Blacklight")
+
+        Geoblacklight.deprecation.warn(
+          "#{owner}##{reader} overrides Geoblacklight::SolrDocument##{reader}; GeoBlacklight 5 defines " \
+          "that reader directly on #{document} with Blacklight's `attribute`, so an override in an " \
+          "included module is ignored. Move it into the #{document} class body, after " \
+          "`include Geoblacklight::SolrDocument`"
+        )
+      end
+    rescue NameError
+      nil
+    end
+
+    def self.warn_about_stale_setting_values
+      return unless defined?(::Settings)
+
+      STALE_SETTING_VALUES.each do |setting, stale|
+        next unless Array(setting_value(setting)).include?(stale[:value])
+        Geoblacklight.deprecation.warn(
+          "Settings.#{setting} lists #{stale[:value].inspect}, which never matches in GeoBlacklight 5 " \
+          "because SolrDocument#viewer_protocol returns nil rather than #{stale[:value].inspect} for a " \
+          "document with no viewer reference; #{stale[:because]}"
+        )
+      end
     end
 
     ##
@@ -76,6 +346,47 @@ module Geoblacklight
       end
     end
 
+    ##
+    # @param root [Pathname] the application root to inspect
+    def self.warn_about_locale_keys(root)
+      Dir.glob(File.join(root, "config", "locales", "**", "*.{yml,yaml}")).sort.each do |path|
+        defined_keys = locale_keys(path)
+
+        LOCALE_KEYS.each do |key, advice|
+          next unless defined_keys.include?(key)
+          Geoblacklight.deprecation.warn(
+            "#{relative_to(path, root)} defines #{key}, which GeoBlacklight 5 no longer looks up; #{advice}"
+          )
+        end
+      end
+    end
+
+    ##
+    # The dotted keys a locale file defines, with the leading locale dropped so that a
+    # translation into any locale matches.
+    # @param path [String]
+    # @return [Array<String>]
+    def self.locale_keys(path)
+      loaded = YAML.load_file(path, aliases: true)
+      return [] unless loaded.is_a?(Hash)
+
+      loaded.each_value.flat_map { |tree| tree.is_a?(Hash) ? dotted_keys(tree) : [] }
+    rescue
+      # A locale file we cannot parse is not ours to complain about.
+      []
+    end
+
+    ##
+    # @param tree [Hash]
+    # @return [Array<String>]
+    def self.dotted_keys(tree, prefix = [])
+      tree.flat_map do |key, value|
+        path = prefix + [key.to_s]
+        value.is_a?(Hash) ? dotted_keys(value, path) : [path.join(".")]
+      end
+    end
+    private_class_method :dotted_keys
+
     def self.warn_about_settings
       return unless defined?(::Settings)
 
@@ -87,15 +398,45 @@ module Geoblacklight
       end
     end
 
+    def self.warn_about_changed_settings
+      return unless defined?(::Settings)
+
+      CHANGED_SETTINGS.each do |setting, change|
+        next unless setting_value(setting) == change[:from]
+        Geoblacklight.deprecation.warn(
+          "Settings.#{setting} is set to the GeoBlacklight 4 default #{change[:from].inspect}, which is " \
+          "deprecated; GeoBlacklight 5 uses #{change[:to].inspect} because #{change[:because]}"
+        )
+      end
+    end
+
+    def self.warn_about_required_settings
+      return unless defined?(::Settings)
+
+      REQUIRED_SETTINGS.each do |setting, advice|
+        next unless setting_value(setting).nil?
+        Geoblacklight.deprecation.warn(
+          "Settings.#{setting} is not set; GeoBlacklight 5 requires it because #{advice}"
+        )
+      end
+    end
+
     ##
     # Walk a dotted settings path without raising when an ancestor is missing.
     # @param setting [String] e.g. "LEAFLET.VIEWERS"
+    # @return [Object, nil] the value, or nil if any step of the path is missing
+    def self.setting_value(setting)
+      setting.split(".").reduce(::Settings) do |node, key|
+        return nil unless node.respond_to?(key)
+        node.public_send(key)
+      end
+    end
+
+    ##
+    # @param setting [String] e.g. "LEAFLET.VIEWERS"
     # @return [Boolean]
     def self.setting_present?(setting)
-      setting.split(".").reduce(::Settings) do |node, key|
-        return false unless node.respond_to?(key)
-        node.public_send(key)
-      end.present?
+      setting_value(setting).present?
     end
 
     def self.relative_to(path, root)

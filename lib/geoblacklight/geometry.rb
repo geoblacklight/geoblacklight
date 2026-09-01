@@ -26,6 +26,13 @@ module Geoblacklight
     # Generate a wsen bounding box from the geometry
     # @return [String] bounding box as comma delimited wsen "w, s, e, n"
     def bounding_box
+      if geom.blank?
+        Geoblacklight.deprecation.warn(
+          "Geoblacklight::Geometry#bounding_box falls back to the whole world extent for a document with " \
+          "no geometry; in GeoBlacklight 5 SolrDocument#geom_field returns nil rather than \"\", so this " \
+          "raises NoMethodError instead"
+        )
+      end
       obj = factory.parse_wkt(geometry_as_wkt)
 
       # Get the minimum bounding box for the geometry as a Polygon

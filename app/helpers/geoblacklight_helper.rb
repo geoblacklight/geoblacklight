@@ -174,7 +174,7 @@ module GeoblacklightHelper
   # @return [Boolean]
   # @deprecated
   def render_sidebar_map?(document)
-    Settings.SIDEBAR_STATIC_MAP&.any? { |vp| document.viewer_protocol == vp }
+    Geoblacklight.deprecation.silence { Settings.SIDEBAR_STATIC_MAP&.any? { |vp| document.viewer_protocol == vp } }
   end
   Geoblacklight.deprecation.deprecate_methods(GeoblacklightHelper,
     render_sidebar_map?: "use Geoblacklight::StaticMapComponent instead")
@@ -308,9 +308,9 @@ module GeoblacklightHelper
     tag.div(nil,
       id: "map",
       data: {
-        :map => "item", :protocol => @document.viewer_protocol.camelize,
+        :map => "item", :protocol => Geoblacklight.deprecation.silence { @document.viewer_protocol }.camelize,
         :url => @document.viewer_endpoint,
-        "layer-id" => @document.wxs_identifier,
+        "layer-id" => Geoblacklight.deprecation.silence { @document.wxs_identifier },
         "map-geom" => @document.geometry.geojson,
         "catalog-path" => search_catalog_path,
         :available => document_available?,
@@ -324,9 +324,9 @@ module GeoblacklightHelper
     tag.div(nil,
       id: "ol-map",
       data: {
-        :map => "item", :protocol => @document.viewer_protocol.camelize,
+        :map => "item", :protocol => Geoblacklight.deprecation.silence { @document.viewer_protocol }.camelize,
         :url => @document.viewer_endpoint,
-        "layer-id" => @document.wxs_identifier,
+        "layer-id" => Geoblacklight.deprecation.silence { @document.wxs_identifier },
         "map-geom" => @document.geometry.geojson,
         "catalog-path" => search_catalog_path,
         :available => document_available?,
