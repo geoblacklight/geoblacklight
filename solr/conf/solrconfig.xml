@@ -117,9 +117,9 @@
       <str name="q.alt">*:*</str>
       <str name="qf">
         text^1
-        dct_description_ti^2
+        dct_description_tmi^2
         dct_creator_tmi^3
-        dct_publisher_ti^3
+        dct_publisher_tmi^3
         dct_isPartOf_tmi^4
         dct_subject_tmi^5
         dct_spatial_tmi^5
@@ -127,16 +127,16 @@
         dct_title_ti^6
         dct_accessRights_ti^7
         dct_provider_ti^8
-        gbl_resourceClass_ti^9
-        gbl_resourceType_ti^9
-        dct_identifier_ti^10
+        gbl_resourceClass_tmi^9
+        gbl_resourceType_tmi^9
+        dct_identifier_tmi^10
         id_ti^10
       </str>
       <str name="pf"><!-- phrase boost within result set -->
         text^1
-        dct_description_ti^2
+        dct_description_tmi^2
         dct_creator_tmi^3
-        dct_publisher_ti^3
+        dct_publisher_tmi^3
         dct_isPartOf_tmi^4
         dct_subject_tmi^5
         dct_spatial_tmi^5
@@ -144,9 +144,9 @@
         dct_title_ti^6
         dct_accessRights_ti^7
         dct_provider_ti^8
-        gbl_resourceClass_ti^9
-        gbl_resourceType_ti^9
-        dct_identifier_ti^10
+        gbl_resourceClass_tmi^9
+        gbl_resourceType_tmi^9
+        dct_identifier_tmi^10
         id_ti^10
       </str>
       <bool name="facet">true</bool>
