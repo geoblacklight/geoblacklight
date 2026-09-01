@@ -33,6 +33,44 @@ describe Geoblacklight::DeprecatedConfiguration do
       described_class.warn_about_templates(root)
     end
 
+    # The masthead moves to a component, and Blacklight has no shared/_header_navbar
+    # of its own, so there is no upstream copy for an application to override.
+    it "points the site masthead at config.header_component" do
+      write_view("shared/_header_navbar.html.erb")
+
+      expect(Geoblacklight.deprecation).to receive(:warn).with(
+        "app/views/shared/_header_navbar.html.erb overrides shared/_header_navbar, which is " \
+        "removed in GeoBlacklight 5; set config.header_component to a subclass of " \
+        "Geoblacklight::HeaderComponent instead"
+      )
+
+      described_class.warn_about_templates(root)
+    end
+
+    # Geoblacklight::HeaderComponent is the site masthead; this partial is the
+    # document heading, which GeoBlacklight 5 renders from a slot instead.
+    it "points the document heading at the DocumentComponent title slot" do
+      write_view("catalog/_show_header_default.html.erb")
+
+      expect(Geoblacklight.deprecation).to receive(:warn).with(
+        /use the title slot of Geoblacklight::DocumentComponent instead/
+      )
+
+      described_class.warn_about_templates(root)
+    end
+
+    # The partial's only job is to render a DisplayNoteComponent per note, and that
+    # component still exists, so it is the unit an application should override.
+    it "points the display note at the component the partial already rendered" do
+      write_view("catalog/_show_default_display_note.html.erb")
+
+      expect(Geoblacklight.deprecation).to receive(:warn).with(
+        /use Geoblacklight::DisplayNoteComponent instead/
+      )
+
+      described_class.warn_about_templates(root)
+    end
+
     it "does not warn when the application has no overrides" do
       expect(Geoblacklight.deprecation).not_to receive(:warn)
 
