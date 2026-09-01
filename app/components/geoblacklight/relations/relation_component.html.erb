@@ -1,6 +1,6 @@
 <li class="list-group-item">
   <%= link_to document.title, solr_document_path(document) %>
-  <%= render Geoblacklight::HeaderIconsComponent.new(document: document) %>
+  <%= render Geoblacklight::HeaderBadgesComponent.new(document: document) %>
   <% if document.description.present? %>
     <div class="truncate-abstract description" data-read-more-text="<%= t("geoblacklight.truncate.read_more") %>" data-close-text="<%= t("geoblacklight.truncate.close") %>" data-max-lines=5>
       <%= description %>

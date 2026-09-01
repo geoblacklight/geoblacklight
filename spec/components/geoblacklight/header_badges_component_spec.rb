@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe Geoblacklight::HeaderIconsComponent, type: :component do
+RSpec.describe Geoblacklight::HeaderBadgesComponent, type: :component do
   before do
     render_inline(described_class.new(document: document))
   end

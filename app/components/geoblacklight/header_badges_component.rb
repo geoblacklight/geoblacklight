@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Geoblacklight
-  class HeaderIconsComponent < ViewComponent::Base
+  class HeaderBadgesComponent < ViewComponent::Base
     attr_reader :document, :fields
 
     def initialize(document:,
