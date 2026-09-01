@@ -7,7 +7,14 @@ module Geoblacklight
     end
 
     def viewer_protocol
-      return "map" if viewer_preference.nil?
+      if viewer_preference.nil?
+        Geoblacklight.deprecation.warn(
+          "Geoblacklight::ItemViewer#viewer_protocol returns \"map\" for a document with no viewer " \
+          "reference; GeoBlacklight 5 returns nil instead, so calls like viewer_protocol.camelize will " \
+          "raise and comparisons against \"map\" will stop matching"
+        )
+        return "map"
+      end
       viewer_preference.keys.first.to_s
     end
 

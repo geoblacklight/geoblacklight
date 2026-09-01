@@ -31,6 +31,14 @@ module Geoblacklight
     # Accessor for a document's file format
     # @return [String] file format for the document
     def format
+      unless @document.respond_to?(:file_format)
+        Geoblacklight.deprecation.warn(
+          "Geoblacklight::References reads the format with @document[#{Settings.FIELDS.FORMAT}] in " \
+          "GeoBlacklight 4 and @document.file_format in GeoBlacklight 5, but the document you passed " \
+          "(#{@document.class}) does not respond to #file_format; pass an object that includes " \
+          "Geoblacklight::SolrDocument, or define #file_format on it"
+        )
+      end
       @document[Settings.FIELDS.FORMAT]
     end
 

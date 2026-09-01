@@ -24,6 +24,13 @@ module Geoblacklight
     end
 
     def restricted?
+      if key?(Settings.FIELDS.ACCESS_RIGHTS) && self[Settings.FIELDS.ACCESS_RIGHTS].blank?
+        Geoblacklight.deprecation.warn(
+          "Geoblacklight::SolrDocument#restricted? returns true for a document whose " \
+          "#{Settings.FIELDS.ACCESS_RIGHTS} is present but blank; GeoBlacklight 5 returns false for the " \
+          "same document, because it tests the value for nil rather than for blankness"
+        )
+      end
       rights_field_data.blank? || rights_field_data.casecmp("restricted").zero?
     end
 
@@ -81,14 +88,16 @@ module Geoblacklight
     end
 
     def geom_field
+      warn_about_blank_default(Settings.FIELDS.GEOMETRY, "geom_field")
       fetch(Settings.FIELDS.GEOMETRY, "")
     end
 
     def geometry
-      @geometry ||= Geoblacklight::Geometry.new(geom_field)
+      @geometry ||= Geoblacklight::Geometry.new(Geoblacklight.deprecation.silence { geom_field })
     end
 
     def wxs_identifier
+      warn_about_blank_default(Settings.FIELDS.WXS_IDENTIFIER, "wxs_identifier")
       fetch(Settings.FIELDS.WXS_IDENTIFIER, "")
     end
 
@@ -107,6 +116,20 @@ module Geoblacklight
     end
 
     private
+
+    ##
+    # In GeoBlacklight 5 these readers are Blacklight `attribute` declarations, which
+    # return nil rather than "" when the Solr field is missing.
+    # @param field [String] the Solr field backing the reader
+    # @param reader [String] the name of the reader, for the warning
+    def warn_about_blank_default(field, reader)
+      return if key?(field)
+
+      Geoblacklight.deprecation.warn(
+        "Geoblacklight::SolrDocument##{reader} returns \"\" for a document with no #{field}; " \
+        "GeoBlacklight 5 returns nil instead, so calls like ##{reader}.empty? or ##{reader}.split will raise"
+      )
+    end
 
     def rights_field_data
       fetch(Settings.FIELDS.ACCESS_RIGHTS, "")

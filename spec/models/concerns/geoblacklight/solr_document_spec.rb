@@ -64,6 +64,54 @@ describe Geoblacklight::SolrDocument do
       end
     end
   end
+  describe "deprecations for GeoBlacklight 5 behavior changes" do
+    describe "#restricted?" do
+      describe "with rights data that is present but blank" do
+        let(:document_attributes) { {rights_field => ""} }
+        it "warns that GeoBlacklight 5 stops treating the document as restricted" do
+          expect(Geoblacklight.deprecation).to receive(:warn).with(
+            /#restricted\? returns true for a document whose .* is present but blank/
+          )
+          expect(document.restricted?).to be true
+        end
+      end
+
+      describe "without rights data at all" do
+        let(:document_attributes) { {} }
+        it "does not warn" do
+          expect(Geoblacklight.deprecation).not_to receive(:warn)
+          expect(document.restricted?).to be true
+        end
+      end
+    end
+
+    describe "#geom_field and #wxs_identifier" do
+      describe "when the Solr field is missing" do
+        let(:document_attributes) { {} }
+        it "warns that GeoBlacklight 5 returns nil rather than an empty string" do
+          expect(Geoblacklight.deprecation).to receive(:warn).with(/#geom_field returns "" for a document/)
+          expect(document.geom_field).to eq ""
+        end
+
+        it "warns for wxs_identifier too" do
+          expect(Geoblacklight.deprecation).to receive(:warn).with(/#wxs_identifier returns "" for a document/)
+          expect(document.wxs_identifier).to eq ""
+        end
+      end
+
+      describe "when the Solr field is present" do
+        let(:document_attributes) do
+          {Settings.FIELDS.GEOMETRY => "ENVELOPE(-1,1,1,-1)", Settings.FIELDS.WXS_IDENTIFIER => "cite:foo"}
+        end
+        it "does not warn" do
+          expect(Geoblacklight.deprecation).not_to receive(:warn)
+          expect(document.geom_field).to eq "ENVELOPE(-1,1,1,-1)"
+          expect(document.wxs_identifier).to eq "cite:foo"
+        end
+      end
+    end
+  end
+
   describe "#downloadable?" do
     describe "available direct download" do
       let(:document_attributes) do

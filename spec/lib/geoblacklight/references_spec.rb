@@ -227,4 +227,28 @@ describe Geoblacklight::References do
       expect(direct_download_only.downloads_by_format).to be_nil
     end
   end
+  describe "#format with a document that is not a SolrDocument" do
+    let(:plain_document) do
+      Class.new do
+        def initialize(attributes)
+          @attributes = attributes
+        end
+
+        def [](key)
+          @attributes[key]
+        end
+      end
+    end
+
+    it "warns that GeoBlacklight 5 calls #file_format on the document" do
+      document = plain_document.new(
+        Settings.FIELDS.FORMAT => "Shapefile",
+        Settings.FIELDS.REFERENCES => "{}"
+      )
+
+      expect(Geoblacklight.deprecation).to receive(:warn).with(/does not respond to #file_format/)
+
+      expect(described_class.new(document).format).to eq "Shapefile"
+    end
+  end
 end
