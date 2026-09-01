@@ -7,10 +7,10 @@ describe Geoblacklight::DeprecatedConfiguration do
 
   after { FileUtils.remove_entry(root) }
 
-  def write_view(path)
+  def write_view(path, contents = "")
     full = root.join("app", "views", path)
     FileUtils.mkdir_p(full.dirname)
-    File.write(full, "")
+    File.write(full, contents)
   end
 
   describe ".warn_about_templates" do
@@ -173,6 +173,78 @@ describe Geoblacklight::DeprecatedConfiguration do
       expect(Geoblacklight.deprecation).not_to receive(:warn)
 
       described_class.warn_about_locale_keys(root)
+    end
+  end
+
+  describe ".warn_about_jquery_animations" do
+    it "warns about the line the 4.x install generator injected" do
+      write_view("layouts/application.html.erb",
+        "<head>\n  <%= javascript_tag '$.fx.off = true;' if Rails.env.test? %>\n</head>")
+
+      expect(Geoblacklight.deprecation).to receive(:warn).with(
+        "app/views/layouts/application.html.erb turns jQuery animations off with $.fx.off, which the " \
+        "GeoBlacklight 4 install generator added; GeoBlacklight 5 does not ship jQuery, so remove that " \
+        'javascript_tag line or the test environment raises "$ is not defined"'
+      )
+
+      described_class.warn_about_jquery_animations(root)
+    end
+
+    it "finds the line in any layout, not just the application layout" do
+      write_view("layouts/blacklight/base.html.erb", "<%= javascript_tag '$.fx.off = true;' %>")
+
+      expect(Geoblacklight.deprecation).to receive(:warn).with(
+        %r{layouts/blacklight/base\.html\.erb turns jQuery animations off}
+      )
+
+      described_class.warn_about_jquery_animations(root)
+    end
+
+    it "does not warn about a layout that does not mention jQuery" do
+      write_view("layouts/application.html.erb", "<head><%= csrf_meta_tags %></head>")
+
+      expect(Geoblacklight.deprecation).not_to receive(:warn)
+
+      described_class.warn_about_jquery_animations(root)
+    end
+
+    it "does not warn when the application has no layouts" do
+      expect(Geoblacklight.deprecation).not_to receive(:warn)
+
+      described_class.warn_about_jquery_animations(root)
+    end
+  end
+
+  describe ".warn_about_relationship_keys" do
+    it "names the stale keys and their replacements in a single warning" do
+      allow(described_class).to receive(:setting_present?).and_return(false)
+      allow(described_class).to receive(:setting_present?).with("RELATIONSHIPS_SHOWN.MEMBER_OF").and_return(true)
+      allow(described_class).to receive(:setting_present?).with("RELATIONSHIPS_SHOWN.REPLACED_BY").and_return(true)
+
+      expect(Geoblacklight.deprecation).to receive(:warn).once.with(
+        /Settings\.RELATIONSHIPS_SHOWN defines MEMBER_OF, REPLACED_BY, which GeoBlacklight 4\.1 replaced/
+      )
+
+      described_class.warn_about_relationship_keys
+    end
+
+    it "maps REPLACED_BY onto REPLACES_DESCENDANTS rather than a key of its own" do
+      allow(described_class).to receive(:setting_present?).and_return(false)
+      allow(described_class).to receive(:setting_present?).with("RELATIONSHIPS_SHOWN.REPLACED_BY").and_return(true)
+
+      expect(Geoblacklight.deprecation).to receive(:warn).with(
+        /Rename to REPLACES_DESCENDANTS/
+      )
+
+      described_class.warn_about_relationship_keys
+    end
+
+    it "stays quiet for a settings file on the current shape" do
+      allow(described_class).to receive(:setting_present?).and_return(false)
+
+      expect(Geoblacklight.deprecation).not_to receive(:warn)
+
+      described_class.warn_about_relationship_keys
     end
   end
 
@@ -487,6 +559,8 @@ describe Geoblacklight::DeprecatedConfiguration do
       expect(described_class).to receive(:warn_about_stale_setting_values)
       expect(described_class).to receive(:warn_about_helper_override).with(root)
       expect(described_class).to receive(:warn_about_locale_keys).with(root)
+      expect(described_class).to receive(:warn_about_jquery_animations).with(root)
+      expect(described_class).to receive(:warn_about_relationship_keys)
       expect(described_class).to receive(:warn_about_document_overrides)
       expect(described_class).to receive(:warn_about_catalog_controller)
 
@@ -501,6 +575,8 @@ describe Geoblacklight::DeprecatedConfiguration do
       allow(described_class).to receive(:warn_about_stale_setting_values)
       expect(described_class).not_to receive(:warn_about_helper_override)
       expect(described_class).not_to receive(:warn_about_locale_keys)
+      expect(described_class).not_to receive(:warn_about_jquery_animations)
+      allow(described_class).to receive(:warn_about_relationship_keys)
       allow(described_class).to receive(:warn_about_document_overrides)
       allow(described_class).to receive(:warn_about_catalog_controller)
 
