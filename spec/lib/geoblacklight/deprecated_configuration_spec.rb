@@ -11,6 +11,7 @@ describe Geoblacklight::DeprecatedConfiguration do
     full = root.join("app", "views", path)
     FileUtils.mkdir_p(full.dirname)
     File.write(full, contents)
+    full.to_s
   end
 
   describe ".warn_about_templates" do
@@ -212,6 +213,16 @@ describe Geoblacklight::DeprecatedConfiguration do
       expect(Geoblacklight.deprecation).not_to receive(:warn)
 
       described_class.warn_about_jquery_animations(root)
+    end
+
+    it "never lets an unreadable layout stop the application booting" do
+      layout = write_view("layouts/application.html.erb", "<%= javascript_tag '$.fx.off = true;' %>")
+      allow(File).to receive(:read).and_call_original
+      allow(File).to receive(:read).with(layout).and_raise(Errno::EACCES)
+
+      expect(Geoblacklight.deprecation).not_to receive(:warn)
+
+      expect { described_class.warn_about_jquery_animations(root) }.not_to raise_error
     end
   end
 
