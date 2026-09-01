@@ -236,7 +236,7 @@ class CatalogController < ApplicationController
 
     config.add_search_field "all_fields", label: "All Fields"
     # config.add_search_field 'dct_title_ti', :label => 'Title'
-    # config.add_search_field 'dct_description_ti', :label => 'Description'
+    # config.add_search_field 'dct_description_tmi', :label => 'Description'
 
     # Now we see how to over-ride Solr request handler defaults, in this
     # case for a BL "search field", which is really a dismax aggregate
