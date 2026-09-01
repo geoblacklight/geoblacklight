@@ -2,6 +2,8 @@ en:
   geoblacklight:
     bbox_label: "Bounding Box"
     location: "Location"
+    badges:
+      georeferenced: "Georeferenced"
     clipboard:
       citation: Citation copied to clipboard
       web_service: Web service copied to clipboard

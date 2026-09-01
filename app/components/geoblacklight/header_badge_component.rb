@@ -14,7 +14,7 @@ module Geoblacklight
       @document[field]
     end
 
-    def icon(field)
+    def icon
       helpers.geoblacklight_icon(label)
     end
   end
