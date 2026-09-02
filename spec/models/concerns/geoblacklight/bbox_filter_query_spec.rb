@@ -104,6 +104,21 @@ RSpec.describe Geoblacklight::BboxFilterQuery do
     end
   end
 
+  describe ".call" do
+    # Blacklight 8 always invokes a filter_query_builder this way; Blacklight 9 only
+    # does so when the builder is not a Class. See
+    # https://github.com/projectblacklight/blacklight/blob/v8.12.3/lib/blacklight/solr/search_builder_behavior.rb#L132
+    let(:search_builder) { instance_double(Blacklight::SearchBuilder, blacklight_config:) }
+
+    it "accepts the Blacklight 8 signature" do
+      expect { described_class.call(search_builder, filter, solr_params) }.not_to raise_error
+    end
+
+    it "returns the same thing as the Blacklight 9 entry point" do
+      expect(described_class.call(search_builder, filter, solr_params)).to eq result
+    end
+  end
+
   describe "#intersects_filter" do
     let(:intersects_filter) { result.first }
 
