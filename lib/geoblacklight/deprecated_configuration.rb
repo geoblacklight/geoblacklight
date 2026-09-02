@@ -199,6 +199,23 @@ module Geoblacklight
     }.freeze
 
     ##
+    # Version floors GeoBlacklight 6 raises, as {library => requirement}. Unlike
+    # everything else here these are not a choice the application made, and the
+    # failure does not look like a GeoBlacklight problem: bundler simply refuses to
+    # resolve, or Blacklight renders facets the stylesheets no longer match.
+    GEM_REQUIREMENTS = {
+      "Blacklight" => {
+        minimum: "9.0",
+        because: "the structure of facets changed, and GeoBlacklight 6's geosearch facet and " \
+          "styling are written against Blacklight 9 conventions and accordion facets"
+      },
+      "Rails" => {
+        minimum: "8.0",
+        because: "GeoBlacklight 6 drops support for earlier versions"
+      }
+    }.freeze
+
+    ##
     # Warn about everything we can see, once per boot.
     # @param root [Pathname] the application root to inspect
     def self.warn!(root = Rails.root)
@@ -213,6 +230,7 @@ module Geoblacklight
       end
       warn_about_settings_file
       warn_about_catalog_controller
+      warn_about_gem_requirements
     end
 
     ##
@@ -435,6 +453,41 @@ module Geoblacklight
       end
 
       problems
+    end
+
+    ##
+    # Warn when the application is on a version of Blacklight or Rails that
+    # GeoBlacklight 6 will not run against. One warning per library, because they
+    # are fixed in different lines of the Gemfile and each is its own upgrade.
+    # @param versions [Hash{String=>String,nil}]
+    def self.warn_about_gem_requirements(versions = current_gem_versions)
+      gem_requirement_problems(versions).each do |problem|
+        Geoblacklight.deprecation.warn(problem)
+      end
+    end
+
+    ##
+    # @return [Hash{String=>String,nil}]
+    def self.current_gem_versions
+      {
+        "Blacklight" => (::Blacklight::VERSION if defined?(::Blacklight::VERSION)),
+        "Rails" => (::Rails::VERSION::STRING if defined?(::Rails::VERSION::STRING))
+      }
+    end
+
+    ##
+    # @param versions [Hash{String=>String,nil}]
+    # @return [Array<String>]
+    def self.gem_requirement_problems(versions)
+      GEM_REQUIREMENTS.filter_map do |library, requirement|
+        current = versions[library]
+        # An unreadable version is not evidence of a problem, so say nothing.
+        next unless current && Gem::Version.correct?(current)
+        next if Gem::Version.new(current) >= Gem::Version.new(requirement[:minimum])
+
+        "#{library} #{current} is too old for GeoBlacklight 6, which requires #{library} " \
+          "#{requirement[:minimum]} or later, because #{requirement[:because]}"
+      end
     end
 
     ##
