@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+#
+# Wait until Solr is serving the core, not merely running.
+#
+# `docker compose up -d` returns as soon as the container starts, which is well before Solr
+# has created and loaded its core. It also returns successfully when the host port fails to
+# publish, leaving a container that is healthy inside but unreachable from the host. Both
+# cases used to sail past a `sleep 5` and fail on the first Solr request.
+#
+# The check is deliberately core-scoped. A node-level endpoint such as
+# /solr/admin/info/system answers 200 while the core is still being created, which is the
+# window this is here to close; the core's ping handler answers 404 until the core is there.
+#
+# Usage: script/wait-for-solr
+#   SOLR_URL            full core URL to poll (default http://127.0.0.1:8983/solr/blacklight-core)
+#   SOLR_WAIT_ATTEMPTS  give up after this many 2s attempts (default 30)
+#   SOLR_SERVICE        name of the Solr service in docker-compose.yml (default solr)
+set -uo pipefail
+
+url="${SOLR_URL:-http://127.0.0.1:8983/solr/blacklight-core}"
+url="${url%/}"
+attempts="${SOLR_WAIT_ATTEMPTS:-30}"
+
+until [ "$(curl -s -o /dev/null -w '%{http_code}' --max-time 2 "$url/admin/ping")" = "200" ]; do
+  attempts=$((attempts - 1))
+  if [ "$attempts" -le 0 ]; then
+    echo "Solr never became ready at $url/admin/ping" >&2
+    echo "Check \`docker compose port ${SOLR_SERVICE:-solr} 8983\`; if it prints nothing, run" >&2
+    echo "\`docker compose up -d --force-recreate ${SOLR_SERVICE:-solr}\`" >&2
+    exit 1
+  fi
+  echo "Waiting for Solr to be ready..."
+  sleep 2
+done
+
+echo "Solr is up and running!"

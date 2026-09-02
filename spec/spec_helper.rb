@@ -16,7 +16,7 @@ SimpleCov.start "rails" do
   add_filter "lib/geoblacklight/version.rb"
   add_filter "lib/geoblacklight/engine.rb"
   add_filter "lib/generators"
-  add_filter "lib/tasks/geoblacklight.rake"
+  add_filter "lib/tasks"
   add_filter "/spec"
   add_filter ".internal_test_app/"
   minimum_coverage 100

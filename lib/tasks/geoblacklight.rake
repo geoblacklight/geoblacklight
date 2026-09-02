@@ -2,23 +2,7 @@
 
 require "rails/generators"
 require "generators/geoblacklight/install_generator"
-
-def system_with_error_handling(*args)
-  Open3.popen3(*args) do |_stdin, stdout, stderr, thread|
-    puts stdout.read
-    raise "Unable to run #{args.inspect}: #{stderr.read}" unless thread.value.success?
-  end
-end
-
-def with_solr(&block)
-  puts "Starting Solr"
-  system_with_error_handling "docker compose up -d solr"
-  sleep 5 # give solr a few seconds to load the core config and be ready
-  yield
-ensure
-  puts "Stopping Solr"
-  system_with_error_handling "docker compose stop solr"
-end
+require "tasks/solr"
 
 namespace :geoblacklight do
   desc "Run Solr and GeoBlacklight for interactive development"
