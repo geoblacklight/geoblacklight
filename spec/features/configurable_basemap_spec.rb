@@ -3,6 +3,15 @@
 require "spec_helper"
 
 feature "Configurable basemap", js: true do
+  # CatalogController.blacklight_config is memoized and shared by the whole suite,
+  # so a scenario that sets a basemap has to put the original back. An around hook
+  # wraps the nested before hooks that do the setting.
+  around do |example|
+    original = CatalogController.blacklight_config.basemap_provider
+    example.run
+    CatalogController.blacklight_config.basemap_provider = original
+  end
+
   scenario "defaults to positron" do
     visit root_path
     expect(page).to have_css "img[src*='carto']", visible: :all
