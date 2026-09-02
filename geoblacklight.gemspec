@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.required_rubygems_version = ">= 2.5.2"
 
   spec.add_dependency "rails", ">= 8", "< 9"
-  spec.add_dependency "blacklight", ">= 8.0", "< 10"
+  spec.add_dependency "blacklight", ">= 9.0", "< 10"
   spec.add_dependency "commonmarker", "~> 2.9"
   spec.add_dependency "config"
   spec.add_dependency "faraday", "~> 2.0"
