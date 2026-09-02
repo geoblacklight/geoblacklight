@@ -9,6 +9,31 @@ RSpec.describe CatalogController, type: :controller do
 
       expect(description_field.component).to eq Geoblacklight::MetadataDescriptionMarkdownComponent
     end
+
+    it "adds the split view and removes the list view" do
+      expect(described_class.blacklight_config.view.split.partials).to eq ["index"]
+      expect(described_class.blacklight_config.view.to_h).not_to include :list
+    end
+
+    # These two statements mirror the generated CatalogController (see
+    # lib/generators/geoblacklight/templates/catalog_controller.rb). Ruby leaves the
+    # class defined if its body raises, so a load error anywhere in that class
+    # re-evaluates the whole configure_blacklight block against the same config. The
+    # statements have to tolerate that, or the second pass raises and hides the
+    # original error.
+    it "applies its view configuration idempotently" do
+      config = Blacklight::Configuration.new
+
+      expect {
+        2.times do
+          config.view[:split] = {partials: ["index"]}
+          config.view.delete_field("list") if config.view.to_h.key?(:list)
+        end
+      }.not_to raise_error
+
+      expect(config.view.split.partials).to eq ["index"]
+      expect(config.view.to_h).not_to include :list
+    end
   end
 
   describe "#web_services" do

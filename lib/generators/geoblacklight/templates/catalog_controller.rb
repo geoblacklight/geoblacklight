@@ -32,8 +32,13 @@ class CatalogController < ApplicationController
 
     # GeoBlacklight Defaults
     # * Adds the "map" split view for catalog#index
-    config.view.split(partials: ["index"])
-    config.view.delete_field("list")
+    #
+    # Written to be idempotent: if anything below raises, Ruby leaves this class
+    # defined and the block is evaluated again against the same config. The more
+    # common `config.view.split(partials:)` form defines a zero-arity `split` reader
+    # on the first pass, so a second pass raises ArgumentError and masks the real error.
+    config.view[:split] = {partials: ["index"]}
+    config.view.delete_field("list") if config.view.to_h.key?(:list)
 
     # solr field configuration for search results/index views
     # config.index.show_link = 'title_display'
