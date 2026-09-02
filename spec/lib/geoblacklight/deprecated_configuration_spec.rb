@@ -465,8 +465,25 @@ describe Geoblacklight::DeprecatedConfiguration do
       expect(problems).to include(/helper_method: :render_value_as_truncate_abstract/)
     end
 
+    # The basemap examples set the value explicitly rather than reading whatever
+    # CatalogController happens to carry: blacklight_config is memoized and shared,
+    # so an ambient read couples these to suite ordering.
     it "leaves the stock basemap alone" do
-      expect(problems).not_to include(/basemap_provider/)
+      config = CatalogController.blacklight_config.deep_copy
+      config.basemap_provider = "positron"
+      controller = class_double(CatalogController, blacklight_config: config)
+
+      expect(described_class.catalog_controller_problems(controller))
+        .not_to include(/basemap_provider/)
+    end
+
+    it "leaves an unset basemap alone" do
+      config = CatalogController.blacklight_config.deep_copy
+      config.basemap_provider = nil
+      controller = class_double(CatalogController, blacklight_config: config)
+
+      expect(described_class.catalog_controller_problems(controller))
+        .not_to include(/basemap_provider/)
     end
 
     it "flags a basemap the application chose for itself" do
@@ -483,6 +500,7 @@ describe Geoblacklight::DeprecatedConfiguration do
       config.facet_fields.each_value { |field| field.item_component = nil }
       config.index_fields.each_value { |field| field.helper_method = nil }
       config.show_fields.each_value { |field| field.helper_method = nil }
+      config.basemap_provider = "positron"
       controller = class_double(CatalogController, blacklight_config: config)
 
       expect(described_class.catalog_controller_problems(controller)).to be_empty
@@ -517,6 +535,72 @@ describe Geoblacklight::DeprecatedConfiguration do
     end
   end
 
+  describe ".gem_requirement_problems" do
+    it "flags Blacklight 8, which GeoBlacklight 6 will not run against" do
+      problems = described_class.gem_requirement_problems("Blacklight" => "8.12.3")
+
+      expect(problems).to include(/Blacklight 8\.12\.3 is too old .* requires Blacklight 9\.0 or later/)
+    end
+
+    it "flags a Rails older than 8" do
+      problems = described_class.gem_requirement_problems("Rails" => "7.2.3")
+
+      expect(problems).to include(/Rails 7\.2\.3 is too old/)
+    end
+
+    it "is quiet once both libraries are new enough" do
+      problems = described_class.gem_requirement_problems(
+        "Blacklight" => "9.0.0", "Rails" => "8.1.1"
+      )
+
+      expect(problems).to be_empty
+    end
+
+    it "treats the minimum itself as new enough" do
+      problems = described_class.gem_requirement_problems("Blacklight" => "9.0")
+
+      expect(problems).to be_empty
+    end
+
+    it "says nothing about a library it cannot see" do
+      expect(described_class.gem_requirement_problems({})).to be_empty
+    end
+
+    it "says nothing about a version it cannot parse" do
+      problems = described_class.gem_requirement_problems("Blacklight" => "not-a-version")
+
+      expect(problems).to be_empty
+    end
+  end
+
+  describe ".current_gem_versions" do
+    it "reads the versions actually loaded" do
+      expect(described_class.current_gem_versions)
+        .to include("Blacklight" => Blacklight::VERSION, "Rails" => Rails::VERSION::STRING)
+    end
+  end
+
+  describe ".warn_about_gem_requirements" do
+    it "warns once per library that is too old" do
+      expect(Geoblacklight.deprecation).to receive(:warn).once.with(/Blacklight 8\.12\.3 is too old/)
+
+      described_class.warn_about_gem_requirements("Blacklight" => "8.12.3")
+    end
+
+    it "stays quiet when every requirement is met" do
+      expect(Geoblacklight.deprecation).not_to receive(:warn)
+
+      described_class.warn_about_gem_requirements("Blacklight" => "9.0.0", "Rails" => "8.1.1")
+    end
+
+    it "reads the loaded versions when given nothing" do
+      allow(described_class).to receive(:current_gem_versions).and_return("Rails" => "7.2.3")
+      expect(Geoblacklight.deprecation).to receive(:warn).once.with(/Rails 7\.2\.3 is too old/)
+
+      described_class.warn_about_gem_requirements
+    end
+  end
+
   describe ".warn!" do
     it "runs every check" do
       %i[warn_about_templates warn_about_locale_keys warn_about_routes
@@ -526,6 +610,7 @@ describe Geoblacklight::DeprecatedConfiguration do
       end
       expect(described_class).to receive(:warn_about_settings_file)
       expect(described_class).to receive(:warn_about_catalog_controller)
+      expect(described_class).to receive(:warn_about_gem_requirements)
 
       described_class.warn!(root)
     end
@@ -534,6 +619,7 @@ describe Geoblacklight::DeprecatedConfiguration do
       expect(described_class).not_to receive(:warn_about_templates)
       allow(described_class).to receive(:warn_about_settings_file)
       allow(described_class).to receive(:warn_about_catalog_controller)
+      allow(described_class).to receive(:warn_about_gem_requirements)
 
       described_class.warn!(nil)
     end
