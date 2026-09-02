@@ -8,7 +8,7 @@ module Geoblacklight
       dataset_type
     end
 
-    def icon(field)
+    def icon
       return resource_type_icon unless resource_type_icon_missing?
       default_resource_icon
     end

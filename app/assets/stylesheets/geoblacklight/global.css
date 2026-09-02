@@ -32,3 +32,15 @@
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--bs-body-bg) 65%);
   }
 }
+
+/* Badges */
+.icon-badge,
+.file-type-badge {
+  text-transform: uppercase;
+  font-weight: 600;
+  gap: 0.25em;
+  display: inline-flex;
+  align-items: center;
+  color: var(--bs-body-color);
+  background-color: var(--bs-secondary-bg);
+}

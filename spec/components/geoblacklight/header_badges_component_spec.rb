@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe Geoblacklight::HeaderIconsComponent, type: :component do
+RSpec.describe Geoblacklight::HeaderBadgesComponent, type: :component do
   before do
     render_inline(described_class.new(document: document))
   end
@@ -10,11 +10,13 @@ RSpec.describe Geoblacklight::HeaderIconsComponent, type: :component do
   let(:document) { SolrDocument.new(document_attributes) }
   let(:resource_class) { [] }
   let(:resource_type) { [] }
+  let(:georeferenced) { nil }
   let(:document_attributes) do
     {
       "gbl_resourceClass_sm" => resource_class,
       "gbl_resourceType_sm" => resource_type,
-      "dct_accessRights_s" => "Public"
+      "dct_accessRights_s" => "Public",
+      "gbl_georeferenced_b" => georeferenced
     }
   end
 
@@ -46,6 +48,22 @@ RSpec.describe Geoblacklight::HeaderIconsComponent, type: :component do
 
     it "renders the resource type that has an icon" do
       expect(page).to have_css(".blacklight-icons-raster")
+    end
+  end
+
+  context "when georeferenced" do
+    let(:georeferenced) { true }
+
+    it "renders the georeferenced icon" do
+      expect(page).to have_css(".blacklight-icons-georeferenced")
+    end
+  end
+
+  context "when not georeferenced" do
+    let(:georeferenced) { false }
+
+    it "does not render the georeferenced icon" do
+      expect(page).not_to have_css(".blacklight-icons-georeferenced")
     end
   end
 end
