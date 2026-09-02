@@ -1,3 +1,5 @@
+<%# Removed in GeoBlacklight 6. The deprecated helpers it calls are silenced here so that a stock application is not warned once per request; Geoblacklight::DeprecatedConfiguration warns at boot if an application overrides it. %>
+<% Geoblacklight.deprecation.silence do %>
 <% document ||= @documents.first %>
 
 <div class='metadata-view'>
@@ -25,3 +27,4 @@
     <% end %>
   </div>
 </div>
+<% end %>

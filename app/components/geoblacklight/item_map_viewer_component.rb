@@ -84,12 +84,12 @@ module Geoblacklight
         data: {
           "controller" => viewer_name,
           "#{viewer_name}-available-value" => helpers.document_available?(@document),
-          "#{viewer_name}-basemap-value" => helpers.geoblacklight_basemap,
+          "#{viewer_name}-basemap-value" => Geoblacklight.deprecation.silence { helpers.geoblacklight_basemap },
           "#{viewer_name}-protocol-value" => protocol,
           "#{viewer_name}-url-value" => @document.viewer_endpoint,
           "#{viewer_name}-map-geom-value" => @document.geometry.geojson,
           "#{viewer_name}-layer-id-value" => @document.wxs_identifier,
-          "#{viewer_name}-options-value" => helpers.leaflet_options,
+          "#{viewer_name}-options-value" => Geoblacklight.deprecation.silence { helpers.leaflet_options },
           "#{viewer_name}-page-value" => params[:action]&.upcase,
           "#{viewer_name}-draw-initial-bounds-value" => true
         }.compact)

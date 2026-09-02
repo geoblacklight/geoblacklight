@@ -18,13 +18,13 @@ module Geoblacklight
     end
 
     def viewer_tag
-      leaflet_options = helpers.leaflet_options.deep_dup
+      leaflet_options = Geoblacklight.deprecation.silence { helpers.leaflet_options }.deep_dup
       leaflet_options.SLEEP.SLEEP = false
       tag.div(nil,
         id: "static-map",
         data: {
           "controller" => "leaflet-viewer",
-          "leaflet-viewer-basemap-value" => helpers.geoblacklight_basemap,
+          "leaflet-viewer-basemap-value" => Geoblacklight.deprecation.silence { helpers.geoblacklight_basemap },
           "leaflet-viewer-page-value" => "STATIC_MAP",
           "leaflet-viewer-map-geom-value" => @document.geometry.geojson,
           "leaflet-viewer-options-value" => leaflet_options,

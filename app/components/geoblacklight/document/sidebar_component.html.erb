@@ -1,3 +1,5 @@
+<%# Rendered by GeoBlacklight itself, so the deprecated methods it calls are silenced here; an application that overrides them still gets warned when it calls them. %>
+<% Geoblacklight.deprecation.silence do %>
 <%= render_static_map_component %>
 <%= render_show_tools %>
 
@@ -10,3 +12,4 @@
 <%= render_more_like_this %>
 
 <%= render "relations_container", document: document %>
+<% end %>

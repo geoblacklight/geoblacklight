@@ -31,6 +31,22 @@ module Geoblacklight
       attribute :format, :string, Settings.FIELDS.FORMAT
     end
 
+    ##
+    # Warn once per reader name rather than once per document: a search results page
+    # would otherwise emit one warning per result, because
+    # ActiveSupport::Deprecation does not deduplicate.
+    # @param method [Symbol]
+    def self.warn_about_url_reader(method)
+      @warned_url_readers ||= Set.new
+      return unless @warned_url_readers.add?(method)
+
+      Geoblacklight.deprecation.warn(
+        "SolrDocument##{method} is resolved dynamically by Geoblacklight::SolrDocument#method_missing, " \
+        "which GeoBlacklight 6 removes; call references.#{method.to_s.delete_suffix("_url")}&.endpoint " \
+        "instead"
+      )
+    end
+
     def available?
       public? || same_institution?
     end
@@ -44,7 +60,7 @@ module Geoblacklight
     end
 
     def downloadable?
-      (direct_download || download_types.present? || iiif_download) && available?
+      Geoblacklight.deprecation.silence { direct_download || download_types.present? || iiif_download } && available?
     end
 
     def references
@@ -101,7 +117,8 @@ module Geoblacklight
 
     def method_missing(method, *args, &block)
       if /.*_url$/.match?(method.to_s)
-        checked_endpoint(method.to_s.gsub("_url", ""))
+        Geoblacklight::SolrDocument.warn_about_url_reader(method)
+        Geoblacklight.deprecation.silence { checked_endpoint(method.to_s.gsub("_url", "")) }
       else
         super
       end
