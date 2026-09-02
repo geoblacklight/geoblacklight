@@ -10,23 +10,7 @@ end
 
 require "engine_cart/rake_task"
 require "rspec/core/rake_task"
-require "open3"
-
-def system_with_error_handling(*args)
-  Open3.popen3(*args) do |_stdin, stdout, stderr, thread|
-    puts stdout.read
-    raise "Unable to run #{args.inspect}: #{stderr.read}" unless thread.value.success?
-  end
-end
-
-def with_solr(&block)
-  puts "Starting Solr"
-  system_with_error_handling "docker compose up -d solr"
-  yield
-ensure
-  puts "Stopping Solr"
-  system_with_error_handling "docker compose stop solr"
-end
+require "tasks/solr"
 
 task(:spec).clear
 RSpec::Core::RakeTask.new(:spec) do |t|
