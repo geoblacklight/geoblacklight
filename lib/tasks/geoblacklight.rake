@@ -54,14 +54,23 @@ namespace :geoblacklight do
   namespace :downloads do
     desc "Delete all cached downloads"
     task delete: :environment do
+      Geoblacklight.deprecation.warn(
+        "The geoblacklight:downloads:delete rake task is deprecated; GeoBlacklight 6 removes the generated download subsystem: downloads are direct links only, rendered by Geoblacklight::Document::DownloadLinksComponent"
+      )
       FileUtils.rm_rf Dir.glob(Rails.root.join("tmp", "cache", "downloads", "*"))
     end
     desc "Create download directory"
     task mkdir: :environment do
+      Geoblacklight.deprecation.warn(
+        "The geoblacklight:downloads:mkdir rake task is deprecated; GeoBlacklight 6 removes the generated download subsystem: downloads are direct links only, rendered by Geoblacklight::Document::DownloadLinksComponent"
+      )
       FileUtils.mkdir_p(Rails.root.join("tmp", "cache", "downloads"), verbose: true)
     end
     desc "Precaches a download"
     task :precache, %i[doc_id download_type timeout] => [:environment] do |_t, args|
+      Geoblacklight.deprecation.warn(
+        "The geoblacklight:downloads:precache rake task is deprecated; GeoBlacklight 6 removes the generated download subsystem: downloads are direct links only, rendered by Geoblacklight::Document::DownloadLinksComponent"
+      )
       unless args[:doc_id] && args[:download_type] && args[:timeout]
         raise "Please supply required arguments [document_id, download_type and timeout]"
       end

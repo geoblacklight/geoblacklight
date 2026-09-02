@@ -26,7 +26,7 @@ module Geoblacklight
 
     # Add top-level geosearch control to leaflet options if configured
     def leaflet_options
-      options = helpers.leaflet_options.deep_dup
+      options = Geoblacklight.deprecation.silence { helpers.leaflet_options }.deep_dup
       options["CONTROLS"] = {"Geosearch" => @geosearch} if @geosearch
       options.to_json
     end
@@ -37,7 +37,7 @@ module Geoblacklight
         class: @classes,
         data: {
           "controller" => "leaflet-viewer",
-          "leaflet-viewer-basemap-value" => helpers.geoblacklight_basemap,
+          "leaflet-viewer-basemap-value" => Geoblacklight.deprecation.silence { helpers.geoblacklight_basemap },
           "leaflet-viewer-map-geom-value" => search_bbox || @map_geometry,
           "leaflet-viewer-data-map-value" => @data_map,
           "leaflet-viewer-page-value" => params[:action]&.upcase,

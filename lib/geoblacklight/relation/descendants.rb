@@ -4,6 +4,9 @@ module Geoblacklight
   module Relation
     class Descendants
       def initialize(id, field, repository)
+        Geoblacklight.deprecation.warn(
+          "GeoBlacklight 6 renames the Geoblacklight::Relation namespace to Geoblacklight::Relations, and RelationController to RelationsController, so update any reference to Geoblacklight::Relation::Descendants"
+        )
         @search_id = id
         @field = field
         @repository = repository

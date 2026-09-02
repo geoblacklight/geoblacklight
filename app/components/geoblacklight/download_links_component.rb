@@ -11,7 +11,7 @@ module Geoblacklight
     end
 
     def render?
-      downloadable? && (document.direct_download.present? || document.iiif_download.present? || document.download_types.present?)
+      Geoblacklight.deprecation.silence { downloadable? && (document.direct_download.present? || document.iiif_download.present? || document.download_types.present?) }
     end
 
     def downloadable?

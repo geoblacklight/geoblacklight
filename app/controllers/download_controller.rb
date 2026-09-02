@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 class DownloadController < ApplicationController
+  before_action do
+    Geoblacklight.deprecation.warn(
+      "DownloadController is deprecated; GeoBlacklight 6 removes the generated download subsystem: downloads are direct links only, rendered by Geoblacklight::Document::DownloadLinksComponent"
+    )
+  end
+
   # include Blacklight::SearchHelper
   include Blacklight::Catalog
 

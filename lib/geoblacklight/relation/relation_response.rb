@@ -5,6 +5,9 @@ module Geoblacklight
     class RelationResponse
       attr_reader :search_id, :link_id
       def initialize(id, repository)
+        Geoblacklight.deprecation.warn(
+          "GeoBlacklight 6 renames the Geoblacklight::Relation namespace to Geoblacklight::Relations, and RelationController to RelationsController, so update any reference to Geoblacklight::Relation::RelationResponse"
+        )
         @link_id = id
         @search_id = RSolr.solr_escape(id)
         @repository = repository
@@ -14,7 +17,7 @@ module Geoblacklight
         if Settings.RELATIONSHIPS_SHOWN.key?(method)
           field = Settings.RELATIONSHIPS_SHOWN[method].field
           query_type = query_type(Settings.RELATIONSHIPS_SHOWN[method])
-          @results = query_type.new(@search_id, field, @repository).results
+          @results = Geoblacklight.deprecation.silence { query_type.new(@search_id, field, @repository) }.results
         else
           super
         end
