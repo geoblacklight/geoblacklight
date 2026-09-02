@@ -28,5 +28,9 @@ else
       gem "rails", ENV["RAILS_VERSION"]
     end
   end
+
+  if ENV["BLACKLIGHT_VERSION"]
+    gem "blacklight", ENV["BLACKLIGHT_VERSION"]
+  end
 end
 # END ENGINE_CART BLOCK

@@ -6,7 +6,11 @@ class TestAppGenerator < Rails::Generators::Base
   source_root File.expand_path("../../../../spec/test_app_templates", __FILE__)
 
   def add_gems
-    gem "blacklight"
+    if ENV["BLACKLIGHT_VERSION"]
+      gem "blacklight", ENV["BLACKLIGHT_VERSION"]
+    else
+      gem "blacklight"
+    end
 
     Bundler.with_unbundled_env do
       run "bundle install"
