@@ -22,6 +22,8 @@ module Geoblacklight
         :id => @id,
         :class => "viewer locator-map",
         "theme" => helpers.geoblacklight_viewer_theme,
+        "light-basemap" => Geoblacklight.configuration.light_basemap_url,
+        "dark-basemap" => Geoblacklight.configuration.dark_basemap_url,
         "record-url" => helpers.viewer_solr_document_path(@document)
       }
     end

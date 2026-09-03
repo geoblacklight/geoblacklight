@@ -39,6 +39,8 @@ module Geoblacklight
         :id => @id,
         :class => "viewer overview-map",
         "theme" => helpers.geoblacklight_viewer_theme,
+        "light-basemap" => Geoblacklight.configuration.light_basemap_url,
+        "dark-basemap" => Geoblacklight.configuration.dark_basemap_url,
         "search-bounds" => search_bounds,
         "view-bounds" => view_bounds,
         "geosearch" => @geosearch || nil,

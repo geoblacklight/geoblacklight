@@ -6,6 +6,8 @@ RSpec.describe Geoblacklight::OverviewMapComponent, type: :component do
   let(:url) { "/catalog?q=water" }
   let(:options) { {geosearch: true} }
   let(:homepage_map_geom) { nil }
+  let(:light_basemap_url) { nil }
+  let(:dark_basemap_url) { nil }
 
   subject(:map) { page.find("ogm-overview") }
 
@@ -13,6 +15,8 @@ RSpec.describe Geoblacklight::OverviewMapComponent, type: :component do
     # Stubbed for every example, because the one that reads it renders through the hook below
     allow(Geoblacklight.logger).to receive(:warn)
     allow(Geoblacklight.configuration).to receive(:homepage_map_geom).and_return(homepage_map_geom)
+    allow(Geoblacklight.configuration).to receive(:light_basemap_url).and_return(light_basemap_url)
+    allow(Geoblacklight.configuration).to receive(:dark_basemap_url).and_return(dark_basemap_url)
 
     with_controller_class(CatalogController) do
       with_request_url(url) do
@@ -29,6 +33,32 @@ RSpec.describe Geoblacklight::OverviewMapComponent, type: :component do
 
   it "states Bootstrap's light default when dark mode support is unavailable" do
     expect(map[:theme]).to eq "light"
+  end
+
+  describe "the basemap" do
+    it "is left to the viewer's own default when none is configured" do
+      expect(map["light-basemap"]).to be_nil
+      expect(map["dark-basemap"]).to be_nil
+    end
+
+    context "when the application configures its own" do
+      let(:light_basemap_url) { "https://tiles.example.edu/styles/light/style.json" }
+      let(:dark_basemap_url) { "https://tiles.example.edu/styles/dark/style.json" }
+
+      it "names a style document for each mode" do
+        expect(map["light-basemap"]).to eq "https://tiles.example.edu/styles/light/style.json"
+        expect(map["dark-basemap"]).to eq "https://tiles.example.edu/styles/dark/style.json"
+      end
+    end
+
+    context "when only the light-mode basemap is configured" do
+      let(:light_basemap_url) { "https://tiles.example.edu/styles/light/style.json" }
+
+      it "leaves dark mode to the viewer rather than reusing the light one" do
+        expect(map["light-basemap"]).to eq "https://tiles.example.edu/styles/light/style.json"
+        expect(map["dark-basemap"]).to be_nil
+      end
+    end
   end
 
   it "asks the controller for a search of the area a reader draws, and for the row a number belongs to" do

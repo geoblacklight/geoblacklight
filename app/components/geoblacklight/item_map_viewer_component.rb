@@ -34,6 +34,8 @@ module Geoblacklight
         :class => "viewer ogm-viewer",
         "hide-title" => true,
         "theme" => helpers.geoblacklight_viewer_theme,
+        "light-basemap" => Geoblacklight.configuration.light_basemap_url,
+        "dark-basemap" => Geoblacklight.configuration.dark_basemap_url,
         "record-url" => helpers.viewer_solr_document_path(@document),
         :data => {restricted_origins: restricted_origins})
     end
