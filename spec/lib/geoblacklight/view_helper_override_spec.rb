@@ -4,6 +4,7 @@ require "spec_helper"
 
 class GeoblacklightControllerTestClass
   include AbstractController::Translation
+
   attr_accessor :params
 end
 
