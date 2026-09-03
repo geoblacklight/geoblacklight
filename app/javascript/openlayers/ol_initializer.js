@@ -33,15 +33,40 @@ export default class OlInitializer {
   }
 
   baseLayer () {
-    const basemap = openLayersBasemaps[this.data.basemap]
+    const basemap = this.basemapDefinition()
     const layer = new TileLayer({
       source: new XYZ({
         attributions: basemap["attribution"],
-        url: basemap["url"],
+        url: this.normalizeUrl(basemap["url"]),
         maxZoom: basemap["maxZoom"]
       })
     })
     return layer
+  }
+
+  // The basemap to draw, with any BASEMAPS values from settings.yml merged
+  // over the shipped definition. This lets an application change a basemap's
+  // URL -- to add a CARTO API key, for example -- without restating the rest
+  // of the definition, and lets it define basemaps of its own.
+  basemapDefinition () {
+    const name = this.data.basemap || 'positron'
+    const definition = {
+      ...openLayersBasemaps[name],
+      ...this.basemapOverrides()[name]
+    }
+    if (definition.url) return definition
+    return openLayersBasemaps.positron
+  }
+
+  basemapOverrides () {
+    return JSON.parse(this.data.leafletOptions || '{}').BASEMAPS || {}
+  }
+
+  // Leaflet and OpenLayers spell tile URL templates differently, so accept
+  // the Leaflet form a configured basemap is most likely to be written in:
+  // {s} becomes OpenLayers' subdomain range, and {retina} drops out.
+  normalizeUrl (url) {
+    return url.replace(/\{s\}/g, '{a-d}').replace(/\{retina\}/g, '')
   }
 
   initializePmtiles () {

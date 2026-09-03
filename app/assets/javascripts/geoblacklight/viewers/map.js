@@ -65,13 +65,30 @@ GeoBlacklight.Viewer.Map = GeoBlacklight.Viewer.extend({
 
   /**
   * Selects basemap if specified in data options, if not return positron.
+  *
+  * Applications can change a basemap's URL -- to add a CARTO API key, for
+  * example -- or define basemaps of their own by setting LEAFLET.BASEMAPS in
+  * settings.yml. Those values are merged over the shipped definition, so an
+  * override that gives only a url keeps the shipped attribution and zoom.
   */
   selectBasemap: function() {
-    var _this = this;
-    if (_this.data.basemap) {
-      return GeoBlacklight.Basemaps[_this.data.basemap];
-    } else {
-      return GeoBlacklight.Basemaps.positron;
+    var name = this.data.basemap || 'positron';
+    var options = this.data.leafletOptions || {};
+    var overrides = options.BASEMAPS || {};
+    var definition;
+
+    // A configured basemap wins, so an application can override a shipped one
+    if (overrides[name]) {
+      definition = L.extend(
+        {}, GeoBlacklight.BasemapDefinitions[name], overrides[name]
+      );
+      if (definition.url) {
+        return L.tileLayer(definition.url, definition);
+      }
     }
+
+    // Otherwise use the shipped layer, which an application may itself have
+    // replaced in GeoBlacklight.Basemaps
+    return GeoBlacklight.Basemaps[name] || GeoBlacklight.Basemaps.positron;
   }
 });
