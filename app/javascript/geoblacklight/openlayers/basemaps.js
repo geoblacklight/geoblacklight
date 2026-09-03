@@ -14,26 +14,6 @@ export default {
     attributions: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://carto.com/attributionss">Carto</a>',
     maxZoom: 18
   },
-  worldAntique: {
-    url: 'https://cartocdn_{a-d}.global.ssl.fastly.net/base-antique/{z}/{x}/{y}.png',
-    attributions: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://carto.com/attributionss">Carto</a>',
-    maxZoom: 18
-  },
-  worldEco: {
-    url: 'https://cartocdn_{a-d}.global.ssl.fastly.net/base-eco/{z}/{x}/{y}.png',
-    attributions: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://carto.com/attributionss">Carto</a>',
-    maxZoom: 18
-  },
-  flatBlue: {
-    url: 'https://cartocdn_{a-d}.global.ssl.fastly.net/base-flatblue/{z}/{x}/{y}.png',
-    attributions: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://carto.com/attributionss">Carto</a>',
-    maxZoom: 18
-  },
-  midnightCommander: {
-    url: 'https://cartocdn_{a-d}.global.ssl.fastly.net/base-midnight/{z}/{x}/{y}.png',
-    attributions: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://carto.com/attributionss">Carto</a>',
-      maxZoom: 18
-  },
   openstreetmapHot: {
     url: 'https://{a-c}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
     attributions: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>', 

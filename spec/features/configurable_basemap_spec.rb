@@ -84,9 +84,12 @@ feature "Configurable basemap", js: true do
     end
   end
 
-  feature "using a basemap that does not exist" do
+  feature "using a basemap GeoBlacklight no longer ships" do
     before do
-      CatalogController.blacklight_config.basemap_provider = "nonexistent"
+      # worldEco was one of the CARTO basemaps served from the retired
+      # cartocdn fastly endpoints; applications still naming one should get a
+      # working basemap rather than none
+      CatalogController.blacklight_config.basemap_provider = "worldEco"
     end
     scenario "falls back to positron rather than drawing no basemap" do
       visit root_path
