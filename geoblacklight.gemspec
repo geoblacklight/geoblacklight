@@ -39,7 +39,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "factory_bot_rails"
   spec.add_development_dependency "simplecov", "~> 0.22"
   spec.add_development_dependency "foreman"
-  spec.add_development_dependency "standardrb", "1.0.1"
+  spec.add_development_dependency "standard", "~> 1.56.0"
   spec.add_development_dependency "webmock", "~> 3.14"
   spec.add_development_dependency "database_cleaner"
   spec.add_development_dependency "axe-core-rspec"
