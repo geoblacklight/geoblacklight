@@ -48,23 +48,13 @@ module Geoblacklight
     # The dct_references_s URI key to use as a document's thumbnail image URL
     attribute :thumbnail_reference_key, :string, default: "http://schema.org/thumbnailUrl"
 
-    # Configure basemap provider for GeoBlacklight maps
-    # Valid basemaps include:
-    # 'positron'
-    # 'dark_matter'
-    # 'positron_lite'
-    # 'world_antique'
-    # 'world_eco'
-    # 'flat_blue'
-    # 'midnight_commander'
-    # 'openstreetmap_hot'
-    # 'openstreetmap_standard'
+    # The basemap used in light mode, as a URL to a MapLibre style document.
+    # Leave blank to use the viewer's default.
+    attribute :light_basemap_url, :string
 
-    # Basemap used in light mode
-    attribute :basemap_provider, :string, default: "positron"
-
-    # Basemap used in dark mode
-    attribute :dark_basemap_provider, :string, default: "dark_matter"
+    # The basemap used in dark mode, as a URL to a MapLibre style document.
+    # Leave blank to use the viewer's default.
+    attribute :dark_basemap_url, :string
 
     # Homepage Map Geometry
     # Leave null to default to entire world
