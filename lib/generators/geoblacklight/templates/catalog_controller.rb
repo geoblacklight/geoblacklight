@@ -317,10 +317,6 @@ class CatalogController < ApplicationController
     # 'positron'
     # 'darkMatter'
     # 'positronLite'
-    # 'worldAntique'
-    # 'worldEco'
-    # 'flatBlue'
-    # 'midnightCommander'
     # 'openstreetmapHot'
     # 'openstreetmapStandard'
     #

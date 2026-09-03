@@ -33,38 +33,6 @@ GeoBlacklight.BasemapDefinitions = {
     retina: '@2x',
     detectRetina: false
   },
-  worldAntique: {
-    url: 'https://cartocdn_{s}.global.ssl.fastly.net/base-antique/{z}/{x}/{y}{retina}.png',
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://carto.com/attributions">Carto</a>',
-    maxZoom: 18,
-    worldCopyJump: true,
-    retina: '@2x',
-    detectRetina: false
-  },
-  worldEco: {
-    url: 'https://cartocdn_{s}.global.ssl.fastly.net/base-eco/{z}/{x}/{y}{retina}.png',
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://carto.com/attributions">Carto</a>',
-    maxZoom: 18,
-    worldCopyJump: true,
-    retina: '@2x',
-    detectRetina: false
-  },
-  flatBlue: {
-    url: 'https://cartocdn_{s}.global.ssl.fastly.net/base-flatblue/{z}/{x}/{y}{retina}.png',
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://carto.com/attributions">Carto</a>',
-    maxZoom: 18,
-    worldCopyJump: true,
-    retina: '@2x',
-    detectRetina: false
-  },
-  midnightCommander: {
-    url: 'https://cartocdn_{s}.global.ssl.fastly.net/base-midnight/{z}/{x}/{y}{retina}.png',
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://carto.com/attributions">Carto</a>',
-    maxZoom: 18,
-    worldCopyJump: true,
-    retina: '@2x',
-    detectRetina: false
-  },
   openstreetmapHot: {
     url: 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>',
