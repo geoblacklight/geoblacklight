@@ -191,6 +191,38 @@ RSpec.describe Geoblacklight::Configuration::SettingsBuilder do
         expect(Geoblacklight::Deprecation).to have_received(:warn).with(a_string_matching(/DISPLAY_NOTES_SHOWN/i))
       end
     end
+
+    describe "relationships_shown" do
+      it "preserves the defaults when RELATIONSHIPS_SHOWN is absent" do
+        expect(described_class.new(settings: {}).build.relationships_shown.each_key.to_a)
+          .to include(:member_of_ancestors, :version_of_descendants)
+      end
+
+      # The block every config/settings.yml generated since GeoBlacklight 4.0
+      # contains. Before GeoBlacklight tolerated the icon attribute, this raised
+      # ActiveModel::UnknownAttributeError while the configuration was built --
+      # which in production meant the application would not boot.
+      it "builds from a GeoBlacklight 5 block with icons and uppercase names" do
+        allow(Geoblacklight::Deprecation).to receive(:warn)
+        settings = {
+          RELATIONSHIPS_SHOWN: {
+            MEMBER_OF_ANCESTORS: {
+              field: "pcdm_memberOf_sm",
+              icon: "parent-item",
+              inverse: :MEMBER_OF_DESCENDANTS,
+              label: "geoblacklight.relations.member_of_ancestors",
+              query_type: "ancestors"
+            }
+          }
+        }
+
+        result = described_class.new(settings: settings).build.relationships_shown
+
+        expect(result.each_key.to_a).to eq([:member_of_ancestors])
+        expect(result[:member_of_ancestors].field).to eq("pcdm_memberOf_sm")
+        expect(result[:member_of_ancestors].query_type).to eq("ancestors")
+      end
+    end
   end
 end
 

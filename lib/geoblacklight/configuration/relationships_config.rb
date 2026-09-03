@@ -82,9 +82,9 @@ module Geoblacklight
       }.freeze
 
       def initialize(relationships = DEFAULT_RELATIONSHIPS)
-        @relationships = relationships.to_h.transform_values do |attrs|
-          attrs.is_a?(RelationshipConfig) ? attrs : RelationshipConfig.new(attrs)
-        end
+        @relationships = relationships.to_h
+          .transform_keys { |name| normalize_name(name) }
+          .transform_values { |attrs| config_for(attrs) }
       end
 
       def each(&block)
@@ -105,6 +105,18 @@ module Geoblacklight
 
       def method_missing(name, *args, **kwargs, &block) # rubocop:disable Style/MissingRespondToMissing
         @relationships.key?(name) ? @relationships[name] : super
+      end
+
+      private
+
+      def normalize_name(name)
+        name.to_s.downcase.to_sym
+      end
+
+      def config_for(attrs)
+        return attrs if attrs.is_a?(RelationshipConfig)
+
+        RelationshipConfig.new(attrs.to_h)
       end
     end
   end
