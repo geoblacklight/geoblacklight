@@ -65,10 +65,10 @@ RSpec.describe Geoblacklight::Relations::RelationResponse do
     it "fails for a bad query type request" do
       relationships = Geoblacklight.configuration.relationships_shown
       Geoblacklight.configuration.relationships_shown = Geoblacklight::Configuration::RelationshipsConfig.new(
-        BAD: {field: "dct_source_sm", query_type: "bad_query_type", label: "geoblacklight.relations.source_ancestors"}
+        bad: {field: "dct_source_sm", query_type: "bad_query_type", label: "geoblacklight.relations.source_ancestors"}
       )
 
-      expect { relation_resp.BAD }.to raise_error(ArgumentError)
+      expect { relation_resp.bad }.to raise_error(ArgumentError)
     ensure
       Geoblacklight.configuration.relationships_shown = relationships
     end

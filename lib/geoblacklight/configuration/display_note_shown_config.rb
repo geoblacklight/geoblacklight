@@ -4,6 +4,9 @@ module Geoblacklight
     class DisplayNoteShownConfig
       include ActiveModel::Model
       include ActiveModel::Attributes
+      include SettingsAttributes
+
+      self.settings_section = "DISPLAY_NOTES_SHOWN"
 
       attribute :bootstrap_alert_class, :string
       attribute :icon, :string
