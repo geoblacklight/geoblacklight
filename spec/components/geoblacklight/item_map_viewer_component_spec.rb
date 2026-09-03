@@ -21,6 +21,26 @@ RSpec.describe Geoblacklight::ItemMapViewerComponent, type: :component do
     end
   end
 
+  describe "the basemap" do
+    let(:document) { SolrDocument.new(JSON.parse(read_fixture("solr_documents/actual-polygon1.json"))) }
+
+    it "is left to the viewer's own default when none is configured" do
+      expect(page).to have_css("ogm-viewer:not([light-basemap]):not([dark-basemap])")
+    end
+
+    context "when the application configures its own" do
+      before do
+        allow(Geoblacklight.configuration).to receive(:light_basemap_url)
+          .and_return("https://tiles.example.edu/styles/light/style.json")
+        render_inline(described_class.new(document: document))
+      end
+
+      it "names the style document on the viewer" do
+        expect(page).to have_css('ogm-viewer[light-basemap="https://tiles.example.edu/styles/light/style.json"]')
+      end
+    end
+  end
+
   context "with an oembed record" do
     let(:document) { SolrDocument.new(JSON.parse(read_fixture("solr_documents/oembed.json"))) }
 
