@@ -10,6 +10,7 @@ module Geoblacklight
   #   longer exists.
   class DocumentPresenter < Blacklight::IndexPresenter
     include ActionView::Helpers::OutputSafetyHelper
+
     ##
     # Presents configured index fields in search results. Passes values through
     # configured helper_method. Multivalued fields separated by presenter

@@ -18,7 +18,6 @@ group :test do
   gem "rspec-rails", require: false
   gem "simplecov", require: false
   gem "standardrb", require: false
-  gem "webdrivers", require: false
   gem "webmock", require: false
 end
 
