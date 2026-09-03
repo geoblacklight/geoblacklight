@@ -110,11 +110,26 @@ export default class LeafletViewerController extends Controller {
 
   // Select the configured basemap to use
   getBasemap() {
-    const basemapName = this.basemapValue || "positron";
-    return tileLayer(basemaps[basemapName].url, {
-      ...basemaps[basemapName],
+    const definition = this.basemapDefinition();
+    return tileLayer(definition.url, {
+      ...definition,
       detectRetina: this.optionsValue.LAYERS.DETECT_RETINA || false,
     });
+  }
+
+  // The basemap to draw, with any BASEMAPS values from settings.yml merged over
+  // the shipped definition. This lets an application change a basemap's URL --
+  // to add a CARTO API key, for example -- without restating the rest of the
+  // definition, and lets it define basemaps of its own. Falls back to positron
+  // for a name that resolves to nothing rather than drawing no basemap.
+  basemapDefinition() {
+    const name = this.basemapValue || "positron";
+    const definition = { ...basemaps[name], ...this.basemapOverrides()[name] };
+    return definition.url ? definition : basemaps.positron;
+  }
+
+  basemapOverrides() {
+    return this.optionsValue.BASEMAPS || {};
   }
 
   // Add the configured controls to the map
