@@ -12,14 +12,6 @@ RSpec.describe GeoblacklightHelper, type: :helper do
       allow(helper).to receive(:blacklight_config).and_return(blacklight_config)
     end
 
-    context "before Blacklight has a dark mode setting" do
-      let(:blacklight_config) { Object.new }
-
-      it "states Bootstrap's implicit light default" do
-        expect(helper.geoblacklight_viewer_theme).to eq "light"
-      end
-    end
-
     context "when dark mode support is disabled" do
       let(:blacklight_config) { Struct.new(:dark_mode_support).new(false) }
 

@@ -31,8 +31,8 @@ RSpec.describe Geoblacklight::OverviewMapComponent, type: :component do
     expect(map["data-controller"]).to eq "overview-map"
   end
 
-  it "states Bootstrap's light default when dark mode support is unavailable" do
-    expect(map[:theme]).to eq "light"
+  it "leaves the theme to the page's color mode" do
+    expect(map[:theme]).to be_nil
   end
 
   describe "the basemap" do

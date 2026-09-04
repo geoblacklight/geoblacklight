@@ -14,7 +14,7 @@ module Geoblacklight
     # @return [Blacklight::Solr::Request]
     def hide_suppressed_records(solr_params)
       # Show suppressed records when searching relationships
-      return if blacklight_params.fetch(:f,
+      return if search_state.params.fetch(:f,
         {}).keys.any? do |field|
                   Geoblacklight.configuration.relationships_shown.map do |_key, value|
                     value.field

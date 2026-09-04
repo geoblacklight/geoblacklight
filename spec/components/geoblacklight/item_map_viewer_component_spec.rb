@@ -16,7 +16,11 @@ RSpec.describe Geoblacklight::ItemMapViewerComponent, type: :component do
       let(:document) { SolrDocument.new(JSON.parse(read_fixture(fixture_path))) }
 
       it "uses the viewer" do
-        expect(page).to have_css('ogm-viewer[theme="light"]')
+        expect(page).to have_css("ogm-viewer")
+      end
+
+      it "leaves the theme to the page's color mode" do
+        expect(page).to have_css("ogm-viewer:not([theme])")
       end
     end
   end

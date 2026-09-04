@@ -18,8 +18,19 @@ RSpec.describe Geoblacklight::LocatorMapComponent, type: :component do
     expect(map["record-url"]).to be_present
   end
 
-  it "states Bootstrap's light default when dark mode support is unavailable" do
-    expect(map[:theme]).to eq "light"
+  it "leaves the theme to the page's color mode" do
+    expect(map[:theme]).to be_nil
+  end
+
+  context "when the application turns Blacklight's dark mode support off" do
+    before do
+      allow_any_instance_of(GeoblacklightHelper).to receive(:geoblacklight_viewer_theme).and_return("light")
+      render_inline(described_class.new(document: document))
+    end
+
+    it "passes the light default the helper states through to the viewer" do
+      expect(map[:theme]).to eq "light"
+    end
   end
 
   describe "the basemap" do
