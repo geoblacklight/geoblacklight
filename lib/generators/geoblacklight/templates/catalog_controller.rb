@@ -106,18 +106,18 @@ class CatalogController < ApplicationController
       label: "Bounding Box"
 
     # DEFAULT FACETS
-    config.add_facet_field field_config.index_year, label: "Year", limit: 10
-    config.add_facet_field field_config.spatial_coverage, label: "Place", limit: 8
-    config.add_facet_field field_config.access_rights, label: "Access", limit: 8
-    config.add_facet_field field_config.resource_class, label: "Resource Class", limit: 8
+    config.add_facet_field field_config.resource_class, label: "Resource Class"
     config.add_facet_field field_config.resource_type, label: "Resource Type", limit: 8
     config.add_facet_field field_config.format, label: "Format", limit: 8
-    config.add_facet_field field_config.subject, label: "Subject", limit: 8
-    config.add_facet_field field_config.theme, label: "Theme", limit: 8
-    config.add_facet_field field_config.creator, label: "Creator", limit: 8
-    config.add_facet_field field_config.publisher, label: "Publisher", limit: 8
+    config.add_facet_field field_config.temporal_coverage, label: "Temporal Coverage", limit: 8
+    config.add_facet_field field_config.spatial_coverage, label: "Spatial Coverage", limit: 8, index_range: "A".."Z"
+    config.add_facet_field field_config.subject, label: "Subject", limit: 8, index_range: "A".."Z"
+    config.add_facet_field field_config.theme, label: "Theme", limit: 8, index_range: "A".."Z"
+    config.add_facet_field field_config.creator, label: "Creator", limit: 8, index_range: "A".."Z"
+    config.add_facet_field field_config.publisher, label: "Publisher", limit: 8, index_range: "A".."Z"
     config.add_facet_field field_config.provider, label: "Provider", limit: 8
-    config.add_facet_field field_config.georeferenced, label: "Georeferenced", limit: 3
+    config.add_facet_field field_config.access_rights, label: "Access"
+    config.add_facet_field field_config.georeferenced, label: "Georeferenced"
 
     # If you wish to add a date range filter, first run `bundle add blacklight_range_limit && bin/rails generate blacklight_range_limit:install`
     # Then uncomment the following line:
