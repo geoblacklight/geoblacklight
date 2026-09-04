@@ -9,6 +9,21 @@ RSpec.describe CatalogController, type: :controller do
 
       expect(description_field.component).to eq Geoblacklight::MetadataDescriptionMarkdownComponent
     end
+
+    it "uses the truncatable layout for the fields that hold long lists of values" do
+      fields = Geoblacklight.configuration.fields
+      layouts = [fields.subject, fields.theme, fields.spatial_coverage].map do |key|
+        described_class.blacklight_config.show_fields[key].layout_component
+      end
+
+      expect(layouts).to all eq Geoblacklight::TruncatableMetadataFieldLayoutComponent
+    end
+
+    it "leaves the component free for the fields that use the truncatable layout" do
+      subject_field = described_class.blacklight_config.show_fields[Geoblacklight.configuration.fields.subject]
+
+      expect(subject_field.component).to eq Blacklight::MetadataFieldComponent
+    end
   end
 
   describe "#web_services" do
