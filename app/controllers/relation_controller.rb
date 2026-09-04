@@ -6,7 +6,7 @@ class RelationController < ApplicationController
   copy_blacklight_config_from(CatalogController)
 
   def index
-    @relations = Geoblacklight::Relation::RelationResponse.new(params[:id], repository)
+    @relations = Geoblacklight.deprecation.silence { Geoblacklight::Relation::RelationResponse.new(params[:id], repository) }
     render layout: !request.xhr?
   end
 

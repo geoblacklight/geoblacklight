@@ -9,6 +9,7 @@ module GeoblacklightHelper
   # Blacklight catalog controller helper method to truncate field value to 150 chars
   # @param [SolrDocument] args
   # @return [String]
+  # @deprecated
   def snippit(args)
     truncate(Array(args[:value]).flatten.join(" "), length: 150)
   end
@@ -40,6 +41,7 @@ module GeoblacklightHelper
   # div. Arguments come from Blacklight::DocumentPresenter's
   # get_field_values method
   # @param [Hash] args from get_field_values
+  # @deprecated
   def render_value_as_truncate_abstract(args)
     tag.div class: "truncate-abstract" do
       Array(args[:value]).flatten.join(" ")
@@ -49,6 +51,7 @@ module GeoblacklightHelper
   ##
   # Selects the basemap used for map displays
   # @return [String]
+  # @deprecated
   def geoblacklight_basemap
     blacklight_config.basemap_provider || "positron"
   end
@@ -56,6 +59,7 @@ module GeoblacklightHelper
   ##
   # Returns a hash of the leaflet plugin settings to pass to the viewer.
   # @return[Hash]
+  # @deprecated
   def leaflet_options
     Settings.LEAFLET
   end
@@ -65,6 +69,7 @@ module GeoblacklightHelper
   # (Renders a partial when the metadata isn't available)
   # @param [Geoblacklight::Metadata::Base] metadata the metadata object
   # @return [String]
+  # @deprecated
   def render_transformed_metadata(metadata)
     render partial: "catalog/metadata/content", locals: {content: metadata.transform.html_safe}
   rescue Geoblacklight::MetadataTransformer::TransformError => transform_err
@@ -80,6 +85,7 @@ module GeoblacklightHelper
   # @param [SolrDocument] document the Solr Document for the item
   # @param [Geoblacklight::Metadata::Base] metadata the object for the metadata resource
   # @return [Boolean]
+  # @deprecated
   def first_metadata?(document, metadata)
     document.references.shown_metadata.first.type == metadata.type
   end
@@ -96,10 +102,11 @@ module GeoblacklightHelper
   end
 
   ## Returns the icon used based off a Settings strategy
+  # @deprecated
   def relations_icon(document, icon)
     # If configured to use geometry type for relations icon
     if Settings.USE_GEOM_FOR_RELATIONS_ICON
-      Blacklight.deprecation.warn("USE_GEOM_FOR_RELATIONS_ICON is deprecated and will be removed in GeoBlacklight 6")
+      Geoblacklight.deprecation.warn("USE_GEOM_FOR_RELATIONS_ICON is deprecated and will be removed in GeoBlacklight 6")
       icon_html = render Geoblacklight::HeaderIconsComponent.new(
         document: document,
         fields: [Settings.FIELDS.GEOM_TYPE]
@@ -122,4 +129,14 @@ module GeoblacklightHelper
       "index"
     end
   end
+
+  Geoblacklight.deprecation.deprecate_methods(GeoblacklightHelper,
+    snippit: "GeoBlacklight 6 removes it; its catalog_controller template no longer configures a " \
+      "truncated description index field",
+    render_value_as_truncate_abstract: "use Geoblacklight::MetadataDescriptionMarkdownComponent instead",
+    geoblacklight_basemap: "GeoBlacklight 6 reads the basemap from the viewer components themselves",
+    leaflet_options: "GeoBlacklight 6 reads the Leaflet options from the viewer components themselves",
+    render_transformed_metadata: "use Geoblacklight::MetadataComponent instead",
+    first_metadata?: "use Geoblacklight::MetadataComponent instead",
+    relations_icon: "use Geoblacklight::Relations::RelationComponent instead")
 end

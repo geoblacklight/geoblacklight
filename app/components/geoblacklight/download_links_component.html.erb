@@ -1,3 +1,5 @@
+<%# Removed in GeoBlacklight 6. The deprecated download API it calls is silenced here so that a stock application is not warned once per request. %>
+<% Geoblacklight.deprecation.silence do %>
 <div data-controller="downloads" class="downloads-sidebar">
     <%# the dropdown-toggle class gives us the little arrow %>
     <button type="button" class="btn btn-primary dropdown-toggle sidebar-btn" id="downloads-button" data-bs-toggle="collapse" data-bs-target="#downloads-collapse" aria-expanded="false" aria-controls="downloads-collapse">
@@ -29,3 +31,4 @@
         </div>
     </div>
 </div>
+<% end %>

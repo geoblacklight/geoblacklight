@@ -3,6 +3,9 @@
 module Geoblacklight
   class Download
     def initialize(document, options = {})
+      Geoblacklight.deprecation.warn(
+        "#{self.class} is deprecated; GeoBlacklight 6 removes the generated download subsystem: downloads are direct links only, rendered by Geoblacklight::Document::DownloadLinksComponent"
+      )
       @document = document
       @options = options
     end

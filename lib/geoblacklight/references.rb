@@ -52,6 +52,7 @@ module Geoblacklight
     ##
     # Download hash based off of format type
     # @return [Hash, nil]
+    # @deprecated
     def downloads_by_format
       case format
       when "Shapefile"
@@ -66,8 +67,9 @@ module Geoblacklight
     ##
     # Generated download types from wxs services
     # @return (see #downloads_by_format)
+    # @deprecated
     def download_types
-      downloads_by_format
+      Geoblacklight.deprecation.silence { downloads_by_format }
     end
 
     ##
@@ -156,5 +158,8 @@ module Geoblacklight
     def respond_to_missing?(m, *args, &b)
       Geoblacklight::Constants::URI.key?(m) || super
     end
+    Geoblacklight.deprecation.deprecate_methods(Geoblacklight::References,
+      downloads_by_format: "GeoBlacklight 6 removes the generated download subsystem: downloads are direct links only, rendered by Geoblacklight::Document::DownloadLinksComponent",
+      download_types: "GeoBlacklight 6 removes the generated download subsystem: downloads are direct links only, rendered by Geoblacklight::Document::DownloadLinksComponent")
   end
 end
