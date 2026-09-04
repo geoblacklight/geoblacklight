@@ -231,6 +231,25 @@ WMS_PARAMS:
 # Settings for leaflet
 LEAFLET:
   MAP:
+  # Basemap definitions, keyed by the name config.basemap_provider selects.
+  # Anything set here is merged over the basemap GeoBlacklight ships with, so
+  # you can change just the url and keep the rest of the definition.
+  #
+  # CARTO now watermarks raster tiles requested without an API key, which
+  # affects the positron, positronLite and darkMatter basemaps. Request a free
+  # key at https://carto.com/basemaps/apikey/ and pass it as a key parameter:
+  # BASEMAPS:
+  #   positron:
+  #     url: 'https://basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png?key=YOUR_KEY'
+  #   darkMatter:
+  #     url: 'https://basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png?key=YOUR_KEY'
+  #
+  # You can also define a basemap of your own here and select it with
+  # config.basemap_provider = 'myBasemap' in your CatalogController:
+  #   myBasemap:
+  #     url: 'https://tiles.example.edu/{z}/{x}/{y}.png'
+  #     attribution: 'Tiles courtesy of Example University'
+  #     maxZoom: 18
   BOUNDSOVERLAY:
     INDEX:
       color: '#3388ff'

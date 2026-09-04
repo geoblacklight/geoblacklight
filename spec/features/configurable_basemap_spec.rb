@@ -37,4 +37,63 @@ feature "Configurable basemap", js: true do
       expect(page).to have_css "img[src*='hot']", visible: :all
     end
   end
+
+  feature "with a configured tile URL for a shipped basemap" do
+    before do
+      CatalogController.blacklight_config.basemap_provider = "positron"
+      Settings.LEAFLET.BASEMAPS = {
+        positron: {
+          url: "https://basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png?key=fake-carto-key"
+        }
+      }
+    end
+    after { Settings.LEAFLET.BASEMAPS = nil }
+
+    scenario "requests tiles from the configured URL" do
+      visit root_path
+      expect(page).to have_css "img[src*='key=fake-carto-key']", visible: :all
+    end
+    scenario "keeps the attribution from the shipped definition" do
+      visit root_path
+      expect(page).to have_css ".leaflet-control-attribution", text: "Carto"
+    end
+  end
+
+  feature "with a basemap the application defines itself" do
+    before do
+      CatalogController.blacklight_config.basemap_provider = "myBasemap"
+      Settings.LEAFLET.BASEMAPS = {
+        myBasemap: {
+          url: "/tiles/{z}/{x}/{y}.png",
+          attribution: "Tiles courtesy of Example University",
+          maxZoom: 18
+        }
+      }
+    end
+    after { Settings.LEAFLET.BASEMAPS = nil }
+
+    scenario "requests tiles from the application's basemap" do
+      visit root_path
+      # visible: :all because these tiles 404, so the images have no dimensions
+      expect(page).to have_css "img[src*='/tiles/']", visible: :all
+    end
+    scenario "credits the application's basemap" do
+      visit root_path
+      expect(page).to have_css ".leaflet-control-attribution",
+        text: "Tiles courtesy of Example University"
+    end
+  end
+
+  feature "using a basemap GeoBlacklight no longer ships" do
+    before do
+      # worldEco was one of the CARTO basemaps served from the retired
+      # cartocdn fastly endpoints; applications still naming one should get a
+      # working basemap rather than none
+      CatalogController.blacklight_config.basemap_provider = "worldEco"
+    end
+    scenario "falls back to positron rather than drawing no basemap" do
+      visit root_path
+      expect(page).to have_css "img[src*='light_all']", visible: :all
+    end
+  end
 end

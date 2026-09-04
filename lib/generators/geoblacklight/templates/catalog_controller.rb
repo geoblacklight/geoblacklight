@@ -309,12 +309,11 @@ class CatalogController < ApplicationController
     # 'positron'
     # 'darkMatter'
     # 'positronLite'
-    # 'worldAntique'
-    # 'worldEco'
-    # 'flatBlue'
-    # 'midnightCommander'
     # 'openstreetmapHot'
     # 'openstreetmapStandard'
+    #
+    # To change one of these basemaps' tile URLs, or to add a basemap of your
+    # own and name it here, set LEAFLET.BASEMAPS in settings.yml
 
     config.basemap_provider = "positron"
 

@@ -14,6 +14,7 @@ export default class OpenlayersViewerController extends Controller {
     protocol: String,
     basemap: String,
     mapGeom: String,
+    options: Object,
   };
 
   async connect() {
@@ -55,9 +56,39 @@ export default class OpenlayersViewerController extends Controller {
 
   // Select the configured basemap to use
   getBasemap() {
-    const basemap = basemaps[this.basemapValue || "positron"];
-    const layer = new TileLayer({ source: new XYZ(basemap) });
+    const basemap = this.basemapDefinition();
+    const layer = new TileLayer({
+      source: new XYZ({
+        ...basemap,
+        url: this.normalizeUrl(basemap.url),
+        // The leaflet definitions spell this `attribution`; OpenLayers wants
+        // `attributions`. Accept either so one setting serves both viewers.
+        attributions: basemap.attributions || basemap.attribution,
+      }),
+    });
     return layer;
+  }
+
+  // The basemap to draw, with any BASEMAPS values from settings.yml merged over
+  // the shipped definition. This lets an application change a basemap's URL --
+  // to add a CARTO API key, for example -- without restating the rest of the
+  // definition, and lets it define basemaps of its own. Falls back to positron
+  // for a name that resolves to nothing rather than drawing no basemap.
+  basemapDefinition() {
+    const name = this.basemapValue || "positron";
+    const definition = { ...basemaps[name], ...this.basemapOverrides()[name] };
+    return definition.url ? definition : basemaps.positron;
+  }
+
+  basemapOverrides() {
+    return this.optionsValue.BASEMAPS || {};
+  }
+
+  // Leaflet and OpenLayers spell tile URL templates differently, so accept the
+  // leaflet form a configured basemap is most likely to be written in: {s}
+  // becomes OpenLayers' subdomain range, and {retina} drops out.
+  normalizeUrl(url) {
+    return url.replace(/\{s\}/g, "{a-d}").replace(/\{retina\}/g, "");
   }
 
   // Generate a layer based on the protocol
