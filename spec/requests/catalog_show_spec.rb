@@ -29,8 +29,30 @@ RSpec.describe "Catalog show page", type: :request do
 
     metadata = response_page.find(".document-metadata")
     expect(metadata).to have_css("dt", count: 16)
-    expect(metadata).to have_css("dd", count: 20)
+    expect(metadata).to have_css("dd:not(.read-more-slot)", count: 20)
     expect(metadata).to have_css("div.truncate-abstract", count: 1)
+  end
+
+  it "wraps the fields that limit their values around their label and values" do
+    get solr_document_path("stanford-dp018hs9766")
+
+    metadata = response_page.find(".document-metadata")
+    expect(metadata).to have_css("div.truncate-field[data-limit='5']", count: 3)
+    expect(metadata).to have_css("div.truncate-field > dt.blacklight-dct_subject_sm")
+    expect(metadata).to have_css("div.truncate-field > dt.blacklight-dcat_theme_sm")
+    expect(metadata).to have_css("div.truncate-field > dt.blacklight-dct_spatial_sm")
+
+    # The initializer puts the read more button in these
+    expect(metadata).to have_css("div.truncate-field > dd.read-more-slot", count: 3)
+  end
+
+  it "keeps each limited value in its own dd, with its microdata and facet link" do
+    get solr_document_path("stanford-dp018hs9766")
+
+    subjects = response_page.all("div.truncate-field > dd.blacklight-dct_subject_sm")
+    expect(subjects.size).to eq 2
+    expect(subjects.first).to have_css("span[itemprop='keywords'] a", count: 1)
+    expect(subjects.first).to have_link("Continental margins", href: /dct_subject_sm/)
   end
 
   it "allows a suppressed record to be viewed" do
