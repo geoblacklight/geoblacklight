@@ -357,12 +357,22 @@ describe Geoblacklight::DeprecatedConfiguration do
   describe ".settings_problems" do
     subject(:problems) { described_class.settings_problems }
 
-    it "flags the RELATIONSHIPS_SHOWN attribute GeoBlacklight 6 refuses" do
-      expect(problems).to include(/remove the icon attribute from RELATIONSHIPS_SHOWN/)
+    it "flags the RELATIONSHIPS_SHOWN attribute GeoBlacklight 6 stops drawing" do
+      expect(problems).to include(/delete the icon attribute from RELATIONSHIPS_SHOWN/)
     end
 
-    it "flags uppercase RELATIONSHIPS_SHOWN entry names" do
-      expect(problems).to include(/rename the 12 RELATIONSHIPS_SHOWN entries to lowercase/)
+    it "says nothing about uppercase RELATIONSHIPS_SHOWN entry names, which 6 downcases" do
+      expect(problems).not_to include(/RELATIONSHIPS_SHOWN entries to lowercase/)
+    end
+
+    it "flags the settings whose feature GeoBlacklight 6 drops" do
+      expect(problems).to include(/remove Settings\.ICON_MAPPING/)
+      expect(problems).to include(/remove Settings\.SIDEBAR_STATIC_MAP/)
+      expect(problems).to include(/remove Settings\.HELP_TEXT/)
+    end
+
+    it "flags the whole LEAFLET section, naming the setting that replaces it" do
+      expect(problems).to include(/remove Settings\.LEAFLET,.*light_basemap_url and dark_basemap_url/)
     end
 
     it "flags the uppercase top level key convention, and the files that read it" do
@@ -412,6 +422,43 @@ describe Geoblacklight::DeprecatedConfiguration do
       allow(Settings).to receive(:RELATIONSHIPS_SHOWN).and_return(Config::Options.new)
 
       expect(described_class.relationships_shown_problems).to be_empty
+    end
+
+    it "is empty for an uppercase entry name, which GeoBlacklight 6 downcases itself" do
+      allow(Settings).to receive(:RELATIONSHIPS_SHOWN).and_return(
+        Config::Options.new.merge!(
+          MEMBER_OF_ANCESTORS: {field: "pcdm_memberOf_sm", inverse: "member_of_descendants",
+                                label: "a.label", query_type: "ancestors"}
+        )
+      )
+
+      expect(described_class.relationships_shown_problems).to be_empty
+    end
+
+    it "reports icon as a label that stopped being drawn, not as a boot failure" do
+      allow(Settings).to receive(:RELATIONSHIPS_SHOWN).and_return(
+        Config::Options.new.merge!(
+          member_of_ancestors: {field: "pcdm_memberOf_sm", icon: "parent-item"}
+        )
+      )
+
+      problems = described_class.relationships_shown_problems
+
+      expect(problems).to include(/delete the icon attribute .* resource class badge/)
+      expect(problems).not_to include(/InvalidSettings/)
+    end
+
+    it "reports an attribute GeoBlacklight 6 has no setter for as a boot failure" do
+      allow(Settings).to receive(:RELATIONSHIPS_SHOWN).and_return(
+        Config::Options.new.merge!(
+          member_of_ancestors: {field: "pcdm_memberOf_sm", colour: "purple"}
+        )
+      )
+
+      problems = described_class.relationships_shown_problems
+
+      expect(problems).to include(/remove the colour attribute .*Exceptions::InvalidSettings/)
+      expect(problems).not_to include(/delete the colour attribute/)
     end
 
     it "is empty when the setting is not a mapping at all" do
@@ -539,7 +586,7 @@ describe Geoblacklight::DeprecatedConfiguration do
     it "flags Blacklight 8, which GeoBlacklight 6 will not run against" do
       problems = described_class.gem_requirement_problems("Blacklight" => "8.12.3")
 
-      expect(problems).to include(/Blacklight 8\.12\.3 is too old .* requires Blacklight 9\.0 or later/)
+      expect(problems).to include(/Blacklight 8\.12\.3 is too old .* requires Blacklight 9\.1 or later/)
     end
 
     it "flags a Rails older than 8" do
@@ -550,16 +597,22 @@ describe Geoblacklight::DeprecatedConfiguration do
 
     it "is quiet once both libraries are new enough" do
       problems = described_class.gem_requirement_problems(
-        "Blacklight" => "9.0.0", "Rails" => "8.1.1"
+        "Blacklight" => "9.1.0", "Rails" => "8.1.1"
       )
 
       expect(problems).to be_empty
     end
 
     it "treats the minimum itself as new enough" do
-      problems = described_class.gem_requirement_problems("Blacklight" => "9.0")
+      problems = described_class.gem_requirement_problems("Blacklight" => "9.1")
 
       expect(problems).to be_empty
+    end
+
+    it "flags Blacklight 9.0, which is short of the per-field layout components 6 uses" do
+      problems = described_class.gem_requirement_problems("Blacklight" => "9.0.0")
+
+      expect(problems).to include(/Blacklight 9\.0\.0 is too old/)
     end
 
     it "says nothing about a library it cannot see" do
@@ -590,7 +643,7 @@ describe Geoblacklight::DeprecatedConfiguration do
     it "stays quiet when every requirement is met" do
       expect(Geoblacklight.deprecation).not_to receive(:warn)
 
-      described_class.warn_about_gem_requirements("Blacklight" => "9.0.0", "Rails" => "8.1.1")
+      described_class.warn_about_gem_requirements("Blacklight" => "9.1.0", "Rails" => "8.1.1")
     end
 
     it "reads the loaded versions when given nothing" do

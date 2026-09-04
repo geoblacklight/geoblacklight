@@ -35,11 +35,28 @@ module Geoblacklight
     }.freeze
 
     ##
-    # Settings keys GeoBlacklight 6 no longer reads, mapped to what happens instead.
+    # Settings keys GeoBlacklight 6 stops acting on, mapped to what happens instead.
+    # Most of these it never reads at all; HELP_TEXT it still reads and then ignores,
+    # because the feature it drove is gone. Either way the line can come out, and
+    # either way nothing raises to say the customization stopped mattering.
     SETTINGS = {
       "DOWNLOAD_FORMATS" =>
         "GeoBlacklight 6 removes the generated download subsystem and never reads it. Note the 4.x " \
         "upgrade added this key because GeoBlacklight 5 required it",
+      "HELP_TEXT" =>
+        "GeoBlacklight 6 removes the viewer help text popovers along with ViewerHelpTextComponent and " \
+        "renders nothing from the key, which it still reads into its configuration",
+      "ICON_MAPPING" =>
+        "GeoBlacklight 6 drops the lookup from its geoblacklight_icon helper and removes the " \
+        "institution icon components this maps onto, so a provider named here renders as an empty span",
+      "LEAFLET" =>
+        "GeoBlacklight 6 replaces the leaflet and openlayers viewers with <ogm-viewer> and reads none " \
+        "of this section — including the BASEMAPS key 5.3 added for CARTO API keys, which becomes " \
+        "light_basemap_url and dark_basemap_url on Geoblacklight.configuration, each the URL of a " \
+        "MapLibre style document",
+      "SIDEBAR_STATIC_MAP" =>
+        "GeoBlacklight 6's StaticMapComponent decides for itself, from whether the record is " \
+        "previewable and georeferenced, and never reads this list of viewer protocols",
       "TIMEOUT_DOWNLOAD" =>
         "GeoBlacklight 6 removes the generated download subsystem and never reads it"
     }.freeze
@@ -69,13 +86,16 @@ module Geoblacklight
       "blacklight.icon." =>
         "GeoBlacklight 6 restructures its icons and ships no labels under blacklight.icon",
       "geoblacklight.download." =>
-        "GeoBlacklight 6 removes the generated download subsystem, so none of its strings are used",
+        "GeoBlacklight 6 keeps this namespace but renames its keys — download_link is now " \
+        "original_link, beside downloads, generated_link, iiif_image_link and iiif_manifest_link — " \
+        "and drops the rest with the generated download subsystem",
       "geoblacklight.help_text.viewer_protocol." =>
         "GeoBlacklight 6 removes the viewer help text popovers along with ViewerHelpTextComponent",
       "geoblacklight.metadata.toggle_summary" =>
         "GeoBlacklight 6 renders metadata through Geoblacklight::MetadataComponent",
       "geoblacklight.relations.browse_all" =>
-        "GeoBlacklight 6 looks up geoblacklight.relations.browse.<relationship> instead"
+        "GeoBlacklight 6 looks up geoblacklight.relations.browse.<field family> instead, so " \
+        "browse.member_of rather than browse.member_of_ancestors"
     }.freeze
 
     ##
@@ -90,11 +110,22 @@ module Geoblacklight
     ].map { |key| "geoblacklight.relations.#{key}" }.freeze
 
     ##
-    # The only attributes GeoBlacklight 6 accepts on a RELATIONSHIPS_SHOWN entry.
-    # Its Geoblacklight::Configuration::RelationshipConfig is an ActiveModel, so an
-    # attribute it does not declare raises ActiveModel::UnknownAttributeError while
-    # the configuration is built — which happens before anything can rescue it.
+    # The attributes GeoBlacklight 6 declares on a RELATIONSHIPS_SHOWN entry. Its
+    # Geoblacklight::Configuration::RelationshipConfig is an ActiveModel, so an
+    # attribute that is neither declared here nor tolerated as one of
+    # RELATIONSHIP_ATTRIBUTES_REMOVED raises Geoblacklight::Exceptions::InvalidSettings
+    # while the configuration is built — before anything can rescue it.
     RELATIONSHIP_ATTRIBUTES = %w[field inverse label query_type].freeze
+
+    ##
+    # Attributes GeoBlacklight 6 still accepts on a RELATIONSHIPS_SHOWN entry but does
+    # nothing with, mapped to what replaced them. It names these deliberately — every
+    # config/settings.yml generated since 4.0 sets icon — so they warn once per boot
+    # instead of raising, which is why they are worth reporting separately from an
+    # attribute that does raise.
+    RELATIONSHIP_ATTRIBUTES_REMOVED = {
+      "icon" => "GeoBlacklight 6 labels related records with a resource class badge instead"
+    }.freeze
 
     ##
     # Helpers the 5.x install generator names with `helper_method:` in the
@@ -127,8 +158,8 @@ module Geoblacklight
     # either pipeline copy and adapt it, so match on content rather than on the path.
     LAYOUT_REFERENCES = {
       "shared/header_navbar" =>
-        "GeoBlacklight 6 renders the masthead from blacklight_config.header_component and ships no " \
-        "shared/_header_navbar partial",
+        "Blacklight 9 stops shipping the shared/_header_navbar partial this renders; move the masthead " \
+        "to blacklight_config.header_component, which is where GeoBlacklight 6 configures it",
       "vite_client_tag" =>
         "GeoBlacklight 6 drops the vite_rails dependency and ships no Vite entrypoints; move the layout to " \
         "the stylesheet and javascript tags your asset pipeline provides"
@@ -205,9 +236,10 @@ module Geoblacklight
     # resolve, or Blacklight renders facets the stylesheets no longer match.
     GEM_REQUIREMENTS = {
       "Blacklight" => {
-        minimum: "9.0",
-        because: "the structure of facets changed, and GeoBlacklight 6's geosearch facet and " \
-          "styling are written against Blacklight 9 conventions and accordion facets"
+        minimum: "9.1",
+        because: "GeoBlacklight 6 calls blacklight_config.dark_mode_support and resolves per-field " \
+          "layout components, both of which Blacklight added in 9.1, and its geosearch facet and " \
+          "styling are written against Blacklight 9's accordion facets"
       },
       "Rails" => {
         minimum: "8.0",
@@ -447,9 +479,10 @@ module Geoblacklight
 
       basemap = config.basemap_provider
       if basemap.present? && basemap.to_s != "positron"
-        problems << "move `config.basemap_provider = #{basemap.to_s.inspect}` off the Blacklight " \
-          "configuration, because GeoBlacklight 6 reads the basemap from Geoblacklight.configuration and " \
-          "every map silently reverts to positron"
+        problems << "translate `config.basemap_provider = #{basemap.to_s.inspect}` into the " \
+          "light_basemap_url and dark_basemap_url that GeoBlacklight 6 reads from " \
+          "Geoblacklight.configuration, which take the URL of a MapLibre style document rather than " \
+          "a preset name; left here it reaches nothing and <ogm-viewer> draws its own basemap"
       end
 
       problems
@@ -560,21 +593,22 @@ module Geoblacklight
 
       problems = []
 
-      extra = entries.each_value.flat_map { |entry|
+      attributes = entries.each_value.flat_map { |entry|
         entry.respond_to?(:to_h) ? entry.to_h.keys.map(&:to_s) : []
-      }.uniq - RELATIONSHIP_ATTRIBUTES
-      if extra.any?
-        problems << "remove the #{extra.sort.join(", ")} #{"attribute".pluralize(extra.size)} from " \
-          "RELATIONSHIPS_SHOWN, which GeoBlacklight 6 does not accept — its RelationshipConfig declares " \
-          "only #{RELATIONSHIP_ATTRIBUTES.join(", ")}, so building the configuration raises " \
-          "ActiveModel::UnknownAttributeError on boot and again on every search"
+      }.uniq
+
+      RELATIONSHIP_ATTRIBUTES_REMOVED.slice(*attributes).each do |attribute, advice|
+        problems << "delete the #{attribute} attribute from RELATIONSHIPS_SHOWN, because #{advice} " \
+          "and only warns, once a boot, that the key is dead"
       end
 
-      uppercase = entries.keys.map(&:to_s).select { |key| key.match?(/[A-Z]/) }
-      if uppercase.any?
-        problems << "rename the #{uppercase.size} RELATIONSHIPS_SHOWN entries to lowercase, because " \
-          "GeoBlacklight 6 derives each browse link's translation key from the entry name and renders " \
-          "\"translation missing\" for an uppercase one"
+      unrecognized = attributes - RELATIONSHIP_ATTRIBUTES - RELATIONSHIP_ATTRIBUTES_REMOVED.keys
+      if unrecognized.any?
+        problems << "remove the #{unrecognized.sort.join(", ")} " \
+          "#{"attribute".pluralize(unrecognized.size)} from RELATIONSHIPS_SHOWN, which GeoBlacklight 6 " \
+          "does not recognize — its RelationshipConfig accepts only " \
+          "#{RELATIONSHIP_ATTRIBUTES.join(", ")}, so building the configuration raises " \
+          "Geoblacklight::Exceptions::InvalidSettings on boot and again on every search"
       end
 
       problems
