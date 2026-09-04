@@ -22,7 +22,7 @@ RSpec.describe Geoblacklight::StaticMapComponent, type: :component do
     it "points it at the same endpoint the item viewer reads its own metadata from" do
       map = rendered.css("ogm-locator").first
       expect(map["record-url"]).to eq Rails.application.routes.url_helpers.viewer_solr_document_path(document)
-      expect(map["theme"]).to eq "light"
+      expect(map["theme"]).to be_nil
     end
   end
 end

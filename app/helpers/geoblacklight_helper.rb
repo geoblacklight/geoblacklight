@@ -27,13 +27,11 @@ module GeoblacklightHelper
     document.public? || (document.same_institution? && user_signed_in?)
   end
 
-  # Bootstrap is light when no color mode is stated. Match that default explicitly so ogm-viewer
-  # doesn't fall back to the operating system's dark preference in an application without
-  # Blacklight's color-mode support. Blacklight added this setting in 9.1, so its absence means the
-  # same thing as false. When it is enabled, viewer_theme.js follows the resolved data-bs-theme on
-  # <html> instead.
+  # If you turn off dark mode support, Geoblacklight will display in light mode,
+  # but ogm-viewer will still try to honor a system dark mode preference. This
+  # ensures that everything stays light until you explicitly enable dark mode.
   def geoblacklight_viewer_theme
-    return if blacklight_config.respond_to?(:dark_mode_support) && blacklight_config.dark_mode_support
+    return if blacklight_config.dark_mode_support
 
     "light"
   end

@@ -10,6 +10,7 @@ RSpec.describe Geoblacklight::MetadataDescriptionMarkdownComponent, type: :compo
       key: "dct_description_sm",
       label: "Description",
       render_field?: true,
+      layout_component: nil,
       values: ["a **short**", "description"])
   end
 
