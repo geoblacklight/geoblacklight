@@ -7,9 +7,21 @@
 }
 
 /* Truncation */
+/* NOTE: text truncation is line-based; field truncation is based on the number
+ * of items in that field. They apply to different elements (paragraph vs dd).
+ * Both use the CSS here. */
 .truncate-abstract {
   transition: none; /* No animation */
   position: relative;
+}
+
+.truncate-field {
+  margin: 0;
+  padding: 0;
+}
+
+.read-more-slot:empty {
+  display: none;
 }
 
 .truncate-abstract.collapse:not(.show),
@@ -29,7 +41,23 @@
     left: 0;
     width: 100%;
     height: 2em;
+    pointer-events: none;
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--bs-body-bg) 65%);
+  }
+}
+
+.truncate-field > dd.truncate-preview {
+  position: relative;
+  max-height: 0.7em;
+  overflow: hidden;
+
+  /* Gradient fade effect */
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--bs-body-bg) 85%);
   }
 }
 

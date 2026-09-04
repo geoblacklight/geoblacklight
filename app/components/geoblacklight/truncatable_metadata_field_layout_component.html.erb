@@ -1,0 +1,7 @@
+<%= tag.div class: "truncate-field row", data: truncate_data do %>
+  <dt class="blacklight-<%= @key %> <%= @label_class %>"><%= label %></dt>
+  <% values.each do |v| %>
+    <%= v %>
+  <% end %>
+  <%= tag.dd class: read_more_slot_class %>
+<% end %>

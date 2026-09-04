@@ -151,7 +151,7 @@ class CatalogController < ApplicationController
 
     # DEFAULT FIELDS
     # The following fields all feature string values. If there is a value present in the metadata, they fields will show up on the item show page.
-    # The labels and order can be customed. Comment out fields to hide them.
+    # The labels and order can be customized. Comment out fields to hide them.
 
     config.add_show_field field_config.alternative_title, label: "Alternative Title",
       itemprop: "alt_title"
@@ -163,13 +163,14 @@ class CatalogController < ApplicationController
     config.add_show_field field_config.resource_class, label: "Resource Class", itemprop: "class"
     config.add_show_field field_config.resource_type, label: "Resource Type", itemprop: "type"
     config.add_show_field field_config.subject, label: "Subject", itemprop: "keywords",
-      link_to_facet: true
-    config.add_show_field field_config.theme, label: "Theme", itemprop: "theme"
+      link_to_facet: true, layout_component: Geoblacklight::TruncatableMetadataFieldLayoutComponent
+    config.add_show_field field_config.theme, label: "Theme", itemprop: "theme",
+      layout_component: Geoblacklight::TruncatableMetadataFieldLayoutComponent
     config.add_show_field field_config.temporal_coverage, label: "Temporal Coverage",
       itemprop: "temporal"
     config.add_show_field field_config.date_issued, label: "Date Issued", itemprop: "issued"
     config.add_show_field field_config.spatial_coverage, label: "Spatial Coverage", itemprop: "spatial",
-      link_to_facet: true
+      link_to_facet: true, layout_component: Geoblacklight::TruncatableMetadataFieldLayoutComponent
     config.add_show_field field_config.rights, label: "Rights", itemprop: "rights"
     config.add_show_field field_config.rights_holder, label: "Rights Holder",
       itemprop: "rights_holder"
