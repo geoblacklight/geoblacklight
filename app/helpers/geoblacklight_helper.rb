@@ -106,7 +106,7 @@ module GeoblacklightHelper
   def relations_icon(document, icon)
     # If configured to use geometry type for relations icon
     if Settings.USE_GEOM_FOR_RELATIONS_ICON
-      Blacklight.deprecation.warn("USE_GEOM_FOR_RELATIONS_ICON is deprecated and will be removed in GeoBlacklight 6")
+      Geoblacklight.deprecation.warn("USE_GEOM_FOR_RELATIONS_ICON is deprecated and will be removed in GeoBlacklight 6")
       icon_html = render Geoblacklight::HeaderIconsComponent.new(
         document: document,
         fields: [Settings.FIELDS.GEOM_TYPE]
