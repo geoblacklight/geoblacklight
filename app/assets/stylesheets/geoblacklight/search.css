@@ -92,3 +92,14 @@
     }
   }
 }
+
+/* Facet navigation */
+.alpha-filter .pagination {
+  margin: 1rem 0;
+
+  @media (min-width: 992px) {
+    .page-item {
+      flex: 1;
+    }
+  }
+}
