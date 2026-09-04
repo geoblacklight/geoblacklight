@@ -221,25 +221,6 @@
 #   EXCEPTIONS: "application/json"
 #   INFO_FORMAT: "application/json"
 
-# # Toggle the help text feature that offers users context
-# help_text:
-#   viewer_protocol:
-#     - "cog"
-#     - "dynamic_map_layer"
-#     - "feature_layer"
-#     - "iiif"
-#     - "iiif_manifest"
-#     - "image_map_layer"
-#     - "index_map"
-#     - "oembed"
-#     - "pmtiles"
-#     - "tiled_map_layer"
-#     - "tilejson"
-#     - "tms"
-#     - "wms"
-#     - "wmts"
-#     - "xyz"
-
 # iiif_drag_drop_link: "@manifest?manifest=@manifest"
 
 # # Toggle thumbnail images in the search results (index) view
