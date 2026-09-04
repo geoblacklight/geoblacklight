@@ -36,16 +36,15 @@ module Geoblacklight
 
     ##
     # Settings keys GeoBlacklight 6 stops acting on, mapped to what happens instead.
-    # Most of these it never reads at all; HELP_TEXT it still reads and then ignores,
-    # because the feature it drove is gone. Either way the line can come out, and
-    # either way nothing raises to say the customization stopped mattering.
+    # None of these does it read at all, so the line can come out, and nothing
+    # raises to say the customization stopped mattering.
     SETTINGS = {
       "DOWNLOAD_FORMATS" =>
         "GeoBlacklight 6 removes the generated download subsystem and never reads it. Note the 4.x " \
         "upgrade added this key because GeoBlacklight 5 required it",
       "HELP_TEXT" =>
         "GeoBlacklight 6 removes the viewer help text popovers along with ViewerHelpTextComponent and " \
-        "renders nothing from the key, which it still reads into its configuration",
+        "no longer reads the key at all",
       "ICON_MAPPING" =>
         "GeoBlacklight 6 drops the lookup from its geoblacklight_icon helper and removes the " \
         "institution icon components this maps onto, so a provider named here renders as an empty span",
