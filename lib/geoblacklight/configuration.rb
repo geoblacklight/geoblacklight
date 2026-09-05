@@ -31,9 +31,6 @@ module Geoblacklight
     # Display Notes to display / Non-prefixed default bootstrap class is alert-secondary
     attr_accessor :display_notes_shown # typed as Hash
 
-    # Toggle the help text feature that offers users context
-    attr_accessor :help_text # typed as Hash
-
     # Non-search-field GeoBlacklight application permitted params
     attr_accessor :gbl_params # typed as Array
 
@@ -86,25 +83,6 @@ module Geoblacklight
         SRS: "EPSG:4326",
         EXCEPTIONS: "application/json",
         INFO_FORMAT: "application/json"
-      }
-      @help_text = {
-        viewer_protocol: %w[
-          cog
-          dynamic_map_layer
-          feature_layer
-          iiif
-          iiif_manifest
-          image_map_layer
-          index_map
-          oembed
-          pmtiles
-          tiled_map_layer
-          tilejson
-          tms
-          wms
-          wmts
-          xyz
-        ]
       }
 
       @restricted_origins = []

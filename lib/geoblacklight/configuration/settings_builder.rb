@@ -18,7 +18,6 @@ module Geoblacklight
           assign(config, :overlap_ratio_boost, settings.OVERLAP_RATIO_BOOST)
           assign(config, :display_notes_shown, build_display_notes)
           assign(config, :institution, settings.INSTITUTION)
-          assign(config, :help_text, settings.HELP_TEXT&.to_h)
           assign(config, :iiif_drag_drop_link, settings.IIIF_DRAG_DROP_LINK)
           assign(config, :thumbnails_enabled, settings.THUMBNAILS_ENABLED)
           assign(config, :thumbnail_reference_key, settings.THUMBNAIL_REFERENCE_KEY)
