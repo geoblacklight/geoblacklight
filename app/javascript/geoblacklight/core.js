@@ -1,6 +1,7 @@
 // Initializers
 import initializeTooltips from "geoblacklight/initializers/tooltips"
 import initializeTruncation from "geoblacklight/initializers/truncation"
+import initializeFieldTruncation from "geoblacklight/initializers/field_truncation"
 import initializeMetadataDownload from "geoblacklight/initializers/metadata_download"
 import initializeViewerTheme from "geoblacklight/initializers/viewer_theme"
 import initializeViewerRequests from "geoblacklight/initializers/viewer_requests"
@@ -42,6 +43,7 @@ Geoblacklight.listeners().forEach((listener) =>
 // Register our initializers
 Geoblacklight.onLoad(initializeTooltips)
 Geoblacklight.onLoad(initializeTruncation)
+Geoblacklight.onLoad(initializeFieldTruncation)
 Geoblacklight.onLoad(initializeMetadataDownload)
 Geoblacklight.onLoad(initializeViewerTheme)
 Geoblacklight.onLoad(initializeViewerRequests)

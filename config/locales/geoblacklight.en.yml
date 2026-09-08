@@ -140,6 +140,7 @@ en:
     truncate:
       read_more: "Read more"
       close: "Close"
+      button_label: "Show or hide the remaining values. Disabled because assistive technology has already been given all of them."
     show:
       attribute: "Attribute"
       value: "Value"
