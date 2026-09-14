@@ -38,7 +38,7 @@ export const cogLayer = (url) => {
   return new WebGLTileLayer({
     source: new GeoTIFF({
       sources: [{ url }],
-      convertToRGB: true,
+      convertToRGB: "auto",
     }),
   });
 };
