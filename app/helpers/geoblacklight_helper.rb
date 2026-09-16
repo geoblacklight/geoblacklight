@@ -88,7 +88,8 @@ module GeoblacklightHelper
 
   ##
   # Blacklight view_config.thumbnail_method contract. Renders the document's
-  # configured thumbnail_url as an <img>, or nil if unavailable/disabled.
+  # configured thumbnail_url as an <img> over the icon that stands in for it
+  # until it loads, or nil if unavailable/disabled.
   # @param [SolrDocument] document
   # @param [Hash] image_options
   # @return [String, nil]
@@ -98,7 +99,11 @@ module GeoblacklightHelper
     url = document.thumbnail_url
     return if url.blank?
 
-    image_tag url, {loading: "lazy"}.merge(image_options)
+    render Geoblacklight::ThumbnailComponent.new(
+      url: url,
+      fallback: default_thumbnail_icon(document),
+      image_options: image_options
+    )
   end
 
   ##
