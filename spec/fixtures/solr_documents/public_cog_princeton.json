@@ -11,7 +11,6 @@
   ],
   "gbl_resourceClass_sm": ["Maps"],
   "gbl_resourceType_sm": ["Raster data"],
-  "gbl_resourceClass_sm": ["Maps"],
   "gbl_indexYear_im": [1877],
   "dct_spatial_sm": ["Himalaya Mountains"],
   "locn_geometry": "ENVELOPE(79.257732, 92.742268, 34.178571, 26.339286)",
@@ -24,7 +23,6 @@
   "gbl_mdModified_dt": "2024-01-30T21:42:24Z",
   "gbl_mdVersion_s": "Aardvark",
   "gbl_suppressed_b": false,
-  "gbl_resourceType_sm": ["Raster data"],
   "dct_subject_sm": [
     "Himalaya Mountains—Discovery and exploration—Maps",
     "Tibet—Discovery and exploration—Maps",
