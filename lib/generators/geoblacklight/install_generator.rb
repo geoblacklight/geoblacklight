@@ -58,7 +58,7 @@ module Geoblacklight
     end
 
     def add_rsolr_gem
-      gem "rsolr", ">= 1.0", "< 3"
+      gem "rsolr", ">= 1.0", "< 4"
     end
 
     def docker_compose
