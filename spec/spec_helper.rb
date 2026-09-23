@@ -44,6 +44,11 @@ Capybara.register_driver :chrome_headless do |app|
   options.add_argument("--disable-gpu")
   options.add_argument("--no-sandbox")
   options.add_argument("--window-size=1280,1024")
+  # Scroll without animating. Bootstrap puts `scroll-behavior: smooth` on :root, so when
+  # ChromeDriver sets scrollTop to bring an element into view before clicking it, the page only
+  # starts to move and ChromeDriver reads back the element's old, off-screen position. The click
+  # then fails and is left to Capybara's retry, which a busy page can outlast.
+  options.add_argument("--disable-smooth-scrolling")
   # Software WebGL, which the viewer and the overview map both need: they draw with MapLibre, and
   # headless Chrome has no GPU to give them. SwiftShader is Chrome's own CPU renderer, and since
   # Chrome 128 it has to be asked for by name before WebGL will fall back to it at all.
