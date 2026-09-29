@@ -15,9 +15,6 @@ module Geoblacklight
     # Institution deployed at
     attribute :institution, :string, default: "Stanford"
 
-    # (For WMS inspection) timeout and open_timeout parameters for Faraday
-    attribute :timeout_wms, :integer, default: 4
-
     # Services the item viewer should send cookies to when previewing restricted data a reader is
     # allowed at, as URL prefixes - usually just the service's origin, e.g.
     #   config.restricted_origins = ["https://geoserver-restricted.example.edu/"]
@@ -33,9 +30,6 @@ module Geoblacklight
 
     # Non-search-field GeoBlacklight application permitted params
     attr_accessor :gbl_params # typed as Array
-
-    # WMS Parameters
-    attr_accessor :wms_params # typed as Hash
 
     attribute :iiif_drag_drop_link, :string, default: "@manifest?manifest=@manifest"
 
@@ -71,19 +65,7 @@ module Geoblacklight
     def initialize
       super
       @relationships_shown = RelationshipsConfig.new
-      @gbl_params = [
-        :bbox, :email, :file, :format, :id, :logo, :provider, :type,
-        :BBOX, :HEIGHT, :LAYERS, :QUERY_LAYERS, :URL, :WIDTH, :X, :Y
-      ]
-      @wms_params = {
-        SERVICE: "WMS",
-        VERSION: "1.1.1",
-        REQUEST: "GetFeatureInfo",
-        STYLES: "",
-        SRS: "EPSG:4326",
-        EXCEPTIONS: "application/json",
-        INFO_FORMAT: "application/json"
-      }
+      @gbl_params = [:bbox, :email, :file, :format, :id, :logo, :provider, :type]
 
       @restricted_origins = []
 
