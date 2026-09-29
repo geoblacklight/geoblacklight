@@ -82,6 +82,6 @@ RSpec.configure do |config|
 
   config.use_transactional_fixtures = true
 
-  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :controller if defined?(Devise)
   config.include ViewComponent::TestHelpers, type: :component
 end

@@ -45,6 +45,37 @@ RSpec.describe Geoblacklight::ItemMapViewerComponent, type: :component do
     end
   end
 
+  describe "restricted origins in reference URLs" do
+    # Restricted, and provided by this app's own institution
+    let(:document) { SolrDocument.new(JSON.parse(read_fixture("solr_documents/actual-raster1.json"))) }
+
+    before do
+      allow(Geoblacklight.configuration).to receive(:restricted_origins).and_return(["https://stacks.stanford.edu/"])
+    end
+
+    context "when signed in" do
+      before do
+        allow(vc_test_controller).to receive(:current_user).and_return(instance_double(ActiveRecord::Base))
+        render_inline(described_class.new(document: document))
+      end
+
+      it "sends them to the viewer as a separate data param" do
+        expect(page).to have_css('ogm-viewer[data-restricted-origins=\'["https://stacks.stanford.edu/"]\']')
+      end
+    end
+
+    context "when not signed in" do
+      before do
+        allow(vc_test_controller).to receive(:current_user).and_return(nil)
+        render_inline(described_class.new(document: document))
+      end
+
+      it "does not send them to the viewer" do
+        expect(page).to have_css("ogm-viewer:not([data-restricted-origins])")
+      end
+    end
+  end
+
   context "with an oembed record" do
     let(:document) { SolrDocument.new(JSON.parse(read_fixture("solr_documents/oembed.json"))) }
 
