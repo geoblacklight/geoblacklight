@@ -57,7 +57,13 @@ module Geoblacklight
         "GeoBlacklight 6's StaticMapComponent decides for itself, from whether the record is " \
         "previewable and georeferenced, and never reads this list of viewer protocols",
       "TIMEOUT_DOWNLOAD" =>
-        "GeoBlacklight 6 removes the generated download subsystem and never reads it"
+        "GeoBlacklight 6 removes the generated download subsystem and never reads it",
+      "TIMEOUT_WMS" =>
+        "GeoBlacklight 6 removes the WMS feature info proxy this timed out, and <ogm-viewer> sends " \
+        "GetFeatureInfo to the service itself",
+      "WMS_PARAMS" =>
+        "GeoBlacklight 6 removes the WMS feature info proxy these parameters were sent through, and " \
+        "<ogm-viewer> builds its own GetFeatureInfo requests"
     }.freeze
 
     ##
@@ -204,6 +210,12 @@ module Geoblacklight
       "Geoblacklight::GeotiffDownload" => "GeoBlacklight 6 removes the generated download subsystem",
       "Geoblacklight::KmzDownload" => "GeoBlacklight 6 removes the generated download subsystem",
       "Geoblacklight::ShapefileDownload" => "GeoBlacklight 6 removes the generated download subsystem",
+      "Geoblacklight::FeatureInfoResponse" =>
+        "GeoBlacklight 6 removes the WMS feature info proxy, since <ogm-viewer> asks the service itself",
+      "Geoblacklight::WmsLayer" =>
+        "GeoBlacklight 6 removes the WMS feature info proxy, since <ogm-viewer> asks the service itself",
+      "WmsController" =>
+        "GeoBlacklight 6 removes the WMS feature info proxy, since <ogm-viewer> asks the service itself",
       "RelationController" => "it is renamed to RelationsController",
       "index_fields_display" =>
         "use Geoblacklight::SearchResultComponent#description, which renders the description as Markdown"
@@ -225,7 +237,11 @@ module Geoblacklight
     ROUTE_CONSTANTS = {
       "Geoblacklight::Routes::Downloadable" =>
         "GeoBlacklight 6 removes the generated download subsystem, so delete the `concern " \
-        ":gbl_downloadable`, the `namespace :download` block and `resources :download, only: [:show]`"
+        ":gbl_downloadable`, the `namespace :download` block and `resources :download, only: [:show]`",
+      "Geoblacklight::Routes::Wms" =>
+        "GeoBlacklight 6 removes the WMS feature info proxy behind /wms/handle, because <ogm-viewer> " \
+        "sends GetFeatureInfo straight from the browser to the service (which must then allow " \
+        "cross-origin requests), so delete the `concern :gbl_wms` and the `namespace :wms` block"
     }.freeze
 
     ##

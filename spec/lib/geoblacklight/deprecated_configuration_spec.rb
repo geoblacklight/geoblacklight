@@ -64,6 +64,27 @@ describe Geoblacklight::DeprecatedConfiguration do
       described_class.warn_about_routes(root)
     end
 
+    it "reports the download and WMS routes a stock 5.x application has as one warning" do
+      write("config/routes.rb", <<~RUBY)
+        Rails.application.routes.draw do
+          concern :gbl_downloadable, Geoblacklight::Routes::Downloadable.new
+          namespace :download do
+            concerns :gbl_downloadable
+          end
+          concern :gbl_wms, Geoblacklight::Routes::Wms.new
+          namespace :wms do
+            concerns :gbl_wms
+          end
+        end
+      RUBY
+
+      expect(Geoblacklight.deprecation).to receive(:warn).once.with(
+        /config\/routes\.rb needs these changes before GeoBlacklight 6: .*:gbl_downloadable.*; .*:gbl_wms/m
+      )
+
+      described_class.warn_about_routes(root)
+    end
+
     it "stays quiet once the download routes are gone" do
       write("config/routes.rb", "Rails.application.routes.draw do\nend\n")
 
@@ -181,6 +202,20 @@ describe Geoblacklight::DeprecatedConfiguration do
       write("app/models/other.rb", "Geoblacklight::Relations::RelationResponse.new(id, repo)")
 
       expect(Geoblacklight.deprecation).to receive(:warn).once.with(/app\/models\/thing\.rb/)
+
+      described_class.warn_about_removed_constants(root)
+    end
+
+    it "catches an application that calls the WMS feature info proxy itself" do
+      write("app/controllers/inspection_controller.rb", <<~RUBY)
+        class InspectionController < WmsController
+          def show = render(json: Geoblacklight::WmsLayer.new(params).feature_info)
+        end
+      RUBY
+
+      expect(Geoblacklight.deprecation).to receive(:warn).once.with(
+        /inspection_controller\.rb needs these changes before GeoBlacklight 6: .*Geoblacklight::WmsLayer.*; .*WmsController/m
+      )
 
       described_class.warn_about_removed_constants(root)
     end
@@ -382,6 +417,8 @@ describe Geoblacklight::DeprecatedConfiguration do
 
     it "flags settings GeoBlacklight 6 stops reading" do
       expect(problems).to include(/remove Settings\.TIMEOUT_DOWNLOAD/)
+      expect(problems).to include(/remove Settings\.TIMEOUT_WMS/)
+      expect(problems).to include(/remove Settings\.WMS_PARAMS/)
     end
 
     it "flags a setting that is still the GeoBlacklight 5 default" do
