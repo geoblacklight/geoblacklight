@@ -33,9 +33,7 @@
 # homepage_map_geom: null
 # # homepage_map_geom: '{"type":"Polygon","coordinates":[[[-73.58,42.93],[-73.58,41.20],[-69.90,41.20],[-69.90,42.93]]]}'
 
-# # Non-search-field GeoBlacklight application permitted params.
-# # Values are left mixed-case on purpose: the uppercase symbols are WMS/OGC
-# # request parameter names (BBOX, WIDTH, etc.) and must match what clients send.
+# # Non-search-field GeoBlacklight application permitted params
 # gbl_params:
 #   - :bbox
 #   - :email
@@ -45,14 +43,6 @@
 #   - :logo
 #   - :provider
 #   - :type
-#   - :BBOX
-#   - :HEIGHT
-#   - :LAYERS
-#   - :QUERY_LAYERS
-#   - :URL
-#   - :WIDTH
-#   - :X
-#   - :Y
 
 # # Solr field mappings
 # fields:
@@ -108,9 +98,6 @@
 #   - "fgdc"
 #   - "iso19139"
 #   - "html"
-
-# # (For WMS inspection) timeout and open_timeout parameters for Faraday
-# timeout_wms: 4
 
 # # Web services shown in tool panel
 # webservices_shown:
@@ -209,17 +196,6 @@
 #     inverse: :version_of_ancestors
 #     label: geoblacklight.relations.version_of_descendants
 #     query_type: descendants
-
-# # WMS Parameters. Keys are OGC WMS request parameter names and are sent to
-# # remote WMS servers, so they are intentionally left uppercase.
-# wms_params:
-#   SERVICE: "WMS"
-#   VERSION: "1.1.1"
-#   REQUEST: "GetFeatureInfo"
-#   STYLES: ""
-#   SRS: "EPSG:4326"
-#   EXCEPTIONS: "application/json"
-#   INFO_FORMAT: "application/json"
 
 # iiif_drag_drop_link: "@manifest?manifest=@manifest"
 

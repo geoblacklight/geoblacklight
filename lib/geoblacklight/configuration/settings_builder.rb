@@ -26,8 +26,6 @@ module Geoblacklight
           assign(config, :webservices_shown, settings.WEBSERVICES_SHOWN)
           assign(config, :relationships_shown, build_relationships)
           assign(config, :gbl_params, settings.GBL_PARAMS)
-          assign(config, :wms_params, settings.WMS_PARAMS&.to_h)
-          assign(config, :timeout_wms, settings.TIMEOUT_WMS)
           assign(config, :restricted_origins, settings.restricted_origins)
 
           build_fields(config)
