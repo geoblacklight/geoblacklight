@@ -24,7 +24,11 @@ module GeoblacklightHelper
   end
 
   def document_available?(document)
-    document.public? || (document.same_institution? && user_signed_in?)
+    document.public? || (document.same_institution? && current_user_signed_in?)
+  end
+
+  def current_user_signed_in?
+    controller.respond_to?(:current_user) && current_user.present?
   end
 
   # If you turn off dark mode support, Geoblacklight will display in light mode,

@@ -3,8 +3,6 @@
 require "spec_helper"
 
 RSpec.describe "Viewer record", type: :request do
-  include Devise::Test::IntegrationHelpers
-
   let(:references) { JSON.parse(response.parsed_body[Geoblacklight.configuration.fields.references]) }
 
   # Restricted, and provided by this app's own institution, so signing in makes the difference
@@ -19,7 +17,7 @@ RSpec.describe "Viewer record", type: :request do
   end
 
   it "hands over the same record once that reader signs in" do
-    sign_in FactoryBot.create(:user)
+    sign_in
     get viewer_solr_document_path(restricted)
 
     expect(references.keys).to include("https://github.com/cogeotiff/cog-spec", "http://schema.org/downloadUrl")

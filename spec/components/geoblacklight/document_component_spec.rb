@@ -20,7 +20,7 @@ RSpec.describe Geoblacklight::DocumentComponent, type: :component do
 
   before do
     vc_test_controller.action_name = "show"
-    allow(vc_test_controller).to receive_messages(view_context: view_context, current_or_guest_user: User.new, blacklight_config: blacklight_config)
+    allow(vc_test_controller).to receive_messages(view_context: view_context, current_or_guest_user: nil, blacklight_config: blacklight_config)
     allow(view_context).to receive_messages(search_session: {}, current_search_session: nil, current_bookmarks: [])
     render_inline(component)
   end

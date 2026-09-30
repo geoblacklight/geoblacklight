@@ -6,6 +6,8 @@ class ViewerRecordController < ApplicationController
 
   copy_blacklight_config_from(CatalogController)
 
+  allow_unauthenticated_access raise: false if respond_to?(:allow_unauthenticated_access)
+
   rescue_from Blacklight::Exceptions::RecordNotFound do
     head :not_found
   end

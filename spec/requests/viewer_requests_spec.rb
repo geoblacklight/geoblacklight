@@ -3,8 +3,6 @@
 require "spec_helper"
 
 RSpec.describe "Viewer requests", type: :request do
-  include Devise::Test::IntegrationHelpers
-
   let(:origins) { ["https://stacks.stanford.edu/"] }
 
   # Restricted, and provided by this app's own institution, so signing in makes the difference
@@ -22,7 +20,7 @@ RSpec.describe "Viewer requests", type: :request do
   end
 
   it "names the services a signed-in reader's requests need to carry cookies to" do
-    sign_in FactoryBot.create(:user)
+    sign_in
     get solr_document_path(restricted)
 
     expect(JSON.parse(restricted_origins)).to eq origins
@@ -35,7 +33,7 @@ RSpec.describe "Viewer requests", type: :request do
   end
 
   it "names none for a public record, which has nothing that needs authorizing" do
-    sign_in FactoryBot.create(:user)
+    sign_in
     get solr_document_path("berkeley-s7pq31")
 
     expect(restricted_origins).to be_nil
@@ -45,7 +43,7 @@ RSpec.describe "Viewer requests", type: :request do
     let(:origins) { [] }
 
     it "names none" do
-      sign_in FactoryBot.create(:user)
+      sign_in
       get solr_document_path(restricted)
 
       expect(restricted_origins).to be_nil

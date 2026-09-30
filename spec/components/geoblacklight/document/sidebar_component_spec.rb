@@ -17,7 +17,7 @@ RSpec.describe Geoblacklight::Document::SidebarComponent, type: :component do
     allow_any_instance_of(Blacklight::DocumentHelperBehavior).to receive(:current_bookmarks).and_return([])
 
     with_controller_class(CatalogController) do
-      allow(vc_test_controller).to receive_messages(current_or_guest_user: User.new)
+      allow(vc_test_controller).to receive_messages(current_or_guest_user: nil)
       render_inline(component)
     end
   end

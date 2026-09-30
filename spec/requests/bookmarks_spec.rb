@@ -4,6 +4,7 @@ require "spec_helper"
 
 RSpec.describe "Bookmarks", type: :request do
   it "lists a newly created bookmark" do
+    skip_without_authentication
     post bookmarks_path, params: {id: "berkeley-s7pq31"}
     get bookmarks_path
 

@@ -22,7 +22,8 @@ module Geoblacklight
 
     def raise_unpermitted_params
       inject_into_file "config/environments/test.rb",
-        "config.action_controller.action_on_unpermitted_parameters = :raise\n", before: /^end/
+        "config.action_controller.action_on_unpermitted_parameters = :raise\n" \
+        "config.action_controller.always_permitted_parameters = %w[controller action commit]\n", before: /^end/
     end
 
     def mount_geoblacklight_engine

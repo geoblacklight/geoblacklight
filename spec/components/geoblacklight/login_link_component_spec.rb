@@ -3,26 +3,34 @@
 require "spec_helper"
 
 RSpec.describe Geoblacklight::LoginLinkComponent, type: :component do
-  let(:document) { instance_double(SolrDocument, id: 123) }
+  let(:document) { instance_double(SolrDocument, id: 123, restricted?: true, same_institution?: true) }
+  let(:login_path) { "/login" }
 
-  context "when rendering is required" do
-    before do
-      allow(vc_test_controller).to receive(:user_signed_in?).and_return(false)
-      allow(document).to receive(:restricted?).and_return(true)
-      allow(document).to receive(:same_institution?).and_return(true)
-    end
+  before do
+    allow(vc_test_controller).to receive(:blacklight_login_path).and_return(login_path)
+    allow(vc_test_controller).to receive(:current_user).and_return(nil)
+  end
 
-    it "shows download link" do
+  context "when the document is restricted to this institution and no one is signed in" do
+    it "links to the sign-in page" do
       render_inline(described_class.new(document: document))
-      expect(page).to have_text(I18n.t("geoblacklight.tools.login_to_view"))
+      expect(page).to have_link(I18n.t("geoblacklight.tools.login_to_view"), href: login_path)
     end
   end
 
-  context "when rendering is not required" do
+  context "when signed in" do
     before do
-      allow(document).to receive(:restricted?).and_return(false)
-      allow(document).to receive(:same_institution?).and_return(false)
+      allow(vc_test_controller).to receive(:current_user).and_return(instance_double(ActiveRecord::Base))
     end
+
+    it "does not render anything" do
+      render_inline(described_class.new(document: document))
+      expect(page).not_to have_text(I18n.t("geoblacklight.tools.login_to_view"))
+    end
+  end
+
+  context "when the app has no authentication" do
+    let(:login_path) { nil }
 
     it "does not render anything" do
       render_inline(described_class.new(document: document))
