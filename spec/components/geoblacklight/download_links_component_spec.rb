@@ -64,6 +64,23 @@ RSpec.describe Geoblacklight::Document::DownloadLinksComponent, type: :component
     end
   end
 
+  context "with a download link that has query parameters" do
+    let(:direct_download) { {download: [{"label" => "File 1", "url" => "https://example.edu/file.zip?type=gpkg"}]} }
+
+    it "renders a badge using only the file extension" do
+      expect(page).to have_css(".badge", exact_text: "ZIP")
+    end
+  end
+
+  context "with a download link that is not a valid URI" do
+    let(:direct_download) { {download: [{"label" => "File 1", "url" => "https://example.edu/my file.zip"}]} }
+
+    it "renders the link without a badge" do
+      expect(page).to have_link("File 1", href: "https://example.edu/my file.zip")
+      expect(page).to have_no_css(".badge")
+    end
+  end
+
   context "with a IIIF link" do
     let(:iiif_download) { {iiif: "https://example.edu/image/info.json"} }
 
