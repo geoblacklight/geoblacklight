@@ -93,6 +93,12 @@
   }
 }
 
+/* Sticky facets */
+.blacklight-catalog-index search {
+  position: sticky;
+  top: 0;
+}
+
 /* Facet navigation */
 .alpha-filter .pagination {
   margin: 1rem 0;
