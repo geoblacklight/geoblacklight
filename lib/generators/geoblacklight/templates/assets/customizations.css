@@ -1,10 +1,19 @@
 /* Local Application Customizations */
 
 /* Header Logo */
-:root {
-  --bl-logo-image: url("geoblacklight/logo.svg");
+/* Browsers that support light-dark() with images pick the logo from color-scheme */
+@supports (background-image: light-dark(linear-gradient(#fff, #fff), linear-gradient(#000, #000))) {
+  :root {
+    --bl-logo-image: light-dark(url("geoblacklight/logo.svg"), url("geoblacklight/logo-dark.svg"));
+  }
 }
 
-[data-bs-theme="dark"] {
-  --bl-logo-image: url("geoblacklight/logo-dark.svg");
+@supports not (background-image: light-dark(linear-gradient(#fff, #fff), linear-gradient(#000, #000))) {
+  :root {
+    --bl-logo-image: url("geoblacklight/logo.svg");
+  }
+
+  [data-bs-theme="dark"] {
+    --bl-logo-image: url("geoblacklight/logo-dark.svg");
+  }
 }
