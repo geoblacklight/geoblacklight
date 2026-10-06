@@ -93,9 +93,5 @@ module Geoblacklight
     def itemtype
       "http://schema.org/Dataset"
     end
-
-    def geometry
-      @geometry ||= Geoblacklight::Geometry.new(geom_field)
-    end
   end
 end

@@ -41,17 +41,18 @@ export default class OverviewMapController extends Controller {
     if (this.rows().length) this.watchResults()
   }
 
-  // Build a resource and previewer (container for geometry) for each search result.
+  // Build a record containing the geometry for each search result.
   // NOTE: results with no geometry still have to take up a number, because the
   // numbering has to match the search result list.
-  locations({ LocationPreviewer, LocationResource }, results) {
+  locations({ OgmRecord, locationFor }, results) {
     const places = results.map(({ place }) => Number(place)).filter((place) => place)
     const locations = Array.from({ length: places.length ? Math.max(...places) : 0 })
 
     results.forEach(({ id, place, geometry }) => {
       if (!place || !geometry) return
 
-      locations[place - 1] = new LocationPreviewer(new LocationResource(id, geometry))
+      // OgmRecord only reads Aardvark, which is the only schema GeoBlacklight indexes
+      locations[place - 1] = locationFor(new OgmRecord({ id, gbl_mdVersion_s: "Aardvark", locn_geometry: geometry }))
     })
 
     return locations

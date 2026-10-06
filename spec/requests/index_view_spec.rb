@@ -21,7 +21,7 @@ RSpec.describe "Catalog index view", type: :request do
 
     expect(overview_results.pluck("id")).to eq rows.map { |row| row["data-map-id"] }
     expect(overview_results.pluck("place")).to eq rows.map { |row| row["data-document-counter"].to_i }
-    expect(overview_results.pluck("geometry")).to all(include("type"))
+    expect(overview_results.pluck("geometry")).to all(start_with("ENVELOPE("))
   end
 
   it "gives the map the number shown beside each result, so both count the same way" do

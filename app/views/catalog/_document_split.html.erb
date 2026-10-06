@@ -3,7 +3,7 @@
   <%
     overview_results = document_presenters.each_with_index.map do |presenter, index|
       document = presenter.document
-      {id: document.id, place: document_counter_with_offset(index), geometry: JSON.parse(document.geometry.geojson)}
+      {id: document.id, place: document_counter_with_offset(index), geometry: document.geom_field}
     end
   -%>
   <%= tag.div id: "documents", class: "documents-list", data: {overview_map_results: overview_results.to_json} do %>
