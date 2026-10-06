@@ -25,6 +25,19 @@ RSpec.feature "search results map", js: true do
     expect(north).to be_within(1).of(45)
   end
 
+  scenario "draws a result that crosses the antimeridian across the Pacific, not the long way round" do
+    visit search_catalog_path(q: "Oceania")
+
+    # East Asia and Oceania is ENVELOPE(68, -124.73, 62.45, -53.23): its east edge is numerically west
+    # of its west edge, the way a box that crosses the antimeridian is written. If drawn the wrong way,
+    # it will cover the Americas and the Atlantic instead, which is the opposite of what it actually depicts.
+    place = find(".document[data-map-id='princeton-sx61dn82p']")["data-document-counter"].to_i
+    (west, _south), (east, _north) = drawn_extents[place - 1]
+
+    expect(west).to be_within(1).of(68)
+    expect(east).to be_within(1).of(-124.73 + 360)
+  end
+
   scenario "comes back knowing the area the reader searched" do
     # The line of text saying how to search goes up with the map
     expect(find("#overview-map").shadow_root).to have_css(".maplibregl-ctrl-geosearch")
