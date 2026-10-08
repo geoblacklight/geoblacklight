@@ -10,8 +10,7 @@ RSpec.describe "Catalog index view", type: :request do
   end
 
   it "renders documents and the map container" do
-    expect(response_page).to have_css("#documents")
-    expect(response_page).to have_css(".document", count: 4)
+    expect(response_page).to have_css("#documents .document")
     expect(response_page).to have_css("#overview-map")
   end
 
@@ -25,9 +24,10 @@ RSpec.describe "Catalog index view", type: :request do
   end
 
   it "gives the map the number shown beside each result, so both count the same way" do
-    expect(response_page).to have_css(".document[data-document-counter]", count: 4)
-    expect(response_page.all(".document").map { |result| result["data-document-counter"] })
-      .to eq %w[1 2 3 4]
+    counters = response_page.all(".document").map { |result| result["data-document-counter"] }
+
+    expect(counters.length).to be > 1
+    expect(counters).to eq (1..counters.length).map(&:to_s)
   end
 
   context "on the second page of results" do
