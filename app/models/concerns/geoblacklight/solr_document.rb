@@ -6,13 +6,10 @@ module Geoblacklight
     extend Blacklight::Solr::Document
     extend ActiveSupport::Concern
     include Geoblacklight::SolrDocument::Finder
-    include Geoblacklight::SolrDocument::Inspection
+    include Geoblacklight::SolrDocument::Preview
     include Geoblacklight::SolrDocument::Arcgis
     include Geoblacklight::SolrDocument::Citation
     include Geoblacklight::SolrDocument::Thumbnail
-
-    delegate :viewer_protocol, to: :item_viewer
-    delegate :viewer_endpoint, to: :item_viewer
 
     included do
       field_config = Geoblacklight.configuration.fields
@@ -50,16 +47,8 @@ module Geoblacklight
       (direct_download || iiif_download) && available?
     end
 
-    def iiif_preview?
-      viewer_protocol == "iiif" || viewer_protocol == "iiif_manifest"
-    end
-
-    def previewable?
-      viewer_endpoint.present?
-    end
-
     def references
-      References.new(self)
+      @references ||= References.new(self)
     end
 
     def direct_download
@@ -78,16 +67,16 @@ module Geoblacklight
       references.iiif.to_hash if references.iiif.present?
     end
 
+    def iiif_georeferenced?
+      references.iiif_manifest.present? && references.iiif_georeference.present?
+    end
+
     def data_dictionary_download
       references.data_dictionary.to_hash if references.data_dictionary.present?
     end
 
     def external_url
       references.url&.endpoint
-    end
-
-    def item_viewer
-      ItemViewer.new(references)
     end
 
     def itemtype

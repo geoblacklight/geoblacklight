@@ -9,20 +9,29 @@ RSpec.describe Geoblacklight::StaticMapComponent, type: :component do
     render_inline(described_class.new(document: document))
   end
 
-  before do
-    allow(document).to receive(:viewer_protocol).and_return("map")
-    allow(Geoblacklight.configuration).to receive(:sidebar_static_map).and_return(["map"])
+  it "renders a locator map of where the record is" do
+    expect(rendered.css("ogm-locator#locator-map")).to be_present
   end
 
-  context "when the protocol matches the sidebar_static_map setting" do
-    it "renders a locator map of where the record is" do
-      expect(rendered.css("ogm-locator#locator-map")).to be_present
-    end
+  it "points it at the same endpoint the item viewer reads its own metadata from" do
+    map = rendered.css("ogm-locator").first
+    expect(map["record-url"]).to eq Rails.application.routes.url_helpers.viewer_solr_document_path(document)
+    expect(map["theme"]).to be_nil
+  end
 
-    it "points it at the same endpoint the item viewer reads its own metadata from" do
-      map = rendered.css("ogm-locator").first
-      expect(map["record-url"]).to eq Rails.application.routes.url_helpers.viewer_solr_document_path(document)
-      expect(map["theme"]).to be_nil
+  context "when the record has a map-previewable reference" do
+    let(:document) { SolrDocument.new(JSON.parse(read_fixture("solr_documents/actual-polygon1.json"))) }
+
+    it "does not render a locator map" do
+      expect(rendered.css("ogm-locator")).to be_empty
+    end
+  end
+
+  context "when the record has a IIIF-previewable reference only" do
+    let(:document) { SolrDocument.new(JSON.parse(read_fixture("solr_documents/public_iiif_princeton.json"))) }
+
+    it "renders a locator map" do
+      expect(rendered.css("ogm-locator#locator-map")).to be_present
     end
   end
 end

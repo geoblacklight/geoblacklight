@@ -185,46 +185,53 @@ RSpec.describe Geoblacklight::SolrDocument do
       end
     end
   end
-  describe "item_viewer" do
-    let(:document_attributes) { {} }
-    it "is a ItemViewer" do
-      expect(document.item_viewer).to be_an Geoblacklight::ItemViewer
+  describe "#previewable?" do
+    describe "with an oembed reference" do
+      let(:document_attributes) { JSON.parse(read_fixture("solr_documents/oembed.json")) }
+      it "is previewable" do
+        expect(document.previewable?).to be true
+      end
     end
-  end
-  describe "viewer_protocol" do
-    describe "with a wms reference" do
+
+    describe "when there is only a IIIF reference" do
+      let(:document_attributes) { JSON.parse(read_fixture("solr_documents/public_iiif_princeton.json")) }
+      it "is true" do
+        expect(document.previewable?).to be true
+      end
+    end
+
+    describe "without any preview reference" do
       let(:document_attributes) do
         {
           references_field => {
-            "http://www.opengis.net/def/serviceType/ogc/wms" => "http://www.example.com/wms"
+            "http://schema.org/url" => "http://www.example.com/landing-page"
           }.to_json
         }
       end
-      it "returns wms protocol" do
-        expect(document.viewer_protocol).to eq "wms"
+      it "is not previewable" do
+        expect(document.previewable?).to be false
       end
     end
-    let(:document_attributes) { {} }
-    it "returns no protocol" do
-      expect(document.viewer_protocol).to be nil
-    end
   end
-  describe "viewer_endpoint" do
-    describe "with a wms reference" do
+  describe "#iiif_previewable?" do
+    describe "when there is only a IIIF reference" do
+      let(:document_attributes) { JSON.parse(read_fixture("solr_documents/public_iiif_princeton.json")) }
+      it "is true" do
+        expect(document.iiif_previewable?).to be true
+      end
+    end
+    describe "with both a IIIF reference and a map reference" do
       let(:document_attributes) do
         {
           references_field => {
-            "http://www.opengis.net/def/serviceType/ogc/wms" => "http://www.example.com/wms"
+            "http://iiif.io/api/image" => "http://www.example.com/info.json",
+            "urn:x-esri:serviceType:ArcGIS#FeatureLayer" => "http://www.example.com/FeatureServer/0"
           }.to_json
         }
       end
-      it "returns wms endpoint" do
-        expect(document.viewer_endpoint).to eq "http://www.example.com/wms"
+      it "is true" do
+        expect(document.iiif_previewable?).to be true
       end
-    end
-    let(:document_attributes) { {} }
-    it "returns no endpoint" do
-      expect(document.viewer_endpoint).to eq ""
     end
   end
 end
