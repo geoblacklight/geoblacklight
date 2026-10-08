@@ -25,8 +25,14 @@ module Geoblacklight
 
     private
 
+    # GeoBlacklight 6 removes viewer_protocol and viewer_endpoint, and this component with them;
+    # reading them here isn't the application's doing, so it isn't warned about
     def protocol
-      @document.viewer_protocol&.camelize
+      Geoblacklight.deprecation.silence { @document.viewer_protocol }&.camelize
+    end
+
+    def endpoint
+      Geoblacklight.deprecation.silence { @document.viewer_endpoint }
     end
 
     def openlayers?
@@ -48,7 +54,7 @@ module Geoblacklight
         id: "mirador",
         class: "viewer",
         data: {
-          manifest_url: @document.viewer_endpoint
+          manifest_url: endpoint
         })
     end
 
@@ -59,7 +65,7 @@ module Geoblacklight
         id: "openseadragon",
         class: "viewer",
         data: {
-          image_url: @document.viewer_endpoint
+          image_url: endpoint
         })
     end
 
@@ -70,7 +76,7 @@ module Geoblacklight
         class: "viewer",
         data: {
           controller: "oembed-viewer",
-          oembed_viewer_url_value: @document.viewer_endpoint
+          oembed_viewer_url_value: endpoint
         })
     end
 
@@ -86,7 +92,7 @@ module Geoblacklight
           "#{viewer_name}-available-value" => helpers.document_available?(@document),
           "#{viewer_name}-basemap-value" => Geoblacklight.deprecation.silence { helpers.geoblacklight_basemap },
           "#{viewer_name}-protocol-value" => protocol,
-          "#{viewer_name}-url-value" => @document.viewer_endpoint,
+          "#{viewer_name}-url-value" => endpoint,
           "#{viewer_name}-map-geom-value" => @document.geometry.geojson,
           "#{viewer_name}-layer-id-value" => @document.wxs_identifier,
           "#{viewer_name}-options-value" => Geoblacklight.deprecation.silence { helpers.leaflet_options },

@@ -11,7 +11,7 @@ RSpec.describe Geoblacklight::IndexMapLegendComponent, type: :component do
 
   context "when the document has an index map" do
     before do
-      allow(document).to receive_message_chain(:item_viewer, :index_map).and_return(true)
+      allow(document).to receive_message_chain(:references, :index_map).and_return(true)
     end
 
     it "shows available map text" do
@@ -32,7 +32,7 @@ RSpec.describe Geoblacklight::IndexMapLegendComponent, type: :component do
 
   context "when the document does not have an index map" do
     before do
-      allow(document).to receive_message_chain(:item_viewer, :index_map).and_return(false)
+      allow(document).to receive_message_chain(:references, :index_map).and_return(false)
     end
 
     it "does not render" do
