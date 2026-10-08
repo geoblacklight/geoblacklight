@@ -10,6 +10,7 @@ RSpec.describe Geoblacklight::Document::PreviewComponent, type: :component do
   # One viewer for every protocol it can preview: what to show is the viewer's own decision, taken
   # from the references in the record it fetches
   ["solr_documents/iiif-eastern-hemisphere.json",
+    "solr_documents/stanford-geojson.json",
     "solr_documents/public_pmtiles_princeton.json",
     "solr_documents/actual-polygon1.json"].each do |fixture_path|
     context "with #{File.basename(fixture_path, ".json")}" do
