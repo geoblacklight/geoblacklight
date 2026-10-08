@@ -12,7 +12,7 @@ module Geoblacklight
       # Reference types that are previewed using a map viewer
       MAP_PREVIEWS = %i[
         cog dynamic_map_layer feature_layer image_map_layer index_map pmtiles
-        tiled_map_layer tilejson tms wms wmts xyz
+        tiled_map_layer tilejson tms wms wmts xyz geojson
       ].freeze
 
       # Reference types that are previewed using a IIIF viewer

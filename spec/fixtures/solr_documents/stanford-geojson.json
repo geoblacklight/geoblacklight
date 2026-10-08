@@ -1,0 +1,39 @@
+{
+  "id": "stanford-rv900sk6861",
+  "dct_title_s": "Home Owners' Loan Corporation Graded Neighborhoods, United States, 1935 [GeoJSON]",
+  "dct_description_sm": [
+    "GeoJSON containing digitized polygons showing graded neighborhoods as designated by the Home Owners' Loan Corporation (HOLC) in 1935. Polygons were digitized from georeferenced HOLC Maps. The HOLC was established in 1933 by the U.S Congress to refinance mortgages in default and prevent foreclosures. In 1935 they created residential security maps for 239 cities to indicate the level of security for real-estate investments. The maps were graded such as the newest areas, which were considered desirable for lending received a \"Type A\" grade. These areas were primarily wealthy suburbs on the outskirts of town. Still Desirable neighborhoods were given a \"Type B\" grade and older neighborhoods were given a \"Type C\" grade and considered Declining. Lastly \"Type D\" neighborhoods were regarded as most risky for mortgage lending.",
+    "This dataset is part of the Mapping Inequality project. Mapping Inequality brings one of the country's most important archives to the public. HOLC's documents contain a wealth of information about how government officials, lenders, and real estate interests surveyed and ensured the economic health of American cities. And with the help of ongoing research, we continue to learn at what cost such measures were realized"
+  ],
+  "dct_language_sm": ["eng"],
+  "dct_creator_sm": ["University of Richmond. Digital Scholarship Lab"],
+  "dct_publisher_sm": ["University of Richmond. Digital Scholarship Lab"],
+  "dct_issued_s": "2021",
+  "dct_subject_sm": [
+    "Discrimination in mortgage loans",
+    "Home Owners' Loan Corporation",
+    "Boundaries",
+    "Planning and Cadastral"
+  ],
+  "dct_spatial_sm": ["United States"],
+  "dcat_theme_sm": ["Boundaries", "Property"],
+  "dct_temporal_sm": ["1935"],
+  "gbl_dateRange_drsim": ["[1935 TO 1935]"],
+  "gbl_indexYear_im": [1935],
+  "schema_provider_s": "Stanford",
+  "dct_identifier_sm": ["https://purl.stanford.edu/rv900sk6861"],
+  "gbl_resourceClass_sm": ["Datasets"],
+  "gbl_resourceType_sm": ["Polygon data"],
+  "dct_format_s": "GeoJSON",
+  "locn_geometry": "ENVELOPE(-122.767500, -70.949167, 47.722500, 25.705278)",
+  "dcat_bbox": "ENVELOPE(-122.767500, -70.949167, 47.722500, 25.705278)",
+  "pcdm_memberOf_sm": ["stanford-vq093gx9796"],
+  "dct_rights_sm": [
+    "You are free to share (copy and redistribute the material in any medium or format), adapt (remix, transform, and build upon the material) for any purpose, even commercially. The licensor cannot revoke these freedoms as long as you follow the license terms. You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits. http://creativecommons.org/licenses/by/4.0/"
+  ],
+  "dct_license_sm": ["https://creativecommons.org/licenses/by/4.0/legalcode"],
+  "dct_accessRights_s": "Public",
+  "gbl_mdModified_dt": "2026-07-24T21:00:59Z",
+  "gbl_mdVersion_s": "Aardvark",
+  "dct_references_s": "{\"http://schema.org/url\":\"https://purl.stanford.edu/rv900sk6861\",\"https://schema.org/relatedLink\":\"https://searchworks.stanford.edu/view/rv900sk6861\",\"http://geojson.org/geojson-spec.html\":\"https://stacks.stanford.edu/file/druid:rv900sk6861/fullDownload.geojson\",\"http://schema.org/downloadUrl\":[{\"url\":\"https://stacks.stanford.edu/object/rv900sk6861.zip\",\"label\":\"Zipped object\"}]}"
+}
