@@ -10,7 +10,8 @@ module Geoblacklight
     end
 
     def render?
-      Settings.SIDEBAR_STATIC_MAP&.any? { |vp| @document.viewer_protocol == vp }
+      protocol = Geoblacklight.deprecation.silence { @document.viewer_protocol }
+      Settings.SIDEBAR_STATIC_MAP&.any? { |vp| protocol == vp }
     end
 
     def before_render
