@@ -250,6 +250,134 @@ describe Geoblacklight::DeprecatedConfiguration do
 
       expect(described_class.removed_constants_in(path.to_s)).to eq []
     end
+
+    it "points a document template that renders the item viewer at PreviewComponent" do
+      write("app/components/document_component.html.erb", <<~ERB)
+        <%= render Geoblacklight::ItemMapViewerComponent.new(document: @document) %>
+      ERB
+
+      expect(Geoblacklight.deprecation).to receive(:warn).once.with(
+        /document_component\.html\.erb needs these changes before GeoBlacklight 6: stop referring to Geoblacklight::ItemMapViewerComponent, because .*Geoblacklight::Document::PreviewComponent.*#display_tag/
+      )
+
+      described_class.warn_about_removed_constants(root)
+    end
+
+    it "catches the documented way of adding a viewer, reopening ItemViewer, in a nested initializer" do
+      write("config/initializers/monkeypatches/item_viewer.rb", <<~RUBY)
+        module Geoblacklight
+          class ItemViewer
+            def viewer_protocol
+              return "map" if viewer_preference.nil?
+              viewer_preference.keys.first.to_s
+            end
+
+            def viewer_preference
+              [cog, pmtiles, iiif_manifest, wms].compact.map(&:to_hash).first
+            end
+          end
+        end
+      RUBY
+
+      expect(Geoblacklight.deprecation).to receive(:warn).once.with(
+        "config/initializers/monkeypatches/item_viewer.rb needs these changes before GeoBlacklight 6: " \
+        "stop reopening Geoblacklight::ItemViewer, because #{described_class::REOPENED_CLASSES["Geoblacklight::ItemViewer"]}"
+      )
+
+      described_class.warn_about_removed_constants(root)
+    end
+
+    it "catches an item viewer component overridden in place" do
+      write("app/components/geoblacklight/item_map_viewer_component.rb", <<~RUBY)
+        module Geoblacklight
+          class ItemMapViewerComponent < ViewComponent::Base
+          end
+        end
+      RUBY
+
+      expect(Geoblacklight.deprecation).to receive(:warn).once.with(
+        /stop reopening Geoblacklight::ItemMapViewerComponent, because .*PreviewComponent instead/
+      )
+
+      described_class.warn_about_removed_constants(root)
+    end
+
+    it "leaves calls to the item viewer methods, and an application's own ItemViewer, to themselves" do
+      write("app/helpers/viewer_helper.rb", <<~RUBY)
+        module ViewerHelper
+          def viewer_label(document) = document.viewer_protocol.camelize
+          def viewer_endpoint_label(document) = t("viewer.\#{document.viewer_endpoint}")
+        end
+      RUBY
+      write("app/models/item_viewer.rb", <<~RUBY)
+        class ItemViewer
+          def viewer_protocol = "ours"
+        end
+      RUBY
+
+      expect(Geoblacklight.deprecation).not_to receive(:warn)
+
+      described_class.warn_about_removed_constants(root)
+    end
+  end
+
+  describe ".warn_about_solr_document_overrides" do
+    # A concern of the application's own, loaded from a file under its root
+    def concern_in(path, source)
+      file = write(path, source)
+      Module.new.tap { |concern| concern.module_eval(source, file.to_s, 1) }
+    end
+
+    def document_class_with(*concerns)
+      Class.new(SolrDocument) { concerns.each { |concern| include concern } }
+    end
+
+    it "catches a concern that rewrites viewer_endpoint, and says where proxying moved" do
+      concern = concern_in("app/models/concerns/wms_rewrite_concern.rb", <<~RUBY)
+        def viewer_endpoint
+          super.gsub("https://geoserver.example.edu", "https://proxy.example.edu")
+        end
+      RUBY
+
+      expect(Geoblacklight.deprecation).to receive(:warn).once.with(
+        "app/models/concerns/wms_rewrite_concern.rb needs these changes before GeoBlacklight 6: " \
+        "stop overriding SolrDocument#viewer_endpoint, because #{described_class::OVERRIDDEN_METHODS["viewer_endpoint"]}"
+      )
+
+      described_class.warn_about_solr_document_overrides(root, document_class_with(concern))
+    end
+
+    it "lists every override in a file as one warning" do
+      concern = concern_in("app/models/solr_document_preview.rb", <<~RUBY)
+        def viewer_protocol = "map"
+        def inspectable? = false
+      RUBY
+
+      expect(Geoblacklight.deprecation).to receive(:warn).once.with(
+        /solr_document_preview\.rb needs these changes before GeoBlacklight 6: .*SolrDocument#viewer_protocol, because .*PreviewComponent#display_tag.*; .*SolrDocument#inspectable\?/
+      )
+
+      described_class.warn_about_solr_document_overrides(root, document_class_with(concern))
+    end
+
+    it "stays quiet for a SolrDocument that overrides none of them" do
+      expect(Geoblacklight.deprecation).not_to receive(:warn)
+
+      described_class.warn_about_solr_document_overrides(root, document_class_with)
+    end
+
+    it "stays quiet when there is no SolrDocument to ask" do
+      expect(Geoblacklight.deprecation).not_to receive(:warn)
+
+      described_class.warn_about_solr_document_overrides(root, nil)
+    end
+
+    it "never lets a SolrDocument it cannot inspect stop the application booting" do
+      unreadable = document_class_with
+      unreadable.define_singleton_method(:method_defined?) { |*| raise NameError, "boom" }
+
+      expect { described_class.warn_about_solr_document_overrides(root, unreadable) }.not_to raise_error
+    end
   end
 
   describe ".warn_about_frontend_package" do
@@ -695,7 +823,7 @@ describe Geoblacklight::DeprecatedConfiguration do
     it "runs every check" do
       %i[warn_about_templates warn_about_locale_keys warn_about_routes
         warn_about_asset_references warn_about_frontend_package
-        warn_about_removed_constants warn_about_layouts].each do |check|
+        warn_about_removed_constants warn_about_solr_document_overrides warn_about_layouts].each do |check|
         expect(described_class).to receive(check).with(root)
       end
       expect(described_class).to receive(:warn_about_settings_file)

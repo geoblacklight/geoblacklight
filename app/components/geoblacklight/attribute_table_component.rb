@@ -11,7 +11,7 @@ module Geoblacklight
     end
 
     def render?
-      helpers.document_available?(@document) && @document.inspectable?
+      helpers.document_available?(@document) && Geoblacklight.deprecation.silence { @document.inspectable? }
     end
   end
 end

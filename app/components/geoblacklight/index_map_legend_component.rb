@@ -11,7 +11,7 @@ module Geoblacklight
     end
 
     def render?
-      @document.item_viewer.index_map
+      @document.references.index_map
     end
   end
 end

@@ -9,7 +9,7 @@ module Geoblacklight
     end
 
     def render?
-      @document.viewer_protocol == "index_map"
+      Geoblacklight.deprecation.silence { @document.viewer_protocol } == "index_map"
     end
   end
 end

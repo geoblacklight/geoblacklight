@@ -11,8 +11,50 @@ module Geoblacklight
     include Geoblacklight::SolrDocument::Citation
 
     delegate :download_types, to: :references
-    delegate :viewer_protocol, to: :item_viewer
-    delegate :viewer_endpoint, to: :item_viewer
+
+    ##
+    # The methods that pick a single protocol for the item viewer, which GeoBlacklight 6
+    # removes along with Geoblacklight::ItemViewer and Geoblacklight::ItemMapViewerComponent:
+    # <ogm-viewer> reads every reference in the record itself, and
+    # Geoblacklight::Document::PreviewComponent is the one place that decides what to show.
+    PREVIEW_METHODS_REMOVED = {
+      item_viewer: "call references instead, which already has the same per-protocol readers " \
+        "(item_viewer.iiif becomes references.iiif)",
+      viewer_protocol: "its documents answer previewable? and preferred_preview_type (:embed, :map or " \
+        ":iiif) instead",
+      viewer_endpoint: "read the URL you need from references.<type>&.endpoint instead, or from oembed " \
+        "for an oEmbed, both of which work already",
+      inspectable?: "there is no replacement, because <ogm-viewer> works out for itself what it can " \
+        "inspect"
+    }.freeze
+
+    ##
+    # Said about the methods that went into choosing a viewer, which is every one of
+    # those but inspectable?.
+    PREVIEW_COMPONENT_ADVICE = "GeoBlacklight 6 decides whether and how to preview a record in " \
+      "Geoblacklight::Document::PreviewComponent, so override its #display_tag to change the viewer a " \
+      "record gets"
+
+    ##
+    # Warn once per method rather than once per call, for the same reason as
+    # warn_about_url_reader. A call GeoBlacklight silences doesn't count as the
+    # one warning, or its own first render would leave nothing to say to the
+    # application calling the same method after it.
+    # @param method [Symbol]
+    # @param callstack [Array<Thread::Backtrace::Location>] where the application called it
+    def self.warn_about_preview_method(method, callstack)
+      return if Geoblacklight.deprecation.silenced
+      return unless warned_preview_methods.add?(method)
+
+      message = "SolrDocument##{method} is removed in GeoBlacklight 6; #{PREVIEW_METHODS_REMOVED.fetch(method)}"
+      message += ". #{PREVIEW_COMPONENT_ADVICE}" unless method == :inspectable?
+      Geoblacklight.deprecation.warn(message, callstack)
+    end
+
+    # @return [Set<Symbol>]
+    def self.warned_preview_methods
+      @warned_preview_methods ||= Set.new
+    end
 
     included do
       attribute :display_note, :array, Settings.FIELDS.DISPLAY_NOTE
@@ -92,7 +134,18 @@ module Geoblacklight
     end
 
     def item_viewer
+      Geoblacklight::SolrDocument.warn_about_preview_method(:item_viewer, caller_locations(1))
       ItemViewer.new(references)
+    end
+
+    def viewer_protocol
+      Geoblacklight::SolrDocument.warn_about_preview_method(:viewer_protocol, caller_locations(1))
+      Geoblacklight.deprecation.silence { item_viewer.viewer_protocol }
+    end
+
+    def viewer_endpoint
+      Geoblacklight::SolrDocument.warn_about_preview_method(:viewer_endpoint, caller_locations(1))
+      Geoblacklight.deprecation.silence { item_viewer.viewer_endpoint }
     end
 
     def itemtype

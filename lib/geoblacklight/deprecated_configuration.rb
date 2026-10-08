@@ -54,8 +54,8 @@ module Geoblacklight
         "light_basemap_url and dark_basemap_url on Geoblacklight.configuration, each the URL of a " \
         "MapLibre style document",
       "SIDEBAR_STATIC_MAP" =>
-        "GeoBlacklight 6's StaticMapComponent decides for itself, from whether the record is " \
-        "previewable and georeferenced, and never reads this list of viewer protocols",
+        "GeoBlacklight 6's StaticMapComponent decides for itself, showing the location whenever " \
+        "the record has nothing <ogm-viewer> can draw on a map, and never reads this list of viewer protocols",
       "TIMEOUT_DOWNLOAD" =>
         "GeoBlacklight 6 removes the generated download subsystem and never reads it",
       "TIMEOUT_WMS" =>
@@ -199,10 +199,20 @@ module Geoblacklight
         "index map inspection happens inside <ogm-viewer> in GeoBlacklight 6",
       "Geoblacklight::IndexMapLegendComponent" =>
         "the legend is emitted by <ogm-viewer> in GeoBlacklight 6",
+      "Geoblacklight::ItemMapViewerComponent" =>
+        "GeoBlacklight 6 renders the preview with Geoblacklight::Document::PreviewComponent, which " \
+        "decides whether the record has anything to preview; override its #display_tag to change the " \
+        "viewer a record gets",
+      "Geoblacklight::ItemViewer" =>
+        "GeoBlacklight 6 asks the document directly, with previewable? and preferred_preview_type, and " \
+        "changes the viewer a record gets in Geoblacklight::Document::PreviewComponent#display_tag",
       "Geoblacklight::LocationLeafletMapComponent" =>
         "use Geoblacklight::OverviewMapComponent for many records, or " \
         "Geoblacklight::LocatorMapComponent for one",
       "Geoblacklight::RelationsComponent" => "use Geoblacklight::Relations::RelationsComponent",
+      "Geoblacklight::SolrDocument::Inspection" =>
+        "<ogm-viewer> works out for itself what it can inspect, so GeoBlacklight 6 removes it without " \
+        "replacement",
       "Geoblacklight::ViewerHelpTextComponent" => "it is removed without replacement",
       "Geoblacklight::Relation::" => "the namespace is renamed to Geoblacklight::Relations::",
       "Geoblacklight::CsvDownload" => "GeoBlacklight 6 removes the generated download subsystem",
@@ -222,10 +232,50 @@ module Geoblacklight
     }.freeze
 
     ##
-    # Where an application keeps code that could name one of those.
+    # Item viewer classes an application can reopen inside `module Geoblacklight`
+    # without ever writing their full name, which is how the GeoBlacklight
+    # documentation says to add a viewer. GeoBlacklight 6 deletes them, so the
+    # reopening defines a class nothing uses and the customization disappears.
+    REOPENED_CLASSES = {
+      "Geoblacklight::ItemViewer" =>
+        "GeoBlacklight 6 deletes it and no longer picks a protocol for the viewer; override " \
+        "Geoblacklight::Document::PreviewComponent#display_tag to change the viewer a record gets",
+      "Geoblacklight::ItemMapViewerComponent" =>
+        "GeoBlacklight 6 deletes it and renders the preview with " \
+        "Geoblacklight::Document::PreviewComponent instead; override its #display_tag to change the " \
+        "viewer a record gets",
+      "Geoblacklight::SolrDocument::Inspection" =>
+        "GeoBlacklight 6 deletes it: <ogm-viewer> works out for itself what it can inspect"
+    }.freeze
+
+    ##
+    # SolrDocument methods that fed the item viewer, which an application can
+    # override without anything reporting it: GeoBlacklight is the only caller, and
+    # it silences its own calls. GeoBlacklight 6 calls none of them, so an override
+    # silently stops doing anything; applications that send restricted WMS through
+    # a proxy do it by overriding viewer_endpoint. Calls an application makes itself
+    # are reported when they happen, by Geoblacklight::SolrDocument.warn_about_preview_method.
+    OVERRIDDEN_METHODS = {
+      "item_viewer" =>
+        "GeoBlacklight 6 never calls it; override Geoblacklight::Document::PreviewComponent#display_tag " \
+        "to change the viewer a record gets",
+      "viewer_protocol" =>
+        "GeoBlacklight 6 never calls it; override Geoblacklight::Document::PreviewComponent#display_tag " \
+        "to change the viewer a record gets",
+      "viewer_endpoint" =>
+        "GeoBlacklight 6 never calls it: <ogm-viewer> reads every URL from the record itself, so to send a " \
+        "restricted layer through a proxy, register a transform with Geoblacklight.onViewerRequest in the " \
+        "application's JavaScript and answer { url }",
+      "inspectable?" =>
+        "GeoBlacklight 6 never calls it: <ogm-viewer> works out for itself what it can inspect"
+    }.freeze
+
+    ##
+    # Where an application keeps code that could name one of those. Initializers are
+    # searched recursively because monkeypatches are often kept in a subdirectory.
     CODE_GLOBS = [
       "app/**/*.{rb,erb}",
-      "config/initializers/*.rb",
+      "config/initializers/**/*.rb",
       "lib/**/*.rb"
     ].freeze
 
@@ -273,6 +323,7 @@ module Geoblacklight
         warn_about_asset_references(root)
         warn_about_frontend_package(root)
         warn_about_removed_constants(root)
+        warn_about_solr_document_overrides(root)
         warn_about_layouts(root)
       end
       warn_about_settings_file
@@ -410,13 +461,62 @@ module Geoblacklight
     # @return [Array<String>]
     def self.removed_constants_in(path)
       contents = File.read(path)
-      REMOVED_CONSTANTS.filter_map do |name, advice|
+      named = REMOVED_CONSTANTS.filter_map do |name, advice|
         "stop referring to #{name}, because #{advice}" if contents.include?(name)
       end
+      named + reopened_classes_in(contents)
     rescue SystemCallError
       # An unreadable file is somebody else's problem; a boot time diagnostic must
       # never be the reason an application fails to start.
       []
+    end
+
+    ##
+    # Item viewer classes reopened inside `module Geoblacklight`, which never name
+    # themselves in full for REMOVED_CONSTANTS to match.
+    # @param contents [String]
+    # @return [Array<String>]
+    def self.reopened_classes_in(contents)
+      return [] unless contents.match?(/^\s*module\s+Geoblacklight\b/)
+
+      REOPENED_CLASSES.filter_map do |name, advice|
+        next unless contents.match?(/^\s*(?:class|module)\s+#{name.demodulize}\b/)
+        "stop reopening #{name}, because #{advice}"
+      end
+    end
+
+    ##
+    # One warning per file that overrides one of OVERRIDDEN_METHODS on the
+    # application's SolrDocument. Asked of the loaded class rather than read from
+    # source, so that a concern is found whatever it is called and wherever it lives,
+    # and a method of the same name on some other class is left alone.
+    # @param root [Pathname] the application root, to name files relative to
+    # @param document_class [Class, nil]
+    def self.warn_about_solr_document_overrides(root, document_class = (::SolrDocument if defined?(::SolrDocument)))
+      return unless document_class
+
+      overrides = OVERRIDDEN_METHODS.keys.filter_map do |method|
+        next unless document_class.method_defined?(method)
+
+        definition = document_class.instance_method(method)
+        next if [Geoblacklight::SolrDocument, Geoblacklight::SolrDocument::Inspection].include?(definition.owner)
+
+        file = definition.source_location&.first
+        [file, method] if file
+      end
+
+      overrides.group_by(&:first).sort.each do |file, entries|
+        problems = entries.map do |_, method|
+          "stop overriding SolrDocument##{method}, because #{OVERRIDDEN_METHODS[method]}"
+        end
+        shown = file.start_with?("#{root}/") ? relative_to(file, root) : file
+        Geoblacklight.deprecation.warn(
+          "#{shown} needs these changes before GeoBlacklight 6: #{problems.join("; ")}"
+        )
+      end
+    rescue
+      # A boot time diagnostic must never be the reason an application fails to start.
+      nil
     end
 
     ##
