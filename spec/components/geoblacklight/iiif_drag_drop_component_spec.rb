@@ -4,21 +4,21 @@ require "spec_helper"
 
 RSpec.describe Geoblacklight::IiifDragDropComponent, type: :component do
   describe "#iiifdragdropcomponet" do
-    let(:reference) { instance_double(Geoblacklight::Reference, endpoint: endpoint) }
-    let(:item_viewer) { instance_double(Geoblacklight::ItemViewer, iiif_manifest: reference) }
-    let(:document) { instance_double(SolrDocument, id: 123, item_viewer: item_viewer) }
+    let(:references_field) { Geoblacklight.configuration.fields.references }
+    let(:document) { SolrDocument.new("id" => 123, references_field => references.to_json) }
     let(:component) { described_class.new(document: document) }
 
-    context "does not have viewer_endpoint url" do
-      let(:endpoint) { nil }
+    context "does not have a manifest url" do
+      let(:references) { {"http://iiif.io/api/image" => "https://url.com/info.json"} }
 
       it "does not render" do
         expect(component.render?).to be false
       end
     end
 
-    context "has viewer_endpoint url" do
-      let(:endpoint) { "https://url.com/manifest.json" }
+    context "has a manifest url" do
+      let(:references) { {"http://iiif.io/api/presentation#manifest" => "https://url.com/manifest.json"} }
+
       it "renders iiif drag and drop icon" do
         render_inline(component)
         expect(component.render?).to be true

@@ -62,8 +62,6 @@ module Geoblacklight
       end
     end
 
-    private
-
     ##
     # Parses the references field of a document
     # @return [Hash]

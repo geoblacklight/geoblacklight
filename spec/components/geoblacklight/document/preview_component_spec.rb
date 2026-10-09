@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe Geoblacklight::ItemMapViewerComponent, type: :component do
+RSpec.describe Geoblacklight::Document::PreviewComponent, type: :component do
   before do
     render_inline(described_class.new(document: document))
   end
@@ -81,6 +81,10 @@ RSpec.describe Geoblacklight::ItemMapViewerComponent, type: :component do
 
     it "uses the oembed viewer instead" do
       expect(page).to have_css("div#oembed-viewer")
+    end
+
+    it "hands it the oembed endpoint" do
+      expect(page).to have_css("div#oembed-viewer[data-oembed-viewer-url-value='#{document.oembed}']")
     end
   end
 end

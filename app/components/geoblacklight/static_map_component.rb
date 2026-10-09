@@ -9,10 +9,9 @@ module Geoblacklight
       super()
     end
 
-    # If there's no preview using the big map, or there is a IIIF preview that
-    # is not georeferenced, we need to see where the item is located.
+    # If there's no map preview, we need to see where the record is located.
     def render?
-      !@document.previewable? || (@document.iiif_preview? && !@document.georeferenced?)
+      !@document.map_previewable?
     end
 
     def before_render
