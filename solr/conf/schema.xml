@@ -27,6 +27,19 @@
     <!-- Spatial Field Type: Internal field used for overlap ratio boosting. -->
     <field name="solr_bboxtype" type="bbox" stored="true" indexed="true"/>
 
+    <!-- References: a JSON string of links to the resource's downloads, web services and metadata. Not searchable. -->
+    <field name="dct_references_s" type="string" stored="true" indexed="false" docValues="false"/>
+
+    <!-- Searchable single-valued string fields -->
+    <field name="dct_title_s" type="string" stored="true" indexed="true"/>
+    <field name="dct_issued_s" type="string" stored="true" indexed="true"/>
+    <field name="dct_accessRights_s" type="string" stored="true" indexed="true"/>
+    <field name="dct_format_s" type="string" stored="true" indexed="true"/>
+    <field name="schema_provider_s" type="string" stored="true" indexed="true"/>
+    <field name="gbl_mdVersion_s" type="string" stored="true" indexed="true"/>
+    <field name="gbl_wxsIdentifier_s" type="string" stored="true" indexed="true"/>
+    <field name="gbl_fileSize_s" type="string" stored="true" indexed="true"/>
+
     <!-- dynamic field with simple types by suffix -->
     <dynamicField name="*_b"    type="boolean" stored="true"  indexed="true"/>
     <dynamicField name="*_d"    type="double"  stored="true"  indexed="true"/>
@@ -35,7 +48,6 @@
     <dynamicField name="*_i"    type="int"     stored="true"  indexed="true"/>
     <dynamicField name="*_im"   type="int"     stored="true"  indexed="true" multiValued="true" sortMissingLast="true" />
     <dynamicField name="*_l"    type="long"    stored="true"  indexed="true"/>
-    <dynamicField name="*_s"    type="string"  stored="true"  indexed="true"/>
     <dynamicField name="*_ss"   type="string"  stored="true"  indexed="false"/>
     <dynamicField name="*_si"   type="string"  stored="false" indexed="true"/>
     <dynamicField name="*_sim"  type="string"  stored="false" indexed="true" multiValued="true" />
@@ -173,8 +185,20 @@
   <copyField source="id"                   dest="id_ti"                maxChars="100"/>
 
   <!-- core text search -->
-  <copyField source="*_s"                dest="text" />
-  <copyField source="*_sm"               dest="text" />
+  <copyField source="dct_title_s"          dest="text" />
+  <copyField source="dct_issued_s"         dest="text" />
+  <copyField source="dct_accessRights_s"   dest="text" />
+  <copyField source="dct_format_s"         dest="text" />
+  <copyField source="dct_spatial_sm"       dest="text" />
+  <copyField source="dct_temporal_sm"      dest="text" />
+  <copyField source="dct_creator_sm"       dest="text" />
+  <copyField source="dct_description_sm"   dest="text" />
+  <copyField source="dct_identifier_sm"    dest="text" />
+  <copyField source="dct_publisher_sm"     dest="text" />
+  <copyField source="dct_subject_sm"       dest="text" />
+  <copyField source="gbl_resourceClass_sm" dest="text" />
+  <copyField source="gbl_resourceType_sm"  dest="text" />
+  <copyField source="schema_provider_s"    dest="text" />
 
   <!-- for sorting text fields -->
   <copyField source="schema_provider_s"   dest="schema_provider_sort"/>
