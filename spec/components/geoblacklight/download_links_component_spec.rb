@@ -15,7 +15,7 @@ RSpec.describe Geoblacklight::Document::DownloadLinksComponent, type: :component
       downloadable?: downloadable,
       direct_download: direct_download,
       iiif_download: iiif_download,
-      file_format: file_format,
+      format: file_format,
       references: references
     )
   end

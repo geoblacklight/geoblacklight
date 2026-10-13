@@ -38,7 +38,7 @@ module Geoblacklight
           else
             child_component.new(
               url: entry,
-              data_file_type: document.file_format
+              data_file_type: document.format
             )
           end
         end
