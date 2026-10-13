@@ -18,6 +18,9 @@ module Geoblacklight
       attribute :geom_field, :string, field_config.geometry
       attribute :wxs_identifier, :string, field_config.wxs_identifier
       attribute :access_rights, :string, field_config.access_rights
+      attribute :rights, :array, field_config.rights
+      attribute :rights_holder, :array, field_config.rights_holder
+      attribute :license_uris, :array, field_config.license
       attribute :provider, :string, field_config.provider
       attribute :resource_type, :array, field_config.resource_type
       attribute :resource_class, :array, field_config.resource_class
