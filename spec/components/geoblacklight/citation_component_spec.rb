@@ -29,11 +29,11 @@ RSpec.describe Geoblacklight::Document::CitationComponent, type: :component do
     end
 
     context "when the identifier is not a URL and no reference schema.org URL is available" do
-      let(:fixture) { JSON.parse(read_fixture("solr_documents/no_spatial.json")) }
+      let(:fixture) { JSON.parse(read_fixture("solr_documents/display-note.json")) }
 
       it "creates a citation with the solr document link" do
         expect(page)
-          .to have_text "ASTER Global Emissivity Dataset 1-kilometer V003 - AG1KM. http://test.host/catalog/aster-global-emissivity-dataset-1-kilometer-v003-ag1kmcad20"
+          .to have_text "FrobozzCo International. (1983-01-01). Building Footprints, Frobozz Headquarters, 781 GUE. [Shapefile]. FrobozzCo International. http://test.host/catalog/frobozz-111"
       end
     end
   end

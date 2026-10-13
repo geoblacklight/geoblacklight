@@ -38,6 +38,6 @@ RSpec.describe "Catalog search", type: :request do
 
     documents = response_page.all(".document")
     expect(documents.first["data-document-id"]).to eq("02236876-9c21-42f6-9870-d2562da8e44f")
-    expect(documents.last["data-document-id"]).to eq("05d-03-nogeomtype")
+    expect(documents.last["data-document-id"]).to eq("05d-p16022coll246-nogeo")
   end
 end
