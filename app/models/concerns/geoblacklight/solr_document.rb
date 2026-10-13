@@ -18,7 +18,7 @@ module Geoblacklight
       attribute :geom_field, :string, field_config.geometry
       attribute :wxs_identifier, :string, field_config.wxs_identifier
       attribute :file_format, :string, field_config.format
-      attribute :rights_field_data, :string, field_config.access_rights
+      attribute :access_rights, :string, field_config.access_rights
       attribute :provider, :string, field_config.provider
       attribute :resource_type, :array, field_config.resource_type
       attribute :resource_class, :array, field_config.resource_class
@@ -36,11 +36,11 @@ module Geoblacklight
     end
 
     def public?
-      rights_field_data&.casecmp?("public")
+      access_rights&.casecmp?("public")
     end
 
     def restricted?
-      !rights_field_data || rights_field_data.casecmp?("restricted")
+      !access_rights || access_rights.casecmp?("restricted")
     end
 
     def downloadable?
