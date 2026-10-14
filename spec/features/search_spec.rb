@@ -15,6 +15,6 @@ RSpec.feature "Search" do
     map_ready("#locator-map")
 
     click_link "Browse all 4 items sourced from this item", visible: :all
-    expect(page).to have_css ".document", count: 4
+    expect(page).to have_css "#documents .document", count: 4
   end
 end
