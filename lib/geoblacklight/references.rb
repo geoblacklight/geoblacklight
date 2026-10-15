@@ -30,13 +30,6 @@ module Geoblacklight
     end
 
     ##
-    # Accessor for a document's file format
-    # @return [String] file format for the document
-    def format
-      @document.file_format
-    end
-
-    ##
     # @param [String, Symbol] ref_type
     # @return [Geoblacklight::Reference]
     def references(ref_type)
