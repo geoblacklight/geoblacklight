@@ -17,7 +17,6 @@
   "gbl_mdModified_dt": "2022-02-04T22:13:37Z",
   "gbl_wxsIdentifier_s": "lb2016",
   "dct_references_s": "{\"http://www.opengis.net/def/serviceType/ogc/wmts\":\"https://maps.wien.gv.at/wmts/1.0.0/WMTSCapabilities.xml\"}",
-  "layer_geom_type_s": "Raster",
   "gbl_resourceClass_sm": ["Imagery"],
   "gbl_resourceType_sm": ["Aerial photographs", "Raster data"],
   "dct_format_s": "GeoTIFF",
