@@ -11,7 +11,7 @@ RSpec.describe "Metadata", type: :request do
 
   before do
     allow(Faraday).to receive(:new).and_call_original
-    stub_metadata_request("http://purl.stanford.edu/bc576pk4911.mods", mods)
+    stub_metadata_request("https://purl.stanford.edu/bc576pk4911.mods", mods)
     stub_metadata_request("https://stacks.stanford.edu/file/druid:bc576pk4911/SANB_a2725322-fgdc.xml", fgdc)
     stub_metadata_request("https://stacks.stanford.edu/file/druid:bc576pk4911/SANB_a2725322-iso19139.xml", iso19139)
     get metadata_solr_document_path("stanford-bc576pk4911")
