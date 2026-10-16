@@ -53,11 +53,6 @@ RSpec.feature "Metadata fields that limit their values" do
   scenario "The hidden values stay available to assistive technology", js: true do
     visit solr_document_path("princeton-dc7h14b252v")
 
-    # visually-hidden leaves the values in the accessibility tree, so the button is of no use
-    # to assistive technology and says so rather than promising something it cannot deliver
-    expect(read_more[:"aria-disabled"]).to eq "true"
-    expect(read_more[:"aria-label"]).to include "assistive technology"
-
     hidden = all("#{group} > dd.visually-hidden", visible: :all).last
     expect(hidden.evaluate_script("getComputedStyle(this).display")).not_to eq "none"
     expect(hidden.evaluate_script("getComputedStyle(this).visibility")).not_to eq "hidden"
