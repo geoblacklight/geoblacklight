@@ -193,12 +193,16 @@ describe Geoblacklight::SolrDocument do
     end
   end
   describe "item_viewer" do
+    around { |example| Geoblacklight.deprecation.silence(&example) }
+
     let(:document_attributes) { {} }
     it "is a ItemViewer" do
       expect(document.item_viewer).to be_an Geoblacklight::ItemViewer
     end
   end
   describe "viewer_protocol" do
+    around { |example| Geoblacklight.deprecation.silence(&example) }
+
     describe "with a wms reference" do
       let(:document_attributes) do
         {
@@ -217,6 +221,8 @@ describe Geoblacklight::SolrDocument do
     end
   end
   describe "viewer_endpoint" do
+    around { |example| Geoblacklight.deprecation.silence(&example) }
+
     describe "with a wms reference" do
       let(:document_attributes) do
         {
@@ -232,6 +238,65 @@ describe Geoblacklight::SolrDocument do
     let(:document_attributes) { {} }
     it "returns no endpoint" do
       expect(document.viewer_endpoint).to eq ""
+    end
+  end
+  describe "the item viewer methods GeoBlacklight 6 removes" do
+    let(:document_attributes) do
+      {
+        references_field => {
+          "http://www.opengis.net/def/serviceType/ogc/wms" => "http://www.example.com/wms"
+        }.to_json
+      }
+    end
+
+    before do
+      Geoblacklight::SolrDocument.warned_preview_methods.clear
+      allow(Geoblacklight.deprecation).to receive(:warn)
+    end
+
+    it "warns once per method rather than once per call, from where the application called it" do
+      3.times { expect(document.viewer_protocol).to eq "wms" }
+
+      expect(Geoblacklight.deprecation).to have_received(:warn).once.with(
+        /SolrDocument#viewer_protocol is removed in GeoBlacklight 6; .*preferred_preview_type/,
+        satisfy { |callstack| callstack.first.path == __FILE__ }
+      )
+    end
+
+    it "points the methods that went into choosing a viewer at PreviewComponent" do
+      document.item_viewer
+      document.viewer_protocol
+      document.viewer_endpoint
+      document.inspectable?
+
+      expect(Geoblacklight.deprecation).to have_received(:warn).exactly(3).times.with(
+        /Geoblacklight::Document::PreviewComponent, so override its #display_tag/, anything
+      )
+      expect(Geoblacklight.deprecation).not_to have_received(:warn).with(/inspectable\?.*PreviewComponent/, anything)
+    end
+
+    it "says what to call instead" do
+      document.item_viewer
+      document.viewer_endpoint
+      document.inspectable?
+
+      expect(Geoblacklight.deprecation).to have_received(:warn).with(/item_viewer.*references\.iiif/, anything)
+      expect(Geoblacklight.deprecation).to have_received(:warn).with(/viewer_endpoint.*references\.<type>&\.endpoint/, anything)
+      expect(Geoblacklight.deprecation).to have_received(:warn).with(/inspectable\?.*no replacement/, anything)
+    end
+
+    it "doesn't spend the one warning on a call GeoBlacklight silenced" do
+      Geoblacklight.deprecation.silence { document.viewer_endpoint }
+      expect(Geoblacklight.deprecation).not_to have_received(:warn)
+
+      document.viewer_endpoint
+      expect(Geoblacklight.deprecation).to have_received(:warn).once
+    end
+
+    it "doesn't warn about the methods it calls on the application's behalf" do
+      document.viewer_protocol
+
+      expect(Geoblacklight.deprecation).not_to have_received(:warn).with(/item_viewer/, anything)
     end
   end
   describe "checked_endpoint" do

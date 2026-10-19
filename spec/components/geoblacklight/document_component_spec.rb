@@ -89,4 +89,21 @@ RSpec.describe Geoblacklight::DocumentComponent, type: :component do
       expect(rendered).to have_css("div#leaflet-viewer")
     end
   end
+
+  # Nearly every piece of the document reads an item viewer method GeoBlacklight 6
+  # removes, and none of that is the application's doing
+  %w[actual-polygon1 b1g_iiif_manifest index-map-stanford public_pmtiles_princeton oembed].each do |name|
+    context "when rendering #{name}" do
+      let(:fixture) { "solr_documents/#{name}.json" }
+
+      it "warns about none of those methods on the application's behalf" do
+        Geoblacklight::SolrDocument.warned_preview_methods.clear
+        allow(Geoblacklight.deprecation).to receive(:warn).and_call_original
+
+        rendered
+
+        expect(Geoblacklight.deprecation).not_to have_received(:warn).with(/SolrDocument#\S+ is removed in GeoBlacklight 6/, anything)
+      end
+    end
+  end
 end
