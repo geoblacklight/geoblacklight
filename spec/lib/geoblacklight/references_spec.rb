@@ -4,11 +4,11 @@ require "spec_helper"
 
 RSpec.describe Geoblacklight::References do
   let(:references_field) { Geoblacklight.configuration.fields.references }
-  let(:file_format_field) { Geoblacklight.configuration.fields.format }
+  let(:format_field) { Geoblacklight.configuration.fields.format }
   let(:typical_ogp_shapefile) do
     described_class.new(
       SolrDocument.new(
-        file_format_field => "Shapefile",
+        format_field => "Shapefile",
         references_field => {
           "http://www.opengis.net/def/serviceType/ogc/wms" => "http://hgl.harvard.edu:8080/geoserver/wms",
           "http://www.opengis.net/def/serviceType/ogc/wfs" => "http://hgl.harvard.edu:8080/geoserver/wfs"
@@ -19,7 +19,7 @@ RSpec.describe Geoblacklight::References do
   let(:no_service_shapefile) do
     described_class.new(
       SolrDocument.new(
-        file_format_field => "Shapefile",
+        format_field => "Shapefile",
         references_field => {}.to_json
       )
     )
@@ -27,7 +27,7 @@ RSpec.describe Geoblacklight::References do
   let(:typical_ogp_geotiff) do
     described_class.new(
       SolrDocument.new(
-        file_format_field => "GeoTIFF",
+        format_field => "GeoTIFF",
         references_field => {
           "http://www.opengis.net/def/serviceType/ogc/wms" => "http://hgl.harvard.edu:8080/geoserver/wms",
           "http://www.opengis.net/def/serviceType/ogc/wfs" => "http://hgl.harvard.edu:8080/geoserver/wfs"
@@ -38,7 +38,7 @@ RSpec.describe Geoblacklight::References do
   let(:typical_arcgrid) do
     described_class.new(
       SolrDocument.new(
-        file_format_field => "ArcGRID",
+        format_field => "ArcGRID",
         references_field => {
           "http://www.opengis.net/def/serviceType/ogc/wms" => "http://hgl.harvard.edu:8080/geoserver/wms",
           "http://www.opengis.net/def/serviceType/ogc/wfs" => "http://hgl.harvard.edu:8080/geoserver/wfs"
@@ -49,7 +49,7 @@ RSpec.describe Geoblacklight::References do
   let(:complex_shapefile) do
     described_class.new(
       SolrDocument.new(
-        file_format_field => "Shapefile",
+        format_field => "Shapefile",
         references_field => {
           "http://schema.org/downloadUrl" => "http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/data.zip",
           "http://www.isotc211.org/schemas/2005/gmd/" => "http://example.com/urn:hul.harvard.edu:HARVARD.SDE2.TG10USAIANNH/iso19139.xml",
@@ -64,7 +64,7 @@ RSpec.describe Geoblacklight::References do
   let(:direct_download_only) do
     described_class.new(
       SolrDocument.new(
-        file_format_field => "GeoTIFF",
+        format_field => "GeoTIFF",
         references_field => {
           "http://schema.org/downloadUrl" => "http://example.com/layer-id-geotiff.tiff"
         }.to_json
@@ -74,7 +74,7 @@ RSpec.describe Geoblacklight::References do
   let(:simple_iiif_image) do
     described_class.new(
       SolrDocument.new(
-        file_format_field => "Raster",
+        format_field => "Raster",
         references_field => {
           "http://schema.org/url" => "http://arks.princeton.edu/ark:/88435/02870w62c",
           "http://iiif.io/api/image" => "https://iiif-cloud.princeton.edu/iiif/2/6c%2F52%2F12%2F6c5212e81bc845f59bb1cdc740a88bad%2Fintermediate_file/info.json"
@@ -126,12 +126,6 @@ RSpec.describe Geoblacklight::References do
     it "sets @references_field" do
       expect(typical_ogp_shapefile.reference_field).to eq references_field
       expect(custom_fields.reference_field).to eq :new_ref_field
-    end
-  end
-  describe "format" do
-    it "returns format" do
-      expect(complex_shapefile.format).to eq "Shapefile"
-      expect(direct_download_only.format).to eq "GeoTIFF"
     end
   end
   describe "refs" do
