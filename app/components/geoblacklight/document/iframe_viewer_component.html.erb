@@ -1,0 +1,6 @@
+<div id="iframe-viewer" class="viewer iframe-viewer">
+  <%= link_to(iframe_url, target: "_blank", rel: "noopener", class: "btn btn-primary btn-sm open") do %>
+    <%= helpers.geoblacklight_icon("external_link") %>
+  <% end %>
+  <%= tag.iframe(src: iframe_url, title: iframe_title, **iframe_attrs) %>
+</div>

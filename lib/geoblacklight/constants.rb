@@ -29,6 +29,7 @@ module Geoblacklight
       data_dictionary: "http://lccn.loc.gov/sh85035852",
       index_map: "https://openindexmaps.org",
       oembed: "https://oembed.com",
+      iframe: "http://schema.org/embedUrl",
       cog: "https://github.com/cogeotiff/cog-spec",
       pmtiles: "https://github.com/protomaps/PMTiles"
     }.freeze
