@@ -14,8 +14,32 @@
   height: 500px;
 }
 
+.iframe-viewer {
+  position: relative;
+
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  a.open {
+    position: absolute;
+    aspect-ratio: 1 / 1;
+    display: inline-flex;
+    place-items: center;
+    top: 0.5em;
+    right: 0.5em;
+
+    .blacklight-icons {
+      display: inline-flex;
+      place-items: center;
+    }
+  }
+}
+
 .overview-map,
-.locator-map {
+.locator-map,
+.iframe-viewer {
   border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color);
   border-radius: var(--bs-border-radius);
   clip-path: inset(0 round var(--bs-border-radius));

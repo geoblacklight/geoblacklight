@@ -88,4 +88,12 @@ RSpec.describe Geoblacklight::Document::PreviewComponent, type: :component do
       expect(page).to have_css("div#oembed-viewer[data-oembed-viewer-url-value='#{document.oembed}']")
     end
   end
+
+  context "with an iframe record" do
+    let(:document) { SolrDocument.new(JSON.parse(read_fixture("solr_documents/hdx-iframe.json"))) }
+
+    it "uses the iframe viewer" do
+      expect(page).to have_css("div#iframe-viewer")
+    end
+  end
 end
