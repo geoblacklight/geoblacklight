@@ -14,6 +14,9 @@ en:
       iiif_image_link: "Full-size image"
       iiif_manifest_link: "IIIF manifest"
       download_metadata_new_tab: "Download metadata (opens in a new tab)"
+    embed:
+      open: "Open in a new tab"
+      title: "Embedded content for %{title}"
     home:
       headline: "Explore and discover..."
       search_heading: "Find the maps and data you need"
