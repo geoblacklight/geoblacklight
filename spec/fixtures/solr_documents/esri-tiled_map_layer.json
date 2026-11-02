@@ -15,7 +15,7 @@
   "gbl_indexYear_im": [2013],
   "gbl_dateRange_drsim": ["[2013 TO 2013]"],
   "dct_spatial_sm": ["Minnesota"],
-  "locn_geometry": "POLYGON((-97.23 49.37, -89.53 49.37, -89.53 43.5, -97.23 43.5, -97.23 49.37))",
+  "locn_geometry": "POLYGON((-97.23 49.37, -97.23 43.5, -89.53 43.5, -89.53 49.37, -97.23 49.37))",
   "dcat_bbox": "ENVELOPE(-97.23,-89.53,49.37,43.5)",
   "dcat_centroid": "46.435,-93.38",
   "pcdm_memberOf_sm": ["dc8c18df-7d64-4ff4-a754-d18d0891187d"],

@@ -19,7 +19,7 @@
   "gbl_indexYear_im": [1911],
   "gbl_dateRange_drsim": ["[1911 TO 1911]"],
   "dct_spatial_sm": ["Finland"],
-  "locn_geometry": "POLYGON((19.08 70.09, 31.59 70.09, 31.59 59.45, 19.08 59.45, 19.08 70.09))",
+  "locn_geometry": "POLYGON((19.08 70.09, 19.08 59.45, 31.59 59.45, 31.59 70.09, 19.08 70.09))",
   "dcat_bbox": "ENVELOPE(19.08,31.59,70.09,59.45)",
   "dcat_centroid": "64.77000000000001,25.335",
   "pcdm_memberOf_sm": ["64bd8c4c-8e60-4956-b43d-bdc3f93db488"],

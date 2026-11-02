@@ -43,6 +43,7 @@ RSpec.describe "Search results", type: :request do
     expect(result_ids).to start_with(
       "e9c71086-6b25-4950-8e1c-84c2794e3382",
       "2eddde2f-c222-41ca-bd07-2fd74a21f4de",
+      "31567cf1-bad8-4bc5-8d57-44b96c207ecc",
       "02236876-9c21-42f6-9870-d2562da8e44f"
     )
   end
