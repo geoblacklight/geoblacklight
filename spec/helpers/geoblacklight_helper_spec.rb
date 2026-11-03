@@ -58,6 +58,7 @@ RSpec.describe GeoblacklightHelper, type: :helper do
     context "with a thumbnail URL" do
       let(:document_attributes) do
         {
+          Geoblacklight.configuration.fields.resource_class => ["Datasets"],
           references_field => {
             "http://schema.org/thumbnailUrl" => "http://example.com/thumb.jpg"
           }.to_json
@@ -66,6 +67,11 @@ RSpec.describe GeoblacklightHelper, type: :helper do
       it "renders an image tag" do
         html = Capybara.string(helper.geoblacklight_thumbnail(document))
         expect(html).to have_css "img[src='http://example.com/thumb.jpg']"
+      end
+
+      it "renders the fallback icon too, to stand in until the image loads" do
+        html = Capybara.string(helper.geoblacklight_thumbnail(document))
+        expect(html).to have_xpath "//*[@class='thumbnail-fallback']//*[local-name() = 'svg']"
       end
     end
 
