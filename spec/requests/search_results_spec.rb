@@ -25,6 +25,13 @@ RSpec.describe "Search results", type: :request do
     expect(result_ids).to be_empty
   end
 
+  it "renders the bounding box constraint in rounded degrees and minutes" do
+    get search_catalog_path(bbox: "-18.97461025478958 10.024127812187103 25.1234 40")
+
+    expect(response_page).to have_css(".filter-name", text: I18n.t("geoblacklight.bbox_label"))
+    expect(response_page).to have_css(".filter-value", text: "18°58′W 10°01′N 25°07′E 40°00′N")
+  end
+
   it "renders the geometry and access icons for a result" do
     get search_catalog_path(search_field: "all_fields", q: "berkeley-s76d73")
 
