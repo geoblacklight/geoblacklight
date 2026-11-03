@@ -47,18 +47,5 @@ module Geoblacklight
     # @param [String,#value] a filter to remove from the url
     # @return [Boolean] whether the provided filter is currently applied/selected
     delegate :include?, to: :values
-
-    # @since Blacklight v7.25.0
-    # normal filter fields demangle when they encounter a hash, which they assume to be a number-indexed map
-    def needs_normalization?(value_params)
-      value_params.is_a?(Hash) && value_params.keys.map(&:to_s).all? { |k| k =~ /^\d+$/ }
-    end
-
-    # @since Blacklight v7.25.0
-    # value should be the first value from a mangled hash,
-    # otherwise return the value as-is
-    def normalize(value_params)
-      needs_normalization?(value_params) ? value_params.values : value_params
-    end
   end
 end

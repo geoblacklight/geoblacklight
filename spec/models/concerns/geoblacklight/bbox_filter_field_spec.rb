@@ -13,7 +13,6 @@ RSpec.describe Geoblacklight::BboxFilterField do
       config.add_facet_field "bbox", filter_class: described_class
     end
   end
-  let(:facet_config) { blacklight_config.facet_fields["bbox"] }
   let(:controller) { double }
 
   describe "#add" do
@@ -57,29 +56,6 @@ RSpec.describe Geoblacklight::BboxFilterField do
     describe "#values" do
       it "converts the parameters to a Geoblacklight::BoundingBox" do
         expect(filter.values.first).to be_a(Geoblacklight::BoundingBox).and(have_attributes(to_param: bbox_value))
-      end
-    end
-
-    describe "#needs_normalization?" do
-      it "returns false for the expected keyed representation of the bounding box" do
-        expect(filter.needs_normalization?(search_state.params)).to be false
-      end
-    end
-
-    context "when array param represented by facebook as a Hash" do
-      let(:filter) { described_class.new(facet_config, search_state) }
-      let(:params) { {bbox: {"0" => bbox_value}} }
-
-      describe "#normalize" do
-        it "converts the parameters to a list" do
-          expect(filter.normalize(search_state.params[:bbox])).to eql [bbox_value]
-        end
-      end
-
-      describe "#needs_normalization?" do
-        it "returns true for the hash-as-array keyed representation of the bounding box" do
-          expect(filter.needs_normalization?(search_state.params[:bbox])).to be true
-        end
       end
     end
   end
