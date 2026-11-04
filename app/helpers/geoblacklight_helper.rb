@@ -80,16 +80,6 @@ module GeoblacklightHelper
     link_to(endpoint, endpoint)
   end
 
-  ## Returns the data-page attribute value used as the JS map selector
-  def results_js_map_selector(controller_name)
-    case controller_name
-    when "bookmarks"
-      "bookmarks"
-    else
-      "index"
-    end
-  end
-
   ##
   # Blacklight view_config.thumbnail_method contract. Renders the document's
   # configured thumbnail_url as an <img>, or nil if unavailable/disabled.
