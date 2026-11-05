@@ -13,7 +13,7 @@ module Geoblacklight
       def display_tag
         case @document.preferred_preview_type
         when :embed
-          oembed_tag
+          @document.previewable_via?(:oembed) ? oembed_tag : iframe_tag
         when :map, :iiif
           ogm_viewer_tag
         end
@@ -31,8 +31,12 @@ module Geoblacklight
           class: "viewer oembed-viewer",
           data: {
             controller: "oembed-viewer",
-            oembed_viewer_url_value: @document.oembed
+            oembed_viewer_url_value: @document.references.oembed.endpoint
           })
+      end
+
+      def iframe_tag
+        render Geoblacklight::Document::IframeViewerComponent.new(document: @document)
       end
 
       def ogm_viewer_tag
