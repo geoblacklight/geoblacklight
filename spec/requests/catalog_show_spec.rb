@@ -28,8 +28,8 @@ RSpec.describe "Catalog show page", type: :request do
     get solr_document_path("stanford-dp018hs9766")
 
     metadata = response_page.find(".document-metadata")
-    expect(metadata).to have_css("dt", count: 16)
-    expect(metadata).to have_css("dd:not(.read-more-slot)", count: 20)
+    expect(metadata).to have_css("dt", count: 15)
+    expect(metadata).to have_css("dd:not(.read-more-slot)", count: 19)
     expect(metadata).to have_css("div.truncate-abstract", count: 1)
   end
 
