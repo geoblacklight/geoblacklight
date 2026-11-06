@@ -153,15 +153,13 @@ class CatalogController < ApplicationController
     # The following fields all feature string values. If there is a value present in the metadata, they fields will show up on the item show page.
     # The labels and order can be customized. Comment out fields to hide them.
 
-    config.add_show_field field_config.alternative_title, label: "Alternative Title",
-      itemprop: "alt_title"
     config.add_show_field field_config.description, label: "Description", itemprop: "description",
       component: Geoblacklight::MetadataDescriptionMarkdownComponent
-    config.add_show_field field_config.creator, label: "Creator", itemprop: "creator"
-    config.add_show_field field_config.publisher, label: "Publisher", itemprop: "publisher"
+    config.add_show_field field_config.creator, label: "Creator", itemprop: "creator", link_to_facet: true
+    config.add_show_field field_config.publisher, label: "Publisher", itemprop: "publisher", link_to_facet: true
     config.add_show_field field_config.provider, label: "Provider", link_to_facet: true
-    config.add_show_field field_config.resource_class, label: "Resource Class", itemprop: "class"
-    config.add_show_field field_config.resource_type, label: "Resource Type", itemprop: "type"
+    config.add_show_field field_config.resource_class, label: "Resource Class", itemprop: "class", link_to_facet: true
+    config.add_show_field field_config.resource_type, label: "Resource Type", itemprop: "type", link_to_facet: true
     config.add_show_field field_config.subject, label: "Subject", itemprop: "keywords",
       link_to_facet: true, layout_component: Geoblacklight::TruncatableMetadataFieldLayoutComponent
     config.add_show_field field_config.theme, label: "Theme", itemprop: "theme",
