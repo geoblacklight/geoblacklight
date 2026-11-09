@@ -84,5 +84,15 @@ module Geoblacklight
     def itemtype
       "http://schema.org/Dataset"
     end
+
+    # Joined HTML of all description fields; this removes markdown formatting
+    def description_html
+      safe_join(Array(description).map { |value| Commonmarker.to_html(value).html_safe })
+    end
+
+    # Plain text description; strip_tags helper doesn't handle HTML entities
+    def description_text
+      Nokogiri::HTML5.fragment(description_html).text.squish
+    end
   end
 end

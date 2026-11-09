@@ -9,8 +9,5 @@ module Geoblacklight
   #    Otherwise view_component will not provide the count value when calling the component.
   #
   class SearchResultComponent < Blacklight::DocumentComponent
-    def description
-      safe_join(Array(document.description).map { |value| helpers.markdown_to_html(value) })
-    end
   end
 end

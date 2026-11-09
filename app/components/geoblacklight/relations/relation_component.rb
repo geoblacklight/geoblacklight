@@ -12,10 +12,6 @@ module Geoblacklight
         super()
       end
 
-      def description
-        safe_join(Array(document.description).map { |value| helpers.markdown_to_html(value) })
-      end
-
       # sibling_count includes the current document itself, so there's only something
       # worth browsing to when it's more than just that one document.
       def render_sibling_link?
