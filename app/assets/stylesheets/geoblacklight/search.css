@@ -13,12 +13,12 @@
       margin: 0 1rem 0 0;
 
       a {
-        color: var(--bs-body-color);
+        color: var(--bs-tertiary-color);
         background-color: var(--bs-body-bg);
         text-decoration: none;
         border: var(--bs-border-width) solid var(--bs-border-color);
         border-radius: var(--bs-border-radius);
-        box-shadow: var(--bs-box-shadow);
+        box-shadow: var(--bs-box-shadow-sm);
         overflow: hidden;
         display: flex;
         place-content: center;
