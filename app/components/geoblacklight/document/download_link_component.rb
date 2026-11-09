@@ -43,7 +43,9 @@ module Geoblacklight
       end
 
       def file_extension
-        File.extname(url).delete(".").upcase
+        File.extname(URI(url).path).delete(".").upcase
+      rescue URI::InvalidURIError
+        ""
       end
 
       def requested_file_type
