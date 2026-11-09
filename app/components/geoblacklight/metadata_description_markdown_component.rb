@@ -8,7 +8,7 @@ module Geoblacklight
         close_text: t("geoblacklight.truncate.close"),
         max_lines: 12
       }) do
-        safe_join(Array(@field.values).flatten.map { |value| helpers.markdown_to_html(value) })
+        safe_join(Array(@field.values).flatten.map { |value| Commonmarker.to_html(value).html_safe })
       end]
     end
   end

@@ -22,26 +22,18 @@ RSpec.describe Geoblacklight::SearchResultComponent, type: :component do
 
   describe "#description" do
     it "does not render a description block when there is no description" do
-      expect(page).to have_no_css(".truncate-abstract")
+      expect(page).to have_no_css(".description")
     end
 
     context "when the document has a description" do
       let(:description) { ["First paragraph.", "Second paragraph."] }
 
-      it "renders each description value as its own paragraph" do
-        expect(page).to have_css(".truncate-abstract p", count: 2)
-        expect(page).to have_content("First paragraph.")
-        expect(page).to have_content("Second paragraph.")
-      end
-
-      it "sets up the truncation data attributes for the JS initializer" do
-        expect(page).to have_css(
-          ".truncate-abstract[data-max-lines='4'][data-read-more-text='Read more'][data-close-text='Close']"
-        )
+      it "renders the description as a single paragraph" do
+        expect(page).to have_css(".description", text: "First paragraph. Second paragraph.")
       end
 
       it "exposes the description as schema.org markup" do
-        expect(page).to have_css(".truncate-abstract[itemprop='description']")
+        expect(page).to have_css(".description[itemprop='description']")
       end
     end
   end

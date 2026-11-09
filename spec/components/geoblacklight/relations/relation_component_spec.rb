@@ -25,7 +25,7 @@ RSpec.describe Geoblacklight::Relations::RelationComponent, type: :component do
     end
 
     it "does not render a description block when there is no description" do
-      expect(page).to have_no_css(".truncate-abstract")
+      expect(page).to have_no_css(".description")
     end
 
     it "does not render a sibling browse link when no sibling_count is given" do
@@ -38,16 +38,8 @@ RSpec.describe Geoblacklight::Relations::RelationComponent, type: :component do
 
     before { render_inline(described_class.new(document: document)) }
 
-    it "renders each description value as its own paragraph" do
-      expect(page).to have_css(".truncate-abstract p", count: 2)
-      expect(page).to have_content("First paragraph.")
-      expect(page).to have_content("Second paragraph.")
-    end
-
-    it "sets up the truncation data attributes for the JS initializer" do
-      expect(page).to have_css(
-        ".truncate-abstract[data-max-lines='5'][data-read-more-text='Read more'][data-close-text='Close']"
-      )
+    it "renders the description as a single paragraph" do
+      expect(page).to have_css(".description", text: "First paragraph. Second paragraph.")
     end
   end
 

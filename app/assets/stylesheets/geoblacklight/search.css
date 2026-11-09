@@ -86,8 +86,7 @@
       margin-bottom: 0.5em;
     }
 
-    .description p {
-      display: inline;
+    .description {
       margin: 0;
     }
   }
