@@ -1,0 +1,19 @@
+{
+  "id": "cugir-007879",
+  "dct_title_s": "Road Centerlines, Tompkins County NY, 2005",
+  "dct_description_sm": [
+    "Road centerlines for Tompkins County, New York. Converted mechanically from CUGIR's GeoBlacklight 1.0 record (cugir-007879) to Aardvark. The FGDC reference in this fixture contains extensive descriptions of the features; its Entity and Attribute section defines 23 of 26 fields and carries 96 enumerated domain values."
+  ],
+  "dct_accessRights_s": "Public",
+  "dct_format_s": "Shapefile",
+  "dct_publisher_sm": ["Tompkins County (N.Y.). Information Technology Services. GIS Division"],
+  "dct_spatial_sm": ["Tompkins County (N.Y.)"],
+  "dct_references_s": "{\"http://www.opengis.net/def/serviceType/ogc/wms\":\"https://cugir.library.cornell.edu/geoserver/cugir/wms\",\"http://www.opengis.net/cat/csw/csdgm\":\"https://cugir-data.s3.amazonaws.com/00/78/79/fgdc.xml\",\"http://www.w3.org/1999/xhtml\":\"https://cugir-data.s3.amazonaws.com/00/78/79/fgdc.html\",\"http://schema.org/downloadUrl\":\"https://cugir-data.s3.amazonaws.com/00/78/79/cugir-007879.zip\"}",
+  "dcat_bbox": "ENVELOPE(-76.696426, -76.24689, 42.62742, 42.262786)",
+  "locn_geometry": "ENVELOPE(-76.696426, -76.24689, 42.62742, 42.262786)",
+  "gbl_mdVersion_s": "Aardvark",
+  "gbl_resourceClass_sm": ["Datasets"],
+  "gbl_resourceType_sm": ["Line data"],
+  "gbl_wxsIdentifier_s": "cugir007879",
+  "schema_provider_s": "Cornell"
+}

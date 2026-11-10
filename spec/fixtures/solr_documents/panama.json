@@ -1,0 +1,37 @@
+{
+  "id": "stanford-cz340dc9589",
+  "dct_title_s": "The Panama Canal : Map showing Isthmus with completed canal",
+  "dct_description_sm": [
+    "Engraved and printed by the U.S. Geological Survey.",
+    "Coordinates approximate (Greenwich meridian)",
+    "Relief shown by hachures",
+    "Includes inset location map and bar scales in miles and \"kilometres\"",
+    "Shows villages, ruins, drainage, canal, roads and trails, borders, range lights, Panama Railroad, ICC facilities (sanitarium, quarry, san pit), continental divide, French canal",
+    "Sporadic longitudinal and latitudinal lines",
+    "Date provided by original cataloger."
+  ],
+  "dct_language_sm": ["eng"],
+  "dct_publisher_sm": ["U.S. Geological Survey"],
+  "dct_issued_s": "1915",
+  "dct_subject_sm": ["Canals", "Maps"],
+  "dct_spatial_sm": ["Panama", "Panama, Isthmus of (Panama)"],
+  "dct_temporal_sm": ["20th century."],
+  "schema_provider_s": "Stanford",
+  "dct_identifier_sm": ["https://purl.stanford.edu/cz340dc9589"],
+  "gbl_georeferenced_b": true,
+  "gbl_resourceClass_sm": ["Maps"],
+  "dct_format_s": "JPEG2000",
+  "locn_geometry": "ENVELOPE(-80.049722, -79.453056, 9.588889, 8.766667)",
+  "dcat_bbox": "ENVELOPE(-80.049722, -79.453056, 9.588889, 8.766667)",
+  "dct_rights_sm": [
+    "Image from the Map Collections courtesy Stanford University Libraries. This item is in the public domain. There are no restrictions on use. If you have questions, please contact Branner Earth Sciences Library & Map Collections at brannerlibrary@stanford.edu."
+  ],
+  "dct_rightsHolder_sm": [
+    "This work has been identified as being free of known restrictions under copyright law, including all related and neighboring rights. You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission."
+  ],
+  "dct_license_sm": ["https://creativecommons.org/publicdomain/mark/1.0/"],
+  "dct_accessRights_s": "Public",
+  "gbl_mdModified_dt": "2026-09-09T17:51:24Z",
+  "gbl_mdVersion_s": "Aardvark",
+  "dct_references_s": "{\"http://schema.org/url\":\"https://purl.stanford.edu/cz340dc9589\",\"http://iiif.io/api/presentation#manifest\":\"https://purl.stanford.edu/cz340dc9589/iiif3/manifest\",\"http://schema.org/thumbnailUrl\":\"https://stacks.stanford.edu/image/iiif/cz340dc9589%2Fcz340dc9589_0001/full/!400,400/0/default.jpg\",\"https://schema.org/relatedLink\":\"https://searchworks.stanford.edu/view/a11672955\",\"https://iiif.io/api/extension/georef/1/context.json\":\"https://stacks.stanford.edu/file/druid:cz340dc9589/cz340dc9589_0001.json\",\"http://schema.org/downloadUrl\":[{\"url\":\"https://stacks.stanford.edu/object/cz340dc9589.zip\",\"label\":\"Zipped object\"}]}"
+}

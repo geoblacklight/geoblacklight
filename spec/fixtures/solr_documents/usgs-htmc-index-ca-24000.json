@@ -1,0 +1,36 @@
+{
+  "id": "usgs-htmc-index-ca-24000",
+  "dct_title_s": "Index to USGS 1:24000-scale Quadrangles of California",
+  "dct_description_sm": [
+    "Outlines of the USGS topographic maps at 1:24,000 scale that cover California, from the Historical Topographic Map Collection: 10,486 maps of 2,960 sheets, dated 1904 to 2004.",
+    "Each map is outlined separately, so a sheet's editions and printings overlap, with the latest on top. Each outline gives the map's record ID and links to its GeoTIFF, thumbnail and ScienceBase page."
+  ],
+  "dct_temporal_sm": ["1904-2004"],
+  "gbl_indexYear_im": [
+    1904, 1905, 1906, 1907, 1908, 1909, 1910, 1911, 1912, 1913, 1914, 1915, 1916, 1917, 1918, 1919, 1920, 1921, 1922,
+    1923, 1924, 1925, 1926, 1927, 1928, 1929, 1930, 1931, 1932, 1933, 1934, 1935, 1936, 1937, 1938, 1939, 1940, 1941,
+    1942, 1943, 1944, 1945, 1946, 1947, 1948, 1949, 1950, 1951, 1952, 1953, 1954, 1955, 1956, 1957, 1958, 1959, 1960,
+    1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, 1971, 1972, 1973, 1974, 1975, 1976, 1977, 1978, 1979,
+    1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+    1999, 2000, 2001, 2002, 2003, 2004
+  ],
+  "gbl_dateRange_drsim": ["[1904 TO 2004]"],
+  "dct_spatial_sm": ["California"],
+  "dct_language_sm": ["eng"],
+  "schema_provider_s": "U.S. Geological Survey",
+  "gbl_resourceClass_sm": ["Maps"],
+  "gbl_resourceType_sm": ["Index maps", "Topographic maps"],
+  "dcat_keyword_sm": ["Historical Topographic Maps"],
+  "dct_format_s": "GeoJSON",
+  "locn_geometry": "ENVELOPE(-124.5, -114.125, 42.125, 32.5)",
+  "dcat_bbox": "ENVELOPE(-124.5, -114.125, 42.125, 32.5)",
+  "pcdm_memberOf_sm": ["usgs-htmc"],
+  "dct_rights_sm": [
+    "This index map is dedicated to the public domain under CC0 1.0. The maps it outlines are in the U.S. Public Domain."
+  ],
+  "dct_license_sm": ["https://creativecommons.org/publicdomain/zero/1.0/"],
+  "dct_accessRights_s": "Public",
+  "gbl_mdModified_dt": "2022-11-19T00:00:00Z",
+  "gbl_mdVersion_s": "Aardvark",
+  "dct_references_s": "{\"https://openindexmaps.org\":\"https://raw.githubusercontent.com/OpenGeoMetadata/gov.usgs.htmc/main/index-maps/htmc/usgs-htmc-index-ca-24000.geojson\",\"http://schema.org/downloadUrl\":[{\"url\":\"https://raw.githubusercontent.com/OpenGeoMetadata/gov.usgs.htmc/main/index-maps/htmc/usgs-htmc-index-ca-24000.geojson\",\"label\":\"GeoJSON (7.5 MB)\"}]}"
+}
