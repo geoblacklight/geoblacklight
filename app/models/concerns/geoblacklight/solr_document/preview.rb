@@ -7,7 +7,7 @@ module Geoblacklight
       extend ActiveSupport::Concern
 
       # Reference types that are previewed via embedding
-      EMBED_PREVIEWS = %i[oembed].freeze
+      EMBED_PREVIEWS = %i[oembed iframe].freeze
 
       # Reference types that are previewed using a map viewer
       MAP_PREVIEWS = %i[
@@ -35,23 +35,21 @@ module Geoblacklight
       end
 
       def embed_previewable?
-        any_refs_with_endpoint?(EMBED_PREVIEWS)
+        EMBED_PREVIEWS.any? { |type| previewable_via?(type) }
       end
 
       # Georeferenced IIIF manifests can be previewed using a map too (Allmaps)
       def map_previewable?
-        any_refs_with_endpoint?(MAP_PREVIEWS) || iiif_georeferenced?
+        MAP_PREVIEWS.any? { |type| previewable_via?(type) } || iiif_georeferenced?
       end
 
       def iiif_previewable?
-        any_refs_with_endpoint?(IIIF_PREVIEWS)
+        IIIF_PREVIEWS.any? { |type| previewable_via?(type) }
       end
 
-      private
-
-      # Are there any of the provided reference types with a non-empty URL?
-      def any_refs_with_endpoint?(types)
-        types.any? { |type| references.references(type)&.endpoint.present? }
+      # True if there's a non-empty URL of this reference type
+      def previewable_via?(type)
+        references.references(type)&.endpoint.present?
       end
     end
   end

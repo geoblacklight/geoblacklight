@@ -234,4 +234,32 @@ RSpec.describe Geoblacklight::SolrDocument do
       end
     end
   end
+
+  describe "#previewable_via?" do
+    let(:document_attributes) do
+      {
+        references_field => {
+          "urn:x-esri:serviceType:ArcGIS#FeatureLayer" => "http://www.example.com/FeatureServer/0"
+        }.to_json
+      }
+    end
+
+    describe "when a reference of the target type exists" do
+      it "is true" do
+        expect(document.previewable_via?(:feature_layer)).to be true
+      end
+    end
+
+    describe "when a reference of the target type does not exist" do
+      it "is false" do
+        expect(document.previewable_via?(:wms)).to be false
+      end
+    end
+
+    describe "with a bogus reference type" do
+      it "is false" do
+        expect(document.previewable_via?(:i_dont_exist)).to be false
+      end
+    end
+  end
 end
