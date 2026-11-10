@@ -59,6 +59,11 @@ Capybara.register_driver :chrome_headless do |app|
   # layers from external hosts; in CI those requests can hang and prevent
   # `load` from ever firing, causing Net::ReadTimeout on #visit.
   options.page_load_strategy = :eager
+  # Don't check the password the specs sign in with against Google's list of breached passwords.
+  # It is on that list ("password"), so a moment after a sign-in Chrome puts its "Change your
+  # password" dialog over the tab. Nothing on screen shows it in headless Chrome, but it
+  # steals clicks from other elements in the page, which makes specs intermittently fail.
+  options.add_preference("profile.password_manager_leak_detection", false)
 
   # Allow longer TCP reads to prevent timeout in the case of loading fixture
   # eee6150b-ce2f-4837-9d17-ce72a0c1c26f, as part of relations_spec.rb
