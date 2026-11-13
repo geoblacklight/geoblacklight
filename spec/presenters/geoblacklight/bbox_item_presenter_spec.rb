@@ -29,7 +29,7 @@ RSpec.describe Geoblacklight::BboxItemPresenter, type: :presenter do
 
       it "translates the bbox into some nice, human-readable html" do
         expect(Capybara.string(presenter.label))
-          .to have_text("-160 -80 120 70")
+          .to have_text("160°00′W 80°00′S 120°00′E 70°00′N")
       end
     end
   end
