@@ -28,6 +28,25 @@ module Geoblacklight
       "#{west} #{south} #{east} #{north}"
     end
 
+    ##
+    # Returns a human-readable version of the bounding box in degrees and
+    # minutes, rounded to the nearest minute, e.g.
+    # "18°58′W 10°01′N 25°07′E 40°00′N"
+    # Falls back to the Solr rectangle syntax if a coordinate isn't numeric.
+    # @return [String]
+    def to_degrees_minutes
+      coordinates = [west, south, east, north].map { |coordinate| Float(coordinate, exception: false) }
+      return to_param if coordinates.any?(&:nil?)
+
+      w, s, e, n = coordinates
+      [
+        degrees_minutes(w, "E", "W"),
+        degrees_minutes(s, "N", "S"),
+        degrees_minutes(e, "E", "W"),
+        degrees_minutes(n, "N", "S")
+      ].join(" ")
+    end
+
     # Output a GeoJSON representation of the bounding box
     def to_geojson
       {
@@ -63,5 +82,17 @@ module Geoblacklight
     private
 
     attr_reader :west, :south, :east, :north
+
+    # Round to whole minutes before splitting so that e.g. 59.9′ carries
+    # over into the degrees rather than showing as 60′.
+    # A coordinate that rounds to zero gets no hemisphere.
+    def degrees_minutes(degrees, positive, negative)
+      total_minutes = (degrees.abs * 60).round
+      degrees_part, minutes = total_minutes.divmod(60)
+      hemisphere = degrees.negative? ? negative : positive
+      hemisphere = "" if total_minutes.zero?
+
+      format("%d°%02d′%s", degrees_part, minutes, hemisphere)
+    end
   end
 end
