@@ -48,35 +48,33 @@ RSpec.describe Geoblacklight::SearchResultComponent, type: :component do
     let(:presenter) do
       Blacklight::IndexPresenter.new(document, request_context, blacklight_config)
     end
+    let(:request_context) do
+      vc_test_controller.view_context.tap do |context|
+        allow(context).to receive_messages(document_index_view_type: "list",
+          geoblacklight_thumbnail: thumbnail, geoblacklight_default_thumbnail: default_thumbnail)
+      end
+    end
+    let(:thumbnail) { '<img src="http://example.com/thumb.jpg" alt="">'.html_safe }
+    let(:default_thumbnail) { '<span class="blacklight-icons"></span>'.html_safe }
 
     context "when a thumbnail is available" do
-      let(:request_context) do
-        double(document_index_view_type: "list", action_name: :index,
-          geoblacklight_thumbnail: '<img src="http://example.com/thumb.jpg" alt="">'.html_safe)
-      end
-
       it "renders the thumbnail image" do
         expect(page).to have_css ".document-thumbnail img[src='http://example.com/thumb.jpg']"
       end
     end
 
     context "when no thumbnail is available but a default exists" do
-      let(:request_context) do
-        double(document_index_view_type: "list", action_name: :index,
-          geoblacklight_thumbnail: nil,
-          geoblacklight_default_thumbnail: '<span class="blacklight-icons"></span>'.html_safe)
-      end
+      let(:thumbnail) { nil }
 
       it "renders the default thumbnail" do
         expect(page).to have_css ".document-thumbnail .blacklight-icons"
+        expect(page).to have_no_css ".document-thumbnail img"
       end
     end
 
     context "when neither a thumbnail nor a default is available" do
-      let(:request_context) do
-        double(document_index_view_type: "list", action_name: :index,
-          geoblacklight_thumbnail: nil, geoblacklight_default_thumbnail: nil)
-      end
+      let(:thumbnail) { nil }
+      let(:default_thumbnail) { nil }
 
       it "does not render a thumbnail" do
         expect(page).not_to have_css ".document-thumbnail"
