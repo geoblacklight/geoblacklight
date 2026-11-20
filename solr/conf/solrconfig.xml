@@ -161,7 +161,6 @@
       <str name="facet.field">dct_publisher_sm</str>
       <str name="facet.field">dct_accessRights_s</str>
       <str name="facet.field">dct_subject_sm</str>
-      <str name="facet.field">locn_geometry_s</str>
       <str name="facet.field">gbl_indexYear_im</str>
 
       <str name="spellcheck">true</str>
